@@ -13,7 +13,7 @@ export default function LearnCodeSection({ title, className }) {
         to="/ToolsAndExamples/bundlrxarweave"
       />
       <Card
-        title="Ceramic Integration"
+        title="Ceramic x Lit SDK"
         description="Build a simple encryption and decryption application with Lit and Ceramic"
         to="/ToolsAndExamples/Ceramic/intro"
       />
@@ -26,6 +26,11 @@ export default function LearnCodeSection({ title, className }) {
         title="API Documentation"
         description="Discover all the functions available in the SDK"
         to="https://lit-protocol.github.io/lit-js-sdk/api_docs_html/"
+      />
+      <Card
+        title="Tools & Integrations"
+        description="Additional tools and integrations to ease into building with Lit"
+        to="/ToolsAndExamples/SDKExamples/EncryptAndDecrypt/setup" //linked to Tools section, second pass to include Tools and Integrations broken out
       />
     </Section>
   );

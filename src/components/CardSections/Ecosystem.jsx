@@ -8,11 +8,6 @@ export default function EcosystemSection({ title, className }) {
   return (
     <Section title={title} className={className}>
       <Card
-        title="Tools & Integrations"
-        description="Check out "
-        to="/ToolsAndExamples/SDKExamples/EncryptAndDecrypt/setup" //linked to Tools section, second pass to include Tools and Integrations broken out
-      />
-      <Card
         title="Grants"
         description="Looking to extend what you're already building with Lit? Apply for a grant!"
         to="/litGrants"

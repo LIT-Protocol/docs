@@ -16,11 +16,13 @@
   --ifm-code-font-size: 95%;
   --ifm-navbar-item-padding-horizontal: 24px;
   --ifm-heading-font-weight: 300;
+  --homepage-card-hover: #f8f8f8;
 }
 
 html[data-theme="dark"] {
   --ifm-navbar-background-color: #190741;
   --ifm-background-color: #190741;
+  --homepage-card-hover: var(--ifm-hover-overlay);
 }
 
 .navbar {
@@ -82,13 +84,13 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -.5px;
-  color: var(--docs-color-text);
+  color: var(--ifm-font-color-base);
 }
 
 .card-content .description {
   font-size: 14px;
   letter-spacing: -.5px;
-  color: var(--docs-color-text);
+  color: var(--ifm-font-color-base);
 }
 
 .card-content {
@@ -109,16 +111,24 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
 .homepage-card {
   --ifm-link-hover-color: inherit;
   align-items: flex-start;
-  background-color: var(--docs-card-bg-c);
   border: 1px solid var(--ifm-color-emphasis-300);
   border-radius: 8px;
-  color: var(--docs-color-text);
+  color: var(--ifm-font-color-base);
   cursor: pointer;
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: 0.75rem;
   transition: border-color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.homepage-card:hover {
+  text-decoration: none;
+  background-color: var(--homepage-card-hover);
+}
+
+.homepage-card:hover .card-content .title {
+  color: var(--ifm-link-hover-color);
 }
 
 .homepage-section {

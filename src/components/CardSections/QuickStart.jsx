@@ -20,7 +20,7 @@ export default function QuickStartSection({ title, className }) {
       <Card
         title="📁 Encrypt and Decrypt a File"
         description="Check out this Replit project to learn how to encrypt and decrypt a file using Lit"
-        to="https://replit.com/@lit/Encrypt-Decrypt-File?v=1"
+        to="https://replit.com/@lit/Encrypt-and-Decrypt-a-File#encrypt_and_decrypt_file/src/App.js"
       />
     </Section>
   );

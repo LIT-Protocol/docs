@@ -23,3 +23,5 @@ After deploying, set the contract address & the testnet params, which you will u
 ```
 
 Congratulations, you're done! You have successfully deployed an NFT Smart Contract on Polygon Mumbai Testnet, which stores Lit encrypted metadata. You've also successfully decrypted the encrypted metadata using Lit SDK.
+
+<iframe frameborder="0" width="100%" height="500px" src="https://replit.com/@lit/Encrypt-and-Decrypt-On-chain-NFT-Metadata#encrypt_and_decrypt_on-chain_nft_metadata/src/App.js"></iframe>

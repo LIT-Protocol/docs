@@ -12,6 +12,8 @@ Here we're going to discuss **only** the parts concerned with using the Lit SDK 
 
 If you want to take a look at a complete **React** project which takes care of all that, please take a look at this [Replit](https://replit.com/@lit/Encrypt-and-Decrypt-On-chain-NFT-Metadata#encrypt_and_decrypt_on-chain_nft_metadata/src/App.js).
 
+<iframe frameborder="0" width="100%" height="500px" src="https://replit.com/@lit/Encrypt-and-Decrypt-On-chain-NFT-Metadata#encrypt_and_decrypt_on-chain_nft_metadata/src/App.js"></iframe>
+
 ## Mint NFT with encrypted description metadata
 
 1. Let's see how a user can mint an NFT given its name, imageUrl & description. First, we encrypt the description using our Lit class' function `encryptText`:

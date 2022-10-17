@@ -4,7 +4,7 @@ sidebar_position: 7
 
 # Deploy to Polygon Mumbai network
 
-Before deploying the contract to Polygon Mumbai testnet ensure it's correct working on the local hardhat network. After that, you may add the contract to Polygon. Since this is not a tutorial on deploying a smart contract to Polygon I'm going to leave it to the reader.
+Before deploying the contract to Polygon Mumbai testnet ensure it's correct working on the local hardhat network. After that, you may add the contract to Polygon. Since this is **not** a tutorial on deploying a smart contract to Polygon I'm going to leave it to the reader. Or you can check out the project's [Replit](https://replit.com/@lit/Encrypt-and-Decrypt-On-chain-NFT-Metadata#encrypt_and_decrypt_on-chain_nft_metadata/src/App.js).
 
 After deploying, set the contract address & the testnet params, which you will use to initialize the `ethers.Contract` object:
 ```

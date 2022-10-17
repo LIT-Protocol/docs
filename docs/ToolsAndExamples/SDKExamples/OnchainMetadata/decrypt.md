@@ -6,7 +6,7 @@ sidebar_position: 4
 
 Make sure we have `accessControlConditions`, `encryptedSymmetricKey` & `encryptedString` variables we created when encrypting content. An exception is `encryptFileAndZipWithMetadata()` which will include this metadata in the zip.
 
-There are 2 steps:
+There are 2 steps for decrypting a string:
 
 * Obtain the decrypted `symmetricKey` from Lit SDK using `authSig`, `accessControlConditions`, `encryptedSymmetricKey` & `chain`.
 * Decrypt the content using the `symmetricKey` & `encryptedString`.

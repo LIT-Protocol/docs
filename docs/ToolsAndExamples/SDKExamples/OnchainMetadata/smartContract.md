@@ -58,7 +58,7 @@ contract LitNft is ERC721URIStorage, ReentrancyGuard {
     }
 ```
 
-5. Finally, we can mint an NFT & then set its URI using the `getTokenURI` function defined above:
+5. Finally, we can mint the NFT & then set its URI using the `getTokenURI` function defined above:
 ```
     function mintLitNft(
         string memory name,

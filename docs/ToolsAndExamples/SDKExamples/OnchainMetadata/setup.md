@@ -28,7 +28,7 @@ Now that we have our hardhat working & the sample smart contract is deployed cor
 
 ## Lit SDK
 
-You can use Lit SDK to encrypt and store any static content. This could be a file, a string, or anything that won't change (we're going to encrypt an input string). You have to store the content and metadata yourself (we're storing the encrypted string on a blockchain network), but Lit will store who is allowed to decrypt it and enforce this (aka key management).
+You can use Lit SDK to encrypt and store any static content. This could be a file, a string, or anything that won't change (we're going to encrypt an input string). You have to store the content and metadata yourself (we're storing that on a blockchain network), but Lit will store who is allowed to decrypt it and enforce this (aka key management).
 
 
 1. Install Lit SDK:

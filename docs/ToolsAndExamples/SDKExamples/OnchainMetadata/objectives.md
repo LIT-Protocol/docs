@@ -14,3 +14,8 @@ sidebar_position: 1
 * Ethers.js- interacting with our deployed NFT smart contract
 * Polygon Mumbai network- where we deploy our NFT smart contract
 * Metamask- crypto wallet to connect to our DApp
+
+## Project Replit
+
+Below is the complete **React** project:
+https://replit.com/@lit/Encrypt-and-Decrypt-On-chain-NFT-Metadata#encrypt_and_decrypt_on-chain_nft_metadata/src/App.js

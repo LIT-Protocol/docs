@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Encrypt Input
 
-Given an input string, we want to encrypt it using the Lit SDK so that only the users authorized by our `accessCondition` should be able to decrypt it. Let's continue developing our Lit class.
+Given an input string, we want to encrypt it using the Lit SDK so that only the users authorized by our `accessControlCondition` should be able to decrypt it. Let's continue developing our Lit class.
 
 1. First, we need to define the `accessControlCondition` for a user to decrypt our encrytped string:
 ```
@@ -58,9 +58,9 @@ const accessControlConditions = [
   }
 ```
 
-**Note:** `encryptedSymmetricKey` will be a Uint8Array.
+**Note:** `encryptedSymmetricKey` is a Uint8Array.
 
-We now need to save `accessControlConditions`, `encryptedSymmetricKey`, & `encryptedString`. `accessControlConditions` & `encryptedSymmetricKey` are needed to obtain the decrypted symmetric key, which we can then use to decrypt the `encryptedString`.
+We now need to save `accessControlConditions`, `encryptedSymmetricKey` & `encryptedString`. `accessControlConditions` & `encryptedSymmetricKey` are needed to obtain the decrypted symmetric key, which we can then use to decrypt the `encryptedString`.
 
 ## Putting it all together
 

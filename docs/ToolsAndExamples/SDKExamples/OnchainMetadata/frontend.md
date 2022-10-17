@@ -4,14 +4,14 @@ sidebar_position: 6
 
 # Using Lit SDK On Frontend
 
-Here we're gonna discuss **only** the parts concerned with using the Lit SDK & interfacing with the our deployed Smart Contract. The reader is expected to take care of the user inputs for NFTs (i.e. it's name, description & imageUrl), fetching the NFTs using the `fetchNfts()` function we defined in `LitNFT.sol` and also the format of displaying the fetched NFTs.
+Here we're going to discuss **only** the parts concerned with using the Lit SDK & interfacing with our deployed Smart Contract. The reader is expected to take care of the user inputs for NFTs (i.e. it's name, description & imageUrl), fetching the NFTs using the `fetchNfts()` function we defined in `LitNFT.sol` and also the format of displaying the fetched NFTs.
 
 
-If you wanna take a look at a complete React project which takes care of all that too, please take a look at this Replit: https://replit.com/@lit/Encrypt-and-Decrypt-On-chain-NFT-Metadata#encrypt_and_decrypt_on-chain_nft_metadata/src/App.js
+If you want to take a look at a complete React project which takes care of all that, please take a look at this Replit: https://replit.com/@lit/Encrypt-and-Decrypt-On-chain-NFT-Metadata#encrypt_and_decrypt_on-chain_nft_metadata/src/App.js
 
 ## Mint NFT with encrypted description metadata
 
-1. Let's see how a user can mint an NFT given its name, imageUrl & description. First we encrypt the description using our Lit class' function `encryptText`:
+1. Let's see how a user can mint an NFT given its name, imageUrl & description. First, we encrypt the description using our Lit class' function `encryptText`:
 ```
   const mintLitNft = async (name, imageUrl, description) => {
     const { encryptedString, encryptedSymmetricKey } = await lit.encryptText(description);
@@ -19,7 +19,7 @@ If you wanna take a look at a complete React project which takes care of all tha
 
 :::note
 
-`encryptedString` is a blob not a string.
+`encryptedString` is a blob and not a string.
 :::
 
 2. Since our smart contract function `mintLitNFT()` takes a string for the encryptedDescription we convert the blob to a string below:
@@ -69,7 +69,7 @@ If you wanna take a look at a complete React project which takes care of all tha
 
 ## Decrypting description from fetched NFTs
 
-1. Since all our NFT fields are strings, the first step is to convert the returned description string to a blob to pass it to the Lit's `decryptText()`.
+1. Since all our NFT fields are strings, the first step is to convert the returned description string to a blob to pass it to Lit's `decryptText()`.
 
 ```
   const decryptDescription = async (encryptedDescriptionString, encryptedSymmetricKeyString) => {

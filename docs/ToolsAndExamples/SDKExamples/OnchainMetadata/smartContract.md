@@ -6,11 +6,11 @@ sidebar_position: 5
 
 This is our NFT smart contract which will contain the encrypted metadata.
 
-**Note:** The NFT's name & imageUrl are **not** encrypted & hence will be visible to all our users. But, we have to store an encrypted description string: `encryptedDescription` & the associated `encryptedSymmetricKey` which will come handy when we decrypt the string as we've seen on the previous page.
+**Note:** The NFT's name & imageUrl are **not** encrypted & hence will be visible to all our users. But, we have to store an encrypted description string: `encryptedDescription` & the associated `encryptedSymmetricKey`, which will come in handy when we decrypt the string, as we've seen on the previous page.
 
 1. Create a file LitNFT.sol in the contracts directory.
 
-2. Our contract should inherit from ERC721URIStorage which is a standard implementation of an NFT provided by Openzepplin. We have to set the URI for each NFT (see below):
+2. Our contract should inherit from ERC721URIStorage, a standard implementation of an NFT provided by Openzepplin. We have to set the URI for each NFT (see below):
 ```
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";

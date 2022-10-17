@@ -4,14 +4,12 @@ sidebar_position: 4
 
 # Decrypt Input
 
-Make sure we have `accessControlConditions`, `encryptedSymmetricKey` & `encryptedString` variables we created when encrypting content. An exception is when using `encryptFileAndZipWithMetadata()` which will include this metadata in the zip.
+Make sure we have `accessControlConditions`, `encryptedSymmetricKey` & `encryptedString` variables we created when encrypting content. An exception is `encryptFileAndZipWithMetadata()` which will include this metadata in the zip.
 
 There are 2 steps:
 
-* Obtain the decrypted `symmetricKey` from Lit SDk using `authSig`, `accessControlConditions`, `encryptedSymmetricKey` & `chain`.
+* Obtain the decrypted `symmetricKey` from Lit SDK using `authSig`, `accessControlConditions`, `encryptedSymmetricKey` & `chain`.
 * Decrypt the content using the `symmetricKey` & `encryptedString`.
-
-Given an input string we wanna encrypt it using the Lit SDK so that only the users authorized by our `accessCondition` should be able to decrypt it. Let's continue developing our Lit class.
 
 1. Just as before, let's connect to the Lit nodes if not already connected & get the `authSig` which will be used to decrypt the encrypted string:
 ```
@@ -66,4 +64,4 @@ Given an input string we wanna encrypt it using the Lit SDK so that only the use
 
 ## Where to store encryptedString & encryptedSymmetricKey?
 
-We're gonna store these as an on-chain NFT metadata. Let's see next how.
+We're going to store these as on-chain NFT metadata. Let's see how next.

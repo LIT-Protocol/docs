@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Encrypt Input
 
-Given an input string we wanna encrypt it using the Lit SDK so that only the users authorized by our `accessCondition` should be able to decrypt it. Let's continue developing our Lit class.
+Given an input string, we want to encrypt it using the Lit SDK so that only the users authorized by our `accessCondition` should be able to decrypt it. Let's continue developing our Lit class.
 
 1. First, we need to define the `accessControlCondition` for a user to decrypt our encrytped string:
 ```
@@ -24,7 +24,7 @@ const accessControlConditions = [
 ];
 ```
 
-2. Define a function `encryptText` which encrypts the `text` arguement
+2. Define a function `encryptText` which encrypts the `text` argument
 ```
   async encryptText(text) {
     if (!this.litNodeClient) {

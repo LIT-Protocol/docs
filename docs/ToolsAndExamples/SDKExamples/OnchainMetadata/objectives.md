@@ -7,6 +7,20 @@ sidebar_position: 1
 * Encrypting on-chain meta-data (an **NFT description**) using the Lit SDK.
 * Upon fetching, the NFTs show their metadata (image & name) to all the users. But, show the decrypted metadata (NFT description) to **only** users with more than 0.1 MATIC in their wallet, using Lit SDK.
 
+:::note
+
+15 mins read
+
+:::
+
+## Table of Contents
+
+* [Setup the Project](/ToolsAndExamples/SDKExamples/OnchainMetadata/setup)
+* [Encrypt & Decrypt](/ToolsAndExamples/SDKExamples/OnchainMetadata/encryptDecrypt)
+* [NFT Smart Contract](/ToolsAndExamples/SDKExamples/OnchainMetadata/smartContract)
+* [Lit SDK on the Frontend](/ToolsAndExamples/SDKExamples/OnchainMetadata/frontend)
+* [Deploy to Polygon Mumbai network](/ToolsAndExamples/SDKExamples/OnchainMetadata/polygonMumbai)
+
 ## Tech Stack
 
 * Lit SDK- encrypting & decrypting the input description

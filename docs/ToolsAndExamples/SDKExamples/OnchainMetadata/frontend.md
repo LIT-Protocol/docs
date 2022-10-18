@@ -85,6 +85,7 @@ Since all our NFT fields are strings, the first step is to convert the returned 
   const decryptDescription = async (encryptedDescriptionString, encryptedSymmetricKeyString) => {
     // Convert base64 to blob to pass in the litSDK decrypt function
     const encryptedDescriptionBlob = await (await fetch(encryptedDescriptionString)).blob();
+    // function continued below
 ```
 
 ### 2. Pass encrypted description blob to be decrypted

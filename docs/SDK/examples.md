@@ -43,8 +43,6 @@ This shows how to use the Lit JS SDK to provision access to a resource, and then
 
 https://github.com/LIT-Protocol/lit-only-serverside-sdk-example
 
-To see examples that utilize the Lit JS SDK, please visit the [JS SDK examples page](/docs/SDK/examples).
-
 ## Other Examples
 
 - Use a Cloudflare worker to protect any URL with Lit Protocol: https://github.com/LIT-Protocol/cloudflare-litgate-js

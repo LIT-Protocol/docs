@@ -108,7 +108,7 @@ Improve the state of web3 gaming.
 
 More ideas!
 
-- A certification system utilizing [conditional signing](/Core%20Concepts/Access%20Control/EVM/customContractCalls).
+- A certification system utilizing [conditional signing](/coreConcepts/accessControl/EVM/customContractCalls).
 - A blockchain.
 
 ### You can find even more examples, ideas, and resources [here](https://github.com/LIT-Protocol/awesome/blob/main/README.md).

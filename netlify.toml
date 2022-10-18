@@ -345,6 +345,12 @@ force = false
   force = false
 
 [[redirects]]
+  from = "/Introduction/whatIsLitProtocol#join-the-community"
+  to = "/ecosystem/community"
+  status = 302
+  force = false
+
+[[redirects]]
   from = "/faq"
   to = "/support/faq"
   status = 302

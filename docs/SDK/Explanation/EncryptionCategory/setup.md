@@ -2,9 +2,7 @@
 sidebar_position: 1
 ---
 
-# Introduction and Setup
-
-import Installation from '/docs/SDK/Working with the SDK/installation.md'
+# Introduction
 
 You can use Lit to encrypt and store any static content. This could be a file, a string, or anything that won't change. You have to store the content and metadata yourself (on IPFS, Arweave, or even somewhere centralized), but Lit will store who is allowed to decrypt it and enforce this (aka key management).
 
@@ -14,9 +12,7 @@ The below Replit is a full-fledged **React** application that encrypts & decrypt
 
 This example will show you how to encrypt and decrypt data using Lit Protocol's JS SDK on the client side.
 
-<Installation/>
-
-## Setting up your main Class
+## Setting up your main class
 
 At the top of your file, instantiate your Lit Node client like so:
 

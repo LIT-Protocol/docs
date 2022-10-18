@@ -16,4 +16,4 @@ md += Object.keys(ALL_LIT_CHAINS)
   .map((c) => `- ${c}\n`)
   .join("");
 
-fs.writeFileSync("docs/supportedChains.md", md);
+fs.writeFileSync("docs/support/supportedChains.md", md);

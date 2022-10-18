@@ -1,4 +1,6 @@
-
+--- 
+ sidebar_position: 3
+--- 
 
 # Projects Building with Lit
 

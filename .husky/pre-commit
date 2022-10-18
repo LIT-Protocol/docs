@@ -2,4 +2,4 @@
 . "$(dirname "$0")/_/husky.sh"
 
 yarn update-chains
-git add docs/supportedChains.md
+git add docs/support/supportedChains.md

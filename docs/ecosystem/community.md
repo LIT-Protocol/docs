@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-# Community and Ecosystem Resources
+# Community Resources
 
 Join Our Developer Hub on [Discord](https://discord.gg/GnTtFukpHq).
 

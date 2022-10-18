@@ -4,7 +4,12 @@ sidebar_position: 6
 
 # Deploy to Polygon Mumbai network
 
-Before deploying the contract to Polygon Mumbai testnet ensure it's correct working on the local hardhat network. After that, you may add the contract to Polygon. Since this is **not** a tutorial on deploying a smart contract to Polygon I'm going to leave it to the reader. Or you can check out the project's [Replit](https://replit.com/@lit/Encrypt-and-Decrypt-On-chain-NFT-Metadata#encrypt_and_decrypt_on-chain_nft_metadata/src/App.js).
+Before deploying the contract to Polygon Mumbai testnet ensure it's correctly working on the local hardhat network. After that, you may add the contract to Polygon. 
+
+:::note
+
+This is **not** a tutorial on deploying a smart contract to Polygon, check out the [Polygon documentation](https://wiki.polygon.technology/docs/develop/getting-started) to get more info.
+:::
 
 After deploying, set the contract address & the testnet params, which you will use to initialize the `ethers.Contract` object:
 ```js
@@ -22,7 +27,8 @@ After deploying, set the contract address & the testnet params, which you will u
   }
 ```
 
-Congratulations, you're done! You have successfully deployed an NFT Smart Contract on Polygon Mumbai Testnet, which stores Lit encrypted metadata. You've also successfully decrypted the encrypted metadata using Lit SDK.
-For best experience please open the web app in a new tab.
+Congratulations, you're done! You have successfully deployed a Lit encrypted metadata NFT smart contract on the Polygon Mumbai testnet. You've also successfully decrypted the metadata using the Lit SDK.
+
+For the best experience please open the web app in a new tab.
 
 <iframe frameborder="0" width="100%" height="500px" src="https://replit.com/@lit/Encrypt-and-Decrypt-On-chain-NFT-Metadata#encrypt_and_decrypt_on-chain_nft_metadata/src/App.js"></iframe>

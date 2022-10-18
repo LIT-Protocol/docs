@@ -28,7 +28,7 @@ Now that we have our hardhat working & the sample smart contract is deployed cor
 
 ## Lit SDK
 
-You can use Lit SDK to encrypt and store any static content. This could be a file, a string, or anything that won't change (we're going to encrypt an input string). You have to store the content and metadata yourself (we're storing that on a blockchain network), but Lit will store who is allowed to decrypt it and enforce this (aka key management).
+You can use the Lit SDK to encrypt and store any static content. This could be a file, a string, or anything that won't change (we're going to encrypt an input string). You have to store the content and metadata yourself (we're storing that on a blockchain network), but Lit will store who is allowed to decrypt it and enforce this (aka key management).
 
 
 1. Install Lit SDK:
@@ -55,5 +55,5 @@ class Lit {
 
 `client.connect()` will return a promise that resolves when you are connected to the Lit Network. You may also listen for the `lit-ready` event.
 
-In the code examples, we make the litNodeClient available as a global variable for use throughout the web app.
+In this code example, the litNodeClient is set as a global variable for use throughout the web app.
 :::

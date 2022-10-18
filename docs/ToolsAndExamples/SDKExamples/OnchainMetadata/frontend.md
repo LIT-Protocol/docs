@@ -4,14 +4,14 @@ sidebar_position: 5
 
 # Lit SDK on the Frontend
 
-Here we're going to discuss **only** the parts concerned with using the Lit SDK & interfacing with our deployed Smart Contract. The reader is expected to take care of:
+Here we're going to discuss **only** the parts concerned with using the Lit SDK & interfacing with our deployed smart contract. The reader is expected to take care of:
 * The user inputs for NFTs (i.e. it's name, description & imageUrl)
 * Fetching the NFTs using the `fetchNfts()` function we defined in `LitNFT.sol`
 * Displaying the fetched NFTs.
 
 
 If you want to take a look at a complete **React** project which takes care of all that, please take a look at this [Replit](https://replit.com/@lit/Encrypt-and-Decrypt-On-chain-NFT-Metadata#encrypt_and_decrypt_on-chain_nft_metadata/src/App.js).
-For best experience please open the web app in a new tab.
+For the best experience please open the web app in a new tab.
 
 <iframe frameborder="0" width="100%" height="500px" src="https://replit.com/@lit/Encrypt-and-Decrypt-On-chain-NFT-Metadata#encrypt_and_decrypt_on-chain_nft_metadata/src/App.js"></iframe>
 

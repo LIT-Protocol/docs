@@ -4,11 +4,11 @@ sidebar_position: 3
 
 # Encrypt & Decrypt
 
-
-
 ## Encrypt the Input
 
-Given an input string, we want to encrypt it using the Lit SDK so that only the users authorized by our `accessControlCondition` should be able to decrypt it. Let's continue developing our Lit class.
+Given an input string, we want to encrypt it using the Lit SDK so that only the users authorized by our `accessControlCondition` should be able to decrypt it.
+
+Let's continue developing our Lit class.
 
 ### 1. Define access control conditions
 First, we need to define the `accessControlCondition` for a user to decrypt our encrypted string:
@@ -53,7 +53,7 @@ For more info, please check out our [API docs](https://lit-protocol.github.io/li
 ```
 
 ### 5. Save encryption key & access control condition
-Now, we can save the encryption key with the access control condition, which tells Lit that users that meet this access control condition should be able to decrypt.
+Now, we save the encryption key with the access control condition. Both are needed for Lit to know who should be able to decrypt.
 
 For more info, please check out our [API docs](https://lit-protocol.github.io/lit-js-sdk/api_docs_html/#litnodeclient).
 ```js

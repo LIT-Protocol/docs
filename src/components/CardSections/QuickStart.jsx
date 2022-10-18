@@ -10,12 +10,12 @@ export default function QuickStartSection({ title, className }) {
       <Card
         title="👩‍💻 Installing the Lit JavaScript SDK"
         description="Set up the SDK within your local environment."
-        to="/SDK/Working with the SDK/installation"
+        to="/SDK/Explanation/installation"
       />
       <Card
         title="⌨️ Encrypt and Decrypt a String"
         description="Create your first Lit enabled application."
-        to="/SDK/Working with the SDK/EncryptionCategory/setup"
+        to="/SDK/Explanation/EncryptionCategory/setup"
       />
       <Card
         title="📁 Encrypt and Decrypt a File"

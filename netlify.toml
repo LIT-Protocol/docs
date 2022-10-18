@@ -203,3 +203,155 @@ force = false
   to = "/:splat"
   status = 302
   force = false
+
+# 10/18/22 - docs re-org 1.5
+
+[[redirects]]
+  from = "/LitActionsAndPKPs/whatAreLitActionsAndPKPs"
+  to = "/coreConcepts/LitActionsAndPKPs/intro"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/LitActionsAndPKPs/workingWithLitActions"
+  to = "/coreConcepts/LitActionsAndPKPs/workingWithLitActions"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/LitActionsAndPKPs/toolsAndExamples"
+  to = "/coreConcepts/LitActionsAndPKPs/toolsAndExamples"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/SDK/installation"
+  to = "/SDK/Explanation/installation"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/SDK/authSig"
+  to = "/SDK/Explanation/authSig"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/SDK/sessionKeys"
+  to = "/SDK/Explanation/authSig"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/SDK/errorHandling"
+  to = "/SDK/Explanation/tests"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/SDK/tests"
+  to = "/SDK/Explanation/tests"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/AccessControlConditions/intro"
+  to = "/coreConcepts/accessControl/intro"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/AccessControlConditions/EVM/basicExamples"
+  to = "/coreConcepts/accessControl/EVM/:splat"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/AccessControlConditions/EVM/*"
+  to = "/coreConcepts/accessControl/:splat"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/AccessControlConditions/solRpcConditions"
+  to = "/coreConcepts/accessControl/otherChains/solRpcConditions"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/AccessControlConditions/cosmosConditions"
+  to = "/coreConcepts/accessControl/otherChains/cosmosConditions"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/AccessControlConditions/unifiedAccessControlConditions"
+  to = "/coreConcepts/accessControl/conditionTypes/unifiedAccessControlConditions"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/AccessControlConditions/booleanLogic"
+  to = "/coreConcepts/accessControl/conditionTypes/booleanLogic"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/AccessControlConditions/updateableConditions"
+  to = "/coreConcepts/accessControl/conditionTypes/updateableConditions"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/ToolsAndExamples/Ceramic/*"
+  to = "/toolsAndExamples/integrations/Ceramic/intro"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/ToolsAndExamples/bundlrxarweave"
+  to = "/toolsAndExamples/integrations/bundlrxarweave"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/ToolsAndExamples/additionalIntegrations"
+  to = "/toolsAndExamples/integrations/additionalIntegrations"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/ToolsAndExamples/shareModal"
+  to = "/toolsAndExamples/tools/shareModal"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/toolsandexamples/sdkexamples/dynamiccontent/"
+  to = "/toolsAndExamples/tools/jwtverify"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/ToolsAndExamples/SDKExamples/examples"
+  to = "/toolsAndExamples/SDKExamples/dynamicContent"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/litGrants"
+  to = "/ecosystem/litGrants"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/faq"
+  to = "/support/faq"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/supportedChains"
+  to = "/support/supportedChains"
+  status = 302
+  force = false

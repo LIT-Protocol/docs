@@ -11,7 +11,7 @@ sidebar_position: 3
 Given an input string, we want to encrypt it using the Lit SDK so that only the users authorized by our `accessControlCondition` should be able to decrypt it. Let's continue developing our Lit class.
 
 ### 1. Define access control conditions
-First, we need to define the `accessControlCondition` for a user to decrypt our encrytped string:
+First, we need to define the `accessControlCondition` for a user to decrypt our encrypted string:
 ```js
 // Checks if the user has at least 0.1 MATIC
 const accessControlConditions = [

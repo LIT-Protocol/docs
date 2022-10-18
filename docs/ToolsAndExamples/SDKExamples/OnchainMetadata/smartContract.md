@@ -1,17 +1,19 @@
 ---
-sidebar_position: 5
+sidebar_position: 4
 ---
 
 # NFT Smart Contract
 
 This is our NFT smart contract which will contain the encrypted metadata.
 
-**Note:** The NFT's name & imageUrl are **not** encrypted & hence will be visible to all our users. But, we have to store an encrypted description string: `encryptedDescription` & the associated `encryptedSymmetricKey`, which will come in handy when we decrypt the string, as we've seen on the previous page.
+The NFT's name & imageUrl are **not** encrypted & hence will be visible to all our users. But, we have to store an encrypted description string: `encryptedDescription` & the associated `encryptedSymmetricKey`, which will come in handy when we decrypt the string, as we've seen on the previous page.
 
-1. Create a file LitNFT.sol in the contracts directory.
+## To Start
+Create a file `LitNFT.sol` in the contracts directory.
 
-2. Our contract should inherit from ERC721URIStorage, a standard implementation of an NFT provided by Openzepplin. We have to set the URI for each NFT (see below):
-```
+## 1. Set the URI for each NFT
+Our contract should inherit from ERC721URIStorage, a standard implementation of an NFT provided by Openzepplin. We have to set the URI for each NFT (see below):
+```js
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
@@ -21,8 +23,9 @@ contract LitNft is ERC721URIStorage, ReentrancyGuard {
 }
 ```
 
-3. Let's define the struct for our NFT & a mapping which will give us the NFT from its token:
-```
+## 2. Define the struct for the NFT and a mapping
+Let's define the struct for our NFT & a mapping which will give us the NFT from its token:
+```js
     mapping(uint256 => nft) private tokenIdToNft;
 
     struct nft {
@@ -33,8 +36,9 @@ contract LitNft is ERC721URIStorage, ReentrancyGuard {
     }
 ```
 
-4. Let's define a function to get the URI for an NFT given its `name`, `imageUrl`, `encryptedDescription` & `encryptedSymmetricKey`. Then we're returning a string containing the array of bytes representing the Base64 encoded version of the dataURI with the JSON metadata:
-```
+## 3. Define a function to get the URI for an NFT
+Let's define a function to get the URI for an NFT given its `name`, `imageUrl`, `encryptedDescription` & `encryptedSymmetricKey`. Then we're returning a string containing the array of bytes representing the Base64 encoded version of the dataURI with the JSON metadata:
+```json
     function getTokenURI(
         string memory name,
         string memory imageUrl,
@@ -58,8 +62,9 @@ contract LitNft is ERC721URIStorage, ReentrancyGuard {
     }
 ```
 
-5. Finally, we can mint the NFT & then set its URI using the `getTokenURI` function defined above:
-```
+## 4. Mint the NFT & set URI
+Finally, we can mint the NFT & then set its URI using the `getTokenURI` function defined above:
+```js
     function mintLitNft(
         string memory name,
         string memory imageUrl,
@@ -74,8 +79,8 @@ contract LitNft is ERC721URIStorage, ReentrancyGuard {
     }
 ```
 
-## Putting it all together:
-```
+## Putting it all together
+```js
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 

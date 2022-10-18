@@ -5,7 +5,7 @@ sidebar_position: 3
 # How does Lit Protocol work?
 
 ![What is Lit explanation graph](../../static/img/lit_explanation.jpeg)
-Lit Protocol uses threshold cryptography in order to generate shares of public/private key pairs. Once a certain percentage of shares are confirmed by the Lit Protocol Nodes, an authorized signer is able to encrypt or decrypt information. 
+Lit Protocol uses threshold cryptography in order to generate shares of public/private key pairs. Once a certain percentage of shares are confirmed by the Lit Protocol Nodes, an authorized signer is able to encrypt or decrypt information.
 
 ## How Lit Protocol works for: 
 

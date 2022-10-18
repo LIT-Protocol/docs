@@ -2,9 +2,9 @@
 sidebar_position: 1
 ---
 
-# Setup
+# Introduction and Setup
 
-import Installation from '../../../SDK/installation.md'
+import Installation from '/docs/SDK/Working with the SDK/installation.md'
 
 You can use Lit to encrypt and store any static content. This could be a file, a string, or anything that won't change. You have to store the content and metadata yourself (on IPFS, Arweave, or even somewhere centralized), but Lit will store who is allowed to decrypt it and enforce this (aka key management).
 

@@ -9,17 +9,17 @@ export default function QuickStartSection({ title, className }) {
     <Section title={title} className={className}>
       <Card
         title="👩‍💻 Installing the Lit JavaScript SDK"
-        description="Set up the SDK within your local environment"
-        to="/SDK/installation"
+        description="Set up the SDK within your local environment."
+        to="/SDK/Working with the SDK/installation"
       />
       <Card
         title="⌨️ Encrypt and Decrypt a String"
-        description="Create your first Lit enabled application"
-        to="/ToolsAndExamples/SDKExamples/EncryptAndDecrypt/setup"
+        description="Create your first Lit enabled application."
+        to="/Core Concepts/Access Control/EncryptionCategory/setup"
       />
       <Card
         title="📁 Encrypt and Decrypt a File"
-        description="Check out this Replit project to learn how to encrypt and decrypt a file using Lit"
+        description="Check out this Replit project to learn how to encrypt and decrypt a file using Lit."
         to="https://replit.com/@lit/Encrypt-and-Decrypt-a-File#encrypt_and_decrypt_file/src/App.js"
       />
     </Section>

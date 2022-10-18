@@ -10,7 +10,7 @@ export default function EcosystemSection({ title, className }) {
       <Card
         title="💸 Grants"
         description="Looking to extend what you're already building with Lit? Apply for a grant!"
-        to="/litGrants"
+        to="/Ecosystem/litGrants"
       />
 
       <Card

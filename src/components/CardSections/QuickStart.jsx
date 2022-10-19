@@ -13,14 +13,14 @@ export default function QuickStartSection({ title, className }) {
         to="/SDK/Explanation/installation"
       />
       <Card
-        title="⌨️ Encrypt and Decrypt a String"
+        title="⌨️ Encrypt and Decrypt Static Content"
         description="Create your first Lit enabled application."
         to="/SDK/Explanation/EncryptionCategory/setup"
       />
       <Card
-        title="📁 Encrypt and Decrypt a File"
-        description="Check out this Replit project to learn how to encrypt and decrypt a file using Lit."
-        to="https://replit.com/@lit/Encrypt-and-Decrypt-a-File#encrypt_and_decrypt_file/src/App.js"
+        title="📁 Encrypting On-Chain Metadata (Polygon)"
+        description="Encrypt on-chain meta-data (an NFT description) using the Lit SDK."
+        to="/toolsAndExamples/SDKExamples/onchainMetadata/introduction"
       />
     </Section>
   );

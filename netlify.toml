@@ -379,4 +379,17 @@ force = false
   to = "/coreConcepts/accessControl/intro"
   status = 302
   force = false
+
+# 10/26/22 - dating for deprecation purposes
   
+  [[redirects]]
+  from = "/coreconcepts/litactionsandpkps/workingwithlitactions"
+  to = "/SDK/Explanation/litActions"
+  status = 302
+  force = false
+
+  [[redirects]]
+  from = "/SDK/Explanation/EncryptionCategory/*"
+  to = "/SDK/Explanation/encryption"
+  status = 302
+  force = false

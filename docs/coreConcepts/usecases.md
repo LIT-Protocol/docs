@@ -4,13 +4,9 @@ sidebar_position: 4
 
 # Lit Protocol Use Cases
 
-## Introduction
-Lit Protocol is a decentralized key management network that facilitates two main use cases: access control and compute — AKA “read” and “write”. Though distinct, these features work hand-in-hand and are powered by a single overarching primitive: [threshold cryptography](https://en.wikipedia.org/wiki/Threshold_cryptosystem). 
-
-For a more in-depth explanation of how Lit works, check out our [Developer Docs](https://developer.litprotocol.com/).
 ## Access Control
 
-Lit’s access control protocol runs atop most EVM chains, Cosmos, and Solana (you can view the full list of supported networks [here](https://developer.litprotocol.com/supportedChains)) and introduces private data to the open web. Using Lit, users can encrypt data behind [on-chain conditions](https://developer.litprotocol.com/accesscontrolconditions/evm/basicexamples/), such as the assets one holds in their wallet. When another user attempts to access this data, the Lit network will check that the required conditions have been met by requesting a wallet signature. If the’ve been met, the network will provision unique decryption key shares that can be combined client-side and used to access the locked content. You can read more about decentralized access control on our [blog](https://blog.litprotocol.com/?p=what-is-decentralized-access-control).
+Introduce private and permissioned data to the open web using decentralized encryption. Use Lit to provision decryption "keys" to users based on on-chain conditions, such as ownership over a specific NFT or membership within a DAO.
 
 Some examples of applications that can (and have) been built harnessing this functionality:
 
@@ -42,15 +38,11 @@ Using [HTML NFTs](https://developer.litprotocol.com/ToolsAndExamples/SDKExamples
 
 Here’s an [example](https://twitter.com/LitProtocol/status/1504630741849853954) using our Lit Genesis Canvas NFT. Only holders can access the private canvas site linked within!
 
-## Programmable Key Pairs
+## Programmatic Signing: Lit Actions and PKPs
 
-What if a smart contract could have it's own public and private keypair, just like any other wallet? And what if that smart contract had the ability to make arbitrary HTTP requests and use the data in its computation? Imagine smart contracts that can read and write from any HTTP endpoint, blockchain, state machine, or decentralized storage system.
+Introduce automation and interoperability to the dWeb with Lit Actions and PKPs. 
 
-We're building this at Lit: The smart contracts are Lit Actions and the keypairs they can use are PKPs.
-
-You can read more about PKPs and Lit Actions in our [docs](https://developer.litprotocol.com/LitActionsAndPKPs/whatAreLitActionsAndPKPs#what-are-programmable-key-pairs-pkps), or check out our latest [announcement](https://twitter.com/LitProtocol/status/1572981766536790018?s=20&t=4lEfj2jDwUG8dzBjgT__GQ).
-
-Below you will find some examples of projects that have been built using PKPs, as well as some other potential ideas and use cases. You can check out even more examples [here](https://github.com/LIT-Protocol/js-serverless-function-test/tree/main/js-sdkTests).
+Below you will find some example projects and other potential ideas and use cases. You can check out even more examples [here](https://github.com/LIT-Protocol/js-serverless-function-test/tree/main/js-sdkTests).
 
 ### DeFi Automation
 

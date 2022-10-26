@@ -2,49 +2,122 @@
 sidebar_position: 2
 ---
 
-# Introduction
+# What is Lit Protocol?
+
+## Introduction
+
+Lit Protocol is a decentralized **key management network** powered by [threshold cryptography](/Introduction/howItWorks.md). A **blockchain-agnostic** middleware layer, Lit can be used to read and write data between blockchains and off-chain data, facilitating encryption, access control, and automation for the open web via **programmatic signing**. 
+
 
 ## Decentralized Cryptography
 
-Lit Protocol decentralizes public key cryptography using threshold cryptography, and makes it easy for you to decentralize it, too.
+On a fundamental level, Lit is an attempt to decentralize [public key cryptography](https://www.cloudflare.com/learning/ssl/how-does-public-key-encryption-work/). First introduced by three researchers at Stanford University in the [1970s](https://pet3rpan.medium.com/history-of-things-before-bitcoin-cryptocurrency-part-one-e199f02ca380), public key cryptography is the technology that underpins cryptocurrency and most of the security infrastructure on the Internet today. 
 
-**What does that mean?**
+Public key cryptography allows you to do two main things: 
 
-Lit Protocol is an open source, decentralized utility that uses encryption to provide blockchain users access to digital and real world experiences. 
-
-### Why is encryption important?
-[Encryption](https://www.cloudflare.com/learning/ssl/what-is-encryption/) is the process of encoding data so that it remains hidden from or inaccessible to unauthorized parties.
-
-We believe that privacy and ownership are basic rights, two ideas central to encryption and decentralization.
-
-## Main Functionality
-
-### Access Control
-Lit Protocol's main feature is a decentralized access control protocol running on top of EVM chains and Solana. With Lit, you can harness on-chain access control conditions to do 4 main things:
-
-- Encrypt and lock static content (images, videos, music, etc) behind an on chain condition (for example, possession of an NFT).
-- Decrypt static content that was locked behind an on chain condition.
-- Authorize network signatures that provide access to dynamic content (for example, a server or network resource) behind an on chain condition.
-- Request a network signed JWT that provisions access and authorization to dynamic content behind an on chain condition.
-
-With this functionality, Lit Protocol enables the creation of locked NFTs that can only be unlocked by owners of that NFT. It also enables provisioning access to a given server or network resource only to NFT owners. Rather than a simple JPEG, Lit enabled NFTs can be HTML/JS/CSS web pages that can be interactive and dynamic.
-
-Learn more by reading [What is Decentralized Access Control](https://blog.litprotocol.com/?p=what-is-decentralized-access-control).
-
-We support many EVM chains and Solana. Full list here: https://developer.litprotocol.com/docs/supportedChains. If you need to interact with a contract that we don't support yet, ask us, and we will implement it.
+1. Encrypt information so that it can only be accessed by authorized parties (encryption and access control).
+2. Sign (write) data to blockchains, databases, storage networks, and other state machines (digital signatures).
 
 ### Encryption
-Store private data on the open web and use Lit to provision decentralized keys to users based on on-chain data, like the assets they hold in their wallet.
 
-### Programmable + Distributed Cloud Wallets
-Use Lit as a decentralized serverless function platform to create applications that write data to public state machines like blockchains and storage networks. Create automated agents for user funds and data.
+[Encryption](https://www.cloudflare.com/learning/ssl/what-is-encryption/) is the process of encoding data so that it remains hidden or inaccessible to unauthorized parties, the core technology that enables privacy on the open web. 
 
-## Join the community
+### Signing
 
-Join the [Discord](https://litgateway.com/discord) to ask questions and engage with the community.
+Every time you interact with a blockchain — whether it be selling some ETH, listing an NFT, or claiming an in-game item — you must **sign** the transaction. Just like a signature in the physical world, this digital signature provides “proof” that some interaction took place — a verifiable snapshot of history at a given point in time. 
 
-Follow us on [Twitter](https://twitter.com/LitProtocol) for updates.
+## Core Functionality
 
-Read the [blog](https://blog.litprotocol.com/) and [substack](https://litproject.substack.com/) for news and announcements on the state of decentralized access control.
+As a protocol, Lit can be harnessed to build applications that leverage public key cryptography at their core, powering two main “buckets” of functionality:
 
-Subscribe to our [community calendar](https://calendar.google.com/calendar/u/5?cid=Y19hMnVxZDNjaHVqZ2Q0a3FqbGlvcDdxY2JhMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t) for events, hackathons, and other ways to meet the Lit team.
+### Encryption and Access Control
+
+Lit Protocol's main feature is a decentralized access control protocol compatible with most EVM chains, Cosmos and Solana. With Lit, you can harness on-chain access control conditions to do 4 main things:
+
+- Encrypt and lock static content (images, videos, music, etc) behind an on-chain condition (for example, ownership of an NFT).
+- Decrypt static content that was locked behind an on-chain condition.
+- Authorize network signatures that provide access to dynamic content (for example, a server or network resource) behind an on-chain condition.
+- Request a network signed JWT that provisions access and authorization to dynamic content behind an on-chain condition.
+
+With this functionality, Lit Protocol enables the storage of private data on the open web, facilitating interoperability and portability between previously disconnected users, applications and ecosystems.
+
+You can get started with encryption and access control [here](/coreConcepts/accessControl/intro.md).
+
+### Decentralized Cloud Signing
+
+Lit’s access control protocol gives individuals the ability to **read** private data from the dWeb based on on-chain conditions. But this is only one half of the equation. What about **writing** data? 
+
+To facilitate this second use case we created two things: Lit Actions and Programmable Key Pairs (PKPs). Lit Actions are immutable JavaScript functions stored on IPFS. Actions can be thought of as smart contracts with superpowers: they have network access and the ability to make arbitrary HTTP requests. 
+
+PKPs are the public/private key pairs generated by the Lit network and are minted in the form of an ERC-721 NFT. The owner of the NFT becomes the sole controller of the underlying private key. 
+
+When these components work together, they have the power to facilitate complex **condition-based automation**. What if you could “tell” your wallet to execute a trade when your token fell below a specified price? Or to automatically list your NFT when the collection hits a certain floor price? Or what if you wanted to use off-chain or cross-chain data as a “trigger” to execute functionality within your decentralized application? With Lit, these use cases become possible.
+
+Keep reading about PKPs and Lit Actions [here](/coreConcepts/LitActionsAndPKPs/intro.md).
+
+## What can you build with Lit?
+
+Lit infrastructure can be used to support an entire host of web3 applications. Here are some examples:
+
+### DeFi
+
+- Condition-based transaction execution (ex. on-chain limit orders).
+- Automated, recurring payments.
+- Liquid staking solutions.
+- Frictionless transaction execution (signing abstraction).
+- Vault applications for seamlessly trading asset “bundles”.
+
+### Infrastructure
+
+- Cross-chain bridges.
+- Oracles for off-chain data.
+- Event listening and condition-based execution.
+- Privacy-preserving transactions.
+- Decentralized key custodians.
+
+### Web3 Social
+
+- Private data for social apps.
+- Credentialing systems for privacy-preserving web3 login.
+- User owned social graphs.
+- Account abstraction with support for web2 auth methods (i.e. Apple Passkey).
+- Decentralized chat bots.
+- Verifiable, on-chain reputation building.
+
+### Gaming
+
+- Signing and wallet abstraction for blockchain-based games.
+- Condition-based reward systems and achievements.
+- Private data for multiplayer games.
+
+### Unlockable NFTs
+
+Using [HTML NFTs](/ToolsAndExamples/SDKExamples/HTMLNfts.md), you can create locked content that only owners of the NFT have access to. This includes dynamic content, like websites or metaverse spaces. 
+
+Here’s an [example](https://twitter.com/LitProtocol/status/1504630741849853954) using our Lit Genesis Canvas NFT. Only holders can access the private canvas site linked within!
+
+### Add Token Gating to Web2 Apps
+
+- [Shopify](https://apps.shopify.com/lit-token-access): Blockchain-based access control for your online store.
+- [Zoom](https://litgateway.com/apps/zoom): Token-gated Zoom calls.
+- [Google Drive](https://litgateway.com/apps/google-drive): Add access control requirements to your Google Drive files.
+- [WordPress](https://litgateway.com/apps/wordpress): Gate access to WordPress sites and pages.
+
+### More Ideas
+
+- A certification system utilizing [conditional signing](/SDK/Explanation/litActions#conditional-signing).
+- A blockchain.
+
+To read about more examples, take a look at our [use cases](/coreConcepts/usecases.md) page. You can also explore some of the projects that have been built with Lit [here](/ecosystem/projects).
+
+## Join the Community
+
+[Discord](https://litgateway.com/discord) is the home base for our Developer Ecosystem. Join us to stay up to date on the latest developments, ask questions and get programming support, and engage with the wider community!
+
+Follow us on [Twitter](https://twitter.com/LitProtocol) for updates.
+
+Read our [blog](https://blog.litprotocol.com/) and subscribe to our monthly [newsletter](https://litproject.substack.com/) for news and announcements on the state of Lit Protocol.
+
+Subscribe to our [community calendar](https://calendar.google.com/calendar/u/5?cid=Y19hMnVxZDNjaHVqZ2Q0a3FqbGlvcDdxY2JhMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t) for events, hackathons, and other ways to meet the Lit team.
+
+Have an idea for a project or currently building? Take a look at our [Ecosystem RFPs](https://www.notion.so/Lit-Request-for-Ecosystem-Proposals-ae3f31e7f32c413cbe0b36c2fe53378d) and apply for a [grant](https://github.com/LIT-Protocol/LitGrants).

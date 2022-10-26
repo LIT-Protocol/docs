@@ -1,0 +1,137 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #9e77f3;
+  --ifm-color-primary-dark: #8159d9;
+  --ifm-color-primary-darker: #5e36b7;
+  --ifm-color-primary-darkest: #2c0c72;
+  --ifm-color-primary-light: #8159d9;
+  --ifm-color-primary-lighter: #9e77f3;
+  --ifm-color-primary-lightest: #bfa1ff;
+  --ifm-code-font-size: 95%;
+  --ifm-navbar-item-padding-horizontal: 24px;
+  --ifm-heading-font-weight: 300;
+  --homepage-card-hover: #f8f8f8;
+}
+
+html[data-theme="dark"] {
+  --ifm-navbar-background-color: #190741;
+  --ifm-background-color: #190741;
+  --homepage-card-hover: var(--ifm-hover-overlay);
+}
+
+.navbar {
+  border-bottom: 1px solid rgba(204, 204, 204, 0.5)
+;
+}
+
+/*.menu {*/
+/*  border-right: 1px solid #222;*/
+/*}*/
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+html[data-theme="dark"] .docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.footer {
+  --ifm-footer-color: rgba(235, 237, 240, 0.5);
+}
+
+.markdown h1:first-child {
+  --ifm-h1-font-size: 2rem;
+}
+
+.markdown > h2 {
+  --ifm-h2-font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.markdown > h3 {
+  --ifm-h3-font-size: 1.25rem;
+}
+
+.theme-edit-this-page {
+  display: none;
+}
+
+.section-content {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  user-select: none;
+  transition: box-shadow .15s ease-out,transform .15s ease-out,opacity .15s ease-out;
+}
+
+.card-content .title {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -.5px;
+  color: var(--ifm-font-color-base);
+}
+
+.card-content .description {
+  font-size: 14px;
+  letter-spacing: -.5px;
+  color: var(--ifm-font-color-base);
+}
+
+.card-content {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.homepage-card {
+  --ifm-link-hover-color: inherit;
+  align-items: flex-start;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  color: var(--ifm-font-color-base);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0.75rem;
+  transition: border-color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.homepage-card:hover {
+  text-decoration: none;
+  background-color: var(--homepage-card-hover);
+}
+
+.homepage-card:hover .card-content .title {
+  color: var(--ifm-link-hover-color);
+}
+
+.homepage-section {
+  margin-bottom: 24px;
+  margin-left: 2px;
+}

@@ -2,9 +2,7 @@
 sidebar_position: 2
 ---
 
-# What is Lit Protocol?
-
-## Introduction
+# Introduction
 
 Lit Protocol is a decentralized **key management network** powered by [threshold cryptography](/Introduction/howItWorks.md). A **blockchain-agnostic** middleware layer, Lit can be used to read and write data between blockchains and off-chain data, facilitating encryption, access control, and automation for the open web via **programmatic signing**. 
 

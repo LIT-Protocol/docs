@@ -23,6 +23,16 @@ Each PKP is generated collectively by the Lit Nodes through a process called Dis
 
 You can mint an NFT from our PKP contract on Polygon Mumbai [here](https://explorer.litprotocol.com/mint-pkp). This is an ERC-721 NFT and the owner of it is the root owner of the PKP. The NFT owner can grant the ability to use the PKP to sign and decrypt data to both other users (via their wallet address) and also to Lit Actions.
 
+## Do I need a wallet in order to use a PKP?
+
+Currently, a wallet is required in order to mint the underlying PKP NFT. This makes the wallet the sole controller of the underlying key pair. 
+
+We are currently working on exploring other methods of authorization for PKPs, such as Apple Passkeys, Login with Google, Discord Auth, and more. This will facilitate the more frictionless onboarding of non-crypto-natives, enabling methods for social recovery and wallet abstraction. 
+
+## What blockchains do PKPs support?
+
+Any blockchain or cryptographic system that utilizes [ECDSA](https://blog.cloudflare.com/ecdsa-the-digital-signature-algorithm-of-a-better-internet/) for digital signatures. This includes Ethereum and most EVM chains, Bitcoin, and Cosmos. View all supported chains [here.](/Support/supportedChains#programmable-key-pairs)
+
 ## What can I use PKPs for?
 
 Since a PKP is a valid ECDSA wallet, you could send a mix of BTC and ETH NFTs to it, and then sell it as a bundle by selling the NFT that controls it on OpenSea. The buyer gets the ability to sign and decrypt data with the PKP, since they own the controlling NFT. The buyer could then withdraw the BTC and NFTs if desired.

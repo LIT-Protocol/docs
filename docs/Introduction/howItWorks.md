@@ -14,9 +14,9 @@ Lit is powered by **threshold cryptography**. This implies that no one node ever
 
 In the context of the Lit network, threshold cryptography is used to generate ***shares*** of a new public/private key pair in a process called [Distributed Key Generation](https://en.wikipedia.org/wiki/Distributed_key_generation). This means that the private key of this key pair **never exists in its entirety**, ever. 
 
-Instead, each node holds a **private key share**, which they can use to both sign and decrypt data, just like a regular old private key. The key (no pun intended) difference is that someone needs to combine the resulting signature or decryption shares from all the nodes, **above the threshold**, to get the final signature or decrypted content.  We currently set the threshold to 2/3, so if there are 100 nodes in the Lit network, then you would need to request decryption or signature shares from at least 67 of them. Because of this, a single private key share is useless on its own, and the ownership of the private key itself is decentralized across the nodes.
+Instead, each node holds a **private key share**, which they can use to both sign and decrypt data, just like a regular old private key. The key (no pun intended) difference is that someone needs to combine the resulting signature or decryption shares from all the nodes, **above the threshold**, to get the final signature or decrypted content.  We currently set the threshold to two-thirds, so if there are 100 nodes in the Lit network, then you would need to request decryption or signature shares from at least 67 of them. Because of this, a single private key share is useless on its own, and the ownership of the private key itself is decentralized across the nodes.
 
-
+It is important to note that all operations are done inside of a secure, black-box environment, meaning node operators and other external "agents" have no access to thes key shares contained within. In the context user-facing operations (such as provisioning shares for signing and decryption), nodes communicate with each user via independent, encrypted channels. This means that shares are only ever exposed client-side at the exact moment of recombination.
 
 ## How Lit Protocol works for:
 
@@ -26,7 +26,8 @@ Instead, each node holds a **private key share**, which they can use to both sig
 
 The SDK encrypts your content and uploads the conditions for decryption to each Lit Protocol node. You will need to store the encrypted content in a place of your choosing (IPFS, Arweave, or even somewhere centralized).
 
-When someone wants to access the content the SDK will request a message signature from the user's wallet. The message signature proves that the corresponding wallet meets the conditions (ex. NFT ownership) for decryption. The Lit Protocol nodes will then send down the decryption shares. The SDK combines them and decrypts the content.
+When someone wants to access the content the SDK will request a message signature from the user's wallet. The message signature proves that the corresponding wallet meets the conditions (ex. NFT ownership) for decryption. The Lit Protocol nodes will then send down the decryption shares. Collecting responses and combining them above a threshold is included in the functionality of the [Lit JS SDK](/SDK/intro.md). 
+
 
 ### Dynamic Content - Authorizing access to a resource via JWT[](https://developer.litprotocol.com/Introduction/howItWorks#dynamic-content---authorizing-access-to-a-resource-via-jwt)
 

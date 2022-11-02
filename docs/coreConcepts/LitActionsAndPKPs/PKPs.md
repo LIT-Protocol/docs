@@ -27,7 +27,7 @@ You can mint an NFT from our PKP contract on Polygon Mumbai [here](https://explo
 
 Currently, a wallet is required in order to mint the underlying PKP NFT. This makes the wallet the sole controller of the underlying key pair. 
 
-We are currently working on exploring other methods of authorization for PKPs, such as Apple Passkeys, Login with Google, Discord Auth, and more. This will facilitate the more frictionless onboarding of non-crypto-natives, enabling methods for social recovery and wallet abstraction. 
+We are currently working on exploring other methods of authorization for PKPs, such as Apple Passkeys, Login with Google, Discord Auth, and more. This will facilitate a more frictionless onboarding experience for non-crypto-natives, as it enables methods for social recovery and wallet abstraction. 
 
 ## What blockchains do PKPs support?
 

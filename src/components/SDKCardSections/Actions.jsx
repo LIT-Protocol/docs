@@ -37,6 +37,11 @@ export default function LitActionsSection({ title, className }) {
         description="View the full list of functions available within the Lit Actions SDK."
         to="https://actions-docs.litprotocol.com/"
       />
+      <Card
+        title="Additional Examples"
+        description="View more examples on our Github."
+        to="https://github.com/LIT-Protocol/js-serverless-function-test/tree/main/js-sdkTests"
+      />
     </Section>
   );
 }

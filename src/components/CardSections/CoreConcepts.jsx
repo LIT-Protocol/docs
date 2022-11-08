@@ -9,18 +9,18 @@ export default function CoreConceptsSection({ title, className }) {
     <Section title={title} className={className}>
       <Card
         title="🔐 Access Control & Encryption"
-        description="Learn about setting on-chain conditions to control who can access your content."
+        description="Learn about setting on-chain conditions to manage access to your private data."
         to="/coreConcepts/accessControl/intro"
       />
       <Card
-        title="📡 Programmable Key Pairs"
+        title="📡 PKPs and Lit Actions"
         description="Learn about programmable wallets that can read and write from any HTTP endpoint, blockchain, state machine, or decentralized storage system."
-        to="/coreConcepts/LitActionsAndPKPs/PKPs"
+        to="/coreConcepts/LitActionsAndPKPs/intro"
       />
       <Card
-        title="🏃‍♂️ Lit Actions"
-        description="Learn about Javascript functions that utilize the threshold cryptography that powers Lit."
-        to="/coreConcepts/LitActionsAndPKPs/litActions"
+        title="🧩 Use Cases"
+        description="Learn about how you can integrate Lit infrastructure within your own products."
+        to="/coreConcepts/usecases"
       />
     </Section>
   );

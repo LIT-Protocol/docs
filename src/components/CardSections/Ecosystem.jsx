@@ -9,10 +9,14 @@ export default function EcosystemSection({ title, className }) {
     <Section title={title} className={className}>
       <Card
         title="💸 Grants"
-        description="Looking to extend what you're already building with Lit? Apply for a grant!"
+        description="We are looking to support those who are building Lit-enabled apps and infrastructure."
         to="/ecosystem/litGrants"
       />
-
+      <Card
+        title="💻 Ecosystem RFPs"
+        description="Learn about how you can contribute to Lit Protocol."
+        to="https://litprotocol.notion.site/Lit-Request-for-Ecosystem-Proposals-ae3f31e7f32c413cbe0b36c2fe53378d"
+      />
       <Card
         title="👨‍👩‍👧‍👦 Community"
         description="Join the community through Discord, Twitter, and keep up to date with the community calendar."

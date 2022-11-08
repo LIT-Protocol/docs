@@ -1,0 +1,42 @@
+import React from "react";
+import {
+  HomepageCard as Card,
+  HomepageSection as Section,
+} from "../HomepageComponents";
+
+export default function LitActionsSection({ title, className }) {
+  return (
+    <Section title={title} className={className}>
+      <Card
+        title="Hello World"
+        description="Learn how to request a signature from the Lit network in this intro example."
+        to="/SDK/Explanation/litActions#hello-world"
+      />
+      <Card
+        title="Proofs and Signed Data"
+        description="Use Lit's conditional signing capabilities to generate verifiable proofs within your app logic."
+        to="/SDK/Explanation/litActions#conditional-signing"
+      />
+      <Card
+        title="Fetching Off-chain Data"
+        description="Use off-chain data natively without the need for a third-party oracle."
+        to="/SDK/Explanation/litActions#using-fetch"
+      />
+      <Card
+        title="Encrypting and Decrypting Content"
+        description="Introduce private data to the open web using identity-based encryption."
+        to="/SDK/Explanation/litActions#encrypting-and-decrypting-messages"
+      />
+      <Card
+        title="Wallet Signatures and Authorization"
+        description="Explore different methods of auth for PKPs and Lit Actions."
+        to="/SDK/Explanation/litActions#using-eip191-eth_personal_sign-to-sign-a-message-instead-of-a-transaction-or-raw-signature"
+      />
+      <Card
+        title="API Documentation"
+        description="View the full list of functions available within the Lit Actions SDK."
+        to="https://actions-docs.litprotocol.com/"
+      />
+    </Section>
+  );
+}

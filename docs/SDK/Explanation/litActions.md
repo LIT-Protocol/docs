@@ -160,6 +160,9 @@ runLitAction();
 
 Lit Actions inherit the powerful condition checking that Lit Protocol utilizes for Access Control. You can easily check any on-chain condition inside a Lit Action. For example, the below Lit Action will check if the user has at least 1 Wei on Ethereum, and only sign if they do.
 
+<iframe frameborder="100px" width="100%" height="500px" src="https://replit.com/@lit/Lit-Actions-Conditional-Signing/#lit-actions_conditional_signing/src/App.js"></iframe>
+
+
 ```js
 import LitJsSdk from "lit-js-sdk/build/index.node.js";
 
@@ -240,6 +243,8 @@ runLitAction();
 ## Using fetch()
 
 Unlike traditional smart contract ecosystems, Lit Actions can natively talk to the external world. This is useful for things like fetching data from the web, or sending API requests to other services. The example below will get the current temperature from a weather API, and only sign a txn if the temperature is forecast to be above 60 degrees F. Since you can put this HTTP request and logic that uses the response directly in your Lit Action, you don't have to worry about using an oracle to pull data in. The HTTP request will be sent out by all the Lit Nodes, and consensus is based on at least 2/3 of the nodes getting the same response. If less than 2/3 nodes get the same response, then the user can not collect the signature shares above the threshold and therefore cannot produce the final signature.
+
+<iframe frameborder="100px" width="100%" height="500px" src="https://replit.com/@lit/Lit-Actions-Return-signed-API-reponse/#lit-actions_sign_api_response/src/App.js"></iframe>
 
 ```js
 import LitJsSdk from "lit-js-sdk/build/index.node.js";

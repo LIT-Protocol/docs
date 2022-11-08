@@ -19,13 +19,18 @@ export default function LearnCodeSection({ title, className }) {
       />
       <Card
         title="👐 Open Source Examples"
-        description="Browse projects building with Lit."
-        to="/ecosystem/projects"
+        description="More examples to get you started."
+        to="/SDK/examples"
       />
       <Card
         title="📖 API Documentation"
-        description="Discover all the functions available in the SDK."
-        to="https://lit-protocol.github.io/lit-js-sdk/api_docs_html/"
+        description="Discover all the functions available in the Lit SDK."
+        to="https://serrano-sdk-docs.litprotocol.com/#welcome"
+      />
+      <Card
+        title="📃 Lit Actions SDK Documentation"
+        description="Discover all the functions that can be used inside a Lit Action."
+        to="https://actions-docs.litprotocol.com/" 
       />
       <Card
         title="🛠 Tools"

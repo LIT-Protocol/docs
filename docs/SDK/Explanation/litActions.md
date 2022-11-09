@@ -158,10 +158,9 @@ runLitAction();
 
 ## Conditional Signing
 
-Lit Actions inherit the powerful condition checking that Lit Protocol utilizes for Access Control. You can easily check any on-chain condition inside a Lit Action. For example, the below Lit Action will check if the user has at least 1 Wei on Ethereum, and only sign if they do.
+Lit Actions inherit the powerful condition checking that Lit Protocol utilizes for Access Control. You can easily check any on-chain condition inside a Lit Action.
 
-<iframe frameborder="100px" width="100%" height="500px" src="https://replit.com/@lit/Lit-Actions-Conditional-Signing/#lit-actions_conditional_signing/src/App.js"></iframe>
-
+The below example will check if the user has at least 1 Wei on Ethereum, and only sign if they do.
 
 ```js
 import LitJsSdk from "lit-js-sdk/build/index.node.js";

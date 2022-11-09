@@ -22,6 +22,11 @@ export default function QuickStartSection({ title, className }) {
         description="Encrypt on-chain meta-data (an NFT description) using the Lit SDK."
         to="/toolsAndExamples/SDKExamples/onchainMetadata/introduction"
       />
+      <Card
+        title="⌨️ Encrypt and Decrypt Static Content"
+        description="Learn how to encrypt data for private storage on the open web."
+        to="/SDK/Explanation/encryption"
+      />
     </Section>
   );
 }

@@ -43,6 +43,13 @@ Sign using our wallet before encrypting. This will show a Metamask pop-up which 
 ```js
     const authSig = await LitJsSdk.checkAndSignAuthMessage({ chain });
 ```
+### 3.1. Obtain an authsig for Node.js
+Using your pragmatic wallet (i.e. AnchorWallet) which the user signs with. The `publicKey` as PublicKey and the `messageToSign` is the body message that the wallet is going to sign.
+
+For more info, please check out our [API docs](https://lit-protocol.github.io/lit-js-sdk/api_docs_html/#checkandsignauthmessage).
+```js
+    const authSig = await LitJsSdk.signAuthMessageForNodeEnvironment(publicKey, messageToSign);
+```
 
 ### 4. Encrypt the string
 Finally, let's encrypt our string. This will return a promise containing the `encryptedString` as a **Blob** and the `symmetricKey` used to encrypt it, as a **Uint8Array**.

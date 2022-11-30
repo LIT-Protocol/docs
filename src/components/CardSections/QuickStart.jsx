@@ -32,6 +32,11 @@ export default function QuickStartSection({ title, className }) {
         description="NextJS Project: Token gate a page using a JWT."
         to="/SDK/examples#nextjs-minimal-jwt-example"
       />
+      <Card
+        title="✍️ Return a signed API response"
+        description="Learn how to fetch and sign data from the open Web using Lit Actions."
+        to="/SDK/Explanation/litActions#using-fetch"
+      />
     </Section>
   );
 }

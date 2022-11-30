@@ -10,7 +10,7 @@ The Lit network is made up of a decentralized\* federation of nodes, each playin
 
 ## Threshold Cryptography
 
-Lit is powered by **threshold cryptography**. This implies that no one node ever holds “executive authority”. Instead, participation from a pre-defined _threshold_ of nodes must be reached.
+Lit is powered by **threshold cryptography**. This implies that no one node ever holds “executive authority”. Instead, participation or *consensus* between a pre-defined _threshold_ of nodes must be reached.
 
 In the context of the Lit network, threshold cryptography is used to generate **_shares_** of a new public/private key pair in a process called [Distributed Key Generation](https://en.wikipedia.org/wiki/Distributed_key_generation). This means that the private key of this key pair **never exists in its entirety**, ever.
 

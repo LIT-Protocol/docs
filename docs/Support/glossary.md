@@ -9,7 +9,9 @@ sidebar_position: 2
 ### **[Auth Sig](/SDK/Explanation/WalletSigs/authSig#authsigs)**
 In order to use Lit Protocol, you must present a wallet signature obtained from the user. This is referred to as an 'AuthSig' in the documentation.
 ### **[Boneh-Lynn-Shacham (BLS) Signatures](https://medium.com/cryptoadvance/bls-signatures-better-than-schnorr-5a7fe30ea716)**
-A cryptographic algorithm that can be used for both signing and encryption.
+A cryptographic algorithm that can be used for both signing and encryption. BLS allows for signature aggregation and verification at scale using [Elliptic Curve cryptography](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography).
+
+Ethereum uses the BLS signature scheme to facilitate secure cryptography within the protocol. This method allows validators to sign messages, and these resulting signatures are then aggregated and verified at scale. This enables a Proof-of-Stake system with a large number of validators to function efficiently in production.
 ### **[Decentralized Access Control](/coreConcepts/accessControl/intro)**
 Lit’s decentralized access control protocol allows you to encrypt information behind [on-chain conditions](https://developer.litprotocol.com/coreConcepts/accessControl/intro), allowing you to securely store data on the open web.
 ### **[Digital Signature](/coreConcepts/LitActionsAndPKPs/litActions#signing)**
@@ -19,7 +21,7 @@ In working with the Lit network, someone will sign with their wallet when they w
 ### **Distributed Key Generation**
 A cryptographic process in which key generation requires participation from above a certain threshold of nodes, where each node only holds a ******share****** of the complete keypair.
 ### **[Elliptic Curve Digital Signature Algorithm (ECDSA)](https://blog.cloudflare.com/ecdsa-the-digital-signature-algorithm-of-a-better-internet/)**
-A cryptographic algorithm used by Ethereum to ensure that funds can only be spent by their owners. It's the preferred method for creating public and private keys, relevant for account [address](https://ethereum.org/en/glossary/#address) generation and [transaction](https://ethereum.org/en/glossary/#transaction) verification. Can be used for signing messages, but not for encryption purposes.
+ECDSA is a cryptographically secure digital signature scheme, based on elliptic-curve cryptography. ECDSA is mainly used for digital signatures. A digital signature is an authentication method used where a public key pair and a digital certificate are used as a signature to verify the identity of a recipient or sender of information.
 ### **[Encryption](/SDK/Explanation/encryption)**
 The process of encoding data so that it remains hidden or inaccessible to unauthorized parties, the core technology that enables privacy on the Internet. At a high level, encryption converts plaintext (i.e “this is a secret”) into “nonsense” ciphertext (”e5sVVb#bn332J”). You can read a more in-depth explanation [here](https://www.cloudflare.com/learning/ssl/what-is-encryption/).
 ### **[Ethereum Virtual Machine (EVM)](/coreConcepts/accessControl/EVM/basicExamples)**

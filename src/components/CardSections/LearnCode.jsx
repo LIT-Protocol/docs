@@ -35,7 +35,7 @@ export default function LearnCodeSection({ title, className }) {
       <Card
         title="🛠 Tools"
         description="Additional tools to help build with Lit."
-        to="/toolsAndExamples/tools/shareModal" 
+        to="/ToolsAndExamples/Tools/accessControl" 
       />
     </Section>
   );

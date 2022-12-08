@@ -35,7 +35,7 @@ export default function LitActionsSection({ title, className }) {
       <Card
         title="Lit Contracts SDK (Typescript)"
         description="ContractsSDK is a bundled package that allows you to make calls to Lit smart contracts."
-        to="/SDK/Explanation/litActions#lit-protocol-contracts-sdk-typescript"
+        to="/SDK/Explanation/litActions#lit-contracts-sdk-typescript"
       />
       <Card
         title="Additional Examples"

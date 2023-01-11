@@ -26,9 +26,11 @@ You can mint an NFT from our PKP contract on Polygon Mumbai [here](https://explo
 
 ## Do I need a wallet in order to use a PKP?
 
-Currently, a wallet is required in order to mint the underlying PKP NFT. This makes the wallet the sole controller of the underlying key pair. 
+Not necessarily! In order to sign with a PKP, you must present some form of authorization to the Lit nodes. We refer to this as an [auth sig](/sdk/explanation/litactions/#authentication-helpers) in the docs. This may be a user's wallet address, Google OAuth, Discord login, and more. 
 
-We are currently working on exploring other methods of authorization for PKPs, such as Apple Passkeys, Login with Google, Discord Auth, and more. This will facilitate a more frictionless onboarding experience for non-crypto-natives, as it enables methods for social recovery and wallet abstraction. 
+By continuing to work to support additional methods of authorization for PKPs (such as SMS and Apple Passkey, among others), we hope to facilitate a more frictionless onboarding experience for non-crypto-natives and enable intuitive methods for social recovery and wallet abstraction. 
+
+Check out this [proof of concept](https://spark.litprotocol.com/wallet-abstraction-with-google-oauth/) on how to mint a Programmable Key Pair and execute an on-chain transaction with nothing but a Google account, no private keys or seed phrases in sight!
 
 ## What blockchains do PKPs support?
 

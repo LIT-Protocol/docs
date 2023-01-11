@@ -4,6 +4,16 @@ sidebar_position: 3
 
 # How does Lit Protocol work?
 
+:::note
+
+**FOR DEVELOPERS: SDK API DOCUMENTATION**
+
+To start building on Lit based on your use case, check out the Lit SDK [here](/SDK/intro.mdx). For an in-depth understanding of the functionality provided, check out the [Serrano branch API docs](https://serrano-sdk-docs.litprotocol.com/#welcome). 
+
+For references to [programmatic signing](/coreConcepts/LitActionsAndPKPs/intro.md) and the Lit Actions functions which can be accessed inside a Lit Action via the `Lit.Actions` object, use the [Lit Actions](http://actions-docs.litprotocol.com/) API docs.
+
+:::
+
 ## Introduction
 
 The Lit network is made up of a decentralized\* federation of nodes, each playing a vital role in key generation, consensus, and the execution of Lit Actions (Javascript smart contracts that can utilize on or off-chain data in their computation). Lit is **not a blockchain** but instead can be defined as a middleware service that has the capacity to read and write data between blockchains and other distributed systems and state machines.

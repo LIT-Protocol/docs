@@ -8,6 +8,8 @@ sidebar_position: 4
 
 Lit Actions are still heavily in development and things may change.
 
+To start developing with Lit Actions, check out examples [here](/SDK/Explanation/litActions.md). For an in-depth review of the functionality provided by the Lit Actions SDK, take a look at our [API docs](https://actions-docs.litprotocol.com/).
+
 :::
 
 ## What are Lit Actions?
@@ -40,9 +42,9 @@ A proof is a particular application for a digitial signature. For example, using
 
 Signing through Lit Actions opens up the possibilities of verifying information from external sources, such as from a Weather API. Within the Lit ecosystem this signed information is called a proof. 
 
-## Working with External Smart Contracts
+## Permissionless Execution and Working With External Smart Contracts
 
-Lit Actions are not yet compatible with external smart contracts, though we are currently looking to develop our own native [event listening](https://litprotocol.notion.site/Event-based-triggers-for-PKPs-0b22532c571f4dffb08d6e84e9c5dd04) solution, in order to enable this permissionless execution. 
+Right now, all Lit Actions have to be executed manually by a user. In order to enable the truly permissionless, "condition-based" execution of Lit Actions, we are working on developing our own native [event listening](https://litprotocol.notion.site/Event-based-triggers-for-PKPs-0b22532c571f4dffb08d6e84e9c5dd04) solution. 
 
 Right now, you could use something like [Tenderly Web3 Actions](https://docs.tenderly.co/web3-actions/intro-to-web3-actions) to listen for an on-chain event and then call a Lit Action as a result.
 

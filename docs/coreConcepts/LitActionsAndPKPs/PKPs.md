@@ -10,10 +10,11 @@ PKPs are still heavily in development and things may change.
 
 Need some Polygon Mumbai Tokens to mint a PKP? Fill out this form: https://forms.gle/hcvh7VbS83DokBSE9
 
-:::
-
 **PKP Minting is live!**
 Mint one here: https://explorer.litprotocol.com/mint-pkp
+
+:::
+
 
 ## What are Programmable Key Pairs (PKPs)?
 

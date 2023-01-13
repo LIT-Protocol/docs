@@ -15,7 +15,7 @@ export default function QuickStartSection({ title, className }) {
       <Card
         title="👋 Hello World w/ Lit Actions"
         description="Create your first Lit-enabled application using Lit Actions."
-        to="/SDK/Explanation/litActions#hello-world"
+        to="/SDK/Explanation/LitActions/helloWorld"
       />
       <Card
         title="📁 Encrypt On-Chain Metadata (Polygon)"
@@ -35,7 +35,7 @@ export default function QuickStartSection({ title, className }) {
       <Card
         title="✍️ Return a signed API response"
         description="Learn how to fetch and sign data from the open Web using Lit Actions."
-        to="/SDK/Explanation/litActions#using-fetch"
+        to="/SDK/Explanation/LitActions/usingFetch"
       />
     </Section>
   );

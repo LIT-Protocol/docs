@@ -57,6 +57,6 @@ Go through this [Lit Actions](https://101.xyz/course/claift8fc415408l116dbsqpl) 
 
 ## Getting started with Lit Actions
 
-Get started with Lit Actions [here](/SDK/Explanation/litActions.md).
+Get started with Lit Actions [here](/SDK/Explanation/LitActions/helloWorld).
 
 More [examples](/coreConcepts/usecases#programmatic-signing-lit-actions-and-pkps).

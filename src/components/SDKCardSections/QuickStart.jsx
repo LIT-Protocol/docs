@@ -17,6 +17,11 @@ export default function QuickStartSection({ title, className }) {
         description="View a list of open source projects that implement the Lit JS SDK."
         to="/SDK/examples"
       />
+      <Card
+        title="Wallet Signatures and Authorization"
+        description="Understand the required format of wallet signatures."
+        to="/SDK/Explanation/WalletSigs/authSig"
+      />
     </Section>
   );
 }

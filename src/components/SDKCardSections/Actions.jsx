@@ -25,7 +25,7 @@ export default function LitActionsSection({ title, className }) {
       <Card
         title="Wallet Signatures and Authorization"
         description="Explore different methods of auth for PKPs and Lit Actions."
-        to="/SDK/Explanation/SDK/Explanation/WalletSigs/authSig"
+        to="/SDK/Explanation/WalletSigs/authSig"
       />
       <Card
         title="Lit Contracts SDK (Typescript)"

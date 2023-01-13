@@ -387,3 +387,10 @@ force = false
   to = "/SDK/Explanation/encryption"
   status = 302
   force = false
+
+# 01/12/23 - Lit Actions into it's own section
+[[redirects]]
+  from = "/SDK/Explanation/litActions"
+  to = "/SDK/Explanation/LitActions/helloWorld"
+  status = 302
+  force = false

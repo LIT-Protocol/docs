@@ -394,3 +394,9 @@ force = false
   to = "/SDK/Explanation/LitActions/helloWorld"
   status = 302
   force = false
+
+[[redirects]]
+  from = "/ToolsAndExamples/SDKExamples/EncryptAndDecrypt/*"
+  to = "/SDK/Explanation/encryption"
+  status = 302
+  force = false

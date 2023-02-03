@@ -18,6 +18,11 @@ export default function EcosystemSection({ title, className }) {
         to="https://litprotocol.notion.site/Lit-Request-for-Ecosystem-Proposals-ae3f31e7f32c413cbe0b36c2fe53378d"
       />
       <Card
+        title="🧑‍💻 Request for Startups"
+        description="Your invitation to build the decentralized Web with distributed cryptography."
+        to="https://spark.litprotocol.com/request-for-startups/"
+      />
+      <Card
         title="👨‍👩‍👧‍👦 Community"
         description="Join the community through Discord, Twitter, and keep up to date with the community calendar."
         to="/ecosystem/community"

@@ -8,7 +8,7 @@ sidebar_position: 4
 
 Lit Actions are still heavily in development and things may change.
 
-To start developing with Lit Actions, check out examples [here](/SDK/Explanation/litActions.md). For an in-depth review of the functionality provided by the Lit Actions SDK, take a look at our [API docs](https://actions-docs.litprotocol.com/).
+To start developing with Lit Actions, check out examples [here](/SDK/Explanation/LitActions/helloWorld). For an in-depth review of the functionality provided by the Lit Actions SDK, take a look at our [API docs](https://actions-docs.litprotocol.com/).
 
 :::
 
@@ -22,7 +22,7 @@ The result of this function can be used to pass some functionality, like provisi
 
 ## What can I use Lit Actions for?
 
-Lit Actions are essentially decentralized serverless functions. You can use Lit Actions in conjunction with PKPs to sign and decrypt data, functionally creating a smart contract with its own key pair. 
+When used in conjunction with PKPs, Lit Actions can facilitate the automated signing and decryption of data, functionally smart contracts with their own key-pairs. 
 
 A toy example would be a Lit Action and corresponding PKP that checks if a number is prime, and only signs it if it is prime.  Think of it as a sort of “prime number” certification service.  Since the Lit Action is immutable, and since you can permanently assign a PKP to a Lit Action, there is a provable chain of trust.  This means you could present the signature and a number to someone, and they could simply check the signature against the public key of the PKP to see if the number is actually prime, instead of having to do all the math to ensure that the number is actually prime.  The signature acts as a proof that the number is prime.  
 
@@ -50,7 +50,7 @@ Right now, you could use something like [Tenderly Web3 Actions](https://docs.ten
 
 ## Do I need a PKP to run a Lit Action? 
 
-No, but without it, Lit Actions lose their "magic" capabilities of signing and decryption. An Action without a PKP is essentially just a serverless function that **can’t sign** or decrypt arbitrary data.  
+No, but without it, Lit Actions lose their "magic" capabilities of signing and decryption. An Action without a PKP is essentially just a JavaScript function that **can’t sign or decrypt** arbitrary data.  
 
 ## Test your knowledge of Lit Actions on 101.xyz
 Go through this [Lit Actions](https://101.xyz/course/claift8fc415408l116dbsqpl) course on 101.xyz and receive an NFT credential to show your proof of knowledge. 

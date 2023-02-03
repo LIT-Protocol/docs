@@ -9,12 +9,13 @@ import TabItem from '@theme/TabItem';
 
 When you call a Lit Action, you may pass Auth Methods that should be resolved. These could be things like a WebAuthn signature, or an oauth token from a service like Discord or Google. You can see an example of this here: https://github.com/LIT-Protocol/js-serverless-function-test/blob/main/js-sdkTests/authContext.js#L32
 
-## What is the difference between authorization and authentication?
-An authentication method refers to the specific credential (i.e a wallet address, Google oAuth, or Discord account) that is programmatically tied to the PKP and used to control the underlying key-pair.
+## What is authentication?
+An authentication method refers to the specific credential (i.e a wallet address, Google oAuth, or Discord account) that is programmatically tied to the PKP and used to control the underlying key-pair. Only the auth method associated with a particular PKP has the ability to combine the underlying shares. You can read more about how authentication works with PKPs on our [blog](https://spark.litprotocol.com/how-authentication-works-with-pkps/).
 
-Authorization is through auth signatures - an auth sig is always required when making a request to Lit, whether it be decrypting some piece of content or sending a transaction with a PKP.
+## How does authentication differ from authorization?
 
-[Read more.](https://spark.litprotocol.com/how-authentication-works-with-pkps/)
+Authorization refers to an [auth signature](/SDK/Explanation/WalletSigs/authSig), which is **always required** to communicate with the Lit nodes and make a request to the network. It doesn't matter if you are decrypting a piece of data or calling a Lit Action, an auth sig will always be required.
+
 
 ## How to use
 Inside of your Lit Actions, there is an object called `Lit.Auth` that will be pre-populated with the resolved Auth Methods, and a few other items. For example, if you pass a Google Oauth Token, then the Lit Nodes will resolve the Oauth Token into a user ID and application ID and those will be available to you in `Lit.Auth`. `Lit.Auth` has the following members:

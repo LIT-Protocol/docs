@@ -10,16 +10,14 @@ It is NOT recommended to use the lit-js-sdk within a Lit Action due to the poten
 
 ## Ideal Use Cases
 
-- Generating proofs
-- Using a signature to prove
-that a particular interaction took place.
-- Lookup PKP permitted actions, addresses and auth methods
-- Checking access control conditions
+- [Generating proofs](/coreConcepts/LitActionsAndPKPs/litActions#proofs)
+- Looking up permitted actions, addresses and [auth methods](/SDK/Explanation/LitActions/authHelpers.md) associated with a PKP
+- Checking access control conditions with [conditional signing](/SDK/Explanation/LitActions/conditionalSigning.md)
 
 ## Think Twice Use Case
-- POST request that inserts a new SQL row (you will have n number of rows, where n is the number of nodes that run the Lit Actions) 
+- POST request that inserts a new SQL row (as the Lit Action will be executed by *every* node in parallel, you will end up with n number of rows, where n is the total number of nodes in the Lit network) 
 
 
 ## Bad Use Cases
 - ETH RPC calls
-- Sending a transaction
+- Sending a transaction (the transaction will be sent n times, where n is the total number of nodes in the Lit network)

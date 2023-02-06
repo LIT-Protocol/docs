@@ -15,9 +15,9 @@ It is NOT recommended to use the lit-js-sdk within a Lit Action due to the poten
 - Checking access control conditions with [conditional signing](/SDK/Explanation/LitActions/conditionalSigning.md)
 
 ## Think Twice Use Case
-- POST request that inserts a new SQL row (as the Lit Action will be executed by *every* node in parallel, you will end up with n number of rows, where n is the total number of nodes in the Lit network) 
+- POST request that inserts a new SQL row (as the Lit Action will be executed by *every* node in parallel, you will end up with n number of rows, where n is no less than two-thirds the number of total nodes in the Lit network) 
 
 
 ## Bad Use Cases
 - ETH RPC calls
-- Sending a transaction (the transaction will be sent n times, where n is the total number of nodes in the Lit network)
+- Sending a transaction (the transaction will be sent n times, where n is no less than two-thirds the number of total nodes in the Lit network)

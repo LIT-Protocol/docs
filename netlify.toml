@@ -400,3 +400,23 @@ force = false
   to = "/SDK/Explanation/encryption"
   status = 302
   force = false
+
+
+# 02/14/23 - Move up Lit Actions sections from within SDK to the core concepts / programmatic signing section
+[[redirects]]
+  from = "/SDK/Explanation/LitActions/conditionalSigning/*"
+  to = "/coreConcepts/LitActionsAndPKPs/actions/conditionalSigning"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/SDK/Explanation/LitActions/usingFetch"
+  to = "/coreConcepts/LitActionsAndPKPs/actions/usingFetch"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/SDK/Explanation/LitActions/authHelpers/*"
+  to = "/coreConcepts/LitActionsAndPKPs/actions/authHelpers"
+  status = 302
+  force = false

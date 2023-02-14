@@ -1,8 +1,8 @@
 ---
-sidebar_position: 4
+sidebar_position: 1
 ---
 
-# Lit Actions
+# What are Lit Actions
 
 :::note
 
@@ -11,8 +11,6 @@ Lit Actions are still heavily in development and things may change. We're gratef
 To start developing with Lit Actions, check out examples [here](/SDK/Explanation/LitActions/helloWorld). For an in-depth review of the functionality provided by the Lit Actions SDK, take a look at our [API docs](https://actions-docs.litprotocol.com/).
 
 :::
-
-## What are Lit Actions?
 
 Lit Actions are the application logic that a user can ‘add’ to a PKP, this is referred to as programmatic signing.
 

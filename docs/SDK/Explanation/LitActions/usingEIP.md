@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 2
 ---
 
 import Tabs from '@theme/Tabs';
@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 # Signing with EIP191
 
-You can also use EIP191 eth_personal_sign to sign a message, instead of a transaction or raw signature.
+You can also use EIP191 `eth_personal_sign` to sign a message, instead of a transaction or raw signature.
 
 This can be done with `LitActions.ethPersonalSignMessageEcdsa({ message, publicKey , sigName });` when signing. It will prepend "\\x19Ethereum Signed Message:\\n" to the message and then hash and sign it according to https://eips.ethereum.org/EIPS/eip-191
 

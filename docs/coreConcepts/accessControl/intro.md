@@ -3,9 +3,11 @@ sidebar_position: 1
 ---
 
 # Introduction to Decentralized Access Control
-Lit Protocol provides decentralized access control but what does that actually mean? 
-
+Lit Protocol provides decentralized access control but what does that actually mean?
 With Lit Protocol, you can set on-chain conditions like "user must hold an NFT" and then the network will provision signatures and decryption keys for users that meet those conditions.
+
+What makes this process decentralized is that no node in the network is the custodian of the entire private key. The SDK provides mechanisms for the client-side encryption of arbitrary data. Alice starts by generating a symmetric key and encrypts some content with it. She then distributes this key as shares across Lit’s decentralized network. Finally, Alice sets rules for under what conditions or who the network should provision the symmetric key to. When Bob attempts to access the content encrypted by Alice, the network will first check that he meets the required conditions (by prompting him to sign a message with his wallet). Once Lit verifies that the conditions are met, the decryption key is provisioned to Bob and he can unlock the content.  
+
 
 ## On-chain conditions and credentials are things like:
 * User is a member of a DAO

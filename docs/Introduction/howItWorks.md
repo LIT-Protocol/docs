@@ -46,7 +46,7 @@ Lit Protocol nodes will verify that the user owns the NFT, sign the JWT to creat
 
 ![accessControl](/img/AccessControl.png)
 
-## Decentralized Cloud Signing
+## Decentralized Programmatic Signing
 
 ### Lit Actions
 

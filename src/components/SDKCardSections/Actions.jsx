@@ -15,17 +15,17 @@ export default function LitActionsSection({ title, className }) {
       <Card
         title="Proofs and Signed Data"
         description="Use Lit's conditional signing capabilities to generate verifiable proofs within your app logic."
-        to="/SDK/Explanation/LitActions/conditionalSigning"
+        to="/coreConcepts/LitActionsAndPKPs/actions/conditionalSigning"
       />
       <Card
         title="Fetching Off-chain Data"
         description="Use off-chain data natively without the need for a third-party oracle."
-        to="/SDK/Explanation/LitActions/usingFetch"
+        to="/LitActionsAndPKPs/actions/usingFetch"
       />
       <Card
         title="Authentication Helpers"
         description="Explore different methods of authentication (ie. Google OAuth, WebAuthn, etc...)."
-        to="/SDK/Explanation/LitActions/authHelpers"
+        to="/LitActionsAndPKPs/actions/authHelpers"
       />
       <Card
         title="Lit Contracts SDK (Typescript)"

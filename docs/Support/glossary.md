@@ -54,7 +54,7 @@ The technology that underpins cryptocurrency and most of the security infrastruc
 ### **[Rate Limiting](https://explorer.litprotocol.com/rlis)**
 By default, each Lit Action execution comes with a "free plan" that allows you to execute a limited number of requests/millisecond on the Lit nodes. To lift this limitation, you can "upgrade" your plan by purchasing an RLI NFT that comes with "flexible terms" which can be customized by 2 factors, the number of requests/millisecond and the expiry date. 
 ### **[Session Keys](/SDK/Explanation/WalletSigs/sessionSigs)**
-When the user “signs into” Lit, we generate a random session key for them. They sign that session pubkey as the “URI” of a SIWE message which creates a capability signature. There is a default expiration time of 1 week, but this is configurable. This signature and the session key are stored in the localstorage of the browser.
+When the user “signs into” Lit, we generate a random session key for them. They sign that session pubkey as the “URI” of a SIWE message which creates a capability signature. There is a default expiration time of 24 hours, but this is configurable. This signature and the session key are stored in the localstorage of the browser.
 
 When the user sends a request, the session key signs it and sends the signature with the request. The capability signature is also sent. Multiple capability signatures can be attached. Therefore, the AuthSig presented to the nodes is actually the session key AuthSig with the capability signatures attached. The SDK will use the session key to scope the AuthSig for each request to the specific resource and node being addressed, preventing replay attacks.
 ### **[SIWE](/coreconcepts/accesscontrol/evm/siwe/)**

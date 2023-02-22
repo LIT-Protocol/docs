@@ -71,7 +71,8 @@ Build powerful infrastructure that harnesses the power of Lit!
 
 Example Projects:
 
-- Coming soon… 👀 —> [build with us](https://discord.com/invite/nm9aBG8z9w)!
+- [Yacht Labs](https://yachtlabs.io/blog/yacht-lit-swap): Cross-chain atomic swaps with PKPs and Lit Actions
+- More coming soon… 👀 —> [build with us](https://discord.com/invite/nm9aBG8z9w)!
 
 ### Web3 Social
 

@@ -29,8 +29,6 @@ Don't see a blockchain you want?  Fill out this form for EVM chains and we'll ad
 - xdc
 - evmos
 - evmosTestnet
-- bscTestnet
-- baseGoerli
 - solana
 - solanaDevnet
 - solanaTestnet

@@ -4,6 +4,13 @@ sidebar_position: 6
 
 # Initial Implementations
 
+## Swap Playground
+Uniswap trade interface for Programmable Key Pairs (PKPs). 
+This is a demo to create actions that developers can copy and paste to use for their own projects. After an action is created, the swap can be executed.
+![Lit Swap Interface](/img/lit_swap.png)
+
+Check it out here: https://lit-swap-playground.netlify.app/
+
 ## Ceramic Signer
 
 This package can be used to sign Ceramic transactions with a PKP using Lit Actions: https://github.com/LIT-Protocol/key-did-provider-secp256k1

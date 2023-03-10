@@ -20,7 +20,7 @@ export default function CoreConceptsSection({ title, className }) {
       <Card
         title="💳 Distributed Custody Wallets"
         description="Learn how you can leverage PKPs to create MPC wallets with support for Web2 authentication."
-        to="/coreConcepts/Wallets/overview"
+        to="/coreConcepts/Wallets/intro"
       />
       <Card
         title="🧩 Use Cases"

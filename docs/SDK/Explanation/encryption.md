@@ -3,10 +3,12 @@ sidebar_position: 2
 ---
 
 # Encryption
+You can use Lit to encrypt and store any static content. This could be a file, a string, or anything that won't change. You need to store the content and metadata yourself (on IPFS, Arweave, or even a centralized storage solution), and Lit will store who is allowed to decrypt it and enforce this (aka key management).
 
-You can use Lit to encrypt and store any static content. This could be a file, a string, or anything that won't change. You have to store the content and metadata yourself (on IPFS, Arweave, or even somewhere centralized), but Lit will store who is allowed to decrypt it and enforce this (aka key management).
+If you want to use IPFS as a storage solution, Lit has an `encryptToIpfs` function that will help streamline the process of encryption and storing the encrypted data. You will need to provide an Infura ID and API secret key. [Jump to encryptToIPFS](/SDK/Explanation/encryptionAndIpfs#encrypttoipfs).
 
-The below Replit is a full-fledged **React** application that encrypts & decrypt a **file** using Lit SDK. For best experience please open the web app in a new tab.
+
+Check out the Replit below, which is a full-fledged **React** application that encrypts & decrypt a **file** using Lit SDK. For best experience please open the web app in a new tab.
 
 <iframe frameborder="0" width="100%" height="500px" className="repls" style={{display: "none"}} src="https://replit.com/@lit/Encrypt-and-Decrypt-a-File/#encrypt_and_decrypt_file/src/App.js"></iframe>
 
@@ -38,9 +40,16 @@ export default new Lit()
 
 ## Encrypting
 
-API docs with detailed info on functions are here: https://lit-protocol.github.io/lit-js-sdk/api_docs_html/
+Check out the API docs with detailed info on [functions](https://lit-protocol.github.io/lit-js-sdk/api_docs_html/).
 
-### Access Control
+Steps to Encrypt
+1. Obtain an `authSig` and create an access control condition.
+2. Encrypt the static content (string, file, etc.) to get the `encryptedString`, for example.
+3. Use `litNodeClient.saveEncryptionKey` to tie the `accessControlConditions` with the `symmetricKey` we got above. This returns us the `encryptedSymmetricKey`.
+4. Finally, we have to store the `encryptedString` & other metadata: `encryptedSymmetricKey`, `accessControlConditions` (or other conditions eg: `evmContractConditions`) and `chain`. IPFS is generally used to store these values.
+
+
+### Access Control & AuthSig
 
 In this example, we will set the accessControlConditions on if a wallet has at least 0.000001 ETH:
 
@@ -59,8 +68,6 @@ const accessControlConditions = [
   },
 ];
 ```
-
-### AuthSig
 
 First, obtain an authSig. This will ask metamask to sign a message proving the holder owns the crypto address.
 
@@ -84,7 +91,7 @@ const { encryptedString, symmetricKey } = await LitJsSdk.encryptString(
 
 **Note**: `encryptedString` will be a Blob and `symmetricKey` will be a Uint8Array.
 
-### Saving the Encrypted Content to the Lit Nodes
+#### **Saving the Encrypted Content to the Lit Nodes**
 
 Now, we can save the encryption key with the access control condition, which tells Lit Protocol that users that meet this access control condition should be able to decrypt.
 
@@ -198,3 +205,59 @@ The full decryption process should look like:
   return { decryptedString }
   }
 ```
+
+
+# Encryption & Upload to IPFS
+
+To simplify encrypting and uploading to IPFS, there is a method within the SDK to help encrypt and store data on IPFS.
+
+## encryptToIPFS
+
+Now, let's take a look at the simplified encryption-decryption & IPFS storing functionality.
+
+:::note
+
+The `encryptToIpfs` function internally uses the ipfs-http-client which requires the Infura Project Id & API Secret Key.
+
+:::
+
+### Encryption
+
+1. For encrypting the static content (string, file) simply pass it to our function `encryptToIpfs` along with the other params: `accessControlConditions`, `chain`, `infuraId`, `infuraSecretKey` & the instance of the connected `LitNodeClient`. Note we're using the Infura client to add the strings/files to IPFS hence you have to provide your credentials.
+
+That's all! All the steps will be taken care of for you & the `ipfsCid` for your encrypted metadata will be returned to you.
+
+### Decryption
+
+1. For decrypting the encrypted content (string, file) simply pass the returned `ipfsCid` to our function `decryptFromIpfs` & the instance of the connected `LitNodeClient`.
+
+That's all! You will get the decrypted string or the file as an ArrayBuffer.
+
+### Putting it all together
+
+```js
+async encrypt() {
+    const ipfsCid = await LitJsSdk.encryptToIpfs({
+      authSig,
+      accessControlConditions,
+      chain,
+      string: "Encrypt & store on IPFS seamlessly with Lit 😎",
+    //   file, // If you want to encrypt a file instead of a string
+      litNodeClient: this.litNodeClient,
+      infuraId: 'YOUR INFURA PROJECT ID',
+      infuraSecretKey: 'YOUR INFURA API-SECRET-KEY',
+    });
+}
+
+async decrypt(ipfsCid) {
+    const decryptedString = await LitJsSdk.decryptFromIpfs({
+      authSig,
+      ipfsCid, // This is returned from the above encryption
+      litNodeClient: this.litNodeClient,
+    });
+}
+```
+
+### How to encrypt & decrypt a file instead?
+
+For encryption use the same function params as above with the string param replaced with a file. For decryption nothing changes. The returned value in that case will be a Uint8Array instead of a string since it's a decrypted file.

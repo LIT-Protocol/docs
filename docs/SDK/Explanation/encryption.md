@@ -5,7 +5,7 @@ sidebar_position: 2
 # Encryption
 You can use Lit to encrypt and store any static content. This could be a file, a string, or anything that won't change. You need to store the content and metadata yourself (on IPFS, Arweave, or even a centralized storage solution), and Lit will store who is allowed to decrypt it and enforce this (aka key management).
 
-If you want to use IPFS as a storage solution, Lit has an `encryptToIpfs` function that will help streamline the process of encryption and storing the encrypted data. You will need to provide an Infura ID and API secret key. [Jump to encryptToIPFS](/SDK/Explanation/encryptionAndIpfs#encrypttoipfs).
+If you want to use IPFS as a storage solution, Lit has an `encryptToIpfs` function that will help streamline the process of encryption and storing the encrypted data. You will need to provide an Infura ID and API secret key. [Jump to encryptToIPFS](/SDK/Explanation/encryption#encrypttoipfs).
 
 
 Check out the Replit below, which is a full-fledged **React** application that encrypts & decrypt a **file** using Lit SDK. For best experience please open the web app in a new tab.

@@ -34,9 +34,9 @@ const sidebars = {
       collapsible: false,
       className: 'category-not-collapsible',
       items: [
-        'startHere/overview',
-        'startHere/whatIsLitProtocol',
-        'startHere/usecases',
+        'intro/overview',
+        'intro/whatIsLitProtocol',
+        'intro/usecases',
       ],
     },
     {
@@ -84,19 +84,19 @@ const sidebars = {
       label: 'Programmable Key Pairs',
       collapsed: true,
       items: [
-        'programmableKeyPairs/intro',
-        'programmableKeyPairs/authHelpers',
-        'programmableKeyPairs/usingPKPsAndActions',
+        'pkp/intro',
+        'pkp/authHelpers',
+        'pkp/usingPKPsAndActions',
         {
           type: 'category',
           label: 'Distributed Cloud Wallets',
           collapsed: true,
           items: [
-            'programmableKeyPairs/Wallets/intro',
-            'programmableKeyPairs/Wallets/examples',
+            'pkp/wallets/intro',
+            'pkp/wallets/examples',
           ],
         },
-        'programmableKeyPairs/toolsAndExamples',
+        'pkp/toolsAndExamples',
       ],
     },
     {
@@ -104,14 +104,14 @@ const sidebars = {
       label: 'Lit Actions',
       collapsed: true,
       items: [
-        'LitActions/intro',
-        'LitActions/bestPractices',
-        'LitActions/getlitCli',
-        'LitActions/helloWorld',
-        'LitActions/logAndReturn',
-        'LitActions/usingFetch',
-        'LitActions/conditionalSigning',
-        'LitActions/usingEIP',
+        'litActions/intro',
+        'litActions/bestPractices',
+        'litActions/getlitCli',
+        'litActions/helloWorld',
+        'litActions/logAndReturn',
+        'litActions/usingFetch',
+        'litActions/conditionalSigning',
+        'litActions/usingEIP',
       ],
     },
       
@@ -122,27 +122,26 @@ const sidebars = {
       className: 'category-not-collapsible',
       items: [
         'SDK/intro',
-        'SDK/Explanation/installation',
-        'SDK/Explanation/migration',
+        'SDK/explanation/installation',
+        'SDK/explanation/migration',
         {
           type: 'category',
           label: 'Working with the SDK',
           collapsed: true,
           items: [
-            'SDK/Explanation/encryption',
+            'SDK/explanation/encryption',
             {
               type: 'category',
               label: 'Wallet Signatures and Session Keys',
               collapsed: true,
               items: [
-                'SDK/Explanation/WalletSigs/authSig',
-                'SDK/Explanation/WalletSigs/sessionSigs',
+                'SDK/explanation/walletSigs/authSig',
+                'SDK/explanation/walletSigs/sessionSigs',
               ],
             },
-            'SDK/Explanation/tests'
+            'SDK/explanation/tests'
           ],
         },
-        'SDK/examples',
         {
           type: 'category',
           label: 'Tools & Integrations',
@@ -153,10 +152,10 @@ const sidebars = {
               label: 'Tools',
               collapsed: true,
               items: [
-                'ToolsAndExamples/Tools/accessControl',
-                'ToolsAndExamples/Tools/shareModal',
-                'ToolsAndExamples/Tools/jwtverify',
-                'ToolsAndExamples/Tools/pkpexplorer',
+                'toolsAndExamples/tools/accessControl',
+                'toolsAndExamples/tools/shareModal',
+                'toolsAndExamples/tools/jwtverify',
+                'toolsAndExamples/tools/pkpexplorer',
               ],
             },
             {
@@ -169,12 +168,12 @@ const sidebars = {
                   label: 'Ceramic Integration',
                   collapsed: true,
                   items: [
-                    'ToolsAndExamples/Integrations/Ceramic/intro',
-                    'ToolsAndExamples/Integrations/Ceramic/installation',
+                    'toolsAndExamples/integrations/Ceramic/intro',
+                    'toolsAndExamples/integrations/Ceramic/installation',
                   ],
                 },
-                'ToolsAndExamples/Integrations/bundlrxarweave',
-                'ToolsAndExamples/Integrations/additionalIntegrations',
+                'toolsAndExamples/integrations/bundlrxarweave',
+                'toolsAndExamples/integrations/additionalIntegrations',
               ],
             },
             {
@@ -187,20 +186,22 @@ const sidebars = {
                   label: 'Encrypting and Decrypting On-chain Metadata',
                   collapsed: true,
                   items: [
-                    'ToolsAndExamples/SDKExamples/OnchainMetadata/introduction',
-                    'ToolsAndExamples/SDKExamples/OnchainMetadata/setup',
-                    'ToolsAndExamples/SDKExamples/OnchainMetadata/encryptDecrypt',
-                    'ToolsAndExamples/SDKExamples/OnchainMetadata/smartContract',
-                    'ToolsAndExamples/SDKExamples/OnchainMetadata/frontend',
-                    'ToolsAndExamples/SDKExamples/OnchainMetadata/polygonMumbai',
+                    'toolsAndExamples/SDKExamples/OnchainMetadata/introduction',
+                    'toolsAndExamples/SDKExamples/OnchainMetadata/setup',
+                    'toolsAndExamples/SDKExamples/OnchainMetadata/encryptDecrypt',
+                    'toolsAndExamples/SDKExamples/OnchainMetadata/smartContract',
+                    'toolsAndExamples/SDKExamples/OnchainMetadata/frontend',
+                    'toolsAndExamples/SDKExamples/OnchainMetadata/polygonMumbai',
                   ],
                 },
-                'ToolsAndExamples/SDKExamples/dynamicContent',
-                'ToolsAndExamples/SDKExamples/signedChainData',
+                'toolsAndExamples/SDKExamples/dynamicContent',
+                'toolsAndExamples/SDKExamples/signedChainData',
               ],
             },
           ],
         },
+        'SDK/contracts',
+        'SDK/examples',
       ],
     },
     {
@@ -209,9 +210,9 @@ const sidebars = {
       collapsible: false,
       className: 'category-not-collapsible',
       items: [
-        'Ecosystem/litGrants',
-        'Ecosystem/community',
-        'Ecosystem/projects',
+        'ecosystem/litGrants',
+        'ecosystem/community',
+        'ecosystem/projects',
       ],
     },
     {
@@ -221,8 +222,8 @@ const sidebars = {
       className: 'category-not-collapsible',
       items: [
         'resources/howItWorks',
-        
-        'resources/contracts',
+        'resources/supportedChains',
+        'resources/glossary',
       ],
     },
     {
@@ -231,10 +232,9 @@ const sidebars = {
       collapsible: false,
       className: 'category-not-collapsible',
       items: [
-        'Support/faq',
-        'resources/glossary',
-        'Support/bugBounty',
-        'Support/stateOfNetwork',
+        'support/faq',
+        'support/bugBounty',
+        'support/stateOfNetwork',
         
       ],
     },

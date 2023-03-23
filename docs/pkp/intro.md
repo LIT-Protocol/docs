@@ -30,7 +30,7 @@ You can also use our handy auth helper contract on Polygon Mumbai [here](https:/
 
 ## What blockchains can PKPs write to?​
 
-Any blockchain or cryptographic system that utilizes [ECDSA](https://blog.cloudflare.com/ecdsa-the-digital-signature-algorithm-of-a-better-internet/) for digital signatures. This includes Ethereum and most EVM chains, Bitcoin, and Cosmos. View all supported chains [here.](/Support/supportedChains#programmable-key-pairs)
+Any blockchain or cryptographic system that utilizes [ECDSA](https://blog.cloudflare.com/ecdsa-the-digital-signature-algorithm-of-a-better-internet/) for digital signatures. This includes Ethereum and most EVM chains, Bitcoin, and Cosmos. View all supported chains [here.](/resources/supportedChains#programmable-key-pairs)
 
 ## What can I use PKPs for?
 

@@ -25,7 +25,7 @@ export default function LitActionsSection({ title, className }) {
       <Card
         title="Authentication Helpers"
         description="Explore different methods of authentication (ie. Google OAuth, WebAuthn, etc...)."
-        to="/programmableKeyPairs/authHelpers"
+        to="/pkp/authHelpers"
       />
       <Card
         title="Lit Contracts SDK (Typescript)"

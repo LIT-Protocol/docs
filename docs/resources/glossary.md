@@ -42,7 +42,7 @@ An oracle is a bridge between the [blockchain](https://ethereum.org/en/glossary
 A share of a private key that can be used to decrypt and sign.  Decryption creates “decryption shares” and signing creates “signature shares”. These resultant shares are combined above the threshold to produce the decrypted content or signature.
 ### **[Proactive Secret Sharing](https://www.youtube.com/watch?v=iOqU2DySmeU&t=594s)**
 Keep the same overall private key, but change the private key shares, such that private key shares after the PSS operation are incompatible with shares from before the operation.  We use PSS for adding and removing nodes from the network during an epoch transition, such that private key shares from the previous epoch are incompatible with private key shares in the next epoch.
-### **[Programmable Key Pairs (PKPs)](/programmableKeyPairs/intro)**
+### **[Programmable Key Pairs (PKPs)](/pkp/intro)**
 An ECDSA keypair generated collectively by the Lit nodes. PKPs can be used to read and write data across blockchains (EVM, Cosmos, BTC), storage networks (IPFS, Ceramic), and HTTP endpoints.
 ### **[Proof](/LitActions/actions/litActions#proofs)**
 A proof is a particular application for a digitial signature. For example, using a signature to *prove* that a particular interaction took place. Signing through Lit Actions opens up the possibilities of verifying information from external sources, such as from a Weather API. Within the Lit ecosystem this signed information is called a proof.

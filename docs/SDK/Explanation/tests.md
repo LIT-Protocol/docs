@@ -77,7 +77,7 @@ Errors are thrown as exceptions when something has gone wrong. Errors are object
 |NodeResourceIdNotFound|Invalid resourceId param.|
 |NodeRpcError|Error making the call to RPC url for the passed chain param. Please ensure that the contract call that you're making is correct including the contract address & it's passed params. Especially ensure the correctness of the functionAbi if you're using Custom Contract calls.|
 |NodeStorageError|An error occured while storing the encryption condition. Please look at the returned error for more info.|
-|NodeWrongNetwork|Either you didn't pass a chain param or it's invalid/not supported yet. Please see all the supported chain here: https://developer.litprotocol.com/support/supportedchains/|
+|NodeWrongNetwork|Either you didn't pass a chain param or it's invalid/not supported yet. Please see all the supported chain [here](/resources/supportedchains/)|
 |NodeHTTPConversionError|Internal error with the RPC url for the provided chain param. Please try again. If this error persists contact us on Discord.|
 |NodeUnknownError|An unknow error occured. Please try again. If this error persists contact us on Discord.|
 |NodeParserError|Error parsing a provided param. Please look at the returned error for more info.|
@@ -86,7 +86,7 @@ Errors are thrown as exceptions when something has gone wrong. Errors are object
 |NodeSIWESigConversionError|Invalid SIWE capability's sig param. Please look at the returned error for more info.|
 |NodeSIWESessionKeySignatureInvalid|session.pubkey isn't signed in the wallet-signed SIWE message.|
 |NodeBlockchainError|Error making an on-chain call. Please look at the returned error for more info.|
-|NodeBlockchainChainUnknown|Invalid chain value for the provided Authsig.sig param. Please see all the supported chain here: https://developer.litprotocol.com/support/supportedchains/|
+|NodeBlockchainChainUnknown|Invalid chain value for the provided Authsig.sig param. Please see all the supported chain [here](/resources/supportedchains/)]|
 |NodeWalletSignatureJSONError|Error parsing Authsig. Please look at the returned error for more info.|
 |NodePOAPJSONError|Internal error parsing POAP as a JSON. Please try again. If this error persists contact us on Discord.|
 |NodeCosmosJSONError|Error parsing Cosmos result. Please ensure that the Cosmos condition passed is correct.|

@@ -44,7 +44,7 @@ We do not recommend storing anything of value on the Serrano Testnet.
 
 ## Sending the PKP to itself
 
-Sending a PKP to itself is possible, because the PKP is an NFT and also a wallet. This is useful if you want to make sure that only the PKP itself can change it's auth methods. To learn how auth works, read more [here](/programmableKeyPairs/authHelpers). You can also use our handy auth helper contract on Polygon Mumbai [here](https://github.com/LIT-Protocol/LitNodeContracts/blob/main/contracts/PKPHelper.sol) and you can find the contract addresses [here](https://explorer.litprotocol.com/contracts), and if you use that contract there is a parameter called `sendPkpToItself` in the `mintNextAndAddAuthMethods` function that you can set to true to send the PKP to itself.
+Sending a PKP to itself is possible, because the PKP is an NFT and also a wallet. This is useful if you want to make sure that only the PKP itself can change it's auth methods. To learn how auth works, read more [here](/pkp/authHelpers). You can also use our handy auth helper contract on Polygon Mumbai [here](https://github.com/LIT-Protocol/LitNodeContracts/blob/main/contracts/PKPHelper.sol) and you can find the contract addresses [here](https://explorer.litprotocol.com/contracts), and if you use that contract there is a parameter called `sendPkpToItself` in the `mintNextAndAddAuthMethods` function that you can set to true to send the PKP to itself.
 
 ## What is Mint/Grant/Burn?
 

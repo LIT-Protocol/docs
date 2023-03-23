@@ -12,7 +12,7 @@ It is NOT recommended to use the Lit JS SDK within a Lit Action due to the poten
 ## Ideal Use Cases
 
 - [Generating proofs](/LitActions/intro#proofs)
-- Looking up permitted actions, addresses and [auth methods](/programmableKeyPairs/authHelpers) associated with a PKP
+- Looking up permitted actions, addresses and [auth methods](/pkp/authHelpers) associated with a PKP
 - Checking access control conditions with [conditional signing](/LitActions/conditionalSigning)
 
 ## Think Twice Use Case

@@ -408,3 +408,11 @@ force = false
   to = "/coreConcepts/LitActionsAndPKPs/actions/authHelpers"
   status = 302
   force = false
+
+# 03/22/23 - docs re-org, flattening structure of docs
+
+[[redirects]]
+  from = "/introduction/*"
+  to = "/"
+  status = 302
+  force = false

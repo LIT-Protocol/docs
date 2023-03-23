@@ -15,7 +15,7 @@ export default function CoreConceptsSection({ title, className }) {
       <Card
         title="📡 Programmable Key Pairs"
         description="Learn about programmable wallets that can read and write from any HTTP endpoint, blockchain, state machine, or decentralized storage system."
-        to="/programmableKeyPairs/intro"
+        to="/pkp/intro"
       />
       <Card
         title="📄 Lit Actions"
@@ -25,12 +25,12 @@ export default function CoreConceptsSection({ title, className }) {
       <Card
         title="💳 Distributed Cloud Wallets"
         description="Learn how you can leverage PKPs to create MPC wallets with support for Web2 authentication."
-        to="/programmableKeyPairs/Wallets/intro"
+        to="/pkp/wallets/intro"
       />
       <Card
         title="🧩 Use Cases"
         description="Learn about how you can integrate Lit infrastructure within your own products."
-        to="/startHere/usecases"
+        to="/usecases"
       />
     </Section>
   );

@@ -3,4 +3,4 @@
 
 yarn install
 yarn update-chains
-git add docs/support/supportedChains.md
+git add docs/resources/supportedChains.md

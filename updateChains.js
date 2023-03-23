@@ -23,4 +23,4 @@ md += `\n\n## Programmable Key Pairs\n\n PKPs rely on the [ECDSA](https://blog.c
 - cosmos\n
 - filecoin\n
 - theta\n\nYou can learn more about compatible chains [here.](http://ethanfast.com/top-crypto.html)\n `;
-fs.writeFileSync("docs/support/supportedChains.md", md);
+fs.writeFileSync("docs/resources/supportedChains.md", md);

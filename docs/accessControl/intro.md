@@ -19,7 +19,7 @@ What makes this process decentralized is that no node in the network is the cust
 
 ## Features
 
-- Supports many EVM chains and Solana. Full list [here](/support/supportedChains).
+- Supports many EVM chains and Solana. Full list [here](/resources/supportedChains).
 - Supports many standard contracts, with plans to support any RPC call soon. If you need to interact with a contract that we don't support yet, ask us, and we will implement it.
 - Boolean conditions. "And" or "Or" are currently supported.
 - Updateable conditions. Only the creator can update the condition.

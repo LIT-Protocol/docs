@@ -69,7 +69,7 @@ The Lit Nodes can sign or decrypt some data for you using their private key shar
 
 ## Supported Chains
 
-Lit is currently compatible with most EVM blockchains, Cosmos, and Solana. You can find the full list of supported chains [here](/Support/supportedChains.md).
+Lit is currently compatible with most EVM blockchains, Cosmos, and Solana. You can find the full list of supported chains [here](/resources/supportedChains.md).
 
 ## Getting Started
 

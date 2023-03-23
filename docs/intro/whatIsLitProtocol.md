@@ -1,4 +1,5 @@
 ---
+slug: /whatIsLit
 sidebar_position: 2
 ---
 
@@ -51,7 +52,7 @@ When these components work together, they have the power to facilitate complex s
 
 PKPs don’t just have to represent a user’s wallet either, these tools can also be harnessed within the context of proof generation. Conditional-based signing through Lit Actions opens up the possibility of verifying data from arbitrary sources, such as an off-chain API or cross-chain application. For example, writing a Lit Action that fetches data from a weather API and only returns a signature when the temperature is above 60 degrees fahrenheit. If the signature is returned, you have “proof” that the temperature was in fact above the temp specified. Get started with proofs [here](/LitActions/conditionalSigning). 
 
-Keep reading about PKPs and Lit Actions [here](/programmableKeyPairs/usingPKPsAndActions).
+Keep reading about PKPs and Lit Actions [here](/pkp/usingPKPsAndActions).
 
 ## What can you build with Lit?
 

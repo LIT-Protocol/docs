@@ -56,25 +56,28 @@ const config = {
         items: [
           {
             href: "https://js-sdk.litprotocol.com/index.html",
-            label: "API",
+            label: "API Docs",
+            position: "right",
+          },
+          {
+            href: "https://spark.litprotocol.com/",
+            label: "Blog",
+            position: "right",
+          },
+          {
+            href: "/Ecosystem/litGrants",
+            label: "Ecosystem",
             position: "right",
           },
           {
             href: "https://github.com/LIT-Protocol/js-sdk",
-            label: "GitHub",
             position: "right",
+            className: 'header-github-link',
+            'aria-label': 'Lit JS SDK V2 GitHub repository',
           },
-          // {
-          //   type: "doc",
-          //   docId: "SDK/intro",
-          //   position: "left",
-          //   label: "JS SDK",
-          // },
-          // {to: '/blog', label: 'Blog', position: 'left'},
         ],
       },
       footer: {
-        style: "dark",
         links: [
           {
             title: "Community",

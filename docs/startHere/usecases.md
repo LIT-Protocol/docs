@@ -32,13 +32,6 @@ Use on-chain credentials to gate access to your favorite web2 applications and d
 - [Google Drive](https://litgateway.com/apps/google-drive): Add access control requirements to your Google Drive files.
 - [WordPress](https://litgateway.com/apps/wordpress): Gate access to WordPress sites and pages.
 
-### Unlockable NFTs
-
-Using [HTML NFTs](/ToolsAndExamples/SDKExamples/HTMLNfts), you can create locked content that only owners of the NFT have access to. This includes dynamic content, like websites or metaverse spaces. 
-
-Here’s an [example](https://twitter.com/LitProtocol/status/1504630741849853954) using our Lit Genesis Canvas NFT. Only holders can access the private canvas site linked within!
-
-
 ## Programmatic Signing: Lit Actions and PKPs
 
 Introduce automation and interoperability to the dWeb with Lit Actions and PKPs. 

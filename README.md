@@ -1,6 +1,8 @@
-# Website
+# Lit Protocol Developer Docs 📚
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+
+## 💻 Setup
 
 ### Installation
 
@@ -31,3 +33,71 @@ $ GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
 ```
 
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+
+<br/>
+
+## ✨ Workflow
+
+When adding new content or re-organizing existing content, please be sure to update the sidebar file `sidebars.js`.
+
+To create a top-level, **noncollapsible** category like `Getting Started`, add the following to the `docs` array:
+
+```js
+docs: [
+  // ...
+  {
+    type: 'category',
+    label: 'Tea Drinks',
+    collapsible: false,
+    className: 'category-not-collapsible',
+    items: [
+      // Add the IDs of your new category's pages here
+      'tea-drinks/intro',
+    ],
+  }
+]
+```
+
+To add a subcategory, add the category object to the `items` array:
+
+```js
+docs: [
+  // ...
+  {
+    type: 'category',
+    label: 'Tea Drinks',
+    collapsible: false,
+    className: 'category-not-collapsible',
+    items: [
+      'tea-drinks/intro',
+      // Add your new subcategory here
+      {
+        type: 'category',
+        label: 'Hot Drinks',
+        collapsed: true,
+        items: [
+          // Add the IDs of your new subcategory's pages here
+          'tea-drinks/hot-drinks/intro',
+        ],
+      },
+    ],
+  }
+]
+```
+
+To create a top-level, *collapsible* category like `Access Control`, add the following to the `docs` array:
+
+```js
+docs: [
+  // ...
+  {
+    type: 'category',
+    label: 'Coffee Drinks',
+    collapsed: true,
+    items: [
+      // Add the IDs of your new category's pages here
+      'coffee-drinks/intro',
+    ],
+  }
+]
+```

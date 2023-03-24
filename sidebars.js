@@ -135,8 +135,8 @@ const sidebars = {
               label: 'Wallet Signatures and Session Keys',
               collapsed: true,
               items: [
-                'SDK/Explanation/walletSigs/authSig',
-                'SDK/Explanation/walletSigs/sessionSigs',
+                'SDK/Explanation/WalletSigs/authSig',
+                'SDK/Explanation/WalletSigs/sessionSigs',
               ],
             },
             'SDK/Explanation/tests'
@@ -152,10 +152,10 @@ const sidebars = {
               label: 'Tools',
               collapsed: true,
               items: [
-                'ToolsAndExamples/tools/accessControl',
-                'ToolsAndExamples/tools/shareModal',
-                'ToolsAndExamples/tools/jwtverify',
-                'ToolsAndExamples/tools/pkpexplorer',
+                'ToolsAndExamples/Tools/accessControl',
+                'ToolsAndExamples/Tools/shareModal',
+                'ToolsAndExamples/Tools/jwtverify',
+                'ToolsAndExamples/Tools/pkpexplorer',
               ],
             },
             {

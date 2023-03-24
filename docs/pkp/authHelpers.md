@@ -27,9 +27,9 @@ If you decide to use your own auth, you can still use the PKPPermissions contrac
 
 ## How does authentication differ from authorization?
 
-Authorization refers to an [auth signature](/SDK/explanation/walletSigs/authSig), which is **always required** to communicate with the Lit nodes and make a request to the network. It doesn't matter if you are decrypting a piece of data or calling a Lit Action, an auth sig will always be required.
+Authorization refers to an [auth signature](/SDK/Explanation/WalletSigs/authSig), which is **always required** to communicate with the Lit nodes and make a request to the network. It doesn't matter if you are decrypting a piece of data or calling a Lit Action, an auth sig will always be required.
 
-In the case that a user doesn’t own a wallet (and therefore cannot produce a valid AuthSig), they can present their alternative auth method to the Lit SDK which will convert it into a “compliant” AuthSig. This is documented in our [docs](/SDK/explanation/walletSigs/sessionSigs#obtaining-session-signatures-when-the-user-doesnt-have-a-wallet). The flow is as follows:
+In the case that a user doesn’t own a wallet (and therefore cannot produce a valid AuthSig), they can present their alternative auth method to the Lit SDK which will convert it into a “compliant” AuthSig. This is documented in our [docs](/SDK/Explanation/WalletSigs/sessionSigs#obtaining-session-signatures-when-the-user-doesnt-have-a-wallet). The flow is as follows:
 
 1. Present a PKP public key and an auth token from an authorized auth method (like a Google OAuth JWT), as well as a session public key for a local key-pair that is generated and stored locally.
 2. The PKP is used to sign a SIWE signature which authorizes the session key-pair going forward.

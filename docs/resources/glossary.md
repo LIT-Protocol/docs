@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## Definitions of commonly used terms and core concepts.
 
-### **[Auth Sig](/SDK/explanation/walletSigs/authSig#authsigs)**
+### **[Auth Sig](/SDK/Explanation/WalletSigs/authSig#authsigs)**
 In order to use Lit Protocol, you must present a wallet signature obtained from the user. This is referred to as an 'AuthSig' in the documentation.
 ### **[Boneh-Lynn-Shacham (BLS) Signatures](https://medium.com/cryptoadvance/bls-signatures-better-than-schnorr-5a7fe30ea716)**
 A cryptographic algorithm that can be used for both signing and encryption. BLS allows for signature aggregation and verification at scale using [Elliptic Curve cryptography](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography).

@@ -310,13 +310,13 @@ force = false
 
 [[redirects]]
   from = "/ToolsAndExamples/shareModal"
-  to = "/ToolsAndExamples/tools/shareModal"
+  to = "/ToolsAndExamples/Tools/shareModal"
   status = 302
   force = false
 
 [[redirects]]
   from = "/ToolsAndExamples/sdkexamples/dynamiccontent/"
-  to = "/ToolsAndExamples/tools/jwtverify"
+  to = "/ToolsAndExamples/Tools/jwtverify"
   status = 302
   force = false
 

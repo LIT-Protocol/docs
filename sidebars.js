@@ -200,8 +200,19 @@ const sidebars = {
             },
           ],
         },
-        'SDK/contracts',
         'SDK/examples',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Resources',
+      collapsible: false,
+      className: 'category-not-collapsible',
+      items: [
+        'resources/howItWorks',
+        'resources/supportedChains',
+        'resources/contracts',
+        'resources/glossary',
       ],
     },
     {
@@ -213,17 +224,6 @@ const sidebars = {
         'Ecosystem/litGrants',
         'Ecosystem/community',
         'Ecosystem/projects',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Resources',
-      collapsible: false,
-      className: 'category-not-collapsible',
-      items: [
-        'resources/howItWorks',
-        'resources/supportedChains',
-        'resources/glossary',
       ],
     },
     {

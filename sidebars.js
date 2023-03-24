@@ -86,7 +86,6 @@ const sidebars = {
       items: [
         'pkp/intro',
         'pkp/authHelpers',
-        'pkp/usingPKPsAndActions',
         {
           type: 'category',
           label: 'Distributed Cloud Wallets',
@@ -109,6 +108,7 @@ const sidebars = {
         'LitActions/helloWorld',
         'LitActions/conditionalSigning',
         'LitActions/usingFetch',
+        'LitActions/usingPKPsAndActions',
         'LitActions/logAndReturn',
         'LitActions/usingEIP',
         'LitActions/bestPractices',

@@ -20,7 +20,7 @@ export default function QuickStartSection({ title, className }) {
       <Card
         title="📁 Encrypt On-Chain Metadata (Polygon)"
         description="Encrypt on-chain meta-data (an NFT description) using the Lit SDK."
-        to="/ToolsAndExamples/SDKExamples/onchainMetadata/introduction"
+        to="/ToolsAndExamples/SDKExamples/OnchainMetadata/introduction"
       />
       <Card
         title="⌨️ Encrypt and Decrypt Static Content"

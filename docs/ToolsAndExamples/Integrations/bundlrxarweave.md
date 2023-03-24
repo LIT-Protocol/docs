@@ -62,7 +62,7 @@ Turn the static content into a `String` format (you can use the [utilities](http
 
 The symmetricKey is necessary to decrypt content and is meant to be private. Exposing the key to the public means anyone may be able to use it to decrypt private information. Luckily, with Lit Protocol, we can encrypt it and store it in the lit nodes, so that only the person who meets the access control conditions could retrieve the original symmetric key. In order to do this, we will need to pass in the following:
 
-`chain (String)`: ethereum (see other [supported blockchains](https://developer.litprotocol.com/support/supportedChains))
+`chain (String)`: ethereum (see other [supported blockchains](https://developer.litprotocol.com/resources/supportedChains))
 
 `authSig (Object)`: authentication signature, which can be collected from calling await LitJsSdk.checkAndSignAuthMessage({chain}) which will call up your web 3 wallets for you to sign the message
 

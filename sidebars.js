@@ -105,13 +105,13 @@ const sidebars = {
       collapsed: true,
       items: [
         'litActions/intro',
-        'litActions/bestPractices',
         'litActions/getlitCli',
         'litActions/helloWorld',
-        'litActions/logAndReturn',
-        'litActions/usingFetch',
         'litActions/conditionalSigning',
+        'litActions/usingFetch',
+        'litActions/logAndReturn',
         'litActions/usingEIP',
+        'litActions/bestPractices',
       ],
     },
       

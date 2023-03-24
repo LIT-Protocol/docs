@@ -10,7 +10,7 @@ export default function EcosystemSection({ title, className }) {
       <Card
         title="💸 Grants"
         description="We are looking to support those who are building Lit-enabled apps and infrastructure."
-        to="/ecosystem/litGrants"
+        to="/Ecosystem/litGrants"
       />
       <Card
         title="💻 Ecosystem RFPs"
@@ -25,7 +25,7 @@ export default function EcosystemSection({ title, className }) {
       <Card
         title="👨‍👩‍👧‍👦 Community"
         description="Join the community through Discord, Twitter, and keep up to date with the community calendar."
-        to="/ecosystem/community"
+        to="/Ecosystem/community"
       />
       <Card
         title="⛓️ Supported Blockchains"

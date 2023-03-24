@@ -210,9 +210,9 @@ const sidebars = {
       collapsible: false,
       className: 'category-not-collapsible',
       items: [
-        'ecosystem/litGrants',
-        'ecosystem/community',
-        'ecosystem/projects',
+        'Ecosystem/litGrants',
+        'Ecosystem/community',
+        'Ecosystem/projects',
       ],
     },
     {

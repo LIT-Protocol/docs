@@ -20,7 +20,7 @@ export default function AccessControlSection({ title, className }) {
       <Card
         title="Gating Access Through JWT Auth"
         description="Authorize network signatures that provide access to dynamic content."
-        to="/toolsAndExamples/SDKExamples/dynamicContent"
+        to="/ToolsAndExamples/SDKExamples/dynamicContent"
       />
     </Section>
   );

@@ -207,8 +207,8 @@ force = false
   force = false
 
 [[redirects]]
-  from = "/LitActionsAndPKPs/toolsAndExamples"
-  to = "/coreConcepts/LitActionsAndPKPs/toolsAndExamples"
+  from = "/LitActionsAndPKPs/ToolsAndExamples"
+  to = "/coreConcepts/LitActionsAndPKPs/ToolsAndExamples"
   status = 302
   force = false
 
@@ -292,37 +292,37 @@ force = false
 
 [[redirects]]
   from = "/ToolsAndExamples/Ceramic/*"
-  to = "/toolsAndExamples/integrations/Ceramic/intro"
+  to = "/ToolsAndExamples/Integrations/Ceramic/intro"
   status = 302
   force = false
 
 [[redirects]]
   from = "/ToolsAndExamples/bundlrxarweave"
-  to = "/toolsAndExamples/integrations/bundlrxarweave"
+  to = "/ToolsAndExamples/Integrations/bundlrxarweave"
   status = 302
   force = false
 
 [[redirects]]
   from = "/ToolsAndExamples/additionalIntegrations"
-  to = "/toolsAndExamples/integrations/additionalIntegrations"
+  to = "/ToolsAndExamples/Integrations/additionalIntegrations"
   status = 302
   force = false
 
 [[redirects]]
   from = "/ToolsAndExamples/shareModal"
-  to = "/toolsAndExamples/tools/shareModal"
+  to = "/ToolsAndExamples/tools/shareModal"
   status = 302
   force = false
 
 [[redirects]]
-  from = "/toolsandexamples/sdkexamples/dynamiccontent/"
-  to = "/toolsAndExamples/tools/jwtverify"
+  from = "/ToolsAndExamples/sdkexamples/dynamiccontent/"
+  to = "/ToolsAndExamples/tools/jwtverify"
   status = 302
   force = false
 
 [[redirects]]
   from = "/ToolsAndExamples/SDKExamples/examples"
-  to = "/toolsAndExamples/SDKExamples/dynamicContent"
+  to = "/ToolsAndExamples/SDKExamples/dynamicContent"
   status = 302
   force = false
 

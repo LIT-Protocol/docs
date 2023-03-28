@@ -19,6 +19,14 @@ Right now, there are two main ways to do auth with Lit Actions. We will dive int
 
 Several auth methods are supported by Lit directly. These include methods configured using the [PKPPermissions](https://github.com/LIT-Protocol/LitNodeContracts/blob/main/contracts/PKPPermissions.sol) contract, the user holding the PKP NFT, or assigned via a Lit Action with permission to sign using the PKP. If you use Lit auth directly, you are limited to those basic auth methods that we support.
 
+### Obtaining the PKP Public Key
+
+After a PKP is generated and assigned an auth method, you can pass the AuthMethodType and AuthMethodId into this [function](https://github.com/LIT-Protocol/LitNodeContracts/blob/ed2adf77e63f371ef864846dc9e92fef42f0ebb1/contracts/PKPPermissions.sol#L99) to obtain the PKP ID. The PKP ID can be used to fetch the PKP's public key by passing it into this [function](https://github.com/LIT-Protocol/LitNodeContracts/blob/ed2adf77e63f371ef864846dc9e92fef42f0ebb1/contracts/PKPPermissions.sol#L78).
+
+The PKP public key is required to initialize a new 'wallet' object when using [Lit and WalletConnect](https://github.com/LIT-Protocol/pkp-walletconnect/blob/main/components/CallRequest.js#L44) together. 
+
+You will also need the PKP public key in order to generate a [sessionSig](/SDK/Explanation/WalletSigs/sessionSigs) which is required to communicate with the Lit nodes, as seen in this [example](https://github.com/LIT-Protocol/oauth-pkp-signup-example/blob/main/src/App.tsx#L413). 
+
 ## Custom Auth
 
 If you would like further customization over your PKP auth methods, you can do auth yourself with a Lit Action, using the auth helpers we provide (see below). In this scenario, after you give your Lit Action permission to use the PKP, the typical flow is to burn the PKP NFT or send it to itself. It is important to note, if you do decide to burn the PKP, you will be unable to add additional auth methods in the future. If you go this route, your auth basically looks like a bunch of if statements inside the Lit Action.

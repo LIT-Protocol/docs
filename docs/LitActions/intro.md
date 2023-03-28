@@ -43,19 +43,30 @@ A proof is a particular application for a digital signature. For example, using 
 
 Signing through Lit Actions opens up the possibilities of verifying information from external sources, such as from a Weather API. 
 
-## Permissionless Execution and Working With External Smart Contracts
+## Event Listening
 
-Right now, all Lit Actions have to be executed manually by a user. In order to enable the truly permissionless, "condition-based" execution of Lit Actions, we are working on developing our own native [event listening](https://litprotocol.notion.site/Event-based-triggers-for-PKPs-0b22532c571f4dffb08d6e84e9c5dd04) solution. 
-
-Currently, you could use something like [Tenderly Web3 Actions](https://docs.tenderly.co/web3-actions/intro-to-web3-actions) to listen for an on-chain event and then call a Lit Action as a result.
+Configure condition-based triggers for Lit Actions using the [event listener](/LitActions/singleExecution).
 
 ## Do I need a PKP to run a Lit Action? 
 
 No, but without it, Lit Actions lose their capabilities of signing and decryption. An Action without a PKP is essentially a JavaScript function that **can’t sign or decrypt** arbitrary data.  
 
+## WASM Support
+
+Check out this [example](https://github.com/dOrgJelli/lit-protocol-wasm-test/blob/d4b8873f9a5bceaf98e7f7a1bf325bf597cbfa40/src/App.js#L6-L51) of running WebAssembly inside of a Lit Action.
+
+## Importing NPM Packages
+
+You can use esbuild to create a bundle and use that to import your package. You can follow an example [here](https://github.com/LIT-Protocol/js-serverless-function-test/tree/main/bundleTests/siwe).
 
 ## Getting started with Lit Actions
 
 Get started with Lit Actions [here](/LitActions/helloWorld).
 
-More [examples](/startHere/usecases#programmatic-signing-lit-actions-and-pkps).
+Learn about using Lit Actions and PKPs [together](/LitActions/usingPKPsAndActions).
+
+Logging and dealing with [errors](/LitActions/logAndReturn).
+
+[Fetching](/LitActions/usingFetch) data from the Web.
+
+Get started with [Conditional Signatures](/LitActions/conditionalSigning).

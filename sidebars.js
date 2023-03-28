@@ -92,6 +92,7 @@ const sidebars = {
           collapsed: true,
           items: [
             'pkp/wallets/intro',
+            'pkp/wallets/sendingTxs',
             'pkp/wallets/examples',
           ],
         },
@@ -108,10 +109,10 @@ const sidebars = {
         'LitActions/helloWorld',
         'LitActions/conditionalSigning',
         'LitActions/usingFetch',
+        'LitActions/singleExecution',
         'LitActions/usingPKPsAndActions',
         'LitActions/logAndReturn',
         'LitActions/usingEIP',
-        'LitActions/bestPractices',
       ],
     },
       

@@ -22,6 +22,10 @@ As a distributed key management network, Lit provides developers with the abilit
 
 A user can create a new PKP and grant a Lit Action the right to sign using it. This means the distributed key has the ability to sign and decrypt arbitrary data based on pre-defined logic and conditions.
 
+### Adding a Permitted Address
+
+You can use the [PKPPermissions contract](https://github.com/LIT-Protocol/LitNodeContracts/blob/main/contracts/PKPPermissions.sol#L418) to add additional permitted auth methods and addresses to your PKP. Note that these users will be able to execute any permitted Lit Actions and functionality associated with that PKP. 
+
 ## Why is this useful?
 
 A programmable distributed key is a primitive with a number of potential use-cases. For example, using a PKP and Lit Actions for onboarding web2 users to wallets based on modern multi-factor authentication (that don’t rely on a central authority or key custodian).

@@ -10,6 +10,11 @@ sidebar_position: 3
 PKPs are still heavily in development and should NOT BE USED to transact live assets that hold monetary value. DO NOT store assets you are not prepared to lose. During this period, we're grateful for feedback on how to improve the docs and examples.
 :::
 
+:::note
+**Migrating to the Lit SDK V2** 
+This package will soon be migrated to the new [Typescript SDK](https://js-sdk.litprotocol.com/). The package import and object initialization may change, but the core functionality and methods should remain the same.
+:::
+
 You can use the [Lit PKP SDK](https://github.com/LIT-Protocol/lit-pkp-sdk) (an extension of the PKPWallet package) to handle Ethereum JSON RPC requests for signing messages, data, and transactions and sending transactions with PKPs.
 
 The SDK supports the following signing methods:
@@ -107,21 +112,21 @@ console.log('eth_sendTransaction result', result);
 
 ```
 
-### eth_sign
+### Personal_Sign
 
 ``` js
 
 // Message to sign
-const message = 'Hello world';
+const message = 'Free the web';
 const hexMsg = ethers.utils.hexlify(ethers.utils.toUtf8Bytes(message));
 
-// eth_sign parameters
+// personal_sign parameters
+// DATA, N Bytes - message to sign.
 // DATA, 20 Bytes - address
-// DATA, N Bytes - message to sign
-// Reference: https://ethereum.github.io/execution-apis/api-documentation/#eth_sign
+// Reference: https://metamask.github.io/api-playground/api-documentation/#personal_sign
 const payload = {
-  method: 'eth_sign',
-  params: [address, hexMsg],
+  method: 'personal_sign',
+  params: [hexMsg, address],
 };
 
 // Initialize Lit PKP Wallet
@@ -132,7 +137,7 @@ const wallet = new LitPKP({
 });
 await wallet.init();
 
-// Sign eth_sign request
+// Sign personal_sign request
 const sig = await wallet.signEthereumRequest(payload);
 
 // Verify signature

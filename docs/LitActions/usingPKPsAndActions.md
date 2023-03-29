@@ -24,7 +24,7 @@ A user can create a new PKP and grant a Lit Action the right to sign using it. T
 
 ### Adding a Permitted Address
 
-You can use the [PKPPermissions contract](https://github.com/LIT-Protocol/LitNodeContracts/blob/main/contracts/PKPPermissions.sol#L418) to add additional permitted auth methods and addresses to your PKP. Note that these users will be able to execute any permitted Lit Actions and functionality associated with that PKP. 
+You can use the [PKPPermissions contract](https://github.com/LIT-Protocol/LitNodeContracts/blob/main/contracts/PKPPermissions.sol#L418) to add additional permitted auth methods and addresses to your PKP. Note that any permitted users will be able to execute transactions, authorized Lit Actions, and additional functionality associated with that PKP. 
 
 ## Why is this useful?
 

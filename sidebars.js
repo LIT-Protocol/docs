@@ -113,6 +113,16 @@ const sidebars = {
         'LitActions/usingPKPsAndActions',
         'LitActions/logAndReturn',
         'LitActions/usingEIP',
+        {
+          type: 'category',
+          label: 'More Examples',
+          collapsed: true,
+          items: [
+            'LitActions/additionalExamples/generatingSessionKey',
+            'LitActions/additionalExamples/signingTx',
+            'LitActions/additionalExamples/permissions',
+          ],
+        },
       ],
     },
       

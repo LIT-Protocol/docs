@@ -423,7 +423,7 @@ force = false
   status = 301
   force = false
 
-# double bc redirects are case sensitive
+# multiple bc redirects are case sensitive
 
 [[redirects]]
   from = "/Introduction/stateOfNetwork"
@@ -431,6 +431,11 @@ force = false
   status = 301
   force = false
 
+[[redirects]]
+  from = "/introduction/stateofnetwork"
+  to = "/Support/stateOfNetwork"
+  status = 301
+  force = false
 
 [[redirects]]
   from = "/introduction/stateOfNetwork"
@@ -522,8 +527,39 @@ force = false
   status = 301
   force = false
 
-  [[redirects]]
+[[redirects]]
   from = "/LitActions/usingEIP"
   to = "/LitActions/additionalExamples/usingEIP"
+  status = 301
+  force = false
+
+# 3/28 - continue adding support for links missing from initial pass
+[[redirects]]
+  from = "/support/supportedchains/"
+  to = "/resources/supportedChains"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/introduction/stateofnetwork"
+  to = "/Support/stateOfNetwork"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/introduction/stateofnetwork/*"
+  to = "/Support/stateOfNetwork"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/coreconcepts/litactionsandpkps/actions/*"
+  to = "/LitActions/intro"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/coreconcepts/wallets/intro/*"
+  to = "/pkp/wallets/intro"
   status = 301
   force = false

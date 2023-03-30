@@ -95,7 +95,7 @@ Improve the state of web3 gaming.
 
 More ideas!
 
-- A certification system utilizing [conditional signing](/LitActions/conditionalSigning).
+- A certification system utilizing [conditional signing](/LitActions/workingWithActions/conditionalSigning).
 - A blockchain.
 
 ### You can find even more examples, ideas, and resources [here](https://github.com/LIT-Protocol/awesome/blob/main/README.md).

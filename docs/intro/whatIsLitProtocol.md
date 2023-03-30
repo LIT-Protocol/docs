@@ -50,9 +50,9 @@ Like their name suggests, PKPs are programmable. The programs that dictate when,
 
 When these components work together, they have the power to facilitate complex signing  automation. What if you could “tell” your wallet to execute a trade when your token fell below a specified price? Or to automatically list your NFT when the collection hits a certain floor price? Or what if you wanted to use off-chain or cross-chain data as a “trigger” to execute functionality within your decentralized application? With PKPs and Lit Actions, these use cases become possible.
 
-PKPs don’t just have to represent a user’s wallet either, these tools can also be harnessed within the context of proof generation. Conditional-based signing through Lit Actions opens up the possibility of verifying data from arbitrary sources, such as an off-chain API or cross-chain application. For example, writing a Lit Action that fetches data from a weather API and only returns a signature when the temperature is above 60 degrees fahrenheit. If the signature is returned, you have “proof” that the temperature was in fact above the temp specified. Get started with proofs [here](/LitActions/conditionalSigning). 
+PKPs don’t just have to represent a user’s wallet either, these tools can also be harnessed within the context of proof generation. Conditional-based signing through Lit Actions opens up the possibility of verifying data from arbitrary sources, such as an off-chain API or cross-chain application. For example, writing a Lit Action that fetches data from a weather API and only returns a signature when the temperature is above 60 degrees fahrenheit. If the signature is returned, you have “proof” that the temperature was in fact above the temp specified. Get started with proofs [here](/LitActions/workingWithActions/conditionalSigning). 
 
-Keep reading about PKPs and Lit Actions [here](/pkp/usingPKPsAndActions).
+Keep reading about PKPs and Lit Actions [here](/LitActions/usingPKPsAndActions).
 
 ## What can you build with Lit?
 
@@ -98,7 +98,7 @@ Lit infrastructure can be used to support an entire host of web3 applications. H
 
 ### More Ideas
 
-- A certification system utilizing [conditional signing](/LitActions/conditionalSigning).
+- A certification system utilizing [conditional signing](/LitActions/workingWithActions/conditionalSigning).
 - A blockchain.
 
 To read about more examples, take a look at our [use cases](/startHere/usecases) page. You can also explore some of the projects that have been built with Lit [here](/ecosystem/projects).

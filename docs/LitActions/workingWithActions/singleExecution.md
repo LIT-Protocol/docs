@@ -5,7 +5,7 @@ sidebar_position: 3
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Event Listening and Single Execution
+# Event Listener and Single Node Execution
 
 ## Single Execution
 

@@ -45,7 +45,7 @@ Signing through Lit Actions opens up the possibilities of verifying information 
 
 ## Event Listening
 
-Configure condition-based triggers for Lit Actions using the [event listener](/LitActions/singleExecution).
+Configure condition-based triggers for Lit Actions using the [event listener](/LitActions/workingWithActions/singleExecution).
 
 ## Do I need a PKP to run a Lit Action? 
 
@@ -65,8 +65,8 @@ Get started with Lit Actions [here](/LitActions/helloWorld).
 
 Learn about using Lit Actions and PKPs [together](/LitActions/usingPKPsAndActions).
 
-Logging and dealing with [errors](/LitActions/logAndReturn).
+Logging and dealing with [errors](/LitActions/workingWithActions/logAndReturn).
 
-[Fetching](/LitActions/usingFetch) data from the Web.
+[Fetching](/LitActions/workingWithActions/usingFetch) data from the Web.
 
-Get started with [Conditional Signatures](/LitActions/conditionalSigning).
+Get started with [Conditional Signatures](/LitActions/workingWithActions/conditionalSigning).

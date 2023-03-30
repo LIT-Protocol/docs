@@ -15,12 +15,12 @@ export default function LitActionsSection({ title, className }) {
       <Card
         title="Proofs and Signed Data"
         description="Use Lit's conditional signing capabilities to generate verifiable proofs within your app logic."
-        to="/LitActions/conditionalSigning"
+        to="/LitActions/workingWithActions/conditionalSigning"
       />
       <Card
         title="Fetching Off-chain Data"
         description="Use off-chain data natively without the need for a third-party oracle."
-        to="/LitActions/usingFetch"
+        to="/LitActions/workingWithActions/usingFetch"
       />
       <Card
         title="Authentication Helpers"

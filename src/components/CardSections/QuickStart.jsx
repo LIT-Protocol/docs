@@ -35,7 +35,7 @@ export default function QuickStartSection({ title, className }) {
       <Card
         title="✍️ Return a signed API response"
         description="Learn how to fetch and sign data from the open Web using Lit Actions."
-        to="/LitActions/usingFetch"
+        to="/LitActions/workingWithActions/usingFetch"
       />
     </Section>
   );

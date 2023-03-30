@@ -59,9 +59,9 @@ Lit Protocol nodes will verify that the user owns the NFT, sign the JWT to creat
 
 ### Lit Actions
 
-[Lit Actions](/LitActions/actions/litActions) are our version of smart contracts, native to Lit Protocol. Actions are immutable JavaScript functions stored on IPFS that can utilize the threshold cryptography that powers Lit. They can also make external HTTP requests and interact with most EVM-compatible blockchains.
+[Lit Actions](/LitActions/intro) are our version of smart contracts, native to Lit Protocol. Actions are immutable JavaScript functions stored on IPFS that can utilize the threshold cryptography that powers Lit. They can also make external HTTP requests and interact with most EVM-compatible blockchains.
 
-Lit Actions can be used for signing and decryption and work directly with [Programmable Key Pairs (PKPs)](/LitActionsAndPKPs/PKPs). You can write some JS code, upload it to IPFS, and ask the Lit Nodes to execute that code and return the result.
+Lit Actions can be used for signing and decryption and work directly with [Programmable Key Pairs (PKPs)](/pkp/intro). You can write some JS code, upload it to IPFS, and ask the Lit Nodes to execute that code and return the result.
 
 The Lit Nodes can sign or decrypt some data for you using their private key share. These signature or decryption shares can be collected and combined on the client side to get the full signature or decryption key.
 
@@ -69,12 +69,12 @@ The Lit Nodes can sign or decrypt some data for you using their private key shar
 
 ## Supported Chains
 
-Lit is currently compatible with most EVM blockchains, Cosmos, and Solana. You can find the full list of supported chains [here](/resources/supportedChains.md).
+Lit is currently compatible with most EVM blockchains, Cosmos, and Solana. You can find the full list of supported chains [here](/resources/supportedChains).
 
 ## Getting Started
 
 Getting started with [access control and encryption.](/accessControl/intro)
 
-Dive into programmatic signing with [PKPs and Lit Actions.](/LitActionsAndPKPs/intro)
+Dive into programmatic signing with [PKPs and Lit Actions.](/LitActions/usingPKPsAndActions)
 
 Working with the [Lit SDK.](/SDK/Explanation/installation)

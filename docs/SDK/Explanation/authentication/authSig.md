@@ -6,7 +6,11 @@ sidebar_position: 1
 
 ## AuthSigs
 
-To use Lit Protocol, you must present a wallet signature obtained from the user. This is refered to an as `AuthSig` in the documentation. You can use any EIP 4361 compliant signature (Sign in with Ethereum) for the authSig, but you must put the signature into the AuthSig data structure format (documented [here](https://js-sdk.litprotocol.com/interfaces/types_src.AuthSig.html)). You do not need to use the Lit JS SDK V2 to obtain the signature as long as it's EIP 4361 compliant and in the AuthSig data structure format.
+We refer to a wallet signature obtained from the user as an AuthSig.
+
+You can use any EIP 4361 compliant signature (Sign in with Ethereum) for the authSig, but you must put the signature into the AuthSig data structure format (documented [here](https://js-sdk.litprotocol.com/interfaces/types_src.JsonAuthSig.html)). You do not need to use the Lit JS SDK V2 to obtain the signature as long as it's EIP 4361 compliant and in the AuthSig data structure format.
+
+**WARNING**: AuthSigs are considered insecure to use for authenticating against the nodes and we **do not** recommend using them. Read more [in the below section](/SDK/Explanation/authentication/authSig#security-considerations).
 
 ## Format of AuthSig
 
@@ -14,7 +18,7 @@ The AuthSig should match [this format](https://js-sdk.litprotocol.com/interfaces
 
 An example AuthSig:
 
-```js
+```json
 {
 	"sig": "0x18720b54cf0d29d618a90793d5e76f4838f04b559b02f1f01568d8e81c26ae9536e11bb90ad311b79a5bc56149b14103038e5e03fee83931a146d93d150eb0f61c",
 	"derivedVia": "web3.eth.personal.sign",
@@ -48,7 +52,7 @@ Currently works only on the `serrano` litNetwork. Coming soon on the `jalapeno` 
 :::
 
 
-Currently, Externally-owned accounts (EOA) can interface with Lit via an [**authSig**](/SDK/Explanation/WalletSigs/authSig). With this paradigm, a private key is needed to sign an authSig. Smart contracts generally can not produce an authSig since they don't have a private key. However, this tutorial will show you how to generate an authSig for smart contracts using [EIP1271](https://eips.ethereum.org/EIPS/eip-1271). EIP-1271 is a standard to verify a signature when the account is a smart contract.
+Currently, Externally-owned accounts (EOA) can interface with Lit via an [**authSig**](/SDK/Explanation/authentication/authSig). With this paradigm, a private key is needed to sign an authSig. Smart contracts generally can not produce an authSig since they don't have a private key. However, this tutorial will show you how to generate an authSig for smart contracts using [EIP1271](https://eips.ethereum.org/EIPS/eip-1271). EIP-1271 is a standard to verify a signature when the account is a smart contract.
 
 
 ### How to structure the AuthSig
@@ -97,3 +101,9 @@ Below is the complete [**React** project](https://replit.com/@lit/Smart-Contract
 ## Clearing the stored AuthSig
 
 If you want to clear the authSig stored in the browser local storage, you can call the [`disconnectWeb3` method](https://js-sdk.litprotocol.com/functions/auth_browser_src.ethConnect.disconnectWeb3.html).
+
+## Security Considerations
+
+While an AuthSig can be provided across various SDK functions for authenticating the user against the nodes, we **do not** recommend this approach as it does not have an expiration time, nor does it use the [Object Capability model](https://en.wikipedia.org/wiki/Object-capability_model) to provide capability attenuation, delegation and other functionalities. This means that the same exact AuthSig object can be provided to the nodes multiple times / indefinitely (an example of replay attack), and once provided the authenticated user can perform read / mutative operations across all resources that are related to the original resource owner specified by the AuthSig object itself. 
+
+Use AuthSigs at your own risk. We recommend using [session signatures](/SDK/Explanation/authentication/sessionSigs) instead.

@@ -20,7 +20,7 @@ export default function QuickStartSection({ title, className }) {
       <Card
         title="Wallet Signatures and Authorization"
         description="Understand the required format of wallet signatures."
-        to="/SDK/Explanation/WalletSigs/authSig"
+        to="/SDK/Explanation/authentication/authSig"
       />
     </Section>
   );

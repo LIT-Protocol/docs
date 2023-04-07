@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Coming Soon: Session Keys
+# Coming Soon: Session Signatures
 
 :::note
 
@@ -10,17 +10,124 @@ Session Keys and Signatures are a replacement for Wallet Signatures / Auth Sigs 
 
 :::
 
-With Lit Protocol, the user needs to prove ownership of their wallet, and this is typically done via a wallet signature, sometimes referred to as "auth sigs" in the Lit docs. However, to protect against replay attacks, and to let users scope their wallet signatures to specific resources, we've implemented a system of session keys.
+## Background
 
-It works by generating a new random ed25519 keypair in the browser, and storing it in local storage. Then, the user signs a SIWE message with their wallet which contains the session public key. This signature is stored in local storage as well. The session keypair is used to sign all requests to the Lit Protocol API, and the user's wallet signature is sent along with the request, attached as a "capability" to the session signature. Each node in the Lit Network receives a unique signature for each request, and can verify that the user owns the wallet address that signed the capability.
+With Lit Protocol, the user needs to prove ownership of their wallet, and this is typically done via a wallet signature, sometimes referred to as AuthSigs in the Lit docs. However, in order to protect against replay attacks, to let users scope and delegate specific capabilities to specific resources, and to deliver a good user experience, we've implemented support for session signatures (enabled by session keys) during authentication.
 
-## Obtaining session signatures for a request in a browser
+## SessionSigs
 
-A prerequestive is that you must have a connected LitNodeClient and pass that into the getSessionSigs function.
+We refer to a session signature obtained from the user via session keys as a SessionSig.
 
-### For a signing request
+SessionSigs are produced by a ed25519 keypair that is generated randomly on the browser - these are stored in local storage. The first step to producing SessionSigs is to first obtain an AuthSig through one of the authentication methods outlined [here](/SDK/Explanation/authentication/methods). By specifying the session keypair's public key in the signature payload of the AuthSig, users can choose which specific actions to delegate to the session keypair for operating upon certain resources. This AuthSig is stored in local storage as well.
+
+The session keypair is used to sign all requests to the Lit Protocol API, and the user's AuthSig is sent along with the request, attached as a "capability" to the session signature. Each node in the Lit Network receives a unique signature for each request, and can verify that the user owns the wallet address that signed the capability.
+
+### An Improved User Experience
+
+The steps to obtain an AuthSig requires an interactive experience that involves manual steps from the end-user - whether clicking through the Google OAuth flow, placing their fingerprint on their platform authenticators, or clicking through their the respective modals of their externally-owned accounts (eg. MetaMask). These manual steps can be friction that drives users away from applications.
+
+On the other hand, the steps to obtain a SessionSig is completely non-interactive. The session keys and signature can all be done programmatically once an AuthSig has been obtained. 
+
+For these reasons, by designing AuthSigs to have a long validity period and SessionSigs to have a short validity period, we open up opportunities to develop user experiences that strike a good balance between a smooth user experience and security:
+- User Experience: Since we store the AuthSig in local storage, we can always retrieve it and continue to use it for as long as it is valid.
+- Security: SessionSigs allow us to scope specific capabilties against a narrow set of resources that is performed during a (usually) small time window that the user is on the application.
+
+## Format of SessionSigs
+
+Given the following example AuthSig,
+
+```json
+{
+    "sig": "0xef8f88fb285f006594637257034226923e3bbf7c6c69f8863be213e50a1c1d7f18124eefdc595b4f50a0e242e8e132c5078dc3c52bda55376ba314e08da862e21a",
+    "derivedVia": "web3.eth.personal.sign",
+    "signedMessage": "localhost:3000 wants you to sign in with your Ethereum account:
+        0x5259E44670053491E7b4FE4A120C70be1eAD646b
+        
+        
+        URI: lit:session:6a1f1e8a00b61867b85eaf329d6fdf855220ac3e32f44ec13e4db0dd303dea6a
+        Version: 1
+        Chain ID: 1
+        Nonce: ZfYjGsNyaDDFlaftP
+        Issued At: 2022-10-30T08:25:33.371Z
+        Expiration Time: 2022-11-06T08:25:33.348Z
+        Resources:
+        - urn:recap:eyJkZWYiOlsibGl0U2lnbmluZ0NvbmRpdGlvbiJdLCJ0YXIiOnsicmVzb3VyY2VJZCI6WyJsaXRFbmNyeXB0aW9uQ29uZGl0aW9uIl19fQ==",
+    "address":"0x5259E44670053491E7b4FE4A120C70be1eAD646b"
+}
+```
+
+Here is an example SessionSig that uses a session keypair to sign the AuthSig above:
+
+```json
+{
+    "sig": "0196a7e5b8271e287fc376af3ae35955cac1009149b9b9eab4c5f8c845ca20658f937a42b7c03a8884573b801de1c36f9fa8a6d2f3ba432dc4326443c114c40c",
+    "derivedVia": "litSessionSignViaNacl",
+    "signedMessage": '{
+        "sessionKey": "6a1f1e8a00b61867b85eaf329d6fdf855220ac3e32f44ec13e4db0dd303dea6a",
+        "resources": ["litSigningCondition://123"],
+        "capabilities": [{
+            "sig": "0xef8f88fb285c0065946f7257034226923e3bbf7c6c69f8863be213e50a1c1d7f18124eefdc595b4f50a0e242e8e132c5078dc3c52bda55376ba314e08da862e21a",
+            "derivedVia": "web3.eth.personal.sign",
+            "signedMessage": "localhost:3000 wants you to sign in with your Ethereum account:
+                0x5259E44670053491E7b4FE4A120C70be1eAD646b
+                
+                
+                URI: lit:session:6a1f1e8a00b61867b85eaf329d6fdf855220ac3e32f44ec13e4db0dd303dea6a
+                Version: 1
+                Chain ID: 1
+                Nonce: ZfYjGsNyaDDFlaftP
+                Issued At: 2022-10-30T08:25:33.371Z
+                Expiration Time: 2022-11-06T08:25:33.348Z
+                Resources:
+                - urn:recap:eyJkZWYiOlsibGl0U2lnbmluZ0NvbmRpdGlvbiJdLCJ0YXIiOnsicmVzb3VyY2VJZCI6WyJsaXRFbmNyeXB0aW9uQ29uZGl0aW9uIl19fQ==",
+            "address":"0x5259E44670053491E7b4FE4A120C70be1eAD646b"
+        }],
+        "issuedAt": "2022-10-30T08:27:01.667Z",
+        "expiration": "2022-10-30T08:32:01.667Z",
+        "nodeAddress": "https://node2.litgateway.com:7370"
+    }',
+    "address": "6a1f1e8a00b61867b85eaf329d6fdf855220ac3e32f44ec13e4db0dd303dea6a",
+    "algo": "ed25519"
+}
+```
+
+Here is what each field means:
+
+- `sig` is the signature produced by the ed25519 keypair signing the `signedMessage` payload
+- `derivedVia` should be `litSessionSignViaNacl` and specifies that the SessionSig object was created via the `NaCl` library.
+- `signedMessage` is the payload that was signed by the session keypair. 
+- `address` is the session keypair public key.
+- `algo` is the signing algorithm used to generate the session signature.
+
+### Signed Message
+
+Here is what each field in `signedMessage` means:
+
+- `sessionKey` is the session keypair public key.
+- `resources` is the specific resources that the SessionSig is authenticating in order to operate on.
+- `capabilities` is an array of one or more AuthSigs.
+- `issuedAt` is the time the SessionSig was issued.
+- `expiration` is the time the SessionSig becomes invalid.
+- `nodeAddress` is the specific URL the SessionSig is meant for.
+
+#### Capabilities
+
+The `capabilities` field is an array of one or more signatures. These capabilities authorize this AuthSig address to utilize the resources specified in the capabilities SIWE messages. These signatures would have the address from the top level AuthSig in their URI field. For example, notice the following in the AuthSig above:
 
 ```
+URI: lit:session:6a1f1e8a00b61867b85eaf329d6fdf855220ac3e32f44ec13e4db0dd303dea6a
+```
+
+#### Node Address
+
+The `nodeAddress` will be different for each node, which means that, for a 30-node network, the SDK will generate 30 different `sig` and `signedMessage` parameters.
+
+
+## Obtaining the SessionSig
+
+A prerequesite is that you must have a connected LitNodeClient and pass that into the getSessionSigs function.
+
+```javascript
 let resourceId = {
   baseUrl: "my-dynamic-content-server.com",
   path: "/this-is-a-path",
@@ -38,7 +145,13 @@ var sessionSigs = await LitJsSdk.getSessionSigs({
   litNodeClient,
   resources: [`litSigningCondition://${hashedResourceId}`],
 });
+```
 
+Once obtained, you can replace where you provide `authSig` with the new `sessionSigs` object. Below are some examples.
+
+### Making Signing Requests
+
+```javascript
 var unifiedAccessControlConditions = [
   {
     conditionType: "evmBasic",
@@ -70,9 +183,9 @@ let jwt = await litNodeClient.getSignedToken({
 });
 ```
 
-### For an encryption request
+### Making Encryption Requests
 
-```
+```javascript
 // storing the key
 var sessionSigs = await LitJsSdk.getSessionSigs({
   chain: "ethereum",
@@ -136,13 +249,13 @@ const decryptedString = await decryptedFiles["string.txt"].async(
 console.log("decrypted string", decryptedString);
 ```
 
-## Obtaining session signatures in NodeJS
+## Obtaining the SessionSig in NodeJS
 
 You can use any wallet or signing method with session signatures because the `getSessionSigs()` function supports passing a callback called `authNeededCallback` that will be fired when a wallet signature is needed. You can see an example of this here: https://github.com/LIT-Protocol/js-serverless-function-test/blob/main/js-sdkTests/sessionKeys.js#L31
 
 The `getSessionSigs()` function will generate a session key for you automatically and attempt to store it in LocalStorage. In case you have not polyfilled LocalStorage, you may instead generate the session key yourself using `generateSessionKeyPair()` and store it however you like. You can then pass it to `getSessionSigs()` as the `sessionKey` param.
 
-## Obtaining session signatures when the user doesn't have a wallet
+## Obtaining the SessionSig when user doesn't have a wallet
 
 You can use Oauth login with services including Discord and Google when the user doesn't have a wallet. You can see an example of how to do this using Google Oauth here: https://github.com/LIT-Protocol/oauth-pkp-signup-example/blob/main/src/App.tsx#L386
 
@@ -150,9 +263,36 @@ You can use Oauth login with services including Discord and Google when the user
 
 If you want to clear the session key stored in the browser local storage, you can call the [`disconnectWeb3` method](https://js-sdk.litprotocol.com/functions/auth_browser_src.ethConnect.disconnectWeb3.html).
 
+## Capability Delegation
+
+The AuthSigs that users generate using our platform are [ERC-5573](https://eips.ethereum.org/EIPS/eip-5573) (SIWE ReCaps) compliant (**read**: we are still rolling this out, more updates to come). This means that, should the users specify certain actions to delegate to the session keys to operate on certain resources, this would be encoded in a capability object referenced in the `resources` array of the AuthSig.
+
+As an example, the AuthSig above contains the following in the `resources` array, after the `urn:recap` prefix:
+
+```
+eyJkZWYiOlsibGl0U2lnbmluZ0NvbmRpdGlvbiJdLCJ0YXIiOnsicmVzb3VyY2VJZCI6WyJsaXRFbmNyeXB0aW9uQ29uZGl0aW9uIl19fQ==
+```
+
+Decoding the payload above using base64 corresponds to the following object:
+
+```json
+{
+  "def": [
+    "litSigningCondition"
+  ],
+  "tar": {
+    "resourceId": [
+      "litEncryptionCondition"
+    ]
+  }
+}
+```
+
+**NOTE**: This is the outdated capability object specification and we will be updating to use the new object specification syntax.
+
 ## Resources you can request
 
-You can pass an array of resources to the getSessionSigs() function, which will be presented to the user in the SIWE message. Resources are things the signature is permitted to be used for. These can be specific items, such as the ID of an encryption condition, or they can be wildcards. The default is all resources with wildcards. The resources are strings that follow the format `lit<conditionType>://<resourceId>`. The conditionType can be either `SigningCondition` or `EncryptionCondition`. The resourceId is a string that uniquely identifies the resource you are requesting access to. For signing conditions, the resourceId is a hash of the resourceId JSON you are requesting access to. For encryption conditions, the resourceId is a hash of the encrypted symmetric key that you are requesting access to.
+You can pass an array of resources to the `getSessionSigs()` function, which will be presented to the user in the SIWE message. Resources are things the signature is permitted to be used for. These can be specific items, such as the ID of an encryption condition, or they can be wildcards. The default is all resources with wildcards. The resources are strings that follow the format `lit<conditionType>://<resourceId>`. The conditionType can be either `SigningCondition` or `EncryptionCondition`. The resourceId is a string that uniquely identifies the resource you are requesting access to. For signing conditions, the resourceId is a hash of the resourceId JSON you are requesting access to. For encryption conditions, the resourceId is a hash of the encrypted symmetric key that you are requesting access to.
 
 Since Session keys need the capability to sign on behalf of you and your wallet, you grant them condition types, but with the addition `Capability` at the end. For example, `litSigningConditionCapability://*` will give the session key the capability to sign on your behalf for any signing condition. `litEncryptionConditionCapability://*` will give the session key the capability to sign on your behalf for any encryption condition.
 
@@ -171,21 +311,6 @@ The protocol prefixes of the resources are:
 | RLI Delegation                  | litRLICapability://                 | RLI TokenID             | Granting Capability | Specify which RLIs can be used on behalf of the user. Only the key in the URI field of this signature is authorized to actually use this resource. This is typically a session key.                        |
 | Lit Action Delegation           | litActionCapability://              | Lit Action IPFS ID      | Granting Capability | Specify which Lit Actions can be called on behalf of the user. Only the key in the URI field of this signature is authorized to actually use this resource. This is typically a session key.               |
 |                                 |                                     |                         |                     |                                                                                                                                                                                                            |
-
-# Auth Sigs
-
-Currently, an auth sig looks like this:
-
-```jsx
-{
-	sig: "0x2bdede6164f56a601fc17a8a78327d28b54e87cf3fa20373fca1d73b804566736d76efe2dd79a4627870a50e66e1a9050ca333b6f98d9415d8bca424980611ca1c",
-	derivedVia: "web3.eth.personal.sign",
-	signedMessage: "localhost wants you to sign in with your Ethereum account:\n0x9D1a5EC58232A894eBFcB5e466E3075b23101B89\n\nThis is a key for Partiful\n\nURI: https://localhost/login\nVersion: 1\nChain ID: 1\nNonce: 1LF00rraLO4f7ZSIt\nIssued At: 2022-06-03T05:59:09.959Z",
-	address: "0x9D1a5EC58232A894eBFcB5e466E3075b23101B89",
-}
-```
-
-Session signatures have a new field, “capabilities”, which is an array of one or more signatures. Those signatures would have the address from the top level AuthSig in their URI field. These capabilities authorize this AuthSig address to utilize the resources specified in the capabilities SIWE messages.
 
 # Session Keys
 
@@ -210,3 +335,23 @@ Alice owns a PKP and wants use it with a specific Lit Action that she has not au
 When Alice creates a capability by signing the session key, she specifies the resources `litPKPCapability://<pkpIdHere>` and `litActionCapability://<litActionIpfsIdHere>`.
 
 The SDK can attach this signature as a capability when it sends the AuthSig to the nodes.
+
+## Security Considerations
+
+### Expiration Times
+
+The design decision to use SessionSigs in conjunction with AuthSigs is a compromise between security and UX. The intention is for AuthSigs to have a long(er) validity period (expires farther into the future) and for SessionSigs to be short-lived (expires soon) since SessionSigs is the actual authentication material that is required when operating against the specified resources. While our SDK uses sensible defaults for expiration times, these parameters are ultimately at the discretion of the application developer.
+
+### SessionSig-per-Node
+
+In order to prevent replay attacks, we have opted to generate a SessionSig per each node that the SDK is sending the request to. (Note that this is a fast operation compared to the latency involved in alternative security models)
+
+If the SessionSig were to omit the `nodeAddress` parameter, then a node could technically re-use the SessionSig provided by the end-user to replay the request again from that node to the rest of the nodes in the network.
+
+### AuthSig Replay-ability
+
+Another possible replay attack comes from an AuthSig being provided solely, and repeatedly. When the AuthSig is signed against a payload containing the session keypair's public key as well as an allowlist of delegated capabilities, an AuthSig is insufficient to authenticate when provided in the absence of a SessionSig that corresponds to the signed session keypair public key. 
+
+### AuthSig and SessionSig Coupling
+
+Since a full SessionSig object couples an (inner) AuthSig with an (outer) SessionSig, this means that it is impossible for a node to attach a session signature that would be valid against an AuthSig that they have obtained elsewhere, ie. in an attempt to perform a replay attack. This is because the public key in the session signature must match that which is signed against in the (inner) AuthSig object.

@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## Definitions of commonly used terms and core concepts.
 
-### **[Auth Sig](/SDK/Explanation/WalletSigs/authSig#authsigs)**
+### **[Auth Sig](/SDK/Explanation/authentication/authSig#authsigs)**
 In order to use Lit Protocol, you must present a wallet signature obtained from the user. This is referred to as an 'AuthSig' in the documentation.
 ### **[Boneh-Lynn-Shacham (BLS) Signatures](https://medium.com/cryptoadvance/bls-signatures-better-than-schnorr-5a7fe30ea716)**
 A cryptographic algorithm that can be used for both signing and encryption. BLS allows for signature aggregation and verification at scale using [Elliptic Curve cryptography](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography).
@@ -53,7 +53,7 @@ The technology that underpins cryptocurrency and most of the security infrastruc
 2. Sign (write) data to blockchains, databases, storage networks, and other state machines (digital signatures).
 ### **[Rate Limiting](https://explorer.litprotocol.com/rlis)**
 By default, each Lit Action execution comes with a "free plan" that allows you to execute a limited number of requests/millisecond on the Lit nodes. To lift this limitation, you can "upgrade" your plan by purchasing an RLI NFT that comes with "flexible terms" which can be customized by 2 factors, the number of requests/millisecond and the expiry date. 
-### **[Session Keys](/SDK/Explanation/WalletSigs/sessionSigs)**
+### **[Session Keys](/SDK/Explanation/authentication/sessionSigs)**
 When the user “signs into” Lit, we generate a random session key for them. They sign that session pubkey as the “URI” of a SIWE message which creates a capability signature. There is a default expiration time of 24 hours, but this is configurable. This signature and the session key are stored in the localstorage of the browser.
 
 When the user sends a request, the session key signs it and sends the signature with the request. The capability signature is also sent. Multiple capability signatures can be attached. Therefore, the AuthSig presented to the nodes is actually the session key AuthSig with the capability signatures attached. The SDK will use the session key to scope the AuthSig for each request to the specific resource and node being addressed, preventing replay attacks.

@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Generating a Session Key
 
-This [example](https://github.com/LIT-Protocol/js-serverless-function-test/blob/main/js-sdkTests/sessionKeys.js) demonstrates how to generate a signed [session key](/SDK/Explanation/WalletSigs/sessionSigs) using Lit Actions.
+This [example](https://github.com/LIT-Protocol/js-serverless-function-test/blob/main/js-sdkTests/sessionKeys.js) demonstrates how to generate a signed [session key](/SDK/Explanation/authentication/sessionSigs) using Lit Actions.
 
 ``` js
 // this example will generate and sign a session key and use it for a request

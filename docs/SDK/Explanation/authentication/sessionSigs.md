@@ -18,7 +18,7 @@ With Lit Protocol, the user needs to prove ownership of their wallet, and this i
 
 We refer to a session signature obtained from the user via session keys as a SessionSig.
 
-SessionSigs are produced by a ed25519 keypair that is generated randomly on the browser - these are stored in local storage. The first step to producing SessionSigs is to first obtain an AuthSig through one of the authentication methods outlined [here](/SDK/Explanation/authentication/methods). By specifying the session keypair's public key in the signature payload of the AuthSig, users can choose which specific actions to delegate to the session keypair for operating upon certain resources. This AuthSig is stored in local storage as well.
+SessionSigs are produced by a ed25519 keypair that is generated randomly on the browser - these are stored in local storage. The first step to producing SessionSigs is to first obtain an AuthSig through an authentication method like Google OAuth (example [here](https://github.com/LIT-Protocol/oauth-pkp-signup-example/blob/main/src/App.tsx#L398)). By specifying the session keypair's public key in the signature payload of the AuthSig, users can choose which specific actions to delegate to the session keypair for operating upon certain resources. This AuthSig is stored in local storage as well.
 
 The session keypair is used to sign all requests to the Lit Protocol API, and the user's AuthSig is sent along with the request, attached as a "capability" to the session signature. Each node in the Lit Network receives a unique signature for each request, and can verify that the user owns the wallet address that signed the capability.
 
@@ -257,7 +257,7 @@ The `getSessionSigs()` function will generate a session key for you automaticall
 
 ## Obtaining the SessionSig when user doesn't have a wallet
 
-You can use Oauth login with services including Discord and Google when the user doesn't have a wallet. You can see an example of how to do this using Google Oauth here: https://github.com/LIT-Protocol/oauth-pkp-signup-example/blob/main/src/App.tsx#L386
+You can use Oauth login with services including Discord and Google when the user doesn't have a wallet. You can see an example of how to do this using Google Oauth here: https://github.com/LIT-Protocol/oauth-pkp-signup-example/blob/main/src/App.tsx#L50
 
 ## Clearing the stored session key and signature
 

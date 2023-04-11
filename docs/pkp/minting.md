@@ -35,6 +35,6 @@ In order to allow for various frontends to integrate with our platform, we plan 
 
 We do not currently use challenges as part of our PKP minting / WebAuthn registration process and only use it for the PKP / WebAuthn authentication step.
 
-### Decentralized Authentication
+<!-- ### Decentralized Authentication
 
-Read more [here](/SDK/Explanation/authentication/methods).
+Read more [here](/SDK/Explanation/authentication/methods). -->

@@ -199,10 +199,6 @@ The parameter `chain` is now `chainId` and type `number`.
 
 <br/>
 
-**AuthSig** is now `JsonAuthSig` and includes additional optional properties like `capabilities` and `algo`.
-
-<br/>
-
 ### Deprecated Methods
 
 These methods are no longer supported:

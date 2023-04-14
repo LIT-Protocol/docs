@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 # Contracts
 
-Below you can find the full list of associated smart contracts:
+Below you can find the full list of associated smart contracts, which live on the [Chronicle Testnet](/intro/rollup):
 
 **PKPNFT**: [0xF5cB699652cED3781Dd75575EDBe075d6212DF98](https://chain.litprotocol.com/address/0xF5cB699652cED3781Dd75575EDBe075d6212DF98)
 

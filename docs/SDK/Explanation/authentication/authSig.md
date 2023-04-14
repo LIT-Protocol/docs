@@ -8,7 +8,7 @@ sidebar_position: 1
 
 We refer to a wallet signature obtained from the user as an AuthSig.
 
-You can use any EIP 4361 compliant signature (Sign in with Ethereum) for the authSig, but you must put the signature into the AuthSig data structure format (documented [here](https://js-sdk.litprotocol.com/interfaces/types_src.AuthSig.html)). You do not need to use the Lit JS SDK V2 to obtain the signature as long as it's EIP 4361 compliant and in the AuthSig data structure format.
+You can use any [EIP 4361](https://eips.ethereum.org/EIPS/eip-4361) compliant signature (Sign in with Ethereum) for the authSig, but you must put the signature into the AuthSig data structure format (documented [here](https://js-sdk.litprotocol.com/interfaces/types_src.AuthSig.html)). You do not need to use the Lit JS SDK V2 to obtain the signature as long as it's EIP 4361 compliant and in the AuthSig data structure format.
 
 **WARNING**: AuthSigs are considered insecure to use for authenticating against the nodes and we **do not** recommend using them. Read more [in the below section](/SDK/Explanation/authentication/authSig#security-considerations).
 

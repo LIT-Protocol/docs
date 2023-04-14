@@ -33,7 +33,12 @@ const sidebars = {
       label: "Getting Started",
       collapsible: false,
       className: "category-not-collapsible",
-      items: ["intro/overview", "intro/whatIsLitProtocol", "intro/usecases"],
+      items: [
+        "intro/overview",
+        "intro/whatIsLitProtocol",
+        "intro/usecases",
+        "intro/rollup"
+      ],
     },
     {
       type: "category",
@@ -93,8 +98,7 @@ const sidebars = {
             "pkp/wallets/examples",
           ],
         },
-        "pkp/toolsAndExamples",
-        "pkp/rollup",
+        "pkp/toolsAndExamples"
       ],
     },
     {

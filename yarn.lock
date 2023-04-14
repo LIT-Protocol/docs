@@ -1681,18 +1681,18 @@
   resolved "https://registry.npmjs.org/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@lit-protocol/constants@^2.1.114":
-  version "2.1.114"
-  resolved "https://registry.yarnpkg.com/@lit-protocol/constants/-/constants-2.1.114.tgz#ab9d3f27845f3d13e423b019b35a1651c0d521b0"
-  integrity sha512-O7rwUwAmvSE9V9dLUhqG2797EARLWYFD/JRVMIQcXdVNrcWLkC4sdWsKaONRLs3VrwQX+yiqFaSGND3/CXNSzQ==
+"@lit-protocol/constants@^2.1.116":
+  version "2.1.116"
+  resolved "https://registry.yarnpkg.com/@lit-protocol/constants/-/constants-2.1.116.tgz#f1ed75ced52e812630f78f4ca2f79982a8b1774b"
+  integrity sha512-PUNN5LaM4x9J2yTwmYsQFhD0lEw/wBgCziv4U4AOwwXYJRIaUc/yjZvdxwhwlJNhRo2JUvEbVPGb2z/zOqBlqA==
   dependencies:
-    "@lit-protocol/types" "2.1.114"
+    "@lit-protocol/types" "2.1.116"
     tslib "^2.3.0"
 
-"@lit-protocol/types@2.1.114":
-  version "2.1.114"
-  resolved "https://registry.yarnpkg.com/@lit-protocol/types/-/types-2.1.114.tgz#8fe848642915846f92253d65588d59cd941f7d53"
-  integrity sha512-nBwWZA+f1KMmNQ5RmlsJ4Mxxd6ezHF7NcEgRUyB1onSsV7dl5+6EiPd+Xk0FJUz4BQf7g6Ont7Gs7s5qTATKjw==
+"@lit-protocol/types@2.1.116":
+  version "2.1.116"
+  resolved "https://registry.yarnpkg.com/@lit-protocol/types/-/types-2.1.116.tgz#fc4ba9d05c606b05c1a76eef11049ad12a9fef5d"
+  integrity sha512-QjWDmrh2lFkCNvUgmxZV4ZA/P3bUBTSdxuqqMRIHvDTFen/4qVKCVSbsxOE0UDjSEp/K5bMCH20mczagtTzaiQ==
 
 "@mdx-js/mdx@^1.6.22":
   version "1.6.22"

@@ -32,7 +32,7 @@ Errors are thrown as exceptions when something has gone wrong. Errors are object
 |iat_outside_grace_period|When signing a JWT, the IAT is outside the grace period. This usually means that your system clock is wrong. Please check it and make sure it is set accurately for your timezone.
 |incorrect_access_control_conditions|The access control conditions you passed in do not match the ones that were set by the condition creator for this resourceId or encryptedSymmetricKey.
 |invalid_auth_sig|The auth_sig passed to the nodes is invalid or could not be verified. Make sure that you are passing the correct auth_sig.
-|invalid_unified_condition_type|In a unified access control condition, you passed an invalid `conditionType`. Check the docs to see what valid types are: https://developer.litprotocol.com/docs/accesscontrolconditions/unifiedaccesscontrolconditions/
+|invalid_unified_condition_type|In a unified access control condition, you passed an invalid `conditionType`. Check the docs to see what valid types [here](https://developer.litprotocol.com/docs/accesscontrolconditions/unifiedaccesscontrolconditions/).
 |lit_node_client_not_ready|The Lit node client is not ready. This means that the Lit node client is not connected to the Lit network. You should run `await litNodeClient.connect()` before calling any other methods that use the Lit Node Client.
 |missing_access_control_conditions|You must pass either access_control_conditions or evm_contract_conditions or sol_rpc_conditions, and you did not pass these things to the nodes.
 |not_authorized|Thrown when the user does not have access to decrypt or is unauthorized to receive a JWT for an item.
@@ -53,10 +53,10 @@ Errors are thrown as exceptions when something has gone wrong. Errors are object
 |NodeExpWrongOrTooLarge|The provided exp param is either expired or is too much in the future.|
 |NodeIatOutsideGracePeriod|The provided iat param is either outside the grace_period or the issue time is in the future.|
 |NodeAuthFailed|The authMethod isn't allowed for the provided PKP.|
-|NodeInvalidAuthSig|The provided Authsig is invalid. Please ensure that the Authsig is in the required format as provided: https://js-sdk.litprotocol.com/interfaces/types_src.AuthSig.html|
+|NodeInvalidAuthSig|The provided Authsig is invalid. Please ensure that the Authsig is in the required format as provided [here](https://js-sdk.litprotocol.com/interfaces/types_src.AuthSig.html)|
 |NodeAuthSigNotSupported|Multiple Authsigs not supported for the function.|
 |NodeInvalidEthereumSolanaAuthSig|Either the Authsig isn't provided or all the provided Authsigs are invalid.|
-|NodeInvalidED25519AuthSig|The provided Authsig isn't Ed25519 compliant. Please ensure that the Authsig is in the required format as provided: https://js-sdk.litprotocol.com/interfaces/types_src.AuthSig.html|
+|NodeInvalidED25519AuthSig|The provided Authsig isn't Ed25519 compliant. Please ensure that the Authsig is in the required format as provided [here](https://js-sdk.litprotocol.com/interfaces/types_src.AuthSig.html)|
 |NodeInvalidAuthSigSigningAlgo|The provided algo param in the sessionSigs isn't supported. The ONLY supported algo is "ed25519".|
 |NodeInvalidUnifiedAuthSig|Either no Authsig is provided in the unified conditions or all the provided Authsigs in the are invalid.|
 |NodeInvalidEthereumAuthSig|Either no Ethereum Authsig isn't provided or is invalid.|
@@ -68,9 +68,9 @@ Errors are thrown as exceptions when something has gone wrong. Errors are object
 |NodeConditionAddressConversionError|Couldn't convert the provided accessControlCondition param from hex string to bytes.|
 |NodeConditionTokenIdParsingError|Couldn't parse the provided accessControlCondition's tokenId. Please look at the returned error for more info.|
 |NodeInvalidIPFSID|Invalid IPFS CID.|
-|NodeAuthSigSignatureConversionError|Invalid Authsig.sig param. Please look at the returned error for more info & ensure it's compatible as given here: https://js-sdk.litprotocol.com/interfaces/types_src.AuthSig.html|
-|NodeAuthSigSessionKeyConversionError|Invalid Authsig.address param. Please look at the returned error for more info  ensure it's compatible as given here: https://js-sdk.litprotocol.com/interfaces/types_src.AuthSig.html|
-|NodeAuthSigSignedMessageConversionError|Invalid Authsig.signedMessage param. Please look at the returned error for more info  ensure it's compatible as given here: https://js-sdk.litprotocol.com/interfaces/types_src.AuthSig.html|
+|NodeAuthSigSignatureConversionError|Invalid Authsig.sig param. Please look at the returned error for more info & ensure it's compatible as given [here](https://js-sdk.litprotocol.com/interfaces/types_src.AuthSig.html)|
+|NodeAuthSigSessionKeyConversionError|Invalid Authsig.address param. Please look at the returned error for more info  ensure it's compatible as given [here](https://js-sdk.litprotocol.com/interfaces/types_src.AuthSig.html)|
+|NodeAuthSigSignedMessageConversionError|Invalid Authsig.signedMessage param. Please look at the returned error for more info  ensure it's compatible as given [here](https://js-sdk.litprotocol.com/interfaces/types_src.AuthSig.html)|
 |NodeInvalidAuthSigSessionKeySignature|The provided sessionSig is invalid. Please look at the error for more info.|
 |NodeMissingAccessControlConditions|No Access Control Condition provided. You have to provide at least one of the accessControlCondition, evmContractConditions, solRpConditions|
 |NodeNotAuthorized|The Lit node requested isn't a validator in the current epoch. Please try again. If this error persists contact us on Discord.|
@@ -120,4 +120,4 @@ Errors are thrown as exceptions when something has gone wrong. Errors are object
 
 ## Wallet Error Handling
 
-MetaMask and other wallets throw errors themselves. The format for those exceptions can be found here: https://docs.metamask.io/guide/ethereum-provider.html#errors
+MetaMask and other wallets throw errors themselves. The format for those exceptions can be found [here](https://docs.metamask.io/guide/ethereum-provider.html#errors).

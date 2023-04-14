@@ -38,7 +38,12 @@ If you are using GitHub pages for hosting, this command is a convenient way to b
 
 ## ✨ Workflow
 
-When adding new content or re-organizing existing content, please be sure to update the sidebar file `sidebars.js`.
+When adding new content or re-organizing existing content, please be sure to update the following:
+
+1. Sidebar file - `sidebars.js`
+2. Redirects file - `netlify.toml`
+
+### Updating the sidebar
 
 To create a top-level, **noncollapsible** category like `Getting Started`, add the following to the `docs` array:
 
@@ -100,4 +105,16 @@ docs: [
     ],
   }
 ]
+```
+
+### Setting redirects
+
+If you are changing the path of a page, you will need to add a redirect to the `netlify.toml` file. For example, if you are changing the path of `docs/tea-drinks/intro.md` to `docs/tea-drinks/tea-drinks-intro.md`, you will need to add the following to the `netlify.toml` file:
+
+```toml
+[[redirects]]
+  from = "/docs/tea-drinks/intro"
+  to = "/docs/tea-drinks/tea-drinks-intro"
+  status = 301
+  force = false
 ```

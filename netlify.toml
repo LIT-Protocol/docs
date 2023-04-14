@@ -563,3 +563,9 @@ force = false
   to = "/pkp/wallets/intro"
   status = 301
   force = false
+
+[[redirects]]
+  from = "/SDK/Explanation/WalletSigs/*"
+  to = "/SDK/Explanation/authentication/*"
+  status = 301
+  force = false

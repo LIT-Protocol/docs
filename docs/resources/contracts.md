@@ -9,17 +9,17 @@ import TabItem from '@theme/TabItem';
 
 Below you can find the full list of associated smart contracts, which live on the [Chronicle Testnet](/intro/rollup):
 
-**PKPNFT**: [0xF5cB699652cED3781Dd75575EDBe075d6212DF98](https://chain.litprotocol.com/address/0xF5cB699652cED3781Dd75575EDBe075d6212DF98)
+**PKPNFT**: [0x8F75a53F65e31DD0D2e40d0827becAaE2299D111](https://chain.litprotocol.com/address/0x8F75a53F65e31DD0D2e40d0827becAaE2299D111)
 
-**PubkeyRouterAndPermissions**: [0xB46EbbD0F543811fC97e979fbCa62FEAB6C7E6B4](https://chain.litprotocol.com/address/0xB46EbbD0F543811fC97e979fbCa62FEAB6C7E6B4)
+**PubkeyRouterAndPermissions**: [0xB35cC6CaB1501d5F3b6b8fcF3215898C9d03E981](https://chain.litprotocol.com/address/0xB35cC6CaB1501d5F3b6b8fcF3215898C9d03E981)
 
-**Rate Limit Increase NFT**: [0x6378Bf57C2c75d9524FE2601275214C0EE3Cf1B8](https://chain.litprotocol.com/address/0x6378Bf57C2c75d9524FE2601275214C0EE3Cf1B8)
+**Rate Limit Increase NFT**: [0x2D0f767eff47b44626832EcD2fda705eB9797c38](https://chain.litprotocol.com/address/0x2D0f767eff47b44626832EcD2fda705eB9797c38)
 
-**Staking Contract Address**: [0x1D672d7188D970158554F5B0965480256585A071](https://chain.litprotocol.com/address/0x1D672d7188D970158554F5B0965480256585A071)
+**Staking Contract Address**: [0x433357a14c35815E6A32758fe95c93380D194aaf](https://chain.litprotocol.com/address/0x433357a14c35815E6A32758fe95c93380D194aaf)
 
-**PKPHelper**: [0x5a8e445BCFE85264566c32Be50A172F3d14F53Fc](https://chain.litprotocol.com/address/0x5a8e445BCFE85264566c32Be50A172F3d14F53Fc)
+**PKPHelper**: [0x8bB62077437D918891F12c7F35d9e1B78468bF11](https://chain.litprotocol.com/address/0x8bB62077437D918891F12c7F35d9e1B78468bF11)
 
-**PKPPermissions**: [0xE34eAB00607E6817327d575B26E8de29c320D6e9](https://chain.litprotocol.com/address/0xE34eAB00607E6817327d575B26E8de29c320D6e9)
+**PKPPermissions**: [0x4Aed2F242E806c58758677059340e29E6B5b7619](https://chain.litprotocol.com/address/0x4Aed2F242E806c58758677059340e29E6B5b7619)
 
 ## TypeScript Contracts SDK
 

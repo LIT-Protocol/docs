@@ -1681,18 +1681,18 @@
   resolved "https://registry.npmjs.org/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@lit-protocol/constants@^2.1.135":
-  version "2.1.135"
-  resolved "https://registry.yarnpkg.com/@lit-protocol/constants/-/constants-2.1.135.tgz#01b11c803500fd94a785dcf3ab12a9e8bb3bd6a8"
-  integrity sha512-6kHBR+e4l46gHIG2actqDpItOybKF+sNdqsZoXfghF1YdSbO/s/V2ZdCZkpfaRS0gwLShlNNt3rBuit3551bEA==
+"@lit-protocol/constants@^2.1.158":
+  version "2.1.158"
+  resolved "https://registry.yarnpkg.com/@lit-protocol/constants/-/constants-2.1.158.tgz#21cb990bc907c69a6b33d46b1c6a61e7badd33a8"
+  integrity sha512-PoLeh2lipob6VlultzRFg3uWFX/59v6hS7nz5xa0/WeTIhdUdlzyGXFTyJCsRGxGC4PnfqiIIVG9tTow9mfw1w==
   dependencies:
-    "@lit-protocol/types" "2.1.135"
+    "@lit-protocol/types" "2.1.158"
     tslib "^2.3.0"
 
-"@lit-protocol/types@2.1.135":
-  version "2.1.135"
-  resolved "https://registry.yarnpkg.com/@lit-protocol/types/-/types-2.1.135.tgz#5506ec024a0388c30904a57ea0805e9b030fcea7"
-  integrity sha512-n1XMVU+N4PuLuDamKmC147dzSfxq56yydzwqr59siApd81AcVbgzIFX4LjShNpm/+uslz3MqT1MHZ7a8ECNFJQ==
+"@lit-protocol/types@2.1.158":
+  version "2.1.158"
+  resolved "https://registry.yarnpkg.com/@lit-protocol/types/-/types-2.1.158.tgz#76fee75d8bdc779e8b4a34bef67d0bfeb841b151"
+  integrity sha512-QzFbuc4cSz5+f8f/V7G45p4b+64S5sJPqIrk6uYgLeu0xArTqbSy5kHwZrliFRSkIEotcHwg7kMs2s2na/Z1xQ==
 
 "@mdx-js/mdx@^1.6.22":
   version "1.6.22"

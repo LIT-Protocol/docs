@@ -33,25 +33,17 @@ const sidebars = {
       label: "Getting Started",
       collapsible: false,
       className: "category-not-collapsible",
-      items: ["intro/overview", "intro/whatIsLitProtocol", "intro/usecases"],
-    },
-    {
-      type: 'category',
-      label: 'Authentication',
-      collapsible: false,
-      className: "category-not-collapsible",
       items: [
-        'authentication/overview',
-        'authentication/authSig',
-        'authentication/sessionSigs',
-        'authentication/methods',
+        "intro/overview",
+        "intro/whatIsLitProtocol",
+        "intro/usecases",
+        "intro/rollup"
       ],
     },
     {
       type: "category",
       label: "Access Control",
-      collapsible: false,
-      className: "category-not-collapsible",
+      collapsed: true,
       items: [
         "accessControl/intro",
         {
@@ -91,8 +83,7 @@ const sidebars = {
     {
       type: "category",
       label: "Programmable Key Pairs",
-      collapsible: false,
-      className: "category-not-collapsible",
+      collapsed: true,
       items: [
         'pkp/intro',
         'pkp/minting',
@@ -107,15 +98,13 @@ const sidebars = {
             "pkp/wallets/examples",
           ],
         },
-        "pkp/toolsAndExamples",
-        "pkp/rollup",
+        "pkp/toolsAndExamples"
       ],
     },
     {
       type: "category",
       label: "Lit Actions",
-      collapsible: false,
-      className: "category-not-collapsible",
+      collapsed: true,
       items: [
         "LitActions/intro",
         "LitActions/getlitCli",
@@ -146,6 +135,7 @@ const sidebars = {
         },
       ],
     },
+
     {
       type: "category",
       label: "SDK Reference",
@@ -161,6 +151,40 @@ const sidebars = {
           collapsed: true,
           items: [
             "SDK/Explanation/encryption",
+            {
+              type: 'category',
+              label: 'Authentication',
+              link: {
+                type: 'doc',
+                id: 'SDK/Explanation/authentication/overview',
+              },
+              collapsed: true,
+              items: [
+                'SDK/Explanation/authentication/authSig',
+                {
+                  type: "category",
+                  label: "Auth Methods",
+                  collapsed: true,
+                  items: [
+                    "SDK/Explanation/authentication/authMethods/eoa",
+                    "SDK/Explanation/authentication/authMethods/smartContract",
+                    "SDK/Explanation/authentication/authMethods/socialLogin",
+                    "SDK/Explanation/authentication/authMethods/webAuthn",
+                  ],
+                },
+                {
+                  type: "category",
+                  label: "Session Signatures",
+                  collapsed: true,
+                  items: [
+                    "SDK/Explanation/authentication/sessionSigs/intro",
+                    "SDK/Explanation/authentication/sessionSigs/getSessionSigs",
+                    "SDK/Explanation/authentication/sessionSigs/usage",
+                  ],
+                },
+                'SDK/Explanation/authentication/security',
+              ],
+            },
             "SDK/Explanation/tests",
           ],
         },

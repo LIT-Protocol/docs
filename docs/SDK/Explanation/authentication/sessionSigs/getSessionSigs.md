@@ -2,147 +2,95 @@
 sidebar_position: 2
 ---
 
-# Session Signatures
+# Generate Session Signatures
 
-## Obtaining the SessionSig
+You can use any wallet or signing method to generate session signatures with the `getSessionSigs()` function. This function generates a session keypair and uses a callback function that signs the generated session key to create an `AuthSig` that is scoped to specific capabilities.
 
-A prerequesite is that you must have a connected LitNodeClient and pass that into the getSessionSigs function.
+TODO: Update example
 
 ```javascript
-let resourceId = {
-  baseUrl: "my-dynamic-content-server.com",
-  path: "/this-is-a-path",
-  orgId: "",
-  role: "",
-  extraData: "",
+import { LitNodeClient } from '@lit-protocol/lit-node-client';
+
+// Create a new ethers.js Wallet instance
+const wallet = new Wallet(process.env.YOUR_PRIVATE_KEY);
+
+// Instantiate a LitNodeClient
+const litNodeClient = new LitNodeClient({
+  litNetwork: "serrano",
+  debug: true,
+});
+await litNodeClient.connect();
+
+// When the getSessionSigs function is called, it will generate a session key and sign it
+// using this callback function.
+let authNeededCallback = async ({ chain, resources, expiration, uri }) => {
+  const domain = "localhost:3000";
+  const message = new SiweMessage({
+    domain,
+    address: wallet.address,
+    statement: "Sign a session key to use with Lit Protocol",
+    uri,
+    version: "1",
+    chainId: "1",
+    expirationTime: expiration,
+    resources,
+  });
+  const toSign = message.prepareMessage();
+  const signature = await wallet.signMessage(toSign);
+
+  const authSig = {
+    sig: signature,
+    derivedVia: "web3.eth.personal.sign",
+    signedMessage: toSign,
+    address: wallet.address,
+  };
+
+  return authSig;
 };
 
-let hashedResourceId = await LitJsSdk.hashResourceIdForSigning(
-  resourceId
-);
-
-var sessionSigs = await LitJsSdk.getSessionSigs({
+let sessionSigs = await litNodeClient.getSessionSigs({
   chain: "ethereum",
-  litNodeClient,
-  resources: [`litSigningCondition://${hashedResourceId}`],
+  resources: ["litAction://*"],
+  authNeededCallback,
 });
 ```
 
-Once obtained, you can replace where you provide `authSig` with the new `sessionSigs` object. Below are some examples.
+The `getSessionSigs()` function will try to create a session key for you and store it in local storage. You can also generate the session key yourself using `generateSessionKeyPair()` function and store it however you like. You can then pass the generated session key to `getSessionSigs()` as the `sessionKey` param.
 
-### Making Signing Requests
+## Using `LitAuthClient`
+
+The `@lit-protocol/lit-auth-client` package provides a convenient function that wraps `getSessionSigs()` and generates session signatures for a given PKP public key and `AuthMethod` object for you.
 
 ```javascript
-var unifiedAccessControlConditions = [
-  {
-    conditionType: "evmBasic",
-    contractAddress: "",
-    standardContractType: "",
-    chain: "ethereum",
-    method: "eth_getBalance",
-    parameters: [":userAddress", "latest"],
-    returnValueTest: {
-      comparator: ">=",
-      value: "10000000000000",
-    },
-  },
-];
+import { LitAuthClient } from '@lit-protocol/lit-auth-client';
 
-// Saving signing condition
-await litNodeClient.saveSigningCondition({
-  unifiedAccessControlConditions,
-  sessionSigs,
-  resourceId,
-  chain: "litSessionSign",
+// Set up LitAuthClient
+const litAuthClient = new LitAuthClient({
+  litRelayConfig: {
+     // Request a Lit Relay Server API key here: https://forms.gle/RNZYtGYTY9BcD9MEA
+    relayApiKey: '<Your Lit Relay Server API Key>',
+  },
 });
 
-// Retrieving a signature
-let jwt = await litNodeClient.getSignedToken({
-  unifiedAccessControlConditions,
-  sessionSigs,
-  resourceId,
+// Initialize Ethereum account provider
+const provider = litAuthClient.initProvider(ProviderType.EthWallet);
+
+// Get the auth method object that contains a wallet signature
+const authMethod = await provider.authenticate({
+  address: '<Wallet address>',
+  signMessage: '<Function that uses a wallet to sign a message>'
+});
+
+// Get session signatures for the given PKP public key and auth method
+const sessionSigs = await provider.getSessionSigs({
+  pkpPublicKey: '<Public key of PKP to scope the SessionSigs to>',
+  authMethod: '<AuthMethod object returned from authenticate()>',
+  sessionSigsParams: {
+    chain: 'ethereum',
+    resources: [`litAction://*`],
+  },
 });
 ```
-
-### Making Encryption Requests
-
-```javascript
-// storing the key
-var sessionSigs = await LitJsSdk.getSessionSigs({
-  chain: "ethereum",
-  litNodeClient,
-  resources: [`litEncryptionCondition://*`],
-});
-
-var unifiedAccessControlConditions = [
-  {
-    conditionType: "evmBasic",
-    contractAddress: "",
-    standardContractType: "",
-    chain: "ethereum",
-    method: "eth_getBalance",
-    parameters: [":userAddress", "latest"],
-    returnValueTest: {
-      comparator: ">=",
-      value: "10000000000000",
-    },
-  },
-];
-
-// encrypt
-const { encryptedZip, symmetricKey } =
-  await LitJsSdk.zipAndEncryptString("this is a secret message");
-
-// store the decryption conditions
-const encryptedSymmetricKey = await litNodeClient.saveEncryptionKey({
-  unifiedAccessControlConditions,
-  symmetricKey,
-  sessionSigs,
-});
-
-// retrieving the key:
-const hashOfKey = await LitJsSdk.hashEncryptionKey({
-  encryptedSymmetricKey,
-});
-
-sessionSigs = await LitJsSdk.getSessionSigs({
-  chain: "ethereum",
-  litNodeClient,
-  resources: [`litEncryptionCondition://${hashOfKey}`],
-});
-
- const retrievedSymmKey = await litNodeClient.getEncryptionKey({
-  unifiedAccessControlConditions,
-  toDecrypt: LitJsSdk.uint8arrayToString(
-    encryptedSymmetricKey,
-    "base16"
-  ),
-  sessionSigs,
-});
-
-const decryptedFiles = await LitJsSdk.decryptZip(
-  encryptedZip,
-  retrievedSymmKey
-);
-const decryptedString = await decryptedFiles["string.txt"].async(
-  "text"
-);
-console.log("decrypted string", decryptedString);
-```
-
-## Obtaining the SessionSig in NodeJS
-
-You can use any wallet or signing method with session signatures because the `getSessionSigs()` function supports passing a callback called `authNeededCallback` that will be fired when a wallet signature is needed. You can see an example of this here: https://github.com/LIT-Protocol/js-serverless-function-test/blob/main/js-sdkTests/sessionKeys.js#L31
-
-The `getSessionSigs()` function will generate a session key for you automatically and attempt to store it in LocalStorage. In case you have not polyfilled LocalStorage, you may instead generate the session key yourself using `generateSessionKeyPair()` and store it however you like. You can then pass it to `getSessionSigs()` as the `sessionKey` param.
-
-## Obtaining the SessionSig when user doesn't have a wallet
-
-You can use Oauth login with services including Discord and Google when the user doesn't have a wallet. You can see an example of how to do this using Google Oauth here: https://github.com/LIT-Protocol/oauth-pkp-signup-example/blob/main/src/App.tsx#L50
-
-## Clearing the stored session key and signature
-
-If you want to clear the session key stored in the browser local storage, you can call the [`disconnectWeb3` method](https://js-sdk.litprotocol.com/functions/auth_browser_src.ethConnect.disconnectWeb3.html).
 
 ## Resources you can request
 
@@ -166,3 +114,6 @@ The protocol prefixes of the resources are:
 | Lit Action Delegation           | litActionCapability://              | Lit Action IPFS ID      | Granting Capability | Specify which Lit Actions can be called on behalf of the user. Only the key in the URI field of this signature is authorized to actually use this resource. This is typically a session key.               |
 |                                 |                                     |                         |                     |                                                                                                                                                                                                            |
 
+## Clearing the stored session key and signature
+
+If you want to clear the session key stored in the browser local storage, you can call the [`disconnectWeb3` method](https://js-sdk.litprotocol.com/functions/auth_browser_src.ethConnect.disconnectWeb3.html).

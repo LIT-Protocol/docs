@@ -1,6 +1,12 @@
+---
+sidebar_position: 1
+---
+
 # Overview
 
-To use Lit Protocol, you must generate and present signatures to the Lit nodes in order to authenticate successfully. Authentication can be done in two ways:
+With Lit Protocol, you can enable your users to seamlessly and securely interact with the open web without worrying about their private keys. The Lit SDK makes it easy to build intuitive authentication flows and generate and present signatures to Lit nodes.
+
+Currently, authenticating against Lit nodes can be done in two ways:
 
 ## Obtain an `AuthSig`
 
@@ -8,11 +14,8 @@ An auth signature, also referred to as `AuthSig`, is a signature that proves you
 
 - Externally-Owned Account
 - Smart Contract
-- Google OAuth
-- Discord OAuth
-- WebAuthn Authentication
-
-<br/>
+- Social Login (e.g, Google, Discord)
+- WebAuthn
 
 ## Generate `SessionSigs`
 
@@ -22,6 +25,6 @@ Once you have obtained an `AuthSig`, you can use it to generate session signatur
 
 :::note
 
-`SessionSigs` are heavily in development, and things may change. Be sure to use the latest version of the Lit SDK and connect to the `serrano` testnet.
+`SessionSigs` are only available on Ethereum and are heavily in development, so things may change. Be sure to use the latest version of the Lit SDK and connect to the `serrano` testnet.
 
 :::

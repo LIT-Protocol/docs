@@ -2,23 +2,19 @@
 sidebar_position: 1
 ---
 
-# Session Signatures
+# Introduction
 
-We refer to a session signature obtained from the user via session keys as a SessionSig.
+:::note
 
-SessionSigs are produced by a ed25519 keypair that is generated randomly on the browser - these are stored in local storage. The first step to producing SessionSigs is to first obtain an AuthSig through an authentication method like Google OAuth (example [here](https://github.com/LIT-Protocol/oauth-pkp-signup-example/blob/main/src/App.tsx#L398)). By specifying the session keypair's public key in the signature payload of the AuthSig, users can choose which specific actions to delegate to the session keypair for operating upon certain resources. This AuthSig is stored in local storage as well.
+`SessionSigs` are only available on Ethereum and are heavily in development, so things may change. Be sure to use the latest version of the Lit SDK and connect to the `serrano` testnet.
 
-The session keypair is used to sign all requests to the Lit Protocol API, and the user's AuthSig is sent along with the request, attached as a "capability" to the session signature. Each node in the Lit Network receives a unique signature for each request, and can verify that the user owns the wallet address that signed the capability.
+:::
 
-## Session Keys
+We refer to a session signature obtained from the user via session keys as a `SessionSig`.
 
-When the user “signs into” Lit, we generate a random session key for them. They sign that session pubkey as the “URI” of a SIWE message which creates a capability signature. There is a default expiration time of 24 hours, but this is configurable. This signature and the session key are stored in the localstorage of the browser.
+`SessionSigs` are produced by a ed25519 keypair that is generated randomly on the browser and stored in local storage. The first step to producing `SessionSigs` is to first obtain an `AuthSig` through an authentication method like Google OAuth (example [here](https://github.com/LIT-Protocol/oauth-pkp-signup-example/blob/main/src/App.tsx#L398)). By specifying the session keypair's public key in the signature payload of the `AuthSig`, users can choose which specific actions to delegate to the session keypair for operating upon certain resources.
 
-When the user sends a request, the session key signs it and sends the signature with the request. The capability signature is also sent. Multiple capability signatures can be attached. Therefore, the AuthSig presented to the nodes is actually the session key AuthSig with the capability signatures attached. The SDK will use the session key to scope the AuthSig for each request to the specific resource and node being addressed. This prevents replay attacks.
-
-Specifically, The SDK generates the random session keypair called "sessionKey". The user is presented with a SIWE message with the URI `sessionKey:ed25519:<actualSessionPubkeyHere>` and resources of `litEncryptionConditionCapability://*`, `litSigningConditionCapability://*`, `litPKPCapability://*`, `litRLICapability://*`, and `litActionCapability://*`. These “Capability” portion of these resource protocol prefixes indicate that this signature cannot be used on it’s own for those resources and only the session key signature can be used. This prevents someone from using a capability signature as a top-level authsig.
-
-
+The session keypair is used to sign all requests to the Lit Protocol API, and the user's `AuthSig` is sent along with the request, attached as a "capability" to the session signature. Each node in the Lit Network receives a unique signature for each request, and can verify that the user owns the wallet address that signed the capability.
 
 ## Format of `SessionSigs`
 
@@ -87,4 +83,3 @@ URI: lit:session:6a1f1e8a00b61867b85eaf329d6fdf855220ac3e32f44ec13e4db0dd303dea6
 #### Node Address
 
 The `nodeAddress` will be different for each node, which means that, for a 30-node network, the SDK will generate 30 different `sig` and `signedMessage` parameters.
-

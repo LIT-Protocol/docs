@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Auth Signatures
@@ -34,6 +34,7 @@ There are various authentication methods to obtain an `AuthSig`:
 
 - Externally-Owned Account
 - Smart Contract
-- Google OAuth
-- Discord OAuth
-- WebAuthn Authentication
+- Social Login (e.g, Google, Discord)
+- WebAuthn
+
+The next sections will cover each of these methods and showcase how to use the Lit SDK to build these authentication flows.

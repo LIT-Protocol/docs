@@ -6,7 +6,7 @@ sidebar_position: 2
 
 Social login offers users a convenient way to authenticate with Lit Protocol by leveraging their existing social accounts. Currently, Lit Protocol supports Google and Discord OAuth.
 
-## Integrating social login
+## Integrating Social Login
 
 `@lit-protocol/lit-auth-client` makes it easy to implement social login in your web apps. The library provides a `LitAuthClient` class that you can use to initialize a provider for each supported social login method. Each provider has a `signIn()` method that you can call to begin the authentication flow.
 
@@ -46,7 +46,7 @@ If you are using Lit Relay Server, you will need to request an API key [here](ht
 
 :::
 
-## Handling the redirect
+## Handling the Redirect
 
 At the `redirectUri` specified when initializing the providers, call `handleSignInRedirect`. You can also use `isSignInRedirect` method to check if the app is in the redirect state or not.
 
@@ -69,7 +69,7 @@ The provider's `authenticate` method validates the URL parameters returned from 
 
 With the `AuthMethod` object, you can mint or fetch PKPs associated with the authenticated social account. View the available methods in the [API docs](https://js-sdk.litprotocol.com/modules/lit_auth_client_src.html).
 
-## Generating SessionSigs
+## Generating `SessionSigs`
 
 After successfully authenticating with a social login provider, you can generate `SessionSigs` using the provider's `getSessionSigs` method. The `getSessionSigs` method takes in an `AuthMethod` object, a PKP public key, and other session-specific arguments such as `resources` and returns a `SessionSig` object.
 

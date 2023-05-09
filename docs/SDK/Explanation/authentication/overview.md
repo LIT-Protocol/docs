@@ -4,24 +4,17 @@ sidebar_position: 1
 
 # Overview
 
-With Lit Protocol, you can enable your users to seamlessly and securely interact with the open web without worrying about their private keys. The Lit SDK makes it easy to build intuitive authentication flows and generate and present signatures to Lit nodes.
-
-Currently, authenticating against Lit nodes can be done in two ways:
+To interact with the nodes in the Lit Network, you will need to generate and present signatures. Currently, there are two ways to do this:
 
 ## Obtain an `AuthSig`
 
-An auth signature, also referred to as `AuthSig`, is a signature that proves you own a particular public key. An `AuthSig` can be created using any of the currently supported authentication methods:
+A wallet signature, also referred to as `AuthSig`, is a signature that proves you own a particular public key. Learn more about wallet signatures [here](/SDK/Explanation/authentication/authSig).
 
-- Externally-Owned Account
-- Smart Contract
-- Social Login (e.g, Google, Discord)
-- WebAuthn
+## Generate `SessionSigs` (Recommended)
 
-## Generate `SessionSigs`
+Session signatures, or `SessionSigs`, are signatures that are scoped to specific capabilities and resources. For example, you can set up `SessionSigs` to permit only the encryption and decryption of data during a particular time frame.
 
-Once you have obtained an `AuthSig`, you can use it to generate session signatures (`SessionSigs`), which are signatures that are scoped to specific capabilities and resources. For example, you can set up `SessionSigs` to permit only the encryption and decryption of data during a particular time frame.
-
-`SessionSigs` are designed to be ephemeral and limited in scope, allowing for fine-grained control and enabling secure, seamless interactions with any platform integrating Lit.
+`SessionSigs` are designed to be ephemeral and limited in scope, allowing for fine-grained control and enabling secure, seamless interactions with any platform integrating Lit. Get started with `SessionSigs` [here](/SDK/Explanation/authentication/sessionSigs).
 
 :::note
 

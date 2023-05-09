@@ -1681,18 +1681,18 @@
   resolved "https://registry.npmjs.org/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@lit-protocol/constants@^2.1.135":
-  version "2.1.135"
-  resolved "https://registry.npmjs.org/@lit-protocol/constants/-/constants-2.1.135.tgz#01b11c803500fd94a785dcf3ab12a9e8bb3bd6a8"
-  integrity sha512-6kHBR+e4l46gHIG2actqDpItOybKF+sNdqsZoXfghF1YdSbO/s/V2ZdCZkpfaRS0gwLShlNNt3rBuit3551bEA==
+"@lit-protocol/constants@^2.1.161":
+  version "2.1.161"
+  resolved "https://registry.npmjs.org/@lit-protocol/constants/-/constants-2.1.161.tgz#d25b55199e7f624f7e762cd78e59a207c8510335"
+  integrity sha512-91Rs01/BmRdi7YYmwqkaqI7TYOxhldpLIf5nLBaAQNZloijdF073KbXa9dFZtVbTo3c8fG5O6ts6DOQLK7mSKA==
   dependencies:
-    "@lit-protocol/types" "2.1.135"
+    "@lit-protocol/types" "2.1.161"
     tslib "^2.3.0"
 
-"@lit-protocol/types@2.1.135":
-  version "2.1.135"
-  resolved "https://registry.npmjs.org/@lit-protocol/types/-/types-2.1.135.tgz#5506ec024a0388c30904a57ea0805e9b030fcea7"
-  integrity sha512-n1XMVU+N4PuLuDamKmC147dzSfxq56yydzwqr59siApd81AcVbgzIFX4LjShNpm/+uslz3MqT1MHZ7a8ECNFJQ==
+"@lit-protocol/types@2.1.161":
+  version "2.1.161"
+  resolved "https://registry.npmjs.org/@lit-protocol/types/-/types-2.1.161.tgz#ef700a74950f62f7b5077cdd0017d096470e6d31"
+  integrity sha512-d/PGjmuREERHghcxGOnq4SA0ivX8e3tta7eXEKKV7FfsUXW6fNsSfwaDRKUK3FtlhaRvKtdlatrrZP4emG1WSA==
 
 "@mdx-js/mdx@^1.6.22":
   version "1.6.22"

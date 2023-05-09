@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Introduction
+# Session Signatures
 
 :::note
 
@@ -14,11 +14,35 @@ We refer to a session signature obtained from the user via session keys as a `Se
 
 `SessionSigs` are produced by a ed25519 keypair that is generated randomly on the browser and stored in local storage. The first step to producing `SessionSigs` is to first obtain an `AuthSig` through an authentication method like Google OAuth (example [here](https://github.com/LIT-Protocol/oauth-pkp-signup-example/blob/main/src/App.tsx#L398)). By specifying the session keypair's public key in the signature payload of the `AuthSig`, users can choose which specific actions to delegate to the session keypair for operating upon certain resources.
 
-The session keypair is used to sign all requests to the Lit Protocol API, and the user's `AuthSig` is sent along with the request, attached as a "capability" to the session signature. Each node in the Lit Network receives a unique signature for each request, and can verify that the user owns the wallet address that signed the capability.
+The session keypair is used to sign all requests to the Lit Nodes, and the user's `AuthSig` is sent along with the request, attached as a "capability" to the session signature. Each node in the Lit Network receives a unique signature for each request, and can verify that the user owns the wallet address that signed the capability.
 
 ## Format of `SessionSigs`
 
-Here is an example `SessionSig` that uses a session keypair to sign an `AuthSig`:
+Given the following example `AuthSig`:
+
+```json
+{
+    "sig": "0xef8f88fb285f006594637257034226923e3bbf7c6c69f8863be213e50a1c1d7f18124eefdc595b4f50a0e242e8e132c5078dc3c52bda55376ba314e08da862e21a",
+    "derivedVia": "web3.eth.personal.sign",
+    "signedMessage": "localhost:3000 wants you to sign in with your Ethereum account:
+        0x5259E44670053491E7b4FE4A120C70be1eAD646b
+        
+        
+        URI: lit:session:6a1f1e8a00b61867b85eaf329d6fdf855220ac3e32f44ec13e4db0dd303dea6a
+        Version: 1
+        Chain ID: 1
+        Nonce: ZfYjGsNyaDDFlaftP
+        Issued At: 2022-10-30T08:25:33.371Z
+        Expiration Time: 2022-11-06T08:25:33.348Z
+        Resources:
+        - urn:recap:eyJkZWYiOlsibGl0U2lnbmluZ0NvbmRpdGlvbiJdLCJ0YXIiOnsicmVzb3VyY2VJZCI6WyJsaXRFbmNyeXB0aW9uQ29uZGl0aW9uIl19fQ==",
+    "address":"0x5259E44670053491E7b4FE4A120C70be1eAD646b"
+}
+```
+
+<br/>
+
+Here is an example `SessionSig` that uses a session keypair to sign the `AuthSig` above:
 
 ```json
 {
@@ -52,6 +76,8 @@ Here is an example `SessionSig` that uses a session keypair to sign an `AuthSig`
     "algo": "ed25519"
 }
 ```
+
+<br/>
 
 Here is what each field means:
 

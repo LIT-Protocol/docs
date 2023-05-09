@@ -163,23 +163,28 @@ const sidebars = {
                 'SDK/Explanation/authentication/authSig',
                 {
                   type: "category",
-                  label: "Auth Methods",
-                  collapsed: true,
-                  items: [
-                    "SDK/Explanation/authentication/authMethods/eoa",
-                    "SDK/Explanation/authentication/authMethods/smartContract",
-                    "SDK/Explanation/authentication/authMethods/socialLogin",
-                    "SDK/Explanation/authentication/authMethods/webAuthn",
-                  ],
-                },
-                {
-                  type: "category",
                   label: "Session Signatures",
+                  link: {
+                    type: 'doc',
+                    id: 'SDK/Explanation/authentication/sessionSigs/intro',
+                  },
                   collapsed: true,
                   items: [
-                    "SDK/Explanation/authentication/sessionSigs/intro",
                     "SDK/Explanation/authentication/sessionSigs/getSessionSigs",
                     "SDK/Explanation/authentication/sessionSigs/usage",
+                    {
+                      type: "category",
+                      label: "Walletless Signatures",
+                      link: {
+                        type: 'doc',
+                        id: 'SDK/Explanation/authentication/sessionSigs/authMethods/overview',
+                      },
+                      collapsed: true,
+                      items: [
+                        "SDK/Explanation/authentication/sessionSigs/authMethods/socialLogin",
+                        "SDK/Explanation/authentication/sessionSigs/authMethods/webAuthn",
+                      ],
+                    },
                   ],
                 },
                 'SDK/Explanation/authentication/security',

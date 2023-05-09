@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 # Social Login
@@ -34,7 +34,17 @@ async function authWithGoogle() {
 }
 ```
 
+Note: For Discord OAuth, you will initialize the provider with `ProviderType.Discord`.
+
 At the start of the authentication flow, users will be redirected to the social login page hosted by Lit. Once users have successfully signed in, they will be redirected back to your web app.
+
+:::note
+
+The Lit Relay Server enables you to mint PKPs without worrying about gas fees. You can also use your own relay server or mint PKPs directly using Lit's contracts.
+
+If you are using Lit Relay Server, you will need to request an API key [here](https://forms.gle/RNZYtGYTY9BcD9MEA).
+
+:::
 
 ## Handling the redirect
 
@@ -57,14 +67,20 @@ async function handleRedirect() {
 
 The provider's `authenticate` method validates the URL parameters returned from Lit's login server after a successful login, and then returns an `AuthMethod` object containing the OAuth token.
 
-With the `AuthMethod` object, you can mint or fetch PKPs associated with the authenticated social account.
+With the `AuthMethod` object, you can mint or fetch PKPs associated with the authenticated social account. View the available methods in the [API docs](https://js-sdk.litprotocol.com/modules/lit_auth_client_src.html).
 
-TODO: AuthSig?
+## Generating SessionSigs
 
-:::note
+After successfully authenticating with a social login provider, you can generate `SessionSigs` using the provider's `getSessionSigs` method. The `getSessionSigs` method takes in an `AuthMethod` object, a PKP public key, and other session-specific arguments such as `resources` and returns a `SessionSig` object.
 
-The Lit Relay Server enables you to mint PKPs without worrying about gas fees. You can also use your own relay server or mint PKPs directly using Lit's contracts.
-
-If you are using Lit Relay Server, you will need to request an API key [here](https://forms.gle/RNZYtGYTY9BcD9MEA).
-
-:::
+```javascript
+// Get session signatures for the given PKP public key and auth method
+const sessionSigs = await provider.getSessionSigs({
+  pkpPublicKey: '<Public key of PKP to scope the SessionSigs to>',
+  authMethod: '<AuthMethod object returned from authenticate()>',
+  sessionSigsParams: {
+    chain: 'ethereum',
+    resources: [`litAction://*`],
+  },
+});
+```

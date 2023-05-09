@@ -2,9 +2,9 @@
 sidebar_position: 3
 ---
 
-# Authenticate with Session Signatures
+# Authenticate with SessionSigs
 
-Once you have obtained `SessionSigs`, you can replace where you provide an `AuthSig` with the `SessionSigs` object. Below are some examples.
+Once you have obtained `SessionSigs`, you can replace where you provide an `AuthSig` with the `SessionSigs` object. Below are some examples using the Lit SDK.
 
 ## Making Signing Requests
 

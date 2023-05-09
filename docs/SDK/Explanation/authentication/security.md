@@ -8,6 +8,22 @@ When the user sends a request, the session key signs it and sends the signature 
 
 Specifically, The SDK generates the random session keypair called "sessionKey". The user is presented with a SIWE message with the URI `sessionKey:ed25519:<actualSessionPubkeyHere>` and resources of `litEncryptionConditionCapability://*`, `litSigningConditionCapability://*`, `litPKPCapability://*`, `litRLICapability://*`, and `litActionCapability://*`. These “Capability” portion of these resource protocol prefixes indicate that this signature cannot be used on it’s own for those resources and only the session key signature can be used. This prevents someone from using a capability signature as a top-level authsig.
 
+### Letting a user use your rate limit nft
+
+Alice owns a rate limit NFT and wants to let Bob use it, but only for specific Lit Actions or another Resource or set of Resources.
+
+Alice can create a SIWE signature with Bob’s session key in the URI field `sessionKey:ed25519:<bobsSessionKeyHere>` and the resources `litRLICapability://<RLITokenIdHere>`, and `litActionCapability://<litActionIpfsIdHere>`.
+
+Bob can attach this signature as a capability when he sends his AuthSig to the nodes.
+
+### Letting a user use your PKP for a specific Lit Action
+
+Alice owns a PKP and wants use it with a specific Lit Action that she has not authorized yet. She could use the smart contract and addPermittedAction(), run the function, then removePermittedAction() function, but would prefer not to spend the gas and wait for blocks etc.
+
+When Alice creates a capability by signing the session key, she specifies the resources `litPKPCapability://<pkpIdHere>` and `litActionCapability://<litActionIpfsIdHere>`.
+
+The SDK can attach this signature as a capability when it sends the AuthSig to the nodes.
+
 ## Improved UX with `SessionSigs`
 
 The steps to obtain an `AuthSig` requires an interactive experience that involves manual steps from the end-user - whether clicking through the Google OAuth flow, placing their fingerprint on their platform authenticators, or clicking through their the respective modals of their externally-owned accounts (eg. MetaMask). These manual steps can be friction that drives users away from applications.
@@ -18,20 +34,20 @@ For these reasons, by designing `AuthSigs` to have a long validity period and `S
 - User Experience: Since we store the `AuthSig` in local storage, we can always retrieve it and continue to use it for as long as it is valid.
 - Security: `SessionSigs` allow us to scope specific capabilties against a narrow set of resources that is performed during a (usually) small time window that the user is on the application.
 
-## Expiration Times
+### Expiration Times
 
 The design decision to use `SessionSig`s in conjunction with `AuthSigs` is a compromise between security and UX. The intention is for `AuthSigs` to have a long(er) validity period (expires farther into the future) and for `SessionSigs` to be short-lived (expires soon) since `SessionSigs` is the actual authentication material that is required when operating against the specified resources. While our SDK uses sensible defaults for expiration times, these parameters are ultimately at the discretion of the application developer.
 
-## SessionSig-per-Node
+### SessionSig-per-Node
 
 In order to prevent replay attacks, we have opted to generate a `SessionSig` per each node that the SDK is sending the request to. (Note that this is a fast operation compared to the latency involved in alternative security models)
 
 If the `SessionSig` were to omit the `nodeAddress` parameter, then a node could technically re-use the `SessionSig` provided by the end-user to replay the request again from that node to the rest of the nodes in the network.
 
-## AuthSig Replay-ability
+### AuthSig Replay-ability
 
 Another possible replay attack comes from an `AuthSig` being provided solely, and repeatedly. When the `AuthSig` is signed against a payload containing the session keypair's public key as well as an allowlist of delegated capabilities, an `AuthSig` is insufficient to authenticate when provided in the absence of a `SessionSig` that corresponds to the signed session keypair public key. 
 
-## AuthSig and SessionSig Coupling
+### AuthSig and SessionSig Coupling
 
 Since a full `SessionSig` object couples an (inner) `AuthSig` with an (outer) `SessionSig`, this means that it is impossible for a node to attach a session signature that would be valid against an `AuthSig` that they have obtained elsewhere, ie. in an attempt to perform a replay attack. This is because the public key in the session signature must match that which is signed against in the (inner) `AuthSig` object.

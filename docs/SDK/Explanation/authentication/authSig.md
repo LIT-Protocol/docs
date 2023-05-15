@@ -32,7 +32,7 @@ You can refer to the `AuthSig` type definition in the [Lit JS SDK V2](https://js
 
 ### Using `checkAndSignAuthMessage`
 
-The Lit JS SDK V2 `checkAndSignAuthMessage()` function provides a convenient way to obtain an `AuthSig` from an externally-owned account.
+The Lit SDK `checkAndSignAuthMessage()` function provides a convenient way to obtain an `AuthSig` from an externally-owned account in a browser environment.
 
 ```js
 import { checkAndSignAuthMessage } from '@lit-protocol/lit-node-client';
@@ -81,8 +81,6 @@ Note: The smart contract must implement the `isValidSignature(bytes32 _hash, byt
 You can present the smart contract `AuthSig` object to the Lit Nodes just like any other `AuthSig`.
 
 Check out this [**React** project](https://replit.com/@lit/Smart-Contract-Authsig-EIP1271#smart-contract-authsig/src/App.js) for an example of how to generate and use a smart contract `AuthSig`.
-
-<iframe frameborder="0" width="100%" height="500px" className="repls" style={{display: "none"}} src="https://replit.com/@lit/Smart-Contract-Authsig-EIP1271#smart-contract-authsig/src/App.js"></iframe>
 
 ## Clearing Local Storage
 

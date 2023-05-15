@@ -19,8 +19,12 @@ const litNodeClient = new LitNodeClient({
 });
 await litNodeClient.connect();
 
-// When the getSessionSigs function is called, it will generate a session key and sign it
-// using this callback function.
+/**
+ * When the getSessionSigs function is called, it will generate a session key
+ * and sign it using a callback function. The authNeededCallback parameter
+ * in this function is optional. If you don't pass this callback,
+ * then the user will be prompted to authenticate with their wallet.
+ */
 const authNeededCallback = async ({ chain, resources, expiration, uri }) => {
   const domain = "localhost:3000";
   const message = new SiweMessage({

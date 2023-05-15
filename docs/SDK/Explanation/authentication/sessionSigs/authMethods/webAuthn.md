@@ -12,7 +12,7 @@ The `@lit-protocol/lit-auth-client` package leverages the `@simplewebauthn/brows
 
 ## Registering a Credential
 
-Registration is similar to creating a new account. During the registration process, the user is prompted to create a new public key credential. The public key credential is then sent to the server, which verifies the credential and mints a new PKP for the user.
+Registration is similar to creating a new account. During the registration process, the user is prompted to create a new public key credential. The public key credential is stored in the smart contract as the new PKP is minted for the user.
 
 ```javascript
 // Set up LitAuthClient

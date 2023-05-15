@@ -51,7 +51,7 @@ If you are using Lit Relay Server, you will need to request an API key [here](ht
 
 ## Authenticating a Credential
 
-Authentication is similar to logging in with an existing account. During the authentication process, the user is prompted to sign a challenge. The signed challenge is then sent to the Lit nodes, which verify the signature and returns the validated authentication data.
+Authentication is similar to logging in with an existing account. During the authentication process, the user is prompted to sign a challenge. The signed challenge is then sent to the Lit nodes, which verify the signature and generates a threshold signature of an `AuthSig` for the associated PKP.
 
 ```javascript
 async function authenticateWithWebAuthn() {

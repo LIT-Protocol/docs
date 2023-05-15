@@ -15,7 +15,7 @@ PKPs are still heavily in development and should NOT BE USED to transact live as
 
 For the most up to date SDK documentation, check out the [Lit JS SDK V2 API docs](https://js-sdk.litprotocol.com/). For references to the Lit Actions functions which can be accessed inside a Lit Action via the `Lit.Actions` object, check out the [Lit Actions](http://actions-docs.litprotocol.com/) API docs.
 
-If you need some Polygon Mumbai Tokens to [mint](https://explorer.litprotocol.com/mint-pkp) a PKP, fill out this [form](https://forms.gle/hcvh7VbS83DokBSE9).
+Need some `LIT` test tokens to mint a PKP? Get some from the [faucet](https://faucet.litprotocol.com/)!
 
 :::
 
@@ -27,7 +27,7 @@ Applied generally, multi-party computation (MPC) allows multiple parties to coll
 
 Lit’s [Programmable Key Pairs (PKPs)](/pkp/intro) product can be utilized by app developers to build a white-label MPC wallet solution that delivers a more flexible and seamless onboarding experience to their end users. 
 
-Each PKP is an ECDSA key pair generated collectively by the Lit nodes through a process called [Distributed Key Generation](/resources/howItWorks#threshold-cryptography) (DKG). Operating as a decentralized network, this allows Lit to generate a new key pair where the private key never exists in its entirety. Instead, each node only holds a share of the key. These signature shares must be combined above the threshold (two-thirds of the nodes) to produce the complete signature signed by the PKP. This signature can then be used for instances such as posting a transaction to a blockchain network. Each PKP is represented by an ERC-721 token minted on [Polygon](https://explorer.litprotocol.com/pkps).
+Each PKP is an ECDSA key pair generated collectively by the Lit nodes through a process called [Distributed Key Generation](/resources/howItWorks#threshold-cryptography) (DKG). Operating as a decentralized network, this allows Lit to generate a new key pair where the private key never exists in its entirety. Instead, each node only holds a share of the key. These signature shares must be combined above the threshold (two-thirds of the nodes) to produce the complete signature signed by the PKP. This signature can then be used for instances such as posting a transaction to a blockchain network. Each PKP is represented by an ERC-721 token minted on Chronicle, [you can mint one through the explorer](https://explorer.litprotocol.com/pkps).
 
 The two-thirds threshold design provides a level of censorship resistance and fault tolerance that “typical” 2-of-2 MPC designs (e.g. Fireblocks) do not. In addition to any 2-of-2 provider being able to deny the user access to their funds or censor transactions, most of these systems also require the end user to custody a key share. This means the goal of a seamless, “web2” style onboarding UX is not possible (onboarding without seed phrases or private key management), instead delivering the UX of self-custody with additional steps.
 

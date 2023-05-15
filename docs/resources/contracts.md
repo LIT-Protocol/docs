@@ -7,19 +7,19 @@ import TabItem from '@theme/TabItem';
 
 # Contracts
 
-Below you can find the full list of associated smart contracts:
+Below you can find the full list of associated smart contracts, which live on the [Chronicle Testnet](/intro/rollup):
 
-**PKPNFT**: [0x86062B7a01B8b2e22619dBE0C15cbe3F7EBd0E92](https://polygonscan.com/address/0x86062B7a01B8b2e22619dBE0C15cbe3F7EBd0E92)
+**PKPNFT**: [0x8F75a53F65e31DD0D2e40d0827becAaE2299D111](https://chain.litprotocol.com/address/0x8F75a53F65e31DD0D2e40d0827becAaE2299D111)
 
-**PubkeyRouterAndPermissions**: [0xEA287AF8d8835eb20175875e89576bf583539B37](https://polygonscan.com/address/0xEA287AF8d8835eb20175875e89576bf583539B37)
+**PubkeyRouterAndPermissions**: [0xB35cC6CaB1501d5F3b6b8fcF3215898C9d03E981](https://chain.litprotocol.com/address/0xB35cC6CaB1501d5F3b6b8fcF3215898C9d03E981)
 
-**Rate Limit Increase NFT**: [0xE094c76Ec6bad7CbA6181C8b34Bc41faC7EbdF43](https://polygonscan.com/address/0xE094c76Ec6bad7CbA6181C8b34Bc41faC7EbdF43)
+**Rate Limit Increase NFT**: [0x2D0f767eff47b44626832EcD2fda705eB9797c38](https://chain.litprotocol.com/address/0x2D0f767eff47b44626832EcD2fda705eB9797c38)
 
-**Multisender**: [0x1D907ec0CE55E7E3164Da56e50D64DC2d8933142](https://polygonscan.com/address/0x1D907ec0CE55E7E3164Da56e50D64DC2d8933142)
+**Staking Contract Address**: [0x433357a14c35815E6A32758fe95c93380D194aaf](https://chain.litprotocol.com/address/0x433357a14c35815E6A32758fe95c93380D194aaf)
 
-**Deployer address**: [0x50e2dac5e78B5905CB09495547452cEE64426db2](https://polygonscan.com/address/0x50e2dac5e78B5905CB09495547452cEE64426db2)
+**PKPHelper**: [0x8bB62077437D918891F12c7F35d9e1B78468bF11](https://chain.litprotocol.com/address/0x8bB62077437D918891F12c7F35d9e1B78468bF11)
 
-**Staked node address**: [0x091e9b0a5A404A394377d08C0Fd8C3418075e1fe](https://polygonscan.com/address/0x091e9b0a5A404A394377d08C0Fd8C3418075e1fe)
+**PKPPermissions**: [0x4Aed2F242E806c58758677059340e29E6B5b7619](https://chain.litprotocol.com/address/0x4Aed2F242E806c58758677059340e29E6B5b7619)
 
 ## TypeScript Contracts SDK
 

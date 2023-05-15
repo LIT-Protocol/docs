@@ -6,7 +6,7 @@ sidebar_position: 3
 
 WebAuthn enables users to authenticate with web apps using biometrics, passkeys, or other authenticators, providing user-friendly and secure alternative to traditional password-based authentication.
 
-WebAuthn involves two key flows: registration and authentication. During registration, a new public key credential associated with the user and their device is created. During authentication, the user proves ownership of the corresponding private key by signing a challenge.
+WebAuthn involves two main flows: registration and authentication. During registration, a new public key credential associated with the user and their device is created. During authentication, the user proves ownership of the corresponding private key by signing a challenge.
 
 The `@lit-protocol/lit-auth-client` package leverages the `@simplewebauthn/browser` library and makes it easy to integrate WebAuthn into your web apps.
 

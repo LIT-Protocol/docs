@@ -10,7 +10,7 @@ WebAuthn involves two main flows: registration and authentication. During regist
 
 The `@lit-protocol/lit-auth-client` package leverages the `@simplewebauthn/browser` library and makes it easy to integrate WebAuthn into your web apps.
 
-## Registrating a Credential
+## Registering a Credential
 
 Registration is similar to creating a new account. During the registration process, the user is prompted to create a new public key credential. The public key credential is then sent to the server, which verifies the credential and mints a new PKP for the user.
 

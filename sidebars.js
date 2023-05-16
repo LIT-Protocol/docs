@@ -170,6 +170,8 @@ const sidebars = {
                   },
                   collapsed: true,
                   items: [
+                    "SDK/Explanation/authentication/sessionSigs/resources-and-abilities",
+                    "SDK/Explanation/authentication/sessionSigs/capability-objects",
                     "SDK/Explanation/authentication/sessionSigs/getSessionSigs",
                     "SDK/Explanation/authentication/sessionSigs/usage",
                     {
@@ -185,6 +187,7 @@ const sidebars = {
                         "SDK/Explanation/authentication/sessionSigs/authMethods/webAuthn",
                       ],
                     },
+                    "SDK/Explanation/authentication/sessionSigs/use-cases",
                   ],
                 },
                 "SDK/Explanation/authentication/security",

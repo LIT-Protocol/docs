@@ -71,16 +71,18 @@ With the `AuthMethod` object, you can mint or fetch PKPs associated with the aut
 
 ## Generating `SessionSigs`
 
-After successfully authenticating with a social login provider, you can generate `SessionSigs` using the provider's `getSessionSigs` method. The `getSessionSigs` method takes in an `AuthMethod` object, a PKP public key, and other session-specific arguments such as `resources` and returns a `SessionSig` object.
+After successfully authenticating with a social login provider, you can generate `SessionSigs` using the provider's `getSessionSigs` method. The `getSessionSigs` method takes in an `AuthMethod` object, a PKP public key, and other session-specific arguments such as `resourceAbilityRequests` and returns a `SessionSig` object.
 
 ```javascript
 // Get session signatures for the given PKP public key and auth method
 const sessionSigs = await provider.getSessionSigs({
-  pkpPublicKey: '<Public key of PKP to scope the SessionSigs to>',
   authMethod: '<AuthMethod object returned from authenticate()>',
   sessionSigsParams: {
     chain: 'ethereum',
-    resources: [`litAction://*`],
+    resourceAbilityRequests: [
+      resource: litResource,
+      ability: LitAbility.AccessControlConditionDecryption
+    ],
   },
 });
 ```

@@ -12,9 +12,15 @@ sidebar_position: 1
 
 We refer to a session signature obtained from the user via session keys as a `SessionSig`.
 
-`SessionSigs` are produced by a ed25519 keypair that is generated randomly on the browser and stored in local storage. The first step to producing `SessionSigs` is to first obtain an `AuthSig` through an authentication method like Google OAuth (example [here](https://github.com/LIT-Protocol/oauth-pkp-signup-example/blob/main/src/App.tsx#L398)). By specifying the session keypair's public key in the signature payload of the `AuthSig`, users can choose which specific actions to delegate to the session keypair for operating upon certain resources.
+`SessionSigs` are produced by a ed25519 keypair that is generated randomly on the browser and stored in local storage. The first step to producing `SessionSigs` is to first obtain an `AuthSig` through an authentication method like Google OAuth (example [here](https://github.com/LIT-Protocol/oauth-pkp-signup-example/blob/main/src/App.tsx#L398)). By specifying the session keypair's public key in the signature payload of the `AuthSig` - the `uri` field of the SIWE - users can choose which specific actions to delegate to the session keypair for operating upon certain resources.
 
 The session keypair is used to sign all requests to the Lit Nodes, and the user's `AuthSig` is sent along with the request, attached as a "capability" to the session signature. Each node in the Lit Network receives a unique signature for each request, and can verify that the user owns the wallet address that signed the capability.
+
+## Capability Objects
+
+Session signatures work by having scoped capabilities be granted to session keys by an inner `AuthSig`. The capability object is a [SIWE ReCap](https://eips.ethereum.org/EIPS/eip-5573) object.
+
+Read more [here](/SDK/Explanation/authentication/sessionSigs/) on the session capability objects that we use.
 
 ## Format of `SessionSigs`
 
@@ -50,7 +56,12 @@ Here is an example `SessionSig` that uses a session keypair to sign the `AuthSig
     "derivedVia": "litSessionSignViaNacl",
     "signedMessage": '{
         "sessionKey": "6a1f1e8a00b61867b85eaf329d6fdf855220ac3e32f44ec13e4db0dd303dea6a",
-        "resources": ["litSigningCondition://123"],
+        "resourceAbilityRequest": [
+            {
+                "resource": "lit-accesscontrolcondition://524a697a410a417fb95a9f52d57cba5fa7c87b3acd3b408cf14560fa52691251",
+                "ability": "access-control-condition-decryption"
+            }
+        ],
         "capabilities": [{
             "sig": "0xef8f88fb285c0065946f7257034226923e3bbf7c6c69f8863be213e50a1c1d7f18124eefdc595b4f50a0e242e8e132c5078dc3c52bda55376ba314e08da862e21a",
             "derivedVia": "web3.eth.personal.sign",
@@ -65,7 +76,7 @@ Here is an example `SessionSig` that uses a session keypair to sign the `AuthSig
                 Issued At: 2022-10-30T08:25:33.371Z
                 Expiration Time: 2022-11-06T08:25:33.348Z
                 Resources:
-                - urn:recap:eyJkZWYiOlsibGl0U2lnbmluZ0NvbmRpdGlvbiJdLCJ0YXIiOnsicmVzb3VyY2VJZCI6WyJsaXRFbmNyeXB0aW9uQ29uZGl0aW9uIl19fQ==",
+                - urn:recap:eyJhdHQiOnsibGl0LWFjY2Vzc2NvbnRyb2xjb25kaXRpb246Ly81MjRhNjk3YTQxMGE0MTdmYjk1YTlmNTJkNTdjYmE1ZmE3Yzg3YjNhY2QzYjQwOGNmMTQ1NjBmYTUyNjkxMjUxIjp7IiovKiI6W3t9XX19LCJwcmYiOltdfQo=",
             "address":"0x5259E44670053491E7b4FE4A120C70be1eAD646b"
         }],
         "issuedAt": "2022-10-30T08:27:01.667Z",
@@ -92,7 +103,7 @@ Here is what each field means:
 Here is what each field in `signedMessage` means:
 
 - `sessionKey` is the session keypair public key.
-- `resources` is the specific resources that the SessionSig is authenticating in order to operate on.
+- `resourceAbilityRequests` is a lit of abilities that the session key is requesting to perform against the specified lit resources during authentication. Read more [here](/SDK/Explanation/authentication/sessionSigs/resources-and-abilities) about Lit Resources and Abilities.
 - `capabilities` is an array of one or more AuthSigs.
 - `issuedAt` is the time the SessionSig was issued.
 - `expiration` is the time the SessionSig becomes invalid.

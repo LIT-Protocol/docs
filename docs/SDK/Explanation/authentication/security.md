@@ -2,27 +2,9 @@
 
 ## Session Keys
 
-When the user “signs into” Lit, we generate a random session key for them. They sign that session pubkey as the “URI” of a SIWE message which creates a capability signature. There is a default expiration time of 24 hours, but this is configurable. This signature and the session key are stored in the localstorage of the browser.
-
 When the user sends a request, the session key signs it and sends the signature with the request. The capability signature is also sent. Multiple capability signatures can be attached. Therefore, the `AuthSig` presented to the nodes is actually the session key `AuthSig` with the capability signatures attached. The SDK will use the session key to scope the `AuthSig` for each request to the specific resource and node being addressed. This prevents replay attacks.
 
-Specifically, The SDK generates the random session keypair called "sessionKey". The user is presented with a SIWE message with the URI `sessionKey:ed25519:<actualSessionPubkeyHere>` and resources of `litEncryptionConditionCapability://*`, `litSigningConditionCapability://*`, `litPKPCapability://*`, `litRLICapability://*`, and `litActionCapability://*`. These “Capability” portion of these resource protocol prefixes indicate that this signature cannot be used on it’s own for those resources and only the session key signature can be used. This prevents someone from using a capability signature as a top-level `AuthSig`.
-
-### Letting a user use your rate limit nft
-
-Alice owns a rate limit NFT and wants to let Bob use it, but only for specific Lit Actions or another resource or set of resources.
-
-Alice can create a SIWE signature with Bob’s session key in the URI field `sessionKey:ed25519:<bobsSessionKeyHere>` and the resources `litRLICapability://<RLITokenIdHere>`, and `litActionCapability://<litActionIpfsIdHere>`.
-
-Bob can attach this signature as a capability when he sends his `AuthSig` to the nodes.
-
-### Letting a user use your PKP for a specific Lit Action
-
-Alice owns a PKP and wants use it with a specific Lit Action that she has not authorized yet. She could use the smart contract and `addPermittedAction()`, run the function, then `removePermittedAction()` function, but would prefer not to spend the gas and wait for blocks etc.
-
-When Alice creates a capability by signing the session key, she specifies the resources `litPKPCapability://<pkpIdHere>` and `litActionCapability://<litActionIpfsIdHere>`.
-
-The SDK can attach this signature as a capability when it sends the `AuthSig` to the nodes.
+Specifically, The SDK generates the random session keypair called "sessionKey". The user is presented with a SIWE message with the URI `lit:session:<actualSessionPubkeyHere>` and a [ReCap](https://eips.ethereum.org/EIPS/eip-5573)-compatible session capability object encoded in the `resources` array, eg. `urn:recap:<base64EncodedCapabilityObject>`. The capability object declares which namespace and domain-specific actions the delegate is authorized to perform, per the issuer.
 
 ## Improved UX with `SessionSigs`
 

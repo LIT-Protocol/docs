@@ -8,6 +8,7 @@ You can use any wallet or auth method to generate session signatures with the `g
 
 ```javascript
 import { LitNodeClient } from '@lit-protocol/lit-node-client';
+import { LitAccessControlConditionResource, LitAbility } from '@lit-protocol/auth-helpers';
 
 // Create a new ethers.js Wallet instance
 const wallet = new Wallet(process.env.YOUR_PRIVATE_KEY);
@@ -50,9 +51,19 @@ const authNeededCallback = async ({ chain, resources, expiration, uri }) => {
   return authSig;
 };
 
+// Create an access control condition resource
+const litResource = new LitAccessControlConditionResource(
+  hashedEncryptedSymmetricKeyString
+);
+
 const sessionSigs = await litNodeClient.getSessionSigs({
   chain: "ethereum",
-  resources: ["litAction://*"],
+  resourceAbilityRequests: [
+    {
+      resource: litResource,
+      ability: LitAbility.AccessControlDescription
+    }
+  ],
   authNeededCallback,
 });
 ```
@@ -61,25 +72,9 @@ The `getSessionSigs()` function will try to create a session key for you and sto
 
 ## Resources You Can Request
 
-You can pass an array of resources to the `getSessionSigs()` function, which will be presented to the user in the SIWE message. Resources are things the signature is permitted to be used for. These can be specific items, such as the ID of an encryption condition, or they can be wildcards. The default is all resources with wildcards. The resources are strings that follow the format `lit<conditionType>://<resourceId>`. The conditionType can be either `SigningCondition` or `EncryptionCondition`. The resourceId is a string that uniquely identifies the resource you are requesting access to. For signing conditions, the resourceId is a hash of the resourceId JSON you are requesting access to. For encryption conditions, the resourceId is a hash of the encrypted symmetric key that you are requesting access to.
+You can pass an array of "resource ability requests" to the `getSessionSigs()` function, which will be presented to the user in the SIWE message - read more [here](/SDK/Explanation/authentication/sessionSigs/resources-and-abilities) about lit resources and abilities. The resources and abilities requested by the session key must be narrower or equal to the capabilities granted to it per the session capability object specified in the inner `AuthSig`. 
 
-Since Session keys need the capability to sign on behalf of you and your wallet, you grant them condition types, but with the addition `Capability` at the end. For example, `litSigningConditionCapability://*` will give the session key the capability to sign on your behalf for any signing condition. `litEncryptionConditionCapability://*` will give the session key the capability to sign on your behalf for any encryption condition.
-
-The protocol prefixes of the resources are:
-
-| Resource                        | Protocol Prefix                     | Identifier              | Type                | Usage                                                                                                                                                                                                      |
-| ------------------------------- | ----------------------------------- | ----------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Encryption Condition            | litEncryptionCondition://           | Encryption condition ID | Restrictive         | Specify which encryption conditions can be processed                                                                                                                                                       |
-| Signing Conditions              | litSigningCondition://              | Signing condition ID    | Restrictive         | Specify which signing conditions can be processed                                                                                                                                                          |
-| A PKP                           | litPKP://                           | PKP Token ID            | Restrictive         | Specify which PKPs can be used                                                                                                                                                                             |
-| A RLI NFT                       | litRLI://                           | RLI Token ID            | Restrictive         | Specify which RLIs can be used                                                                                                                                                                             |
-| A Lit Action                    | litAction://                        | Lit Action IFPS ID      | Restrictive         | Specify which Lit Actions can be called                                                                                                                                                                    |
-| Encryption Condition Delegation | litEncryptionConditionCapability:// | Encryption condition ID | Granting Capability | Specify which encryption conditions can be processed on behalf of this user. Only the key in the URI field of this signature is authorized to actually use this resource. This is typically a session key. |
-| Signing Conditions Delegation   | litSigningConditionCapability://    | Signing condition ID    | Granting Capability | Specify which signing conditions can be processed on behalf of the user. Only the key in the URI field of this signature is authorized to actually use this resource. This is typically a session key.     |
-| PKP Delegation                  | litPKPCapability://                 | PKP Token ID            | Granting Capability | Specify which PLPs can be used on behalf of the user. Only the key in the URI field of this signature is authorized to actually use this resource. This is typically a session key.                        |
-| RLI Delegation                  | litRLICapability://                 | RLI TokenID             | Granting Capability | Specify which RLIs can be used on behalf of the user. Only the key in the URI field of this signature is authorized to actually use this resource. This is typically a session key.                        |
-| Lit Action Delegation           | litActionCapability://              | Lit Action IPFS ID      | Granting Capability | Specify which Lit Actions can be called on behalf of the user. Only the key in the URI field of this signature is authorized to actually use this resource. This is typically a session key.               |
-|                                 |                                     |                         |                     |                                                                                                                                                                                                            |
+When session capability objects are omitted from the `getSessionSigs()` function call, the SDK will generate a session capability object with **wildcard permissions against all of the resources in that category by default**, ie. ability to perform operations against all access control conditions. Read more [here](/SDK/Explanation/authentication/sessionSigs/capability-objects) about how to create custom session capability objects.
 
 ## Clearing Local Storage
 

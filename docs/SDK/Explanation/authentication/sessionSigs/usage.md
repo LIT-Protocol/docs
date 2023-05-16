@@ -43,13 +43,6 @@ let jwt = await litNodeClient.getSignedToken({
 ## Making Encryption Requests
 
 ```javascript
-// storing the key
-var sessionSigs = await LitJsSdk.getSessionSigs({
-  chain: "ethereum",
-  litNodeClient,
-  resources: [`litEncryptionCondition://*`],
-});
-
 var unifiedAccessControlConditions = [
   {
     conditionType: "evmBasic",
@@ -81,10 +74,16 @@ const hashOfKey = await LitJsSdk.hashEncryptionKey({
   encryptedSymmetricKey,
 });
 
+// Create an access control condition resource
+var litResource = new LitAccessControlConditionResource(hashOfKey);
+
 sessionSigs = await LitJsSdk.getSessionSigs({
   chain: "ethereum",
   litNodeClient,
-  resources: [`litEncryptionCondition://${hashOfKey}`],
+  resourceAbilityRequests: [
+    resource: litResource,
+    ability: LitAbility.AccessControlConditionDecryption
+  ]
 });
 
  const retrievedSymmKey = await litNodeClient.getEncryptionKey({

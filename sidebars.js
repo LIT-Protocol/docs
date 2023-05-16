@@ -161,8 +161,33 @@ const sidebars = {
               collapsed: true,
               items: [
                 "SDK/Explanation/authentication/authSig",
-                "SDK/Explanation/authentication/sessionSigs",
-                // 'SDK/Explanation/authentication/methods',
+                {
+                  type: "category",
+                  label: "Session Signatures",
+                  link: {
+                    type: "doc",
+                    id: "SDK/Explanation/authentication/sessionSigs/intro",
+                  },
+                  collapsed: true,
+                  items: [
+                    "SDK/Explanation/authentication/sessionSigs/getSessionSigs",
+                    "SDK/Explanation/authentication/sessionSigs/usage",
+                    {
+                      type: "category",
+                      label: "Walletless Signatures",
+                      link: {
+                        type: "doc",
+                        id: "SDK/Explanation/authentication/sessionSigs/authMethods/overview",
+                      },
+                      collapsed: true,
+                      items: [
+                        "SDK/Explanation/authentication/sessionSigs/authMethods/socialLogin",
+                        "SDK/Explanation/authentication/sessionSigs/authMethods/webAuthn",
+                      ],
+                    },
+                  ],
+                },
+                "SDK/Explanation/authentication/security",
               ],
             },
             "SDK/Explanation/tests",

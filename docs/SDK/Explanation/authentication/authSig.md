@@ -1,22 +1,14 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Wallet Signatures
 
-## AuthSigs
+An `AuthSig` is a wallet signature obtained from a user. Wallet signatures are required to communicate with the Lit Nodes and authorize requests.
 
-We refer to a wallet signature obtained from the user as an AuthSig.
+## Format of an `AuthSig`
 
-You can use any [EIP 4361](https://eips.ethereum.org/EIPS/eip-4361) compliant signature (Sign in with Ethereum) for the authSig, but you must put the signature into the AuthSig data structure format (documented [here](https://js-sdk.litprotocol.com/interfaces/types_src.AuthSig.html)). You do not need to use the Lit JS SDK V2 to obtain the signature as long as it's EIP 4361 compliant and in the AuthSig data structure format.
-
-**WARNING**: AuthSigs are considered insecure to use for authenticating against the nodes and we **do not** recommend using them. Read more [in the below section](/SDK/Explanation/authentication/authSig#security-considerations).
-
-## Format of AuthSig
-
-The AuthSig should match [this format](https://js-sdk.litprotocol.com/interfaces/types_src.AuthSig.html).
-
-An example AuthSig:
+You can use any signature compliant with EIP-4361, also known as Sign in with Ethereum (SIWE), for the `AuthSig`. However, the signature must be presented in an `AuthSig` object formatted like so:
 
 ```json
 {
@@ -27,83 +19,69 @@ An example AuthSig:
 }
 ```
 
-## Obtaining the AuthSig
+In the `AuthSig` data structure:
 
-You can use the built in `checkAndSignAuthMessage()` function to obtain the authSig. For example:
+- `sig` is the signature produced by signing the `signedMessage`
+- `derivedVia` is the method used to derive the signature (e.g., "web3.eth.personal.sign")
+- `signedMessage` is the original message that was signed
+- `address` is the public key address that was used to create the signature
+
+You can refer to the `AuthSig` type definition in the [Lit JS SDK V2](https://js-sdk.litprotocol.com/interfaces/auth_browser_src.authsig.html).
+
+## Obtaining an `AuthSig`
+
+### Using `checkAndSignAuthMessage`
+
+The Lit SDK `checkAndSignAuthMessage()` function provides a convenient way to obtain an `AuthSig` from an externally-owned account in a browser environment.
 
 ```js
-var authSig = await LitJsSdk.checkAndSignAuthMessage({
+import { checkAndSignAuthMessage } from '@lit-protocol/lit-node-client';
+
+const authSig = await checkAndSignAuthMessage({
   chain: "ethereum",
 });
 ```
 
-This will trigger a wallet selection popup on the user's browser. The user will be asked to sign a message proving they own their crypto address. The message will be signed with their crypto address. The signature will be returned to you as the `authSig` variable. You will need to pass this to the Lit Protocol API.
+When called, `checkAndSignAuthMessage` triggers a wallet selection popup in the user's browser. The user is then asked to sign a message, confirming ownership of their crypto address. The signature of the signed message is returned as the `authSig` variable.
 
-This function will save the AuthSig to local storage so that the user does not need to sign the message again. However, the user may be asked to sign it again if the signature has expired or is too old.
+The function also stores the `AuthSig` in local storage, removing the need for the user to sign the message again. However, if the signature expires or becomes too old, the user may be prompted to sign the message again.
 
-This function will also check the currently selected chain in the user's wallet, and if their wallet supports it, sends a request to their wallet to change to the chain passed into the `checkAndSignAuthMessage()` function. This is to ensure that the user is using the correct chain.
+`checkAndSignAuthMessage` checks the currently selected chain in the user's wallet. If user's wallet supports it, the function sends a request to the user's wallet to change to the chain specified in the `checkAndSignAuthMessage()` function call. This ensures that the user is interacting with the correct blockchain network.
 
-## Account Abstraction EIP1271 signatures
+### Using `signAndSaveAuthMessage`
 
-:::note
-
-Currently works only on the `serrano` litNetwork. Coming soon on the `jalapeno` litNetwork.
-
-:::
-
-
-Currently, Externally-owned accounts (EOA) can interface with Lit via an [**authSig**](/SDK/Explanation/authentication/authSig). With this paradigm, a private key is needed to sign an authSig. Smart contracts generally can not produce an authSig since they don't have a private key. However, this tutorial will show you how to generate an authSig for smart contracts using [EIP1271](https://eips.ethereum.org/EIPS/eip-1271). EIP-1271 is a standard to verify a signature when the account is a smart contract.
-
-
-### How to structure the AuthSig
-
-The format of the authSig remains the same as noted in the [API docs](https://js-sdk.litprotocol.com/interfaces/types_src.AuthSig.html). 
-
-* **sig** is the actual hex-encoded signature.
-* **derivedVia** should be "EIP1271" to tell the nodes that the authSig is for smart contracts
-* **signedMessage** is any string that you want to pass to the `isValidSignature(bytes32 _hash, bytes memory _signature)` as its 1st arguement. It will be converted to bytes32 before calling the smart contract function
-* **address** of the smart contract you want to present the authSig for. Note that it should implement the `isValidSignature(bytes32 _hash, bytes memory _signature)` function.
-
-For example:
+If you prefer to implement your own wallet selection interface, you can call the `signAndSaveAuthMessage()` function, which offers more customization. To use this function, pass in an instance of an [ethers.js `Web3Provider` object](https://docs.ethers.org/v5/api/providers/other/#Web3Provider), the wallet address, the chain ID, and the signature expiration time.
 
 ```js
-{
-	"sig": "0x18720b54cf0d29d618a90793d5e76f4838f04b559b02f1f01568d8e81c26ae9536e11bb90ad311b79a5bc56149b14103038e5e03fee83931a146d93d150eb0f61c",
-	"derivedVia": "EIP1271",
-	"signedMessage": "_hash message",
-	"address": "0x6FdF5aD7f256D9677eC1d6B7e633Ff1E7FA5Ac14"
-}
+import { ethConnect } from '@lit-protocol/auth-browser';
+
+const authSig = await ethConnect.signAndSaveAuthMessage({
+  web3: web3Provider,
+  account: walletAddress,
+  chainId: 1,
+  expiration: new Date(Date.now() + 1000 * 60 * 60 * 24).toISOString(),
+});
 ```
 
-Now you can use the above authSig object in the Lit functions just as an any other authSig.
+Note: Be sure to import `cosmosConnect` and `solConnect` for Cosmos and Solana respectively.
 
-```js
-const encryptedSymmetricKey = await window.litNodeClient.saveEncryptionKey({
-  accessControlConditions,
-  symmetricKey,
-  authSig,
-  chain
-})
-```
+### Using EIP-1271 for Account Abstraction
 
-### How it works
+In general, smart contracts can't produce an `AuthSig` since they don't possess a private key. However, you can generate an `AuthSig` for smart contracts using [EIP-1271](https://eips.ethereum.org/EIPS/eip-1271), a standard for verifying signatures when the account is a smart contract.
 
-The Lit nodes call the `isValidSignature(bytes32 _hash, bytes memory _signature)` function for the contract at the `authSig.address`. Where `bytes32 _hash` is the bytes32 representation of the `authSig.signedMessage` and `authSig.sig` is passed as the `bytes _signature` argument. The authSig is validated based on the returned result of the contract's `isValidSignature` function.
+Following the same data structure as above, you can format your smart contract `AuthSig` like so: 
 
-Please read the [EIP1271](https://eips.ethereum.org/EIPS/eip-1271) docs to understand the `isValidSignature` function.
+- `sig` is the actual hex-encoded signature
+- `derivedVia` must be "EIP1271" to inform the nodes that this `AuthSig` is for smart contracts
+- `signedMessage` is any string that you want to pass to the `isValidSignature(bytes32 _hash, bytes memory _signature)` as the `_hash` argument
+- `address` is the address of the smart contract
 
-### See it in action!
+Note: The smart contract must implement the `isValidSignature(bytes32 _hash, bytes memory _signature)` function since the Lit Nodes will call this function to validate the `AuthSig`. Refer to the [EIP-1271](https://eips.ethereum.org/EIPS/eip-1271) docs to understand the `isValidSignature` function.
 
-Below is the complete [**React** project](https://replit.com/@lit/Smart-Contract-Authsig-EIP1271#smart-contract-authsig/src/App.js).
+You can present the smart contract `AuthSig` object to the Lit Nodes just like any other `AuthSig`.
 
-<iframe frameborder="0" width="100%" height="500px" className="repls" style={{display: "none"}} src="https://replit.com/@lit/Smart-Contract-Authsig-EIP1271#smart-contract-authsig/src/App.js"></iframe>
+Check out this [**React** project](https://replit.com/@lit/Smart-Contract-Authsig-EIP1271#smart-contract-authsig/src/App.js) for an example of how to generate and use a smart contract `AuthSig`.
 
-## Clearing the stored AuthSig
+## Clearing Local Storage
 
-If you want to clear the authSig stored in the browser local storage, you can call the [`disconnectWeb3` method](https://js-sdk.litprotocol.com/functions/auth_browser_src.ethConnect.disconnectWeb3.html).
-
-## Security Considerations
-
-While an AuthSig can be provided across various SDK functions for authenticating the user against the nodes, we **do not** recommend this approach as it does not have an expiration time, nor does it use the [Object Capability model](https://en.wikipedia.org/wiki/Object-capability_model) to provide capability attenuation, delegation and other functionalities. This means that the same exact AuthSig object can be provided to the nodes multiple times / indefinitely (an example of replay attack), and once provided the authenticated user can perform read / mutative operations across all resources that are related to the original resource owner specified by the AuthSig object itself. 
-
-Use AuthSigs at your own risk. We recommend using [session signatures](/SDK/Explanation/authentication/sessionSigs) instead.
+If you want to clear the `AuthSig` stored in local storage, you can call the [`disconnectWeb3` method](https://js-sdk.litprotocol.com/functions/auth_browser_src.ethConnect.disconnectWeb3.html).

@@ -1,35 +1,23 @@
-# Authentication
+---
+sidebar_position: 1
+---
 
-To use Lit Protocol, you must generate and present signatures to the nodes in order to authenticate successfully. Currently, there are two ways of doing so - wallet signatures and session signatures.
+# Overview
 
-## Wallet Signatures
+To interact with the nodes in the Lit Network, you will need to generate and present signatures. Currently, there are two ways to do this:
 
-We currently support providing a wallet signature to the SDK function like so:
+## Obtain an `AuthSig`
 
-```javascript
-const encryptedSymmetricKey = await litNodeClient.saveEncryptionKey({
-  accessControlConditions,
-  symmetricKey,
-  authSig,
-})
-```
+A wallet signature, also referred to as `AuthSig`, is a signature that proves you own a particular public key. Learn more about wallet signatures [here](/SDK/Explanation/authentication/authSig).
 
-We **do not** recommend using this method of authentication as they are on the deprecation path and it is insecure.
+## Generate `SessionSigs` (Recommended)
 
-Read more about wallet signatures [here](/SDK/Explanation/authentication/authSig).
+Session signatures, or `SessionSigs`, are signatures that are scoped to specific capabilities and resources. For example, you can set up `SessionSigs` to permit only the encryption and decryption of data during a particular time frame.
 
-## Session Signatures (recommended)
+`SessionSigs` are designed to be ephemeral and limited in scope, allowing for fine-grained control and enabling secure, seamless interactions with any platform integrating Lit. Get started with `SessionSigs` [here](/SDK/Explanation/authentication/sessionSigs).
 
-We currently support providing a session signature to the SDK function like so:
+:::note
 
-```javascript
-const encryptedSymmetricKey = await litNodeClient.saveEncryptionKey({
-  accessControlConditions,
-  symmetricKey,
-  sessionSigs,
-});
-```
+`SessionSigs` are only available on Ethereum and are heavily in development, so things may change. Be sure to use the latest version of the Lit SDK and connect to the `serrano` testnet.
 
-This is the **recommended** method of authenticating against the Lit Protocol nodes as it is more secure and provides a better end-user experience.
-
-Read more about session signatures [here](/SDK/Explanation/authentication/sessionSigs).
+:::

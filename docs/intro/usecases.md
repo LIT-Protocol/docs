@@ -18,6 +18,9 @@ Introduce privacy to decentralized applications. Use Lit to securely store priva
 Examples:
 
 - [Orbis Club](https://orbis.club/): Enabling “friends-only” content and encrypted messaging.
+- [Lens](https://docs.lens.xyz/docs/gated): Permissioned data for web3 social.
+- [Starling Lab](https://github.com/starlinglab/archive-explorer/): Token-gated data archives.
+- [Streamr](https://blog.streamr.network/streamr-integrates-lit-protocol/): Private data marketplaces.
 - [Gather](https://www.gather.town/): Powering private virtual spaces for your team.
 - [Headline](https://viaheadline.xyz/): Publish exclusive content for your web3 community.
 - [IPFS](https://litgateway.com/files): Encrypt content for private storage on IPFS.
@@ -44,7 +47,7 @@ Here’s an [example](https://twitter.com/LitProtocol/status/1504630741849853954
 
 Introduce automation and interoperability to the dWeb with Lit Actions and PKPs. 
 
-Below you will find some example projects and other potential ideas and use cases. You can check out even more examples [here](https://github.com/LIT-Protocol/js-serverless-function-test/tree/main/js-sdkTests).
+Below you will find some example projects and other potential ideas and use cases. You can check out even more examples [here](https://github.com/LIT-Protocol/awesome/blob/main/README.md#guides-and-examples).
 
 ### DeFi Automation
 
@@ -52,9 +55,7 @@ Use PKPs and Actions to automate your interactions across decentralized finance.
 
 - Condition-based transactions (ex. on-chain limit orders).
 - Recurring payments.
-- Liquid staking solutions.
-- Frictionless transaction execution (signing abstraction).
-- Vault applications for seamlessly trading asset “bundles”.
+- Automated vault applications for seamlessly trading asset bundles.
 
 Example Projects:
 
@@ -74,6 +75,8 @@ Build powerful infrastructure that harnesses the power of Lit!
 Example Projects:
 
 - [Yacht Labs](https://yachtlabs.io/blog/yacht-lit-swap): Cross-chain atomic swaps with PKPs and Lit Actions
+- [Curve Labs](https://github.com/Curve-Labs/lit-privacy/tree/main): SDK for building privacy-preserving interactions on-chain
+- [MagicWallet](https://github.com/DustilDawn/Magic): One account, multiple seedless wallets
 - More coming soon… 👀 —> [build with us](https://discord.com/invite/nm9aBG8z9w)!
 
 ### Web3 Social
@@ -89,10 +92,12 @@ Social applications that empower users with privacy and true data ownership.
 Example Projects:
 
 - [Ceramic Integration](https://github.com/LIT-Protocol/lit-action-ceramic-signing-demo): Write and permission access to your own private Ceramic data store.
+- [Krebit](https://spark.litprotocol.com/krebitxlitactions/): Automated Verifiable Credential issuance.
+- [Wallet Abstraction demo](https://spark.litprotocol.com/wallet-abstraction-with-google-oauth/): Using Google oAuth to create a Lit MPC wallet.
 
 ### Gaming
 
-Improve the state of web3 gaming.
+Improve the state of [web3 gaming](https://spark.litprotocol.com/lit-and-web3-gaming/).
 
 - Signing and wallet abstraction for blockchain-based games.
 - NPCs!
@@ -104,8 +109,8 @@ Improve the state of web3 gaming.
 More ideas!
 
 - A certification system utilizing [conditional signing](/LitActions/workingWithActions/conditionalSigning).
-- A blockchain.
+
 
 ### You can find even more examples, ideas, and resources [here](https://github.com/LIT-Protocol/awesome/blob/main/README.md).
 
-### Have an idea for a project? [Get in touch](https://airtable.com/shr2NWJbH1Y6Y3kOU)!
+### Have an idea for a project? [Get in touch](https://nut.sh/ell/forms/352580/YEk9vu)!

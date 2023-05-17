@@ -14,36 +14,37 @@ Get a PKP on the [PKP Explorer](https://explorer.litprotocol.com/mint-pkp)
 
 :::
 
-## What are Programmable Key Pairs (PKPs)?
+## Quick Start
 
-A PKP is an ECDSA key-pair that is held in distributed custody by the Lit network. PKPs can be programmed to automatically sign based on application logic, which is specified in a JavaScript program called a Lit Action.
+Ready to jump right in? Quickly learn how you can integrate Programmable Key Pairs (PKPs) into your own product:
 
-Each PKP is an ECDSA key-pair generated collectively by the Lit nodes through a process called Distributed Key Generation (DKG). As a network, this allows Lit to generate a new keypair where nobody knows the whole private key. Instead, each node only holds a share of the key. These signature shares must be combined above the threshold ( 2/3 of the nodes) to produce the complete signature signed by the PKP.
+1. Resource: [Minting a PKP using the Lit Explorer](https://explorer.litprotocol.com/mint-pkp)
+2. Resource: [Testnet Faucet](https://chronicle-faucet-app.vercel.app/)
+3. Concept: [Assigning an Authentication Method](/pkp/authHelpers) (and associated [blog post](https://spark.litprotocol.com/how-authentication-works-with-pkps/))
+4. SDK Package: [Creating an Ethereum or Cosmos Wallet](https://github.com/LIT-Protocol/js-sdk/tree/master/packages/pkp-client) 
 
-It’s important to note: only those with authorized access have the ability to request a signature or allow some signing logic to be run. Authorized access refers to the particular "authentication method" used to generate the PKP in the first place, such as a wallet signature or oAuth token. More on this below.
+## Overview
 
-## How do I create a PKP?
+Each Programmable Key Pair (PKP) is a versatile [MPC wallet](https://medium.com/1kxnetwork/wallets-91c7c3457578) that can be utilized by developers to:
 
-You can mint an NFT from our PKP contract on Chronicle, Lit's custom EVM rollup testnet, [here](https://explorer.litprotocol.com/mint-pkp). This NFT represents the root ownership of the PKP. The NFT owner can grant other users (via a wallet address) or grant Lit Actions the ability to use the PKP to sign and decrypt data. They also have the ability to assign additional authentication methods, described at the bottom of the page.
+1. Provide users of web3 with seamless, ["seed-phraseless" onboarding](https://spark.litprotocol.com/wallet-abstraction-with-google-oauth/) experiences.
+2. Facilitate transaction execution on [blockchains](https://www.youtube.com/watch?v=zJEVPH1UUxM), [storage networks](https://github.com/LIT-Protocol/key-did-provider-secp256k1), and other state machines.
+3. Build fully [decentralized application backends](/LitActions/usingPKPsAndActions#why-is-this-useful).
 
-You can also use our handy auth helper contract on Chronicle [here](https://github.com/LIT-Protocol/LitNodeContracts/blob/main/contracts/PKPHelper.sol) and you can find the contract addresses [here](https://explorer.litprotocol.com/contracts)
+## Features
 
-## What blockchains can PKPs write to?​
+1. [Blockchain Agnostic](/resources/supportedChains#programmable-key-pairs): PKPs can be used to sign transactions on any blockchains or state machines using [ECDSA](https://blog.cloudflare.com/ecdsa-the-digital-signature-algorithm-of-a-better-internet/) for digital signatures. Currently, the [SDK](https://github.com/LIT-Protocol/js-sdk/tree/master/packages/pkp-client) provides easy-to-use methods for creating wallets on EVM and Cosmos based chains. 
+2. Programmable: [Lit Actions](/LitActions/intro) contain the application logic that each PKP should follow. This is useful for defining [signing automations](/automated-portfolio-rebalancing-uniswap/), handling [authentication](/pkp/authHelpers#example-setting-auth-context-with-lit-actions), or generating [conditional proofs](/LitActions/workingWithActions/conditionalSigning).  
+3. Fault-tolerant: Each PKP is generated collectively by the Lit nodes through a process called [Distributed Key Generation](https://en.wikipedia.org/wiki/Distributed_key_generation) (DKG). As a network, this allows Lit to generate a new key-pair where the private key never exists in its entirety. 
+4. Interoperable: Use [WalletConnect](https://github.com/LIT-Protocol/pkp-walletconnect) to connect PKPs to your favorite dApps, just like any other EOA wallet.
 
-Any blockchain or cryptographic system that utilizes [ECDSA](https://blog.cloudflare.com/ecdsa-the-digital-signature-algorithm-of-a-better-internet/) for digital signatures. This includes Ethereum and most EVM chains, Bitcoin, and Cosmos. View all supported chains [here.](/resources/supportedChains#programmable-key-pairs)
+## Examples and Use Cases
 
-## What can I use PKPs for?
+PKPs can be used to power a wide array of potential applications and use cases:
 
-Each PKP is a valid ECDSA wallet, custodied collectively by the Lit nodes (AKA an [MPC wallet](https://medium.com/1kxnetwork/wallets-91c7c3457578)). This means you can use your PKP as a wallet when interacting with a [host of web3 applications](https://spark.litprotocol.com/connecting-lit-pkps-with-dapps/), using it to read and write data across Lit's supported blockchains.
-
-You can also use a PKP as an asset "vault", sending a mix of BTC and ETH NFTs to it, and then selling them as a bundle by selling the NFT that controls the PKP on OpenSea. The buyer of that NFT would then have full permission to sign and decrypt data with the PKP, since they are now the owner of the controlling NFT. This means that the buyer could also withdraw the BTC and NFTs stored within, if desired.
-
-This functionality is essentially securely trading a private key (a PKP), which has been impossible until now. This also breaks soulbound NFTs, because now you can securely trade the underlying private key that owns the soulbound tokens.
-
-## Do I need a wallet in order to use a PKP?
-
-Not necessarily! In order to sign with a PKP, you must present some form of authentication to the Lit nodes. We refer to this as an authentication method in the docs. This may be a user's wallet address, Google OAuth, Discord login, and more.
-
-By continuing to work to support additional methods of authentication for PKPs (such as SMS and Apple Passkey, among others), we hope to facilitate a more frictionless onboarding experience for non-crypto-natives and enable intuitive methods for social recovery and wallet abstraction.
-
-Check out this [proof of concept](https://spark.litprotocol.com/wallet-abstraction-with-google-oauth/) on how to mint a Programmable Key Pair and execute an on-chain transaction with nothing but a Google account, no private keys or seed phrases in sight!
+1. [Seed-Phraseless Onboarding Experiences](https://spark.litprotocol.com/wallet-abstraction-with-google-oauth/) with Multi-Factor Authentication
+2. [Signing Automation](/LitActions/workingWithActions/singleExecution#event-listening) and [Conditional Transaction Execution](https://spark.litprotocol.com/automated-portfolio-rebalancing-uniswap/)
+3. [Automated Credential Issuance](https://spark.litprotocol.com/krebitxlitactions/)
+4. [Versatile Web3 Wallets](https://github.com/DustilDawn/Magic)
+5. [Cross-Chain Messaging and Swaps](https://spark.litprotocol.com/xchain-bridging-yacht-lit-swap/)
+6. [Signer on an AA Wallet](https://spark.litprotocol.com/account-abstraction-and-mpc/)

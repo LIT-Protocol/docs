@@ -12,61 +12,35 @@ To start developing with Lit Actions, check out examples [here](/LitActions/hell
 
 :::
 
-Lit Actions are the application logic that a user can ‘add’ to a PKP, this is referred to as programmatic signing.
+## Quick Start
 
-Specifically, Lit Actions are JavaScript functions that are executed across Lit’s  threshold cryptography network. They are JavaScript smart contracts that, when combined with PKPs, can be programmed to sign transactions and other arbitrary data.
+Ready to jump right in? Quickly learn how you can integrate Lit Actions into your own application:
 
-Lit Actions are immutable, blockchain agnostic, and can make HTTP requests. This means that they can utilize on-chain and off-chain data in their computation. You can write some code and ask the Lit nodes to execute it, for example asking the network to calculate the difference between two random integers, x and y.
+1. Guide: [Hello World with Lit Actions](/LitActions/helloWorld)
+2. Guide: [Using Lit Actions for Access Control](https://spark.litprotocol.com/using-lit-actions-for-access-control/)
+3. Tool: [GetLit CLI](/LitActions/getlitCli)
+4. Example Implementation: [Fetching Off-Chain Data in a Lit Action](/LitActions/workingWithActions/usingFetch)
+5. Example Implementation: [Conditional Signing with Lit Actions](/LitActions/workingWithActions/conditionalSigning)
 
-The result of this function can be used to pass some functionality, like signing or provisioning decryption abilities to a user (such as if the difference between x and y is greater than 10, sign the result).
+## Overview
 
+Lit Actions are JavaScript programs that can be used to specify signing and authentication logic for [PKPs](/pkp/intro). When used in conjunction with PKPs, Lit Actions are functionally serverless functions with their own private key-pair. Together these tools can be used to write data to blockchains and other state machines.
 
-## What can I use Lit Actions for?
+Every Lit Action gets executed across Lit’s threshold cryptography network in parallel, meaning the result of each program is independently verified by each node. Once a threshold of nodes have verified the result (more than two-thirds of network participants), the signing or decryption logic defined therein can be executed.
 
-When used in conjunction with PKPs, Lit Actions facilitate automated signing and decryption of data, functionally combining smart contracts with an individual key-pair.
+A trivial example would be a Lit Action and associated PKP that checks if a number is prime, only returning a signature it if it is prime. Each node will execute the Lit Action with a submitted input and verify that it meets the required conditions. If it does, the node will provision an independent key share. Only after more than two-thirds of these shares have been collected can the complete signature be formed.
 
-A toy example would be a Lit Action and corresponding PKP that checks if a number is prime, and only signs it if it is prime. Think of it as a sort of “prime number” certification service. Since the Lit Action is immutable, and since you can permanently assign a PKP to a Lit Action, there is a provable chain of trust. This means you could present the signature and a number to someone, and they could simply check the signature against the public key of the PKP to see if the number is actually prime, instead of having to do all the math to ensure that the number is actually prime. The signature acts as a proof that the number is prime.
+## Features
 
-## Signatures vs. Proofs
+1. [Blockchain Agnostic](/resources/supportedChains#programmable-key-pairs): Lit Actions can be used to write data to blockchains using PKPs
+2. Immutable: Once a Lit Action has been published, it cannot be modified
+3. Atomicity: Using [Mint/Grant/Burn](/LitActions/usingPKPsAndActions#what-is-mintgrantburn), you can atomically link a PKP to an authorized set of Lit Actions. This method guarantees that a particular PKP can only ever be used to sign data from within the approved set
+4. Off-Chain Compatibility: Lit Actions can pull in data from [off-chain sources](/LitActions/workingWithActions/usingFetch) natively, without requiring the use of a third party oracle
 
-It is important to break down the distinction between a "signature" and what can be considered a "proof".
+## Examples and Use Cases
 
-### Signing
-
-In cryptography, a digital signature proves that a user controls the private key associated with a particular public address. This is commonly used in the context of authorization. Apps can use this signature to verify a user has control over the digital identity provided by the address, and provide authentication to do both web3 and arbitrary, non-web3 actions. For example, changing a profile on OpenSea requires signing in order to confirm the association between the profile owner and the wallet associated with it.
-
-In working with the Lit network, someone will sign with their wallet when they want to mint a PKP. That is a transaction signature — where someone is sending a transaction (minting). This signature is then used as the method of authentication over the PKP and associated Lit Actions.
-
-### Proofs
-
-A proof is a particular application for a digital signature. For example, using a signature to prove that a particular interaction took place.
-
-Signing through Lit Actions opens up the possibilities of verifying information from external sources, such as from a Weather API. 
-
-## Event Listening
-
-Configure condition-based triggers for Lit Actions using the [event listener](/LitActions/workingWithActions/singleExecution).
-
-## Do I need a PKP to run a Lit Action? 
-
-No, but without it, Lit Actions lose their capabilities of signing and decryption. An Action without a PKP is essentially a JavaScript function that **can’t sign or decrypt** arbitrary data.  
-
-## WASM Support
-
-Check out this [example](https://github.com/dOrgJelli/lit-protocol-wasm-test/blob/d4b8873f9a5bceaf98e7f7a1bf325bf597cbfa40/src/App.js#L6-L51) of running WebAssembly inside of a Lit Action.
-
-## Importing NPM Packages
-
-You can use esbuild to create a bundle and use that to import your package. You can follow an example [here](https://github.com/LIT-Protocol/js-serverless-function-test/tree/main/bundleTests/siwe).
-
-## Getting started with Lit Actions
-
-Get started with Lit Actions [here](/LitActions/helloWorld).
-
-Learn about using Lit Actions and PKPs [together](/LitActions/usingPKPsAndActions).
-
-Logging and dealing with [errors](/LitActions/workingWithActions/logAndReturn).
-
-[Fetching](/LitActions/workingWithActions/usingFetch) data from the Web.
-
-Get started with [Conditional Signatures](/LitActions/workingWithActions/conditionalSigning).
+1. [Generating a signed Ethereum transaction](https://github.com/LIT-Protocol/js-serverless-function-test/blob/main/js-sdkTests/signTxn.js)
+2. [Assigning PKP Permissions](https://github.com/LIT-Protocol/js-serverless-function-test/blob/main/js-sdkTests/pkpPermissions.js)
+3. [Automating verifiable credential issuance](https://spark.litprotocol.com/krebitxlitactions/) 
+4. [Executing a trade on Uniswap](https://github.com/LIT-Protocol/lit-apps/blob/master/packages/lit-actions/src/to-be-converted/wip-swap.action.mjs?ref=spark.litprotocol.com)
+5. [Fetching off-chain price data](https://spark.litprotocol.com/automated-portfolio-rebalancing-uniswap/#how-it-works)

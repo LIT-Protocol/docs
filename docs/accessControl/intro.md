@@ -3,31 +3,38 @@ sidebar_position: 1
 ---
 
 # Introduction to Decentralized Access Control
-Lit Protocol provides decentralized access control but what does that actually mean?
-With Lit Protocol, you can set on-chain conditions like "user must hold an NFT" and then the network will provision signatures and decryption keys for users that meet those conditions.
 
-What makes this process decentralized is that no node in the network is the custodian of the entire private key. The SDK provides mechanisms for the client-side encryption of arbitrary data. Alice starts by generating a symmetric key and encrypts some content with it. She then encrypts this key to the Lit Network BLS key. Finally, Alice sets rules for under what conditions or who the network should provision the symmetric key to. When Bob attempts to access the content encrypted by Alice, the network will first check that he meets the required conditions (by prompting him to sign a message with his wallet). Once Lit verifies that the conditions are met, the symmetric key can be decrypted by Bob and he can unlock the content.  
+## Quick Start
 
+Ready to jump right in? Quickly learn how you can integrate decentralized access control into your own product:
 
-## On-chain conditions and credentials are things like:
-* User is a member of a DAO
-* User holds an NFT in a collection
-* User holds at least 0.1 ETH
-* The result of any smart contract function call
-* User owns a specific wallet address
-* Using boolean operations (AND + OR) for any of the above
+1. Guide: [Working with Decentralized Access Control](https://spark.litprotocol.com/working-with-decentralized-access-control/)
+2. Guide: [Encrypting and Decrypting Content with Lit](/SDK/Explanation/encryption)
+3. Tool: [Custom Access Controls Creator](https://custom-access-control-conditions.lit.repl.co/) 
+4. Example: [Basic EVM Conditions](/accessControl/EVM/basicExamples)
+
+## Overview
+
+Lit Protocol provides developers with a decentralized access control layer that can be used to [encrypt](/resources/glossary#encryption) content for private and permissioned storage on the open Web. The [Lit SDK](https://github.com/LIT-Protocol/js-sdk) provides utilities that can be used for encrypting and decrypting content client-side, while [access control conditions](/accessControl/conditionTypes/unifiedAccessControlConditions) (ACCs) are used to define who can decrypt and access the locked data. 
+
+Lit supports the use of both on and [off-chain data](/accessControl/conditionTypes/litActionConditions) when defining access control conditions. Examples include gating against:
+
+- [Membership within a particular DAO](/accessControl/EVM/basicExamples#must-be-a-member-of-a-dao-molochdaov21-also-supports-daohaus)
+- Ownership of a particular [ERC-721](/accessControl/EVM/basicExamples#must-posess-any-token-in-an-erc721-collection-nft-collection) or [ERC-20](/accessControl/EVM/basicExamples#must-posess-at-least-one-erc20-token) token
+- The result of [any smart contract call](/accessControl/EVM/customContractCalls)
+- The result of [any API call](/accessControl/conditionTypes/litActionConditions), such as a follow on Twitter
 
 ## Features
 
-- Supports many EVM chains and Solana. Full list [here](/resources/supportedChains).
-- Supports many standard contracts, with plans to support any RPC call soon. If you need to interact with a contract that we don't support yet, ask us, and we will implement it.
-- Boolean conditions. "And" or "Or" are currently supported.
-- Updateable conditions. Only the creator can update the condition.
-- Permanent conditions. When a condition is stored as permanent, it becomes impossible to update it, forever.
-- Use your favorite storage solution including IPFS/Filecoin, Arweave, Sia, Storj, or even use centralized storage.
+1. Access Control Conditions are compatible with most EVM chains, Cosmos, and Solana. View the full list [here](/resources/supportedChains).
+2. AND + OR operators ([boolean logic](/accessControl/conditionTypes/booleanLogic)) can be used to combine any of the supported conditions listed above.
+3. ACCs may be permanent or [updateable](/accessControl/conditionTypes/updateableConditions).
+4. Storage provider agnostic: use your preferred storage solution, including [IPFS](https://spark.litprotocol.com/encrypttoipfs/), Arweave, Ceramic, or even a centralized provider, like AWS.
 
-## Tools for Access Control Condition
+## Examples and Use Cases
 
-- The [Lit Share Modal v3](https://github.com/LIT-Protocol/lit-share-modal-v3) is a tool for creating access control conditions for securing content with Lit Protocol. 
-
-- The [Access Control Conditions Debugger](https://lit-accs-debugger.vercel.app/) is a tool to verify if the given access control conditions follow the correct [schemas](https://github.com/LIT-Protocol/lit-accs-validator-sdk/tree/main/src/schemas). 
+1. [Private data](https://docs.lens.xyz/docs/gated) for web3 social
+2. [Token-gated video](https://github.com/suhailkakar/livepeer-token-gated-vod) streaming
+3. [Encrypted token metadata](https://spark.litprotocol.com/semantic/)
+4. [Persistent and private data marketplaces](https://blog.streamr.network/streamr-integrates-lit-protocol/)
+5. Token-gating access to apps, [such as Streamlit](https://github.com/AlgoveraAI/streamlit-metamask/tree/main#lit-protocol-components)

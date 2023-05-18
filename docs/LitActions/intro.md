@@ -28,7 +28,7 @@ Lit Actions are JavaScript programs that can be used to specify signing and auth
 
 Every Lit Action gets executed across Lit’s threshold cryptography network in parallel, meaning the result of each program is independently verified by each node. Once a threshold of nodes have verified the result (more than two-thirds of network participants), the signing or decryption logic defined therein can be executed.
 
-A trivial example would be a Lit Action and associated PKP that checks if a number is prime, only returning a signature it if it is prime. Each node will execute the Lit Action with a submitted input and verify that it meets the required conditions. If it does, the node will provision an independent key share. Only after more than two-thirds of these shares have been collected can the complete signature be formed.
+A trivial example would be a Lit Action and associated PKP that checks if a number is prime, only returning a signature if the number is prime. Each node will execute the Lit Action with a submitted input and verify that it meets the required conditions. If it does, the node will provision an independent key share. Only after more than two-thirds of these shares have been collected can the complete signature be formed.
 
 ## Features
 

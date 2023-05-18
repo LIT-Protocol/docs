@@ -20,7 +20,7 @@
 - **[Iris](https://github.com/irisxyz/iris)**: A decentralized social media and subscription platform built on Lens.
 - **[DecentraScholar](https://github.com/TanusreeSharma/LFGrow-hack)**: A platform that incentivizes collaboration among academic researchers.
 - **[MxTape](https://ethglobal.com/showcase/mxtape-1tr3a)**: Decentralized music player.
-- **[Peal](https://github.com/Pearl-Market/marketplace)**: Discover and share typefaces and designs on-chain.
+- **[Pearl](https://github.com/Pearl-Market/marketplace)**: Discover and share typefaces and designs on-chain.
 - **[DFSP](https://github.com/shazi57/dfsp-js)**: Decentralized, private live-streaming platform for creators.
 - **[Decensus](https://github.com/decensus-crypto/app)**: Web3-based survey platform.
 - **[creativegene](https://github.com/ddresch/creativegene)**: Decentralized social platform for buying and selling digital goods.
@@ -51,7 +51,7 @@
 - **[dKeeper](https://ethglobal.com/showcase/dkeeper-3ma7r?ref=spark.litprotocol.com)**: Access control management for dApps.
 - **[Selfguard](https://github.com/selfguard/selfguard?ref=spark.litprotocol.com)**: Universal API for encryption.
 - **[Starling Lab](https://github.com/starlinglab/archive-explorer/)**: Token-gated data archives.
-- **[Curve Labs](https://github.com/Curve-Labs/lit-privacy/tree/main)**: Privacy-preserving infrastructure tooling.
+- **[Curve Labs](https://github.com/Curve-Labs/lit-privacy/tree/main)**: Tooling for private on-chain voting.
 - **[Hashchat](https://github.com/hashchat-xyz/hashchat-lfgrow)**: Wallet-to-wallet encrypted messaging.
 - **[LitChat](https://github.com/cryptoKevinL/LitChat)**: Wallet-to-wallet encrypted messaging using Lit and Ceramic.
 - **[XMTP Chat App](https://github.com/GeorgeFane/lit-xmtp)** with token gating enabled by Lit Protocol.

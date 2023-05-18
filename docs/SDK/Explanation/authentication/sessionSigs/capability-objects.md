@@ -6,7 +6,7 @@ sidebar_position: 1
 
 Session signatures work by having scoped capabilities be granted to session keys by an inner `AuthSig`. The capability object is a [SIWE ReCap](https://eips.ethereum.org/EIPS/eip-5573) object.
 
-When session capability objects are omitted from the `getSessionSigs()` function call, the SDK will generate a session capability object with **wildcard permissions against all of the resources in that category by default**, ie. ability to perform operations against all access control conditions. Below are some examples for creating custom session capability objects.
+When session capability objects are omitted from the `getSessionSigs()` function call, the SDK will generate a session capability object with **wildcard permissions against all of the resources in that category by default**, i.e. ability to perform operations against all access control conditions. Below are some examples for creating custom session capability objects.
 
 ## Grant Decryption Capability To Access Control Condition
 

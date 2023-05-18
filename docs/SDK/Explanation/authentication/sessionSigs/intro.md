@@ -103,7 +103,7 @@ Here is what each field means:
 Here is what each field in `signedMessage` means:
 
 - `sessionKey` is the session keypair public key.
-- `resourceAbilityRequests` is a lit of abilities that the session key is requesting to perform against the specified lit resources during authentication. Read more [here](/SDK/Explanation/authentication/sessionSigs/resources-and-abilities) about Lit Resources and Abilities.
+- `resourceAbilityRequests` is a lit of abilities that the session key is requesting to perform against the specified Lit resources during authentication. Read more [here](/SDK/Explanation/authentication/sessionSigs/resources-and-abilities) about Lit Resources and Abilities.
 - `capabilities` is an array of one or more AuthSigs.
 - `issuedAt` is the time the SessionSig was issued.
 - `expiration` is the time the SessionSig becomes invalid.

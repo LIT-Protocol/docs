@@ -63,7 +63,9 @@ const authSig = await ethConnect.signAndSaveAuthMessage({
 });
 ```
 
-Note: Be sure to import `cosmosConnect` and `solConnect` for Cosmos and Solana respectively.
+:::note
+Be sure to import `cosmosConnect` and `solConnect` for Cosmos and Solana respectively.
+:::
 
 ### Using EIP-1271 for Account Abstraction
 
@@ -76,7 +78,9 @@ Following the same data structure as above, you can format your smart contract `
 - `signedMessage` is any string that you want to pass to the `isValidSignature(bytes32 _hash, bytes memory _signature)` as the `_hash` argument
 - `address` is the address of the smart contract
 
-Note: The smart contract must implement the `isValidSignature(bytes32 _hash, bytes memory _signature)` function since the Lit Nodes will call this function to validate the `AuthSig`. Refer to the [EIP-1271](https://eips.ethereum.org/EIPS/eip-1271) docs to understand the `isValidSignature` function.
+:::note
+The smart contract must implement the `isValidSignature(bytes32 _hash, bytes memory _signature)` function since the Lit Nodes will call this function to validate the `AuthSig`. Refer to the [EIP-1271](https://eips.ethereum.org/EIPS/eip-1271) docs to understand the `isValidSignature` function.
+:::
 
 You can present the smart contract `AuthSig` object to the Lit Nodes just like any other `AuthSig`.
 

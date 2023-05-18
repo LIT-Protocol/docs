@@ -34,9 +34,11 @@ async function authWithGoogle() {
 }
 ```
 
-Note: For Discord OAuth, you will initialize the provider with `ProviderType.Discord`.
-
 At the start of the authentication flow, users will be redirected to the social login page hosted by Lit. Once users have successfully signed in, they will be redirected back to your web app.
+
+:::note
+For Discord OAuth, you will initialize the provider with `ProviderType.Discord`.
+:::
 
 :::note
 

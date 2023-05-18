@@ -2,7 +2,7 @@
 
 ## Mint via Contracts
 
-You can mint a PKP NFT from our PKP contract on Polygon Mumbai [here](https://explorer.litprotocol.com/mint-pkp). This NFT represents the root ownership of the PKP. The NFT owner can grant other users (via a wallet address) or grant Lit Actions the ability to use the PKP to sign and decrypt data. They also have the ability to assign additional authentication methods, described at the bottom of the page.
+You can mint an NFT from our PKP contract on Chronicle - Lit's custom EVM rollup testnet - [here](https://explorer.litprotocol.com/mint-pkp). This NFT represents the root ownership of the PKP. The NFT owner can grant other users (via a wallet address) or grant Lit Actions the ability to use the PKP to sign and decrypt data. They also have the ability to assign additional authentication methods, described at the bottom of the page.
 
 You can also use our handy auth helper contract on Polygon Mumbai [here](https://github.com/LIT-Protocol/LitNodeContracts/blob/main/contracts/PKPHelper.sol) and you can find the contract addresses [here](https://explorer.litprotocol.com/contracts)
 
@@ -25,7 +25,7 @@ We currently support both username-based and username-less WebAuthn registration
 #### Contract Specifics
 
 - The `authMethodId` is derived from the credential's [rawId](https://www.w3.org/TR/webauthn-2/#dom-publickeycredential-rawid) parameter.
-- The `authMethodPubkey` is the COSE credential public key. **We currently only support Elliptic Curve COSE Key Type IDs**.
+- The `authMethodPubkey` is the [COSE credential public key](https://datatracker.ietf.org/doc/html/rfc8812). **We currently only support Elliptic Curve COSE Key Type IDs**.
 
 #### Relying Parties and Supported Origins
 
@@ -33,4 +33,4 @@ In order to allow for various frontends to integrate with our platform, we plan 
 
 #### Challenge-Free Registration
 
-We do not currently use challenges as part of our PKP minting / WebAuthn registration process and only use it for the PKP / WebAuthn authentication step.
+We do not currently use [challenges](/resources/glossary#challenge) as part of our PKP minting / WebAuthn registration process and only use it for the PKP / WebAuthn authentication step.

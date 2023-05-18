@@ -22,7 +22,7 @@ Each Lit Resource is identified by its Resource Key:
 - For RLI NFTs, the resource key is the token ID of the NFT
 - For Lit Actions, the resource key is the IPFS Content ID (CID) of the Lit Action code
 
-A wildcard resource key, identified by `*`, refers to all of the resources in that category, ie. all of the PKP NFTs or all of the access control conditions.
+A wildcard resource key, identified by `*`, refers to all of the resources in that category, i.e. all of the PKP NFTs or all of the access control conditions.
 
 ## Lit Abilities
 

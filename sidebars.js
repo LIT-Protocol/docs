@@ -187,7 +187,7 @@ const sidebars = {
                         "SDK/Explanation/authentication/sessionSigs/authMethods/webAuthn",
                       ],
                     },
-                    "SDK/Explanation/authentication/sessionSigs/use-cases",
+                    // "SDK/Explanation/authentication/sessionSigs/use-cases",
                   ],
                 },
                 "SDK/Explanation/authentication/security",

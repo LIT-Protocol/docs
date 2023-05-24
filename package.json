@@ -14,6 +14,7 @@
     "write-heading-ids": "docusaurus write-heading-ids",
     "update-chains": "node updateChains.js",
     "prepare": "husky install",
+    "check:links": "find . -name \\*.md -not -path \"./node_modules/**/*\" -print0 | xargs -0 -n1 npx markdown-link-check",
     "tools": "node tools.mjs"
   },
   "dependencies": {
@@ -21,7 +22,7 @@
     "@docusaurus/core": "2.1.0",
     "@docusaurus/plugin-google-analytics": "^2.1.0",
     "@docusaurus/preset-classic": "2.1.0",
-    "@lit-protocol/constants": "^2.2.2",
+    "@lit-protocol/constants": "^2.2.10",
     "@mdx-js/react": "^1.6.21",
     "@svgr/webpack": "^5.5.0",
     "clsx": "^1.1.1",
@@ -44,6 +45,7 @@
     ]
   },
   "devDependencies": {
-    "husky": "^7.0.4"
+    "husky": "^7.0.4",
+    "markdown-link-check": "^3.11.2"
   }
 }

@@ -13,6 +13,11 @@ export default function EcosystemSection({ title, className }) {
         to="/Ecosystem/litGrants"
       />
       <Card
+        title="🌐 Ambassador Program"
+        description="Apply to be a Lit Ambassador."
+        to="https://spark.litprotocol.com/become-a-lit-ambassador/"
+      />
+      <Card
         title="💻 Ecosystem RFPs"
         description="Learn about how you can contribute to Lit Protocol."
         to="https://litprotocol.notion.site/Lit-Request-for-Ecosystem-Proposals-ae3f31e7f32c413cbe0b36c2fe53378d"

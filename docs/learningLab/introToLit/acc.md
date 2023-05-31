@@ -58,9 +58,7 @@ Use on-chain credentials to gate access to your favorite web2 applications and d
 
 ---
 
-## Working with Access Control
-
-### Basic Example
+## Basic Example
 
 Restrict access based on the possession of an `ERC1155` token. In this example, the token contract's address is `0x3110c39b428221012934A7F617913b095BC1078C` and the token id we are checking for is `9541`.
 
@@ -84,5 +82,5 @@ const accessControlConditions = [
 ```
 
 
-### Learn More
+## Learn More
 Read the [Lit developer docs](https://developer.litprotocol.com/accessControl/intro#overview) on access control to learn more!

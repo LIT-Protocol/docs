@@ -20,8 +20,9 @@ Take the plunge and test your knowledge today! Good luck and may your expertise 
 ---
 
 ## Continue Learning
-- Check out the Lit JS SDK 
-- Continue reading the developer docs
+- Check out the [Lit JS SDK](https://github.com/LIT-Protocol/js-sdk)
+- Continue reading the [developer docs](https://developer.litprotocol.com/)
+- Ask questions in the [Lit Discord](https://litgateway.com/discord)
 
-- Stay tuned for learning lessons that will require coding and building with Lit!
----
+Stay tuned for the codebreaker lessons that will require getting into code and building with Lit!
+

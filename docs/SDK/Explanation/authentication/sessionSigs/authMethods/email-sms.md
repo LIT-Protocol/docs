@@ -18,7 +18,7 @@ const authClient = new LitAuthClient({
 
 // starting a validation session
 let session = authClient.initProvider(ProviderType.Otp,{
-            userId: 'email or phone number' 
+            userId: '<User email or phone number>'
 });
 
 let status = await session.sendOtpCode();
@@ -51,18 +51,18 @@ An alternative to minting the PKP NFT via the Lit Relay Server is to send a tran
 ```javascript
 const authClient = new LitAuthClient({
     litRelayConfig: {
-        relayApiKey: 'your-api-key',
+        relayApiKey: '<Your Lit Relay Server API Key>',
     }
 });
 
 // starting a validation session
 let session = authClient.initProvider(ProviderType.Otp,{
-            userId: 'user email or phone number'
+            userId: '<User email or phone number>'
 });
 
 let status = await session.sendOtpCode();
 let authMethod = await session.authenticate({
-    code: "user entered otp code"
+    code: "<User entered otp code>"
 });
 const txHash = await session.fetchPKPThroughRelayer(authMethod);
 ```

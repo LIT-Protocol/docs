@@ -8,7 +8,7 @@ With Lit Protocol, you can seamlessly onboard users into web3 using familiar aut
 
 - [Social Login (e.g., Google, Discord)](/SDK/Explanation/authentication/sessionSigs/authMethods/socialLogin)
 - [WebAuthn](/SDK/Explanation/authentication/sessionSigs/authMethods/webAuthn)
-- [SMS / Email](/SDK/Explanation/authentication/sessionSigs/authMethods/email-sms)
+- [Email / SMS](/SDK/Explanation/authentication/sessionSigs/authMethods/email-sms)
 
 Support for one-time passcodes (OTPs) through email and SMS is coming soon.
 

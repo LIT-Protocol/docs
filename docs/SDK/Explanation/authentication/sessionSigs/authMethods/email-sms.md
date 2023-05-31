@@ -1,16 +1,18 @@
 # Email / SMS
 
-When authenticating with email or sms provided otp codes, it is a two step process. First initating a code be sent to a email / phone number, then asserting on the user provided code which will generated a signed Json Web Token if successful. This token will be validated when signing Session Signatures as the `accessToken` within the returned `Auth Method`.
+Email and SMS authentication provides users with a convenient way to verify their identity using one-time passwords (OTP) sent to their registered email address or phone number. 
+
+Authenticating with OTP codes delivered via email or SMS is a two-step process. First, an OTP code is initiated and sent to the user's registered email or phone number. The user-provided code is then verified. Upon successful verification, a signed JSON Web Token (JWT) is generated. This token will be validated when creating session signatures.
 
 :::note
 Codes sent to users via email will be recieved from `noreply@litprotocol.com`. Codes sent to users via sms will include `lit-verification` within the sms message.
 :::
-### Register user with sms / email auth
+### Register user with email or SMS
 
 ```javascript
 const authClient = new LitAuthClient({
     litRelayConfig: {
-        relayApiKey: 'your-api-key',
+        relayApiKey: '<Your Lit Relay Server API Key>',
     }
 });
 
@@ -44,7 +46,7 @@ An alternative to minting the PKP NFT via the Lit Relay Server is to send a tran
 - `addPkpEthAddressAsPermittedAddress` is `true`
 - `sendPkpToItself` is `true`
 
-### Authetnicating to Fetch PKP information
+### Authenticating to Fetch PKP information
 
 ```javascript
 const authClient = new LitAuthClient({
@@ -100,8 +102,6 @@ const sessionSigs = await provider.getSessionSigs({
 ```
 
 # Technical Details
-SMS / Email verification is supported as an `Authentication Method` for obtaining either an [Auth Signature](../authSig.md) or [Session Signature](../sessionSigs/getSessionSigs.md).
-
 In order to use otp verification you must have an `access token` which you can get here. Access Tokens must be provided to the `lit-auth-client` when using this `Authentication Method` type.
 
 Through the `lit-auth-client` verification codes are able to be sent, and confirmed against the end users `OTP` code. Upon successful code confirmation, a `JWT` is generated which is verified when obtaining an `Auth Signature` or `Session Signature`. When registering OTP as an`Authentication Method` the `user id` will be either the email or phone number, provided by the user. This allows users to enter their information a minmal amount of times, and be looked up in later requests. When registering new `Authentication Methods` you may do so through the following ways

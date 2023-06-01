@@ -5,7 +5,7 @@ Email and SMS authentication provides users with a convenient way to verify thei
 Authenticating with OTP codes delivered via email or SMS is a two-step process. First, an OTP code is initiated and sent to the user's registered email or phone number. The user-provided code is then verified. Upon successful verification, a signed JSON Web Token (JWT) is generated. This token will be validated when creating session signatures.
 
 :::note
-Codes sent to users via email will be recieved from `noreply@litprotocol.com`. Codes sent to users via sms will include `lit-verification` within the sms message.
+Codes sent to users via email will be received from `noreply@litprotocol.com`. Codes sent to users via SMS will include `lit-verification` within the SMS message.
 :::
 ### Register user with email or SMS
 

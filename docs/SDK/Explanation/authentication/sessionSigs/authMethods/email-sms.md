@@ -23,7 +23,7 @@ let session = authClient.initProvider(ProviderType.Otp,{
 
 let status = await session.sendOtpCode();
 let authMethod = await session.authenticate({
-    code: "user entered otp code"
+    code: "<User entered OTP code>"
 });
 const txHash = await session.mintPKPThroughRelayer(authMethod);
 ```

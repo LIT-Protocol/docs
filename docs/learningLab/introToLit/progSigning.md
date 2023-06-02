@@ -12,7 +12,6 @@ As a distributed key management network, Lit provides developers with the abilit
 At completion of this reading you should be able to:
 
 - Explain how Lit Actions and Programmable Key Pairs (PKPs) work together.
-- Mint a PKP through the PKP explorer.
 - Summarize use cases for programmatic signing.
 
 ---
@@ -36,6 +35,8 @@ Each Programmable Key Pair (PKP) is a versatile multi-party computation wallet t
 Lit Actions are JavaScript programs that can be used to specify signing and authentication logic for PKPs. When used in conjunction with PKPs, Lit Actions are functionally serverless functions with their own private key-pair. Together these tools can be used to write data to blockchains and other state machines.
 
 Every Lit Action gets executed across Lit’s threshold cryptography network in parallel, meaning the result of each program is independently verified by each node. Once a threshold of nodes have verified the result (more than two-thirds of network participants), the signing or decryption logic defined therein can be executed.
+
+Lit Actions are stored on the InterPlanetary File System (IPFS). 
 
 **Features**
 

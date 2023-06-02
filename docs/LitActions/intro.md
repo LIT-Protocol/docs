@@ -34,7 +34,7 @@ A trivial example would be a Lit Action and associated PKP that checks if a numb
 
 1. [Blockchain Agnostic](/resources/supportedChains#programmable-key-pairs): Lit Actions can be used to write data to blockchains using PKPs
 2. Immutable: Once a Lit Action has been published, it cannot be modified
-3. Atomicity: Using [Mint/Grant/Burn](/LitActions/usingPKPsAndActions#what-is-mintgrantburn), you can atomically link a PKP to an authorized set of Lit Actions. This method guarantees that a particular PKP can only ever be used to sign data from within the approved set
+3. Atomicity: Using [Mint/Grant/Burn](/LitActions/mintGrantBurn), you can atomically link a PKP to an authorized set of Lit Actions. This method guarantees that a particular PKP can only ever be used to sign data from within the approved set
 4. Off-Chain Compatibility: Lit Actions can pull in data from [off-chain sources](/LitActions/workingWithActions/usingFetch) natively, without requiring the use of a third party oracle
 
 ## Examples and Use Cases

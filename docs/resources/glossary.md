@@ -24,7 +24,7 @@ In cryptography, a digital signature proves that a user controls the private key
 
 In working with the Lit network, someone will sign with their wallet when they want to mint a PKP. That is a transaction signature — where someone is sending a transaction (minting). This signature is then used as the method of authentication over the PKP and associated Lit Actions.
 ### **Distributed Key Generation**
-A cryptographic process in which key generation requires participation from above a certain threshold of nodes, where each node only holds a ******share****** of the complete keypair.
+A cryptographic process in which key generation requires participation from above a certain threshold of nodes, where each node only holds a **share** of the complete keypair.
 ### **[Elliptic Curve Digital Signature Algorithm (ECDSA)](https://blog.cloudflare.com/ecdsa-the-digital-signature-algorithm-of-a-better-internet/)**
 ECDSA is a cryptographically secure digital signature scheme, based on elliptic-curve cryptography. ECDSA is mainly used for digital signatures. A digital signature is an authentication method used where a public key pair and a digital certificate are used as a signature to verify the identity of a recipient or sender of information.
 ### **[Encryption](/whatIsLit#encryption)**

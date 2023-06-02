@@ -38,19 +38,21 @@ values={[
 {label: 'Browser', value: 'browser'},
 {label: 'NodeJS', value: 'nodejs'},
 ]}>
-
 <TabItem value="browser">
-```bash
+
+```sh
 yarn add @lit-protocol/lit-node-client
 ```
+
 </TabItem>
 
 <TabItem value="nodejs">
-```bash
+
+```sh
 yarn add @lit-protocol/lit-node-client-nodejs
 ```
-</TabItem>
 
+</TabItem>
 </Tabs>
 
 Then, go to https://explorer.litprotocol.com/ and mint a PKP. Note the Public Key for the steps below.

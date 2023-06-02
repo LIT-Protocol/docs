@@ -56,7 +56,8 @@ const sidebars = {
     {
       type: "category",
       label: "Access Control",
-      collapsed: true,
+      collapsible: false,
+      className: "category-not-collapsible",
       items: [
         "accessControl/intro",
         {
@@ -96,34 +97,28 @@ const sidebars = {
     {
       type: "category",
       label: "Programmable Key Pairs",
-      collapsed: true,
+      collapsible: false,
+      className: "category-not-collapsible",
       items: [
         "pkp/intro",
         "pkp/minting",
         "pkp/authHelpers",
-        {
-          type: "category",
-          label: "Distributed Cloud Wallets",
-          collapsed: true,
-          items: [
-            "pkp/wallets/intro",
-            "pkp/wallets/sendingTxs",
-            "pkp/wallets/examples",
-          ],
-        },
+        "pkp/usage",
+        "pkp/walletconnect",
         "pkp/toolsAndExamples",
       ],
     },
     {
       type: "category",
       label: "Lit Actions",
-      collapsed: true,
+      collapsible: false,
+      className: "category-not-collapsible",
       items: [
         "LitActions/intro",
         "LitActions/getlitCli",
         "LitActions/helloWorld",
-        "LitActions/usingPKPsAndActions",
         "LitActions/bestPractices",
+        "LitActions/mintGrantBurn",
         {
           type: "category",
           label: "Working With Lit Actions",
@@ -148,7 +143,6 @@ const sidebars = {
         },
       ],
     },
-
     {
       type: "category",
       label: "SDK Reference",
@@ -198,6 +192,7 @@ const sidebars = {
                       items: [
                         "SDK/Explanation/authentication/sessionSigs/authMethods/socialLogin",
                         "SDK/Explanation/authentication/sessionSigs/authMethods/webAuthn",
+                        "SDK/Explanation/authentication/sessionSigs/authMethods/email-sms",
                       ],
                     },
                     // "SDK/Explanation/authentication/sessionSigs/use-cases",
@@ -277,6 +272,8 @@ const sidebars = {
       className: "category-not-collapsible",
       items: [
         "resources/howItWorks",
+        "resources/pkpsAndActions",
+        "resources/pkpsAsWallet",
         "resources/supportedChains",
         "resources/contracts",
         "resources/glossary",

@@ -13,7 +13,7 @@ Lit Protocol provides developers with two core services:
 
 1. Encryption and Access Control: Lit enables the client-side encryption and decryption of data by harnessing on or off-chain conditions, without relying on a centralized key custodian. Use Lit to securely store data on the open Web by getting started with [encryption and access control](/accessControl/intro).
 
-2. Programmable Signing: Lit can be used to program complex [signing automations](https://spark.litprotocol.com/automated-portfolio-rebalancing-uniswap/) or provide [seamless wallet onboarding](https://www.youtube.com/watch?v=HeD3RdqAvVM&t=2s) experiences using [Programmable Key Pairs](/pkp/intro) (PKPs) and [Lit Actions](/LitActions/intro). PKPs are MPC wallets generated and distributed across the Lit network, while Lit Actions are JavaScript functions dictating when, why, and what a PKP wallet will sign. Get started with [PKPs and Lit Actions](/LitActions/usingPKPsAndActions).
+2. Programmable Signing: Lit can be used to program complex [signing automations](https://spark.litprotocol.com/automated-portfolio-rebalancing-uniswap/) or provide [seamless wallet onboarding](https://www.youtube.com/watch?v=HeD3RdqAvVM&t=2s) experiences using [Programmable Key Pairs](/pkp/intro) (PKPs) and [Lit Actions](/LitActions/intro). PKPs are MPC wallets generated and distributed across the Lit network, while Lit Actions are JavaScript functions dictating when, why, and what a PKP wallet will sign. Get started with [PKPs and Lit Actions](/resources/pkpsAndActions).
 
 ## Use Cases
 

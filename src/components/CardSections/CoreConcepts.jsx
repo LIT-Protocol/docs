@@ -25,7 +25,7 @@ export default function CoreConceptsSection({ title, className }) {
       <Card
         title="💳 Distributed Cloud Wallets"
         description="Learn how you can leverage PKPs to create MPC wallets with support for Web2 authentication."
-        to="/pkp/wallets/intro"
+        to="/resources/pkpsAsWallet"
       />
       <Card
         title="🧩 Use Cases"

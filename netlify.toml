@@ -6,7 +6,7 @@
 
 [[redirects]]
   from = "/docs/accessControlModal"
-  to = "docs/ToolsAndExamples/shareModal"
+  to = "/docs/ToolsAndExamples/shareModal"
   status = 302
   force = true
 
@@ -567,5 +567,29 @@ force = false
 [[redirects]]
   from = "/SDK/Explanation/WalletSigs/*"
   to = "/SDK/Explanation/authentication/*"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/pkp/wallets/intro"
+  to = "/resources/pkpsAsWallet"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/pkp/wallets/examples"
+  to = "/resources/pkpsAsWallet"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/pkp/wallets/sendingTxs"
+  to = "/pkp/usage"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/LitActions/usingPKPsAndActions"
+  to = "/resources/pkpsAndActions"
   status = 301
   force = false

@@ -9,7 +9,7 @@ Congratulations on completing this Intro to Lit Protocol lesson! Now it's time t
 
 ## Test Your Knowledge
 
-[Go to Gateway.xyz to complete this learning assessment!](https://www.mygateway.xyz/credential/1ec37660-5949-44c4-ad52-0a49f4253877)
+[Go to Gateway.xyz to complete this learning assessment!](https://www.mygateway.xyz/credential/6a945284-6d7f-4555-983e-4b31072645cf)
 
 This quiz serves as a crucial step in solidifying your understanding and demonstrating your competence in understanding access control and programmatic signing. The quiz encompasses a range of questions that will challenge your comprehension of what you've read so far on key concepts, principles, and real-world applications of Lit.
 

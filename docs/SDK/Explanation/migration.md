@@ -37,7 +37,7 @@ If you already have `lit-js-sdk` in your app, all you need to do is remove the o
 import * as LitJsSdk from '@lit-protocol/lit-node-client';
 ```
 
-If you are using TypeScript, be sure to install the `@lit-protocol/types` package. Check out the list of available packages [here]([https://github.com/LIT-Protocol/js-sdk/tree/master#packages](https://github.com/LIT-Protocol/js-sdk/tree/master#packages)).
+If you are using TypeScript, be sure to install the `@lit-protocol/types` package. Check out the list of available packages [here](https://github.com/LIT-Protocol/js-sdk/tree/master#packages).
 
 ## Notable Changes
 

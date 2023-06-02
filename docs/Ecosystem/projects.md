@@ -9,10 +9,9 @@
 - **[Relation](https://spark.litprotocol.com/semantic/)**: Web3 native social graph.
 - **[Orbis Club](https://orbis.club/)**: A fully decentralized social layer for Web3.
 - **[Gather](https://www.gather.town/)**: Virtual spaces for remote collaboration.
-- **[Headline](https://viaheadline.xyz/)**: A decentralized publishing platform.
 - **[Charmverse](https://www.charmverse.io/)**: Web3-native all-in-one workspace.
 - **[P00ls](https://www.p00ls.io/)**: A web3 platform for creators and brands.
-- **[Gateway](https://www.mygateway.xyz/home)**: Verifiable credential platform.
+- **[Gateway](https://www.mygateway.xyz)**: Verifiable credential platform.
 - **[Tempra](https://ethglobal.com/showcase/tempra-xnxf4)**: Decentralized social platform inspired by Snapchat.
 - **[Lens](https://lens.xyz/)**: Token-gated content on Lens.
 - **[The 402](https://app.the402.xyz/)**: Live-streaming and NFT marketplace.
@@ -29,7 +28,6 @@
 ### Infrastructure
 
 - **[BAILOUT](https://ethglobal.com/showcase/bailout-ia6s1?ref=spark.litprotocol.com)**: Securely move assets between EOAs, smart contract wallets, and cold wallets.
-- **[Strata Protocol](https://strataprotocol.com/)**: An open-source protocol to launch tokens around a person, project, idea, or collective on Solana.
 - **[Key-Recovery](https://github.com/Joseph-Gross/key-recovery)**: Distributed social private key recovery made by the team at [Sling Protocol](https://twitter.com/slingprotocol).
 - **[Neya](https://github.com/stefsimion/Site-Neya-2)**: Web3-native 2FA protocol.
 - **[EtherMonitor](https://github.com/seetadev/EtherMonitor)**: Tools for traffic incident management.

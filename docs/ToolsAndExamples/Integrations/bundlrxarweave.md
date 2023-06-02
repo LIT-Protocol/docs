@@ -22,7 +22,7 @@ Lit Protocol is powered by the threshold cryptography, we can harness on-chain a
 
 - Request a network signed JWT that provides access to dynamic content behind an on-chain condition
 
-![What is Lit explanation graph](/img/lit_explanation.jpeg)
+![What is Lit explanation graph](../../../static/img/lit_explanation.jpeg)
 
 ## What can Bundlr do?
 [Bundlr](https://docs.bundlr.network/docs/about/introduction) is a decentralized storage scaling platform that increases the number of transactions conducted on Arweave, which is a decentralized storage network that enables you to store data permanently. Bundlr can do 2 main things:
@@ -30,7 +30,7 @@ Lit Protocol is powered by the threshold cryptography, we can harness on-chain a
 1. Collect multiple layer 2 transactions for 2 minutes, bundle them into a single Arweave layer 1 transaction, and submit the bundle onto Arweave.
 2. Allow users to sign with their native key when signing for a transaction, eg. Ethereum and Solana.
 
-![How does Bundlr work diagram](/img/bundlr_explanation.webp)
+![How does Bundlr work diagram](../../../static/img/bundlr_explanation.webp)
 
 ## How do we utilize both technologies, and why?
 Let’s say that you want to share private content with members of your DAO and they hold a given NFT, with Lit Protocol and Bundlr, you can encrypt and store an image that can be viewed by anyone that holds the NFT from the DAO’s collection.
@@ -40,15 +40,15 @@ In this example, we will be encrypting an image (static content) with access con
 There are a lot of APIs in both technologies, but in this example, we will only focus on the essential parts, encrypting the data and uploading to Arweave.
 
 
-![How to encrypt using Lit and Bundlr](/img/lit_encrypt_bundlr.webp)
+![How to encrypt using Lit and Bundlr](../../../static/img/lit_encrypt_bundlr.webp)
 
 ### Step 1: Encrypt static content with Lit Protocol
 
-![How to encrypt using Lit and Bundlr highlighting encrypting](/img/lit_encrypt_highlight.webp)
+![How to encrypt using Lit and Bundlr highlighting encrypting](../../../static/img/lit_encrypt_highlight.webp)
 
 First, we need to encrypt the static content, in our case, an image. In order to do that, we have to do the following steps:
 
-![How to encrypt using Lit and Bundlr highlighting encrypting](/img/process_of_encrypting_static_content.webp)
+![How to encrypt using Lit and Bundlr highlighting encrypting](../../../static/img/process_of_encrypting_static_content.webp)
 
 **Step A:**
 
@@ -62,11 +62,11 @@ Turn the static content into a `String` format (you can use the [utilities](http
 
 The symmetricKey is necessary to decrypt content and is meant to be private. Exposing the key to the public means anyone may be able to use it to decrypt private information. Luckily, with Lit Protocol, we can encrypt it and store it in the lit nodes, so that only the person who meets the access control conditions could retrieve the original symmetric key. In order to do this, we will need to pass in the following:
 
-`chain (String)`: ethereum (see other [supported blockchains](https://developer.litprotocol.com/resources/supportedChains))
+`chain (String)`: ethereum (see other [supported blockchains](/resources/supportedChains))
 
 `authSig (Object)`: authentication signature, which can be collected from calling await LitJsSdk.checkAndSignAuthMessage({chain}) which will call up your web 3 wallets for you to sign the message
 
-`accessControlConditions (Array)`: we can call up the [Share Modal](https://developer.litprotocol.com/docs/littools/sharemodal/) to obtain it
+`accessControlConditions (Array)`: we can call up the [Share Modal](/ToolsAndExamples/Tools/shareModal) to obtain it
 
 **Step C:**
 

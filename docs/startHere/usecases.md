@@ -12,13 +12,12 @@ Some examples of applications that can (and have) been built harnessing this fun
 
 ### Web3 Apps with Private Data
 
-Introduce privacy to decentralized applications. Use Lit to securely store private and permissioned data on the open web. To get started with an integration, use our JavaScript [SDK](/SDK/intro).
+Introduce privacy to decentralized applications. Use Lit to securely store private and permissioned data on the open web. To get started with an integration, use our JavaScript [SDK](/sdk/intro).
 
 Examples:
 
 - [Orbis Club](https://orbis.club/): Enabling “friends-only” content and encrypted messaging.
 - [Gather](https://www.gather.town/): Powering private virtual spaces for your team.
-- [Headline](https://viaheadline.xyz/): Publish exclusive content for your web3 community.
 - [IPFS](https://litgateway.com/files): Encrypt content for private storage on IPFS.
 - [WalletChat.fun](https://lit.walletchat.fun/): Encrypted wallet-to-wallet messaging.
 - [Nowhere](https://www.urnowhere.com/): Token-gated metaverse spaces.

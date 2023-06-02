@@ -13,7 +13,7 @@ Some examples of applications that can (and have) been built harnessing this fun
 
 ### Web3 Apps with Private Data
 
-Introduce privacy to decentralized applications. Use Lit to securely store private and permissioned data on the open web. To get started with an integration, use our JavaScript [SDK](/SDK/intro).
+Introduce privacy to decentralized applications. Use Lit to securely store private and permissioned data on the open web. To get started with an integration, use our JavaScript [SDK](/sdk/intro).
 
 Examples:
 
@@ -22,7 +22,6 @@ Examples:
 - [Starling Lab](https://github.com/starlinglab/archive-explorer/): Token-gated data archives.
 - [Streamr](https://blog.streamr.network/streamr-integrates-lit-protocol/): Private data marketplaces.
 - [Gather](https://www.gather.town/): Powering private virtual spaces for your team.
-- [Headline](https://viaheadline.xyz/): Publish exclusive content for your web3 community.
 - [IPFS](https://litgateway.com/files): Encrypt content for private storage on IPFS.
 - [WalletChat.fun](https://lit.walletchat.fun/): Encrypted wallet-to-wallet messaging.
 - [Nowhere](https://www.urnowhere.com/): Token-gated metaverse spaces.
@@ -38,7 +37,7 @@ Use on-chain credentials to gate access to your favorite web2 applications and d
 
 ### Unlockable NFTs
 
-Using [HTML NFTs](/ToolsAndExamples/SDKExamples/HTMLNfts), you can create locked content that only owners of the NFT have access to. This includes dynamic content, like websites or metaverse spaces. 
+Using HTML NFTs, you can create locked content that only owners of the NFT have access to. This includes dynamic content, like websites or metaverse spaces. 
 
 Here’s an [example](https://twitter.com/LitProtocol/status/1504630741849853954) using our Lit Genesis Canvas NFT. Only holders can access the private canvas site linked within!
 
@@ -74,7 +73,7 @@ Build powerful infrastructure that harnesses the power of Lit!
 
 Example Projects:
 
-- [Yacht Labs](https://yachtlabs.io/blog/yacht-lit-swap): Cross-chain atomic swaps with PKPs and Lit Actions
+- [Yacht Labs](https://spark.litprotocol.com/xchain-bridging-yacht-lit-swap/): Cross-chain atomic swaps with PKPs and Lit Actions
 - [Curve Labs](https://github.com/Curve-Labs/lit-privacy/tree/main): SDK for building privacy-preserving interactions on-chain
 - [MagicWallet](https://github.com/DustilDawn/Magic): One account, multiple seedless wallets
 - More coming soon… 👀 —> [build with us](https://discord.com/invite/nm9aBG8z9w)!

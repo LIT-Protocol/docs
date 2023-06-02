@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
 # 4. Programmatic Signing
 ![image](../../../static/img/ll_progSigning.png)

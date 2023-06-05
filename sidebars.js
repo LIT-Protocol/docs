@@ -103,6 +103,7 @@ const sidebars = {
         "pkp/intro",
         "pkp/minting",
         "pkp/authHelpers",
+        "pkp/pkpsAndActions",
         "pkp/usage",
         "pkp/walletconnect",
         "pkp/toolsAndExamples",
@@ -118,7 +119,6 @@ const sidebars = {
         "LitActions/getlitCli",
         "LitActions/helloWorld",
         "LitActions/bestPractices",
-        "LitActions/mintGrantBurn",
         {
           type: "category",
           label: "Working With Lit Actions",
@@ -267,13 +267,20 @@ const sidebars = {
     },
     {
       type: "category",
+      label: "Concepts",
+      collapsible: false,
+      className: "category-not-collapsible",
+      items: [
+        "concepts/howItWorks",
+        "concepts/pkpsAsWallet",
+      ],
+    },
+    {
+      type: "category",
       label: "Resources",
       collapsible: false,
       className: "category-not-collapsible",
       items: [
-        "resources/howItWorks",
-        "resources/pkpsAndActions",
-        "resources/pkpsAsWallet",
         "resources/supportedChains",
         "resources/contracts",
         "resources/glossary",

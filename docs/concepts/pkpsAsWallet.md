@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# PKPs as an MPC Wallet Solution
+# MPC Wallet Solution
 
 :::note
 **STATE OF THE NETWORK**
@@ -19,11 +19,11 @@ Need some `LIT` test tokens to mint a PKP? Get some from the [faucet](https://fa
 
 :::
 
-## MPC as a Key Management Solution
+## Multi-Party Computation (MPC) as a Key Management Solution
 
 Applied generally, multi-party computation (MPC) allows multiple parties to collectively compute a function over a set of private inputs without ever revealing the inputs themselves. In the context of key management, MPC can be used to generate distributed shares of a public/private key pair (which can be utilized for encryption and signing), without ever exposing the private key in its entirety. This means no one party ever has full control over the underlying key pair, eliminating single points of failure that exist in "centralized" key management ecosystems. An in-depth look at the current state of the MPC wallet space is explored in [this article](https://medium.com/1kxnetwork/wallets-91c7c3457578) published by 1kx.
 
-## PKPs as Distrbuted Custody Wallets
+## Programmable Key Pairs as Distributed Custody Wallets
 
 Lit’s [Programmable Key Pairs (PKPs)](/pkp/intro) product can be utilized by app developers to build a white-label MPC wallet solution that delivers a more flexible and seamless onboarding experience to their end users. 
 

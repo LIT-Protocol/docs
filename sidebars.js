@@ -49,15 +49,24 @@ const sidebars = {
       items: [
         "intro/overview",
         "intro/whatIsLitProtocol",
-        "intro/usecases",
         "intro/rollup",
+        "intro/usecases",
+      ],
+    },
+    {
+      type: "category",
+      label: "Concepts",
+      collapsible: false,
+      className: "category-not-collapsible",
+      items: [
+        "concepts/howItWorks",
+        "concepts/pkpsAsWallet",
       ],
     },
     {
       type: "category",
       label: "Access Control",
-      collapsible: false,
-      className: "category-not-collapsible",
+      collapsible: true,
       items: [
         "accessControl/intro",
         {
@@ -97,8 +106,7 @@ const sidebars = {
     {
       type: "category",
       label: "Programmable Key Pairs",
-      collapsible: false,
-      className: "category-not-collapsible",
+      collapsible: true,
       items: [
         "pkp/intro",
         "pkp/minting",
@@ -112,8 +120,7 @@ const sidebars = {
     {
       type: "category",
       label: "Lit Actions",
-      collapsible: false,
-      className: "category-not-collapsible",
+      collapsible: true,
       items: [
         "LitActions/intro",
         "LitActions/getlitCli",
@@ -267,16 +274,6 @@ const sidebars = {
     },
     {
       type: "category",
-      label: "Concepts",
-      collapsible: false,
-      className: "category-not-collapsible",
-      items: [
-        "concepts/howItWorks",
-        "concepts/pkpsAsWallet",
-      ],
-    },
-    {
-      type: "category",
       label: "Resources",
       collapsible: false,
       className: "category-not-collapsible",
@@ -286,17 +283,6 @@ const sidebars = {
         "resources/glossary",
       ],
     },
-    // {
-    //   type: "category",
-    //   label: "Ecosystem",
-    //   collapsible: false,
-    //   className: "category-not-collapsible",
-    //   items: [
-    //     "Ecosystem/litGrants",
-    //     "Ecosystem/community",
-    //     "Ecosystem/projects",
-    //   ],
-    // },
     {
       type: "category",
       label: "Support",

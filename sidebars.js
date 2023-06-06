@@ -59,7 +59,6 @@ const sidebars = {
       collapsible: false,
       className: "category-not-collapsible",
       items: [
-        "concepts/howItWorks",
         "concepts/pkpsAsWallet",
       ],
     },
@@ -278,6 +277,7 @@ const sidebars = {
       collapsible: false,
       className: "category-not-collapsible",
       items: [
+        "resources/howItWorks",
         "resources/supportedChains",
         "resources/contracts",
         "resources/glossary",

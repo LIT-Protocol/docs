@@ -609,12 +609,6 @@ force = false
   force = false
 
 [[redirects]]
-  from = "/resources/howItWorks"
-  to = "/concepts/howItWorks"
-  status = 301
-  force = false
-
-[[redirects]]
   from = "/resources/pkpsAsWallet"
   to = "/concepts/pkpsAsWallet"
   status = 301

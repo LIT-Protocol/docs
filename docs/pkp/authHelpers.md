@@ -26,7 +26,7 @@ Several auth methods are supported by Lit directly. These include methods config
 | DISCORD          | 4                       | Discord Oauth Login                                                                                                                                                                                                                                                                                 |
 | GOOGLE           | 5                       | Google Oauth Login. You should try to use the Google JWT Oauth Login below if you can, since it's more efficient and secure.                                                                                                                                                                        |
 | GOOGLE_JWT       | 6                       | Google Oauth Login, except where Google provides a JWT. This is the most efficient way to use Google Oauth with Lit because the Lit nodes only need to check the JWT signature against the Google certificates, and don't need to make HTTP requests to the Google servers to verify the token.     |
-
+| OTP              | 7                       | Email / SMS Login, verification services provides a JWT, this is token will be within the auth method, this token is verified within the nodes when requesting a session signature |
 ### Adding a Permitted Address
 
 You can use the [PKPPermissions contract](https://github.com/LIT-Protocol/LitNodeContracts/blob/main/contracts/PKPPermissions.sol#L418) to add additional permitted auth methods and addresses to your PKP. Note that any permitted users will be able to execute transactions, authorized Lit Actions, and additional functionality associated with that PKP. 

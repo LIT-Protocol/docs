@@ -1,7 +1,11 @@
+---
+sidebar_position: 1
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Authentication with PKPs
+# Overview
 
 When you call a Lit Action, you may pass Auth Methods that should be resolved. These could be things like a WebAuthn ([Apple Passkey](https://developer.apple.com/passkeys/)) signature, or an oauth token from a service like Discord or Google. You can see an example of this [here](https://github.com/LIT-Protocol/js-serverless-function-test/blob/main/js-sdkTests/authContext.js#L32).
 

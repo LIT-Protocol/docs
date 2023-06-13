@@ -109,7 +109,17 @@ const sidebars = {
       items: [
         "pkp/intro",
         "pkp/minting",
-        "pkp/authHelpers",
+        {
+          type: "category",
+          label: "Authentication with PKPs",
+          collapsed: true,
+          items: [
+            "pkp/authMethods/authHelpers",
+            "pkp/authMethods/socialLogin",
+            "pkp/authMethods/webAuthn",
+            "pkp/authMethods/email-sms",
+          ],
+        },
         "pkp/pkpsAndActions",
         "pkp/usage",
         "pkp/walletconnect",
@@ -187,20 +197,6 @@ const sidebars = {
                     "SDK/Explanation/authentication/sessionSigs/capability-objects",
                     "SDK/Explanation/authentication/sessionSigs/getSessionSigs",
                     "SDK/Explanation/authentication/sessionSigs/usage",
-                    {
-                      type: "category",
-                      label: "Walletless Signatures",
-                      link: {
-                        type: "doc",
-                        id: "SDK/Explanation/authentication/sessionSigs/authMethods/overview",
-                      },
-                      collapsed: true,
-                      items: [
-                        "SDK/Explanation/authentication/sessionSigs/authMethods/socialLogin",
-                        "SDK/Explanation/authentication/sessionSigs/authMethods/webAuthn",
-                        "SDK/Explanation/authentication/sessionSigs/authMethods/email-sms",
-                      ],
-                    },
                     // "SDK/Explanation/authentication/sessionSigs/use-cases",
                   ],
                 },

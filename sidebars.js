@@ -197,7 +197,6 @@ const sidebars = {
                     "SDK/Explanation/authentication/sessionSigs/capability-objects",
                     "SDK/Explanation/authentication/sessionSigs/getSessionSigs",
                     "SDK/Explanation/authentication/sessionSigs/usage",
-                    // "SDK/Explanation/authentication/sessionSigs/use-cases",
                   ],
                 },
                 "SDK/Explanation/authentication/security",

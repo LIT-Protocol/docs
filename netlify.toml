@@ -638,8 +638,4 @@ force = false
   status = 301
   force = false
 
-[[redirects]]
-  from = "/SDK/Explanation/authentication/sessionSigs/authMethods/email-sms
-  to = "/pkp/authMethods/email-sms"
-  status = 301
-  force = false
+

@@ -49,22 +49,11 @@ Lit exclusively manages and provisions decryption keys, remaining entirely impar
 
 The comprehensive process for encryption and decryption with Lit is as follows:
 
-### Alice wants to encrypt something
-
-1. Alice picks some access control conditions, ***A***
-2. Alice hashes the data she wants to encrypt to get ***ID***
-    1. This is an important security parameter that ensures that if a given user ceases to satisfy ***A***, they are not able to decrypt future content.
-3. Alice picks the message that will be signed to become the decryption key, calculated using hash(***A***) and ***ID***. We will call this ***D***.
-4. Alice encrypts the data so that only a signature of ***D*** from the BLS network key will be able to decrypt it.
-5. Alice stores ***A***, ***ID***, and the encrypted data wherever she wants.
-
-### Bob wants to decrypt
-
-1. Bob presents ***A*** and ***ID*** to the nodes and asks them to sign it
-2. The nodes check access control conditions ***A*** and that the user meets them.  If they do, we proceed.
-3. The nodes create ***D*** (calculated using hash(***A***) and ***ID***), and sign it with the network key.
-4. The user combines the signature shares from the nodes to get the complete BLS signature.
-5. The user decrypts the data using the BLS signature as the decryption key.
+1. Alice begins by generating a symmetric key and encrypting some content with it.
+2. Alice then encrypts the symmetric key using the Lit Network BLS key. Each node in the network holds a share of the BLS key. 
+3. Alice specifies the conditions under which the content should be decrypted (access control conditions).
+4. When Bob, a separate user, attempts to access the content encrypted by Alice, they send a request to each node in parallel so that the network can verify whether they meet the requisite conditions.
+5. If the conditions are met, each node provisions a decryption share to Bob. Once Bob has aggregated more than two-thirds of the decryption shares, they can decrypt Alice's content on their device using the decrypted symmetric key.
 
 ![accessControl](/img/AccessControl.png)
 

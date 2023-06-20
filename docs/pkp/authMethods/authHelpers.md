@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 # Overview
 
-When you call a Lit Action, you may pass Auth Methods that should be resolved. These could be things like a WebAuthn ([Apple Passkey](https://developer.apple.com/passkeys/)) signature, or an oauth token from a service like Discord or Google. You can see an example of this [here](https://github.com/LIT-Protocol/js-serverless-function-test/blob/main/js-sdkTests/authContext.js#L32).
+Authentication methods are ways of asigning Programmable Key Pairs (PKP) to a specific account resource. This requires individuals to authenticate before performing operations requiring a PKP. This is a powerful feature of the Lit network as it means users can sign up for a wallet the same way they sign up for other types of digital resources, thus lowering the barrier to accessing web3 enabled applications.
 
 ## What is authentication?
 
@@ -64,6 +64,8 @@ In the case that a user doesn’t own a wallet (and therefore cannot produce a v
 3. The Lit SDK will use the session key to sign future requests. So instead of signing the session key-pair with a wallet, you can sign it using the PKP by communicating with the Lit nodes and presenting proof that you are authorized.
 
 ## Authentication Helpers
+
+When you call a Lit Action, you may pass Auth Methods that should be resolved. These could be things like a WebAuthn (Apple Passkey) signature, or an oauth token from a service like Discord or Google. You can see an example of this here.
 
 Inside of your Lit Actions, there is an object called `Lit.Auth` that will be pre-populated with the resolved Auth Methods, and a few other items. For example, if you pass a Google Oauth Token, then the Lit Nodes will resolve the Oauth Token into a user ID and application ID and those will be available to you in `Lit.Auth`. `Lit.Auth` has the following members:
 

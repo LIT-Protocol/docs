@@ -5,7 +5,7 @@ sidebar_position: 2
 
 # What is Lit Protocol
 
-Lit Protocol is distributed cryptography for encryption, compute, and programmable signing. As  a generalizable key management layer, Lit providers developers with a comprehensive toolkit for managing sovereign identities on the open Web.
+Lit Protocol is distributed cryptography for encryption, compute, and programmable signing. As  a generalizable key management layer, Lit provides developers with a comprehensive toolkit for managing sovereign identities on the open Web.
 
 ## Core Functionality
 

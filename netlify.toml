@@ -613,3 +613,11 @@ force = false
   to = "/concepts/pkpsAsWallet"
   status = 301
   force = false
+
+# 6/19/23
+
+[[redirects]]
+  from = "/pkp/authHelpers"
+  to = "/pkp/authHelpers/overview"
+  status = 301
+  force = false

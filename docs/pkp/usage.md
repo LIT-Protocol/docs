@@ -6,6 +6,8 @@ The [`@lit-protocol/pkp-ethers` package](https://github.com/LIT-Protocol/js-sdk/
 
 ## Initialize `PKPEthersWallet`
 
+`PKPEthersWallet` must be initialized with an `AuthSig` or a `SessionSig` in order to authorize signing requests. To learn how to generate these signatures, refer to the [Authentication section](/SDK/Explanation/authentication).
+
 ```js
 import { PKPEthersWallet } from '@lit-protocol/pkp-ethers';
 
@@ -18,9 +20,22 @@ const pkpWallet = new PKPEthersWallet({
 await pkpWallet.init();
 ```
 
-The `controllerAuthSig` (or `controllerSessionSigs`) is used to authorize requests to the Lit nodes. To learn how to leverage different authentication methods, refer to the [Authentication section](/SDK/Explanation/authentication).
+To view more `PKPEthersWallet` constructor options, refer to the [API docs](https://js-sdk.litprotocol.com/interfaces/types_src.PKPEthersWalletProp.html).
 
-To view more constructor options, refer to the [API docs](https://js-sdk.litprotocol.com/interfaces/types_src.PKPEthersWalletProp.html).
+:::note
+
+**Passing `SessionSigs`**
+
+When generating session signatures for `PKPEthersWallet`, be sure to request the ability to execute Lit Actions by passing the following object in the `resourceAbilityRequests` array:
+
+```js
+{
+  resource: new LitActionResource('*'),
+  ability: LitAbility.LitActionExecution,
+}
+```
+
+:::
 
 ## Sign Message
 

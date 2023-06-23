@@ -1681,32 +1681,32 @@
   resolved "https://registry.npmjs.org/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@lit-protocol/auth-helpers@2.2.21":
-  version "2.2.21"
-  resolved "https://registry.yarnpkg.com/@lit-protocol/auth-helpers/-/auth-helpers-2.2.21.tgz#99ec9ec06bcd87127f06017e6d8722621b144696"
-  integrity sha512-o8qYyaJ3ZpPBa1LA1kCREk1L5QpK2JQ9BZISeXEDsxL6P+6GE/kUnzJywkTWHQa8d1uDRS5mIFzLnx3INHBAMw==
+"@lit-protocol/auth-helpers@2.2.26":
+  version "2.2.26"
+  resolved "https://registry.npmjs.org/@lit-protocol/auth-helpers/-/auth-helpers-2.2.26.tgz#91df2ac3db6a700c62c61dabdbaa50fbf89c7071"
+  integrity sha512-sHiPrmPV7HZRJr95SQ1d+SG85udBFesMQdJjbKxZCsqyP9CuIRUQ221mIeONhJIL3YJCT+etL+UCmiNdNJaHsg==
   dependencies:
     siwe "^2.0.5"
     siwe-recap "0.0.2-alpha.0"
     tslib "^2.3.0"
 
-"@lit-protocol/constants@^2.2.21":
-  version "2.2.21"
-  resolved "https://registry.yarnpkg.com/@lit-protocol/constants/-/constants-2.2.21.tgz#f5c58ff019f2a2fa39618dbabd789d52b1a860aa"
-  integrity sha512-+r2rkti065wImFmtXozGsjYvcHLFV8Ak8MIdzVoLlLR+OdPT0hwZWEc+NepOxzgZIBC+w/195AbNn2PmSY/FFw==
+"@lit-protocol/constants@^2.2.26":
+  version "2.2.26"
+  resolved "https://registry.npmjs.org/@lit-protocol/constants/-/constants-2.2.26.tgz#d56a00e07c7a136ef6fc9bdc7db12b8d689f94cc"
+  integrity sha512-K6Yrnl5Z//jBMZ0IM10tGIkfyYngRbrrweLn2IRVMitNBli70zCich4KG226mbww2iZmbJfzsepwOVfeVJZM5g==
   dependencies:
-    "@lit-protocol/auth-helpers" "2.2.21"
-    "@lit-protocol/types" "2.2.21"
+    "@lit-protocol/auth-helpers" "2.2.26"
+    "@lit-protocol/types" "2.2.26"
     siwe "^2.0.5"
     siwe-recap "0.0.2-alpha.0"
     tslib "^2.3.0"
 
-"@lit-protocol/types@2.2.21":
-  version "2.2.21"
-  resolved "https://registry.yarnpkg.com/@lit-protocol/types/-/types-2.2.21.tgz#e5fc8397672b650f873cecb5f72d502ec17644ab"
-  integrity sha512-jDFTp0L6PWmM9iwUtyht/78eikBI+dpCxLHV80E+h6VcLYqs0l7Hhv6vd/YEzw1+++ShTD/SPv0S4vq3UBscjg==
+"@lit-protocol/types@2.2.26":
+  version "2.2.26"
+  resolved "https://registry.npmjs.org/@lit-protocol/types/-/types-2.2.26.tgz#216a418c618b671393ca898cdd6787e8b299a56b"
+  integrity sha512-VSeEql/hG/656MFTlW2BiRM/f5s0xKBVqz7V6Ksol0lKunguO2ZR8+Mu/gvvJLClJogZom0N/TezU9c4vLa1CA==
   dependencies:
-    "@lit-protocol/auth-helpers" "2.2.21"
+    "@lit-protocol/auth-helpers" "2.2.26"
     siwe "^2.0.5"
     siwe-recap "0.0.2-alpha.0"
     tslib "^2.3.0"

@@ -109,7 +109,18 @@ const sidebars = {
       items: [
         "pkp/intro",
         "pkp/minting",
-        "pkp/authHelpers",
+        {
+          type: "category",
+          label: "Authentication with PKPs",
+          link: {
+            type: "doc",
+            id: "pkp/authHelpers/overview",
+          },
+          collapsed: true,
+          items: [
+            "pkp/authHelpers/addRemoveAuthMethods",
+          ],
+        },
         "pkp/pkpsAndActions",
         "pkp/usage",
         "pkp/walletconnect",

@@ -35,6 +35,61 @@ If you are using Lit Relay Server, you will need to request an API key [here](ht
 
 :::
 
+### ReCaptcha verification
+To send an otp code to the user they must first complete a ReCaptcha verification, to verify a user via ReCaptcha you may either use our embeddable captcha or use our `site key` in our own ReCaptcha package of choice
+
+#### Embedding ReCaptcha
+```javascript
+const authClient = new LitAuthClient({
+    litRelayConfig: {
+        relayApiKey: '<Your Lit Relay Server API Key>',
+    }
+});
+
+authClient.embeddCaptchaInElement("element-id-of-anchor", document.head);
+```
+In the above example the `element-id-of-anchor` is id of the html tag to inject the recaptcha view into. 
+After the user confirms the `response` will be added to a global variable `LIT_AUTH_CLIENT_CAPTCHA_RES` upon creating an `OtpProvider` it will look for this variable when initalizing.
+If you wish to refresh the `response` you can use the `setCaptchaResponse` method on the `OtpProvider`
+
+**example**
+```javascript
+const authClient = new LitAuthClient({
+    litRelayConfig: {
+        relayApiKey: '<Your Lit Relay Server API Key>',
+    }
+});
+authClient.embeddCaptchaInElement("element-id-of-anchor", document.head);
+
+// starting a validation session
+let session = authClient.initProvider(ProviderType.Otp,{
+            userId: '<User email or phone number>'
+});
+session.setCaptchaResponse(window.LIT_AUTH_CLIENT_CAPTCHA_RES);
+
+let status = await session.sendOtpCode();
+let authMethod = await session.authenticate({
+    code: "<User entered OTP code>"
+});
+const txHash = await session.mintPKPThroughRelayer(authMethod);
+```
+**note** ReCaptcha Responses are valid for 2 minutes. for more information on ReCaptcha see [here](https://developers.google.com/recaptcha/intro)
+
+
+### Using the ReCaptcha Site Key in Another ReCaptcha implementation
+If you would like to use another ReCaptcha implementation such as [react google recaptcha](https://www.npmjs.com/package/react-google-recaptcha)
+You may access the ReCaptcha `site key` shown below: 
+```javascript
+const authClient = new LitAuthClient({
+    litRelayConfig: {
+        relayApiKey: '<Your Lit Relay Server API Key>',
+    }
+});
+
+authClient.getSiteKey();
+```
+
+
 ### Minting via Contract
 
 An alternative to minting the PKP NFT via the Lit Relay Server is to send a transaction to the smart contract yourself. You can reference the following example data that is passed to the `mintNextAndAddAuthMethods` method of the `PKPHelper` smart contract:

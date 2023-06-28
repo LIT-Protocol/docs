@@ -3,7 +3,7 @@ sidebar_position: 6
 ---
 
 # Proof of Knowledge
-![image](../../../static/img/ll_pok.png)
+![image](../../static/img/ll_pok.png)
 
 Congratulations on completing this Intro to Lit Protocol lesson! Now it's time to put your newly acquired knowledge to the test and showcase your understanding of Lit.
 

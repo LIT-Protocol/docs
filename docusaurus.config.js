@@ -23,6 +23,7 @@ const config = {
       ({
         docs: {
           breadcrumbs: false,
+          lastVersion: "current",
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           editUrl: "https://github.com/LIT-Protocol/docs/edit/main/website/",
@@ -42,12 +43,6 @@ const config = {
             }
           },
         },
-        // blog: {
-        //   showReadingTime: true,
-        //   // Please change this to your repo.
-        //   editUrl:
-        //     'https://github.com/facebook/docusaurus/edit/main/website/blog/',
-        // },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
@@ -57,6 +52,27 @@ const config = {
         },
       }),
     ],
+  ],
+
+  plugins: [
+    [
+      'content-docs',
+      ({
+        id: 'learningLab',
+        path: 'learningLab',
+        routeBasePath: 'learningLab',
+        sidebarPath: require.resolve("./sidebarsLearningLab.js"),
+      }),
+    ],
+    [
+      'content-docs',
+      ({
+        id: 'Ecosystem',
+        path: 'Ecosystem',
+        routeBasePath: 'Ecosystem',
+        sidebarPath: require.resolve("./sidebarsEcosystem.js"),
+      })
+    ]
   ],
 
   themeConfig:
@@ -76,15 +92,13 @@ const config = {
             label: 'Docs',
           },
           {
-            type: 'docSidebar',
+            to: 'learningLab/intro',
             position: 'left',
-            sidebarId: 'learningLab',
             label: 'Learning Lab',
           },
           {
-            type: 'docSidebar',
+            to: 'Ecosystem/litGrants',
             position: 'left',
-            sidebarId: 'ecosystem',
             label: 'Ecosystem',
           },
           {

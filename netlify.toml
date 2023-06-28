@@ -621,3 +621,11 @@ force = false
   to = "/pkp/authHelpers/overview"
   status = 301
   force = false
+
+# 6/28/23
+
+[[redirects]]
+  from = "/*"
+  to = "/v3/:splat"
+  status = 301
+  force = false

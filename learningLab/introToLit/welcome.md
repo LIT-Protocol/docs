@@ -4,7 +4,7 @@ sidebar_label: Welcome
 title: ''
 ---
 
-![image](../../../static/img/ll_welcome.png)
+![image](../../static/img/ll_welcome.png)
 
 Welcome to the beginning of your journey into the world of Lit! This 'Introduction to Lit' module is your first step towards gaining a high level understanding of Lit's encryption, access control, and programmatic signing capabilities.
 

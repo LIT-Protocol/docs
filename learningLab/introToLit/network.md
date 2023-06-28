@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # 2. The Lit Network
 
-![image](../../../static/img/networkOverview.png)
+![image](../../static/img/networkOverview.png)
 
 The Lit network operates through a distributed federation of nodes, where each node plays a vital role in key generation, consensus, and the execution of Lit Actions. What sets Lit apart is its foundation on threshold cryptography. With this approach, Lit ensures that no single node possesses complete control or executive authority over the network. This decentralized structure guarantees enhanced security, resilience, and trustworthiness for all participants in the Lit ecosystem.
 

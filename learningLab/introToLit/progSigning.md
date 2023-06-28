@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 # 4. Programmatic Signing
-![image](../../../../static/img/ll_progSigning.png)
+![image](../../static/img/ll_progSigning.png)
 
 As a distributed key management network, Lit provides developers with the ability to add programmable signing to their applications and wallets. These distributed wallets are known as Programmable Key Pairs (PKP) and the application logic that dictates when and why that key-pair will sign is known as a Lit Action.
 

@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 # 3. Access Control 
-![image](../../../static/img/ll_acc.png)
+![image](../../static/img/ll_acc.png)
 
 Lit Protocol provides developers with a decentralized access control layer that can be used to [encrypt](https://developer.litprotocol.com/resources/glossary#encryption) content for private and permissioned storage on the open web. The [Lit SDK](https://github.com/LIT-Protocol/js-sdk) provides utilities that can be used for encrypting and decrypting content client-side, while [access control conditions (ACCs)](https://developer.litprotocol.com/accessControl/conditionTypes/unifiedAccessControlConditions) are used to define who can decrypt and access the locked data.
 

@@ -12,11 +12,21 @@ Right now, Lit Protocol is in an alpha mainnet state (the "Jalapeno Mainnet") an
 
 https://jalapeno-status.litprotocol.com/
 
+## Cayenne Developer Preview
+
+This is the latest testnet. Lit Actions and PKPs are in a developer preview state.
+
+The data on the Cayenne Testnet is not persistent and may be erased at any time. Therefore, we do not recommend storing anything of value on the Cayenne Testnet. You may use the Cayenne testnet by installing versions `3.x.x` of the `@lit-protocol/lit-node-client` package and specifying `litNetwork: "cayenne"` in your `LitNodeClient` config. You can find more info in the [Lit Actions](../LitActions/intro) sections of the docs.
+
+### Uptime and Status
+
+https://cayenne-status.litprotocol.com/
+
 ## Serrano Developer Preview
 
-The Lit Actions and PKP network (the "Serrano Testnet") is in a developer preview state.
+This is the old testnet. Lit Actions and PKPs are in a developer preview state.
 
-The data on the Serrano Testnet is not persistent and may be erased at any time. Therefore, we do not recommend storing anything of value on the Serrano Testnet. You may use the Serrano testnet by installing the latest `@lit-protocol/lit-node-client` package and specifying `litNetwork: "serrano"` in your `LitNodeClient` config. You can find more info in the [Lit Actions](../LitActions/intro) sections of the docs.
+The data on the Serrano Testnet is not persistent and may be erased at any time. Therefore, we do not recommend storing anything of value on the Serrano Testnet. You may use the Serrano testnet by installing versions `2.x.x` of the `@lit-protocol/lit-node-client` package and specifying `litNetwork: "serrano"` in your `LitNodeClient` config. You can find more info in the [Lit Actions](../LitActions/intro) sections of the docs.
 
 ### Uptime and Status
 

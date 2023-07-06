@@ -15,7 +15,7 @@ const wallet = new Wallet(process.env.YOUR_PRIVATE_KEY);
 
 // Instantiate a LitNodeClient
 const litNodeClient = new LitNodeClient({
-  litNetwork: "serrano",
+  litNetwork: "cayenne",
   debug: true,
 });
 await litNodeClient.connect();

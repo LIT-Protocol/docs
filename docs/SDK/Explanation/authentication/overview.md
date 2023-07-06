@@ -18,6 +18,6 @@ Session signatures, or `SessionSigs`, are signatures that are scoped to specific
 
 :::note
 
-`SessionSigs` are only available on Ethereum and are heavily in development, so things may change. Be sure to use the latest version of the Lit SDK and connect to the `serrano` testnet.
+`SessionSigs` are only available on Ethereum and are heavily in development, so things may change. Be sure to use the latest version of the Lit JS SDK.
 
 :::

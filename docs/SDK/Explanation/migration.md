@@ -9,7 +9,9 @@ import TabItem from '@theme/TabItem';
 
 The **Lit JS SDK V3** replaces the existing access control condition based encryption and JWT signing processes with new cryptographic primitives to offer a more secure and seamless user experience.
 
-Refer to the [changelog](https://github.com/LIT-Protocol/js-sdk/blob/master/CHANGELOG.md) for more details.
+## What's Not Migrated?
+
+All of the access control conditions that have been "stored" in the `jalapeno` and `serrano` networks **will not be migrated** but we will continue to maintain support for them. If you wish to continue using these access control conditions for encryption or signing JWTs, please continue using the V2 SDK.
 
 ## Per-Package Changes
 
@@ -30,7 +32,7 @@ Previously in V2, you would have to:
 - Encrypt this symmetric key using the BLS network key
 - Save this encrypted symmetric key with some access control conditions in the BLS network
 
-Now in V3, you can perform client-side encryption using the `encrypt` method:
+Now in V3, all you would have to do is to call the `encrypt` method to perform client-side encryption:
 
 ```javascript
 const publicKey =
@@ -205,10 +207,6 @@ THe following methods have their names updated in `@lit-protocol/encryption` and
 - `decryptZip` becomes `decryptToZip`
 
 All method interfaces in `@lit-protocol/encryption` have been updated.
-
-## What's Not Migrated?
-
-All of the access control conditions that have been "stored" in the `jalapeno` and `serrano` networks **will not be migrated** but we will continue to maintain support for them. If you wish to continue using these access control conditions for encryption or signing JWTs, please continue using the V2 SDK.
 
 ## Changelog
 

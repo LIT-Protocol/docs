@@ -8,6 +8,8 @@ This scheme is highly efficient, as encrypting private data is a entirely a clie
 
 The identity-based encryption scheme necessitates the construction of an identity parameter, and it is this parameter that the BLS network is producing signature shares over. In order to prevent the same network signature (decryption key) to be used for multiple distinct ciphertexts, we choose this identity parameter to be a combination of the hash of the access control conditions and the hash of the private data itself.
 
+Refer to the [SDK docs](../SDK/Explanation/jwt-auth) for more details and code examples.
+
 ## High-Level Overview
 
 Here is a high-level, step-by-step breakdown of encryption and decryption:

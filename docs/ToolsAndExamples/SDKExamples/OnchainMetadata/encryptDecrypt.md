@@ -45,36 +45,27 @@ Sign using our wallet before encrypting. This will show a MetaMask pop-up which 
 ```
 
 ### 4. Encrypt the string
-Finally, let's encrypt our string. This will return a promise containing the `encryptedString` as a **Blob** and the `symmetricKey` used to encrypt it, as a **Uint8Array**.
+Finally, let's encrypt our string. This will return a promise containing the `ciphertext` and `dataToEncryptHash`, each as a base64-encoded **string**.
 
 For more info, please check out our [API docs](https://js-sdk.litprotocol.com/functions/encryption_src.encryptString.html).
 ```js
-    const { encryptedString, symmetricKey } = await LitJsSdk.encryptString(text);
-```
-
-### 5. Save encryption key & access control condition
-Now, we save the encryption key with the access control condition. Both are needed for Lit to know who should be able to decrypt.
-
-For more info, please check out our [API docs](https://js-sdk.litprotocol.com/classes/lit_node_client_src.LitNodeClientNodeJs.html#saveEncryptionKey).
-```js
-    const encryptedSymmetricKey = await this.litNodeClient.saveEncryptionKey({
-      accessControlConditions: accessControlConditions,
-      symmetricKey,
-      authSig,
-      chain,
-    });
+    const { ciphertext, dataToEncryptHash } = awaitLitJsSdk.encryptString(
+      {
+        accessControlConditions,
+        authSig,
+        chain,
+        dataToEncrypt: text,
+      },
+      this.litNodeClient,
+    );
 
     return {
-        encryptedString,
-        encryptedSymmetricKey: LitJsSdk.uint8arrayToString(encryptedSymmetricKey, "base16")
+      ciphertext,
+      dataToEncryptHash,
     };
-  }
 ```
 
-:::note `encryptedSymmetricKey` is a Uint8Array.
-:::
-
-We now need to save `accessControlConditions`, `encryptedSymmetricKey` & `encryptedString`. The `accessControlConditions` & `encryptedSymmetricKey` values are needed to obtain the decrypted symmetric key. The decrypted symmetric key is needed to decrypt the `encryptedString`.
+We now need to save `accessControlConditions`, `ciphertext` & `dataToEncryptHash`. All of these values are needed to obtain the decrypted plaintext.
 
 ### Full encryption code
 
@@ -84,82 +75,75 @@ We now need to save `accessControlConditions`, `encryptedSymmetricKey` & `encryp
       await this.connect();
     }
     const authSig = await LitJsSdk.checkAndSignAuthMessage({ chain });
-    const { encryptedString, symmetricKey } = await LitJsSdk.encryptString(text);
-
-    const encryptedSymmetricKey = await this.litNodeClient.saveEncryptionKey({
-      accessControlConditions: accessControlConditions,
-      symmetricKey,
-      authSig,
-      chain,
-    });
-
+    const { ciphertext, dataToEncryptHash } = await LitJsSdk.encryptString(
+      {
+        accessControlConditions,
+        authSig,
+        chain,
+        dataToEncrypt: text,
+      },
+      this.litNodeClient,
+    );
     return {
-        encryptedString,
-        encryptedSymmetricKey: LitJsSdk.uint8arrayToString(encryptedSymmetricKey, "base16")
+      ciphertext,
+      dataToEncryptHash,
     };
   }
 ```
 
 ## Decrypt the Input
-Make sure we have `accessControlConditions`, `encryptedSymmetricKey` & `encryptedString` variables we created when encrypting content. An exception is `encryptFileAndZipWithMetadata()` which will include this metadata in the zip.
+Make sure we have `accessControlConditions`, `ciphertext`, and the `dataToEncryptHash` variables we created when encrypting content. An exception is `encryptFileAndZipWithMetadata()` which will include this metadata in the zip.
 
-There are 2 steps for decrypting a string:
+There is just one step:
 
-* Obtain the decrypted `symmetricKey` from Lit SDK using `authSig`, `accessControlConditions`, `encryptedSymmetricKey` & `chain`.
-* Decrypt the content using the `symmetricKey` & `encryptedString`.
+1. Obtain the decrypted data in plaintext using the `authSig`, `accessControlConditions`, `ciphertext`, and `dataToEncryptHash` by calling `LitJsSdk.decryptToString`.
 
 ### 1. Connect to Lit nodes and obtain an auth signature
 Just as before, let's connect to the Lit nodes if not already connected & get the `authSig` which will be used to decrypt the encrypted string:
 ```js
-  async decryptText(encryptedString, encryptedSymmetricKey) {
+  async decryptText(ciphertext, dataToEncryptHash, accessControlConditions) {
     if (!this.litNodeClient) {
       await this.connect();
     }
 
     const authSig = await LitJsSdk.checkAndSignAuthMessage({ chain });
+  }
 ```
 
-### 2. Obtain the symmetric key
-
-As described before, we have to get the `symmetricKey` using the `getEncryptionKey` function. More info in the [API docs](https://js-sdk.litprotocol.com/classes/lit_node_client_src.LitNodeClientNodeJs.html#getEncryptionKey).
-```js
-    const symmetricKey = await this.litNodeClient.getEncryptionKey({
-        accessControlConditions: accessControlConditions,
-        toDecrypt: encryptedSymmetricKey,
-        chain,
-        authSig
-    });
-```
-
-### 3. Decrypt String
+### 2. Decrypt String
 
 Finally, we can get the decrypted string. For more info see the [API docs](https://js-sdk.litprotocol.com/functions/encryption_src.decryptString.html).
 ```js
-    return await LitJsSdk.decryptString(
-        encryptedString,
-        symmetricKey
+    return LitJsSdk.decryptToString(
+      {
+        accessControlConditions,
+        ciphertext,
+        dataToEncryptHash,
+        authSig,
+        chain,
+      },
+      this.litNodeClient,
     );
 ```
 
 ### Full decryption code
 
 ```js
-  async decryptText(encryptedString, encryptedSymmetricKey) {
+  async decryptText(ciphertext, dataToEncryptHash, accessControlConditions) {
     if (!this.litNodeClient) {
       await this.connect();
     }
 
     const authSig = await LitJsSdk.checkAndSignAuthMessage({ chain });
-    const symmetricKey = await this.litNodeClient.getEncryptionKey({
-        accessControlConditions: accessControlConditions,
-        toDecrypt: encryptedSymmetricKey,
+    return LitJsSdk.decryptToString(
+      {
+        accessControlConditions,
+        ciphertext,
+        dataToEncryptHash,
+        authSig,
         chain,
-        authSig
-    });
-
-    return await LitJsSdk.decryptString(
-        encryptedString,
-        symmetricKey
+      },
+      this.litNodeClient,
     );
   }
 ```

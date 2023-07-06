@@ -6,14 +6,6 @@ sidebar_position: 4
 
 You can create a Lit Action Condition to grant access whenever a given Lit Action returns true. Lit Actions are JS code that can be executed on the Lit Protocol network. You can use Lit Actions to create custom access control conditions.
 
-:::note
-
-**Serrano Testnet Only**
-
-This feature currently only works on the Serrano Testnet. Be sure to install the latest version of the Lit JS SDK V2, and connect to the Serrano Testnet.
-
-:::
-
 ## Lit Action must return true
 
 Suppose you wanted to make a Lit Action that returns true if the forecast temperature is below 40 degrees. You could use this to create a document that can only be decrypted when it's cold out.

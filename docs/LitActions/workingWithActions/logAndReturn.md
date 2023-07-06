@@ -80,7 +80,7 @@ const authSig = {
 const runLitAction = async () => {
   const litNodeClient = new LitJsSdk.LitNodeClient({
     alertWhenUnauthorized: false,
-    litNetwork: "serrano",
+    litNetwork: "cayenne",
     debug: true,
   });
   await litNodeClient.connect();

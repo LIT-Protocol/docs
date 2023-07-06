@@ -36,7 +36,7 @@ const go = async () => {
     alertWhenUnauthorized: false,
     minNodeCount: 6,
     debug: true,
-    litNetwork: "serrano",
+    litNetwork: "cayenne",
   });
   await litNodeClient.connect();
   const results = await litNodeClient.executeJs({

@@ -36,7 +36,7 @@ var kyveAuthSig = await LitJsSdk.checkAndSignAuthMessage({
 });
 
 // now, when you want to use the auth sigs, pass them as an object, with the key being the chain name.
-await litNodeClient.saveSigningCondition({
+await litNodeClient.encryptString({
   unifiedAccessControlConditions,
   authSig: {
     cosmos: cosmosAuthSig,
@@ -44,7 +44,7 @@ await litNodeClient.saveSigningCondition({
     solana: solAuthSig,
     ethereum: ethAuthSig, // note that the key here is "ethereum" for any and all EVM chains.  If you're using Polygon, for example, you should still have "ethereum" here.
   },
-  resourceId,
+  dataToEncrypt: "blah",
 });
 ```
 

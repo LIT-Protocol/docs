@@ -16,6 +16,6 @@ By utilizing PKP authentication methods, you can build frictionless and secure e
 
 :::note
 
-Generating `SessionSigs` using various authentication methods is still in active development, so things may change. To stay up-to-date, always use the latest version of the Lit SDK and connect to the `serrano` testnet.
+Generating `SessionSigs` using various authentication methods is still in active development, so things may change. To stay up-to-date, always use the latest version of the Lit JS SDK.
 
 :::

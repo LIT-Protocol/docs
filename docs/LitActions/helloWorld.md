@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 Lit Actions and PKPs are still heavily in development and things may change.
 
 **SDK DOCUMENTATION**
-For the most up to date SDK documentation, check out the [Lit JS SDK V2 docs](https://js-sdk.litprotocol.com/index.html).
+For the most up to date SDK documentation, check out the [Lit JS SDK Latest docs](https://js-sdk.litprotocol.com/index.html).
 
 For references to the Lit Actions functions which can be accessed inside a Lit Action via the `Lit.Actions` object, check out the [Lit Actions](http://actions-docs.litprotocol.com/) API docs.
 
@@ -30,7 +30,7 @@ In the example below, we will write a simple Lit Action that requests a signatur
 
 ## 1. Install the SDK and get a PKP
 
-First, install the Lit JS SDK V2:
+First, install the Lit JS SDK:
 
 <Tabs
 defaultValue="browser"
@@ -110,7 +110,7 @@ const runLitAction = async () => {
   // this will get it from MetaMask or any browser wallet
   const authSig = await LitJsSdk.checkAndSignAuthMessage({ chain: "ethereum" });
 
-  const litNodeClient = new LitJsSdk.LitNodeClient({ litNetwork: "serrano" });
+  const litNodeClient = new LitJsSdk.LitNodeClient({ litNetwork: "cayenne" });
   await litNodeClient.connect();
   const signatures = await litNodeClient.executeJs({
     code: litActionCode,
@@ -160,7 +160,7 @@ const authSig = {
 };
 
 const runLitAction = async () => {
-  const litNodeClient = new LitJsSdk.LitNodeClient({ litNetwork: "serrano" });
+  const litNodeClient = new LitJsSdk.LitNodeClient({ litNetwork: "cayenne" });
   await litNodeClient.connect();
   const signatures = await litNodeClient.executeJs({
     code: litActionCode,

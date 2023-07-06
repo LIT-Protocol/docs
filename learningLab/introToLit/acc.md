@@ -30,7 +30,6 @@ Some example conditions:
 - Supports many EVM chains and Solana. Full list [here](https://developer.litprotocol.com/support/supportedChains).
 - Supports many standard contracts, with plans to support any RPC call soon. If you need to interact with a contract that we don't support yet, ask us, and we will implement it.
 - *Boolean conditions*: "And" or "Or" are currently supported.
-- *Updateable conditions*: Only the creator can update the condition.
 - *Permanent conditions*: When a condition is stored as permanent, it becomes impossible to update it, forever.
 
 ## Use Cases

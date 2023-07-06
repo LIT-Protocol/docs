@@ -8,8 +8,8 @@ export default function ResourcesSection({ title, className }) {
   return (
     <Section title={title} className={className}>
       <Card
-        title="Lit JS SDK V2 API Documentation"
-        description="Lit JS SDK V2 API documentation."
+        title="Lit JS SDK Latest API Documentation"
+        description="Lit JS SDK Latest API documentation."
         to="https://js-sdk.litprotocol.com/index.html"
       />
       <Card

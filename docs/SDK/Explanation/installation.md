@@ -7,13 +7,7 @@ import TabItem from '@theme/TabItem';
 
 # Installation
 
-:::note
-💡 **Important**
-
-`lit-js-sdk` is now deprecated. If you are using `lit-js-sdk`, you should migrate to the new **Lit JS SDK V2** for continued support and new features. Check out the migration guide [here](../../SDK/Explanation/migration).
-:::
-
-## Installing and Importing V2 SDK
+## Installing And Importing The SDK
 
 <Tabs
 defaultValue="browser"
@@ -30,7 +24,7 @@ Install the `@lit-protocol/lit-node-client` package, which can be used in both b
 yarn add @lit-protocol/lit-node-client
 ```
 
-Use the **Lit JS SDK V2**:
+Use the **Lit JS SDK**:
 
 ```js
 import * as LitJsSdk from "@lit-protocol/lit-node-client";
@@ -55,7 +49,7 @@ Install the `@lit-protocol/lit-node-client-nodejs`, which is for Node environmen
 yarn add @lit-protocol/lit-node-client-nodejs
 ```
 
-Use the **Lit JS SDK V2**:
+Use the **Lit JS SDK**:
 
 ```js
 import * as LitJsSdk from "@lit-protocol/lit-node-client-nodejs";

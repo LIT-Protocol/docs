@@ -3,15 +3,14 @@ sidebar_position: 3
 ---
 
 # Encryption
-You can use Lit to encrypt and store any static content. This could be a file, a string, or anything that won't change. You need to store the content and metadata yourself (on IPFS, Arweave, or even a centralized storage solution), and Lit will store who is allowed to decrypt it and enforce this (aka key management).
 
-If you want to use IPFS as a storage solution, Lit has an `encryptToIpfs` function that will help streamline the process of encryption and storing the encrypted data. You will need to provide an Infura ID and API secret key. [Jump to encryptToIPFS](../../SDK/Explanation/encryption#encrypttoipfs).
+You can use Lit to encrypt and store any static content. This could be a file, a string, or anything that won't change. You need to store the ciphertext and metadata yourself (on IPFS, Arweave, or even a centralized storage solution), and the Lit network will enforce who is allowed to decrypt it.
 
-Check out the Replit below, which is a full-fledged **React** application that encrypts & decrypt a **file** using Lit SDK. For best experience please open the web app in a new tab.
+If you want to use IPFS as a storage solution, Lit has an `encryptToIpfs` function that will help streamline the process of encryption and storing the encrypted data. You will need to provide an Infura ID and API secret key. [Jump to encryptToIPFS](../Explanation/encryption#encrypttoipfs).
 
-<iframe frameborder="0" width="100%" height="500px" className="repls" style={{display: "none"}} src="https://replit.com/@lit/Encrypt-and-Decrypt-a-File/#encrypt_and_decrypt_file/src/App.js"></iframe>
+Check out [this example](https://github.com/LIT-Protocol/js-sdk/blob/master/apps/demo-encrypt-decrypt-react/README.md) for a full-fledged **React** application that encrypts and decrypts a **string** using Lit SDK.
 
-This example will show you how to encrypt and decrypt static data using the Lit JS SDK on the client side.
+In the example below we will show you the step-by-step process of how to encrypt and decrypt static data using the Lit JS SDK on the client side.
 
 ## Setup
 
@@ -43,10 +42,8 @@ Get more info on functions in the [API docs](https://js-sdk.litprotocol.com/inde
 
 Steps to Encrypt
 1. Obtain an `authSig` and create an access control condition.
-2. Encrypt the static content (string, file, etc.) to get the `encryptedString`, for example.
-3. Use `litNodeClient.saveEncryptionKey` to tie the `accessControlConditions` with the `symmetricKey` we got above. This returns us the `encryptedSymmetricKey`.
-4. Finally, we have to store the `encryptedString` & other metadata: `encryptedSymmetricKey`, `accessControlConditions` (or other conditions eg: `evmContractConditions`) and `chain`. IPFS is generally used to store these values.
-
+2. Encrypt the static content (string, file, etc.) using `LitJsSdk.encryptString` to get the `ciphertext`, for example. This ties the `accessControlConditions` with the static content.
+3. Finally, we have to store the `ciphertext`, `dataToEncryptHash` and other metadata: `accessControlConditions` (or other conditions eg: `evmContractConditions`) and `chain`. IPFS is generally used to store these values.
 
 ### Access Control & AuthSig
 
@@ -82,32 +79,21 @@ const authSig = await LitJsSdk.checkAndSignAuthMessage({ chain: "ethereum" });
 - If you are encrypting a large file (more than 20mb) then you should use `encryptFile()` because it is fast (a 1gb file only takes 2 seconds to encrypt).
 - If you are encrypting a small file (less than 20mb) then you can use `encryptFileAndZipWithMetadata()` which will zip the file, and include all metadata in the zip, so you don't have to store anything else. If you want to store the metadata yourself, manually, you can use `zipAndEncryptFiles()` instead.
 
-In the example, we are using `encryptString()`. All encryption methods will output the encrypted data and a symmetric key, which can be used to decrypt the data.
+In the example, we are using `encryptString()`. All encryption methods will output the ciphertext and a hash of the plaintext data, which are used during decryption.
 
 ```js
-const { encryptedString, symmetricKey } = await LitJsSdk.encryptString(
-  "this is a secret message"
+const { ciphertext, dataToEncryptHash } = await LitJsSdk.encryptString(
+  {
+    accessControlConditions,
+    authSig,
+    chain: 'ethereum',
+    dataToEncrypt: 'this is a secret message',
+  },
+  litNodeClient,
 );
 ```
 
-**Note**: `encryptedString` will be a Blob and `symmetricKey` will be a Uint8Array.
-
-#### **Saving the Encrypted Content to the Lit Nodes**
-
-Now, we can save the encryption key with the access control condition, which tells Lit Protocol that users that meet this access control condition should be able to decrypt.
-
-```js
-const encryptedSymmetricKey = await window.litNodeClient.saveEncryptionKey({
-  accessControlConditions,
-  symmetricKey,
-  authSig,
-  chain,
-});
-```
-
-**Note**: `encryptedSymmetricKey` will be a Uint8Array.
-
-We now need to save the `accessControlConditions`, `encryptedSymmetricKey`, and the `encryptedString`. `accessControlConditions` and `encryptedSymmetricKey` are needed to obtain the decrypted symmetric key, which we can then use to decrypt the `encryptedString`.
+**Note**: Both `ciphertext` and `dataToEncryptHash` will be base64 encoded strings.
 
 ### Putting it all together
 
@@ -115,36 +101,36 @@ The encryption function should look like:
 
 ```js
 async encrypt(message: string) {
-    if (!this.litNodeClient) {
-      await this.connect()
-    }
-
-    const authSig = await LitJsSdk.checkAndSignAuthMessage({ chain })
-    const { encryptedString, symmetricKey } = await LitJsSdk.encryptString(message)
-
-    const encryptedSymmetricKey = await window.litNodeClient.saveEncryptionKey({
-      accessControlConditions,
-      symmetricKey,
-      authSig,
-      chain,
-    })
-
-    return {
-      encryptedString,
-      encryptedSymmetricKey: LitJsSdk.uint8arrayToString(encryptedSymmetricKey, "base16")
-    }
+  if (!this.litNodeClient) {
+    await this.connect()
   }
+
+  const authSig = await LitJsSdk.checkAndSignAuthMessage({ chain })
+  const { ciphertext, dataToEncryptHash } = await LitJsSdk.encryptString(
+    {
+      accessControlConditions,
+      authSig,
+      chain: 'ethereum',
+      dataToEncrypt: 'this is a secret message',
+    },
+    window.litNodeClient,
+  );
+
+  return {
+    ciphertext,
+    dataToEncryptHash,
+  };
+}
 ```
 
 ## Decrypting
 
-Make sure we have `accessControlConditions`, `encryptedSymmetricKey`, and the `encryptedString` variables we created when encrypting content.
+Make sure we have `accessControlConditions`, `ciphertext`, and the `dataToEncryptHash` variables we created when encrypting content.
 An exception is when using `encryptFileAndZipWithMetadata()` which will include this metadata in the zip.
 
-There are 2 steps:
+There is just one step:
 
-1. Obtain the decrypted symmetric key from Lit Protocol using the `authSig`, `accessControlConditions`, `encryptedSymmetricKey`, and `chain`.
-2. Decrypt the content using the `symmetricKey` and `encryptedString`.
+1. Obtain the decrypted data in plaintext using the `authSig`, `accessControlConditions`, `ciphertext`, and `dataToEncryptHash` by calling `LitJsSdk.decryptToString`.
 
 ### AuthSig
 
@@ -154,29 +140,20 @@ First, obtain an authSig from the user. This will ask their MetaMask to sign a m
 const authSig = await LitJsSdk.checkAndSignAuthMessage({ chain: "ethereum" });
 ```
 
-### Obtaining the Decrypted Symmetric Key
-
-In order to obtain the decrypted symmetric key we need to pass in `authSig`, `accessControlConditions`, `encryptedSymmetricKey`, and `chain`.
-
-```js
-const symmetricKey = await window.litNodeClient.getEncryptionKey({
-  accessControlConditions,
-  toDecrypt: encryptedSymmetricKey,
-  chain,
-  authSig,
-});
-```
-
-**Note**: `symmetricKey` will be a Uint8Array.
-
 ### Obtaining the Decrypted Data
 
-Now, decrypt the content. In the example, we used `encryptString()` so we will use `decryptString()` to decrypt. Note that if you used something else to encrypt the content, you will need to use the appropriate decrypt method.
+In the example, we used `encryptString()` so we will use `decryptToString()` to decrypt. Note that if you used something else to encrypt the content, you will need to use the appropriate decrypt method.
 
 ```js
-const decryptedString = await LitJsSdk.decryptString(
-  encryptedString,
-  symmetricKey
+const decryptedString = await LitJsSdk.decryptToString(
+  {
+    accessControlConditions,
+    ciphertext,
+    dataToEncryptHash,
+    authSig,
+    chain: 'ethereum',
+  },
+  litNodeClient,
 );
 ```
 
@@ -185,28 +162,25 @@ const decryptedString = await LitJsSdk.decryptString(
 The full decryption process should look like:
 
 ```js
-  async decrypt(encryptedString: string, encryptedSymmetricKey: string) {
-    if (!this.litNodeClient) {
-      await this.connect()
-    }
-
-    const authSig = await LitJsSdk.checkAndSignAuthMessage({ chain })
-    const symmetricKey = await this.litNodeClient.getEncryptionKey({
-      accessControlConditions,
-      toDecrypt: encryptedSymmetricKey,
-      chain,
-      authSig
-    })
-
-    const decryptedString = await LitJsSdk.decryptString(
-      encryptedString,
-      symmetricKey
-    );
-
-  return { decryptedString }
+async decrypt(ciphertext: string, dataToEncryptHash: string, accessControlConditions: any) {
+  if (!this.litNodeClient) {
+    await this.connect()
   }
-```
 
+  const authSig = await LitJsSdk.checkAndSignAuthMessage({ chain })
+  const decryptedString = LitJsSdk.decryptToString(
+    {
+      accessControlConditions,
+      ciphertext,
+      dataToEncryptHash,
+      authSig,
+      chain: 'ethereum',
+    },
+    window.litNodeClient,
+  );
+  return { decryptedString }
+}
+```
 
 # Encryption & Upload to IPFS
 
@@ -261,4 +235,4 @@ async decrypt(ipfsCid) {
 
 ### How to encrypt & decrypt a file instead?
 
-For encryption use the same function params as above with the string param replaced with a file. For decryption nothing changes. The returned value in that case will be a Uint8Array instead of a string since it's a decrypted file.
+For encryption use the same function params as above with the string param replaced with a file. For decryption nothing changes. The returned value in that case will be a `Uint8Array` instead of a string since it's a decrypted file.

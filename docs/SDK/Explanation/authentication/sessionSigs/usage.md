@@ -24,19 +24,10 @@ var unifiedAccessControlConditions = [
   },
 ];
 
-// Saving signing condition
-await litNodeClient.saveSigningCondition({
-  unifiedAccessControlConditions,
-  sessionSigs,
-  resourceId,
-  chain: "litSessionSign",
-});
-
 // Retrieving a signature
 let jwt = await litNodeClient.getSignedToken({
   unifiedAccessControlConditions,
   sessionSigs,
-  resourceId,
 });
 ```
 
@@ -57,47 +48,35 @@ var unifiedAccessControlConditions = [
     },
   },
 ];
+const chain = "ethereum";
 
 // encrypt
-const { encryptedZip, symmetricKey } =
-  await LitJsSdk.zipAndEncryptString("this is a secret message");
-
-// store the decryption conditions
-const encryptedSymmetricKey = await litNodeClient.saveEncryptionKey({
-  unifiedAccessControlConditions,
-  symmetricKey,
-  sessionSigs,
-});
-
-// retrieving the key:
-const hashOfKey = await LitJsSdk.hashEncryptionKey({
-  encryptedSymmetricKey,
-});
-
-// Create an access control condition resource
-var litResource = new LitAccessControlConditionResource(hashOfKey);
+const { ciphertext, dataToEncryptHash } =
+  await LitJsSdk.zipAndEncryptString(
+    {
+      unifiedAccessControlConditions,
+      chain,
+      sessionSigs,
+      dataToEncrypt: "this is a secret message",
+    },
+    litNodeClient,  
+  );
 
 sessionSigs = await LitJsSdk.getSessionSigs({
-  chain: "ethereum",
+  chain,
   litNodeClient,
-  resourceAbilityRequests: [
-    resource: litResource,
-    ability: LitAbility.AccessControlConditionDecryption
-  ]
+  resourceAbilityRequests: []
 });
 
- const retrievedSymmKey = await litNodeClient.getEncryptionKey({
-  unifiedAccessControlConditions,
-  toDecrypt: LitJsSdk.uint8arrayToString(
-    encryptedSymmetricKey,
-    "base16"
-  ),
-  sessionSigs,
-});
-
-const decryptedFiles = await LitJsSdk.decryptZip(
-  encryptedZip,
-  retrievedSymmKey
+const decryptedFiles = await LitJsSdk.decryptToZip(
+  {
+    unifiedAccessControlConditions,
+    chain,
+    sessionSigs,
+    ciphertext,
+    dataToEncryptHash,
+  },
+  litNodeClient,
 );
 const decryptedString = await decryptedFiles["string.txt"].async(
   "text"

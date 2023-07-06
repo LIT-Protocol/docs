@@ -28,8 +28,7 @@ Lit supports the use of both on and [off-chain data](../accessControl/conditionT
 
 1. Access Control Conditions are compatible with most EVM chains, Cosmos, and Solana. View the full list [here](../resources/supportedChains).
 2. AND + OR operators ([boolean logic](../accessControl/conditionTypes/booleanLogic)) can be used to combine any of the supported conditions listed above.
-3. ACCs may be permanent or [updateable](../accessControl/conditionTypes/updateableConditions).
-4. Storage provider agnostic: use your preferred storage solution, including [IPFS](https://spark.litprotocol.com/encrypttoipfs/), Arweave, Ceramic, or even a centralized provider, like AWS.
+3. Storage provider agnostic: use your preferred storage solution, including [IPFS](https://spark.litprotocol.com/encrypttoipfs/), Arweave, Ceramic, or even a centralized provider, like AWS.
 
 ## Examples and Use Cases
 

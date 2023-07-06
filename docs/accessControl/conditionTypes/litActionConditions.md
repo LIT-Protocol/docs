@@ -10,7 +10,7 @@ You can create a Lit Action Condition to grant access whenever a given Lit Actio
 
 **Serrano Testnet Only**
 
-This feature currently only works on the Serrano Testnet. Be sure to install the latest version of the Lit JS SDK V2, and connect to the Serrano Testnet.
+This feature currently only works on the Serrano Testnet. Be sure to install the latest version of the Lit JS SDK, and connect to the Serrano Testnet.
 
 :::
 

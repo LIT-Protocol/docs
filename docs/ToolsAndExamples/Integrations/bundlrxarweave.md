@@ -52,27 +52,19 @@ First, we need to encrypt the static content, in our case, an image. In order to
 
 **Step A:**
 
-Turn the static content into a `String` format (you can use the [utilities](https://js-sdk.litprotocol.com/modules/lit_node_client_nodejs_src.html) we provide), then pass the `staticContentInString` to the `LitJsSdk.encryptString()` function. After execution, we will be given:
+Turn the static content into a `String` format (you can use the [utilities](https://js-sdk.litprotocol.com/modules/lit_node_client_nodejs_src.html) we provide), then pass the `staticContentInString` to the `LitJsSdk.encryptString()` function along with the following:
 
-`encryptedString`: which is the encrypted image data
+- `chain (String)`: ethereum (see other [supported blockchains](https://developer.litprotocol.com/resources/supportedChains))
 
-`symmetricKey`: the key to unlocking the encrypted image data
+- `authSig (Object)`: authentication signature, which can be collected from calling await LitJsSdk.checkAndSignAuthMessage({chain}) which will call up your web 3 wallets for you to sign the message
 
-**Step B:**
+- `accessControlConditions (Array)`: we can call up the [Share Modal](https://developer.litprotocol.com/docs/littools/sharemodal/) to obtain it
 
-The symmetricKey is necessary to decrypt content and is meant to be private. Exposing the key to the public means anyone may be able to use it to decrypt private information. Luckily, with Lit Protocol, we can encrypt it and store it in the lit nodes, so that only the person who meets the access control conditions could retrieve the original symmetric key. In order to do this, we will need to pass in the following:
+After execution, we will be given:
 
-`chain (String)`: ethereum (see other [supported blockchains](https://developer.litprotocol.com/resources/supportedChains))
+- `ciphertext`: which is the encrypted image data
 
-`authSig (Object)`: authentication signature, which can be collected from calling await LitJsSdk.checkAndSignAuthMessage({chain}) which will call up your web 3 wallets for you to sign the message
-
-`accessControlConditions (Array)`: we can call up the [Share Modal](https://developer.litprotocol.com/docs/littools/sharemodal/) to obtain it
-
-**Step C:**
-
-Now that we have all 4 information, we can pass it to the `litNodeClient.saveEncryptionKey()` function. After execution, we will be given:
-
-`encryptedSymmetricKey`: the symmetric key has been encrypted using the network public key, and it can only be retrieved if we have all 4 information
+- `dataToEncryptHash`: the hash of the plaintext image data
 
 The code should look like:
 
@@ -83,28 +75,29 @@ const authSig = await LitJsSdk.checkAndSignAuthMessage({chain})
 
 // Visit here to understand how to encrypt static content
 // <https://developer.litprotocol.com/docs/LitTools/JSSDK/staticContent>
-const { encryptedString, symmetricKey } = await LitJsSdk.encryptString(fileInString);
+const { ciphertext, dataToEncryptHash } = await LitJsSdk.encryptString(
+	{
+		accessControlConditions,
+		authSig,
+		chain,
+		dataToEncrypt: fileInString,
+	},
+	litNodeClient,
+);
 
-const encryptedSymmetricKey = await litNodeClient.saveEncryptionKey({
-  accessControlConditions: accessControlConditions.accessControlConditions,
-  symmetricKey,
-  authSig,
-  chain,
-});
-
-console.log("encryptedString:", encryptedString);
+console.log("ciphertext:", ciphertext);
 ```
 
 ### Step 2. Sign and upload using Bundlr
 
 ![How Sign with Bundlr](/img/sign_bundlr.webp)
 
-The data we are going to store on Arweave will not only be the encrypted image data itself, but we will also include the `encryptedSymmetricKey` and `accessControlConditions` (remember the 4 pieces of information we need to encrypt the original symmetric key? we will need the same 4 information to decrypt as well) and package it as a single JSON data, and convert it to a string.
+The data we are going to store on Arweave will not only be the encrypted image data itself, but we will also include the `accessControlConditions` and `dataToEncryptHash` - we will package it as a single JSON data, and convert it to a string.
 
 ```js
 const packagedData = JSON.stringify({
-  encryptedData,
-  encryptedSymmetricKey,
+  ciphertext,
+  dataToEncryptHash,
   accessControlConditions,
 });
 ```
@@ -124,7 +117,7 @@ const bundlr = new Bundlr("<http://node1.bundlr.network>", "currencyName", "priv
 
 Once the instance is setup, we can create a transaction for our `packagedData`:
 
-```
+```js
 // create a Bundlr Transaction
 const tx = bundlr.createTransaction(packagedData)
 
@@ -167,46 +160,37 @@ Then, we will read the data back as text and parse it to JSON format, as it was 
 ```js
 // return
 {
-	'encryptedData': ...,
-	'encryptedSymmetricKey': {'':'', ...},
+	'ciphertext': ...,
+	'dataToEncryptHash': ...,
 	'accessControlConditions': [...],
 }
 ```
 
 
-Remember the 4 variables we need to get the `symmetricKey`? Two of them are already in the fetched data `encryptedSymmetricKey` and `accessControlConditions` so all we need now is the `authSig` and the correct chain.
+All we need now is the `authSig` and the correct chain.
 
 ```js
-// The 4 information we need 
 const chain = 'ethereum';
 
 const authSig = await LitJsSdk.checkAndSignAuthMessage({chain});
 
 const accessControlConditions = dataOnArweave.accessControlConditions;
-
-const encryptedSymmetricKey = LitJsSdk.uint8arrayToString(dataOnArweave.encryptedSymmetricKey, "base16");
 ```
 
 
 
-We can now get the original symmetric key:
+We can now decrypt the encrypted data.
 
 ```js
-const symmetricKey = await litNodeClient.getEncryptionKey({
-	accessControlConditions,
-	toDecrypt: encryptedSymmetricKey,
-	chain,
-	authSig,
-});
-```
-
-
-Now that we have the symmetric key, we can finally use it to decrypt the encrypted data.
-
-```js
-const decryptString = await LitJsSdk.decryptString(
-	dataURItoBlob(dataOnArweave.encryptedData),
-	symmetricKey
+const decryptedString = await LitJsSdk.decryptToString(
+  {
+    accessControlConditions,
+    ciphertext,
+    dataToEncryptHash,
+    authSig,
+    chain,
+  },
+  litNodeClient,
 );
 ```
 ![How to encrypt using Lit](/img/full_encryption.webp)

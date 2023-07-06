@@ -8,7 +8,7 @@ sidebar_position: 2
 
 ### 1. Does the SDK work with Typescript?
 
-Yes, you can find Lit JS SDK V2 [here](https://github.com/LIT-Protocol/js-sdk). The older JavaScript library [lit-js-sdk](https://github.com/LIT-Protocol/lit-js-sdk) has been deprecated as of March 2023.
+Yes, you can find the latest Lit JS SDK version [here](https://github.com/LIT-Protocol/js-sdk). The older JavaScript library [lit-js-sdk](https://github.com/LIT-Protocol/lit-js-sdk) has been deprecated as of March 2023.
 
 ### 2. Are there fees for using Lit? What about rate limits?
 
@@ -121,80 +121,25 @@ Yes! Check out this [sample project.](https://github.com/dOrgJelli/lit-protocol-
 
 ## Access Control & Encryption
 
-### 1. Why do I need to call saveSigningCondition() before getSignedToken()? Shouldn’t the former just return a JWT?
-
-The reason behind this separation is that `saveSigningCondition()` is a function that an admin/developer of a website will most likely call only once to set up the token-gating mechanism. The function `getSignedToken()` can then be called for every website visitor. You can view this as a 1-to-many relationship.
-
-### 2. Can I deploy my signing condition without including it in my codebase?
-
-Yes, by accessing the dev console on https://litgateway.com/ (right click, choose “inspect”, go to console tab), you can access the globally exposed LitJsSdk and paste your `saveSigningCondition()` code. This will automatically publish your resourceId to Lit nodes.
-
-### 3. If I call saveSigningCondition() twice with the exact same conditions, do two copies get created and stored by nodes?
-
-If the `resourceId` is exactly the same, the nodes will not hold a second copy. However, to deploy iterations of the resourceID, the “extraData” field is available to provide versioning (e.g., "extraData": "v2”). Any change in the `resourceId` object will create a new unique resourceId for the nodes to store.
-
-### 4. If I already have a connect/sign mechanism in place, can I just create my own authSig object and pass it to saveSigningCondition() instead of using checkAndSignAuthMessage()?
-
-Yes, you most certainly can; check out [this example](https://github.com/LIT-Protocol/hotwallet-signing-example/blob/main/sign.js). You MUST use an EIP-4361 compliant signature (aka Sign in with Ethereum).
-
-### 5. Can more than one condition be added for access control?
+### 1. Can more than one condition be added for access control?
 
 Yes! See [boolean logic](../accessControl/conditionTypes/booleanLogic) for examples.
 
-### 6. Can I delete or edit a published resourceId?
-
-No, you cannot. If the condition was saved with `"permanent": false` then you can edit the condition associated with the resourceId, but you cannot ever edit the resourceId itself. If you wanted to edit a resourceId, you could create a new one with the same conditions, and as long as the old condition was stored with `"permanent": false` then you could remove all the conditions and make that old resourceId impossible to use.
-
-### 7. Are encryptedSymmetricKey and encryptedString unique to a user or global for a piece of content that we've encrypted?
-
-Global for the piece of content. The only exception is when something is scoped to a user and you want to update the access control conditions, because you set permanent: false at the time of storing the ACC.  In that case, then the wallet address that stored the condition is able to update it, and only that wallet address can update it.
-
-### 8. LitJsSdk.encryptString(str) doesn’t print anything in the console?
-
-It’s because the encryptedString is returned a Blob & logging it in the console won’t print its value. For that you have to use `encryptedString.text()`.
-
-### 9. How to pass the result of LitJsSdk.encryptString(str) as a string param of a Solidity function?
-
-Since the result is a Blob, you have to convert it to a base64 string. Use the code snippet for that:
-
-```js
-// Convert blob to base64 to pass as a string to Solidity
-const blobToBase64 = (blob) => {
- const reader = new FileReader();
- reader.readAsDataURL(blob);
- return new Promise((resolve) => {
-   reader.onloadend = () => {
-     resolve(reader.result);
-   };
- });
-};
-const encryptedStringBase64 = await blobToBase64(encryptedStringBlob);
-```
-
-### 10. How to pass a string stored in a contract to LitJsSdk.decryptString()?
-
-Since the string is stored as a base64 string you have to convert it to a Blob to be passed to the `decryptString` function. Use the code snippet below for that:
-
-```js
-// Convert base64 to blob to pass in the litSDK decrypt function
-const encryptedStringBlob = await (await fetch(encryptedStringBase64)).blob();
-```
-
-### 11. What’s the maximum number of accessControlConditions allowed at once?
+### 2. What’s the maximum number of accessControlConditions allowed at once?
 
 30
 
-### 12. Where can I save the encryptedString & encryptedSymmetricKey?
+### 3. Where can I save the ciphertext & dataToEncryptHash?
 
 The Lit network doesn’t store these encrypted contents for you. You can store these anywhere you want; in a database, in an on-chain smart contract, IPFS, anywhere else you like.
 
-### 13. How to construct an accessControlCondition to authorize only a specific wallet address?
+### 4. How to construct an accessControlCondition to authorize only a specific wallet address?
 
-Check out the solution our [docs](https://developer.litprotocol.com/coreConcepts/accessControl/EVM/basicExamples#a-specific-wallet-address).
+Check out the solution [here](../accessControl/EVM/basicExamples#a-specific-wallet-address).
 
-### 14. How to use a time-lock based accessControlCondition?
+### 5. How to use a time-lock based accessControlCondition?
 
-Check out the solution our [docs](https://developer.litprotocol.com/coreConcepts/accessControl/EVM/timelock).
+Check out the solution [here](../accessControl/EVM/timelock).
 
 <br />
 

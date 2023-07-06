@@ -58,9 +58,7 @@ const sidebars = {
       label: "Concepts",
       collapsible: false,
       className: "category-not-collapsible",
-      items: [
-        "concepts/pkpsAsWallet",
-      ],
+      items: ["concepts/pkpsAsWallet"],
     },
     {
       type: "category",
@@ -68,6 +66,8 @@ const sidebars = {
       collapsible: true,
       items: [
         "accessControl/intro",
+        "accessControl/encryption",
+        "accessControl/jwt-auth",
         {
           type: "category",
           label: "Types of Conditions",
@@ -75,7 +75,6 @@ const sidebars = {
           items: [
             "accessControl/conditionTypes/unifiedAccessControlConditions",
             "accessControl/conditionTypes/booleanLogic",
-            "accessControl/conditionTypes/updateableConditions",
             "accessControl/conditionTypes/litActionConditions",
           ],
         },
@@ -117,9 +116,7 @@ const sidebars = {
             id: "pkp/authHelpers/overview",
           },
           collapsed: true,
-          items: [
-            "pkp/authHelpers/addRemoveAuthMethods",
-          ],
+          items: ["pkp/authHelpers/addRemoveAuthMethods"],
         },
         "pkp/pkpsAndActions",
         "pkp/usage",
@@ -175,6 +172,7 @@ const sidebars = {
           collapsed: true,
           items: [
             "SDK/Explanation/encryption",
+            "SDK/Explanation/jwt-auth",
             {
               type: "category",
               label: "Authentication",
@@ -233,7 +231,6 @@ const sidebars = {
               items: [
                 "ToolsAndExamples/Tools/accessControl",
                 "ToolsAndExamples/Tools/shareModal",
-                "ToolsAndExamples/Tools/jwtverify",
                 "ToolsAndExamples/Tools/pkpexplorer",
               ],
             },
@@ -273,8 +270,6 @@ const sidebars = {
                     "ToolsAndExamples/SDKExamples/OnchainMetadata/polygonMumbai",
                   ],
                 },
-                "ToolsAndExamples/SDKExamples/dynamicContent",
-                "ToolsAndExamples/SDKExamples/signedChainData",
               ],
             },
           ],

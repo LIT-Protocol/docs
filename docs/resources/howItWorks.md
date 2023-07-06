@@ -49,14 +49,7 @@ This feature empowers individuals to securely store data on the open Web and off
 
 Lit exclusively manages and provisions decryption keys, remaining entirely impartial to the storage provider. This means that **Lit does not store any encrypted content directly**, and developers integrating this service can choose a storage provider of their preference. Options include blockchains like Ethereum, open storage networks such as [IPFS](https://spark.litprotocol.com/encrypttoipfs/) or [Ceramic](https://github.com/LIT-Protocol/CeramicIntegration), or centralized providers like AWS or Google Cloud.
 
-The comprehensive process for encrypting content with Lit is as follows:
-
-1. Alice begins by generating a symmetric key and encrypting some content with it.
-2. Alice then encrypts the symmetric key using the Lit BLS key, where each node holds a share.
-3. Alice specifies the conditions under which, or to whom, the network should supply the decryption shares for the symmetric key to.
-4. When Bob, a separate user, attempts to access the content encrypted by Alice, they connect to each node so that the network can verify whether they meet the requisite conditions using a signed message (or alternatively, by running the defined Lit Action).
-5. Each node independently confirms the condition and provides a decryption share to Bob, assuming the conditions are met.
-6. Once Bob has gathered more than two-thirds of the decryption shares (validating that a majority has verified the condition), they can decrypt Alice's content on their device using the decrypted symmetric key.
+The comprehensive process for encrypting content with Lit is outlined [here](../accessControl/encryption#high-level-overview).
 
 ![accessControl](/img/AccessControl.png)
 

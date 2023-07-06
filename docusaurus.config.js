@@ -23,24 +23,24 @@ const config = {
       ({
         docs: {
           breadcrumbs: false,
-          lastVersion: "current",
+          lastVersion: "2.0",
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           editUrl: "https://github.com/LIT-Protocol/docs/edit/main/website/",
           routeBasePath: "/",
           versions: {
-            '2.0': {
+            "2.0": {
               badge: false,
-              label: 'v2.x.x',
-              path: 'v2',
-              banner: 'unmaintained'
+              label: "v2.x.x",
+              path: "v2",
+              banner: "none",
             },
             current: {
               badge: false,
-              label: 'v3.x.x',
-              path: 'v3',
-              banner: 'none'
-            }
+              label: "v3.x.x",
+              path: "v3",
+              banner: "unreleased",
+            },
           },
         },
         theme: {
@@ -56,23 +56,23 @@ const config = {
 
   plugins: [
     [
-      'content-docs',
-      ({
-        id: 'learningLab',
-        path: 'learningLab',
-        routeBasePath: 'learningLab',
+      "content-docs",
+      {
+        id: "learningLab",
+        path: "learningLab",
+        routeBasePath: "learningLab",
         sidebarPath: require.resolve("./sidebarsLearningLab.js"),
-      }),
+      },
     ],
     [
-      'content-docs',
-      ({
-        id: 'Ecosystem',
-        path: 'Ecosystem',
-        routeBasePath: 'Ecosystem',
+      "content-docs",
+      {
+        id: "Ecosystem",
+        path: "Ecosystem",
+        routeBasePath: "Ecosystem",
         sidebarPath: require.resolve("./sidebarsEcosystem.js"),
-      })
-    ]
+      },
+    ],
   ],
 
   themeConfig:
@@ -86,30 +86,30 @@ const config = {
         },
         items: [
           {
-            type: 'doc',
-            position: 'left',
-            docId: 'intro/overview',
-            label: 'Docs',
+            type: "doc",
+            position: "left",
+            docId: "intro/overview",
+            label: "Docs",
           },
           {
-            to: 'learningLab/intro',
-            position: 'left',
-            label: 'Learning Lab',
+            to: "learningLab/intro",
+            position: "left",
+            label: "Learning Lab",
           },
           {
-            to: 'Ecosystem/litGrants',
-            position: 'left',
-            label: 'Ecosystem',
+            to: "Ecosystem/litGrants",
+            position: "left",
+            label: "Ecosystem",
           },
           {
-            type: 'docsVersionDropdown',
-            position: 'right'
+            type: "docsVersionDropdown",
+            position: "right",
           },
           {
             href: "https://github.com/LIT-Protocol/js-sdk",
             position: "right",
-            className: 'header-github-link',
-            'aria-label': 'Lit JS SDK V2 GitHub repository',
+            className: "header-github-link",
+            "aria-label": "Lit JS SDK GitHub repository",
           },
         ],
       },

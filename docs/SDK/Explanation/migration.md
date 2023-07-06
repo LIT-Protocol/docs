@@ -5,218 +5,211 @@ sidebar_position: 2
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrating to V2
+# Migrating From V2 To V3
 
-`lit-js-sdk` is now considered deprecated and will only receive security updates. It is strongly recommended to migrate to the new **Lit JS SDK V2** for continued support and new features.
+The **Lit JS SDK V3** replaces the existing access control condition based encryption and JWT signing processes with new cryptographic primitives to offer a more secure and seamless user experience.
 
-The **Lit JS SDK V2** has been entirely revamped from the earlier `lit-js-sdk` and completely rewritten in TypeScript. This latest V2 SDK is much more modular and easier to use, and has a noticeably smaller bundle size.
+Refer to the [changelog](https://github.com/LIT-Protocol/js-sdk/blob/master/CHANGELOG.md) for more details.
 
-## Installing the V2 SDK
+## Per-Package Changes
+
+### `@lit-protocol/bls-sdk`
 
 :::note
-You should use **at least Node v16.16.0** because of the need for the **webcrypto** library.
+
+You should only use this package if you know what you are doing. Otherwise, please use `@lit-protocol/encryption` as a higher-level helper library.
+
 :::
 
-Get started with **Lit JS SDK V2** by installing the package best suited for your environment.
+#### Encryption
 
-Browser & Node environments:
+Previously in V2, you would have to:
 
-```bash
-npm install @lit-protocol/lit-node-client
+- Generate a symmetric key
+- Encrypt private data using this symmetric key
+- Encrypt this symmetric key using the BLS network key
+- Save this encrypted symmetric key with some access control conditions in the BLS network
+
+Now in V3, you can perform client-side encryption using the `encrypt` method:
+
+```javascript
+const publicKey =
+  '8e29447d7b0666fe41c357dbbdbdac0ac8ac973f88439a07f85fa31fa6fa3cea87c2eaa8b367e1c97764800fb5636892';
+
+const secretMessage = new Uint8Array([
+  240, 23, 185, 6, 87, 33, 173, 216, 53, 84, 80, 135, 190, 16, 58, 85, 97, 75,
+  3, 192, 215, 82, 217, 5, 40, 65, 2, 214, 40, 177, 53, 150,
+]);
+
+const identityParam = new Uint8Array([
+  101, 110, 99, 114, 121, 112, 116, 95, 100, 101, 99, 114, 121, 112, 116, 95,
+  119, 111, 114, 107, 115,
+]);
+
+const ciphertext = blsSdk.encrypt(
+  publicKey,
+  uint8arrayToString(secretMessage, 'base64'),
+  uint8arrayToString(identityParam, 'base64')
+);
 ```
 
-Node environment:
+#### Decryption
 
-```bash
-npm install @lit-protocol/lit-node-client-nodejs
+Previously in V2, you would have to:
+
+- Make a request to the BLS network for decryption shares
+- Combine decryption shares using `blsSdk.combine_decryption_shares` to get a decryption key
+- Use this decryption key to decrypt the ciphertext
+
+Now in V3, you can use the `verify_and_decrypt_with_signature_shares` method after obtaining BLS network signature shares:
+
+```javascript
+const privateData = blsSdk.decrypt_with_signature_shares(
+  ciphertext,
+  sigShares
+);
 ```
 
-If you already have `lit-js-sdk` in your app, all you need to do is remove the old package and then update any import statement to reference the new SDK like so:
+The signature shares must be obtained via the new BLS network endpoint.
 
-```bash
-import * as LitJsSdk from '@lit-protocol/lit-node-client';
+#### Signature Verification
+
+Previously in V2, you would have to call the `verify` method.
+
+Now in V3, you can use the `verify_signature` method. The signature must be combined using signature shares obtained via the new BLS network endpoint.
+
+### `@lit-protocol/crypto`
+
+:::note
+
+You should only use this package if you know what you are doing. Otherwise, please use `@lit-protocol/encryption` as a higher-level helper library.
+
+:::
+
+#### Encryption
+
+Previously in V2, you would have to:
+
+- Generate a symmetric key
+- Encrypt private data using this symmetric key
+- Encrypt this symmetric key using the BLS network key
+- Save this encrypted symmetric key with some access control conditions in the BLS network
+
+Now in V3, you can perform client-side encryption using the `encrypt` method:
+
+```javascript
+const publicKey =
+  '8e29447d7b0666fe41c357dbbdbdac0ac8ac973f88439a07f85fa31fa6fa3cea87c2eaa8b367e1c97764800fb5636892';
+
+const secretMessage = new Uint8Array([
+  240, 23, 185, 6, 87, 33, 173, 216, 53, 84, 80, 135, 190, 16, 58, 85, 97, 75,
+  3, 192, 215, 82, 217, 5, 40, 65, 2, 214, 40, 177, 53, 150,
+]);
+
+const identityParam = new Uint8Array([
+  101, 110, 99, 114, 121, 112, 116, 95, 100, 101, 99, 114, 121, 112, 116, 95,
+  119, 111, 114, 107, 115,
+]);
+
+const ciphertext = encrypt(publicKey, secretMessage, identityParam);
 ```
 
-If you are using TypeScript, be sure to install the `@lit-protocol/types` package. Check out the list of available packages [here]([https://github.com/LIT-Protocol/js-sdk/tree/master#packages](https://github.com/LIT-Protocol/js-sdk/tree/master#packages)).
+#### Decryption
+
+Previously in V2, you would have to:
+
+- Make a request to the BLS network for decryption shares
+- Combine decryption shares using `combineBlsShares` to get a decryption key
+- Use this decryption key to decrypt the ciphertext using `decryptWithSymmetricKey`
+
+Now in V3, you can use the `verifyAndDecryptWithSignatureShares` method after obtaining BLS network signature shares:
+
+```javascript
+const ciphertext =
+  'l9a/01WDJB/euKxtbWcuQ8ez/c9eZ+jQryTHZVLN0kfd7XHoLs6FeWUVmk89ovQGkQJnnFDKjq6kgJxvIIrxXd9DaGuRBozLdA1G9Nk413YhTEqsENuHU0nSa4i6F912KltE15sbWKpDfPnZF6CA2UKBAw==';
+const signatureShares = [
+  '01b2b44a0bf7184f19efacad98e213818edd3f8909dd798129ef169b877d68d77ba630005609f48b80203717d82092a45b06a9de0e61a97b2672b38b31f9ae43e64383d0375a51c75db8972613cc6b099b95c189fd8549ed973ee94b08749f4cac',
+  '02a8343d5602f523286c4c59356fdcfc51953290495d98cb91a56b59bd1a837ea969cc521382164e85787128ce7f944de303d8e0b5fc4becede0c894bec1adc490fdc133939cca70fb3f504b9bf7b156527b681d9f0619828cd8050c819e46fdb1',
+  '03b1594ab0cb56f47437b3720dc181661481ca0e36078b79c9a4acc50042f076bf66b68fbd12a1d55021a668555f0eed0a08dfe74455f557b30f1a9c32435a81479ca8843f5b74b176a8d10c5845a84213441eaaaf2ba57e32581584393541c5aa',
+];
+
+const plaintext = verifyAndDecryptWithSignatureShares(
+  publicKey,
+  identityParam,
+  ciphertext,
+  signatureShares.map((s) => ({
+    ProofOfPossession: s,
+  }))
+);
+```
+
+### `@lit-protocol/encryption`
+
+All of the methods now require `ILitNodeClient` in the function argument.
+
+### `@lit-protocol/lit-node-client` and `lit-node-client-nodejs`
+
+All of the functionality for encrypting and decrypting private data is now implemented by the `encrypt` and `decrypt` methods.
+
+All of the functionality for obtaining a BLS network signature over a JWT is now implemented by the `getSignedToken` method.
 
 ## Notable Changes
 
-**Lit JS SDK V2** includes some breaking changes from the latest version of the old `lit-js-sdk`.
+V3 includes the following breaking changes from V2.
 
-### Updating Imports
+### Supported Lit Networks
 
-Some methods have been moved to separate packages and must be accessed from those packages. Below are lists of methods underneath their respective packages.
+Both `jalapeno` and `serrano` will no longer be supported. `cayenne` is the only supported network and will be the new default moving forward.
 
- `@lit-protocol/crypto` 
+### Types
 
-- decryptWithSymmetricKey
-- encryptWithSymmetricKey
-- importSymmetricKey
-- generateSymmetricKey
+#### Removed Types
 
-`@lit-protocol/misc-browser` 
+- `EncryptedString`
+- `ThreeKeys`
+- `JsonStoreSigningRequest`
+- `JsonSaveEncryptionKeyRequest`
 
-- fileToDataUrl
-- injectViewerIFrame
-- downloadFile
+#### Updated Types
 
-`@lit-protocol/access-control-conditions`
+- `DecryptZipFileWithMetadata`
+- `VerifyJWTProps`
+- `IJWT`
+- `SuccessNodePromises`
+- `DecryptFromIpfsProps`
+- `LIT_NETWORKS_KEYS`
 
-- hashUnifiedAccessControlConditions
+### Methods
 
-`@lit-protocol/misc` 
+#### Removed Methods
 
-- getVarType
-- checkType
-- convertLitActionsParams
-- decimalPlaces
+The following methods have been removed from `LitNodeClientNodeJs` and `LitNodeClient`:
 
-Constants have been moved to `@lit-protocol/constants`, which include:
+- `getChainDataSigningShare`
+- `storeSigningConditionWithNode`
+- `saveSigningCondition`
+- `getSigningShare`
+- `getDecryptions`
+- `getSignedChainDataToken`
 
-- LIT_CHAINS
-- LIT_SVM_CHAINS
-- LIT_COSMOS_CHAINS
-- ALL_LIT_CHAINS
+#### Updated Methods
 
-The following types are now declared in `@lit-protocol/types`:
+The following methods have their interfaces updated in `LitNodeClientNodeJs` and `LitNodeClient`:
 
-- LITChain
-- LITEVMChain
-- LITSVMChain
-- LITCosmosChain
-- CallRequest
+- `combineSharesAndGetJWT`
 
-<br/>
+THe following methods have their names updated in `@lit-protocol/encryption` and `@lit-protocol/lit-node-client-nodejs`:
 
-### Changed Methods
+- `decryptFile` becomes `decryptToFile`
+- `decryptString` becomes `decryptToString`
+- `decryptZip` becomes `decryptToZip`
 
-**signAndSaveAuthMessage**
+All method interfaces in `@lit-protocol/encryption` have been updated.
 
-<table>
-<tr>
-<td> Old V1 </td> <td> New V2 </td>
-</tr>
-<tr>
-<td>
+## What's Not Migrated?
 
-```js
-import * as LitJsSdk from 'lit-js-sdk';
-
-const authSig = await LitJsSdk.signAndSaveAuthMessage({
-  // ...
-});
-```
-
-</td>
-<td>
-
-```js
-import { ethConnect } from '@lit-protocol/auth-browser';
-
-const authSig = await ethConnect.signAndSaveAuthMessage({
-  // ...
-});
-```
-
-Note: You can also import `cosmosConnect` and `solConnect` for Cosmos and Solana respectively.
-
-</td>
-</tr>
-</table>
-<br/>
-
-**disconnectWeb3**
-
-<table>
-<tr>
-<td> Old V1 </td> <td> New V2 </td>
-</tr>
-<tr>
-<td>
-
-```js
-import * as LitJsSdk from 'lit-js-sdk';
-
-LitJsSdk.disconnectWeb3();
-```
-
-</td>
-<td>
-
-```js
-import { ethConnect } from '@lit-protocol/auth-browser';
-
-ethConnect.disconnectWeb3();
-```
-
-</td>
-</tr>
-</table>
-<br/>
-
-
-**executeJs**
-
-`authSig` is a required parameter.
-
-**getSignedToken**
-
-This method accepts `iat` and `exp` as optional parameters.
-
-**saveEncryptionKey**
-
-The optional `permanent` parameters are now type `number`.
-
-**saveSigningCondition**
-
-The optional `permanent` parameters are now type `number`.
-
-**signSessionKey**
-
-The parameter `chain` is now `chainId` and type `number`.
-
-<br/>
-
-### Changed Types
-
-**AccessControlCondition** is now either `AccsRegularParams` or `AccsDefaultParams` and referenced in `AccessControlConditions`.
-
-<br/>
-
-**EVMContractCondition** is now `AccsEVMParams` and referenced in `EvmContractConditions`.
-
-<br/>
-
-**SolRpcCondition** is now `AccsSOLV2Params` , which now includes more properties like `pdaKey`, `pdaInterface`, and `pdaParams`. `AccsSOLV2Params` is referenced in `SolRpcConditions`.
-
-<br/>
-
-**CosmosCondition** is now `ConditionItem`.
-
-<br/>
-
-**ResourceId** is now `JsonSigningResourceId`.
-
-<br/>
-
-### Deprecated Methods
-
-These methods are no longer supported:
-
-- signPKPTransaction
-- sendPKPTransaction
-- findLITs
-- sendLIT
-- createHtmlLIT
-- mintLIT
-- unlockLitWithKey
-- toggleLock
-- encryptWithPubKey
-- decryptWithPrivKey
-- lookupNameServiceAddress
-- metadataForFile
-- configure
+All of the access control conditions that have been "stored" in the `jalapeno` and `serrano` networks **will not be migrated** but we will continue to maintain support for them. If you wish to continue using these access control conditions for encryption or signing JWTs, please continue using the V2 SDK.
 
 ## Changelog
 
-Changes to the **Lit JS SDK V2** will be tracked in the [changelog](https://github.com/LIT-Protocol/js-sdk/blob/master/CHANGELOG.md).
+Changes to the **Lit JS SDK V3** will be tracked in the [changelog](https://github.com/LIT-Protocol/js-sdk/blob/master/CHANGELOG.md).

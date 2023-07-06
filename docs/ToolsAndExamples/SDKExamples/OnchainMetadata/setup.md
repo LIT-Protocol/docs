@@ -29,12 +29,12 @@ npx hardhat run scripts/deploy.js --network localhost
 
 Now that we have our hardhat working & the sample smart contract is deployed correctly, let's setup our Lit SDK, which we will use to encrypt & decrypt the metadata.
 
-## Lit JS SDK V2
+## Lit JS SDK
 
-You can use the Lit JS SDK V2 to encrypt and store any static content. This could be a file, a string, or anything that won't change (we're going to encrypt an input string). You have to store the content and metadata yourself (we're storing that on a blockchain network), but Lit will store who is allowed to decrypt it and enforce this (aka key management).
+You can use the Lit JS SDK to encrypt and store any static content. This could be a file, a string, or anything that won't change (we're going to encrypt an input string). You have to store the content and metadata yourself (we're storing that on a blockchain network), but Lit will store who is allowed to decrypt it and enforce this (aka key management).
 
 
-1. Install Lit JS SDK V2:
+1. Install Lit JS SDK:
 ```js
 yarn add @lit-protocol/lit-node-client
 ```

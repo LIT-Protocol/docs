@@ -201,3 +201,8 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
     padding-left: 8px;
   }
 }
+
+table {
+  width:100%;
+  display: table;
+}

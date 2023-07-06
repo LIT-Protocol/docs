@@ -164,6 +164,7 @@ const sidebars = {
       className: "category-not-collapsible",
       items: [
         "SDK/intro",
+        "SDK/feature-matrix",
         "SDK/Explanation/installation",
         "SDK/Explanation/migration",
         {

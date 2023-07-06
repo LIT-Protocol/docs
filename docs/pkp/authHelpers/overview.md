@@ -42,7 +42,7 @@ After a PKP is generated and assigned an auth method, you can pass the AuthMetho
 
 The PKP public key is required to initialize a new 'wallet' object when using [Lit and WalletConnect](https://github.com/LIT-Protocol/pkp-walletconnect/blob/main/components/CallRequest.js#L44) together.
 
-You will also need the PKP public key in order to generate a [sessionSig](/SDK/Explanation/authentication/sessionSigs) which is required to communicate with the Lit nodes, as seen in this [example](https://github.com/LIT-Protocol/oauth-pkp-signup-example/blob/main/src/App.tsx#L422). 
+You will also need the PKP public key in order to generate a [sessionSig](../../SDK/Explanation/authentication/sessionSigs/intro) which is required to communicate with the Lit nodes, as seen in this [example](https://github.com/LIT-Protocol/oauth-pkp-signup-example/blob/main/src/App.tsx#L422). 
 
 ## Custom Auth
 
@@ -52,9 +52,9 @@ If you decide to use your own auth, you can still use the PKPPermissions contrac
 
 ## How does authentication differ from authorization?
 
-Authorization refers to an [auth signature](/SDK/Explanation/authentication/authSig), which is **always required** to communicate with the Lit nodes and make a request to the network. It doesn't matter if you are decrypting a piece of data or calling a Lit Action, an auth sig will always be required.
+Authorization refers to an [auth signature](../../SDK/Explanation/authentication/authSig), which is **always required** to communicate with the Lit nodes and make a request to the network. It doesn't matter if you are decrypting a piece of data or calling a Lit Action, an auth sig will always be required.
 
-In the case that a user doesn’t own a wallet (and therefore cannot produce a valid AuthSig), they can present their alternative auth method to the Lit SDK which will convert it into a “compliant” AuthSig. This is documented in our [docs](/SDK/Explanation/authentication/sessionSigs#obtaining-the-sessionsig-when-user-doesnt-have-a-wallet). The flow is as follows:
+In the case that a user doesn’t own a wallet (and therefore cannot produce a valid AuthSig), they can present their alternative auth method to the Lit SDK which will convert it into a “compliant” AuthSig. This is documented in our [docs](../../SDK/Explanation/authentication/sessionSigs/authMethods/overview). The flow is as follows:
 
 1. Present a PKP public key and an auth token from an authorized auth method (like a Google OAuth JWT), as well as a session public key for a local key-pair that is generated and stored locally.
 2. The PKP is used to sign a SIWE signature which authorizes the session key-pair going forward.

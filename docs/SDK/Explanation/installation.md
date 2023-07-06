@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 :::note
 💡 **Important**
 
-`lit-js-sdk` is now deprecated. If you are using `lit-js-sdk`, you should migrate to the new **Lit JS SDK V2** for continued support and new features. Check out the migration guide [here](/SDK/Explanation/migration).
+`lit-js-sdk` is now deprecated. If you are using `lit-js-sdk`, you should migrate to the new **Lit JS SDK V2** for continued support and new features. Check out the migration guide [here](../../SDK/Explanation/migration).
 :::
 
 ## Installing and Importing V2 SDK

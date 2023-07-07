@@ -2,22 +2,16 @@
 sidebar_position: 1
 ---
 
-# State of the Network
+# Lit Networks
 
-## Jalapeno Mainnet - Default network
+You can set your Lit Network in the LitNodeClient config of the Lit SDK, by passing the network name to the `litNetwork` parameter.
 
-Right now, Lit Protocol is in an alpha mainnet state (the "Jalapeno Mainnet") and we are running all the nodes. It is unaudited and the nodes are not distributed yet. There are various security improvements to be made, and cryptoeconomic guarantees as a result of staking are not in place yet. Data is persistent and we plan to support this network in perpetuity. We are in the active process of decentralizing and working towards a decentralized mainnet release. The Jalapeno network is the default. You can also specify this network via the `litNetwork: "jalapeno"` option in your `LitNodeClient` config.
-
-### Uptime and Status
-
-https://jalapeno-status.litprotocol.com/
-
-## Serrano Developer Preview
-
-The Lit Actions and PKP network (the "Serrano Testnet") is in a developer preview state.
-
-The data on the Serrano Testnet is not persistent and may be erased at any time. Therefore, we do not recommend storing anything of value on the Serrano Testnet. You may use the Serrano testnet by installing the latest `@lit-protocol/lit-node-client` package and specifying `litNetwork: "serrano"` in your `LitNodeClient` config. You can find more info in the [Lit Actions](/LitActions/intro) sections of the docs.
-
-### Uptime and Status
-
-https://serrano-status.litprotocol.com/
+| Name     | Supported Algorithms | Supported Features               | ETA            | Description                                                                                   | Status                                   |
+| -------- | -------------------- | -------------------------------- | -------------- | --------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| Jalapeno | BLS                  | Encryption                       | Live Now       | Centralized alpha network. Persistent, so keys will not be deleted.                           | https://jalapeno-status.litprotocol.com/ |
+| Serrano  | BLS, ECDSA           | Encryption, Signing, Lit Actions | Live Now       | Deprecated centralized test network. Not persistent. Will likely be turned off in 2024.       | https://serrano-status.litprotocol.com/  |
+| Cayenne  | BLS, ECDSA           | Encryption, Signing, Lit Actions | July 2023      | Centralized test network. No persistency guarantees, but will try to keep keys if possible.   | Coming Soon                              |
+| Manzano  | ECDSA                | Signing                          | July 2023      | Decentralized test network. No persistency guarantees, but will try to keep keys if possible. | Coming Soon                              |
+| Habanero | ECDSA                | Signing                          | September 2023 | Decentralized main network. Persistent, so keys will not be deleted.                          | Coming Soon                              |
+| Datil    | BLS                  | Encryption                       | October 2023   | Decentralized main network. Persistent, so keys will not be deleted.                          | Coming Soon                              |
+| Naga     | ECDSA                | Signing, Lit Actions             | November 2023  | Decentralized main network. Persistent, so keys will not be deleted                           | Coming Soon                              |

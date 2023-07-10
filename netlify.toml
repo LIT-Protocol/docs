@@ -328,13 +328,13 @@ force = false
 
 [[redirects]]
   from = "/litGrants"
-  to = "/Ecosystem/litGrants"
+  to = "/ecosystem/litGrants"
   status = 302
   force = false
 
 [[redirects]]
   from = "/Introduction/whatIsLitProtocol#join-the-community"
-  to = "/Ecosystem/community"
+  to = "/ecosystem/community"
   status = 302
   force = false
 

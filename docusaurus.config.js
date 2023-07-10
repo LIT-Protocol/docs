@@ -59,9 +59,9 @@ const config = {
       "content-docs",
       {
         id: "learningLab",
-        path: "learningLab",
-        routeBasePath: "learningLab",
-        sidebarPath: require.resolve("./sidebarsLearningLab.js"),
+        path: "learning-lab",
+        routeBasePath: "learning-lab",
+        sidebarPath: require.resolve("./sidebars-learning-lab.js"),
       },
     ],
     [
@@ -70,7 +70,7 @@ const config = {
         id: "ecosystem",
         path: "ecosystem",
         routeBasePath: "ecosystem",
-        sidebarPath: require.resolve("./sidebarsEcosystem.js"),
+        sidebarPath: require.resolve("./sidebars-ecosystem.js"),
       },
     ],
   ],
@@ -92,12 +92,12 @@ const config = {
             label: "Docs",
           },
           {
-            to: "learningLab/intro",
+            to: "learning-lab/intro",
             position: "left",
             label: "Learning Lab",
           },
           {
-            to: "ecosystem/litGrants",
+            to: "ecosystem/lit-grants",
             position: "left",
             label: "ecosystem",
           },

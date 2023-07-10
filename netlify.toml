@@ -328,7 +328,7 @@ force = false
 
 [[redirects]]
   from = "/litGrants"
-  to = "/ecosystem/litGrants"
+  to = "/ecosystem/lit-grants"
   status = 302
   force = false
 

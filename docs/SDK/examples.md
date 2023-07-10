@@ -70,3 +70,7 @@ https://github.com/LIT-Protocol/MintLIT
 ## Access Control List Smart Contract to create an authorization system
 
 - An example of an ACL smart contract that you could easily use with Lit's EVM Custom Contract Conditions to create a flexible and powerful authorization system: https://github.com/masaun/ACL-smart-contract
+
+## Minimal Wallet-less PKP Auth
+
+An example of how to use Google OAuth or WebAuthn to register, mint and authenticate a PKP: https://github.com/LIT-Protocol/oauth-pkp-signup-example

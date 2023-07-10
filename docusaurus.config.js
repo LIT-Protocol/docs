@@ -67,9 +67,9 @@ const config = {
     [
       "content-docs",
       {
-        id: "Ecosystem",
-        path: "Ecosystem",
-        routeBasePath: "Ecosystem",
+        id: "ecosystem",
+        path: "ecosystem",
+        routeBasePath: "ecosystem",
         sidebarPath: require.resolve("./sidebarsEcosystem.js"),
       },
     ],
@@ -97,9 +97,9 @@ const config = {
             label: "Learning Lab",
           },
           {
-            to: "Ecosystem/litGrants",
+            to: "ecosystem/litGrants",
             position: "left",
-            label: "Ecosystem",
+            label: "ecosystem",
           },
           {
             type: "docsVersionDropdown",
@@ -156,10 +156,6 @@ const config = {
                 label: "Support",
                 to: "/support",
               },
-              // {
-              //   label: "JS SDK",
-              //   to: "/docs/SDK/intro",
-              // },
             ],
           },
         ],

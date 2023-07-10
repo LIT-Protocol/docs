@@ -2,6 +2,6 @@
   {
     "sidebarPosition": 5,
     "copyFrom": "https://raw.githubusercontent.com/LIT-Protocol/getlit/main/README.md",
-    "pasteTo": "/docs/ToolsAndExamples/Tools/getlitCli.md"
+    "pasteTo": "/docs/tools-and-examples/Tools/getlit-cli.md"
   }
 ]

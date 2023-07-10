@@ -10,7 +10,7 @@ export default function CoreConceptsSection({ title, className }) {
       <Card
         title="🔐 Access Control & Encryption"
         description="Learn about setting on-chain conditions to manage access to your private data."
-        to="/accessControl/intro"
+        to="/access-control/intro"
       />
       <Card
         title="📡 Programmable Key Pairs"
@@ -20,12 +20,12 @@ export default function CoreConceptsSection({ title, className }) {
       <Card
         title="📄 Lit Actions"
         description="Get started with Lit Actions to learn how to assign automated signing logic to PKPs"
-        to="/LitActions/intro"
+        to="/lit-actions/intro"
       />
       <Card
         title="💳 Distributed Cloud Wallets"
         description="Learn how you can leverage PKPs to create MPC wallets with support for Web2 authentication."
-        to="/concepts/pkpsAsWallet"
+        to="/concepts/pkps-as-wallet"
       />
       <Card
         title="🧩 Use Cases"

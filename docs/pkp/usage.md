@@ -1,12 +1,12 @@
 # Using PKPs as Wallets
 
-With PKPs, you can build secure, customizable [MPC wallets](../resources/pkpsAsWallet) that offer intuitive onboarding experiences without the pain of private key management.
+With PKPs, you can build secure, customizable [MPC wallets](../resources/pkps-as-wallet) that offer intuitive onboarding experiences without the pain of private key management.
 
 The [`@lit-protocol/pkp-ethers` package](https://github.com/LIT-Protocol/js-sdk/tree/master/packages/pkp-ethers) provides a familiar wallet interface that makes it easy to sign data, send transactions, and handle Ethereum JSON RPC requests using PKPs.
 
 ## Initialize `PKPEthersWallet`
 
-`PKPEthersWallet` must be initialized with an `AuthSig` or a `SessionSig` in order to authorize signing requests. To learn how to generate these signatures, refer to the [Authentication section](../SDK/Explanation/authentication/overview).
+`PKPEthersWallet` must be initialized with an `AuthSig` or a `SessionSig` in order to authorize signing requests. To learn how to generate these signatures, refer to the [Authentication section](../sdk/explanation/authentication/overview).
 
 ```js
 import { PKPEthersWallet } from "@lit-protocol/pkp-ethers";

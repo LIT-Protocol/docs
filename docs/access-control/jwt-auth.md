@@ -6,7 +6,7 @@ Dapp developers can declare which URLs require certain access control conditions
 
 The BLS network attest to a user meeting certain access control conditions by checking that they satisfy these conditions before signing a JWT with claims containing these access control conditions.
 
-Refer to the [SDK docs](../SDK/Explanation/encryption) for more details and code examples.
+Refer to the [SDK docs](../sdk/explanation/encryption) for more details and code examples.
 
 ## High-Level Overview
 

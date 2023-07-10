@@ -13,7 +13,7 @@ Some examples of applications that can (and have) been built harnessing this fun
 
 ### Web3 Apps with Private Data
 
-Introduce privacy to decentralized applications. Use Lit to securely store private and permissioned data on the open web. To get started with an integration, use our JavaScript [SDK](../SDK/intro).
+Introduce privacy to decentralized applications. Use Lit to securely store private and permissioned data on the open web. To get started with an integration, use our JavaScript [SDK](../sdk/intro).
 
 Examples:
 
@@ -38,7 +38,7 @@ Use on-chain credentials to gate access to your favorite web2 applications and d
 
 ### Unlockable NFTs
 
-Using [HTML NFTs](../ToolsAndExamples/SDKExamples/HTMLNfts), you can create locked content that only owners of the NFT have access to. This includes dynamic content, like websites or metaverse spaces. 
+Using [HTML NFTs](../tools-and-examples/sdk-examples/HTMLNfts), you can create locked content that only owners of the NFT have access to. This includes dynamic content, like websites or metaverse spaces. 
 
 Here’s an [example](https://twitter.com/LitProtocol/status/1504630741849853954) using our Lit Genesis Canvas NFT. Only holders can access the private canvas site linked within!
 
@@ -108,7 +108,7 @@ Improve the state of [web3 gaming](https://spark.litprotocol.com/lit-and-web3-ga
 
 More ideas!
 
-- A certification system utilizing [conditional signing](LitActions/workingWithActions/conditionalSigning).
+- A certification system utilizing [conditional signing](lit-actions/working-with-actions/conditional-signing).
 
 
 ### You can find even more examples, ideas, and resources [here](https://github.com/LIT-Protocol/awesome/blob/main/README.md).

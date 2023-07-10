@@ -8,10 +8,10 @@ You can mix and match EVM Basic Conditions, EVM Custom Contract Conditions, Sola
 
 For each condition, you must add a `conditionType` field that specifies the type of condition. The `conditionType` field can be one of the following:
 
-- For [EVM Basic Conditions](../../accessControl/EVM/basicExamples), also known as classic "Access Control Conditions", use the string `evmBasic`
-- For [EVM Custom Contract Conditions](../../accessControl/EVM/customContractCalls), use the string `evmContract`
-- For [Solana RPC Conditions](../../accessControl/otherChains/solRpcConditions), use the string `solRpc`
-- For [Cosmos or Kyve Conditions](../../accessControl/otherChains/cosmosConditions), use the string `cosmos`
+- For [EVM Basic Conditions](../../access-control/evm/basic-examples), also known as classic "Access Control Conditions", use the string `evmBasic`
+- For [EVM Custom Contract Conditions](../../access-control/evm/custom-contract-calls), use the string `evmContract`
+- For [Solana RPC Conditions](../../access-control/other-chains/sol-rpc-conditions), use the string `solRpc`
+- For [Cosmos or Kyve Conditions](../../access-control/other-chains/cosmos-conditions), use the string `cosmos`
 
 ## Passing Wallet AuthSigs for unified access control conditions
 

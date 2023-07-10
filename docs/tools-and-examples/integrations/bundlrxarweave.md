@@ -54,7 +54,7 @@ First, we need to encrypt the static content, in our case, an image. In order to
 
 Turn the static content into a `String` format (you can use the [utilities](https://js-sdk.litprotocol.com/modules/lit_node_client_nodejs_src.html) we provide), then pass the `staticContentInString` to the `LitJsSdk.encryptString()` function along with the following:
 
-- `chain (String)`: ethereum (see other [supported blockchains](https://developer.litprotocol.com/resources/supportedChains))
+- `chain (String)`: ethereum (see other [supported blockchains](https://developer.litprotocol.com/resources/supported-chains))
 
 - `authSig (Object)`: authentication signature, which can be collected from calling await LitJsSdk.checkAndSignAuthMessage({chain}) which will call up your web 3 wallets for you to sign the message
 
@@ -74,7 +74,7 @@ const chain = 'ethereum';
 const authSig = await LitJsSdk.checkAndSignAuthMessage({chain})
 
 // Visit here to understand how to encrypt static content
-// <https://developer.litprotocol.com/docs/LitTools/JSSDK/staticContent>
+// <https://developer.litprotocol.com/docs/LitTools/JSsdk/staticContent>
 const { ciphertext, dataToEncryptHash } = await LitJsSdk.encryptString(
 	{
 		accessControlConditions,

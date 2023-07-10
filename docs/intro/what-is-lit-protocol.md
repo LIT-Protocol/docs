@@ -1,5 +1,5 @@
 ---
-slug: /whatIsLit
+slug: /what-is-lit
 sidebar_position: 2
 ---
 
@@ -11,16 +11,16 @@ Lit Protocol is distributed cryptography for encryption, compute, and programmab
 
 Lit Protocol provides developers with two core services:
 
-1. Encryption and Access Control: Lit enables the client-side encryption and decryption of data by harnessing on or off-chain conditions, without relying on a centralized key custodian. Use Lit to securely store data on the open Web by getting started with [encryption and access control](accessControl/intro).
+1. Encryption and Access Control: Lit enables the client-side encryption and decryption of data by harnessing on or off-chain conditions, without relying on a centralized key custodian. Use Lit to securely store data on the open Web by getting started with [encryption and access control](access-control/intro).
 
-2. Programmable Signing: Lit can be used to program complex [signing automations](https://spark.litprotocol.com/automated-portfolio-rebalancing-uniswap/) or provide [seamless wallet onboarding](https://www.youtube.com/watch?v=HeD3RdqAvVM&t=2s) experiences using [Programmable Key Pairs](pkp/intro) (PKPs) and [Lit Actions](LitActions/intro). PKPs are MPC wallets generated and distributed across the Lit network, while Lit Actions are JavaScript functions dictating when, why, and what a PKP wallet will sign. Get started with [PKPs and Lit Actions](resources/pkpsAndActions).
+2. Programmable Signing: Lit can be used to program complex [signing automations](https://spark.litprotocol.com/automated-portfolio-rebalancing-uniswap/) or provide [seamless wallet onboarding](https://www.youtube.com/watch?v=HeD3RdqAvVM&t=2s) experiences using [Programmable Key Pairs](pkp/intro) (PKPs) and [Lit Actions](lit-actions/intro). PKPs are MPC wallets generated and distributed across the Lit network, while Lit Actions are JavaScript functions dictating when, why, and what a PKP wallet will sign. Get started with [PKPs and Lit Actions](resources/pkps-and-actions).
 
 ## Use Cases
 
 Lit Protocol can be utilized for various web3 applications, including:
 
 - **DeFi**: [Conditional transaction execution](https://spark.litprotocol.com/automated-portfolio-rebalancing-uniswap/), [recurring payments](https://www.notion.so/OSS-tooling-infrastructure-for-recurring-payments-54b01631e4b14a1cb16b20d14641fe2f), liquid staking solutions, and more.
-- **Infrastructure**: [Cross-chain bridges](https://github.com/Yacht-Labs/yacht-lit-sdk), oracles for [off-chain data](LitActions/workingWithActions/usingFetch), [privacy-preserving transactions](https://github.com/Curve-Labs/lit-privacy/tree/main/packages/lit-privacy-sdk#readme), and [AA wallet signers](https://spark.litprotocol.com/account-abstraction-and-mpc/).
+- **Infrastructure**: [Cross-chain bridges](https://github.com/Yacht-Labs/yacht-lit-sdk), oracles for [off-chain data](lit-actions/working-with-actions/using-fetch), [privacy-preserving transactions](https://github.com/Curve-Labs/lit-privacy/tree/main/packages/lit-privacy-sdk#readme), and [AA wallet signers](https://spark.litprotocol.com/account-abstraction-and-mpc/).
 - **Sovereign Data**: [Verifiable credential issuance](https://spark.litprotocol.com/krebitxlitactions/) and [selective disclosure](https://spark.litprotocol.com/semantic/) for user data.
 - **Web3 Social**: [Private data in social apps](https://docs.lens.xyz/docs/gated), [token-gated video streaming](https://github.com/suhailkakar/livepeer-token-gated-vod), decentralized chatbots, and on-chain reputation building.
 - **Gaming**: [Wallet abstraction](https://github.com/LIT-Protocol/oauth-pkp-signup-example), condition-based rewards, and [private data in multiplayer games](https://spark.litprotocol.com/lit-and-web3-gaming/).
@@ -32,10 +32,10 @@ Explore more [use cases](usecases) and [projects building](Ecosystem/projects) w
 
 Get started on your developer journey by diving right into the code:
 
-- [**Lit SDK**](SDK/Explanation/installation): The Lit JS SDK provides developers with a modular framework for implementing Lit functionality into their own applications.
-- [**Encryption Quick Start**](SDK/Explanation/encryption): Learn how to encrypt and decrypt content using the SDK.
-- [**Hello World with Lit Actions**](LitActions/helloWorld): Create your first Lit Action in this example walkthrough.
-- [**Lit CLI**](LitActions/getlitCli): A command line tool that makes developing Lit Actions easy!
+- [**Lit SDK**](sdk/explanation/installation): The Lit JS SDK provides developers with a modular framework for implementing Lit functionality into their own applications.
+- [**Encryption Quick Start**](sdk/explanation/encryption): Learn how to encrypt and decrypt content using the SDK.
+- [**Hello World with Lit Actions**](lit-actions/hello-world): Create your first Lit Action in this example walkthrough.
+- [**Lit CLI**](lit-actions/getlit-cli): A command line tool that makes developing Lit Actions easy!
 - [**API Reference**](https://js-sdk.litprotocol.com/index.html): An overview of SDK functions and packages.
 
 ## Join the Community

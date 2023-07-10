@@ -156,10 +156,6 @@ const config = {
                 label: "Support",
                 to: "/support",
               },
-              // {
-              //   label: "JS SDK",
-              //   to: "/docs/SDK/intro",
-              // },
             ],
           },
         ],

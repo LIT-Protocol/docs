@@ -9,13 +9,13 @@ It is NOT recommended to use the Lit JS SDK within a Lit Action due to the poten
 
 For some use cases (such as making an API or RPC request), it may be desired to execute a Lit Action on a single node, as opposed to every node in the Lit Network in parallel.
 
-[Single execution](../LitActions/workingWithActions/singleExecution) is now enabled in the SDK by passing the targetNodeRange parameter after your executeJS function (i.e. 'executeJs({ targetNodeRange: 1 })'). You can pass 1-10 to specify the number of nodes the Lit Action should be executed on. Returning signed values in single execution is not yet supported.
+[Single execution](../lit-actions/working-with-actions/single-execution) is now enabled in the SDK by passing the targetNodeRange parameter after your executeJS function (i.e. 'executeJs({ targetNodeRange: 1 })'). You can pass 1-10 to specify the number of nodes the Lit Action should be executed on. Returning signed values in single execution is not yet supported.
 :::
 
 ## Ideal Use Cases 
-- Generating [proofs](../LitActions/intro#proofs)
-- Looking up permitted actions, addresses and [auth methods](../pkp/authHelpers) associated with a PKP
-- Checking access control conditions with [conditional signing](LitActions/workingWithActions/conditionalSigning)
+- Generating [proofs](../lit-actions/intro#proofs)
+- Looking up permitted actions, addresses and [auth methods](../pkp/auth-helpers) associated with a PKP
+- Checking access control conditions with [conditional signing](lit-actions/working-with-actions/conditional-signing)
 
 ## Think Twice Use Case -- Ideal for Single Node Execution
 - POST request that inserts a new SQL row (if not called in single execution, the Lit Action will be executed by every node in parallel, you will end up with n number of rows, where n is no less than two-thirds the number of total nodes in the Lit network)

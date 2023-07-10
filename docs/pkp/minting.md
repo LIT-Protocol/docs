@@ -10,12 +10,12 @@ You can also use our handy auth helper contract on Chronicle [here](https://gith
 
 You can mint a PKP by presenting a valid OAuth token as an authentication method to the Lit Relay server. Currently, only Google OAuth tokens are supported, but we plan to support Discord in the near term. 
 
-Read more about this process [here](authHelpers.md).
+Read more about this process [here](auth-helpers.md).
 
 ## Mint via Email / SMS (OTP)
 
 You can mint a PKP by presenting a generated token from sucessful OTP code confirmation, which will be returned by the `lit-auth-client` in the `AuthMethod` return from successful code confirmation.
-Read more [here](SDK/Explanation/authentication/sessionSigs/authMethods/email-sms.md).
+Read more [here](sdk/explanation/authentication/session-sigs/auth-methods/email-sms.md).
 
 ## Mint via WebAuthn
 

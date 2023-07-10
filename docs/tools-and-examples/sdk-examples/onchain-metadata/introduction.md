@@ -11,15 +11,15 @@ _Estimated time to complete: 1 hour_
 
 ## Table of Contents
 
-- [Setup the Project](../../../ToolsAndExamples/SDKExamples/OnchainMetadata/setup)
-- [Encrypt & Decrypt](../../../ToolsAndExamples/SDKExamples/OnchainMetadata/encryptDecrypt)
-- [NFT Smart Contract](../../../ToolsAndExamples/SDKExamples/OnchainMetadata/smartContract)
-- [Lit SDK on the Frontend](../../../ToolsAndExamples/SDKExamples/OnchainMetadata/frontend)
-- [Deploy to Polygon Mumbai network](../../../ToolsAndExamples/SDKExamples/OnchainMetadata/polygonMumbai)
+- [Setup the Project](../../../tools-and-examples/sdk-examples/onchain-metadata/setup)
+- [Encrypt & Decrypt](../../../tools-and-examples/sdk-examples/onchain-metadata/encrypt-decrypt)
+- [NFT Smart Contract](../../../tools-and-examples/sdk-examples/onchain-metadata/smart-contract)
+- [Lit SDK on the Frontend](../../../tools-and-examples/sdk-examples/onchain-metadata/frontend)
+- [Deploy to Polygon Mumbai network](../../../tools-and-examples/sdk-examples/onchain-metadata/polygon-mumbai)
 
 ## Tech Stack
 
-- [Lit SDK](../../../SDK/intro) - encrypting & decrypting the input description
+- [Lit SDK](../../../sdk/intro) - encrypting & decrypting the input description
 - [Hardhat](https://hardhat.org/) - local Ethereum development environment
 - [Ethers.js](https://docs.ethers.io/v5/) - interacting with our deployed NFT smart contract
 - [Polygon Mumbai network](https://faucet.polygon.technology/) - where we deploy our NFT smart contract

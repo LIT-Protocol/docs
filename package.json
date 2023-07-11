@@ -16,10 +16,6 @@
     "prepare": "husky install",
     "tools": "node tools.mjs"
   },
-  "engines": {
-    "node": ">=18.0.0",
-    "yarn": ">=1.22.19"
-  },
   "packageManager": "yarn@1.22.19",
   "dependencies": {
     "@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression": "^7.18.6",

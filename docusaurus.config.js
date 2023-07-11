@@ -99,7 +99,7 @@ const config = {
           {
             to: "ecosystem/lit-grants",
             position: "left",
-            label: "ecosystem",
+            label: "Ecosystem",
           },
           {
             type: "docsVersionDropdown",

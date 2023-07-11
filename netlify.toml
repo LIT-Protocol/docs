@@ -629,3 +629,10 @@ force = false
   to = "/v3/:splat"
   status = 301
   force = false
+
+# home redirect 7/11/23
+[[redirects]]
+  from = "/"
+  to = "/v2/"
+  status = 301
+  force = false

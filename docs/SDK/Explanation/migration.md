@@ -37,7 +37,7 @@ If you already have `lit-js-sdk` in your app, all you need to do is remove the o
 import * as LitJsSdk from '@lit-protocol/lit-node-client';
 ```
 
-If you are using TypeScript, be sure to install the `@lit-protocol/types` package. Check out the list of available packages [here]([https://github.com/LIT-Protocol/js-sdk/tree/master#packages](https://github.com/LIT-Protocol/js-sdk/tree/master#packages)).
+If you are using TypeScript, be sure to install the `@lit-protocol/types` package. Check out the list of available packages [here](https://github.com/LIT-Protocol/js-sdk/tree/master#packages).
 
 ## Notable Changes
 
@@ -47,14 +47,14 @@ If you are using TypeScript, be sure to install the `@lit-protocol/types` packag
 
 Some methods have been moved to separate packages and must be accessed from those packages. Below are lists of methods underneath their respective packages.
 
- `@lit-protocol/crypto` 
+`@lit-protocol/crypto`
 
 - decryptWithSymmetricKey
 - encryptWithSymmetricKey
 - importSymmetricKey
 - generateSymmetricKey
 
-`@lit-protocol/misc-browser` 
+`@lit-protocol/misc-browser`
 
 - fileToDataUrl
 - injectViewerIFrame
@@ -64,7 +64,7 @@ Some methods have been moved to separate packages and must be accessed from thos
 
 - hashUnifiedAccessControlConditions
 
-`@lit-protocol/misc` 
+`@lit-protocol/misc`
 
 - getVarType
 - checkType
@@ -100,7 +100,7 @@ The following types are now declared in `@lit-protocol/types`:
 <td>
 
 ```js
-import * as LitJsSdk from 'lit-js-sdk';
+import * as LitJsSdk from "lit-js-sdk";
 
 const authSig = await LitJsSdk.signAndSaveAuthMessage({
   // ...
@@ -111,7 +111,7 @@ const authSig = await LitJsSdk.signAndSaveAuthMessage({
 <td>
 
 ```js
-import { ethConnect } from '@lit-protocol/auth-browser';
+import { ethConnect } from "@lit-protocol/auth-browser";
 
 const authSig = await ethConnect.signAndSaveAuthMessage({
   // ...
@@ -135,7 +135,7 @@ Note: You can also import `cosmosConnect` and `solConnect` for Cosmos and Solana
 <td>
 
 ```js
-import * as LitJsSdk from 'lit-js-sdk';
+import * as LitJsSdk from "lit-js-sdk";
 
 LitJsSdk.disconnectWeb3();
 ```
@@ -144,7 +144,7 @@ LitJsSdk.disconnectWeb3();
 <td>
 
 ```js
-import { ethConnect } from '@lit-protocol/auth-browser';
+import { ethConnect } from "@lit-protocol/auth-browser";
 
 ethConnect.disconnectWeb3();
 ```
@@ -153,7 +153,6 @@ ethConnect.disconnectWeb3();
 </tr>
 </table>
 <br/>
-
 
 **executeJs**
 

@@ -1681,32 +1681,32 @@
   resolved "https://registry.npmjs.org/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@lit-protocol/auth-helpers@2.2.30":
-  version "2.2.30"
-  resolved "https://registry.yarnpkg.com/@lit-protocol/auth-helpers/-/auth-helpers-2.2.30.tgz#a2eea28b9503d56e502c23766b3251dcebe35c1b"
-  integrity sha512-77oneHJX1Ly9TS+qDyjigx+AHTmOeKyjNRGAtwYT6yJiX03ywIY/v4Gclu1rt4UPyL+I77FaP9w35CtAOXNWog==
+"@lit-protocol/auth-helpers@2.2.39":
+  version "2.2.39"
+  resolved "https://registry.yarnpkg.com/@lit-protocol/auth-helpers/-/auth-helpers-2.2.39.tgz#d042cf83748db212e4dfb0c610661cd6e1a2f354"
+  integrity sha512-a8wSm1FF8B3ikO7LtCKccg+iU6fEz8Q125ch4tXfxx2+ifb+jfkQPzSQB61iVwtDOMvkoNBptPYKf2A0IeZFkg==
   dependencies:
     siwe "^2.0.5"
     siwe-recap "0.0.2-alpha.0"
     tslib "^2.3.0"
 
-"@lit-protocol/constants@^2.2.30":
-  version "2.2.30"
-  resolved "https://registry.yarnpkg.com/@lit-protocol/constants/-/constants-2.2.30.tgz#7063c703a7e26f406e37b050b6fa5d07bae3d0a3"
-  integrity sha512-khmBKEV4hxwiMxqi34tRx/iEX/v5Uz/yL2lFrkaPZiL2zidHA+2X3BJ0P5txonJy/djAiMogYDr8VFdwwWDpfA==
+"@lit-protocol/constants@^2.2.39":
+  version "2.2.39"
+  resolved "https://registry.yarnpkg.com/@lit-protocol/constants/-/constants-2.2.39.tgz#80e820547ce34e08ee9bd7324495519801528a15"
+  integrity sha512-Ff3PQjhE4wc+J2FWsIRYw3QnOQDVWojCwIQ8LK26WuWOTil1bCXuz8uBjpcxvikAoogaQ9BYNmqdw8+cBWS5ew==
   dependencies:
-    "@lit-protocol/auth-helpers" "2.2.30"
-    "@lit-protocol/types" "2.2.30"
+    "@lit-protocol/auth-helpers" "2.2.39"
+    "@lit-protocol/types" "2.2.39"
     siwe "^2.0.5"
     siwe-recap "0.0.2-alpha.0"
     tslib "^2.3.0"
 
-"@lit-protocol/types@2.2.30":
-  version "2.2.30"
-  resolved "https://registry.yarnpkg.com/@lit-protocol/types/-/types-2.2.30.tgz#8f244f2e4a848793d0e1428466c541dd1f57f1c8"
-  integrity sha512-b20NJ+mbM/Y8s2vtytEhfl7eoal0p60E55URKt7QQ40m2TKUKvAG54oy+UTs0txle9I1ChmV0IyxJyslplybew==
+"@lit-protocol/types@2.2.39":
+  version "2.2.39"
+  resolved "https://registry.yarnpkg.com/@lit-protocol/types/-/types-2.2.39.tgz#ffaa01be9196447ca1b3851f301a5ac07996a577"
+  integrity sha512-JXGzpBk5mlA3CUkAkbuvWaQ3aTDc+l4v9pi0DU/RkWEcJD8CaLHM5oSv6t9ZlIZl3c2ibEN+sMr98LwbrxHExA==
   dependencies:
-    "@lit-protocol/auth-helpers" "2.2.30"
+    "@lit-protocol/auth-helpers" "2.2.39"
     siwe "^2.0.5"
     siwe-recap "0.0.2-alpha.0"
     tslib "^2.3.0"

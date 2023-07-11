@@ -7,7 +7,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Lit Protocol",
-  tagline: "Blockchain based access control for the web",
+  tagline: "Blockchain based access control and programmatic signing for the web",
   url: "https://developer.litprotocol.com",
   baseUrl: "/",
   onBrokenLinks: "warn",
@@ -23,7 +23,7 @@ const config = {
       ({
         docs: {
           breadcrumbs: false,
-          lastVersion: "2.0",
+          lastVersion: "current",
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           editUrl: "https://github.com/LIT-Protocol/docs/edit/main/website/",
@@ -33,7 +33,7 @@ const config = {
               badge: false,
               label: "v2.x.x",
               path: "v2",
-              banner: "none",
+              banner: "unmaintained",
             },
             current: {
               badge: false,
@@ -56,7 +56,7 @@ const config = {
 
   plugins: [
     [
-      "content-docs",
+      "@docusaurus/plugin-content-docs",
       {
         id: "learningLab",
         path: "learning-lab",
@@ -65,7 +65,7 @@ const config = {
       },
     ],
     [
-      "content-docs",
+      "@docusaurus/plugin-content-docs",
       {
         id: "ecosystem",
         path: "ecosystem",

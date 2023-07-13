@@ -58,19 +58,19 @@ const config = {
     [
       "content-docs",
       {
-        id: "learningLab",
-        path: "learningLab",
-        routeBasePath: "learningLab",
-        sidebarPath: require.resolve("./sidebarsLearningLab.js"),
+        id: "learning-lab",
+        path: "learning-lab",
+        routeBasePath: "learning-lab",
+        sidebarPath: require.resolve("./sidebars-learning-lab.js"),
       },
     ],
     [
       "content-docs",
       {
-        id: "Ecosystem",
-        path: "Ecosystem",
-        routeBasePath: "Ecosystem",
-        sidebarPath: require.resolve("./sidebarsEcosystem.js"),
+        id: "ecosystem",
+        path: "ecosystem",
+        routeBasePath: "ecosystem",
+        sidebarPath: require.resolve("./sidebars-ecosystem.js"),
       },
     ],
   ],
@@ -92,12 +92,12 @@ const config = {
             label: "Docs",
           },
           {
-            to: "learningLab/intro",
+            to: "learning-lab/intro",
             position: "left",
             label: "Learning Lab",
           },
           {
-            to: "Ecosystem/litGrants",
+            to: "ecosystem/lit-grants",
             position: "left",
             label: "Ecosystem",
           },
@@ -137,7 +137,7 @@ const config = {
             items: [
               {
                 label: "Blog",
-                to: "https://blog.litprotocol.com/",
+                to: "https://spark.litprotocol.com/",
               },
               {
                 label: "GitHub",

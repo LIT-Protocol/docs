@@ -26,7 +26,7 @@ Lit Protocol can be utilized for various web3 applications, including:
 - **Gaming**: [Wallet abstraction](https://github.com/LIT-Protocol/oauth-pkp-signup-example), condition-based rewards, and [private data in multiplayer games](https://spark.litprotocol.com/lit-and-web3-gaming/).
 - **Token Gating for Web2 Apps**: Token-based access control for [Shopify](https://apps.shopify.com/lit-token-access), [Zoom](https://litgateway.com/apps/zoom), [Google Drive](https://litgateway.com/apps/google-drive), and [WordPress](https://litgateway.com/apps/wordpress).
 
-Explore more [use cases](/usecases) and [projects building](/Ecosystem/projects) with Lit.
+Explore more [use cases](/usecases) and [projects building](/ecosystem/projects) with Lit.
 
 ## Getting Started
 

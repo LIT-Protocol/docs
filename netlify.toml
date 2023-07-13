@@ -328,13 +328,13 @@ force = false
 
 [[redirects]]
   from = "/litGrants"
-  to = "/Ecosystem/litGrants"
+  to = "/ecosystem/lit-grants"
   status = 302
   force = false
 
 [[redirects]]
   from = "/Introduction/whatIsLitProtocol#join-the-community"
-  to = "/Ecosystem/community"
+  to = "/ecosystem/community"
   status = 302
   force = false
 
@@ -627,5 +627,25 @@ force = false
 [[redirects]]
   from = "/*"
   to = "/v2/:splat"
+  status = 301
+  force = false
+
+# 7/13/23
+
+[[redirects]]
+  from = "/learningLab/*"
+  to = "/learning-lab/:splat"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/Ecosystem/litGrants"
+  to = "/ecosystem/lit-grants"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/Ecosystem/*"
+  to = "/ecosystem/:splat"
   status = 301
   force = false

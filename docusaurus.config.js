@@ -59,8 +59,8 @@ const config = {
       "@docusaurus/plugin-content-docs",
       {
         id: "learningLab",
-        path: "learning-lab",
-        routeBasePath: "learning-lab",
+        path: "learningLab",
+        routeBasePath: "learningLab",
         sidebarPath: require.resolve("./sidebars-learning-lab.js"),
       },
     ],
@@ -92,7 +92,7 @@ const config = {
             label: "Docs",
           },
           {
-            to: "learning-lab/intro",
+            to: "learningLab/intro",
             position: "left",
             label: "Learning Lab",
           },

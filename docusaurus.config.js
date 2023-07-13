@@ -67,9 +67,9 @@ const config = {
     [
       "@docusaurus/plugin-content-docs",
       {
-        id: "ecosystem",
-        path: "ecosystem",
-        routeBasePath: "ecosystem",
+        id: "Ecosystem",
+        path: "Ecosystem",
+        routeBasePath: "Ecosystem",
         sidebarPath: require.resolve("./sidebars-ecosystem.js"),
       },
     ],
@@ -97,7 +97,7 @@ const config = {
             label: "Learning Lab",
           },
           {
-            to: "ecosystem/lit-grants",
+            to: "Ecosystem/lit-grants",
             position: "left",
             label: "Ecosystem",
           },

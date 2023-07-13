@@ -427,19 +427,19 @@ force = false
 
 [[redirects]]
   from = "/Introduction/stateOfNetwork"
-  to = "/Support/state-of-network"
+  to = "/support/state-of-network"
   status = 301
   force = false
 
 [[redirects]]
   from = "/introduction/stateofnetwork"
-  to = "/Support/state-of-network"
+  to = "/support/state-of-network"
   status = 301
   force = false
 
 [[redirects]]
   from = "/introduction/stateOfNetwork"
-  to = "/Support/state-of-network"
+  to = "/support/state-of-network"
   status = 301
   force = false
 
@@ -516,7 +516,7 @@ force = false
   force = false
 
 [[redirects]]
-  from = "/Support/glossary"
+  from = "/support/glossary"
   to = "/resources/glossary"
   status = 301
   force = false
@@ -542,13 +542,13 @@ force = false
 
 [[redirects]]
   from = "/introduction/stateofnetwork"
-  to = "/Support/state-of-network"
+  to = "/support/state-of-network"
   status = 301
   force = false
 
 [[redirects]]
   from = "/introduction/stateofnetwork/*"
-  to = "/Support/state-of-network"
+  to = "/support/state-of-network"
   status = 301
   force = false
 
@@ -627,5 +627,12 @@ force = false
 [[redirects]]
   from = "/*"
   to = "/v3/:splat"
+  status = 301
+  force = false
+
+# home redirect 7/11/23
+[[redirects]]
+  from = "/"
+  to = "/v2/"
   status = 301
   force = false

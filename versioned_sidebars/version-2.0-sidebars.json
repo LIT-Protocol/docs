@@ -125,58 +125,58 @@
       "collapsible": false,
       "className": "category-not-collapsible",
       "items": [
-        "SDK/intro",
-        "SDK/Explanation/installation",
-        "SDK/Explanation/migration",
+        "sdk/intro",
+        "sdk/explanation/installation",
+        "sdk/explanation/migration",
         {
           "type": "category",
           "label": "Working with the SDK",
           "collapsed": true,
           "items": [
-            "SDK/Explanation/encryption",
+            "sdk/explanation/encryption",
             {
               "type": "category",
               "label": "Authentication",
               "link": {
                 "type": "doc",
-                "id": "SDK/Explanation/authentication/overview"
+                "id": "sdk/explanation/authentication/overview"
               },
               "collapsed": true,
               "items": [
-                "SDK/Explanation/authentication/authSig",
+                "sdk/explanation/authentication/authSig",
                 {
                   "type": "category",
                   "label": "Session Signatures",
                   "link": {
                     "type": "doc",
-                    "id": "SDK/Explanation/authentication/sessionSigs/intro"
+                    "id": "sdk/explanation/authentication/sessionSigs/intro"
                   },
                   "collapsed": true,
                   "items": [
-                    "SDK/Explanation/authentication/sessionSigs/resources-and-abilities",
-                    "SDK/Explanation/authentication/sessionSigs/capability-objects",
-                    "SDK/Explanation/authentication/sessionSigs/getSessionSigs",
-                    "SDK/Explanation/authentication/sessionSigs/usage",
+                    "sdk/explanation/authentication/sessionSigs/resources-and-abilities",
+                    "sdk/explanation/authentication/sessionSigs/capability-objects",
+                    "sdk/explanation/authentication/sessionSigs/getSessionSigs",
+                    "sdk/explanation/authentication/sessionSigs/usage",
                     {
                       "type": "category",
                       "label": "Walletless Signatures",
                       "link": {
                         "type": "doc",
-                        "id": "SDK/Explanation/authentication/sessionSigs/authMethods/overview"
+                        "id": "sdk/explanation/authentication/sessionSigs/authMethods/overview"
                       },
                       "collapsed": true,
                       "items": [
-                        "SDK/Explanation/authentication/sessionSigs/authMethods/socialLogin",
-                        "SDK/Explanation/authentication/sessionSigs/authMethods/webAuthn",
-                        "SDK/Explanation/authentication/sessionSigs/authMethods/email-sms"
+                        "sdk/explanation/authentication/sessionSigs/authMethods/socialLogin",
+                        "sdk/explanation/authentication/sessionSigs/authMethods/webAuthn",
+                        "sdk/explanation/authentication/sessionSigs/authMethods/email-sms"
                       ]
                     }
                   ]
                 },
-                "SDK/Explanation/authentication/security"
+                "sdk/explanation/authentication/security"
               ]
             },
-            "SDK/Explanation/tests"
+            "sdk/explanation/tests"
           ]
         },
         {
@@ -237,7 +237,7 @@
             }
           ]
         },
-        "SDK/examples"
+        "sdk/examples"
       ]
     },
     {
@@ -258,9 +258,9 @@
       "collapsible": false,
       "className": "category-not-collapsible",
       "items": [
-        "Support/faq",
-        "Support/bugBounty",
-        "Support/stateOfNetwork"
+        "support/faq",
+        "support/bugBounty",
+        "support/stateOfNetwork"
       ]
     }
   ]

@@ -10,7 +10,7 @@ export default function IntroSection({ title, className }) {
       <Card
         title="Intro to Lit"
         description="Learn about Lit Protocol's functionalities around access control, encryption, and programmatic signing."
-        to="/learning-lab/intro-to-lit/intro"
+        to="/learningLab/intro-to-lit/intro"
       />
     </Section>
   );

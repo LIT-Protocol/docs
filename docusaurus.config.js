@@ -7,7 +7,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Lit Protocol",
-  tagline: "Blockchain based access control for the web",
+  tagline: "Blockchain based access control and programmatic signing for the web",
   url: "https://developer.litprotocol.com",
   baseUrl: "/",
   onBrokenLinks: "warn",
@@ -59,17 +59,17 @@ const config = {
       "content-docs",
       {
         id: "learningLab",
-        path: "learning-lab",
-        routeBasePath: "learning-lab",
+        path: "learningLab",
+        routeBasePath: "learningLab",
         sidebarPath: require.resolve("./sidebars-learning-lab.js"),
       },
     ],
     [
       "content-docs",
       {
-        id: "ecosystem",
-        path: "ecosystem",
-        routeBasePath: "ecosystem",
+        id: "Ecosystem",
+        path: "Ecosystem",
+        routeBasePath: "Ecosystem",
         sidebarPath: require.resolve("./sidebars-ecosystem.js"),
       },
     ],
@@ -92,14 +92,14 @@ const config = {
             label: "Docs",
           },
           {
-            to: "learning-lab/intro",
+            to: "learningLab/intro",
             position: "left",
             label: "Learning Lab",
           },
           {
             to: "ecosystem/lit-grants",
             position: "left",
-            label: "ecosystem",
+            label: "Ecosystem",
           },
           {
             type: "docsVersionDropdown",

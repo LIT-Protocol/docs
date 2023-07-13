@@ -626,6 +626,6 @@ force = false
 
 [[redirects]]
   from = "/*"
-  to = "/v3/:splat"
+  to = "/v2/:splat"
   status = 301
   force = false

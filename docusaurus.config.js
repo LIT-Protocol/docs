@@ -23,7 +23,7 @@ const config = {
       ({
         docs: {
           breadcrumbs: false,
-          lastVersion: "2.0",
+          lastVersion: "current",
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           editUrl: "https://github.com/LIT-Protocol/docs/edit/main/website/",

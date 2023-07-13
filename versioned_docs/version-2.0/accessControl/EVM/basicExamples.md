@@ -6,7 +6,7 @@ sidebar_position: 2
 
 This page defines some basic access control conditions (referred to as `accessControlConditions` in the code) based on standard contract types like ERC20, ERC721, and ERC1155 for EVM (Ethereum) chains. Also included are some conditions like wallet address ownership, proof of humanity, and POAP possession. You may set your conditions, and define the `returnValueTest` under which access should be granted.
 
-If you would like to use a contract call for a contract type that is not here, refer to the [custom contract calls](/accessControl/EVM/customContractCalls) page, which will let you pass a function ABI and call any smart contract function. These are referred to as `evmContractConditions` in the code.
+If you would like to use a contract call for a contract type that is not here, refer to the [custom contract calls](../../accessControl/EVM/customContractCalls) page, which will let you pass a function ABI and call any smart contract function. These are referred to as `evmContractConditions` in the code.
 
 ## Must posess at least one ERC1155 token with a given token id
 

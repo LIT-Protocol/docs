@@ -19,16 +19,16 @@ Lit Protocol provides developers with a decentralized access control layer that 
 
 Lit supports the use of both on and [off-chain data](/accessControl/conditionTypes/litActionConditions) when defining access control conditions. Examples include gating against:
 
-- [Membership within a particular DAO](/accessControl/EVM/basicExamples#must-be-a-member-of-a-dao-molochdaov21-also-supports-daohaus)
-- Ownership of a particular [ERC-721](/accessControl/EVM/basicExamples#must-posess-any-token-in-an-erc721-collection-nft-collection) or [ERC-20](/accessControl/EVM/basicExamples#must-posess-at-least-one-erc20-token) token
-- The result of [any smart contract call](/accessControl/EVM/customContractCalls)
-- The result of [any API call](/accessControl/conditionTypes/litActionConditions), such as a follow on Twitter
+- [Membership within a particular DAO](../accessControl/EVM/basicExamples#must-be-a-member-of-a-dao-molochdaov21-also-supports-daohaus)
+- Ownership of a particular [ERC-721](../accessControl/EVM/basicExamples#must-posess-any-token-in-an-erc721-collection-nft-collection) or [ERC-20](../accessControl/EVM/basicExamples#must-posess-at-least-one-erc20-token) token
+- The result of [any smart contract call](../accessControl/EVM/customContractCalls)
+- The result of [any API call](../accessControl/conditionTypes/litActionConditions), such as a follow on Twitter
 
 ## Features
 
-1. Access Control Conditions are compatible with most EVM chains, Cosmos, and Solana. View the full list [here](/resources/supportedChains).
-2. AND + OR operators ([boolean logic](/accessControl/conditionTypes/booleanLogic)) can be used to combine any of the supported conditions listed above.
-3. ACCs may be permanent or [updateable](/accessControl/conditionTypes/updateableConditions).
+1. Access Control Conditions are compatible with most EVM chains, Cosmos, and Solana. View the full list [here](../resources/supportedChains).
+2. AND + OR operators ([boolean logic](../accessControl/conditionTypes/booleanLogic)) can be used to combine any of the supported conditions listed above.
+3. ACCs may be permanent or [updateable](../accessControl/conditionTypes/updateableConditions).
 4. Storage provider agnostic: use your preferred storage solution, including [IPFS](https://spark.litprotocol.com/encrypttoipfs/), Arweave, Ceramic, or even a centralized provider, like AWS.
 
 ## Examples and Use Cases

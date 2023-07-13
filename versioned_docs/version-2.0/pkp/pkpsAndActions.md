@@ -10,7 +10,7 @@ As a distributed key management network, Lit provides developers with the abilit
 
 ## How do Lit Actions and PKPs work together?
 
-A user can [create a new PKP](/pkp/minting) and [grant a Lit Action](/LitActions/mintGrantBurn) the right to sign using it. This means the distributed key has the ability to sign and decrypt arbitrary data based on pre-defined logic and conditions.
+A user can [create a new PKP](../pkp/minting) and [grant a Lit Action](../LitActions/mintGrantBurn) the right to sign using it. This means the distributed key has the ability to sign and decrypt arbitrary data based on pre-defined logic and conditions.
 
 ### Using Mint/Grant/Burn
 

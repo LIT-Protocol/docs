@@ -10,32 +10,32 @@ export default function QuickStartSection({ title, className }) {
       <Card
         title="👩‍💻 Install the Lit JavaScript SDK"
         description="Set up the SDK within your local environment."
-        to="/sdk/explanation/installation"
+        to="/v3/sdk/explanation/installation"
       />
       <Card
         title="👋 Hello World w/ Lit Actions"
         description="Create your first Lit-enabled application using Lit Actions."
-        to="/lit-actions/hello-world"
+        to="/v3/lit-actions/hello-world"
       />
       <Card
         title="📁 Encrypt On-Chain Metadata (Polygon)"
         description="Encrypt on-chain meta-data (an NFT description) using the Lit SDK."
-        to="/tools-and-examples/sdk-examples/onchain-metadata/introduction"
+        to="/v3/tools-and-examples/sdk-examples/onchain-metadata/introduction"
       />
       <Card
         title="⌨️ Encrypt and Decrypt Static Content"
         description="Learn how to encrypt data for private storage on the open web."
-        to="/sdk/explanation/encryption"
+        to="/v3/sdk/explanation/encryption"
       />
       <Card
         title="🔑 Provisioning access with a JSON Web Token (JWT)"
         description="NextJS Project: Token gate a page using a JWT."
-        to="/sdk/examples#nextjs-minimal-jwt-example"
+        to="/v3/sdk/examples#nextjs-minimal-jwt-example"
       />
       <Card
         title="✍️ Return a signed API response"
         description="Learn how to fetch and sign data from the open Web using Lit Actions."
-        to="/lit-actions/working-with-actions/using-fetch"
+        to="/v3/litActions/working-with-actions/usingfetch"
       />
     </Section>
   );

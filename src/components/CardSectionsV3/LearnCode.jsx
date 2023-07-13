@@ -10,17 +10,17 @@ export default function LearnCodeSection({ title, className }) {
       <Card
         title="🧶 Arweave / Bundlr Guide"
         description="Encrypt data using Lit and upload it to Arweave using Bundlr."
-        to="/tools-and-examples/Integrations/bundlrxarweave"
+        to="/v3/tools-and-examples/Integrations/bundlrxarweave"
       />
       <Card
         title="🪴 Ceramic x Lit SDK"
         description="Build a simple encryption and decryption application with Lit and Ceramic."
-        to="/tools-and-examples/Integrations/Ceramic/intro"
+        to="/v3/tools-and-examples/Integrations/Ceramic/intro"
       />
       <Card
         title="👐 Open Source Examples"
         description="More examples to get you started."
-        to="/sdk/examples"
+        to="/v3/sdk/examples"
       />
       <Card
         title="📖 API Documentation"
@@ -35,7 +35,7 @@ export default function LearnCodeSection({ title, className }) {
       <Card
         title="🛠 Tools"
         description="Additional tools to help build with Lit."
-        to="/tools-and-examples/tools/access-control" 
+        to="/v3/tools-and-examples/tools/accessControl" 
       />
     </Section>
   );

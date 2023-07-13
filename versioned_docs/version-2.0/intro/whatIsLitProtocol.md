@@ -11,9 +11,9 @@ Lit Protocol is distributed cryptography for encryption, compute, and programmab
 
 Lit Protocol provides developers with two core services:
 
-1. Encryption and Access Control: Lit enables the client-side encryption and decryption of data by harnessing on or off-chain conditions, without relying on a centralized key custodian. Use Lit to securely store data on the open Web by getting started with [encryption and access control](/accessControl/intro).
+1. Encryption and Access Control: Lit enables the client-side encryption and decryption of data by harnessing on or off-chain conditions, without relying on a centralized key custodian. Use Lit to securely store data on the open Web by getting started with [encryption and access control](accessControl/intro).
 
-2. Programmable Signing: Lit can be used to program complex [signing automations](https://spark.litprotocol.com/automated-portfolio-rebalancing-uniswap/) or provide [seamless wallet onboarding](https://www.youtube.com/watch?v=HeD3RdqAvVM&t=2s) experiences using [Programmable Key Pairs](/pkp/intro) (PKPs) and [Lit Actions](/LitActions/intro). PKPs are MPC wallets generated and distributed across the Lit network, while Lit Actions are JavaScript functions dictating when, why, and what a PKP wallet will sign. Get started with [PKPs and Lit Actions](/resources/pkpsAndActions).
+2. Programmable Signing: Lit can be used to program complex [signing automations](https://spark.litprotocol.com/automated-portfolio-rebalancing-uniswap/) or provide [seamless wallet onboarding](https://www.youtube.com/watch?v=HeD3RdqAvVM&t=2s) experiences using [Programmable Key Pairs](/pkp/intro) (PKPs) and [Lit Actions](LitActions/intro). PKPs are MPC wallets generated and distributed across the Lit network, while Lit Actions are JavaScript functions dictating when, why, and what a PKP wallet will sign. Get started with [PKPs and Lit Actions](resources/pkpsAndActions).
 
 ## Use Cases
 
@@ -26,16 +26,16 @@ Lit Protocol can be utilized for various web3 applications, including:
 - **Gaming**: [Wallet abstraction](https://github.com/LIT-Protocol/oauth-pkp-signup-example), condition-based rewards, and [private data in multiplayer games](https://spark.litprotocol.com/lit-and-web3-gaming/).
 - **Token Gating for Web2 Apps**: Token-based access control for [Shopify](https://apps.shopify.com/lit-token-access), [Zoom](https://litgateway.com/apps/zoom), [Google Drive](https://litgateway.com/apps/google-drive), and [WordPress](https://litgateway.com/apps/wordpress).
 
-Explore more [use cases](/usecases) and [projects building](/ecosystem/projects) with Lit.
+Explore more [use cases](usecases) and [projects building](Ecosystem/projects) with Lit.
 
 ## Getting Started
 
 Get started on your developer journey by diving right into the code:
 
-- [**Lit SDK**](/SDK/Explanation/installation): The Lit JS SDK provides developers with a modular framework for implementing Lit functionality into their own applications.
-- [**Encryption Quick Start**](/SDK/Explanation/encryption): Learn how to encrypt and decrypt content using the SDK.
-- [**Hello World with Lit Actions**](/LitActions/helloWorld): Create your first Lit Action in this example walkthrough.
-- [**Lit CLI**](/LitActions/getlitCli): A command line tool that makes developing Lit Actions easy!
+- [**Lit SDK**](SDK/Explanation/installation): The Lit JS SDK provides developers with a modular framework for implementing Lit functionality into their own applications.
+- [**Encryption Quick Start**](SDK/Explanation/encryption): Learn how to encrypt and decrypt content using the SDK.
+- [**Hello World with Lit Actions**](LitActions/helloWorld): Create your first Lit Action in this example walkthrough.
+- [**Lit CLI**](LitActions/getlitCli): A command line tool that makes developing Lit Actions easy!
 - [**API Reference**](https://js-sdk.litprotocol.com/index.html): An overview of SDK functions and packages.
 
 ## Join the Community

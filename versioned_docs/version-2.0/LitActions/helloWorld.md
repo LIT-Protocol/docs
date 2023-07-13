@@ -20,11 +20,11 @@ Need some `LIT` test tokens to mint a PKP? Get some from the [faucet](https://fa
 
 :::
 
-Lit Actions are JavaScript programs used to define arbitrary signing conditions for [PKPs](/pkp/intro). In other words, they are the immutable "rules" that dictate _what_ or _who_ has permission to sign using a particular PKP.
+Lit Actions are JavaScript programs used to define arbitrary signing conditions for [PKPs](../pkp/intro). In other words, they are the immutable "rules" that dictate _what_ or _who_ has permission to sign using a particular PKP.
 
 To create a Lit Action, all you need to do is write some JavaScript code that will accomplish your goals. The Lit Protocol provides JS function bindings to do things like request a signature or check an arbitrary condition. If you need to include dependencies like NPM packages, use a bundler like Webpack or ESBuild to create a single JS file and provide that bundle as your Lit Action.
 
-In order to collect the responses from the Lit nodes, you'll also need to write some client side JS. This will allow you to combine the collected key shares [above the threshold](/resources/howItWorks) to form the complete signature.
+In order to collect the responses from the Lit nodes, you'll also need to write some client side JS. This will allow you to combine the collected key shares [above the threshold](../resources/howItWorks) to form the complete signature.
 
 In the example below, we will write a simple Lit Action that requests a signature from the Lit nodes on the string "Hello World".
 

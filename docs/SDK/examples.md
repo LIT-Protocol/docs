@@ -26,7 +26,7 @@ This example code shows how to lock an entire React app behind a Lit JWT.
 
 https://github.com/LIT-Protocol/lit-locked-react-app-minimal-example
 
-## Node JS encryption and decryption of static content
+## Node JS encryption and decryption of static content. Also a good example of how to use the Lit JS SDK entirely serverside with a Hotwallet.
 
 https://github.com/LIT-Protocol/lit-demo-simple-string-encrypt-nodejs
 
@@ -58,12 +58,6 @@ Below is a [Replit project](https://replit.com/@lit/NextJS-x-Lit-Token-Gating#pa
 An example that showcases the ability to mint an HTML NFT with locked content that only the NFT owner can decrypt or see.
 
 https://github.com/LIT-Protocol/MintLIT
-
-## Using the Lit JS SDK entirely serverside
-
-This shows how to use the Lit JS SDK to provision access to a resource, and then request access to it, entirely on the server side.
-
-https://github.com/LIT-Protocol/lit-only-serverside-sdk-example
 
 ## Access Control Conditions Modal Example
 

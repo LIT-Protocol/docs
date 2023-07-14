@@ -49,7 +49,7 @@ const authClient = new LitAuthClient({
 authClient.embeddCaptchaInElement("element-id-of-anchor", document.head);
 ```
 In the above example the `element-id-of-anchor` is id of the html tag to inject the recaptcha view into. 
-After the user confirms the `response` will be added to a global variable `LIT_AUTH_CLIENT_CAPTCHA_RES` upon creating an `OtpProvider` it will look for this variable when initalizing.
+After the user confirms the `response`, it will be added to a global variable `LIT_AUTH_CLIENT_CAPTCHA_RES`. When an `OtpProvider` is created it will look for this variable when initializing.
 If you wish to refresh the `response` you can use the `setCaptchaResponse` method on the `OtpProvider`
 
 **example**

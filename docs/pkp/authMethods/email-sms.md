@@ -137,7 +137,7 @@ Below is an example of an authentication method from successful authentication
 :::
 
 
-## Generating `SessionSigs`
+### Generating `SessionSigs`
 
 After successfully authenticating with an `AuthMethod`, you can generate `Session Signatures` using the provider's `getSessionSigs` method. The `getSessionSigs` method takes in an `AuthMethod` object, a PKP public key, and other session-specific arguments such as `resourceAbilityRequests` and returns a `SessionSig` object.
 

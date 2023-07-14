@@ -7,7 +7,7 @@ Authenticating with OTP codes delivered via email or SMS is a two-step process. 
 :::note
 Codes sent to users via email will be received from `noreply@litprotocol.com`. Codes sent to users via SMS will include `lit-verification` within the SMS message.
 :::
-### Register user with email or SMS
+## Register user with email or SMS
 
 ```javascript
 const authClient = new LitAuthClient({
@@ -35,7 +35,61 @@ If you are using Lit Relay Server, you will need to request an API key [here](ht
 
 :::
 
-### Minting via Contract
+## ReCaptcha verification
+To send an otp code to the user they must first complete a ReCaptcha verification, to verify a user via ReCaptcha you may either use our embeddable captcha or use our `site key` in our own ReCaptcha package of choice
+
+### Embedding ReCaptcha
+```javascript
+const authClient = new LitAuthClient({
+    litRelayConfig: {
+        relayApiKey: '<Your Lit Relay Server API Key>',
+    }
+});
+
+authClient.embeddCaptchaInElement("element-id-of-anchor", document.head);
+```
+In the above example the `element-id-of-anchor` is id of the html tag to inject the recaptcha view into. 
+After the user confirms the `response`, it will be added to a global variable `LIT_AUTH_CLIENT_CAPTCHA_RES`. When an `OtpProvider` is created it will look for this variable when initializing.
+If you wish to refresh the `response` you can use the `setCaptchaResponse` method on the `OtpProvider`
+
+**example**
+```javascript
+const authClient = new LitAuthClient({
+    litRelayConfig: {
+        relayApiKey: '<Your Lit Relay Server API Key>',
+    }
+});
+authClient.embeddCaptchaInElement("element-id-of-anchor", document.head);
+
+// starting a validation session
+let session = authClient.initProvider(ProviderType.Otp,{
+            userId: '<User email or phone number>'
+});
+session.setCaptchaResponse(window.LIT_AUTH_CLIENT_CAPTCHA_RES);
+
+let status = await session.sendOtpCode();
+let authMethod = await session.authenticate({
+    code: "<User entered OTP code>"
+});
+const txHash = await session.mintPKPThroughRelayer(authMethod);
+```
+**note** ReCaptcha Responses are valid for 2 minutes. For information on ReCaptcha, [read more](https://developers.google.com/recaptcha/intro).
+
+
+### Using the ReCaptcha Site Key in Another ReCaptcha implementation
+If you would like to use another ReCaptcha implementation such as [react google recaptcha](https://www.npmjs.com/package/react-google-recaptcha) you can access the ReCaptcha `site key` shown below: 
+```javascript
+const authClient = new LitAuthClient({
+    litRelayConfig: {
+        relayApiKey: '<Your Lit Relay Server API Key>',
+    }
+});
+
+authClient.getSiteKey();
+```
+
+
+## Minting via Contract
 
 An alternative to minting the PKP NFT via the Lit Relay Server is to send a transaction to the smart contract yourself. You can reference the following example data that is passed to the `mintNextAndAddAuthMethods` method of the `PKPHelper` smart contract:
 
@@ -83,7 +137,7 @@ Below is an example of an authentication method from successful authentication
 :::
 
 
-## Generating `SessionSigs`
+### Generating `SessionSigs`
 
 After successfully authenticating with an `AuthMethod`, you can generate `Session Signatures` using the provider's `getSessionSigs` method. The `getSessionSigs` method takes in an `AuthMethod` object, a PKP public key, and other session-specific arguments such as `resourceAbilityRequests` and returns a `SessionSig` object.
 

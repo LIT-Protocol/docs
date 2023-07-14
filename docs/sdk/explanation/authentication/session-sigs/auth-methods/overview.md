@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Walletless Signatures
+# Overview
 
 With Lit Protocol, you can seamlessly onboard users into web3 using familiar authentication flows like social login and passkeys. The Lit SDK simplifies the process of generating and presenting signatures derived from authentication methods that don't require users to have an existing web3 wallet. Currently, Lit Protocol supports the following non-wallet authentication methods:
 

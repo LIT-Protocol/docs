@@ -108,16 +108,7 @@ const sidebars = {
       items: [
         "pkp/intro",
         "pkp/minting",
-        {
-          type: "category",
-          label: "Authentication with PKPs",
-          link: {
-            type: "doc",
-            id: "pkp/auth-helpers/overview",
-          },
-          collapsed: true,
-          items: ["pkp/auth-helpers/add-remove-auth-methods"],
-        },
+        "pkp/auth-methods",
         "pkp/pkps-and-actions",
         "pkp/usage",
         "pkp/walletconnect",
@@ -206,6 +197,7 @@ const sidebars = {
                       },
                       collapsed: true,
                       items: [
+                        "sdk/explanation/authentication/session-sigs/auth-methods/add-remove-auth-methods",
                         "sdk/explanation/authentication/session-sigs/auth-methods/social-login",
                         "sdk/explanation/authentication/session-sigs/auth-methods/web-authn",
                         "sdk/explanation/authentication/session-sigs/auth-methods/email-sms",

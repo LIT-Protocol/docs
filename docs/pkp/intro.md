@@ -16,7 +16,7 @@ Ready to jump right in? Quickly learn how you can integrate Programmable Key Pai
 
 1. Resource: [Minting a PKP using the Lit Explorer](https://explorer.litprotocol.com/mint-pkp)
 2. Resource: [Testnet Faucet](https://chronicle-faucet-app.vercel.app/)
-3. Concept: [Assigning an Authentication Method](../pkp/auth-helpers) (and associated [blog post](https://spark.litprotocol.com/how-authentication-works-with-pkps/))
+3. Concept: [Assigning an Authentication Method](../pkp/auth-methods/auth-helpers) (and associated [blog post](https://spark.litprotocol.com/how-authentication-works-with-pkps/))
 4. SDK Package: [Using PKPs as Wallets](../pkp/usage) 
 
 ## Overview

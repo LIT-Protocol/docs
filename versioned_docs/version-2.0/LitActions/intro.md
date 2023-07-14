@@ -37,6 +37,7 @@ A trivial example would be a Lit Action and associated PKP that checks if a numb
 3. Atomicity: Using [Mint/Grant/Burn](../LitActions/mintGrantBurn), you can atomically link a PKP to an authorized set of Lit Actions. This method guarantees that a particular PKP can only ever be used to sign data from within the approved set
 4. Off-Chain Compatibility: Lit Actions can pull in data from [off-chain sources](../LitActions/workingWithActions/usingFetch) natively, without requiring the use of a third party oracle
 
+
 ## Examples and Use Cases
 
 1. [Generating a signed Ethereum transaction](https://github.com/LIT-Protocol/js-serverless-function-test/blob/main/js-sdkTests/signTxn.js)

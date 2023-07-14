@@ -22,8 +22,6 @@ Both MPC and TSS originate from the concepts of public key cryptography and exte
 
 In the Lit Network, the nodes perform a [distributed key generation](../resources/glossary#distributed-key-generation) (DKG) to create new public/private key pairs where no one party ever holds the entire key. Instead, each node holds a key share which they can use to sign and decrypt data. The nodes perform each operation (signing or decryption) in parallel and the individual results are aggregated to form the complete signature or decryption key, without exposing the underlying private key itself. By distributing the key among multiple parties, the network becomes more robust and can continue to function even when multiple participating parties may be offline or possess malicious intent.
 
-![networkOverview](/img/networkOverview.png)
-
 ## Secure Encrypted Virtualization (SEV)
 
 In addition to the security provided by the decentralized nature of MPC and TSS, Lit leverages AMD’s [Secure Encrypted Virtualization](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf) (SEV), providing advanced hardware-level protection and an additional layer of security.
@@ -49,24 +47,31 @@ This feature empowers individuals to securely store data on the open Web and off
 
 Lit exclusively manages and provisions decryption keys, remaining entirely impartial to the storage provider. This means that **Lit does not store any encrypted content directly**, and developers integrating this service can choose a storage provider of their preference. Options include blockchains like Ethereum, open storage networks such as [IPFS](https://spark.litprotocol.com/encrypttoipfs/) or [Ceramic](https://github.com/LIT-Protocol/CeramicIntegration), or centralized providers like AWS or Google Cloud.
 
-The comprehensive process for encrypting content with Lit is as follows:
+The comprehensive process for encryption and decryption with Lit is as follows:
 
 1. Alice begins by generating a symmetric key and encrypting some content with it.
-2. Alice then encrypts the symmetric key using the Lit BLS key, where each node holds a share.
-3. Alice specifies the conditions under which, or to whom, the network should supply the decryption shares for the symmetric key to.
-4. When Bob, a separate user, attempts to access the content encrypted by Alice, they connect to each node so that the network can verify whether they meet the requisite conditions using a signed message (or alternatively, by running the defined Lit Action).
-5. Each node independently confirms the condition and provides a decryption share to Bob, assuming the conditions are met.
-6. Once Bob has gathered more than two-thirds of the decryption shares (validating that a majority has verified the condition), they can decrypt Alice's content on their device using the decrypted symmetric key.
+2. Alice then encrypts the symmetric key using the Lit Network BLS key. Each node in the network holds a share of the BLS key. 
+3. Alice specifies the conditions under which the content should be decrypted (access control conditions).
+4. When Bob, a separate user, attempts to access the content encrypted by Alice, they send a request to each node in parallel so that the network can verify whether they meet the requisite conditions.
+5. If the conditions are met, each node provisions a decryption share to Bob. Once Bob has aggregated more than two-thirds of the decryption shares, they can decrypt Alice's content on their device using the decrypted symmetric key.
 
 ![accessControl](/img/AccessControl.png)
 
 ## Decentralized Programmable Signing and MPC Wallets
 
+<<<<<<< HEAD:versioned_docs/version-2.0/resources/howItWorks.md
 In addition to access control, Lit provides distributed ECDSA key-pairs that can be used for programmable, [“smart” signing](../LitActions/workingWithActions/conditionalSigning) and a [MPC wallet](../resources/pkpsAsWallet) solution.
+=======
+In addition to access control, Lit provides distributed ECDSA key-pairs that can be used for programmable, [“smart” signing](/LitActions/workingWithActions/conditionalSigning) and a [MPC wallet](/concepts/pkpsAsWallet) solution.
+>>>>>>> main:docs/resources/howItWorks.md
 
 These distributed key pairs are known as [Programmable Key Pairs](../pkp/intro) (PKPs), and the code that dictates their signing and authentication logic is called a [Lit Action](../resources/pkpsAndActions). Lit Actions are JavaScript functions that can be made immutable by storing them on the InterPlanetary File System (IPFS). They can be thought of as the permissionless rules that govern each PKPs signing automation. Every Lit Action is blockchain agnostic and has the ability to use off-chain data in their computation by making HTTP requests. This gives them the inherent ability to read and write data across on and off-chain platforms, facilitating interoperability and automation between previously disconnected ecosystems.
 
+<<<<<<< HEAD:versioned_docs/version-2.0/resources/howItWorks.md
 Each PKP is a public/private key-pair generated by the Lit Network using Distributed Key Generation (DKG), meaning no one node ever has access to the entire private key. Instead, the private key is stored in shares across the network, where each node holds a single share. A PKP is represented as an ERC-721 NFT, and the [owner of the NFT](../pkp/minting) becomes the designated “controller” of the Programmable Key Pair. The controller has the ability to assign additional signing logic and [authentication](../pkp/authHelpers) mechanisms to their PKP using Lit Actions.
+=======
+Each PKP is a public/private key-pair generated by the Lit Network using Distributed Key Generation (DKG), meaning no one node ever has access to the entire private key. Instead, the private key is stored in shares across the network, where each node holds a single share. A PKP is represented as an ERC-721 NFT, and the [owner of the NFT](/pkp/minting) becomes the designated “controller” of the Programmable Key Pair. The controller has the ability to assign additional signing logic and [authentication](/pkp/authMethods/authHelpers) mechanisms to their PKP using Lit Actions.
+>>>>>>> main:docs/resources/howItWorks.md
 
 ### Smart Signing
 

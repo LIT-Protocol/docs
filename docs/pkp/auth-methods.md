@@ -1,9 +1,9 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Authentication with PKPs
+# Auth Methods
 
-When you call a Lit Action, you may pass Auth Methods that should be resolved. These could be things like a WebAuthn ([Apple Passkey](https://developer.apple.com/passkeys/)) signature, or an oauth token from a service like Discord or Google. You can see an example of this [here](https://github.com/LIT-Protocol/js-serverless-function-test/blob/main/js-sdkTests/authContext.js#L32).
+Authentication methods are ways of asigning Programmable Key Pairs (PKP) to a specific account resource. This requires individuals to authenticate before performing operations requiring a PKP. This is a powerful feature of the Lit network as it means users can sign up for a wallet the same way they sign up for other types of digital resources, thus lowering the barrier to accessing web3 enabled applications.
 
 ## What is authentication?
 
@@ -26,7 +26,9 @@ Several auth methods are supported by Lit directly. These include methods config
 | DISCORD          | 4                       | Discord Oauth Login                                                                                                                                                                                                                                                                                 |
 | GOOGLE           | 5                       | Google Oauth Login. You should try to use the Google JWT Oauth Login below if you can, since it's more efficient and secure.                                                                                                                                                                        |
 | GOOGLE_JWT       | 6                       | Google Oauth Login, except where Google provides a JWT. This is the most efficient way to use Google Oauth with Lit because the Lit nodes only need to check the JWT signature against the Google certificates, and don't need to make HTTP requests to the Google servers to verify the token.     |
-| OTP              | 7                       | Email / SMS Login, verification services provides a JWT, this is token will be within the auth method, this token is verified within the nodes when requesting a session signature |
+| One Time Password (OTP)              | 7                       | Email / SMS Login, verification services provides a JWT, this is token will be within the auth method, this token is verified within the nodes when requesting a session signature |
+
+Check out the implementation details within the SDK section [here](../sdk/explanation/authentication/session-sigs/auth-methods/overview).
 
 ### Adding a Permitted Address
 

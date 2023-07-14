@@ -115,6 +115,7 @@ const sidebars = {
           collapsed: true,
           items: [
             "pkp/authMethods/authHelpers",
+            "pkp/authMethods/addRemoveAuthMethods",
             "pkp/authMethods/socialLogin",
             "pkp/authMethods/webAuthn",
             "pkp/authMethods/email-sms",

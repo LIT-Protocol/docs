@@ -1,4 +1,4 @@
-# Adding and Removing Auth Methods
+# Add and Remove Auth Methods
 
 Configure auth methods for your PKP using the [`@lit-protocol/contracts-sdk`](https://js-sdk.litprotocol.com/modules/contracts_sdk_src.html) package.
 
@@ -56,7 +56,7 @@ To view more constructor options for `LitContracts`, check out the [API docs](ht
 
 To add an auth method, you must pass an `authMethod` object, which should have the following properties:
 
-- `authMethodType`: A number representing the type of auth method you want to add. Refer to the supported auth methods table [here](/pkp/authHelpers#existing-supported-auth-methods).
+- `authMethodType`: A number representing the type of auth method you want to add. Refer to the supported auth methods table [here](/pkp/authMethods/).
 - `id`: Bytes that represent a hash of a string that uniquely identifies the auth method
 - `userPubkey`: Public key of a WebAuthn credential (only required when using WebAuthn as an auth method)
 

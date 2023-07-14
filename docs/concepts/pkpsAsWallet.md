@@ -43,7 +43,7 @@ The current methods are a work in progress:
 - Email
 - SMS
 
-You can read more about how authentication works with PKPs in [this section](/pkp/authHelpers) of the docs.
+You can read more about how authentication works with PKPs in [this section](/pkp/authMethods/authHelpers) of the docs.
 
 The end goal of this system is to facilitate a simple onboarding experience that helps bridge the next billion users into Web3.
 

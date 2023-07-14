@@ -7,7 +7,7 @@ Authenticating with OTP codes delivered via email or SMS is a two-step process. 
 :::note
 Codes sent to users via email will be received from `noreply@litprotocol.com`. Codes sent to users via SMS will include `lit-verification` within the SMS message.
 :::
-### Register user with email or SMS
+## Register user with email or SMS
 
 ```javascript
 const authClient = new LitAuthClient({
@@ -35,10 +35,10 @@ If you are using Lit Relay Server, you will need to request an API key [here](ht
 
 :::
 
-### ReCaptcha verification
+## ReCaptcha verification
 To send an otp code to the user they must first complete a ReCaptcha verification, to verify a user via ReCaptcha you may either use our embeddable captcha or use our `site key` in our own ReCaptcha package of choice
 
-#### Embedding ReCaptcha
+### Embedding ReCaptcha
 ```javascript
 const authClient = new LitAuthClient({
     litRelayConfig: {
@@ -73,12 +73,11 @@ let authMethod = await session.authenticate({
 });
 const txHash = await session.mintPKPThroughRelayer(authMethod);
 ```
-**note** ReCaptcha Responses are valid for 2 minutes. for more information on ReCaptcha see [here](https://developers.google.com/recaptcha/intro)
+**note** ReCaptcha Responses are valid for 2 minutes. For information on ReCaptcha, [read more](https://developers.google.com/recaptcha/intro).
 
 
 ### Using the ReCaptcha Site Key in Another ReCaptcha implementation
-If you would like to use another ReCaptcha implementation such as [react google recaptcha](https://www.npmjs.com/package/react-google-recaptcha)
-You may access the ReCaptcha `site key` shown below: 
+If you would like to use another ReCaptcha implementation such as [react google recaptcha](https://www.npmjs.com/package/react-google-recaptcha) you can access the ReCaptcha `site key` shown below: 
 ```javascript
 const authClient = new LitAuthClient({
     litRelayConfig: {
@@ -90,7 +89,7 @@ authClient.getSiteKey();
 ```
 
 
-### Minting via Contract
+## Minting via Contract
 
 An alternative to minting the PKP NFT via the Lit Relay Server is to send a transaction to the smart contract yourself. You can reference the following example data that is passed to the `mintNextAndAddAuthMethods` method of the `PKPHelper` smart contract:
 

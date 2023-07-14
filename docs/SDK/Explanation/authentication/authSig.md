@@ -28,7 +28,7 @@ In the `AuthSig` data structure:
 
 You can refer to the `AuthSig` type definition in the [Lit JS SDK V2](https://js-sdk.litprotocol.com/interfaces/auth_browser_src.authsig.html).
 
-## Obtaining an `AuthSig`
+## Obtaining an `AuthSig` in the browser
 
 ### Using `checkAndSignAuthMessage`
 
@@ -86,6 +86,55 @@ You can present the smart contract `AuthSig` object to the Lit Nodes just like a
 
 Check out this [**React** project](https://replit.com/@lit/Smart-Contract-Authsig-EIP1271#smart-contract-authsig/src/App.js) for an example of how to generate and use a smart contract `AuthSig`.
 
-## Clearing Local Storage
+### Clearing Local Storage
 
 If you want to clear the `AuthSig` stored in local storage, you can call the [`disconnectWeb3` method](https://js-sdk.litprotocol.com/functions/auth_browser_src.ethConnect.disconnectWeb3.html).
+
+## Obtaining an `AuthSig` on the server-side
+
+If you want to obtain an `AuthSig` on the server-side, you can instantiate an `ethers.Signer` to sign a SIWE message, which will produce a signature that can be used in an `AuthSig` object.
+
+```js
+const LitJsSdk = require('@lit-protocol/lit-node-client-nodejs');
+const { ethers } = require("ethers");
+const siwe = require('siwe');
+
+async function main() {
+  // Initialize LitNodeClient
+  const litNodeClient = new LitJsSdk.LitNodeClientNodeJs();
+  await litNodeClient.connect();
+
+  // Initialize the signer
+  const wallet = new ethers.Wallet('<Your private key>');
+  const address = ethers.utils.getAddress(await wallet.getAddress());
+
+  // Craft the SIWE message
+  const domain = 'localhost';
+  const origin = 'https://localhost/login';
+  const statement =
+    'This is a test statement.  You can put anything you want here.';
+  const siweMessage = new siwe.SiweMessage({
+    domain,
+    address: address,
+    statement,
+    uri: origin,
+    version: '1',
+    chainId: '1',
+  });
+  const messageToSign = siweMessage.prepareMessage();
+  
+  // Sign the message and format the authSig
+  const signature = await wallet.signMessage(messageToSign);
+
+  const authSig = {
+    sig: signature,
+    derivedVia: 'web3.eth.personal.sign',
+    signedMessage: messageToSign,
+    address: address,
+  };
+
+  console.log(authSig);
+}
+
+main();
+```

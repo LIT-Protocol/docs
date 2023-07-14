@@ -614,6 +614,36 @@ force = false
   status = 301
   force = false
 
+[[redirects]]
+  from = "/SDK/Explanation/authentication/sessionSigs/authMethods/overview"
+  to = "/pkp/authMethods/authHelpers"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/pkp/authHelpers"
+  to = "/pkp/authMethods/authHelpers"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/SDK/Explanation/authentication/sessionSigs/authMethods/socialLogin"
+  to = "/pkp/authMethods/socialLogin"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/SDK/Explanation/authentication/sessionSigs/authMethods/webAuthn"
+  to = "/pkp/authMethods/webAuthn"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/SDK/Explanation/authentication/sessionSigs/authMethods/email-sms"
+  to = "/pkp/authMethods/email-sms"
+  status = 301
+  force = false
+
 # 6/19/23
 
 [[redirects]]

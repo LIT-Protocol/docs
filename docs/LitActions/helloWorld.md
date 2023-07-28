@@ -160,7 +160,7 @@ const authSig = {
 };
 
 const runLitAction = async () => {
-  const litNodeClient = new LitJsSdk.LitNodeClientJs({ litNetwork: "serrano" });
+  const litNodeClient = new LitJsSdk.LitNodeClientNodeJs({ litNetwork: "serrano" });
   await litNodeClient.connect();
   const signatures = await litNodeClient.executeJs({
     code: litActionCode,

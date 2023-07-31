@@ -45,6 +45,7 @@ Don't see a blockchain you want?  Fill out this form for EVM chains and we'll ad
 - mantle
 - klaytn
 - publicGoodsNetwork
+- optimismGoerli
 - solana
 - solanaDevnet
 - solanaTestnet
@@ -55,7 +56,6 @@ Don't see a blockchain you want?  Fill out this form for EVM chains and we'll ad
 - cheqdMainnet
 - cheqdTestnet
 - juno
-- optimismGoerli
 
 
 ## Programmable Key Pairs

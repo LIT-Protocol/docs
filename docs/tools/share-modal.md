@@ -12,7 +12,7 @@ The Lit Share Modal is a tool for creating access control conditions for securin
 - Create multiple paths for unlocking content by using AND/OR operators.
 - Set your most used tokens/NFTs as defaults for quick and easy access.
 
-![Share Modal Image](../../../static/img/shareModalCover.png)
+![Share Modal Image](../../static/img/shareModalCover.png)
 
 For an in-depth explanation of how to use the share modal, please follow the [README.md](https://github.com/LIT-Protocol/lit-share-modal-v3#readme).
 

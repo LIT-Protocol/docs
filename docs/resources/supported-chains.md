@@ -44,6 +44,8 @@ Don't see a blockchain you want?  Fill out this form for EVM chains and we'll ad
 - mantleTestnet
 - mantle
 - klaytn
+- publicGoodsNetwork
+- optimismGoerli
 - solana
 - solanaDevnet
 - solanaTestnet

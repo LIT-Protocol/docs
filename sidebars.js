@@ -65,7 +65,6 @@ const sidebars = {
       collapsible: false,
       className: "category-not-collapsible",
       items: [
-        "sdk/intro",
         "sdk/feature-matrix",
         "sdk/installation",
         "sdk/migration",
@@ -115,9 +114,12 @@ const sidebars = {
             {
               type: "category",
               label: "Access Control",
+              link: {
+                type: "doc",
+                id: "sdk/access-control/intro",
+              },
               collapsible: true,
               items: [
-                "sdk/access-control/intro",
                 "sdk/access-control/encryption",
                 "sdk/access-control/jwt-auth",
                 {
@@ -156,9 +158,12 @@ const sidebars = {
             {
               type: "category",
               label: "Programmable Wallets",
+              link: {
+                type: "doc",
+                id: "sdk/wallets/intro",
+              },
               collapsible: true,
               items: [
-                "sdk/wallets/intro",
                 "sdk/wallets/auth-methods",
                 "sdk/wallets/minting",
                 "sdk/wallets/walletconnect",

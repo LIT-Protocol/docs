@@ -20,7 +20,7 @@ A (cryptographic) challenge is a piece of data that is used in challenge-respons
 ### **[Decentralized Access Control](/accessControl/intro)**
 Lit’s decentralized access control protocol allows you to encrypt information behind [on-chain conditions](/accessControl/intro), allowing you to securely store data on the open web.
 ### **[Digital Signature](LitActions/actions/litActions#signing)**
-In cryptography, a digital signature proves that a user controls the private key associated with a particular public address. This is commonly used in the context of *authorization*. Apps can use this signature to verify a user has control over the digital identity provided by the address, and provide authentication to do both web3 and arbitrary, non-web3 actions. For example, changing a profile on OpenSea requires signing in order to confirm the association between the profile owner the the wallet associated with it.
+In cryptography, a digital signature proves that a user controls the private key associated with a particular public address. This is commonly used in the context of *authorization*. Apps can use this signature to verify a user has control over the digital identity provided by the address, and provide authentication to do both web3 and arbitrary, non-web3 actions. For example, changing a profile on OpenSea requires signing in order to confirm the association between the profile owner and the wallet associated with it.
 
 In working with the Lit network, someone will sign with their wallet when they want to mint a PKP. That is a transaction signature — where someone is sending a transaction (minting). This signature is then used as the method of authentication over the PKP and associated Lit Actions.
 ### **Distributed Key Generation**
@@ -50,7 +50,7 @@ Keep the same overall private key, but change the private key shares, such that 
 ### **[Programmable Key Pairs (PKPs)](/pkp/intro)**
 An ECDSA keypair generated collectively by the Lit nodes. PKPs can be used to read and write data across blockchains (EVM, Cosmos, BTC), storage networks (IPFS, Ceramic), and HTTP endpoints.
 ### **[Proof](/LitActions/actions/litActions#proofs)**
-A proof is a particular application for a digitial signature. For example, using a signature to *prove* that a particular interaction took place. Signing through Lit Actions opens up the possibilities of verifying information from external sources, such as from a Weather API. Within the Lit ecosystem this signed information is called a proof.
+A proof is a particular application for a digital signature. For example, using a signature to *prove* that a particular interaction took place. Signing through Lit Actions opens up the possibilities of verifying information from external sources, such as from a Weather API. Within the Lit ecosystem this signed information is called a proof.
 ### **[Public Key Cryptography](/startHere/whatIsLitProtocol#decentralized-cryptography)**
 The technology that underpins cryptocurrency and most of the security infrastructure on the web today. It allows you to do two main things:
 

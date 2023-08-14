@@ -4,6 +4,7 @@ sidebar_position: 2
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import FeatureMatrix from '@site/docs/network/feature-matrix.md';
 
 # Migrating From V2 To V3
 
@@ -12,6 +13,8 @@ The **Lit JS SDK V3** replaces the existing access control condition based encry
 ## What's Not Migrated?
 
 All of the access control conditions that have been "stored" in the `jalapeno` and `serrano` networks **will not be migrated** but we will continue to maintain support for them. If you wish to continue using these access control conditions for encryption or signing JWTs, please continue using the V2 SDK.
+
+<FeatureMatrix />
 
 ## Per-Package Changes
 

@@ -65,7 +65,6 @@ const sidebars = {
       collapsible: false,
       className: "category-not-collapsible",
       items: [
-        "sdk/feature-matrix",
         "sdk/installation",
         "sdk/migration",
             {
@@ -185,13 +184,19 @@ const sidebars = {
     },
     {
       type: "category",
+      label: "Network",
+      collapsible: false,
+      className: "category-not-collapsible",
+      items: ["network/state-of-network", "network/feature-matrix", "network/rollup"],
+    },
+    {
+      type: "category",
       label: "Resources",
       collapsible: false,
       className: "category-not-collapsible",
       items: [
         "resources/how-it-works",
         "resources/supported-chains",
-        "resources/rollup",
         "resources/contracts",
         "resources/glossary",
       ],
@@ -201,7 +206,7 @@ const sidebars = {
       label: "Support",
       collapsible: false,
       className: "category-not-collapsible",
-      items: ["support/faq", "support/bug-bounty", "support/state-of-network"],
+      items: ["support/faq", "support/bug-bounty"],
     }
   ],
 };

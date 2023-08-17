@@ -49,7 +49,7 @@ const sidebars = {
       items: [
         "intro/overview",
         "intro/what-is-lit-protocol",
-        "intro/usecases",
+        "intro/usecases"
       ],
     },
     {
@@ -61,12 +61,17 @@ const sidebars = {
     },
     {
       type: "category",
+      label: "Migration to V3",
+      collapsible: true,
+      items: ["migration/overview", "network/feature-matrix", "migration/changes"],
+    },
+    {
+      type: "category",
       label: "SDK Reference",
       collapsible: false,
       className: "category-not-collapsible",
       items: [
         "sdk/installation",
-        "sdk/migration",
             {
               type: "category",
               label: "Authentication",

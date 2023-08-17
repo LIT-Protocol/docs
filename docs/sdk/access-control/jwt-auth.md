@@ -1,14 +1,33 @@
 # JWT Auth
 
+Access control conditions can be used to "gate" the signing of JWTs that are used to load dynamic content from a server.
+
+Dapp developers can declare which URLs require certain access control conditions before proceeding to serve content when developing their application, and this can either be done statically (explicitly declared) or programmatically (declared on-the-fly).
+
+The BLS network attest to a user meeting certain access control conditions by checking that they satisfy these conditions before signing a JWT with claims containing these access control conditions.
+
+Refer to the [SDK docs](../sdk/explanation/encryption) for more details and code examples.
+
+## High-Level Overview
+
+Here is a high-level, step-by-step breakdown of generating a signed JWT:
+
+1. Client requests BLS network to produce signature shares for a JWT with the claims containing the matching access control conditions for a particular dapp URL.
+2. The BLS network nodes checks whether the user satisfies the access control conditions before constructing the JWT payload and signing it.
+3. Client recombines the signature shares to assemble the fully formed JWT using the signature and presents the JWT to the dapp URL.
+4. The dapp web page would verify that the JWT was signed by the BLS network and check that the access control conditions in the JWT claims matches that which is required for that dapp web page.
+
+## Technical Walkthrough
+
 The Lit Network can be used to specify access control conditions for signing JWTs that are used to load dynamic content from a server.
 
 Check out [this example](https://github.com/LIT-Protocol/js-sdk/blob/master/apps/demo-locked-express-app/README.md) for a simple Express application that gates a server-provided web page with an access control condition.
 
-## Provisioning access to a resource
+### Provisioning access to a resource
 
 You can use dynamic content provisioning to put some dynamic content behind an on-chain / off-chain condition. As a dapp developer, it is your responsibility to declare the conditions per each of your dapp's web pages either statically / explicitly or programmatically.
 
-## Verifying a JWT that was signed by the Lit network
+### Verifying a JWT that was signed by the Lit network
 
 Verifying a JWT would typically be done on the server side (Node.js), but should work in the browser too.
 
@@ -57,7 +76,7 @@ if (expectedAccessControlConditionsHash !== actualAccessControlConditionsHash) {
 
 The `verified` variable is a boolean that indicates whether or not the signature verified properly to be signed by the BLS network key.
 
-## Accessing a resource via a JWT
+### Accessing a resource via a JWT
 
 Obtaining a signed JWT from the Lit network can be done via the `getSignedToken` function of the [`LitNodeClient`](https://js-sdk.litprotocol.com/classes/lit_node_client_src.LitNodeClientNodeJs.html#getSignedToken). The BLS network effectively attests to the user satisfying certain access control conditions by producing signature shares over a JWT with claims containing these access control conditions.
 

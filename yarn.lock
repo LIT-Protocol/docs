@@ -2023,33 +2023,33 @@
   resolved "https://registry.npmjs.org/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@lit-protocol/auth-helpers@2.2.41":
-  version "2.2.41"
-  resolved "https://registry.yarnpkg.com/@lit-protocol/auth-helpers/-/auth-helpers-2.2.41.tgz#a5ef4d07a53bc4d572112b405eb2373ae72b96a6"
-  integrity sha512-DwEd9jAJRZ1hHF401NLd7HnLjCw2GDtXUNMZGBalzSvLHKrPUPaG64WzYDrPPSkasH7WpoGxiiuP0HRNvMv8/Q==
+"@lit-protocol/auth-helpers@2.2.47":
+  version "2.2.47"
+  resolved "https://registry.yarnpkg.com/@lit-protocol/auth-helpers/-/auth-helpers-2.2.47.tgz#0b2ebc9aac631986213febd640c173da4481b02a"
+  integrity sha512-DXAI1lnYLm3aQyefSsp75LZqf2MABTjwf58qK+dbk4+lw6nQ1FMYLytAfz5Asqwiz2+gGVej+e6/3BAMdKg/oQ==
   dependencies:
     siwe "^2.0.5"
     siwe-recap "0.0.2-alpha.0"
     tslib "^2.3.0"
 
-"@lit-protocol/constants@^2.2.41":
-  version "2.2.41"
-  resolved "https://registry.yarnpkg.com/@lit-protocol/constants/-/constants-2.2.41.tgz#34414fe4efec93bdd58aaa8d1c3070d315bc58b6"
-  integrity sha512-4roOsxZ6ocJiEbKTZPSpEi7RJW0JbnfmY96bA39jMdKVnxNUOqOrXgXMIPK2zlW6ba2MOkFIwHStcKwCv8om0g==
+"@lit-protocol/constants@^2.2.47":
+  version "2.2.47"
+  resolved "https://registry.yarnpkg.com/@lit-protocol/constants/-/constants-2.2.47.tgz#ae3259d8031f4f00dec8c4eb5f039b141244d8ac"
+  integrity sha512-2RumitQzLAxPPu7opf8F/O4ukpNIMnj7bzgolYErI9+x4brzM+UDpJzVsWWSIXcO55LhzfKHt/6lp/TMCJGkLw==
   dependencies:
-    "@lit-protocol/auth-helpers" "2.2.41"
-    "@lit-protocol/types" "2.2.41"
+    "@lit-protocol/auth-helpers" "2.2.47"
+    "@lit-protocol/types" "2.2.47"
     ethers "^5.7.1"
     siwe "^2.0.5"
     siwe-recap "0.0.2-alpha.0"
     tslib "^2.3.0"
 
-"@lit-protocol/types@2.2.41":
-  version "2.2.41"
-  resolved "https://registry.yarnpkg.com/@lit-protocol/types/-/types-2.2.41.tgz#5bee74fb50c67cc9c8d518b85d7e65f335198c99"
-  integrity sha512-2pz7klTgnllNXRC4pji7FCG+qmYNvH2ohDLpJgLJPKR7Dwad12CjTJxjCjNoIiH1DNh5dcKRMTEIrIHb4yrjpg==
+"@lit-protocol/types@2.2.47":
+  version "2.2.47"
+  resolved "https://registry.yarnpkg.com/@lit-protocol/types/-/types-2.2.47.tgz#b3e9db6164a4c38e8a66f8e8db61d5a4ead590a8"
+  integrity sha512-tN/qOC7d10jZjDdjCHXkajXZqj7olgjwGxonE80+cP6Vvuz1p+vNohmSEJl9Q5gSEkSHxJqxXGSkVaFTErcn0g==
   dependencies:
-    "@lit-protocol/auth-helpers" "2.2.41"
+    "@lit-protocol/auth-helpers" "2.2.47"
     ethers "^5.7.1"
     siwe "^2.0.5"
     siwe-recap "0.0.2-alpha.0"

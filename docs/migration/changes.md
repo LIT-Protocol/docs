@@ -5,17 +5,12 @@ sidebar_position: 2
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migrating From V2 To V3
+# Package Changes
 
 The **Lit JS SDK V3** replaces the existing access control condition based encryption and JWT signing processes with new cryptographic primitives to offer a more secure and seamless user experience.
 
-## What's Not Migrated?
 
-All of the access control conditions that have been "stored" in the `jalapeno` and `serrano` networks **will not be migrated** but we will continue to maintain support for them. If you wish to continue using these access control conditions for encryption or signing JWTs, please continue using the V2 SDK.
-
-## Per-Package Changes
-
-### `@lit-protocol/bls-sdk`
+## `@lit-protocol/bls-sdk`
 
 :::note
 
@@ -23,7 +18,7 @@ You should only use this package if you know what you are doing. Otherwise, plea
 
 :::
 
-#### Encryption
+### Encryption
 
 Previously in V2, you would have to:
 
@@ -55,7 +50,7 @@ const ciphertext = blsSdk.encrypt(
 );
 ```
 
-#### Decryption
+### Decryption
 
 Previously in V2, you would have to:
 
@@ -74,13 +69,13 @@ const privateData = blsSdk.decrypt_with_signature_shares(
 
 The signature shares must be obtained via the new BLS network endpoint.
 
-#### Signature Verification
+### Signature Verification
 
 Previously in V2, you would have to call the `verify` method.
 
 Now in V3, you can use the `verify_signature` method. The signature must be combined using signature shares obtained via the new BLS network endpoint.
 
-### `@lit-protocol/crypto`
+## `@lit-protocol/crypto`
 
 :::note
 
@@ -88,7 +83,7 @@ You should only use this package if you know what you are doing. Otherwise, plea
 
 :::
 
-#### Encryption
+### Encryption
 
 Previously in V2, you would have to:
 
@@ -116,7 +111,7 @@ const identityParam = new Uint8Array([
 const ciphertext = encrypt(publicKey, secretMessage, identityParam);
 ```
 
-#### Decryption
+### Decryption
 
 Previously in V2, you would have to:
 
@@ -145,69 +140,12 @@ const plaintext = verifyAndDecryptWithSignatureShares(
 );
 ```
 
-### `@lit-protocol/encryption`
+## `@lit-protocol/encryption`
 
 All of the methods now require `ILitNodeClient` in the function argument.
 
-### `@lit-protocol/lit-node-client` and `lit-node-client-nodejs`
+## `@lit-protocol/lit-node-client` and `lit-node-client-nodejs`
 
 All of the functionality for encrypting and decrypting private data is now implemented by the `encrypt` and `decrypt` methods.
 
 All of the functionality for obtaining a BLS network signature over a JWT is now implemented by the `getSignedToken` method.
-
-## Notable Changes
-
-V3 includes the following breaking changes from V2.
-
-### Supported Lit Networks
-
-Both `jalapeno` and `serrano` will no longer be supported. `cayenne` is the only supported network and will be the new default moving forward.
-
-### Types
-
-#### Removed Types
-
-- `EncryptedString`
-- `ThreeKeys`
-- `JsonStoreSigningRequest`
-- `JsonSaveEncryptionKeyRequest`
-
-#### Updated Types
-
-- `DecryptZipFileWithMetadata`
-- `VerifyJWTProps`
-- `IJWT`
-- `SuccessNodePromises`
-- `DecryptFromIpfsProps`
-- `LIT_NETWORKS_KEYS`
-
-### Methods
-
-#### Removed Methods
-
-The following methods have been removed from `LitNodeClientNodeJs` and `LitNodeClient`:
-
-- `getChainDataSigningShare`
-- `storeSigningConditionWithNode`
-- `saveSigningCondition`
-- `getSigningShare`
-- `getDecryptions`
-- `getSignedChainDataToken`
-
-#### Updated Methods
-
-The following methods have their interfaces updated in `LitNodeClientNodeJs` and `LitNodeClient`:
-
-- `combineSharesAndGetJWT`
-
-THe following methods have their names updated in `@lit-protocol/encryption` and `@lit-protocol/lit-node-client-nodejs`:
-
-- `decryptFile` becomes `decryptToFile`
-- `decryptString` becomes `decryptToString`
-- `decryptZip` becomes `decryptToZip`
-
-All method interfaces in `@lit-protocol/encryption` have been updated.
-
-## Changelog
-
-Changes to the **Lit JS SDK V3** will be tracked in the [changelog](https://github.com/LIT-Protocol/js-sdk/blob/master/CHANGELOG.md).

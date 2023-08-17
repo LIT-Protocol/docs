@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Introduction to Decentralized Access Control
+# Intro
 
 ## Quick Start
 

@@ -81,9 +81,10 @@ const sessionSigs = await provider.getSessionSigs({
   authMethod: '<AuthMethod object returned from authenticate()>',
   sessionSigsParams: {
     chain: 'ethereum',
-    resourceAbilityRequests: [
-      resource: litResource,
-      ability: LitAbility.AccessControlConditionDecryption
+    resourceAbilityRequests: [{
+        resource: litResource,
+        ability: LitAbility.AccessControlConditionDecryption
+      }
     ],
   },
 });

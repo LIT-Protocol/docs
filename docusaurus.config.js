@@ -26,7 +26,7 @@ const config = {
           lastVersion: "2.0",
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
-          editUrl: "https://github.com/LIT-Protocol/docs/edit/main/website/",
+          editUrl: "https://github.com/LIT-Protocol/docs/tree/main",
           routeBasePath: "/",
           versions: {
             "2.0": {

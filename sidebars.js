@@ -170,6 +170,7 @@ const sidebars = {
               items: [
                 "sdk/wallets/auth-methods",
                 "sdk/wallets/minting",
+                "sdk/wallets/conditional-signing",
                 "sdk/wallets/walletconnect",
               ],
             },

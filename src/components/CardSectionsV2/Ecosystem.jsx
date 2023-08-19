@@ -35,7 +35,7 @@ export default function EcosystemSection({ title, className }) {
       <Card
         title="⛓️ Supported Blockchains"
         description="We currently support most EVM chains, Cosmos and Solana."
-        to="/resources/supportedChains"
+        to="/v2/resources/supportedChains"
       />
     </Section>
   );

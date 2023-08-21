@@ -20,7 +20,7 @@ export default function EcosystemSection({ title, className }) {
       <Card
         title="💻 Ecosystem RFPs"
         description="Learn about how you can contribute to Lit Protocol."
-        to="https://litprotocol.notion.site/Lit-Request-for-Ecosystem-Proposals-ae3f31e7f32c413cbe0b36c2fe53378d"
+        to="https://github.com/LIT-Protocol/Ecosystem-Ideas"
       />
       <Card
         title="🧑‍💻 Request for Startups"

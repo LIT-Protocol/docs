@@ -14,8 +14,8 @@ For some use cases (such as making an API or RPC request), it may be desired to 
 
 ## Ideal Use Cases 
 - Generating [proofs](../LitActions/intro#proofs)
-- Looking up permitted actions, addresses and [auth methods](../pkp/authHelpers) associated with a PKP
-- Checking access control conditions with [conditional signing](LitActions/workingWithActions/conditionalSigning)
+- Looking up permitted actions, addresses and [auth methods](../pkp/authHelpers/overview) associated with a PKP
+- Checking access control conditions with [conditional signing](../LitActions/workingWithActions/conditionalSigning)
 
 ## Think Twice Use Case -- Ideal for Single Node Execution
 - POST request that inserts a new SQL row (if not called in single execution, the Lit Action will be executed by every node in parallel, you will end up with n number of rows, where n is no less than two-thirds the number of total nodes in the Lit network)

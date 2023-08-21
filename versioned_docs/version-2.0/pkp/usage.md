@@ -1,6 +1,6 @@
 # Using PKPs as Wallets
 
-With PKPs, you can build secure, customizable [MPC wallets](../resources/pkpsAsWallet) that offer intuitive onboarding experiences without the pain of private key management.
+With PKPs, you can build secure, customizable MPC wallets that offer intuitive onboarding experiences without the pain of private key management.
 
 The [`@lit-protocol/pkp-ethers` package](https://github.com/LIT-Protocol/js-sdk/tree/master/packages/pkp-ethers) provides a familiar wallet interface that makes it easy to sign data, send transactions, and handle Ethereum JSON RPC requests using PKPs.
 

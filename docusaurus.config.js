@@ -30,13 +30,13 @@ const config = {
           routeBasePath: "/",
           versions: {
             "2.0": {
-              badge: false,
+              badge: true,
               label: "v2.x.x",
               path: "v2",
               banner: "none",
             },
             current: {
-              badge: false,
+              badge: true,
               label: "v3.x.x",
               path: "v3",
               banner: "unreleased",

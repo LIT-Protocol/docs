@@ -9,15 +9,15 @@ sidebar_position: 1
 Ready to jump right in? Quickly learn how you can integrate decentralized access control into your own product:
 
 1. Guide: [Working with Decentralized Access Control](https://spark.litprotocol.com/working-with-decentralized-access-control/)
-2. Guide: [Encrypting and Decrypting Content with Lit](/SDK/Explanation/encryption)
+2. Guide: [Encrypting and Decrypting Content with Lit](../SDK/Explanation/encryption)
 3. Tool: [Custom Access Controls Creator](https://custom-access-control-conditions.lit.repl.co/) 
-4. Example: [Basic EVM Conditions](/accessControl/EVM/basicExamples)
+4. Example: [Basic EVM Conditions](../accessControl/EVM/basicExamples)
 
 ## Overview
 
-Lit Protocol provides developers with a decentralized access control layer that can be used to [encrypt](/resources/glossary#encryption) content for private and permissioned storage on the open Web. The [Lit SDK](https://github.com/LIT-Protocol/js-sdk) provides utilities that can be used for encrypting and decrypting content client-side, while [access control conditions](/accessControl/conditionTypes/unifiedAccessControlConditions) (ACCs) are used to define who can decrypt and access the locked data. 
+Lit Protocol provides developers with a decentralized access control layer that can be used to [encrypt](../resources/glossary#encryption) content for private and permissioned storage on the open Web. The [Lit SDK](https://github.com/LIT-Protocol/js-sdk) provides utilities that can be used for encrypting and decrypting content client-side, while [access control conditions](../accessControl/conditionTypes/unifiedAccessControlConditions) (ACCs) are used to define who can decrypt and access the locked data. 
 
-Lit supports the use of both on and [off-chain data](/accessControl/conditionTypes/litActionConditions) when defining access control conditions. Examples include gating against:
+Lit supports the use of both on and [off-chain data](../accessControl/conditionTypes/litActionConditions) when defining access control conditions. Examples include gating against:
 
 - [Membership within a particular DAO](../accessControl/EVM/basicExamples#must-be-a-member-of-a-dao-molochdaov21-also-supports-daohaus)
 - Ownership of a particular [ERC-721](../accessControl/EVM/basicExamples#must-posess-any-token-in-an-erc721-collection-nft-collection) or [ERC-20](../accessControl/EVM/basicExamples#must-posess-at-least-one-erc20-token) token

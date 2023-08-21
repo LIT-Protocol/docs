@@ -1,5 +1,4 @@
 ---
-slug: /usecases
 sidebar_position: 4
 ---
 
@@ -13,7 +12,7 @@ Some examples of applications that can (and have) been built harnessing this fun
 
 ### Web3 Apps with Private Data
 
-Introduce privacy to decentralized applications. Use Lit to securely store private and permissioned data on the open web. To get started with an integration, use our JavaScript [SDK](../SDK/intro).
+Introduce privacy to decentralized applications. Use Lit to securely store private and permissioned data on the open web. To get started with an integration, use our JavaScript [SDK](../sdk/intro).
 
 Examples:
 
@@ -22,7 +21,6 @@ Examples:
 - [Starling Lab](https://github.com/starlinglab/archive-explorer/): Token-gated data archives.
 - [Streamr](https://blog.streamr.network/streamr-integrates-lit-protocol/): Private data marketplaces.
 - [Gather](https://www.gather.town/): Powering private virtual spaces for your team.
-- [Headline](https://viaheadline.xyz/): Publish exclusive content for your web3 community.
 - [IPFS](https://litgateway.com/files): Encrypt content for private storage on IPFS.
 - [WalletChat.fun](https://lit.walletchat.fun/): Encrypted wallet-to-wallet messaging.
 - [Nowhere](https://www.urnowhere.com/): Token-gated metaverse spaces.
@@ -38,7 +36,7 @@ Use on-chain credentials to gate access to your favorite web2 applications and d
 
 ### Unlockable NFTs
 
-Using [HTML NFTs](../ToolsAndExamples/SDKExamples/HTMLNfts), you can create locked content that only owners of the NFT have access to. This includes dynamic content, like websites or metaverse spaces. 
+Using [HTML NFTs](../ToolsAndExamples/SDKExamples/HTMLNfts.md), you can create locked content that only owners of the NFT have access to. This includes dynamic content, like websites or metaverse spaces. 
 
 Here’s an [example](https://twitter.com/LitProtocol/status/1504630741849853954) using our Lit Genesis Canvas NFT. Only holders can access the private canvas site linked within!
 
@@ -108,7 +106,7 @@ Improve the state of [web3 gaming](https://spark.litprotocol.com/lit-and-web3-ga
 
 More ideas!
 
-- A certification system utilizing [conditional signing](LitActions/workingWithActions/conditionalSigning).
+- A certification system utilizing [conditional signing](../LitActions/workingWithActions/conditionalSigning.md).
 
 
 ### You can find even more examples, ideas, and resources [here](https://github.com/LIT-Protocol/awesome/blob/main/README.md).

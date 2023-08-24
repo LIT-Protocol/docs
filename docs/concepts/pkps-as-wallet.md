@@ -51,7 +51,7 @@ The end goal of this system is to facilitate a simple onboarding experience that
 
 ## Supported Chains
 
-Today, PKP wallets are inherently compatible with any blockchain or cryptographic system that utilizes [ECDSA](https://blog.cloudflare.com/ecdsa-the-digital-signature-algorithm-of-a-better-internet/) for digital signatures. This includes Ethereum and most EVM chains, Bitcoin, Cosmos-based chains, and storage networks like IPFS. This means that PKPs can be used to read and write data across these networks, bringing interoperability to previously disconnected ecosystems. You can view the complete list of supported chains [here](../resources/supported-chains#programmable-key-pairs).
+Today, PKP wallets are inherently compatible with any blockchain or cryptographic system that utilizes [ECDSA](https://blog.cloudflare.com/ecdsa-the-digital-signature-algorithm-of-a-better-internet/) for digital signatures. This includes Ethereum and most EVM chains, Bitcoin, Cosmos-based chains, and storage networks like IPFS. This means that PKPs can be used to read and write data across these networks, bringing interoperability to previously disconnected ecosystems. You can view the complete list of supported chains [here](../resources/supported-chains#programmable-key-pairs.md).
 
 ## Examples
 

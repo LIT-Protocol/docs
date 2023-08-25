@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Lit MPC Wallets
+# MPC Wallets
 
 :::note
 **STATE OF THE NETWORK**

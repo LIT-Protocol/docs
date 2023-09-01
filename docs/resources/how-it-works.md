@@ -22,8 +22,6 @@ Both MPC and TSS originate from the concepts of public key cryptography and exte
 
 In the Lit Network, the nodes perform a [distributed key generation](../resources/glossary#distributed-key-generation) (DKG) to create new public/private key pairs where no one party ever holds the entire key. Instead, each node holds a key share which they can use to sign and decrypt data. The nodes perform each operation (signing or decryption) in parallel and the individual results are aggregated to form the complete signature or decryption key, without exposing the underlying private key itself. By distributing the key among multiple parties, the network becomes more robust and can continue to function even when multiple participating parties may be offline or possess malicious intent.
 
-![networkOverview](/img/networkOverview.png)
-
 ## Secure Encrypted Virtualization (SEV)
 
 In addition to the security provided by the decentralized nature of MPC and TSS, Lit leverages AMD’s [Secure Encrypted Virtualization](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf) (SEV), providing advanced hardware-level protection and an additional layer of security.

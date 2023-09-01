@@ -20,7 +20,7 @@
 - **[Iris](https://github.com/irisxyz/iris)**: A decentralized social media and subscription platform built on Lens.
 - **[DecentraScholar](https://github.com/TanusreeSharma/LFGrow-hack)**: A platform that incentivizes collaboration among academic researchers.
 - **[MxTape](https://ethglobal.com/showcase/mxtape-1tr3a)**: Decentralized music player.
-- **[Pearl](https://github.com/Pearl-Market/marketplace)**: Discover and share typefaces and designs on-chain.
+- **[Peal](https://github.com/Pearl-Market/marketplace)**: Discover and share typefaces and designs on-chain.
 - **[DFSP](https://github.com/shazi57/dfsp-js)**: Decentralized, private live-streaming platform for creators.
 - **[Decensus](https://github.com/decensus-crypto/app)**: Web3-based survey platform.
 - **[creativegene](https://github.com/ddresch/creativegene)**: Decentralized social platform for buying and selling digital goods.
@@ -28,6 +28,7 @@
 
 ### Infrastructure
 
+- **[Spheron](https://spheron.network/)**: Platform-as-a-service for web3 devs.
 - **[BAILOUT](https://ethglobal.com/showcase/bailout-ia6s1?ref=spark.litprotocol.com)**: Securely move assets between EOAs, smart contract wallets, and cold wallets.
 - **[Strata Protocol](https://strataprotocol.com/)**: An open-source protocol to launch tokens around a person, project, idea, or collective on Solana.
 - **[Key-Recovery](https://github.com/Joseph-Gross/key-recovery)**: Distributed social private key recovery made by the team at [Sling Protocol](https://twitter.com/slingprotocol).
@@ -37,6 +38,7 @@
 
 ### Data and Identity Marketplaces
 
+- **[Index Network](https://index.network/)**: Create and monetize personalized content discovery engines.
 - **[WeaveDB](https://docs.weavedb.dev/docs/examples/lit-protocol)**: Decentralized Web3 database.
 - **[Streamr](https://blog.streamr.network/streamr-integrates-lit-protocol/)**: Distributed real-time data network.
 - **[KaratDAO](https://docs.karatdao.com/why-karat-network)**: A decentralized data network connecting Web2 to Web3.
@@ -49,9 +51,10 @@
 ### Privacy and Encryption
 
 - **[dKeeper](https://ethglobal.com/showcase/dkeeper-3ma7r?ref=spark.litprotocol.com)**: Access control management for dApps.
+- **[Incognfto](https://blog.spheron.network/incognfto-a-private-nft-gallery)**: Create a private NFT gallery with Spheron and Lit.
 - **[Selfguard](https://github.com/selfguard/selfguard?ref=spark.litprotocol.com)**: Universal API for encryption.
 - **[Starling Lab](https://github.com/starlinglab/archive-explorer/)**: Token-gated data archives.
-- **[Curve Labs](https://github.com/Curve-Labs/lit-privacy/tree/main)**: Tooling for private on-chain voting.
+- **[Curve Labs](https://github.com/Curve-Labs/lit-privacy/tree/main)**: Privacy-preserving infrastructure tooling.
 - **[Hashchat](https://github.com/hashchat-xyz/hashchat-lfgrow)**: Wallet-to-wallet encrypted messaging.
 - **[LitChat](https://github.com/cryptoKevinL/LitChat)**: Wallet-to-wallet encrypted messaging using Lit and Ceramic.
 - **[XMTP Chat App](https://github.com/GeorgeFane/lit-xmtp)** with token gating enabled by Lit Protocol.
@@ -60,12 +63,16 @@
 - **[Cask](https://blog.cask.fi/cask-protocol-integrates-with-lit-protocol-to-attach-private-data-to-nfts-token-gate-content-496b2c5bb995)**: Automated, recurring payments.
 - **[AlgoveraAI](https://github.com/AlgoveraAI/streamlit-metamask?ref=spark.litprotocol.com)**: Token-gated Streamlit applications.
 
-### Wallets
+### Wallets and Account Abstraction (AA)
 
 - **[Peaze](https://www.peaze.com/)**: Seamless onboarding for Web3.
 - **[MagicWallet](https://github.com/DustilDawn/Magic)**: One account, multiple seedless wallets.
 - **[litu safu](https://ethglobal.com/showcase/litu-safu-m9tja)**: Use a PKP as a signer on a Safe.
 - **[Stackup](https://spark.litprotocol.com/account-abstraction-with-stackup-lit/)**: Adding an MPC key as a signer on an AA wallet.
+- **[ZeroDev](https://zerodev.app/)**: Smart wallets as a service.
+- **[SafeMail](https://ethglobal.com/showcase/safemail-n8b96)**: A one-click onboarding experience for Web3.
+- **[Patch Wallet](https://app.patchwallet.com/)**: Use your social account as your personal crypto wallet to manage your assets without the complexity.
+- **[Obvious](https://www.obvious.technology/)**: Flexible smart contract wallets.
 
 ### DeFi
 
@@ -90,8 +97,3 @@
 - **[Shopify](https://apps.shopify.com/lit-token-access)**: Blockchain-based access control for your online store.
 - **[Heirloom DAO](https://www.heirloomdao.com/)**: Subscriptions as NFTs.
 - **[Club Goods](https://www.clubgoods.xyz/)**: An e-commerce experiment at the intersection of storytelling, community tokens and physical goods.
-
-
-
-View more [here](https://github.com/LIT-Protocol/awesome/blob/main/README.md#projects-and-integrations).
-

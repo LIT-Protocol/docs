@@ -246,6 +246,11 @@
       "collapsible": false,
       "className": "category-not-collapsible",
       "items": [
+        {
+          "type": "doc",
+          "label": "Network Matrix",
+          "id": "resources/networkMatrix"
+        },
         "resources/howItWorks",
         "resources/supportedChains",
         "resources/contracts",

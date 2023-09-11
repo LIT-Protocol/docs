@@ -30,7 +30,7 @@ export default function CoreConceptsSection({ title, className }) {
       <Card
         title="🧩 Use Cases"
         description="Learn about how you can integrate Lit infrastructure within your own products."
-        to="/v2/usecases"
+        to="/v2/intro/usecases"
       />
     </Section>
   );

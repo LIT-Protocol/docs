@@ -11,11 +11,11 @@ _Estimated time to complete: 1 hour_
 
 ## Table of Contents
 
-- [Setup the Project](../../ToolsAndExamples/SDKExamples/OnchainMetadata/setup)
-- [Encrypt & Decrypt](../../ToolsAndExamples/SDKExamples/OnchainMetadata/encryptDecrypt)
-- [NFT Smart Contract](../../ToolsAndExamples/SDKExamples/OnchainMetadata/smartContract)
-- [Lit SDK on the Frontend](../../ToolsAndExamples/SDKExamples/OnchainMetadata/frontend)
-- [Deploy to Polygon Mumbai network](../../ToolsAndExamples/SDKExamples/OnchainMetadata/polygonMumbai)
+- [Setup the Project](../OnchainMetadata/setup)
+- [Encrypt & Decrypt](../OnchainMetadata/encryptDecrypt)
+- [NFT Smart Contract](../OnchainMetadata/smartContract)
+- [Lit SDK on the Frontend](../OnchainMetadata/frontend)
+- [Deploy to Polygon Mumbai network](../OnchainMetadata/polygonMumbai)
 
 ## Tech Stack
 

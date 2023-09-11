@@ -19,7 +19,7 @@ Here is a high-level, step-by-step breakdown of generating a signed JWT:
 
 The Lit Network can be used to specify access control conditions for signing JWTs that are used to load dynamic content from a server.
 
-Check out [this example](https://github.com/LIT-Protocol/js-sdk/blob/master/apps/demo-locked-express-app/README.md) for a simple Express application that gates a server-provided web page with an access control condition.
+Check out [this example](https://replit.com/@lit/NextJS-x-Lit-Token-Gating) for a simple NextJS application that gates a web page with an access control condition.
 
 ### Provisioning access to a resource
 

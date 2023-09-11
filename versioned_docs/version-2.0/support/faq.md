@@ -218,7 +218,7 @@ Since the PKP is assigned to itself in the setup stage as described above, we ca
 
 ### 4. I want to create multiple different AuthSigs but don't want my users to sign multiple times?
 
-Firstly, if you are using Lit in a browser, the AuthSig is stored in its local storage so you don’t need to sign multiple times as the stored AuthSig will be used subsequently. This design pattern is specifically applicable to when you want to sign different SIWE resources or messages which is generally required in [Custom Contract Calls](https://developer.litprotocol.com/coreConcepts/accessControl/EVM/customContractCalls#using-siwe-params-in-custom-contract-calls).
+If you are using Lit in a browser, the AuthSig is stored in its local storage so you don’t need to sign multiple times as the stored AuthSig will be used subsequently. This design pattern is specifically applicable to when you want to sign different SIWE resources or messages which is generally required in custom contract calls.
 
 For different resources you’ll be required to sign each time since the signed message is different. One way to get around this is to use a PKP to do the signing for you. This is how it works: The user owns a PKP & uses it to sign a message in a LitAction with `Lit.Actions.signEcdsa()`. Then return all the sigShares from the LitAction to the app. Here the user can loop through & craft AuthSigs for each returned sigShare and process the required access control operation like decryption. Another way is to return the crafted AuthSigs from the LitActions directly.
 

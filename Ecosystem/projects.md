@@ -9,13 +9,12 @@
 - **[Relation](https://spark.litprotocol.com/semantic/)**: Web3 native social graph.
 - **[Orbis Club](https://orbis.club/)**: A fully decentralized social layer for Web3.
 - **[Gather](https://www.gather.town/)**: Virtual spaces for remote collaboration.
-- **[Headline](https://viaheadline.xyz/)**: A decentralized publishing platform.
 - **[Charmverse](https://www.charmverse.io/)**: Web3-native all-in-one workspace.
 - **[P00ls](https://www.p00ls.io/)**: A web3 platform for creators and brands.
 - **[Gateway](https://www.mygateway.xyz/home)**: Verifiable credential platform.
 - **[Tempra](https://ethglobal.com/showcase/tempra-xnxf4)**: Decentralized social platform inspired by Snapchat.
 - **[Lens](https://lens.xyz/)**: Token-gated content on Lens.
-- **[The 402](https://app.the402.xyz/)**: Live-streaming and NFT marketplace.
+- **[The 402](https://www.the402.xyz/)**: Live-streaming and NFT marketplace.
 - **[MemeDAO](https://github.com/Eyon42/MemeDAO)**: DAO communication platform that uses Lit to support private, members-only content.
 - **[Iris](https://github.com/irisxyz/iris)**: A decentralized social media and subscription platform built on Lens.
 - **[DecentraScholar](https://github.com/TanusreeSharma/LFGrow-hack)**: A platform that incentivizes collaboration among academic researchers.
@@ -29,7 +28,7 @@
 ### Infrastructure
 
 - **[BAILOUT](https://ethglobal.com/showcase/bailout-ia6s1?ref=spark.litprotocol.com)**: Securely move assets between EOAs, smart contract wallets, and cold wallets.
-- **[Strata Protocol](https://strataprotocol.com/)**: An open-source protocol to launch tokens around a person, project, idea, or collective on Solana.
+- **[Strata Protocol](https://github.com/StrataFoundation/strata)**: An open-source protocol to launch tokens around a person, project, idea, or collective on Solana.
 - **[Key-Recovery](https://github.com/Joseph-Gross/key-recovery)**: Distributed social private key recovery made by the team at [Sling Protocol](https://twitter.com/slingprotocol).
 - **[Neya](https://github.com/stefsimion/Site-Neya-2)**: Web3-native 2FA protocol.
 - **[EtherMonitor](https://github.com/seetadev/EtherMonitor)**: Tools for traffic incident management.
@@ -37,7 +36,7 @@
 
 ### Data and Identity Marketplaces
 
-- **[WeaveDB](https://docs.weavedb.dev/docs/examples/lit-protocol)**: Decentralized Web3 database.
+- **[WeaveDB](https://docs.weavedb.dev/examples/lit-protocol)**: Decentralized Web3 database.
 - **[Streamr](https://blog.streamr.network/streamr-integrates-lit-protocol/)**: Distributed real-time data network.
 - **[KaratDAO](https://docs.karatdao.com/why-karat-network)**: A decentralized data network connecting Web2 to Web3.
 - **[Cheqd](https://cheqd.io/)**: Infrastructure for trusted data markets.
@@ -77,7 +76,6 @@
 ### Metaverse
 
 - **[Nowhere](https://www.urnowhere.com/)**: Token-gated metaverse spaces.
-- **[Dataverse](https://dataverse.art/)**: The first secure personal space for everyone, allowing users to aggregate Web2 & Web3 interests and control their online digital persona in one place.
 - **[Mona](https://monaverse.com/)**: Buy, mint, and sell metaverse worlds.
 
 ### Sports and Entertainment

@@ -25,7 +25,7 @@ Lit Protocol is powered by the threshold cryptography, we can harness on-chain a
 ![What is Lit explanation graph](/img/lit_explanation.jpeg)
 
 ## What can Bundlr do?
-[Bundlr](https://docs.bundlr.network/docs/about/introduction) is a decentralized storage scaling platform that increases the number of transactions conducted on Arweave, which is a decentralized storage network that enables you to store data permanently. Bundlr can do 2 main things:
+[Bundlr](https://docs.bundlr.network/) is a decentralized storage scaling platform that increases the number of transactions conducted on Arweave, which is a decentralized storage network that enables you to store data permanently. Bundlr can do 2 main things:
 
 1. Collect multiple layer 2 transactions for 2 minutes, bundle them into a single Arweave layer 1 transaction, and submit the bundle onto Arweave.
 2. Allow users to sign with their native key when signing for a transaction, eg. Ethereum and Solana.
@@ -217,6 +217,6 @@ That’s it! and that’s how we connect the two together. You’ve just learned
 ## Links
 Lit Protocol: https://developer.litprotocol.com/docs/intro/
 
-Bundlr Network: https://docs.bundlr.network/docs/overview
+Bundlr Network: https://docs.bundlr.network
 
-Calculating Arweave Fees: https://arweavefees.com/
+Calculating Arweave Fees: https://ar-fees.arweave.dev/

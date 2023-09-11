@@ -23,7 +23,7 @@ const pkpClient = new PKPClient({
 await pkpClient.connect();
 ```
 
-The `controllerAuthSig` (or `controllerSessionSigs`) is used to authorize requests to the Lit nodes. To learn how to leverage different authentication methods, refer to the [Authentication section](../SDK/Explanation/authentication).
+The `controllerAuthSig` (or `controllerSessionSigs`) is used to authorize requests to the Lit nodes. To learn how to leverage different authentication methods, refer to the [Authentication section](../SDK/Explanation/authentication/overview.md).
 
 To view more constructor options, refer to the [API docs](https://js-sdk.litprotocol.com/interfaces/types_src.PKPClientProp.html).
 

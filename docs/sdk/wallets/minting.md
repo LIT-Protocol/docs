@@ -6,16 +6,18 @@ You can mint an NFT from our PKP contract on Chronicle - Lit's custom EVM rollup
 
 You can also use our handy auth helper contract on Chronicle [here](https://github.com/LIT-Protocol/LitNodeContracts/blob/main/contracts/PKPHelper.sol) and you can find the contract addresses [here](https://explorer.litprotocol.com/contracts).
 
-## Mint via Social
+## Mint via Social or Email/SMS (OTP) 
+
+### Social
 
 You can mint a PKP by presenting a valid OAuth token as an authentication method to the Lit Relay server. Currently, only Google OAuth tokens are supported, but we plan to support Discord in the near term. 
 
-Read more about this process [here](../pkp/auth-helpers/add-remove-auth-methods).
 
-## Mint via Email / SMS (OTP)
+### Email / SMS (OTP)
 
 You can mint a PKP by presenting a generated token from sucessful OTP code confirmation, which will be returned by the `lit-auth-client` in the `AuthMethod` return from successful code confirmation.
-Read more [here](sdk/explanation/authentication/session-sigs/auth-methods/email-sms.md).
+
+Read more about this process [here](../wallets/auth-methods.md).
 
 ## Mint via WebAuthn
 
@@ -38,4 +40,4 @@ In order to allow for various frontends to integrate with our platform, we plan 
 
 #### Challenge-Free Registration
 
-We do not currently use [challenges](../resources/glossary#challenge) as part of our PKP minting / WebAuthn registration process and only use it for the PKP / WebAuthn authentication step.
+We do not currently use [challenges](../../resources/glossary#challenge) as part of our PKP minting / WebAuthn registration process and only use it for the PKP / WebAuthn authentication step.

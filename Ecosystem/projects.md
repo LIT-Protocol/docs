@@ -11,7 +11,7 @@
 - **[Gather](https://www.gather.town/)**: Virtual spaces for remote collaboration.
 - **[Charmverse](https://www.charmverse.io/)**: Web3-native all-in-one workspace.
 - **[P00ls](https://www.p00ls.io/)**: A web3 platform for creators and brands.
-- **[Gateway](https://www.mygateway.xyz/home)**: Verifiable credential platform.
+- **[Gateway](https://www.mygateway.xyz)**: Verifiable credential platform.
 - **[Tempra](https://ethglobal.com/showcase/tempra-xnxf4)**: Decentralized social platform inspired by Snapchat.
 - **[Lens](https://lens.xyz/)**: Token-gated content on Lens.
 - **[The 402](https://www.the402.xyz/)**: Live-streaming and NFT marketplace.

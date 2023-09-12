@@ -13,7 +13,7 @@ Some examples of applications that can (and have) been built harnessing this fun
 
 ### Web3 Apps with Private Data
 
-Introduce privacy to decentralized applications. Use Lit to securely store private and permissioned data on the open web. To get started with an integration, use our JavaScript [SDK](../sdk/installation).
+Introduce privacy to decentralized applications. Use Lit to securely store private and permissioned data on the open web. To get started with an integration, use our JavaScript [SDK](../sdk/installation.md).
 
 Examples:
 
@@ -73,7 +73,7 @@ Build powerful infrastructure that harnesses the power of Lit!
 
 Example Projects:
 
-- [Yacht Labs](https://yachtlabs.io/blog/yacht-lit-swap): Cross-chain atomic swaps with PKPs and Lit Actions
+- [Yacht Labs](https://spark.litprotocol.com/xchain-bridging-yacht-lit-swap/): Cross-chain atomic swaps with PKPs and Lit Actions
 - [Curve Labs](https://github.com/Curve-Labs/lit-privacy/tree/main): SDK for building privacy-preserving interactions on-chain
 - [MagicWallet](https://github.com/DustilDawn/Magic): One account, multiple seedless wallets
 - More coming soon… 👀 —> [build with us](https://litgateway.com/discord)!

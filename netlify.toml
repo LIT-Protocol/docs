@@ -196,7 +196,7 @@ force = false
 
 [[redirects]]
   from = "/LitActionsAndPKPs/whatAreLitActionsAndPKPs"
-  to = "/lit-actions/intro"
+  to = "/v2/litActions/intro"
   status = 302
   force = false
 
@@ -554,7 +554,7 @@ force = false
 
 [[redirects]]
   from = "/coreconcepts/litactionsandpkps/actions/*"
-  to = "/lit-actions/intro"
+  to = "/v2/litActions/intro"
   status = 301
   force = false
 

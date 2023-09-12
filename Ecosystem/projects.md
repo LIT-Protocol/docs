@@ -6,6 +6,7 @@
 
 ### Social
 
+- **[Collab.Land](https://www.collab.land/)**: Web3 native community management and seamless user onboarding.
 - **[Relation](https://spark.litprotocol.com/semantic/)**: Web3 native social graph.
 - **[Orbis Club](https://orbis.club/)**: A fully decentralized social layer for Web3.
 - **[Gather](https://www.gather.town/)**: Virtual spaces for remote collaboration.
@@ -28,13 +29,16 @@
 
 ### Infrastructure
 
-- **[Spheron](https://spheron.network/)**: Platform-as-a-service for web3 devs.
+- **[DataverseOS](https://dataverse-os.com/)**: DataverseOS is the next-generation personal computer owned by your wallet. It is an Internet Data Operating System that manages online data for users and eases development of sovereign data dApps.
 - **[BAILOUT](https://ethglobal.com/showcase/bailout-ia6s1?ref=spark.litprotocol.com)**: Securely move assets between EOAs, smart contract wallets, and cold wallets.
+- **[DIMO](https://dimo.zone/)**: Building IoT software solutions for cars. 
 - **[Strata Protocol](https://strataprotocol.com/)**: An open-source protocol to launch tokens around a person, project, idea, or collective on Solana.
 - **[Key-Recovery](https://github.com/Joseph-Gross/key-recovery)**: Distributed social private key recovery made by the team at [Sling Protocol](https://twitter.com/slingprotocol).
 - **[Neya](https://github.com/stefsimion/Site-Neya-2)**: Web3-native 2FA protocol.
 - **[EtherMonitor](https://github.com/seetadev/EtherMonitor)**: Tools for traffic incident management.
 - **[ourpass](https://ethglobal.com/showcase/ourpass-91ucq)**: NFT event pass generator.
+- **[Burnt](https://xion.burnt.com/)**: Burnt is working on XION, a solution that empowers developers and brands to create frictionless Web3 experiences, with a toolkit that removes technical barriers for any user, anywhere.
+- **[Gitcoin](https://docs.publicgoods.network/)**: Building the Public Goods Network, a new L2 specifically designed to support public goods. It has the same fast, cost-efficient, and scalable features that come with an L2, but with the added benefit of collecting funding for your favorite public goods projects.
 
 ### Data and Identity Marketplaces
 
@@ -51,6 +55,7 @@
 ### Privacy and Encryption
 
 - **[dKeeper](https://ethglobal.com/showcase/dkeeper-3ma7r?ref=spark.litprotocol.com)**: Access control management for dApps.
+- **[Livepeer](https://docs.livepeer.org/tutorials/developing/token-gate-videos-using-lit.en-US)**: Livepeer is a high-performance video infrastructure protocol for live and on-demand streaming. 
 - **[Incognfto](https://blog.spheron.network/incognfto-a-private-nft-gallery)**: Create a private NFT gallery with Spheron and Lit.
 - **[Selfguard](https://github.com/selfguard/selfguard?ref=spark.litprotocol.com)**: Universal API for encryption.
 - **[Starling Lab](https://github.com/starlinglab/archive-explorer/)**: Token-gated data archives.
@@ -66,6 +71,7 @@
 ### Wallets and Account Abstraction (AA)
 
 - **[Peaze](https://www.peaze.com/)**: Seamless onboarding for Web3.
+- **[Pimlico](https://docs.pimlico.io/how-to/integrations/lit-protocol)**: An infrastructure platform building the next generation of smart wallets.
 - **[MagicWallet](https://github.com/DustilDawn/Magic)**: One account, multiple seedless wallets.
 - **[litu safu](https://ethglobal.com/showcase/litu-safu-m9tja)**: Use a PKP as a signer on a Safe.
 - **[Stackup](https://spark.litprotocol.com/account-abstraction-with-stackup-lit/)**: Adding an MPC key as a signer on an AA wallet.
@@ -73,6 +79,7 @@
 - **[SafeMail](https://ethglobal.com/showcase/safemail-n8b96)**: A one-click onboarding experience for Web3.
 - **[Patch Wallet](https://app.patchwallet.com/)**: Use your social account as your personal crypto wallet to manage your assets without the complexity.
 - **[Obvious](https://www.obvious.technology/)**: Flexible smart contract wallets.
+- **[Snowball](https://twitter.com/snowballtools/status/1693791419264090465)**: Shaping the future of mobile crypto. 
 
 ### DeFi
 
@@ -84,7 +91,6 @@
 ### Metaverse
 
 - **[Nowhere](https://www.urnowhere.com/)**: Token-gated metaverse spaces.
-- **[Dataverse](https://dataverse.art/)**: The first secure personal space for everyone, allowing users to aggregate Web2 & Web3 interests and control their online digital persona in one place.
 - **[Mona](https://monaverse.com/)**: Buy, mint, and sell metaverse worlds.
 
 ### Sports and Entertainment

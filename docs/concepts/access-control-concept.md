@@ -47,5 +47,5 @@ Some links to further reading and resources to help you get started building on 
 
 - Getting started with the [Lit SDK](../sdk/installation)
 - [Access Control with Lit](../sdk/access-control/encryption)
-- The [Lit Learning Lab](../learningLab/intro-to-lit/acc)
+- The [Lit Learning Lab](/learningLab/intro-to-lit/acc)
 - Projects building [privacy and encryption tooling](https://github.com/LIT-Protocol/awesome/tree/main#privacy-and-encryption)

@@ -110,6 +110,6 @@ Improve the state of [web3 gaming](https://spark.litprotocol.com/lit-and-web3-g
 ---
 
 ## Learn More
-Read the Lit developer docs on [programmatic signing](../../docs/sdk/wallets/intro.md)).
+Read the Lit developer docs on [programmatic signing](https://developer.litprotocol.com/v3/sdk/wallets/intro).
 
 In order to utilize the Lit functions for PKPs and Lit Actions, you'll need the [Lit JS SDK](https://github.com/LIT-Protocol/js-sdk). 

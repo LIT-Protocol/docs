@@ -66,7 +66,7 @@ The symmetricKey is necessary to decrypt content and is meant to be private. Exp
 
 `authSig (Object)`: authentication signature, which can be collected from calling await LitJsSdk.checkAndSignAuthMessage({chain}) which will call up your web 3 wallets for you to sign the message
 
-`accessControlConditions (Array)`: we can call up the [Share Modal](https://developer.litprotocol.com/docs/littools/sharemodal/) to obtain it
+`accessControlConditions (Array)`: we can call up the [Share Modal](../Tools/shareModal.md) to obtain it
 
 **Step C:**
 

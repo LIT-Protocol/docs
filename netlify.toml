@@ -12,7 +12,7 @@
 
 [[redirects]]
   from = "/docs/LitTools/shareModal"
-  to = "/docs/tools-and-examples/share-modal"
+  to = "/v2/SDK/ToolsAndExamples/Tools/shareModal"
   status = 302
   force = true
 

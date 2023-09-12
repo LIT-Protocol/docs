@@ -6,16 +6,16 @@ sidebar_position: 1
 
 ## Overview
 
-Lit Protocol provides developers with a decentralized access control layer that can be used to [encrypt](/v3/sdk/access-control/encryption#technical-walkthrough) content for private and permissioned storage on the open Web. Lit provides utilities (via the Lit SDK) for encrypting and decrypting content client-side, while [access control conditions (ACCs)](/v3/sdk/access-control/evm/basic-examples) are used to define who (or under what conditions) the data can be decrypted.
+Lit Protocol provides developers with a decentralized access control layer that can be used to [encrypt](/sdk/access-control/encryption#technical-walkthrough) content for private and permissioned storage on the open Web. Lit provides utilities (via the Lit SDK) for encrypting and decrypting content client-side, while [access control conditions (ACCs)](/sdk/access-control/evm/basic-examples) are used to define who (or under what conditions) the data can be decrypted.
 
-Both on and [off-chain data](/v3/sdk/access-control/condition-types/lit-action-conditions) can be used to define these access control conditions, with examples including locking content behind:
+Both on and [off-chain data](/sdk/access-control/condition-types/lit-action-conditions) can be used to define these access control conditions, with examples including locking content behind:
 
-- [Membership within a particular DAO](https://developer.litprotocol.com/accessControl/EVM/basicExamples#must-be-a-member-of-a-dao-molochdaov21-also-supports-daohaus)
-- Ownership of a particular [ERC-721](https://developer.litprotocol.com/accessControl/EVM/basicExamples#must-posess-any-token-in-an-erc721-collection-nft-collection) or [ERC-20](https://developer.litprotocol.com/accessControl/EVM/basicExamples#must-posess-at-least-one-erc20-token) token
-- The result of [any smart contract call](https://developer.litprotocol.com/accessControl/EVM/customContractCalls)
-- The result of [any API call](https://developer.litprotocol.com/accessControl/conditionTypes/litActionConditions), such as a follow on Twitter
+- [Membership within a particular DAO](/accessControl/EVM/basicExamples#must-be-a-member-of-a-dao-molochdaov21-also-supports-daohaus)
+- Ownership of a particular [ERC-721](/accessControl/EVM/basicExamples#must-posess-any-token-in-an-erc721-collection-nft-collection) or [ERC-20](/accessControl/EVM/basicExamples#must-posess-at-least-one-erc20-token) token
+- The result of [any smart contract call](/accessControl/EVM/customContractCalls)
+- The result of [any API call](/accessControl/conditionTypes/litActionConditions), such as a follow on Twitter
 
-To get started building with these tools right away, check out the [SDK install guide](/v3/sdk/installation). Otherwise, keep reading to get a better understanding of why encryption is so important, how it works at a high level, and potential ways Lit’s tooling can be implemented in the real world!
+To get started building with these tools right away, check out the [SDK install guide](/sdk/installation). Otherwise, keep reading to get a better understanding of why encryption is so important, how it works at a high level, and potential ways Lit’s tooling can be implemented in the real world!
 
 ## Introduction to Encryption
 
@@ -45,7 +45,7 @@ Lit’s threshold encryption network can be used to introduce ***private and per
 
 Some links to further reading and resources to help you get started building on the Lit network today:
 
-- Getting started with the [Lit SDK](/v3/sdk/installation)
-- [Access Control with Lit](/v3/sdk/access-control/encryption)
+- Getting started with the [Lit SDK](/sdk/installation)
+- [Access Control with Lit](/sdk/access-control/encryption)
 - The [Lit Learning Lab](/learningLab/intro-to-lit/acc)
 - Projects building [privacy and encryption tooling](https://github.com/LIT-Protocol/awesome/tree/main#privacy-and-encryption)

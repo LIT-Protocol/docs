@@ -9,7 +9,7 @@ When run by a distributed set of node operators, the Lit Protocol software provi
 
 ### Decentralized Access Control
 
-Lit’s threshold encryption network can be used to introduce private and permissioned data to a host of application categories, specifically by offering a solution to the “public-by-default” nature of blockchains and public storage networks. The Lit software can be applied generally, agnostic to the storage provider and desired use case. Lit provides the capacity for assigning arbitrary logic (“[access control conditions](/v3/sdk/access-control/evm/basic-examples)”) for condition-based access control and encryption. Some possible use cases for this functionality include:
+Lit’s threshold encryption network can be used to introduce private and permissioned data to a host of application categories, specifically by offering a solution to the “public-by-default” nature of blockchains and public storage networks. The Lit software can be applied generally, agnostic to the storage provider and desired use case. Lit provides the capacity for assigning arbitrary logic (“[access control conditions](/sdk/access-control/evm/basic-examples)”) for condition-based access control and encryption. Some possible use cases for this functionality include:
 
 1. Encrypted wallet-based messaging: Secure wallet-to-wallet communication without relying on a centralized key custodian. [Examples](https://github.com/LIT-Protocol/awesome/blob/main/README.md?ref=spark.litprotocol.com#privacy-and-encryption).
 
@@ -25,7 +25,7 @@ Lit’s threshold encryption network can be used to introduce private and permis
 
 ### Programmable Signing and Wallets
 
-Interrelated but distinct from Lit’s decentralized access control product is the ability to create programmable [MPC wallets](/v3/concepts/pkps-as-wallet) and complex signing automations. Some potential use cases include:
+Interrelated but distinct from Lit’s decentralized access control product is the ability to create programmable [MPC wallets](/concepts/pkps-as-wallet) and complex signing automations. Some potential use cases include:
 
 1. Event listening and condition-based transaction execution: Automate your interactions with blockchain ecosystems using condition-based execution, enabling use cases such as on-chain limit orders or recurring payments that don’t require manual input (i.e. signing off on the transaction) from the end user. [Example](https://spark.litprotocol.com/automated-portfolio-rebalancing-uniswap/).
 

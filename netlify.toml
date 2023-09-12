@@ -280,13 +280,7 @@ force = false
 
 [[redirects]]
   from = "/AccessControlConditions/booleanLogic"
-  to = "/access-control/condition-types/boolean-logic"
-  status = 302
-  force = false
-
-[[redirects]]
-  from = "/AccessControlConditions/updateableConditions"
-  to = "/coreConcepts/access-control/condition-types/updateableConditions"
+  to = "/sdk/access-control/condition-types/boolean-logic"
   status = 302
   force = false
 

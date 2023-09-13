@@ -25,7 +25,7 @@ Each Programmable Key Pair (PKP) is a versatile [MPC wallet](../pkp/usage) that 
 
 1. Provide users of web3 with seamless, ["seed-phraseless" onboarding](https://spark.litprotocol.com/wallet-abstraction-with-google-oauth/) experiences.
 2. Facilitate transaction execution on [blockchains](https://www.youtube.com/watch?v=zJEVPH1UUxM), [storage networks](https://github.com/LIT-Protocol/key-did-provider-secp256k1), and other state machines.
-3. Build fully [decentralized application backends](../resources/pkpsAndActions#why-is-this-useful).
+3. Build fully [decentralized application backends](../pkp/toolsAndExamples.md).
 
 ## Features
 

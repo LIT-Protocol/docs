@@ -10,22 +10,22 @@ export default function LitActionsSection({ title, className }) {
       <Card
         title="Hello World"
         description="Learn how to request a signature from the Lit network in this intro example."
-        to="../litActions/hello-world"
+        to="../litActions/helloWorld"
       />
       <Card
         title="Proofs and Signed Data"
         description="Use Lit's conditional signing capabilities to generate verifiable proofs within your app logic."
-        to="../litActions/working-with-actions/conditional-signing"
+        to="../litActions/workingWithActions/conditionalSigning"
       />
       <Card
         title="Fetching Off-chain Data"
         description="Use off-chain data natively without the need for a third-party oracle."
-        to="../litActions/working-with-actions/using-fetch"
+        to="../litActions/workingWithActions/usingFetch"
       />
       <Card
         title="Authentication Helpers"
         description="Explore different methods of authentication (i.e. Google OAuth, WebAuthn, etc...)."
-        to="../pkp/auth-methods/overview"
+        to="../pkp/authHelpers/overview"
       />
       <Card
         title="Lit Contracts SDK (Typescript)"

@@ -26,7 +26,7 @@ In the `AuthSig` data structure:
 - `signedMessage` is the original message that was signed
 - `address` is the public key address that was used to create the signature
 
-You can refer to the `AuthSig` type definition in the [Lit JS SDK V2](https://js-sdk.litprotocol.com/interfaces/auth_browser_src.authsig.html).
+You can refer to the `AuthSig` type definition in the [Lit JS SDK V2](https://js-sdk.litprotocol.com/interfaces/types_src.AuthSig.html).
 
 ## Obtaining an `AuthSig` in the browser
 

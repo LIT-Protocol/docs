@@ -9,13 +9,13 @@ sidebar_position: 1
 Ready to jump right in? Quickly learn how you can integrate decentralized access control into your own product:
 
 1. Guide: [Working with Decentralized Access Control](https://spark.litprotocol.com/working-with-decentralized-access-control/)
-2. Guide: [Encrypting and Decrypting Content with Lit](../sdk/explanation/encryption)
+2. Guide: [Encrypting and Decrypting Content with Lit](../access-control/encryption.md)
 3. Tool: [Custom Access Controls Creator](https://custom-access-control-conditions.lit.repl.co/) 
 4. Example: [Basic EVM Conditions](../access-control/evm/basic-examples)
 
 ## Overview
 
-Lit Protocol provides developers with a decentralized access control layer that can be used to [encrypt](../resources/glossary#encryption) content for private and permissioned storage on the open Web. The [Lit SDK](https://github.com/LIT-Protocol/js-sdk) provides utilities that can be used for encrypting and decrypting content client-side, while [access control conditions](../access-control/condition-types/unified-access-control-conditions) (ACCs) are used to define who can decrypt and access the locked data. 
+Lit Protocol provides developers with a decentralized access control layer that can be used to [encrypt](../../resources/glossary#encryption) content for private and permissioned storage on the open Web. The [Lit SDK](https://github.com/LIT-Protocol/js-sdk) provides utilities that can be used for encrypting and decrypting content client-side, while [access control conditions](../access-control/condition-types/unified-access-control-conditions) (ACCs) are used to define who can decrypt and access the locked data. 
 
 Lit supports the use of both on and [off-chain data](../access-control/condition-types/lit-action-conditions) when defining access control conditions. Examples include gating against:
 
@@ -26,7 +26,7 @@ Lit supports the use of both on and [off-chain data](../access-control/condition
 
 ## Features
 
-1. Access Control Conditions are compatible with most EVM chains, Cosmos, and Solana. View the full list [here](../resources/supported-chains).
+1. Access Control Conditions are compatible with most EVM chains, Cosmos, and Solana. View the full list [here](../../resources/supported-chains.md).
 2. AND + OR operators ([boolean logic](../access-control/condition-types/boolean-logic)) can be used to combine any of the supported conditions listed above.
 3. Storage provider agnostic: use your preferred storage solution, including [IPFS](https://spark.litprotocol.com/encrypttoipfs/), Arweave, Ceramic, or even a centralized provider, like AWS.
 

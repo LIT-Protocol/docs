@@ -18,7 +18,6 @@ Examples:
 
 - [Orbis Club](https://orbis.club/): Enabling “friends-only” content and encrypted messaging.
 - [Gather](https://www.gather.town/): Powering private virtual spaces for your team.
-- [Headline](https://viaheadline.xyz/): Publish exclusive content for your web3 community.
 - [IPFS](https://litgateway.com/files): Encrypt content for private storage on IPFS.
 - [WalletChat.fun](https://lit.walletchat.fun/): Encrypted wallet-to-wallet messaging.
 - [Nowhere](https://www.urnowhere.com/): Token-gated metaverse spaces.

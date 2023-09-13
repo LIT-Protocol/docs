@@ -138,7 +138,7 @@ const config = {
             items: [
               {
                 label: "Blog",
-                to: "https://blog.litprotocol.com/",
+                to: "https://spark.litprotocol.com/",
               },
               {
                 label: "GitHub",

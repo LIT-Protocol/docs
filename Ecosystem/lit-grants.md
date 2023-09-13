@@ -8,7 +8,7 @@ The Lit grant program is looking to fund projects that improve developer experie
 
 ### Grant Criteria
 1. Must be open source.
-2. Must utilize [Lit Actions](https://developer.litprotocol.com/lit-actions/intro) and [Programmable Key Pairs](https://developer.litprotocol.com/pkp/intro).
+2. Must utilize [programmatic signing](https://developer.litprotocol.com/v3/sdk/wallets/intro).
 
 Get inspired by taking a look at our [Request for Ecosystem Proposals](https://litprotocol.notion.site/Lit-Request-for-Ecosystem-Proposals-ae3f31e7f32c413cbe0b36c2fe53378d) and [Request for Startups](https://spark.litprotocol.com/request-for-startups/).
 

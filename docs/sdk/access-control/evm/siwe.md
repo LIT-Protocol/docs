@@ -48,4 +48,4 @@ const accessControlConditions = [
 
 ## Using SIWE params in Custom Contract Calls
 
-See the [Custom Contract Calls](../../access-control/evm/custom-contract-calls#using-siwe-params-in-custom-contract-calls) page for more information on how to use SIWE params in custom contract calls.
+See the [Custom Contract Calls](../evm/custom-contract-calls.md) page for more information on how to use SIWE params in custom contract calls.

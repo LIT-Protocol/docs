@@ -25,8 +25,8 @@ Each Programmable Key Pair (PKP) is a versatile multi-party computation wallet t
 - Build fully decentralized application backends.
 
 **Features**
-1. [Blockchain Agnostic](/v2/resources/supported-chains#programmable-key-pairs): PKPs can be used to sign transactions on any blockchains or state machines using [ECDSA](https://blog.cloudflare.com/ecdsa-the-digital-signature-algorithm-of-a-better-internet/) for digital signatures. Currently, the [SDK](https://github.com/LIT-Protocol/js-sdk/tree/master/packages/pkp-client) provides easy-to-use methods for creating wallets on EVM and Cosmos based chains. 
-2. Programmable: [Lit Actions](/v2/lit-actions/intro) contain the application logic that each PKP should follow. This is useful for defining [signing automations](/v2/automated-portfolio-rebalancing-uniswap/), handling [authentication](/v2/pkp/auth-helpers#example-setting-auth-context-with-lit-actions), or generating [conditional proofs](/v2/lit-actions/working-with-actions/conditional-signing).  
+1. [Blockchain Agnostic](../../docs/resources/supported-chains.md): PKPs can be used to sign transactions on any blockchains or state machines using [ECDSA](https://blog.cloudflare.com/ecdsa-the-digital-signature-algorithm-of-a-better-internet/) for digital signatures. Currently, the [SDK](https://github.com/LIT-Protocol/js-sdk/tree/master/packages/pkp-client) provides easy-to-use methods for creating wallets on EVM and Cosmos based chains. 
+2. Programmable: Lit Actions contain the application logic that each PKP should follow. This is useful for defining [signing automations](../../docs/sdk/wallets/intro.md), handling authentication, or generating conditional proofs.  
 3. Fault-tolerant: Each PKP is generated collectively by the Lit nodes through a process called [Distributed Key Generation](https://en.wikipedia.org/wiki/Distributed_key_generation) (DKG). As a network, this allows Lit to generate a new key-pair where the private key never exists in its entirety. 
 4. Interoperable: Use [WalletConnect](https://github.com/LIT-Protocol/pkp-walletconnect) to connect PKPs to your favorite dApps, just like any other EOA wallet.
 
@@ -40,10 +40,10 @@ Lit Actions are stored on the InterPlanetary File System (IPFS).
 
 **Features**
 
-1. [Blockchain Agnostic](/v2/resources/supported-chains#programmable-key-pairs): Lit Actions can be used to write data to blockchains using PKPs
+1. [Blockchain Agnostic](../../docs/resources/supported-chains.md): Lit Actions can be used to write data to blockchains using PKPs
 2. Immutable: Once a Lit Action has been published, it cannot be modified
-3. Atomicity: Using [Mint/Grant/Burn](/v2/lit-actions/usingPKPsAndActions#what-is-mintgrantburn), you can atomically link a PKP to an authorized set of Lit Actions. This method guarantees that a particular PKP can only ever be used to sign data from within the approved set
-4. Off-Chain Compatibility: Lit Actions can pull in data from [off-chain sources](/v2/lit-actions/working-with-actions/using-fetch) natively, without requiring the use of a third party oracle
+3. Atomicity: Using Mint/Grant/Burn, you can atomically link a PKP to an authorized set of Lit Actions. This method guarantees that a particular PKP can only ever be used to sign data from within the approved set
+4. Off-Chain Compatibility: Lit Actions can pull in data from [off-chain sources](../../docs/sdk/access-control/condition-types/lit-action-conditions.md) natively, without requiring the use of a third party oracle
 
 ## How do Lit Actions and PKPs work together?
 A user can create a new PKP and grant a Lit Action the right to sign using it. This means the distributed key has the ability to sign and decrypt arbitrary data based on pre-defined logic and conditions.
@@ -110,6 +110,6 @@ Improve the state of [web3 gaming](https://spark.litprotocol.com/lit-and-web3-g
 ---
 
 ## Learn More
-Read the Lit developer docs on [Programmable Key Pairs](https://developer.litprotocol.com/pkp/intro) and [Lit Actions](https://developer.litprotocol.com/lit-actions/intro).
+Read the Lit developer docs on [programmatic signing](https://developer.litprotocol.com/v3/sdk/wallets/intro).
 
 In order to utilize the Lit functions for PKPs and Lit Actions, you'll need the [Lit JS SDK](https://github.com/LIT-Protocol/js-sdk). 

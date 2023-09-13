@@ -248,7 +248,7 @@
       "items": [
         {
           "type": "doc",
-          "label": "Network Matrix",
+          "label": "Feature Matrix",
           "id": "resources/networkMatrix"
         },
         "resources/howItWorks",

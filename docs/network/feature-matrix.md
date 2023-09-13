@@ -1,4 +1,4 @@
-# Network Matrix
+# Feature Matrix
 
 Shown below is a matrix illustrating which features are available with each SDK version. 
 

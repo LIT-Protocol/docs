@@ -184,6 +184,7 @@ const sidebars = {
       items: [
             "tools/access-control",
             "tools/getlit-cli",
+            "tools/event-listener",
             "tools/share-modal",
             "tools/pkpexplorer",
       ],

@@ -26,4 +26,4 @@ The SDK allows you to set up listeners for specific events occurring on the bloc
 Intervals within the SDK act as the timing mechanism that governs how frequently the SDK checks the webhooks and on-chain events. By setting intervals, you determine how often the SDK will check for updates in the specified webhooks or on-chain events. If you need real-time reaction, you might set a short interval, whereas a less time-sensitive circuit might have longer intervals.
 
 
-This event listener brought to you by [DIGITALAX](https://github.com/DIGITALAX). Read the [documentation](https://docs.irrevocable.dev/) to learn more.
+Event listener SDK brought to you by [DIGITALAX](https://github.com/DIGITALAX). Read the [documentation](https://docs.irrevocable.dev/) to learn more.

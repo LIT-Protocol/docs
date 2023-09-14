@@ -92,67 +92,23 @@ The following types are now declared in `@lit-protocol/types`:
 
 **signAndSaveAuthMessage**
 
-<table>
-<tr>
-<td> Old V1 </td> <td> New V2 </td>
-</tr>
-<tr>
-<td>
+| Version | Code  |
+| ------ | --------- |
+| V1   |<code><br />import * as LitJsSdk from "lit-js-sdk"; <br />const authSig = await LitJsSdk.signAndSaveAuthMessage({..}); </code>|
+| V2    |<code><br />import { ethConnect } from "@lit-protocol/auth-browser";,<br />const authSig = await ethConnect.signAndSaveAuthMessage({..}); </code>|
 
-```js
-import * as LitJsSdk from "lit-js-sdk";
+:::note
+For V2: You can also import `cosmosConnect` and `solConnect` for Cosmos and Solana respectively.
+:::
 
-const authSig = await LitJsSdk.signAndSaveAuthMessage({
-  // ...
-});
-```
-
-</td>
-<td>
-
-```js
-import { ethConnect } from "@lit-protocol/auth-browser";
-
-const authSig = await ethConnect.signAndSaveAuthMessage({
-  // ...
-});
-```
-
-Note: You can also import `cosmosConnect` and `solConnect` for Cosmos and Solana respectively.
-
-</td>
-</tr>
-</table>
-<br/>
 
 **disconnectWeb3**
 
-<table>
-<tr>
-<td> Old V1 </td> <td> New V2 </td>
-</tr>
-<tr>
-<td>
+| Version | Code  |
+| ------ | --------- |
+| V1   |<code><br />import * as LitJsSdk from "lit-js-sdk"; <br />LitJsSdk.disconnectWeb3(); </code>|
+| V2    |<code><br />import { ethConnect } from "@lit-protocol/auth-browser";,<br />ethConnect.disconnectWeb3(); </code>|
 
-```js
-import * as LitJsSdk from "lit-js-sdk";
-
-LitJsSdk.disconnectWeb3();
-```
-
-</td>
-<td>
-
-```js
-import { ethConnect } from "@lit-protocol/auth-browser";
-
-ethConnect.disconnectWeb3();
-```
-
-</td>
-</tr>
-</table>
-<br/>
 
 **executeJs**
 

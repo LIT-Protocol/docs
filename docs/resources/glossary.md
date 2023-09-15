@@ -66,6 +66,8 @@ When the user sends a request, the session key signs it and sends the signature 
 Sign-In with Ethereum (SIWE) allows users to sign into off-chain platforms using their Ethereum wallet as a method of authentication. Lit supports the use of EIP-4631 compliant SIWE messages as a method of auth when communicating with the Lit nodes.
 ### **[Threshold Cryptography](../resources/how-it-works.md)**
 A subfield of cryptography, where cryptographic processes -- such as key generation -- get distributed among a set of nodes.
+### **[Webhooks](../tools/event-listener.md)**
+Webhooks are one way that apps can send automated messages or information to other apps. Generally, it is user defined behavior executing when a predefined condition is met.
 ### **[Zero-Knowledge Proof (ZKP)](https://ethereum.org/en/zero-knowledge-proofs/)**
 A zero-knowledge proof is a cryptographic method that allows an individual to prove that an arbitrary statement is true without requiring that they disclose any of the underlying data that the proof was generated against.
 

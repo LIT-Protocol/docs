@@ -66,7 +66,7 @@ Get more info on functions in the [API docs](https://js-sdk.litprotocol.com/inde
 
 Steps to Encrypt
 1. Obtain an `authSig` and create an access control condition.
-2. Encrypt the static content (string, file, zip, etc...) using `LitJsSdk.encryptString` to get the `ciphertext` and `datatoEncryptHash`.
+2. Encrypt the static content (string, file, zip, etc...) using `LitJsSdk.encryptString` to get the `ciphertext` and `dataToEncryptHash`.
 3. Finally, store the `ciphertext`, `dataToEncryptHash` and other metadata: `accessControlConditions` (or other conditions eg: `evmContractConditions`) and `chain`. You'll need to pass in these 
 
 #### Access Control & AuthSig

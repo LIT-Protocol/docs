@@ -1,44 +1,37 @@
----
-sidebar_position: 1
----
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 # Installation
 
+Ensure you have the following requirements in place:
+
+1. Operating System: Linux, Mac OS, or Windows.
+2. Development Environment: You'll need an Integrated Development Environment (IDE) installed. We recommend Visual Studio Code.
+3. Languages: THe Lit JS SDK V3 supports JavaScript. Make sure you have the appropriate language environment set up.
+4. Internet Connection: A stable internet connection is required for installation, updates, and interacting with the Lit nodes.
+
 ## Installing And Importing The SDK
 
 <Tabs
-defaultValue="browser"
+defaultValue="general"
 values={[
-{label: 'browser', value: 'browser'},
-{label: 'script tag with all dependencies included', value: 'script-tag'},
+{label: 'general', value: 'general'},
 {label: 'server side with nodejs', value: 'server-side'},
 ]}>
-<TabItem value="browser">
+<TabItem value="general">
 
 Install the `@lit-protocol/lit-node-client` package, which can be used in both browser and Node environments:
 
 ```sh
-yarn add @lit-protocol/lit-node-client
+yarn add @lit-protocol/lit-node-client@^3.0.2
 ```
 
-Use the **Lit JS SDK**:
+Use the **Lit JS SDK V3**:
 
 ```js
 import * as LitJsSdk from "@lit-protocol/lit-node-client";
 ```
 
-</TabItem>
-	
-<TabItem value="script-tag">
-
-```js
-<script src="https://cdn.jsdelivr.net/npm/@lit-protocol/lit-node-client-vanilla/lit-node-client.js"></script>
-```
-
-If you decide to import the SDK with the script tag, we provide a web-ready package with the dependencies you need. You can use the SDK functions via `LitJsSdk_litNodeClient`, for example `LitJsSdk_litNodeClient.encryptString()`
 </TabItem>
 
 <TabItem value="server-side">
@@ -46,10 +39,10 @@ If you decide to import the SDK with the script tag, we provide a web-ready pack
 Install the `@lit-protocol/lit-node-client-nodejs`, which is for Node environments only:
 
 ```sh
-yarn add @lit-protocol/lit-node-client-nodejs
+yarn add @lit-protocol/lit-node-client-nodejs@^3.0.2
 ```
 
-Use the **Lit JS SDK**:
+Use the **Lit JS SDK V3**:
 
 ```js
 import * as LitJsSdk from "@lit-protocol/lit-node-client-nodejs";
@@ -64,73 +57,36 @@ You should use **at least Node v16.16.0** because of the need for the **webcrypt
 
 ## Connection to the Lit Network
 
-The SDK requires an active connection to the Lit nodes to perform most functions (notably, a connection to the Lit nodes is not required if you are just verifying a JWT). In web apps, this is typically done on first page load and can be shared between all your pages. In NodeJS apps, this is done when when the server starts.
+The SDK requires an active connection to the Lit nodes to perform most functions (notably, a connection to the Lit nodes is not required if you are just verifying a JWT). 
 
-### SDK installed via yarn or the script tag (browser usage)
+In web apps, this is typically done on first page load and can be shared between all your pages. In NodeJS apps, this is done when when the server starts.
 
-<Tabs
-defaultValue="yarn"
-values={[
-{label: 'yarn / NPM', value: 'yarn'},
-{label: 'script tag', value: 'script'},
-]}>
-<TabItem value="yarn">
+Calling `connect()` on the `litNodeClient`` returns a promise that resolves when you are connected to the Lit network.
 
-```js
-const client = new LitJsSdk.LitNodeClient();
-await client.connect();
-window.litNodeClient = client;
-```
+### SDK installed via NodeJS / serverside usage
 
-In the **yarn / NPM** example:
+In this example stub, the litNodeClient is stored in a global variable `app.locals.litNodeClient` so that it can be used throughout the server. `app.locals` is provided by [Express](https://expressjs.com/) for this purpose. You may have to use what your own server framework provides for this purpose, instead.
 
-:::note
-
-`client.connect()` will return a promise that resolves when you are connected to the Lit Network. You may also listen for the `lit-ready` event.
-
-In the code examples we make the `litNodeClient` available as a global variable so that it can be used throughout the web app.
-
-:::
-
-</TabItem>
-<TabItem value="script">
-
-```js
-function litJsSdkLoaded() {
-  var litNodeClient = new LitJsSdk_litNodeClient();
-  litNodeClient.connect();
-  window.litNodeClient = litNodeClient;
-}
-```
-
-In the **script tag** example:
-
-If you're using the script tag, you can put your own connection code in a `litJsSdkLoaded()` function and call it yourself with `onload=litJsSdkLoaded()`.
-
-</TabItem>
-</Tabs>
-
-### SDK installed via yarn / NPM (NodeJS / serverside usage)
-
-In this example, we store the litNodeClient in a global variable `app.locals.litNodeClient` so that it can be used throughout the server. `app.locals` is provided by Express for this purpose. You may have to use what your own server framework provides for this purpose, instead.
+`client.connect()` returns a promise that resolves when you are connected to the Lit network.
 
 ```js
 app.locals.litNodeClient = new LitJsSdk.LitNodeClient({
   alertWhenUnauthorized: false,
+  litNetwork: 'cayenne',
 });
 await app.locals.litNodeClient.connect();
 ```
 
-:::note
+### SDK installed for client side usage
+
+Within a file (in the Lit example repos it will likely be called `lit.js`), set up your Lit object.
+
 `client.connect()` will return a promise that resolves when you are connected to the Lit Network.
-:::
-
-### SDK installed via yarn / NPM (client side usage)
-
-Within a file (we like to call ours `lit.js`), set up your Lit object.
 
 ```js
-const client = new LitJsSdk.LitNodeClient()
+const client = new LitJsSdk.LitNodeClient({
+  litNetwork: 'cayenne',
+})
 
 class Lit {
   private litNodeClient
@@ -142,23 +98,8 @@ class Lit {
 export default new Lit()
 ```
 
-## Listening for the lit-ready event
-
-To listen for the "lit-ready" event which is fired when the network is fully connected:
-
-```js
-document.addEventListener(
-  "lit-ready",
-  function (e) {
-    console.log("LIT network is ready");
-    setNetworkLoading(false); // replace this line with your own code that tells your app the network is ready
-  },
-  false
-);
-```
-
 ## Debug Logging and Lit Node Client configuration
 
-The `LitNodeClient` object has a number of config params you can pass, documented here: https://js-sdk.litprotocol.com/classes/lit_node_client_src.LitNodeClientNodeJs.html#config
+The `LitNodeClient` object has a number of config params you can pass, documented here: https://lit-js-sdk-v3-api-docs.vercel.app/interfaces/types_src.LitNodeClientConfig.html
 
 For example, to turn off logging, you could set `debug` to `false` like this: `const client = new LitJsSdk.LitNodeClient({debug: false})`

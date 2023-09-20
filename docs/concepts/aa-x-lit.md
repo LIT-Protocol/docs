@@ -50,7 +50,7 @@ How AA enhances user experience:
 
 MPC enables multiple parties – each holding private data – to evaluate a computation without ever revealing any of the private data held by each party (or any otherwise related secret information). 
 
-An MPC wallet is a smart contract wallet whose public private key is divided and shared among multiple parties, in Lit’s case the key is stored across the Lit nodes and only authorized parties can recombine the key shares to generate a signing key.
+An MPC wallet is a wallet whose public private key is divided and shared among multiple parties, in Lit’s case the key is stored across the Lit nodes and only authorized parties can recombine the key shares to generate a signing key.
 
 ![MPC diagram](../../static/img/mpc.png)
 

@@ -20,7 +20,7 @@ The session keypair is used to sign all requests to the Lit Nodes, and the user'
 
 Session signatures work by having scoped capabilities be granted to session keys by an inner `AuthSig`. The capability object is a [SIWE ReCap](https://eips.ethereum.org/EIPS/eip-5573) object.
 
-Read more [here](../../../../SDK/Explanation/authentication/sessionSigs/) on the session capability objects that we use.
+Read more [here](../../../../SDK/Explanation/authentication/sessionSigs/intro) on the session capability objects that we use.
 
 ## Format of `SessionSigs`
 

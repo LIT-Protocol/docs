@@ -8,7 +8,7 @@ sidebar_position: 1
 
 **FOR DEVELOPERS: SDK API DOCUMENTATION**
 
-To start building on Lit based on your use case, check out the Lit SDK [here](../sdk/intro.mdx). For an in-depth understanding of the functionality provided, check out the [API docs](https://js-sdk.litprotocol.com/). 
+To start building on Lit based on your use case, check out the Lit SDK [here](../sdk/intro). For an in-depth understanding of the functionality provided, check out the [API docs](https://js-sdk.litprotocol.com/). 
 
 For references to the Lit Actions functions which can be accessed inside a Lit Action via the `Lit.Actions` object, check out the [Lit Actions](http://actions-docs.litprotocol.com/) API docs.
 
@@ -21,8 +21,6 @@ At its core, Lit is an attempt to decentralize [public key cryptography](https:/
 Both MPC and TSS originate from the concepts of public key cryptography and extend their benefits to multi-party and decentralized environments, where the security and privacy of the private key material, data, and computation are critically important. These methods expand upon “traditional” public key infrastructure (PKI), removing the dependence on centralized key custodians, who exist as a single point of failure. This greatly reduces the attack vector for key compromise by distributing ownership among multiple parties, undermining the ability of a single entity to cause widespread harm. In order for an attacker to gain control, they would need to successfully gain control of more than the threshold of participating parties. In the Lit Network, this threshold is set to two-thirds, meaning participation from two-thirds of nodes is required for signing and encryption.
 
 In the Lit Network, the nodes perform a [distributed key generation](../resources/glossary#distributed-key-generation) (DKG) to create new public/private key pairs where no one party ever holds the entire key. Instead, each node holds a key share which they can use to sign and decrypt data. The nodes perform each operation (signing or decryption) in parallel and the individual results are aggregated to form the complete signature or decryption key, without exposing the underlying private key itself. By distributing the key among multiple parties, the network becomes more robust and can continue to function even when multiple participating parties may be offline or possess malicious intent.
-
-![networkOverview](/img/networkOverview.png)
 
 ## Secure Encrypted Virtualization (SEV)
 

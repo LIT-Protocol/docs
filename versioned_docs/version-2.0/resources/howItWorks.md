@@ -8,7 +8,7 @@ sidebar_position: 1
 
 **FOR DEVELOPERS: SDK API DOCUMENTATION**
 
-To start building on Lit based on your use case, check out the Lit SDK [here](../SDK/intro.mdx). For an in-depth understanding of the functionality provided, check out the [API docs](https://js-sdk.litprotocol.com/). 
+To start building on Lit based on your use case, check out the Lit SDK [here](../SDK/intro). For an in-depth understanding of the functionality provided, check out the [API docs](https://js-sdk.litprotocol.com/). 
 
 For references to the Lit Actions functions which can be accessed inside a Lit Action via the `Lit.Actions` object, check out the [Lit Actions](http://actions-docs.litprotocol.com/) API docs.
 

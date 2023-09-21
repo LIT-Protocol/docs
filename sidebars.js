@@ -57,7 +57,7 @@ const sidebars = {
       label: "Concepts",
       collapsible: false,
       className: "category-not-collapsible",
-      items: ["concepts/pkps-as-wallet", "concepts/aa-x-lit"],
+      items: ["concepts/access-control-concept", "concepts/aa-x-lit", "concepts/programmable-signing-concept", "concepts/pkps-as-wallet"],
     },
     {
       type: "category",

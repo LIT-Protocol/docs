@@ -12,7 +12,7 @@
 
 [[redirects]]
   from = "/docs/LitTools/shareModal"
-  to = "/docs/tools-and-examples/share-modal"
+  to = "/v2/SDK/ToolsAndExamples/Tools/shareModal"
   status = 302
   force = true
 
@@ -196,7 +196,7 @@ force = false
 
 [[redirects]]
   from = "/LitActionsAndPKPs/whatAreLitActionsAndPKPs"
-  to = "/lit-actions/intro"
+  to = "/v2/litActions/intro"
   status = 302
   force = false
 
@@ -280,13 +280,7 @@ force = false
 
 [[redirects]]
   from = "/AccessControlConditions/booleanLogic"
-  to = "/access-control/condition-types/boolean-logic"
-  status = 302
-  force = false
-
-[[redirects]]
-  from = "/AccessControlConditions/updateableConditions"
-  to = "/coreConcepts/access-control/condition-types/updateableConditions"
+  to = "/sdk/access-control/condition-types/boolean-logic"
   status = 302
   force = false
 
@@ -554,7 +548,7 @@ force = false
 
 [[redirects]]
   from = "/coreconcepts/litactionsandpkps/actions/*"
-  to = "/lit-actions/intro"
+  to = "/v2/litActions/intro"
   status = 301
   force = false
 

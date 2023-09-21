@@ -20,7 +20,7 @@ Lit Protocol provides developers with two core services:
 Lit Protocol can be utilized for various web3 applications, including:
 
 - **DeFi**: [Conditional transaction execution](https://spark.litprotocol.com/automated-portfolio-rebalancing-uniswap/), [recurring payments](https://www.notion.so/OSS-tooling-infrastructure-for-recurring-payments-54b01631e4b14a1cb16b20d14641fe2f), liquid staking solutions, and more.
-- **Infrastructure**: [Cross-chain bridges](https://github.com/Yacht-Labs/yacht-lit-sdk), oracles for [off-chain data](lit-actions/working-with-actions/using-fetch), [privacy-preserving transactions](https://github.com/Curve-Labs/lit-privacy/tree/main/packages/lit-privacy-sdk#readme), and [AA wallet signers](https://spark.litprotocol.com/account-abstraction-and-mpc/).
+- **Infrastructure**: [Cross-chain bridges](https://github.com/Yacht-Labs/yacht-lit-sdk), oracles for off-chain data, [privacy-preserving transactions](https://github.com/Curve-Labs/lit-privacy/tree/main/packages/lit-privacy-sdk#readme), and [AA wallet signers](https://spark.litprotocol.com/account-abstraction-and-mpc/).
 - **Sovereign Data**: [Verifiable credential issuance](https://spark.litprotocol.com/krebitxlitactions/) and [selective disclosure](https://spark.litprotocol.com/semantic/) for user data.
 - **Web3 Social**: [Private data in social apps](https://docs.lens.xyz/docs/gated), [token-gated video streaming](https://github.com/suhailkakar/livepeer-token-gated-vod), decentralized chatbots, and on-chain reputation building.
 - **Gaming**: [Wallet abstraction](https://github.com/LIT-Protocol/oauth-pkp-signup-example), condition-based rewards, and [private data in multiplayer games](https://spark.litprotocol.com/lit-and-web3-gaming/).

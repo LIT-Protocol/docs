@@ -28,7 +28,7 @@ Several auth methods are supported by Lit directly. These include methods config
 | GOOGLE_JWT       | 6                       | Google Oauth Login, except where Google provides a JWT. This is the most efficient way to use Google Oauth with Lit because the Lit nodes only need to check the JWT signature against the Google certificates, and don't need to make HTTP requests to the Google servers to verify the token.     |
 | One Time Password (OTP)              | 7                       | Email / SMS Login, verification services provides a JWT, this is token will be within the auth method, this token is verified within the nodes when requesting a session signature |
 
-Check out the implementation details within the SDK section [here](../sdk/explanation/authentication/sessionSigs/authMethods/overview).
+Check out the implementation details within the SDK section [here](../../sdk/explanation/authentication/sessionSigs/authMethods/overview).
 
 ### Adding a Permitted Address
 
@@ -56,7 +56,7 @@ If you decide to use your own auth, you can still use the PKPPermissions contrac
 
 Authorization refers to an [auth signature](../../SDK/Explanation/authentication/authSig), which is **always required** to communicate with the Lit nodes and make a request to the network. It doesn't matter if you are decrypting a piece of data or calling a Lit Action, an auth sig will always be required.
 
-In the case that a user doesn’t own a wallet (and therefore cannot produce a valid AuthSig), they can present their alternative auth method to the Lit SDK which will convert it into a “compliant” AuthSig. This is documented in our [docs](../../SDK/Explanation/authentication/sessionSigs#obtaining-the-sessionsig-when-user-doesnt-have-a-wallet). The flow is as follows:
+In the case that a user doesn’t own a wallet (and therefore cannot produce a valid AuthSig), they can present their alternative auth method to the Lit SDK which will convert it into a “compliant” AuthSig. The flow is as follows:
 
 1. Present a PKP public key and an auth token from an authorized auth method (like a Google OAuth JWT), as well as a session public key for a local key-pair that is generated and stored locally.
 2. The PKP is used to sign a SIWE signature which authorizes the session key-pair going forward.

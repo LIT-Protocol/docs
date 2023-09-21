@@ -4,7 +4,9 @@ sidebar_position: 4
 # 3. Access Control 
 ![image](../../static/img/ll_acc.png)
 
-Lit Protocol provides developers with a decentralized access control layer that can be used to [encrypt](https://developer.litprotocol.com/resources/glossary#encryption) content for private and permissioned storage on the open web. The [Lit SDK](https://github.com/LIT-Protocol/js-sdk) provides utilities that can be used for encrypting and decrypting content client-side, while [access control conditions (ACCs)](https://developer.litprotocol.com/access-control/condition-types/unified-access-control-conditions) are used to define who can decrypt and access the locked data.
+[all links on this page are absolute in order to direct to V3 docs]: # 
+
+Lit Protocol provides developers with a decentralized access control layer that can be used to [encrypt](https://developer.litprotocol.com/v3/sdk/access-control/encryption) content for private and permissioned storage on the open web. The [Lit SDK](https://github.com/LIT-Protocol/js-sdk) provides utilities that can be used for encrypting and decrypting content client-side, while [access control conditions (ACCs)](https://developer.litprotocol.com/v3/sdk/access-control/intro) are used to define who can decrypt and access the locked data.
 
 ---
 
@@ -27,7 +29,7 @@ Some example conditions:
 
 ## Supported Logic
 
-- Supports many EVM chains and Solana. Full list [here](https://developer.litprotocol.com/support/supported-chains).
+- Supports many EVM chains and Solana. Full list [here](https://developer.litprotocol.com/v3/resources/supported-chains).
 - Supports many standard contracts, with plans to support any RPC call soon. If you need to interact with a contract that we don't support yet, ask us, and we will implement it.
 - *Boolean conditions*: "And" or "Or" are currently supported.
 - *Permanent conditions*: When a condition is stored as permanent, it becomes impossible to update it, forever.
@@ -38,7 +40,7 @@ Some examples of applications that can (and have) been built harnessing this fun
 
 **Web3 Apps with Private Data**
 
-Introduce privacy to decentralized applications. Use Lit to securely store private and permissioned data on the open web. To get started with an integration, use our JavaScript [SDK](https://developer.litprotocol.com/sdk/intro).
+Introduce privacy to decentralized applications. Use Lit to securely store private and permissioned data on the open web. To get started with an integration, use our JavaScript [SDK](https://developer.litprotocol.com/v3/sdk/installation).
 
 Examples:
 
@@ -82,4 +84,4 @@ const accessControlConditions = [
 
 
 ## Learn More
-Read the [Lit developer docs](https://developer.litprotocol.com/access-control/intro#overview) on access control to learn more!
+Read the [Lit developer docs](https://developer.litprotocol.com/v3/sdk/access-control/intro) on access control to learn more!

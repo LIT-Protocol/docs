@@ -40,4 +40,4 @@ In order to allow for various frontends to integrate with our platform, we plan 
 
 #### Challenge-Free Registration
 
-We do not currently use [challenges](../../resources/glossary#challenge) as part of our PKP minting / WebAuthn registration process and only use it for the PKP / WebAuthn authentication step.
+We do not currently use [challenges](../../resources/glossary#challenge.md) as part of our PKP minting / WebAuthn registration process and only use it for the PKP / WebAuthn authentication step.

@@ -136,6 +136,10 @@ const runLitAction = async () => {
     // all jsParams can be used anywhere in your litActionCode
     jsParams: {
       // this is the string "Hello World" for testing
+      toSign: ethers.utils.arrayify(ethers.utils.keccak256([72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100])),
+      publicKey:
+        "0x0404e12210c57f81617918a5b783e51b6133790eb28a79f141df22519fb97977d2a681cc047f9f1a9b533df480eb2d816fb36606bd7c716e71a179efd53d2a55d1",
+      sigName: "sig1",
     },
   });
   console.log("results: ", JSON.stringify(results.response, null, 2));

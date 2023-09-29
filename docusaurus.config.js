@@ -39,7 +39,7 @@ const config = {
               badge: true,
               label: "v3.x.x",
               path: "v3",
-              banner: "unreleased",
+              banner: "none",
             },
           },
         },
@@ -78,6 +78,14 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      announcementBar: {
+        id: "SDK V3 Beta",
+        content:
+          "Lit JS SDK V3 is now available in beta. Check out <a target='_self' href='/v3/'>v3.x.x</a> of the docs to learn more.",
+        backgroundColor: '#ff844e',
+        textColor: '#fffff',
+        isCloseable: false,
+      },
       navbar: {
         title: "Lit Protocol",
         logo: {

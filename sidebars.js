@@ -57,7 +57,12 @@ const sidebars = {
       label: "Concepts",
       collapsible: false,
       className: "category-not-collapsible",
-      items: ["concepts/access-control-concept", "concepts/aa-x-lit", "concepts/programmable-signing-concept", "concepts/pkps-as-wallet"],
+      items: [
+        "concepts/access-control-concept",
+        "concepts/aa-x-lit",
+        "concepts/claimable-keys",
+        "concepts/programmable-signing-concept",
+        "concepts/pkps-as-wallet"],
     },
     {
       type: "category",
@@ -157,6 +162,18 @@ const sidebars = {
                     "sdk/access-control/other-chains/cosmos-conditions",
                   ],
                 },
+              ],
+            },
+            {
+              type: "category",
+              label: "Claimable Keys (HD Keys)",
+              link: {
+                type: "doc",
+                id: "sdk/claimable-keys/intro",
+              },
+              collapsible: true,
+              items: [
+                "sdk/claimable-keys/usage",
               ],
             },
             {

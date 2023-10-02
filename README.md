@@ -118,9 +118,3 @@ If you are changing the path of a page, you will need to add a redirect to the `
   status = 301
   force = false
 ```
-
-### Running Scripts
-
-Before running any yarn scripts, be sure to do the following:
-
-- `cp .env.example .env` and fill in the secrets.

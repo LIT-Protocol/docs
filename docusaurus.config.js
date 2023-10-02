@@ -6,8 +6,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Lit Protocol Developer Docs",
-  tagline: "Blockchain based access control for the web",
+  title: "Lit Protocol",
+  tagline: "Blockchain based access control and programmatic signing for the web",
   url: "https://developer.litprotocol.com",
   baseUrl: "/",
   onBrokenLinks: "warn",
@@ -22,17 +22,27 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          breadcrumbs: false,
+          lastVersion: "2.0",
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
-          editUrl: "https://github.com/LIT-Protocol/docs/edit/main/website/",
+          editUrl: "https://github.com/LIT-Protocol/docs/tree/main",
           routeBasePath: "/",
+          versions: {
+            "2.0": {
+              badge: true,
+              label: "v2.x.x",
+              path: "v2",
+              banner: "none",
+            },
+            current: {
+              badge: true,
+              label: "v3.x.x",
+              path: "v3",
+              banner: "none",
+            },
+          },
         },
-        // blog: {
-        //   showReadingTime: true,
-        //   // Please change this to your repo.
-        //   editUrl:
-        //     'https://github.com/facebook/docusaurus/edit/main/website/blog/',
-        // },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
@@ -44,36 +54,71 @@ const config = {
     ],
   ],
 
+  plugins: [
+    [
+      "content-docs",
+      {
+        id: "learningLab",
+        path: "learningLab",
+        routeBasePath: "learningLab",
+        sidebarPath: require.resolve("./sidebars-learning-lab.js"),
+      },
+    ],
+    [
+      "content-docs",
+      {
+        id: "Ecosystem",
+        path: "Ecosystem",
+        routeBasePath: "Ecosystem",
+        sidebarPath: require.resolve("./sidebars-ecosystem.js"),
+      },
+    ],
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      announcementBar: {
+        id: "SDK V3 Beta",
+        content:
+          "Lit JS SDK V3 is now available in beta. Check out <a target='_self' href='/v3/'>v3.x.x</a> of the docs to learn more.",
+        backgroundColor: '#ff844e',
+        textColor: '#fffff',
+        isCloseable: false,
+      },
       navbar: {
-        title: "Lit Protocol Developer Docs",
+        title: "Lit Protocol",
         logo: {
           alt: "Lit Protocol",
           src: "img/logo.svg",
+          href: 'https://developer.litprotocol.com/v2/',
         },
         items: [
           {
-            href: "https://js-sdk.litprotocol.com/index.html",
-            label: "API Docs",
-            position: "right",
+            type: "doc",
+            position: "left",
+            docId: "intro/overview",
+            label: "Docs",
           },
           {
-            href: "https://spark.litprotocol.com/",
-            label: "Blog",
-            position: "right",
+            to: "learningLab/intro",
+            position: "left",
+            label: "Learning Lab",
           },
           {
-            href: "/Ecosystem/litGrants",
+            to: "ecosystem/lit-grants",
+            position: "left",
             label: "Ecosystem",
+          },
+          {
+            type: "docsVersionDropdown",
             position: "right",
           },
           {
             href: "https://github.com/LIT-Protocol/js-sdk",
             position: "right",
-            className: 'header-github-link',
-            'aria-label': 'Lit JS SDK V2 GitHub repository',
+            className: "header-github-link",
+            "aria-label": "Lit JS SDK GitHub repository",
           },
         ],
       },
@@ -101,7 +146,7 @@ const config = {
             items: [
               {
                 label: "Blog",
-                to: "https://blog.litprotocol.com/",
+                to: "https://spark.litprotocol.com/",
               },
               {
                 label: "GitHub",
@@ -120,10 +165,6 @@ const config = {
                 label: "Support",
                 to: "/support",
               },
-              // {
-              //   label: "JS SDK",
-              //   to: "/docs/SDK/intro",
-              // },
             ],
           },
         ],

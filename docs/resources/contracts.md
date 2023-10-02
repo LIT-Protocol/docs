@@ -7,19 +7,19 @@ import TabItem from '@theme/TabItem';
 
 # Contracts
 
-Below you can find the full list of associated smart contracts, which live on the [Chronicle Testnet](/intro/rollup):
+Below you can find the full list of associated smart contracts, which live on the [Chronicle Testnet](../intro/rollup):
 
-**PKPNFT**: [0x8F75a53F65e31DD0D2e40d0827becAaE2299D111](https://chain.litprotocol.com/address/0x8F75a53F65e31DD0D2e40d0827becAaE2299D111)
+**PKPNFT**: [0xa4bbAAf3aD9Db1B3f1f6fe38af60AE228f6DF153](https://chain.litprotocol.com/address/0xa4bbAAf3aD9Db1B3f1f6fe38af60AE228f6DF153)
 
-**PubkeyRouterAndPermissions**: [0xB35cC6CaB1501d5F3b6b8fcF3215898C9d03E981](https://chain.litprotocol.com/address/0xB35cC6CaB1501d5F3b6b8fcF3215898C9d03E981)
+**PubkeyRouterAndPermissions**: [0x1c5B708A171602A11895D727a64aeE2457E3Ef60](https://chain.litprotocol.com/address/0x1c5B708A171602A11895D727a64aeE2457E3Ef60)
 
-**Rate Limit Increase NFT**: [0x2D0f767eff47b44626832EcD2fda705eB9797c38](https://chain.litprotocol.com/address/0x2D0f767eff47b44626832EcD2fda705eB9797c38)
+**Rate Limit Increase NFT**: [0xC498AeE83EF44bBD9E3C27b95482E3261Ec611D5](https://chain.litprotocol.com/address/0xC498AeE83EF44bBD9E3C27b95482E3261Ec611D5)
 
-**Staking Contract Address**: [0x433357a14c35815E6A32758fe95c93380D194aaf](https://chain.litprotocol.com/address/0x433357a14c35815E6A32758fe95c93380D194aaf)
+**Staking Contract Address**: [0x4809A30149958a95b925bb5315cb0F550E166272](https://chain.litprotocol.com/address/0x4809A30149958a95b925bb5315cb0F550E166272)
 
-**PKPHelper**: [0x8bB62077437D918891F12c7F35d9e1B78468bF11](https://chain.litprotocol.com/address/0x8bB62077437D918891F12c7F35d9e1B78468bF11)
+**PKPHelper**: [0x85E8860FB3Ad3517151C8da5E5F4Bcd626CCbfD6](https://chain.litprotocol.com/address/0x85E8860FB3Ad3517151C8da5E5F4Bcd626CCbfD6)
 
-**PKPPermissions**: [0x4Aed2F242E806c58758677059340e29E6B5b7619](https://chain.litprotocol.com/address/0x4Aed2F242E806c58758677059340e29E6B5b7619)
+**PKPPermissions**: [0x35daf1e7FDf12417aFa8d8deC1fAA874ef4492d9](https://chain.litprotocol.com/address/0x35daf1e7FDf12417aFa8d8deC1fAA874ef4492d9)
 
 ## TypeScript Contracts SDK
 

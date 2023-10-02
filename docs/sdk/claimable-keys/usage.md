@@ -36,7 +36,7 @@ console.log("pkp public key: ", res.pubkey);
 
 An example of claiming with a customized `ClaimProcessor` using the `contracts-sdk` In this example the `ClaimProcessor` is defined as the `mintCallback` in the request options.
 
-```rust
+```jsx
 const client = new LitNodeClient({
 	litNetwork: "cayenne",
 	debug: false
@@ -60,7 +60,7 @@ console.log("pkp public key: ", res.pubkey);
 
 An example of deriving a `key id` to its public key, this operation does not persist the key for use on the Lit network. But it allows you to know what the key **will be** once registered on chain once claimed.
 
-```rust
+```jsx
 const client = new LitNodeClient({
 	litNetwork: "cayenne",
 	debug: false
@@ -75,7 +75,7 @@ console.log("user public key will be: ", publicKey);
 
 An example of claiming with a customized `ClaimProcessor` making a call to the `Lit relay server` . In this example the `ClaimProcessor` is defined as the `mintCallback` in the request options.
 
-```rust
+```jsx
 const client = new LitNodeClient({
 	litNetwork: "cayenne",
 	debug: false

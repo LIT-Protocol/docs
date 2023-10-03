@@ -26,7 +26,12 @@ Alternatively, here are some general instructions for migrating to use the new e
 2. If this plaintext corresponded to a symmetric key that you had used to encrypt data, then you would need to retrieve and decrypt the encrypted data.
 3. With the plaintext data now, you can use the new encryption scheme in the SDK V3 and store this encrypted data wherever you wish.
 
-Note that the time and feasibility of this migration process ultimately depends on how your application is integrated with Lit. Some factors that have different implications on the migration timeline include:
+
+:::info
+Note that the time and feasibility of this migration process ultimately depends on how your application is integrated with Lit.
+:::
+
+Some factors that have different implications on the migration timeline include:
 
 - Whether a single symmetric key is used for encrypting all of your users' data, vs. using a symmetric key per each user's encryption needs
 - Whether a different symmetric key for each type of data is used (even for the same user), vs. using a symmetric key across all types of data

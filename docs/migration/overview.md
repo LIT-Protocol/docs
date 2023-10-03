@@ -11,7 +11,14 @@ The **Lit JS SDK V3** replaces the existing access control condition based encry
 
 ## Data Migration
 
-**We will not be migrating the access control conditions that have been "stored" in the `jalapeno` and `serrano` networks but we will continue to maintain support for them for a finite period of time.** If you wish to continue using these access control conditions for encryption or signing JWTs, please continue using the V2 SDK.
+
+:::caution
+
+The Lit development team will not be migrating the access control conditions that have been "stored" in the `jalapeno` and `serrano` networks but we will continue to maintain support for them for a finite period of time.
+
+:::
+
+If you wish to continue using these access control conditions for encryption or signing JWTs, please continue using the V2 SDK.
 
 Alternatively, here are some general instructions for migrating to use the new encryption scheme:
 

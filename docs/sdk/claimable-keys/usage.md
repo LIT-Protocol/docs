@@ -89,9 +89,7 @@ let res = await client.claimKeyId({
 	      method: 'POST',
 	      body: JSON.stringify(claimRes),
 	      headers: {
-	        'api-key': params.relayApiKey
-	          ? params.relayApiKey
-	          : '67e55044-10b1-426f-9247-bb680e5fe0c8_relayer',
+	        'api-key': params.relayApiKey, 
 	        'Content-Type': 'application/json',
       },
     });

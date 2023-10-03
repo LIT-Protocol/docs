@@ -9,9 +9,21 @@ import TabItem from '@theme/TabItem';
 
 The **Lit JS SDK V3** replaces the existing access control condition based encryption and JWT signing processes with new cryptographic primitives to offer a more secure and seamless user experience.
 
-## What's Not Migrated?
+## Data Migration
 
-All of the access control conditions that have been "stored" in the `jalapeno` and `serrano` networks **will not be migrated** but we will continue to maintain support for them. If you wish to continue using these access control conditions for encryption or signing JWTs, please continue using the V2 SDK.
+**We will not be migrating the access control conditions that have been "stored" in the `jalapeno` and `serrano` networks but we will continue to maintain support for them for a finite period of time.** If you wish to continue using these access control conditions for encryption or signing JWTs, please continue using the V2 SDK.
+
+Alternatively, here are some general instructions for migrating to use the new encryption scheme:
+
+1. Decrypt from the original network (`jalapeno` or `serrano`) to retrieve the plaintext that was encrypted at rest.
+2. If this plaintext corresponded to a symmetric key that you had used to encrypt data, then you would need to retrieve and decrypt the encrypted data.
+3. With the plaintext data now, you can use the new encryption scheme in the SDK V3 and store this encrypted data wherever you wish.
+
+Note that the time and feasibility of this migration process ultimately depends on how your application is integrated with Lit. Some factors that have different implications on the migration timeline include:
+
+- Whether a single symmetric key is used for encrypting all of your users' data, vs. using a symmetric key per each user's encryption needs
+- Whether a different symmetric key for each type of data is used (even for the same user), vs. using a symmetric key across all types of data
+- Whether a single storage engine is used to store encrypted data, vs. a multitude of storage engines are used
 
 ## Per-Package Changes
 

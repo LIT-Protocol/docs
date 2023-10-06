@@ -4,8 +4,8 @@
 
 Ready to jump right in? Quickly learn how you can integrate decentralized access control into your own product:
 
-1. Guide: Coming Soon!
-4. Example Repo: Coming Soon!
+1. Guide: https://spark.litprotocol.com/lit-js-sdk-v3-claimable-keys/
+4. Example Repo: https://github.com/LIT-Protocol/claim-key-demo-nodejs
 
 ## Overview
 

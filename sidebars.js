@@ -221,6 +221,7 @@ const sidebars = {
       items: [
         "resources/how-it-works",
         "resources/supported-chains",
+        "resources/ceramicExample",
         "resources/contracts",
         "resources/glossary",
       ],

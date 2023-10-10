@@ -6,31 +6,31 @@ sidebar_position: 3
 
 ## Save Data Encrypted with Lit Protocol to the Ceramic Network on ComposeDB
 
-Learn how to use Lit Protocol to encrypt messages to yourself and save to the Ceramic Network using ComposeDB.
+Learn how to use Lit Protocol to encrypt messages to yourself and save them to the Ceramic Network using ComposeDB.
 
 ## What is the Ceramic Network?
 
-[Ceramic](https://ceramic.network/) is a decentralized data network that leverages the verifiable qualities you can expect from a blockchain, with the cost efficiency and querying capabilities similar to  a traditional database. Ceramic empowers developers to leverage interoperable data formats stored on the Network, helping product teams to circumvent "cold-start" data problems while simultaneously allowing individuals to take ownership of their digital presence. 
+[Ceramic](https://ceramic.network/) is a decentralized data network that leverages the verifiable qualities you can expect from a blockchain, with cost efficiency and querying capabilities similar to  a traditional database. Ceramic empowers developers to leverage interoperable data formats stored on the Network, helping product teams circumvent "cold-start" data problems while simultaneously allowing individuals to take ownership of their digital presence. 
 
 ### How does it Work?
 
-The Ceramic Protocol is built on decentralized event streams, where user accounts (enabled by decentralized identifiers, or [DIDs](https://developers.ceramic.network/protocol/accounts/decentralized-identifiers/)) cryptographically sign data events and submit them to the network. These events are stored in the Interplanetary File System (IPFS) using the IPLD protocol, which are organized into readable streams. Each stream is flexible enough to store many types of content. Therefore, Ceramic is home to a diversity of different data use-cases such as user profiles, posts, relations to other entities, and more.
+The Ceramic Protocol is built on decentralized event streams, where user accounts (enabled by decentralized identifiers, or [DIDs](https://developers.ceramic.network/protocol/accounts/decentralized-identifiers/)) cryptographically sign data events and submit them to the network. These events are stored in the Interplanetary File System (IPFS) using the IPLD protocol, and organized into readable streams. Each stream is flexible enough to store many types of content. Therefore, Ceramic is home to a diversity of different data use cases such as user profiles, posts, relations to other entities, and more.
 
-Due to Ceramic's open readability, any participating node can read from any stream in the Network. Therefore, encrypting data using Lit Protocol and saving to Ceramic is a common (and necessary) integration across many teams.
+Due to Ceramic's open readability, any participating node can read from any stream in the Network. Therefore, encrypting data using Lit Protocol and saving it Ceramic is a common (and necessary) integration across many teams.
 
 ### Ceramic as a Data Ledger
 
-It's important to note that Ceramic can be viewed as a "Data Ledger" middleground between on and off-chain activity. All Ceramic events are periodically rolled into a merkle tree and the root is published to the Ethereum blockchain, thus ensuring consensus on the global transactions ordering within Ceramic.
+It's important to note that Ceramic can be viewed as a "Data Ledger" middle ground between on and off-chain activity. All Ceramic events are periodically rolled into a Merkle tree and the root is published to the Ethereum blockchain, thus ensuring consensus on the global transactions ordering within Ceramic.
 
 For more information on how Ceramic works, visit [How it Works](https://ceramic.network/how-it-works).
 
 ### ComposeDB
 
-ComposeDB is a graph database built on Ceramic that offers further composability and ease-of-querying to developers. ComposeDB delivers native support for GraphQL, and also splits read/write load by default for additional performance. When running a Ceramic node with ComposeDB, developers can define their own [data models](https://composedb.js.org/docs/0.5.x/create-your-composite) using GraphQL, or choose to begin indexing on existing data models already defined by the community, or both! 
+ComposeDB is a graph database built on Ceramic that offers further composability and ease of querying to developers. ComposeDB delivers native support for GraphQL and also splits read/write load by default for additional performance. When running a Ceramic node with ComposeDB, developers can define their own [data models](https://composedb.js.org/docs/0.5.x/create-your-composite) using GraphQL, or choose to begin indexing on existing data models already defined by the community, or both! 
 
 For the purpose of this tutorial, we will be using Ceramic with ComposeDB to illustrate how developers can generate, store, and query simple encrypted messages.
 
-This tutorial will use a message board example application to show how to created encrypted messages using Lit Protocol and save message instances to the Ceramic Network using ComposeDB, and will reference this [example repository](https://github.com/mzkrasner/lit-composedb).
+This tutorial will use a message board example application to show how to create encrypted messages using Lit Protocol and save message instances to the Ceramic Network using ComposeDB, and will reference this [example repository](https://github.com/mzkrasner/lit-composedb).
 
 ### Initial Setup
 
@@ -90,7 +90,7 @@ In this model definition, you'll notice that the "author" field takes a scalar t
 
 (For more information on controlling Accounts and Documents, visit [ComposeDB Concepts](https://composedb.js.org/docs/0.5.x/core-concepts)).
 
-Finally, if you navigate into the /scripts/composites.mjs file, you'll find the application's deployment script. When you launch the application, this script compiles the model into a composite definition that will then be deployed on your local node, and writes that definition to the files located in `/src/__generated__`, which will later be used by the ComposeDB client library to read and write data.
+Finally, if you navigate into the /scripts/composites.mjs file, you'll find the application's deployment script. When you launch the application, this script compiles the model into a composite definition that will then be deployed on your local node and writes that definition to the files located in `/src/__generated__`, which will later be used by the ComposeDB client library to read and write data.
 
 ### Run the Application in Developer Mode
 
@@ -146,7 +146,7 @@ Now that we are authenticated with Ceramic, we can go ahead and send messages to
 
 Locate the `doSendMessage` method definition. You'll notice that an array named `accessControlConditions` is defined within this method that uses [Boolean Logic](../sdk/access-control/condition-types/boolean-logic.md) discussed in our access control section. In this simple example, we're setting access control conditions based on the user's address (in this case, requiring that the user's address be strictly equal to the one we're currently signed in with).
 
-Next, you'll find an `encrypted` constant assigned to the evaluated result of invoking `encryptWithLit`, using the Lit client instance, the raw message, access control conditions, and assigned chain as arguments. This method is imported from /utils/lit.ts. Similar to the Ceramic authentication flow outlined in the previous section, `encryptWithLit` first invoked a child method called `checkAndSignAuthMessage` that checks for an existing cryptographic authentication signature and creates one if it does not exist. The result of this signature is then stored in local storage so the user doesn't have to sign each time they perform an operation.
+Next, you'll find an `encrypted` constant assigned to the evaluated result of invoking `encryptWithLit`, using the Lit client instance, the raw message, access control conditions, and the assigned chain as arguments. This method is imported from /utils/lit.ts. Similar to the Ceramic authentication flow outlined in the previous section, `encryptWithLit` first invoked a child method called `checkAndSignAuthMessage` that checks for an existing cryptographic authentication signature and creates one if it does not exist. The result of this signature is then stored in local storage so the user doesn't have to sign each time they perform an operation.
 
 If this is your first time submitting a message after following the steps above, your MetaMask will prompt you to generate the signature mentioned above:
 
@@ -172,15 +172,15 @@ If you've followed the steps above to submit an encrypted message, your UI shoul
 
 Now that you've generated encrypted messages using LIT and saved them to your local Ceramic node using ComposeDB, you'll notice that every time you refresh the page, those messages are rendered in the UI. 
 
-If you navigate back to /src/components/Chat.tsx, you'll be able to observe why this is happening. You'll notice that a `getMessages` method is tied to the `useEffect` lifecycle hook. When invoked, this method queries your imported composeClient for the last 20 instances of Posts from your index (if they exist). It's important to note that unlike mutation queries, this read requests work regardless if someone is authenticated or not. 
+If you navigate back to /src/components/Chat.tsx, you'll be able to observe why this is happening. You'll notice that a `getMessages` method is tied to the `useEffect` lifecycle hook. When invoked, this method queries your imported composeClient for the last 20 instances of Posts from your index (if they exist). It's important to note that, unlike mutation queries, this read request works regardless if someone is authenticated or not. 
 
 ### Decrypting Messages
 
 If you've followed along in the tutorial up until this point without switching to a different wallet address (meaning you're still logged into the one you used to generate a few messages), you'll see a "Decrypt" button within each message box rendered in the UI. This button renders conditionally based on whether you're the message author (see src/fragments/chatcontent.tsx for the conditional `message.isChatOwner`). However, even if we rendered this button for all users regardless of author, we can still rely on LIT to grant decryption access solely to users who meet the correct access control conditions.
 
-In /src/fragments/chatcontent.tsx you can observe how this works. When you click the "Decrypt" button, this action invoked the `handleDecrypt` method with both an event pointer and the message contents relevant to that component instance. Similar to the sequence of events incurred when encrypting data with LIT, observe how the `decryptWithLit` method is invoked (after converting the message contents to their necessary formats). 
+In /src/fragments/chatcontent.tsx you can observe how this works. When you click the "Decrypt" button, this action invokes the `handleDecrypt` method with both an event pointer and the message contents relevant to that component instance. Similar to the sequence of events incurred when encrypting data with LIT, observe how the `decryptWithLit` method is invoked (after converting the message contents to their necessary formats). 
 
-The definition for this method lives in /utils/lit.ts, which promptly checks for an existing cryptographic authentication signature in the browsers local storage. If the user is authorized, a `decryptToString` method is later invoked using the `litNodeClient` instance on the window object, along with the access control conditions, ciphertext, encrypted and hashed data, and chain. This will finally decrypt the message contents and allow us to render it in our UI.
+The definition for this method lives in /utils/lit.ts, which promptly checks for an existing cryptographic authentication signature in the browser's local storage. If the user is authorized, a `decryptToString` method is later invoked using the `litNodeClient` instance on the window object, along with the access control conditions, ciphertext, encrypted and hashed data, and chain. This will finally decrypt the message contents and allow us to render it in our UI.
 
 If you press the "Decrypt" button, that corresponding message should now allow you to read its contents in plaintext:
 
@@ -207,7 +207,7 @@ While this tutorial represents a very simple example of how to store and retriev
 
 ### Looking for Support from the Ceramic Team?
 
-Developers are encouraged to join the Ceramic community, engage with members from the Ceramic team, and ask for help along their development journey! Here are a few ways to get in touch:
+Developers are encouraged to join the Ceramic community, engage with members of the Ceramic team, and ask for help along their development journey! Here are a few ways to get in touch:
 
 - Join the [Forum](https://forum.ceramic.network/) to ask questions and receive support
 - Join the [Discord](https://discord.com/invite/ceramic) to chat directly with both community members and the Ceramic team

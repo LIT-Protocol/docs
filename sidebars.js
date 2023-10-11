@@ -211,6 +211,7 @@ const sidebars = {
       label: "Integrations",
       collapsed: true,
       items: [
+        "integrations/aa",
         "integrations/ceramicExample",
       ],
     },

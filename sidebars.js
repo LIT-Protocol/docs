@@ -211,7 +211,17 @@ const sidebars = {
       label: "Integrations",
       collapsed: true,
       items: [
-        "integrations/aa",
+        {
+          type: "category",
+          label: "Account Abstraction",
+          link: {
+            type: "doc",
+            id: "integrations/aa/overview",
+          },
+          collapsible: true,
+          items: [
+          ],
+        },
         "integrations/ceramicExample",
       ],
     },

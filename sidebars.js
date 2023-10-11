@@ -202,7 +202,6 @@ const sidebars = {
             "tools/access-control",
             "tools/getlit-cli",
             "tools/event-listener",
-            "tools/share-modal",
             "tools/pkpexplorer",
       ],
     },

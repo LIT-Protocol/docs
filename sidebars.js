@@ -206,6 +206,15 @@ const sidebars = {
             "tools/pkpexplorer",
       ],
     },
+
+    {
+      type: "category",
+      label: "Integrations",
+      collapsed: true,
+      items: [
+        "integrations/ceramicExample",
+      ],
+    },
     {
       type: "category",
       label: "Network",
@@ -221,7 +230,6 @@ const sidebars = {
       items: [
         "resources/how-it-works",
         "resources/supported-chains",
-        "resources/ceramicExample",
         "resources/contracts",
         "resources/glossary",
       ],

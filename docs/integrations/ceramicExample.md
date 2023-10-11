@@ -8,6 +8,18 @@ sidebar_position: 3
 
 Learn how to use Lit Protocol to encrypt messages and save them to the Ceramic Network using ComposeDB.
 
+---
+
+## Objectives
+At completion of this reading you should be able to:
+
+- Create ComposeDB schemas and deploy those models on a local Ceramic node.
+- Authenticate users on Ceramic to allow them to author their own documents.
+- Encrypt data with Lit Protocol and write mutation queries to save the encrypted data to ComposeDB using GraphQL.
+- Decrypt data using Lit Protocol based on specified business logic.
+
+---
+
 ## What is the Ceramic Network?
 
 [Ceramic](https://ceramic.network/) is a decentralized data network that leverages the verifiable qualities you can expect from a blockchain, with cost efficiency and querying capabilities similar to  a traditional database. Ceramic empowers developers to leverage interoperable data formats stored on the Network, helping product teams circumvent "cold-start" data problems while simultaneously allowing individuals to take ownership of their digital presence. 
@@ -32,7 +44,7 @@ For the purpose of this tutorial, we will be using Ceramic with ComposeDB to ill
 
 This tutorial will use a message board example application to show how to create encrypted messages using Lit Protocol and save message instances to the Ceramic Network using ComposeDB.
 
-To follow along, reference this [example repository](https://github.com/mzkrasner/lit-composedb).
+To follow along, reference this [example repository](https://github.com/ceramicstudio/lit-composedb).
 
 ### Initial Setup
 

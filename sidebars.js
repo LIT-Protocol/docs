@@ -220,6 +220,7 @@ const sidebars = {
           },
           collapsible: true,
           items: [
+            "integrations/aa/pimlico",
           ],
         },
         "integrations/ceramicExample",

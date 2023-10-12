@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Account Abstraction
 
-Learn how to use Lit Protocol to encrypt messages and save them to the Ceramic Network using ComposeDB.
+Learn how to use Lit Protocol with account abstraction providers to streamline how you use web3 wallets!
 
 ---
 

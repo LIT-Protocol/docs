@@ -5,7 +5,9 @@ sidebar_position: 2
 
 # What is Lit Protocol
 
-Lit Protocol is distributed cryptography for encryption, compute, and programmable signing. As a generalizable key management layer, Lit provides developers with a comprehensive toolkit for managing sovereign identities on the open web.
+Lit Protocol is a system for creating decentralized key management networks, powered by threshold cryptography and secure encrypted virtualization. The Lit network provides a generalizable key management layer for encryption, compute, and programmable signing. 
+
+Developers can build on the Lit network with a comprehensive toolkit for managing digital assets and sovereign identities on the open web.
 
 ## Core Functionality
 
@@ -13,7 +15,7 @@ Lit Protocol provides developers with two core services:
 
 1. **Encryption and Access Control** : Lit enables the client-side encryption and decryption of data by utilizing on or off-chain conditions, without relying on a centralized key custodian. Get started with [encryption and access control](../sdk/access-control/intro.md).
 
-2. **Programmable Signing** : Lit can be used to program complex [signing automations](https://spark.litprotocol.com/automated-portfolio-rebalancing-uniswap/) or provide [seamless wallet onboarding](https://www.youtube.com/watch?v=HeD3RdqAvVM&t=2s) experiences using Programmable Key Pairs (PKPs) and Lit Actions. PKPs are MPC wallets generated and distributed across the Lit network, while Lit Actions are JavaScript functions dictating when, why, and what a PKP wallet will sign. Get started with [PKPs and Lit Actions](../sdk/wallets/intro.md).
+2. **Programmable Signing** : Lit can be used to program complex [signing automations](https://spark.litprotocol.com/automated-portfolio-rebalancing-uniswap/) or provide [seamless wallet onboarding](https://www.youtube.com/watch?v=HeD3RdqAvVM&t=2s) experiences using Programmable Key Pairs (PKPs) and Lit Actions. PKPs are multiparty computation wallets generated and distributed across the Lit network, while Lit Actions are JavaScript functions dictating when, why, and what a PKP wallet will sign. Get started with [programmatic signing](../sdk/wallets/intro.md).
 
 ## Use Cases
 

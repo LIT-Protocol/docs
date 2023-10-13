@@ -220,7 +220,7 @@ const sidebars = {
           },
           collapsible: true,
           items: [
-            "integrations/aa/alchemy-account-kit"
+            "integrations/aa/alchemy-account-kit",
             "integrations/aa/pimlico",
           ],
         },

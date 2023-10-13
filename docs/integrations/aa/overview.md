@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # Account Abstraction
 
 Learn how to use Lit Protocol with account abstraction providers to streamline how you use web3 wallets!

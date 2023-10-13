@@ -2,7 +2,7 @@
 
 ## Quick Start
 
-Ready to jump right in? Quickly learn how you can integrate decentralized access control into your own product:
+Ready to jump right in? Quickly learn how you can integrate claimable keys into your own product:
 
 1. Guide: https://spark.litprotocol.com/lit-js-sdk-v3-claimable-keys/
 4. Example Repo: https://github.com/LIT-Protocol/claim-key-demo-nodejs

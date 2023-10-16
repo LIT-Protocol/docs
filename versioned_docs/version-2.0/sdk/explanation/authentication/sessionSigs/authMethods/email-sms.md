@@ -35,60 +35,6 @@ If you are using Lit Relay Server, you will need to request an API key [here](ht
 
 :::
 
-## ReCaptcha verification
-To send an otp code to the user they must first complete a ReCaptcha verification, to verify a user via ReCaptcha you may either use our embeddable captcha or use our `site key` in our own ReCaptcha package of choice
-
-### Embedding ReCaptcha
-```javascript
-const authClient = new LitAuthClient({
-    litRelayConfig: {
-        relayApiKey: '<Your Lit Relay Server API Key>',
-    }
-});
-
-authClient.embeddCaptchaInElement("element-id-of-anchor", document.head);
-```
-In the above example the `element-id-of-anchor` is id of the html tag to inject the recaptcha view into. 
-After the user confirms the `response`, it will be added to a global variable `LIT_AUTH_CLIENT_CAPTCHA_RES`. When an `OtpProvider` is created it will look for this variable when initializing.
-If you wish to refresh the `response` you can use the `setCaptchaResponse` method on the `OtpProvider`
-
-**example**
-```javascript
-const authClient = new LitAuthClient({
-    litRelayConfig: {
-        relayApiKey: '<Your Lit Relay Server API Key>',
-    }
-});
-authClient.embeddCaptchaInElement("element-id-of-anchor", document.head);
-
-// starting a validation session
-let session = authClient.initProvider(ProviderType.Otp,{
-            userId: '<User email or phone number>'
-});
-session.setCaptchaResponse(window.LIT_AUTH_CLIENT_CAPTCHA_RES);
-
-let status = await session.sendOtpCode();
-let authMethod = await session.authenticate({
-    code: "<User entered OTP code>"
-});
-const txHash = await session.mintPKPThroughRelayer(authMethod);
-```
-**note** ReCaptcha Responses are valid for 2 minutes. For information on ReCaptcha, [read more](https://developers.google.com/recaptcha/intro).
-
-
-### Using the ReCaptcha Site Key in Another ReCaptcha implementation
-If you would like to use another ReCaptcha implementation such as [react google recaptcha](https://www.npmjs.com/package/react-google-recaptcha) you can access the ReCaptcha `site key` shown below: 
-```javascript
-const authClient = new LitAuthClient({
-    litRelayConfig: {
-        relayApiKey: '<Your Lit Relay Server API Key>',
-    }
-});
-
-authClient.getSiteKey();
-```
-
-
 ## Minting via Contract
 
 An alternative to minting the PKP NFT via the Lit Relay Server is to send a transaction to the smart contract yourself. You can reference the following example data that is passed to the `mintNextAndAddAuthMethods` method of the `PKPHelper` smart contract:
@@ -154,3 +100,81 @@ const sessionSigs = await provider.getSessionSigs({
   },
 });
 ```
+
+### Generating `SessionSigs`
+
+After successfully authenticating with an `AuthMethod`, you can generate `Session Signatures` using the provider's `getSessionSigs` method. The `getSessionSigs` method takes in an `AuthMethod` object, a PKP public key, and other session-specific arguments such as `resourceAbilityRequests` and returns a `SessionSig` object.
+
+```javascript
+// Get session signatures for the given PKP public key and auth method
+const sessionSigs = await provider.getSessionSigs({
+  authMethod: '<AuthMethod object returned from authenticate()>',
+  sessionSigsParams: {
+    chain: 'ethereum',
+    resourceAbilityRequests: [{
+      resource: litResource,
+      ability: LitAbility.AccessControlConditionDecryption
+    }],
+  },
+});
+```
+
+### Generating Session Signatures using the `LitNodeClient`
+
+::: note
+
+The example will assume you are using `LitNodeClient` but this example also works with `LitNodeClientNodeJS`
+
+:::
+
+Initalize an instance of the `LitNodeClient` and connect to the network
+
+```javascript
+const litNodeClient: LitNodeClientNodeJs = new LitNodeClientNodeJs({
+    litNetwork: 'cayenne',
+    debug: true
+});
+await litNodeClient.connect();
+```
+
+Request a specified pkp to sign a session signature, authenticating with an `Auth Method` for a given `PKP`
+you can use the `session.fetchPKPThroughRelayer`  method above to query pkp public keys associated with a given auth method. you can also use the `contracts-sdk` to query pkp information by Authentication Method.
+
+```javascript
+// The implementation below is wrapped by the above `provider.getSessionSigs`
+const authNeededCallback = async (params: AuthCallbackParams) => {
+  console.log("params", params)
+  const response = await litNodeClient.signSessionKey({
+    sessionKey: sessionKeyPair,
+    statement: params.statement,
+    authMethods: [authMethod], // auth method from one of the `lit-auth-client` authentication providers
+    pkpPublicKey: "<YOUR PKP PUBLIC KEY>", // pkp which has the auth method configured for authentication above
+    expiration: params.expiration,
+    resources: params.resources,
+    chainId: 1,
+  });
+  console.log("callback response", response)
+  return response.authSig;
+};
+
+const resourceAbilities = [
+    {
+      resource: new LitActionResource("*"),
+      ability: LitAbility.PKPSigning,
+    },
+];
+const sessionSigs = await litNodeClient.getSessionSigs({
+  chain: "ethereum",
+  expiration: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7).toISOString(),
+  resourceAbilityRequests: resourceAbilities,
+  sessionKey: sessionKeyPair,
+  authNeededCallback	
+}).catch((err) => {
+  console.log("error while attempting to access session signatures: ", err)
+  throw err;
+});
+console.log("session signatures: ", sessionSigs);
+const authSig = sessionSigs[Object.keys(sessionSigs)[0]];
+console.log("authSig", authSig);
+```
+

@@ -123,7 +123,7 @@ const sessionSigs = await provider.getSessionSigs({
 
 ::: note
 
-The example will assume you are using `LitNodeClient` but this example also works with `LitNodeClientNodeJS`
+The example assumes you are using `LitNodeClient` and also works with `LitNodeClientNodeJS`
 
 :::
 

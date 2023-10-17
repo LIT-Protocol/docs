@@ -137,7 +137,7 @@ const litNodeClient: LitNodeClientNodeJs = new LitNodeClientNodeJs({
 await litNodeClient.connect();
 ```
 
-Request a specified pkp to sign a session signature, authenticating with an `Auth Method` for a given `PKP`
+Request a specified PKP to sign a session signature, authenticating with an `Auth Method` for a given `PKP`
 The `session.fetchPKPThroughRelayer`  method above can be used to query PKP public keys associated with a given auth method. You can also use the `contracts-sdk` to query PKP information by Authentication Method.
 
 ```javascript

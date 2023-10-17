@@ -120,7 +120,7 @@ await litNodeClient.connect();
 ```
 
 Request a specified pkp to sign a session signature, authenticating with an `Auth Method` for a given `PKP`
-you can use the `session.fetchPKPThroughRelayer`  method above to query pkp public keys associated with a given auth method. you can also use the `contracts-sdk` to query pkp information by Authentication Method.
+The `session.fetchPKPThroughRelayer`  method above can be used to query PKP public keys associated with a given auth method. You can also use the `contracts-sdk` to query PKP information by Authentication Method.
 
 ```javascript
 // The implementation below is wrapped by the above `provider.getSessionSigs`

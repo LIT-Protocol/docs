@@ -277,6 +277,6 @@ export const litSigner: SmartAccountSigner = new WalletClientSigner(
 
 ## Next Steps
 
-Continue learning about [Lit's severless signing](../../sdk/wallets/conditional-signing.md) capabilities. 
+Continue learning about [Lit's severless signing](../../sdk/serverless-signing/conditional-signing.md) capabilities. 
 
 Explore [Account Kit](https://accountkit.alchemy.com/).

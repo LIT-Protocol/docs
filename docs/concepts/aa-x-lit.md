@@ -32,7 +32,7 @@ Ideal cases for PKPs and Lit Actions
 
 - Generating proofs are ideal for usage with AA wallets, essentially this is programmable transaction validation through Lit’s network with a signer
 - Looking up permitted actions, addresses, and [auth methods](../sdk/authentication/overview.md) associated with a PKP
-- Checking access control conditions with [conditional signing](../sdk/wallets/conditional-signing.md)
+- Checking access control conditions with [conditional signing](../sdk/serverless-signing/conditional-signing.md)
 
 
 ## A Brief Account Abstraction (AA) Intro

@@ -3,7 +3,13 @@ import TabItem from '@theme/TabItem';
 
 # Conditional Signing
 
-Lit Actions inherit the powerful condition checking that Lit Protocol utilizes for Access Control. This means that you can easily check any on-chain condition inside a Lit Action, which can be useful for generating proofs. This system can be harnessed to uphold the integrity of data on the open web, in its function as a decentralized notary. 
+## Prerequisites
+
+- Familiarity with JavaScript
+- Basic understanding of [severless signing](../serverless-signing/quick-start.md)
+
+## Overview
+Lit Actions inherit the powerful condition checking that Lit Protocol utilizes for Access Control. This means that you can easily check any on-chain condition inside a Lit Action, which can be useful for generating proofs. This system can be used to uphold the integrity of data on the open web, in its function as a decentralized notary.
 
 The below example will check if the user has at least 1 Wei on Ethereum, only returning a signature if they do.
 
@@ -13,10 +19,15 @@ The below example will check if the user has at least 1 Wei on Ethereum, only re
 The `ethers.utils.arrayify(ethers.utils.keccak256(...)` can be used to convert the `toSign` data to the correct format.
 :::
 
-```js
-import * as LitJsSdk from '@lit-protocol/lit-node-client';
+Installed the latest client on `cayenne`
 
-// this code will be run on the node
+```bash
+yarn install @lit-protocol/lit-node-client@cayenne
+```
+
+Set up the Lit Action code to be run on the Lit nodes.
+
+```jsx
 const litActionCode = `
 const go = async () => {
   // test an access control condition
@@ -40,9 +51,14 @@ const go = async () => {
 
 go();
 `;
+```
 
+Obtain an AuthSig
+
+```jsx
 // you need an AuthSig to auth with the nodes
 // normally you would obtain an AuthSig by calling LitJsSdk.checkAndSignAuthMessage({chain})
+
 const authSig = {
   sig: "0x2bdede6164f56a601fc17a8a78327d28b54e87cf3fa20373fca1d73b804566736d76efe2dd79a4627870a50e66e1a9050ca333b6f98d9415d8bca424980611ca1c",
   derivedVia: "web3.eth.personal.sign",
@@ -51,12 +67,21 @@ const authSig = {
   address: "0x9D1a5EC58232A894eBFcB5e466E3075b23101B89",
 };
 
+```
+
+Run the Lit Action code on the Lit nodes:
+
+```jsx
+
 const runLitAction = async () => {
-  const litNodeClient = new LitJsSdk.LitNodeClient({
+
+const litNodeClient = new LitJsSdk.LitNodeClient({
     litNetwork: "cayenne",
   });
-  await litNodeClient.connect();
-  const signatures = await litNodeClient.executeJs({
+
+await litNodeClient.connect();
+
+const signatures =await litNodeClient.executeJs({
     code: litActionCode,
     authSig,
     jsParams: {

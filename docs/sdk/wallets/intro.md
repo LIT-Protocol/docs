@@ -30,7 +30,7 @@ Each Programmable Key Pair (PKP) is a versatile MPC wallet that can be utilized 
 ## Features
 
 1. [Blockchain Agnostic](../../resources/supported-chains#programmable-key-pairs): PKPs can be used to sign transactions on any blockchains or state machines using [ECDSA](https://blog.cloudflare.com/ecdsa-the-digital-signature-algorithm-of-a-better-internet/) for digital signatures. Currently, the [SDK](https://github.com/LIT-Protocol/js-sdk/tree/master/packages/pkp-client) provides easy-to-use methods for creating wallets on EVM and Cosmos based chains. 
-2. Programmable: [Lit Actions](../wallets/conditional-signing.md) contain the application logic that each PKP should follow. This is useful for defining signing automations, handling [authentication](../wallets/auth-methods.md), or generating conditional proofs. 
+2. Programmable: [Serverless signing](../serverless-signing/overview.md) is useful for defining signing automations, handling [authentication](../wallets/auth-methods.md), or generating conditional proofs. 
 3. Atomicity: Using Mint/Grant/Burn, you can atomically link a PKP to an authorized set of Lit Actions. This method guarantees that a particular PKP can only ever be used to sign data from within the approved set.
 4. Fault-tolerant: Each PKP is generated collectively by the Lit nodes through a process called [Distributed Key Generation](https://en.wikipedia.org/wiki/Distributed_key_generation) (DKG). As a network, this allows Lit to generate a new key-pair where the private key never exists in its entirety. 
 5. Interoperable: Use a provider like [WalletConnect](../wallets/walletconnect.md) to connect PKPs to your favorite dApps, just like any other EOA wallet.

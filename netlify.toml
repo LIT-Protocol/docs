@@ -475,13 +475,13 @@ force = false
 
 [[redirects]]
   from = "/coreConcepts/LitActionsAndPKPs/actions/conditionalSigning"
-  to = "/lit-actions/working-with-actions/conditional-signing"
+  to = "/v2/LitActions/workingWithActions/conditionalSigning"
   status = 301
   force = false
 
 [[redirects]]
   from = "/coreConcepts/LitActionsAndPKPs/actions/usingFetch"
-  to = "/lit-actions/working-with-actions/using-fetch"
+  to = "/v2/LitActions/workingWithActions/usingFetch"
   status = 301
   force = false
 

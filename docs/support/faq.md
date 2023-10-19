@@ -155,7 +155,7 @@ For other permissions, please see the contract [here](https://github.com/LIT-Pro
 
 Assign the PKP to itself as we don’t want the PKP owner to arbitrarily change the functioning of the LitAction. Use the PKPHelper.`mintNextAndAddAuthMethods()` for that & to initially setup allow only specific IPFS CIDs to execute.
 
-But anyone can now call these LitActions, so how should one add a permitted list of users? We can store the permitted list of users, either on-chain or the LitAction, can fetch it from there or put that in the LitAction itself and use `conditional-signing` to check whether the provided AuthSig is permitted to execute the LitAction. Learn more [here](../lit-actions/working-with-actions/conditional-signing).
+But anyone can now call these LitActions, so how should one add a permitted list of users? We can store the permitted list of users, either on-chain or the LitAction, can fetch it from there or put that in the LitAction itself and use `conditional-signing` to check whether the provided AuthSig is permitted to execute the LitAction. Learn more [here](../sdk/serverless-signing/conditional-signing.md).
 
 ### 3. But I want to upgrade the permitted lit-actions/users?
 

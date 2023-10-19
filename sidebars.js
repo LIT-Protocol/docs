@@ -187,8 +187,23 @@ const sidebars = {
               items: [
                 "sdk/wallets/auth-methods",
                 "sdk/wallets/minting",
-                "sdk/wallets/conditional-signing",
                 "sdk/wallets/walletconnect",
+              ],
+            },
+            {
+              type: "category",
+              label: "Serverless Signing",
+              link: {
+                type: "doc",
+                id: "sdk/serverless-signing/overview",
+              },
+              collapsible: true,
+              items: [
+                "sdk/serverless-signing/quick-start",
+                "sdk/serverless-signing/conditional-signing",
+                "sdk/serverless-signing/fetch",
+                "sdk/serverless-signing/processing-validation",
+                "sdk/serverless-signing/eip191",
               ],
             },
             "sdk/tests",

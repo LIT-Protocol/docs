@@ -224,7 +224,15 @@ const sidebars = {
             "integrations/aa/pimlico",
           ],
         },
-        "integrations/ceramicExample",
+        {
+          type: "category",
+          label: "Storage",
+          collapsible: true,
+          items: [
+            "integrations/storage/ceramic-example",
+            "integrations/storage/irys",
+          ],
+        },
       ],
     },
     {

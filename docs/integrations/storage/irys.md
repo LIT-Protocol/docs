@@ -1,7 +1,7 @@
 # Irys
 
 ## Encrypting on-chain data (server-side)
-Learn how to encrypt data before storing on-chain on [Irys](https://irys.xyz/), the server-side edition.
+Learn how to encrypt data before storing on-chain on [Irys](https://irys.xyz/).
 
 ---
 
@@ -15,7 +15,7 @@ At completion of this reading you should be able to:
 
 ---
 
-## What is Irys?
+## What is [Irys](https://irys.xyz/)?
 
 Irys is a provenance layer that enables users to scale permanent data and precisely attribute its origin. By tracing and verifying where data comes from, Irys paves the way to incorporate accountability into all information.
 
@@ -123,7 +123,7 @@ Lit Protocol enables users to set [access control conditions](../../sdk/access-c
 -   Outcomes from a smart contract call
 -   Outcomes from an API call
 
-To ensure anyone can run the code in this repository, it uses the following for access control, allowing anyone with an ETH balance `>=` 0 to decrypt. More details on the different types of access control conditions supported by Lit [can be found in their documentation](../../sdk/access-control/intro.md).
+To ensure anyone can run the code in this repository, it uses the following for access control, allowing anyone with an ETH balance `>=` 0 to decrypt. More details on the different types of [access control conditions supported](../../sdk/access-control/intro.md).
 
 ```ts
 // This defines who can decrypt the data
@@ -147,7 +147,7 @@ function getAccessControlConditions() {
 ```
 
 :::info
-Using Lit Protocol, the access control conditions provide near infinite flexibility. Imagine a system for government
+Using Lit, the access control conditions provide near infinite flexibility. Imagine a system for government
 bid management: bids are required to be submitted by a specific deadline, tracked using Irys' millisecond-accurate
 timestamps. The bids remain encrypted up to this deadline, aiding in preventing corruption by ensuring the bids are
 inaccessible to all parties until the designated time.
@@ -172,7 +172,7 @@ async function getLitNodeClient() {
 
 ### Encrypt data
 
-Finally, write a function that accepts a string and uses the code we wrote earlier to encrypt it. In this guide we're using the Lit function [`encryptString()`](https://lit-js-sdk-v3-api-docs.vercel.app/functions/encryption_src.encryptString.html) which encrypts a string and returns both the encrypted string and a hash of the original string. Lit also [`encryptFile()`](https://lit-js-sdk-v3-api-docs.vercel.app/functions/encryption_src.encryptFile.html) for encrypting files directly.
+Finally, write a function that accepts a string and uses the code we wrote earlier to encrypt it. In this guide we're using the Lit function [`encryptString()`](https://lit-js-sdk-v3-api-docs.vercel.app/functions/encryption_src.encryptString.html) which encrypts a string and returns both the encrypted string and a hash of the original string. Lit also has[`encryptFile()`](https://lit-js-sdk-v3-api-docs.vercel.app/functions/encryption_src.encryptFile.html) for encrypting files directly.
 
 ```js
 async function encryptData(dataToEncrypt) {
@@ -198,13 +198,15 @@ async function encryptData(dataToEncrypt) {
 
 ## Storing on Arweave via Irys
 
-To use Irys to store data on Arweave, first connect to an [Irys node](https://docs.irys.xyz/overview/nodes). This function uses the same private key from our `.env` file and connects to the Irys Devnet where uploads are stored for 60 days. In a production environment, you would change this to use Irys' [Node 1 or 2](https://docs.irys.xyz/overview/nodes) instead where uploads are permanent.
+To use Irys to store data on Arweave, first connect to an [Irys node](https://docs.irys.xyz/overview/nodes). This function uses the same private key from our `.env` file and connects to the Irys Devnet where uploads are stored for 60 days. In a production environment, you would change this to use Irys' [Node 1 or 2](https://docs.irys.xyz/overview/nodes) where uploads are permanent.
+
 
 :::info 
 This code is configured to MATIC to pay for uploads, and while working with the Irys Devnet, you need to fund your
 wallet with [free MUMBAI MATIC Devnet](https://mumbaifaucet.com/) tokens. Alternatively, you could use [any other
 Devnet token](/overview/supported-tokens#devnet-tokens) supported by Irys.
 :::
+
 
 ```js
 async function getIrys() {
@@ -222,7 +224,9 @@ async function getIrys() {
 }
 ```
 
-Then write a function that takes the encrypted data, the original data hash, the access control conditions, and stores it all on Arweave using Irys. Irys' upload function returns [a signed receipt](https://docs.irys.xyz/learn/receipts) containing the exact time (in milliseconds) of the upload and also a transaction ID, which can then be used to [download the data from a gateway](https://docs.irys.xyz/developer-docs/downloading).
+Then write a function that takes the encrypted data, the original data hash, the access control conditions, and stores it all on Arweave using Irys. 
+
+Irys' upload function returns [a signed receipt](https://docs.irys.xyz/learn/receipts) containing the exact time (in milliseconds) of the upload and also a transaction ID, which can then be used to [download the data from a gateway](https://docs.irys.xyz/developer-docs/downloading).
 
 :::info
 For simplicity, we'll consolidate all three values into a JSON object and upload it to Irys in one transaction. This
@@ -257,7 +261,7 @@ async function storeOnIrys(cipherText, dataToEncryptHash) {
 
 There are three steps to decrypting data:
 
--   Obtain a wallet signature ([AuthSig](https://developer.litprotocol.com/v3/sdk/authentication/overview#obtain-an-authsig)), which proves you own a wallet
+-   Obtain a wallet signature ([AuthSig](../../sdk/authentication/overview.md)), which proves you own a wallet
 -   Retrieve data stored on Arweave
 -   Connect to a Lit node and request that it decrypt your data
 

@@ -60,7 +60,6 @@ const sidebars = {
       items: [
         "concepts/access-control-concept",
         "concepts/aa-x-lit",
-        "concepts/claimable-keys",
         "concepts/programmable-signing-concept",
         "concepts/pkps-as-wallet"],
     },
@@ -166,18 +165,6 @@ const sidebars = {
             },
             {
               type: "category",
-              label: "Claimable Keys (HD Keys)",
-              link: {
-                type: "doc",
-                id: "sdk/claimable-keys/intro",
-              },
-              collapsible: true,
-              items: [
-                "sdk/claimable-keys/usage",
-              ],
-            },
-            {
-              type: "category",
               label: "Programmable Wallets",
               link: {
                 type: "doc",
@@ -188,6 +175,18 @@ const sidebars = {
                 "sdk/wallets/auth-methods",
                 "sdk/wallets/minting",
                 "sdk/wallets/walletconnect",
+                {
+                  type: "category",
+                  label: "Claimable Keys (HD Keys)",
+                  link: {
+                    type: "doc",
+                    id: "sdk/wallets/claimable-keys/intro",
+                  },
+                  collapsible: true,
+                  items: [
+                    "sdk/wallets/claimable-keys/usage",
+                  ],
+                },
               ],
             },
             {

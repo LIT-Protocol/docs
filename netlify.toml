@@ -646,9 +646,16 @@ force = false
   status = 301
   force = false
 
-# home redirect 7/11/23
+# home redirect 7/11/23, pointing to V2... update to V3 when ready
 [[redirects]]
   from = "/"
   to = "/v2/"
+  status = 301
+  force = false
+
+# 10/24/23
+[[redirects]]
+  from = "/concepts/claimable-keys"
+  to = "/sdk/wallets/claimable-keys/intro"
   status = 301
   force = false

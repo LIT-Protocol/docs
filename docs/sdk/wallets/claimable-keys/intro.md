@@ -9,9 +9,18 @@ Ready to jump right in? Quickly learn how you can integrate claimable keys into 
 
 ## Overview
 
-With the release of the test network `cayenne` we are introducing a new concept to Programmable Key Pairs (PKP) - claimable keys (what will be referred to as Homogenous Derivation - HD keys).  When creating a new Programmable Key Pair (PKP) it is now possible to deterministically derive keys so the public portion of the key pair is known **before** creating the key. 
+When creating a new Programmable Key Pair (PKP) it is now possible to deterministically derive keys so the public portion of the key pair is known **before** creating the key. We're going to abbreviate claimable keys as HD keys, short for homogeneous derived keys. 
+
+With the release of the test network `cayenne` we are introducing a new concept to Programmable Key Pairs (PKP) - claimable keys (what will be referred to as Homogenous Derivation - HD keys).
 
 HD keys work off a set of `root keys` which combined with a `key identifier` allow the deterministic generation of new key pairs.
+
+## Use Cases
+1. Send a welcome bonus to new users' email addresses before they sign up. The user can claim the funds once they verify their email.
+2. Allow users to receive funds via their phone number before installing an app. They can claim the funds once they verify their phone number.
+3. Send promotional funds to Twitter handles. Users can claim the funds by authenticating their Twitter account.
+4. Distribute airdrops to Discord users using their IDs. They can claim the airdrop once they connect their Discord account.
+5. Onboard new users by sending them a small amount to their web3 social profile (like a Lens profile). They can claim it by verifying ownership of their Lens account.
 
 ## Key vocabulary 
 

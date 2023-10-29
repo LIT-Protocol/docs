@@ -13,17 +13,17 @@ To connect a PKP and a dApp, you will need to:
 `PKPClient` represents a PKP and initializes signers for use across multiple blockchains (note: EVM-only at the moment).
 
 ```js
-import { PKPClient } from '@lit-protocol/pkp-client';
+import { PKPClient } from "@lit-protocol/pkp-client";
 
 const pkpClient = new PKPClient({
-  controllerAuthSig: '<Your AuthSig>',
+  controllerAuthSig: "<Your AuthSig>",
   // Or you can also pass in controllerSessionSigs
-  pkpPubKey: '<Your PKP public key>',
+  pkpPubKey: "<Your PKP public key>",
 });
 await pkpClient.connect();
 ```
 
-The `controllerAuthSig` (or `controllerSessionSigs`) is used to authorize requests to the Lit nodes. To learn how to leverage different authentication methods, refer to the [Authentication section](../sdk/explanation/authentication/overview).
+The `controllerAuthSig` (or `controllerSessionSigs`) is used to authorize requests to the Lit nodes. To learn how to leverage different authentication methods, refer to the [Authentication section](../../authentication/overview).
 
 To view more constructor options, refer to the [API docs](https://js-sdk.litprotocol.com/interfaces/types_src.PKPClientProp.html).
 
@@ -32,20 +32,20 @@ To view more constructor options, refer to the [API docs](https://js-sdk.litprot
 `PKPWalletConnect` wraps [`@walletconnect/web3wallet`](https://docs.walletconnect.com/2.0/web/web3wallet/wallet-usage) to manage WalletConnect session proposals and requests using the given PKPClient.
 
 ```js
-import { PKPWalletConnect } from '@lit-protocol/pkp-walletconnect';
+import { PKPWalletConnect } from "@lit-protocol/pkp-walletconnect";
 
 const config = {
-  projectId: '<Your WalletConnect project ID>',
+  projectId: "<Your WalletConnect project ID>",
   metadata: {
-    name: 'Test Lit Wallet',
-    description: 'Test Lit Wallet',
-    url: 'https://litprotocol.com/',
-    icons: ['https://litprotocol.com/favicon.png'],
+    name: "Test Lit Wallet",
+    description: "Test Lit Wallet",
+    url: "https://litprotocol.com/",
+    icons: ["https://litprotocol.com/favicon.png"],
   },
 };
 const wcClient = new PKPWalletConnect();
 await wcClient.initWalletConnect(config);
-wcClient.addPKPClient(pkpWallet)
+wcClient.addPKPClient(pkpWallet);
 ```
 
 ## 3. Subscribe and respond to events
@@ -55,8 +55,8 @@ wcClient.addPKPClient(pkpWallet)
 Once the WalletConnect client is initialized, the PKP is ready to connect to dApps. The dApp will request to connect to your PKP through a session proposal. To respond to session proposals, subscribe to the `session_proposal` event.
 
 ```js
-pkpWalletConnect.on('session_proposal', async (proposal) => {
-  console.log('Received session proposal: ', proposal);
+pkpWalletConnect.on("session_proposal", async (proposal) => {
+  console.log("Received session proposal: ", proposal);
 
   // Accept session proposal
   await pkpWalletConnect.approveSessionProposal(proposal);
@@ -82,8 +82,8 @@ await pkpWalletConnect.pair({ uri: uri });
 Once the session proposal is approved, the dApp can then request your PKP to perform actions, such as signing, via a session request. To acknowledge and respond to these session requests, set up an event listener for the `session_request` event.
 
 ```js
-pkpWalletConnect.on('session_request', async (requestEvent) => {
-  console.log('Received session request: ', requestEvent);
+pkpWalletConnect.on("session_request", async (requestEvent) => {
+  console.log("Received session request: ", requestEvent);
 
   const { topic, params } = requestEvent;
   const { request } = params;

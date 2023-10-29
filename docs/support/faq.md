@@ -124,7 +124,7 @@ Yes! Check out this [sample project.](https://github.com/dOrgJelli/lit-protocol-
 
 ### 1. Can more than one condition be added for access control?
 
-Yes! See [boolean logic](../access-control/condition-types/boolean-logic) for examples.
+Yes! See [boolean logic](../../sdk/access-control/condition-types/boolean-logic) for examples.
 
 ### 2. What’s the maximum number of accessControlConditions allowed at once?
 
@@ -136,11 +136,11 @@ The Lit network doesn’t store these encrypted contents for you. You can store 
 
 ### 4. How to construct an accessControlCondition to authorize only a specific wallet address?
 
-Check out the solution [here](../access-control/evm/basic-examples#a-specific-wallet-address).
+Check out the solution [here](../../sdk/access-control/evm/basic-examples#a-specific-wallet-address).
 
 ### 5. How to use a time-lock based accessControlCondition?
 
-Check out the solution [here](../access-control/evm/timelock).
+Check out the solution [here](../../sdk/access-control/evm/timelock).
 
 <br />
 

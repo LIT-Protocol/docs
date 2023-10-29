@@ -23,7 +23,7 @@ values={[
 Install the `@lit-protocol/lit-node-client` package, which can be used in both browser and Node environments:
 
 ```sh
-yarn add @lit-protocol/lit-node-client@^3.0.2
+yarn add @lit-protocol/lit-node-client@cayenne
 ```
 
 Use the **Lit JS SDK V3**:
@@ -39,7 +39,7 @@ import * as LitJsSdk from "@lit-protocol/lit-node-client";
 Install the `@lit-protocol/lit-node-client-nodejs`, which is for Node environments only:
 
 ```sh
-yarn add @lit-protocol/lit-node-client-nodejs@^3.0.2
+yarn add @lit-protocol/lit-node-client-nodejs@cayenne
 ```
 
 Use the **Lit JS SDK V3**:
@@ -57,7 +57,7 @@ You should use **at least Node v16.16.0** because of the need for the **webcrypt
 
 ## Connection to the Lit Network
 
-The SDK requires an active connection to the Lit nodes to perform most functions (notably, a connection to the Lit nodes is not required if you are just verifying a JWT). 
+The SDK requires an active connection to the Lit nodes to perform most functions (notably, a connection to the Lit nodes is not required if you are just verifying a JWT).
 
 In web apps, this is typically done on first page load and can be shared between all your pages. In NodeJS apps, this is done when when the server starts.
 
@@ -72,7 +72,7 @@ In this example stub, the litNodeClient is stored in a global variable `app.loca
 ```js
 app.locals.litNodeClient = new LitJsSdk.LitNodeClient({
   alertWhenUnauthorized: false,
-  litNetwork: 'cayenne',
+  litNetwork: "cayenne",
 });
 await app.locals.litNodeClient.connect();
 ```

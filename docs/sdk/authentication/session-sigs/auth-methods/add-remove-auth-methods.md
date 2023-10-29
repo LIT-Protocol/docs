@@ -6,7 +6,7 @@ To write to the blockchain, the `LitContracts` instance must be created with a `
 
 ## Initialize `PKPEthersWallet`
 
-`PKPEthersWallet` must be instantiated with an `AuthSig` or a `SessionSig` in order to authorize signing requests. To learn how to generate these signatures, refer to the [Authentication section](../../sdk/explanation/authentication/overview).
+`PKPEthersWallet` must be instantiated with an `AuthSig` or a `SessionSig` in order to authorize signing requests. To learn how to generate these signatures, refer to the [Authentication section](../../../../authentication/overview).
 
 ```js
 import { PKPEthersWallet } from "@lit-protocol/pkp-ethers";
@@ -56,7 +56,7 @@ To view more constructor options for `LitContracts`, check out the [API docs](ht
 
 To add an auth method, you must pass an `authMethod` object, which should have the following properties:
 
-- `authMethodType`: A number representing the type of auth method you want to add. Refer to the supported auth methods table [here](../../pkp/auth-helpers/overview#existing-supported-auth-methods).
+- `authMethodType`: A number representing the type of auth method you want to add. Refer to the supported auth methods table [here](../../../../wallets/auth-methods).
 - `id`: Bytes that represent a hash of a string that uniquely identifies the auth method
 - `userPubkey`: Public key of a WebAuthn credential (only required when using WebAuthn as an auth method)
 

@@ -8,7 +8,7 @@ sidebar_position: 1
 
 **FOR DEVELOPERS: SDK API DOCUMENTATION**
 
-To start building on Lit based on your use case, check out the Lit SDK [here](../sdk/intro). For an in-depth understanding of the functionality provided, check out the [API docs](https://js-sdk.litprotocol.com/). 
+To start building on Lit based on your use case, check out the Lit SDK [here](../../sdk/installation). For an in-depth understanding of the functionality provided, check out the [API docs](https://js-sdk.litprotocol.com/).
 
 For references to the Lit Actions functions which can be accessed inside a Lit Action via the `Lit.Actions` object, check out the [Lit Actions](http://actions-docs.litprotocol.com/) API docs.
 
@@ -31,7 +31,6 @@ SEV ensures that node operators never have access to any key shares directly, no
 In the context user-facing operations — such as when key shares are provisioned for signing and decryption — nodes communicate via independent, encrypted channels. This means that shares are only ever exposed client-side at the exact moment of recombination.
 
 We believe that the marriage of MPC, threshold signature schemes (TSS), and SEV provides end users with the most robustly secure and versatile custody solution currently available on the market today.
-
 
 ## How Lit Protocol works for:
 
@@ -69,10 +68,9 @@ Each PKP is functionally [a wallet](../sdk/wallets/intro), where the private key
 
 Lit Actions are used to handle each PKP’s [authentication logic](https://spark.litprotocol.com/how-authentication-works-with-pkps/). Authentication refers to the method used to communicate with and “control” the underlying key pair. As mentioned above, by default each key pair is controlled by the underlying blockchain account (“wallet”) who mints and holds the associated PKP NFT. But what about users who don’t already have a wallet and are attempting to onboard into the ecosystem for the first time? Lit has integrated several “web2” authentication methods to make this onboarding process seamless for the end user, including WebAuthn (Apple Passkey) and oAuth. These credentials can be harnessed as the mechanism(s) associated with ownership of the PKP, [linking familiar web2 accounts to the world of web3](https://spark.litprotocol.com/wallet-abstraction-with-google-oauth/).
 
-The use of Lit Actions in the wallet context also provides users with the ability to define automated signing logic. For example, setting up an on-chain limit order for the assets held within the wallet, or configuring a [monthly dollar-cost average investment scheme](https://spark.litprotocol.com/automated-portfolio-rebalancing-uniswap/). Of course, this signing logic is arbitrary and can be customized based on the specific context and applications being used. 
+The use of Lit Actions in the wallet context also provides users with the ability to define automated signing logic. For example, setting up an on-chain limit order for the assets held within the wallet, or configuring a [monthly dollar-cost average investment scheme](https://spark.litprotocol.com/automated-portfolio-rebalancing-uniswap/). Of course, this signing logic is arbitrary and can be customized based on the specific context and applications being used.
 
 ![cloudSigning](/img/CloudSigning.png)
-
 
 ## Supported Chains
 

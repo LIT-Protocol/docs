@@ -21,7 +21,7 @@ Need some `LIT` test tokens to mint a PKP? Get some from the [faucet](https:/
 
 ## What are Lit Actions
 
-Lit Actions are JavaScript programs used to define signing conditions for [PKPs](../pkp/intro). In other words, they are the immutable "rules" that dictate what or who has permission to sign using a particular PKP.
+Lit Actions are JavaScript programs used to define signing conditions for [PKPs](../../wallets/intro). In other words, they are the immutable "rules" that dictate what or who has permission to sign using a particular PKP.
 
 To create a Lit Action write some JavaScript code that will accomplish your goals. The Lit Protocol provides JS function bindings to do things like request a signature or check an arbitrary condition. If you need to include dependencies like NPM packages, use a bundler like Webpack or ESBuild to create a single JS file and provide that bundle as your Lit Action.
 
@@ -45,7 +45,7 @@ yarn add @lit-protocol/lit-node-client-nodejs@cayenne
 
 ## 2. Obtain a PKP
 
-Go to https://explorer.litprotocol.com/ and mint a PKP. 
+Go to https://explorer.litprotocol.com/ and mint a PKP.
 
 :::tip
 
@@ -87,7 +87,7 @@ values={[
 <TabItem value="browser">
 
 ```jsx
-import * as LitJsSdk from '@lit-protocol/lit-node-client';
+import * as LitJsSdk from "@lit-protocol/lit-node-client";
 
 // this code will be run on the node
 const litActionCode = `
@@ -131,7 +131,7 @@ runLitAction();
 <TabItem value="nodejs">
 
 ```jsx
-import * as LitJsSdk from '@lit-protocol/lit-node-client-nodejs';
+import * as LitJsSdk from "@lit-protocol/lit-node-client-nodejs";
 
 // this code will be run on the node
 const litActionCode = `
@@ -156,7 +156,9 @@ const authSig = {
 };
 
 const runLitAction = async () => {
-  const litNodeClient = new LitJsSdk.LitNodeClientNodeJs({ litNetwork: "serrano" });
+  const litNodeClient = new LitJsSdk.LitNodeClientNodeJs({
+    litNetwork: "serrano",
+  });
   await litNodeClient.connect();
   const signatures = await litNodeClient.executeJs({
     code: litActionCode,
@@ -234,7 +236,7 @@ const signatures = await litNodeClient.executeJs({
 
 ## Conclusion and More Examples
 
-And that's it, you have now successfully written your first Lit Action! 
+And that's it, you have now successfully written your first Lit Action!
 
 Continue on to the modules ahead to learn more about the types of use cases and functionality that can be supported, as well as example implementations associated with each.
 

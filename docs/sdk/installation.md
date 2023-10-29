@@ -67,7 +67,7 @@ Calling `connect()` on the `litNodeClient`` returns a promise that resolves when
 
 In this example stub, the litNodeClient is stored in a global variable `app.locals.litNodeClient` so that it can be used throughout the server. `app.locals` is provided by [Express](https://expressjs.com/) for this purpose. You may have to use what your own server framework provides for this purpose, instead.
 
-> Keep in mind that in the server-side implementation, the Client class is named `LitNodeClientNodeJs`.
+> Keep in mind that in the server-side implementation, the client class is named `LitNodeClientNodeJs`.
 
 `client.connect()` returns a promise that resolves when you are connected to the Lit network.
 

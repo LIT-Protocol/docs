@@ -20,7 +20,7 @@ The session keypair is used to sign all requests to the Lit Nodes, and the user'
 
 Session signatures work by having scoped capabilities be granted to session keys by an inner `AuthSig`. The capability object is a [SIWE ReCap](https://eips.ethereum.org/EIPS/eip-5573) object.
 
-Read more [here](../../../../sdk/explanation/authentication/session-sigs/capability-objects) on the session capability objects that we use.
+Read more [here](../capability-objects) on the session capability objects that we use.
 
 ## Format of `SessionSigs`
 
@@ -32,8 +32,8 @@ Given the following example `AuthSig`:
     "derivedVia": "web3.eth.personal.sign",
     "signedMessage": "localhost:3000 wants you to sign in with your Ethereum account:
         0x5259E44670053491E7b4FE4A120C70be1eAD646b
-        
-        
+
+
         URI: lit:session:6a1f1e8a00b61867b85eaf329d6fdf855220ac3e32f44ec13e4db0dd303dea6a
         Version: 1
         Chain ID: 1
@@ -67,8 +67,8 @@ Here is an example `SessionSig` that uses a session keypair to sign the `AuthSig
             "derivedVia": "web3.eth.personal.sign",
             "signedMessage": "localhost:3000 wants you to sign in with your Ethereum account:
                 0x5259E44670053491E7b4FE4A120C70be1eAD646b
-                
-                
+
+
                 URI: lit:session:6a1f1e8a00b61867b85eaf329d6fdf855220ac3e32f44ec13e4db0dd303dea6a
                 Version: 1
                 Chain ID: 1
@@ -94,7 +94,7 @@ Here is what each field means:
 
 - `sig` is the signature produced by the ed25519 keypair signing the `signedMessage` payload
 - `derivedVia` should be `litSessionSignViaNacl` and specifies that the SessionSig object was created via the `NaCl` library.
-- `signedMessage` is the payload that was signed by the session keypair. 
+- `signedMessage` is the payload that was signed by the session keypair.
 - `address` is the session keypair public key.
 - `algo` is the signing algorithm used to generate the session signature.
 
@@ -103,7 +103,7 @@ Here is what each field means:
 Here is what each field in `signedMessage` means:
 
 - `sessionKey` is the session keypair public key.
-- `resourceAbilityRequests` is a lit of abilities that the session key is requesting to perform against the specified Lit resources during authentication. Read more [here](../../../../sdk/explanation/authentication/session-sigs/resources-and-abilities) about Lit Resources and Abilities.
+- `resourceAbilityRequests` is a lit of abilities that the session key is requesting to perform against the specified Lit resources during authentication. Read more [here](../resources-and-abilities) about Lit Resources and Abilities.
 - `capabilities` is an array of one or more AuthSigs.
 - `issuedAt` is the time the SessionSig was issued.
 - `expiration` is the time the SessionSig becomes invalid.

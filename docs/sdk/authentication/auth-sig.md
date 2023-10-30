@@ -102,7 +102,7 @@ const siwe = require('siwe');
 async function main() {
   // Initialize LitNodeClient
   const litNodeClient = new LitJsSdk.LitNodeClientNodeJs({
-		alertWhenUnauthorized: true,
+		alertWhenUnauthorized: false,
 		litNetwork: 'cayenne',
 	});
   await litNodeClient.connect();

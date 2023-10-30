@@ -108,7 +108,7 @@ async function main() {
   await litNodeClient.connect();
 
   // Initialize the signer
-  const wallet = ethers.Wallet('<Your private key>');
+  const wallet = new ethers.Wallet('<Your private key>');
   const address = ethers.getAddress(await wallet.getAddress());
 
   // Craft the SIWE message

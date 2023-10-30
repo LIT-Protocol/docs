@@ -20,8 +20,8 @@ jobs:
       - name: Trigger crawler reindexing
         run: yarn run:crawler
         env:
-          CRAWLER_USER_ID: {{ secrets.CRAWLER_USER_ID }}
-          CRAWLER_API_KEY: {{ secrets.CRAWLER_API_KEY }}
-          CRAWLER_API_BASE_URL: {{ secrets.CRAWLER_API_BASE_URL }}
-          ALGOLIA_APP_ID: {{ secrets.ALGOLIA_APP_ID }}
-          ALGOLIA_API_KEY: {{ secrets.ALGOLIA_API_KEY }}
+          CRAWLER_USER_ID: ${{ secrets.CRAWLER_USER_ID }}
+          CRAWLER_API_KEY: ${{ secrets.CRAWLER_API_KEY }}
+          CRAWLER_API_BASE_URL: ${{ secrets.CRAWLER_API_BASE_URL }}
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}

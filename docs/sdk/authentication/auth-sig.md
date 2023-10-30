@@ -101,12 +101,15 @@ const siwe = require('siwe');
 
 async function main() {
   // Initialize LitNodeClient
-  const litNodeClient = new LitJsSdk.LitNodeClientNodeJs();
+  const litNodeClient = new LitJsSdk.LitNodeClientNodeJs({
+		alertWhenUnauthorized: true,
+		litNetwork: 'cayenne',
+	});
   await litNodeClient.connect();
 
   // Initialize the signer
-  const wallet = new ethers.Wallet('<Your private key>');
-  const address = ethers.utils.getAddress(await wallet.getAddress());
+  const wallet = ethers.Wallet('<Your private key>');
+  const address = ethers.getAddress(await wallet.getAddress());
 
   // Craft the SIWE message
   const domain = 'localhost';
@@ -119,7 +122,7 @@ async function main() {
     statement,
     uri: origin,
     version: '1',
-    chainId: '1',
+    chainId: 1,
   });
   const messageToSign = siweMessage.prepareMessage();
   

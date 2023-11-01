@@ -164,7 +164,7 @@ const sessionSigs = await provider.getSessionSigs({
 
 ### Generating Session Signatures using the `LitNodeClient`
 
-:::note
+::: note
 
 The example will assume you are using `LitNodeClient` but this example also works with `LitNodeClientNodeJS`
 

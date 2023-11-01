@@ -144,11 +144,6 @@ Below is an example of an authentication method from successful authentication
 }
 ```
 
-:::note 
- Tokens expire after 30 minutes, and must be validated for session signature signing within that period
-:::
-
-
 ### Generating `SessionSigs`
 
 After successfully authenticating with an `AuthMethod`, you can generate `Session Signatures` using the provider's `getSessionSigs` method. The `getSessionSigs` method takes in an `AuthMethod` object, a PKP public key, and other session-specific arguments such as `resourceAbilityRequests` and returns a `SessionSig` object.
@@ -169,7 +164,7 @@ const sessionSigs = await provider.getSessionSigs({
 
 ### Generating Session Signatures using the `LitNodeClient`
 
-::: note
+:::note
 
 The example will assume you are using `LitNodeClient` but this example also works with `LitNodeClientNodeJS`
 

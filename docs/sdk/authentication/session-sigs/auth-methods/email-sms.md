@@ -5,11 +5,12 @@ We have chosen (Stytch)[https://stytch.com/docs/api/send-otp-by-sms] as our OTP 
 package.
 
 :::note
-  The `lit-auth-client` requires a user session to be established in order to authenticate the session as this is the only way to obtain a `session_jwt` which our sdk requires.
-  See Stytch documentation for more information.
+The `lit-auth-client` requires a user session to be established in order to authenticate the session as this is the only way to obtain a `session_jwt` which our sdk requires.
+See Stytch documentation for more information.
 :::
 
 We support all `otp` and `totp` authentication implementations stytch supports through the `StytchOtpProvider` this will use the `sub` property of the session token from our Stytch authnetication session as the `user id` to form the `auth method identifier` which is registered to the pkp for permitting the authentication method.
+
 - Email
 - sms
 - WhatsApp
@@ -60,7 +61,7 @@ const sessionStatus = await client.sessions.authenticate({
 ## Use an Authenticated Stytch Session with the `lit-auth-client`
 
 ```javascript
-import { LitAuthClient } from '@lit-protocol/lit-auth-client';
+import { LitAuthClient } from "@lit-protocol/lit-auth-client";
 
 const authClient = new LitAuthClient({
   litRelayConfig: {
@@ -69,7 +70,8 @@ const authClient = new LitAuthClient({
   litNodeClient,
 });
 
-const session = authClient.initProvider<StytchOtpProvider>(ProviderType.StytchOtp);
+const session =
+  authClient.initProvider < StytchOtpProvider > ProviderType.StytchOtp;
 // from the above example of using the Stytch client to get an authenticated session
 const authMethod = await session.authenticate({
   accessToken: sessionStatus.session_jwt,
@@ -82,14 +84,15 @@ We also support specific Stytch `authentication factors` which are the same as u
 The `user id` will be the `Authentication Factor` transport. Meaning for example of sms otp was the authentication factor, then the phone number of the user will be the `user id`
 below is a table of what each `auth factor` will use as the `user id`
 
-| ProviderType | user identifier value |
-|-----|------|
-| StytchEmailFactorOtp | email address |
-| StytchSmsFactorOtp   | phone number |
-|  StytchWhatsAppFactorOtp | phone number |
-| StytchTotpFactor | totp id |
+| ProviderType            | user identifier value |
+| ----------------------- | --------------------- |
+| StytchEmailFactorOtp    | email address         |
+| StytchSmsFactorOtp      | phone number          |
+| StytchWhatsAppFactorOtp | phone number          |
+| StytchTotpFactor        | totp id               |
 
 There are two main benefits to using an `auth factor` over the generic Stytch OTP provider type.
+
 - Admins of the stytch project cannot modify the user's authentication on their side.
 - If being used through Claiming, the pkp public key can be dervied without users authenticating beforehand.
 
@@ -97,14 +100,13 @@ Using a specific authentication factor means that each user authentication facto
 
 ### Stytch Auth Method Provider Types
 
-| Name   |  type  |
-| ------ | ------ |
-| StytchOtp | 9   |
-| StytchEmailFactorOtp | 10 |
-| StytchSmsFactorOtp | 11 |
-| StytchWhatsAppFactorOtp | 12 |
-| StytchTotpFactorOtp | 13 |
-
+| Name                    | type |
+| ----------------------- | ---- |
+| StytchOtp               | 9    |
+| StytchEmailFactorOtp    | 10   |
+| StytchSmsFactorOtp      | 11   |
+| StytchWhatsAppFactorOtp | 12   |
+| StytchTotpFactorOtp     | 13   |
 
 ## Minting via Contract
 
@@ -132,11 +134,12 @@ If you are using Lit Relay Server, you will need to request an API key [here](ht
 
 :::
 
-:::note 
+:::note
 If the user is using a phone number, the country code must be provided.
 :::
 
 Below is an example of an authentication method from successful authentication
+
 ```javascript
 {
     "accessToken": "eyJhbGciOiJzZWNwMjU2azEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJMSVQtUHJvdG9jb2wiLCJzdWIiOiJMSVQtT1RQIiwiaWF0IjoxNjg0ODc1NTE0NDkxLCJleHAiOjE2ODQ4NzczMTQ0OTEsIm9yZ0lkIjoiTElUIiwicm9sZSI6InVzZXIiLCJleHRyYURhdGEiOiIrMTIwMTQwNzIwNzN8MjAyMy0wNS0yM1QyMDo1ODozNC40OTE3ODU5NDUrMDA6MDAifQ.eyJyIjoiZTA0ZDAyNjhjN2ExMzhiNmZiNDJjYTk4NmIxY2I4MWM0N2QyMTc0MzZlOWNlYzc4NGUzNWEyOTZkZmY2YjA4NSIsInMiOiI0NTE5MTVkMDY5YTZhZGE5M2U0OGY3ODUwMGM0MWUzNmMwYzQ4Y2FlODYwMmYxYWM0Njc0MTQ1YTNiMmMyNDU4In0",
@@ -151,37 +154,38 @@ After successfully authenticating with an `AuthMethod`, you can generate `Sessio
 ```javascript
 // Get session signatures for the given PKP public key and auth method
 const sessionSigs = await provider.getSessionSigs({
-  authMethod: '<AuthMethod object returned from authenticate()>',
+  authMethod: "<AuthMethod object returned from authenticate()>",
   sessionSigsParams: {
-    chain: 'ethereum',
-    resourceAbilityRequests: [{
-      resource: litResource,
-      ability: LitAbility.AccessControlConditionDecryption
-    }],
+    chain: "ethereum",
+    resourceAbilityRequests: [
+      {
+        resource: litResource,
+        ability: LitAbility.AccessControlConditionDecryption,
+      },
+    ],
   },
 });
 ```
 
 ### Generating Session Signatures using the `LitNodeClient`
 
-
 Initalize an instance of the `LitNodeClient` and connect to the network
 
 ```javascript
 const litNodeClient: LitNodeClientNodeJs = new LitNodeClientNodeJs({
-    litNetwork: 'cayenne',
-    debug: true
+  litNetwork: "cayenne",
+  debug: true,
 });
 await litNodeClient.connect();
 ```
 
 Request a specified pkp to sign a session signature, authenticating with an `Auth Method` for a given `PKP`
-The `session.fetchPKPThroughRelayer`  method above can be used to query PKP public keys associated with a given auth method. You can also use the `contracts-sdk` to query PKP information by Authentication Method.
+The `session.fetchPKPThroughRelayer` method above can be used to query PKP public keys associated with a given auth method. You can also use the `contracts-sdk` to query PKP information by Authentication Method.
 
 ```javascript
 // The implementation below is wrapped by the above `provider.getSessionSigs`
 const authNeededCallback = async (params: AuthCallbackParams) => {
-  console.log("params", params)
+  console.log("params", params);
   const response = await litNodeClient.signSessionKey({
     sessionKey: sessionKeyPair,
     statement: params.statement,
@@ -191,26 +195,28 @@ const authNeededCallback = async (params: AuthCallbackParams) => {
     resources: params.resources,
     chainId: 1,
   });
-  console.log("callback response", response)
+  console.log("callback response", response);
   return response.authSig;
 };
 
 const resourceAbilities = [
-    {
-      resource: new LitActionResource("*"),
-      ability: LitAbility.PKPSigning,
-    },
+  {
+    resource: new LitActionResource("*"),
+    ability: LitAbility.PKPSigning,
+  },
 ];
-const sessionSigs = await litNodeClient.getSessionSigs({
-  chain: "ethereum",
-  expiration: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7).toISOString(),
-  resourceAbilityRequests: resourceAbilities,
-  sessionKey: sessionKeyPair,
-  authNeededCallback	
-}).catch((err) => {
-  console.log("error while attempting to access session signatures: ", err)
-  throw err;
-});
+const sessionSigs = await litNodeClient
+  .getSessionSigs({
+    chain: "ethereum",
+    expiration: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7).toISOString(),
+    resourceAbilityRequests: resourceAbilities,
+    sessionKey: sessionKeyPair,
+    authNeededCallback,
+  })
+  .catch((err) => {
+    console.log("error while attempting to access session signatures: ", err);
+    throw err;
+  });
 console.log("session signatures: ", sessionSigs);
 const authSig = sessionSigs[Object.keys(sessionSigs)[0]];
 console.log("authSig", authSig);

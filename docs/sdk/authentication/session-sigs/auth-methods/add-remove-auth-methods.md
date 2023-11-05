@@ -113,7 +113,7 @@ const transaction =
 The `removePermittedAuthMethod` function takes the following arguments:
 
 - `tokenId`: The token ID of the PKP you want to remove an auth method from
-- `authMethodType`: A number representing the type of auth method you want to remove. Refer to the supported auth methods table [here](../../pkp/auth-helpers/overview#existing-supported-auth-methods).
+- `authMethodType`: A number representing the type of auth method you want to remove. Refer to the supported auth methods table [here](../../../../wallets/auth-methods#existing-supported-auth-methods).
 - `id`: Bytes that represent a hash of a string that uniquely identifies the auth method you want to remove
 - `overrides`: An optional object that allows you to customize [certain parameters](https://docs.ethers.org/v5/api/contract/contract/#contract-functionsSend) of the transaction (e.g, `gasPrice`, `gasLimit`)
 

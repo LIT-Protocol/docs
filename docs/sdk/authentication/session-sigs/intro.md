@@ -20,7 +20,7 @@ The session keypair is used to sign all requests to the Lit Nodes, and the user'
 
 Session signatures work by having scoped capabilities be granted to session keys by an inner `AuthSig`. The capability object is a [SIWE ReCap](https://eips.ethereum.org/EIPS/eip-5573) object.
 
-Read more [here](../capability-objects) on the session capability objects that we use.
+Read more [here](capability-objects) on the session capability objects that we use.
 
 ## Format of `SessionSigs`
 
@@ -103,7 +103,7 @@ Here is what each field means:
 Here is what each field in `signedMessage` means:
 
 - `sessionKey` is the session keypair public key.
-- `resourceAbilityRequests` is a lit of abilities that the session key is requesting to perform against the specified Lit resources during authentication. Read more [here](../resources-and-abilities) about Lit Resources and Abilities.
+- `resourceAbilityRequests` is a lit of abilities that the session key is requesting to perform against the specified Lit resources during authentication. Read more [here](resources-and-abilities) about Lit Resources and Abilities.
 - `capabilities` is an array of one or more AuthSigs.
 - `issuedAt` is the time the SessionSig was issued.
 - `expiration` is the time the SessionSig becomes invalid.

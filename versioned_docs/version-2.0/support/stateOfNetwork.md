@@ -16,7 +16,7 @@ https://jalapeno-status.litprotocol.com/
 
 The Lit Actions and PKP network (the "Serrano Testnet") is in a developer preview state.
 
-The data on the Serrano Testnet is not persistent and may be erased at any time. Therefore, we do not recommend storing anything of value on the Serrano Testnet. You may use the Serrano testnet by installing the latest `@lit-protocol/lit-node-client` package and specifying `litNetwork: "serrano"` in your `LitNodeClient` config. You can find more info in the [Lit Actions](/LitActions/intro) sections of the docs.
+The data on the Serrano Testnet is not persistent and may be erased at any time. Therefore, we do not recommend storing anything of value on the Serrano Testnet. You may use the Serrano testnet by installing the latest `@lit-protocol/lit-node-client` package and specifying `litNetwork: "serrano"` in your `LitNodeClient` config. You can find more info in the [Lit Actions](../../LitActions/intro) sections of the docs.
 
 ### Uptime and Status
 

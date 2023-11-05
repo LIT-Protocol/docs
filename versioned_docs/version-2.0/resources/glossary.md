@@ -17,8 +17,8 @@ Ethereum uses the BLS signature scheme to facilitate secure cryptography within 
 
 A (cryptographic) challenge is a piece of data that is used in challenge-response authentication schemes for a verifier to independently assert the authenticity of another entity. Unique and random challenges are used to prevent against replay attacks.
 
-### **[Decentralized Access Control](../accessControl/intro)**
-Lit’s decentralized access control protocol allows you to encrypt information behind [on-chain conditions](/accessControl/intro), allowing you to securely store data on the open web.
+### **[Decentralized Access Control](../../accessControl/intro)**
+Lit’s decentralized access control protocol allows you to encrypt information behind [on-chain conditions](../../accessControl/intro), allowing you to securely store data on the open web.
 ### **Digital Signature**
 In cryptography, a digital signature proves that a user controls the private key associated with a particular public address. This is commonly used in the context of *authorization*. Apps can use this signature to verify a user has control over the wallet address, and provide authentication to do both web3 and arbitrary, non-web3 actions. For example, changing a profile on OpenSea requires signing in order to confirm the association between the profile owner and the wallet associated with it.
 

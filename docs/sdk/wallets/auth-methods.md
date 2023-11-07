@@ -35,6 +35,23 @@ Several auth methods are supported by Lit directly. These include methods config
 
 Check out the implementation details within the SDK section [here](../../sdk/authentication/session-sigs/auth-methods/overview).
 
+### Auth Method Scopes
+
+Auth methods support scoping, which permits what they can be used for within Lit. These scopes are passed in to the "scopes" array as numbers when adding an auth method, or minting a PKP with PKPHelper. The scopes are as follows:
+
+| Scope Name         | Scope Number | Description                                                                                                                                                                                                                                               |
+| ------------------ | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Sign Anything      | 1            | This scope allows signing any data                                                                                                                                                                                                                        |
+| Only Sign Messages | 2            | This scope only allows signing messages using the [EIP-191 scheme](https://eips.ethereum.org/EIPS/eip-191) which prefixes "Ethereum Signed Message" to the data to be signed. This prefix prevents creating signatures that can be used for transactions. |
+
+You can also set scopes: [] which will mean that the auth method can only be used for authentication, but not authorization. This means that the auth method can be used to prove that the user is who they say they are, but cannot be used to sign transactions or messages.
+
+Any auth methods (regardless of scope) passed in to a Lit Action will be resolved/checked and put into the Lit.Auth object which is available inside the Lit Action. However, when you try to sign something using signEcdsa(), you'll find that it checks the scopes of the auth methods passed in, and will only sign if the appropriate scope is present.
+
+Using this strategy, you could have a Lit Action that governs all signing for a user, and then add many auth methods with scopes: [], so that they cannot be used on their own without the Lit Action. You would then also use addPermittedAction() with scopes: [1] on the PKP to permit that action to sign. Then, inside the action, you can check if the auth methods resolved in Lit.Auth are authorized to sign, and if so, sign the data.
+
+Using this strategy, you could implement your own MFA, where the user must present 2 or more auth methods to sign something, for example.
+
 ### Adding a Permitted Address
 
 You can use the [PKPPermissions contract](https://github.com/LIT-Protocol/LitNodeContracts/blob/main/contracts/PKPPermissions.sol#L418) to add additional permitted auth methods and addresses to your PKP. Note that any permitted users will be able to execute transactions, authorized Lit Actions, and additional functionality associated with that PKP.

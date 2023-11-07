@@ -638,6 +638,13 @@ force = false
   status = 302
   force = false
 
+# 10/24/23
+[[redirects]]
+  from = "/v3/concepts/claimable-keys"
+  to = "/v3/sdk/wallets/claimable-keys/intro"
+  status = 302
+  force = false
+
 # 6/28/23
 
 [[redirects]]
@@ -653,9 +660,3 @@ force = false
   status = 302
   force = false
 
-# 10/24/23
-[[redirects]]
-  from = "/v3/concepts/claimable-keys"
-  to = "/v3/sdk/wallets/claimable-keys/intro"
-  status = 302
-  force = false

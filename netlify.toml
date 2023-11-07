@@ -655,7 +655,7 @@ force = false
 
 # 10/24/23
 [[redirects]]
-  from = "/concepts/claimable-keys"
-  to = "/sdk/wallets/claimable-keys/intro"
+  from = "/v3/concepts/claimable-keys"
+  to = "/v3/sdk/wallets/claimable-keys/intro"
   status = 302
   force = false

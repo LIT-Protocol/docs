@@ -408,13 +408,13 @@ force = false
 [[redirects]]
   from = "/Introduction/whatIsLitProtocol"
   to = "/what-is-lit"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/Introduction/howItWorks"
   to = "/resources/how-it-works"
-  status = 301
+  status = 302
   force = false
 
 # multiple bc redirects are case sensitive
@@ -422,109 +422,109 @@ force = false
 [[redirects]]
   from = "/Introduction/stateOfNetwork"
   to = "/support/state-of-network"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/introduction/stateofnetwork"
   to = "/support/state-of-network"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/introduction/stateOfNetwork"
   to = "/support/state-of-network"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/coreConcepts/usecases"
   to = "/useCases"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/coreConcepts/accessControl/*"
   to = "/access-control/:splat"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/coreConcepts/LitActionsAndPKPs/intro"
   to = "/pkp/intro"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/coreConcepts/LitActionsAndPKPs/PKPs"
   to = "/pkp/intro"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/coreConcepts/LitActionsAndPKPs/actions/authHelpers"
   to = "/lit-actions/auth-helpers"
-  status = 301
+  status = 302
   force = false
   
 [[redirects]]
   from = "/coreConcepts/LitActionsAndPKPs/actions/litActions"
   to = "/lit-actions/intro"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/coreConcepts/LitActionsAndPKPs/actions/conditionalSigning"
   to = "/v2/LitActions/workingWithActions/conditionalSigning"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/coreConcepts/LitActionsAndPKPs/actions/usingFetch"
   to = "/v2/LitActions/workingWithActions/usingFetch"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/coreConcepts/Wallets/*"
   to = "/pkp/wallets/:splat"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/SDK/Explanation/LitActions/usingEIP"
   to = "/lit-actions/using-eip"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/SDK/Explanation/LitActions/logAndReturn"
   to = "/lit-actions/working-with-actions/log-and-return"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/SDK/Explanation/LitActions/contracts"
   to = "/resources/contracts"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/support/glossary"
   to = "/resources/glossary"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/LitActions/logAndReturn"
   to = "/lit-actions/working-with-actions/log-and-return"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/LitActions/usingEIP"
   to = "/lit-actions/additional-examples/using-eip"
-  status = 301
+  status = 302
   force = false
 
 # 3/28 - continue adding support for links missing from initial pass
@@ -537,49 +537,49 @@ force = false
 [[redirects]]
   from = "/introduction/stateofnetwork"
   to = "/support/state-of-network"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/introduction/stateofnetwork/*"
   to = "/support/state-of-network"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/coreconcepts/litactionsandpkps/actions/*"
   to = "/v2/litActions/intro"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/coreconcepts/wallets/intro/*"
   to = "/pkp/wallets/intro"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/SDK/Explanation/WalletSigs/*"
   to = "/sdk/explanation/authentication/*"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/pkp/wallets/intro"
   to = "/resources/pkps-as-wallet"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/pkp/wallets/examples"
   to = "/resources/pkps-as-wallet"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/pkp/wallets/sendingTxs"
   to = "/pkp/usage"
-  status = 301
+  status = 302
   force = false
 
 # 6/5/23
@@ -587,55 +587,55 @@ force = false
 [[redirects]]
   from = "/LitActions/usingPKPsAndActions"
   to = "/resources/pkps-and-actions"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/resources/pkpsAndActions"
   to = "/pkp/pkps-and-actions"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/LitActions/mintGrantBurn"
   to = "/pkp/pkps-and-actions"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/resources/pkpsAsWallet"
   to = "/concepts/pkps-as-wallet"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/SDK/Explanation/authentication/sessionSigs/authMethods/overview"
   to = "/pkp/authMethods/authHelpers"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/pkp/authHelpers"
   to = "/pkp/authMethods/authHelpers"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/SDK/Explanation/authentication/sessionSigs/authMethods/socialLogin"
   to = "/pkp/authMethods/socialLogin"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/SDK/Explanation/authentication/sessionSigs/authMethods/webAuthn"
   to = "/pkp/authMethods/webAuthn"
-  status = 301
+  status = 302
   force = false
 
 [[redirects]]
   from = "/SDK/Explanation/authentication/sessionSigs/authMethods/email-sms"
   to = "/pkp/authMethods/email-sms"
-  status = 301
+  status = 302
   force = false
 
 # 6/28/23
@@ -643,19 +643,19 @@ force = false
 [[redirects]]
   from = "/*"
   to = "/v2/:splat"
-  status = 301
+  status = 302
   force = false
 
 # home redirect 7/11/23, pointing to V2... update to V3 when ready
 [[redirects]]
   from = "/"
   to = "/v2/"
-  status = 301
+  status = 302
   force = false
 
 # 10/24/23
 [[redirects]]
   from = "/concepts/claimable-keys"
   to = "/sdk/wallets/claimable-keys/intro"
-  status = 301
+  status = 302
   force = false

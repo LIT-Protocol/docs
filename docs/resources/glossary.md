@@ -16,7 +16,7 @@ A cryptographic algorithm that can be used for both signing and encryption. BLS 
 
 Ethereum uses the BLS signature scheme to facilitate secure cryptography within the protocol. This method allows validators to sign messages, and these resulting signatures are then aggregated and verified at scale. This enables a Proof-of-Stake system with a large number of validators to function efficiently in production.
 
-### **[Challenge](https://en.wikipedia.org/wiki/Challenge%E2%80%93response_authentication)**
+### **[Challenge](https://en.wikipedia.org/wiki/Challenge-response_authentication)**
 
 A (cryptographic) challenge is a piece of data that is used in challenge-response authentication schemes for a verifier to independently assert the authenticity of another entity. Unique and random challenges are used to prevent against replay attacks.
 

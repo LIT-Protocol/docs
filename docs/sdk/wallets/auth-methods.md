@@ -37,7 +37,7 @@ Check out the implementation details within the SDK section [here](../../sdk/aut
 
 ### Auth Method Scopes
 
-Auth methods support scoping, which permits what they can be used for within Lit. These scopes are passed in to the "scopes" array as numbers when adding an auth method, or minting a PKP with PKPHelper. The scopes are as follows:
+Auth methods support scoping, which permits what they can be used for within Lit. These scopes are passed in to the "scopes" array as numbers when adding an auth method, or minting a PKP with PKPHelper. An overview of minting with scopes is provided in this [section](../wallets/minting). The scopes are as follows:
 
 | Scope Name         | Scope Number | Description                                                                                                                                                                                                                                               |
 | ------------------ | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -51,6 +51,69 @@ Any auth methods (regardless of scope) passed in to a Lit Action will be resolve
 Using this strategy, you could have a Lit Action that governs all signing for a user, and then add many auth methods with scopes: [], so that they cannot be used on their own without the Lit Action. You would then also use addPermittedAction() with scopes: [1] on the PKP to permit that action to sign. Then, inside the action, you can check if the auth methods resolved in Lit.Auth are authorized to sign, and if so, sign the data.
 
 Using this strategy, you could implement your own MFA, where the user must present 2 or more auth methods to sign something, for example.
+
+**Adding permitted scopes to existing PKPs**
+1. Verify the scopes:
+```js
+import { LitAuthClient } from '@lit-protocol/lit-auth-client';
+import { LitContracts } from '@lit-protocol/contracts-sdk';
+import { AuthMethodScope, AuthMethodType } from '@lit-protocol/constants';
+
+const authMethod = {
+  authMethodType: AuthMethodType.EthWallet,
+  accessToken: ...,
+};
+
+const authId = LitAuthClient.getAuthIdByAuthMethod(authMethod);
+
+const scopes = await contractClient.pkpPermissionsContract.read.getPermittedAuthMethodScopes(
+  tokenId,
+  AuthMethodType.EthWallet,
+  authId,
+  3 // there are only 2 scope numbers atm. and index 0 doesn't count
+);
+
+// -- validate both scopes should be false
+if (scopes[1] !== false) {
+  return fail('scope 1 (sign anything) should be false');
+}
+
+if (scopes[2] !== false) {
+  return fail('scope 2 (only sign messages) should be false');
+}
+```
+2. Set the scopes:
+```js
+import { LitAuthClient } from '@lit-protocol/lit-auth-client';
+import { LitContracts } from '@lit-protocol/contracts-sdk';
+import { AuthMethodScope, AuthMethodType } from '@lit-protocol/constants';
+
+const authMethod = {
+  authMethodType: xx,
+  accessToken: xxx,
+};
+
+const authId = LitAuthClient.getAuthIdByAuthMethod(authMethod);
+
+const setScopeTx =
+  await contractClient.pkpPermissionsContract.write.addPermittedAuthMethodScope(
+    tokenId,
+    AuthMethodType.EthWallet,
+    authId,
+    AuthMethodScope.SignAnything
+  );
+
+await setScopeTx.wait();
+```
+
+**Demos**: 
+1. [Minting a PKP with an auth method and permitted scopes (Easy)](https://github.com/LIT-Protocol/js-sdk/blob/feat/SDK-V3/e2e-nodejs/group-contracts/test-contracts-write-mint-a-pkp-and-set-scope-1-2-easy.mjs)
+
+2. [Minting a PKP with an auth method and permitted scopes (Advanced)](https://github.com/LIT-Protocol/js-sdk/blob/feat/SDK-V3/e2e-nodejs/group-contracts/test-contracts-write-mint-a-pkp-and-set-scope-1-advanced.mjs)
+
+3. [Minting a PKP with no permissions, then add permitted scopes](https://github.com/LIT-Protocol/js-sdk/blob/feat/SDK-V3/e2e-nodejs/group-contracts/test-contracts-write-mint-a-pkp-then-set-scope-1.mjs)
+
+4. [Minting a PKP using the relayer, adding permitted scopes, and getting session sigs](https://github.com/LIT-Protocol/js-sdk/tree/feat/SDK-V3/e2e-nodejs/group-pkp-session-sigs)
 
 ### Adding a Permitted Address
 

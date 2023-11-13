@@ -1,10 +1,89 @@
 # Minting a PKP
+This page will walk you through the process of creating PKPs using the [V3 SDK](../../migration/overview), including adding [permitted scopes](../wallets/auth-methods#auth-method-scopes), which are now required in order to create [session signatures](../authentication/session-sigs/intro). 
 
 ## Mint via Contracts
 
-You can mint an NFT from our PKP contract on Chronicle - Lit's custom EVM rollup testnet - [here](https://explorer.litprotocol.com/mint-pkp). This NFT represents the root ownership of the PKP. The NFT owner can grant other users (via a wallet address) or grant Lit Actions the ability to use the PKP to sign and decrypt data. They also have the ability to assign additional authentication methods, described at the bottom of the page.
+You can mint a PKP NFT from the PKP contract on Chronicle - Lit's custom EVM rollup testnet - using the [Lit explorer](https://explorer.litprotocol.com/mint-pkp), the Lit relayer (sign up for an API key [here](https://forms.gle/RNZYtGYTY9BcD9MEA)) or the contracts directly using the [contracts-sdk](https://js-sdk.litprotocol.com/modules/contracts_sdk_src.html). 
 
-You can also use our handy auth helper contract on Chronicle [here](https://github.com/LIT-Protocol/LitNodeContracts/blob/main/contracts/PKPHelper.sol) and you can find the contract addresses [here](https://explorer.litprotocol.com/contracts).
+The NFT represents root ownership of the PKP. The NFT owner can grant other users (via a wallet address) or grant Lit Actions the ability to use the PKP to sign and decrypt data. They also have the ability to assign additional authentication methods, described at the bottom of the page.
+
+You can also use the handy helper contract on Chronicle [here](https://chain.litprotocol.com/address/0xDe905Fde36562270AA6FEeBAbC5aB1f440f733c2) to mint and assign auth methods, as well as view all of the deployed contract addresses [here](https://github.com/LIT-Protocol/networks/tree/main/cayenne).
+
+### Installing the required packages
+```bash
+yarn add @lit-protocol/lit-auth-client@cayenne
+yarn add @lit-protocol/contracts-sdk@cayenne
+```
+
+### Initializing your `LitContract` instance
+```js
+import { LitContracts } from '@lit-protocol/contracts-sdk';
+
+// if no signer is provided, it will attempt to use window.etheruem
+const contractClient = new LitContracts({ signer });
+await contractClient.connect();
+```
+
+### Minting a PKP and adding permitted scopes
+```js
+import { AuthMethodScope } from '@lit-protocol/constants';
+
+const authMethod = {
+  authMethodType: AuthMethodType.EthWallet,
+  accessToken: '...',
+};
+
+const mintInfo = await contractClient.mintWithAuth({
+  authMethod: authMethod,
+  scopes: [
+		// AuthMethodScope.NoPermissions,
+		AuthMethodScope.SignAnything, 
+		AuthMethodScope.OnlySignMessages
+	],
+});
+
+// output:
+{
+  pkp: {
+      tokenId: string;
+      publicKey: string;
+      ethAddress: string;
+  };
+  tx: ethers.ContractReceipt;
+}
+```
+
+### Minting PKPs using the Lit relayer 
+```js
+import { AuthMethodScope, AuthMethodType } from '@lit-protocol/constants';
+
+const authProvider = litAuthClient.initProvider(ProviderType.EthWallet);
+
+const authMethod = {
+  authMethodType: AuthMethodType.EthWallet,
+  accessToken: ...,
+};
+
+// -- setting scope for the auth method
+// <https://developer.litprotocol.com/v3/sdk/wallets/auth-methods/#auth-method-scopes>
+const options = {
+  permittedAuthMethodScopes: [[AuthMethodScope.SignAnything]],
+};
+
+const mintTx = await authProvider.mintPKPThroughRelayer(
+  authMethod,
+  options
+);
+```
+
+**Demos**: 
+1. [Minting a PKP with an auth method and permitted scopes (Easy)](https://github.com/LIT-Protocol/js-sdk/blob/feat/SDK-V3/e2e-nodejs/group-contracts/test-contracts-write-mint-a-pkp-and-set-scope-1-2-easy.mjs)
+
+2. [Minting a PKP with an auth method and permitted scopes (Advanced)](https://github.com/LIT-Protocol/js-sdk/blob/feat/SDK-V3/e2e-nodejs/group-contracts/test-contracts-write-mint-a-pkp-and-set-scope-1-advanced.mjs)
+
+3. [Minting a PKP with no permissions, then add permitted scopes](https://github.com/LIT-Protocol/js-sdk/blob/feat/SDK-V3/e2e-nodejs/group-contracts/test-contracts-write-mint-a-pkp-then-set-scope-1.mjs)
+
+4. [Minting a PKP using the relayer, adding permitted scopes, and getting session sigs](https://github.com/LIT-Protocol/js-sdk/tree/feat/SDK-V3/e2e-nodejs/group-pkp-session-sigs)
 
 ## Mint via Social or Email/SMS (OTP) 
 

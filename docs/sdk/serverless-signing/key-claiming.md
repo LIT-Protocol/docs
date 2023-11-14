@@ -1,7 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Claiming Through Lit Actions
+# Key Claiming
 
 ## Prerequisites
 
@@ -35,19 +35,25 @@ Instead of pre authenticating the `access token` within an `Authentication Metho
 
 ### adding an auth method when minting a claim
 ```jsx
+  const authMethod = {
+    authMethodType: AuthMethodType.EthWallet,
+    accessToken: JSON.stringify(authSig),
+  };
+
+  const authMethodId = LitAuthClient.getAuthMethodId(authMethod);
+
   const res = await client.executeJs({
     authSig,
     code: `(async () => {
       Lit.Actions.claimKey({keyId: userId});
     })();`,
-    authMethods: [],
     jsParams: {
         userId: 'foo'
     },
   });
 
   let client = new LitContracts(signer: "<your pkp wallet or other signer>");
-  let tx = await client.pkpHelperContract.write.claimAndMintNextAndAddAuthMethods({
+  let tx = await client.pkpHelperContract.write.claimAndMintNextAndAddAuthMethods(
     res.claims['foo'],
    {
     keyType: 2,
@@ -55,12 +61,11 @@ Instead of pre authenticating the `access token` within an `Authentication Metho
     permittedIpfsCIDScopes: [],
     permittedAddresses:: [],
     permittedAddressScopes: [],
-    permittedAuthMethodTypes: [],
-    permittedAuthMethodIds: [],
-    permittedAuthMethodPubkeys: [],
-    permittedAuthMethodScopes: [],
+    permittedAuthMethodTypes: [AuthMethodType.EthWallet],
+    permittedAuthMethodIds: [`0x${authMethodId}`],
+    permittedAuthMethodPubkeys: [`0x`],
+    permittedAuthMethodScopes: [[BigNumber.from("1")]],
     addPkpEthAddressAsPermittedAddress: true,
     sendPkpToItself: true
-   } 
-  });
+   });
 ```

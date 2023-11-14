@@ -37,19 +37,23 @@ console.log("pkp public key: ", res.pubkey);
 An example of claiming with a customized `ClaimProcessor` using the `contracts-sdk` In this example the `ClaimProcessor` is defined as the `mintCallback` in the request options.
 
 ```jsx
+import { LitContracts } from '@lit-protocol/contracts-sdk';
+import { ClaimRequest, ClaimResult, ClientClaimProcessor } from "@lit-protocol/types"
+
 const client = new LitNodeClient({
 	litNetwork: "cayenne",
 	debug: false
 });
 await client.connect();
-let claimReq: ClaimRequest<ContractClaimProcessor> = {
+let claimReq: ClaimRequest<ClientClaimProcessor> = {
       authMethod, // provide an auth method to claim a key Identifier mapped to the given auth method
-			signer: new ethers.Wallet("<your private key>", new JsonRpcProvider("https://chain-rpc.litprotocol.com/http"));
-			mintCallback: (claimRes: ClaimResponse<ClientClaimProcessor>) => {
-		    const litContracts = new LitContracts({ signer: claimRes.signer });
-		    await litContracts.connect();
-				let tokenId = litContracts.claimAndMint(claimRes.keyId, claimRes.signatures);
-			}
+      signer: new ethers.Wallet("<your private key>", new ethers.providers.JsonRpcProvider("https://chain-rpc.litprotocol.com/http")),
+      mintCallback: async (claimRes: ClaimResult<ClientClaimProcessor>) => {
+          const litContracts = new LitContracts({ signer: claimRes.signer });
+          await litContracts.connect();
+          let tokenId = await litContracts.pkpNftContractUtils.write.claimAndMint(claimRes.derivedKeyId, claimRes.signatures);
+          return tokenId.tokenId
+      }
 };
 let res = await client.claimKeyId(claimReq);
 

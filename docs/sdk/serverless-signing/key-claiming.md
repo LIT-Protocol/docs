@@ -30,6 +30,23 @@ Instead of pre authenticating the `access token` within an `Authentication Metho
   });
 
   let client = new LitContracts(signer: "<your pkp wallet or other signer>");
+  let tx = await contractClient.pkpNftContract.write.claimAndMint(2, res.claims['foo'].derivedKeyId, res.claims['foo'].signatures);
+```
+
+### adding an auth method when minting a claim
+```jsx
+  const res = await client.executeJs({
+    authSig,
+    code: `(async () => {
+      Lit.Actions.claimKey({keyId: userId});
+    })();`,
+    authMethods: [],
+    jsParams: {
+        userId: 'foo'
+    },
+  });
+
+  let client = new LitContracts(signer: "<your pkp wallet or other signer>");
   let tx = await client.pkpHelperContract.write.claimAndMintNextAndAddAuthMethods({
     res.claims['foo'],
    {

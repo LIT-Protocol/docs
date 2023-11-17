@@ -75,16 +75,56 @@ Following the same data structure as above, you can format your smart contract `
 
 - `sig` is the actual hex-encoded signature
 - `derivedVia` must be "EIP1271" to inform the nodes that this `AuthSig` is for smart contracts
-- `signedMessage` is any string that you want to pass to the `isValidSignature(bytes32 _hash, bytes memory _signature)` as the `_hash` argument
+- `signedMessage` is any string that you want to pass to the `isValidSignature(bytes32 _hash, bytes memory _signature)` as the `_hash` argument.
 - `address` is the address of the smart contract
 
+You can present the smart contract `AuthSig` object to the Lit Nodes just like any other `AuthSig`.
+Check out this [**React** project](https://replit.com/@lit/Smart-Contract-Authsig-EIP1271#smart-contract-authsig/src/App.js) for an example of how to generate and use a smart contract `AuthSig`.
+
 :::note
-The smart contract must implement the `isValidSignature(bytes32 _hash, bytes memory _signature)` function since the Lit Nodes will call this function to validate the `AuthSig`. Refer to the [EIP-1271](https://eips.ethereum.org/EIPS/eip-1271) docs to understand the `isValidSignature` function.
+The smart contract must implement the `isValidSignature(bytes32 _hash, bytes memory _signature)` function since the Lit Nodes will call this function to validate the `AuthSig`. Refer to the [EIP-1271](https://eips.ethereum.org/EIPS/eip-1271) docs to understand the `isValidSignature` function. The current behavior is having an issue as of 16/11/23. This is because of a bug detailed below in the consideration.
 :::
 
-You can present the smart contract `AuthSig` object to the Lit Nodes just like any other `AuthSig`.
+#### Current Behavior with `signedMessage`
+The current implementation involves a specific handling of the `signedMessage` parameter that may not be immediately apparent. This has led to some confusion and difficulty in implementation. The key points are:
 
-Check out this [**React** project](https://replit.com/@lit/Smart-Contract-Authsig-EIP1271#smart-contract-authsig/src/App.js) for an example of how to generate and use a smart contract `AuthSig`.
+Encoding of `signedMessage`: The `signedMessage` should be a `string` without modifications. It's not meant to be in _hexadecimal_ format or any other encoding.
+
+**Backend Processing:**
+
+- The backend processes the `signedMessage` by first converting it to `bytes`, then encoding it in hex without the `0x` prefix.
+- This `hex` string is then passed to the `keccak256` hash function.
+
+The issue arises because `keccak256` interprets this as a `string`, not as _hexadecimal_ bytes.
+
+
+**Solution to signedMessage Issue**
+To correctly process the `signedMessage`, follow these steps:
+
+_Correct Encoding:_
+
+Convert the `signedMessage` to `bytes`.
+Then convert these `bytes` to a `hex` string, then remove `0x` prefix and convert back to `bytes`.
+Finally, apply `keccak256` to these bytes.
+
+_Example Implementation:_
+```js
+const message = "example message";
+const hexMessage = toBytes(toHex(toBytes(message)).slice(2).toLowerCase());
+const hashBytes = keccak256(hexMessage);
+
+// ERC-1271 Signing Logic
+const signature = ....
+
+authSig = {
+   sig: signature, // 0x00
+   derivedVia: "EIP1271",
+   signedMessage: "test message",
+   address: "0x..." // abstracted wallet address
+};
+```
+
+
 
 ### Clearing Local Storage
 

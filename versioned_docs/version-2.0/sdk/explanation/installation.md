@@ -1,7 +1,6 @@
 ---
 sidebar_position: 1
 ---
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -22,7 +21,7 @@ values={[
 {label: 'script tag with all dependencies included', value: 'script-tag'},
 {label: 'server side with nodejs', value: 'server-side'},
 ]}>
-<TabItem value="browser">
+`<TabItem value="browser">`
 
 Install the `@lit-protocol/lit-node-client` package, which can be used in both browser and Node environments:
 
@@ -37,7 +36,7 @@ import * as LitJsSdk from "@lit-protocol/lit-node-client";
 ```
 
 </TabItem>
-	
+
 <TabItem value="script-tag">
 
 ```js
@@ -45,7 +44,7 @@ import * as LitJsSdk from "@lit-protocol/lit-node-client";
 ```
 
 If you decide to import the SDK with the script tag, we provide a web-ready package with the dependencies you need. You can use the SDK functions via `LitJsSdk_litNodeClient`, for example `LitJsSdk_litNodeClient.encryptString()`
-</TabItem>
+`</TabItem>`
 
 <TabItem value="server-side">
 
@@ -80,10 +79,13 @@ values={[
 {label: 'yarn / NPM', value: 'yarn'},
 {label: 'script tag', value: 'script'},
 ]}>
-<TabItem value="yarn">
+`<TabItem value="yarn">`
 
 ```js
-const client = new LitJsSdk.LitNodeClient();
+import * as LitJsSdk from "@lit-protocol/lit-node-client";
+
+
+const client = new LitJsSdk.LitNodeClient({});
 await client.connect();
 window.litNodeClient = client;
 ```

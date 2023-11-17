@@ -1,8 +1,8 @@
 ---
 sidebar_position: 3
 ---
-
 # Encryption
+
 You can use Lit to encrypt and store any static content. This could be a file, a string, or anything that won't change. You need to store the content and metadata yourself (on IPFS, Arweave, or even a centralized storage solution), and Lit will store who is allowed to decrypt it and enforce this (aka key management).
 
 If you want to use IPFS as a storage solution, Lit has an `encryptToIpfs` function that will help streamline the process of encryption and storing the encrypted data. You will need to provide an Infura ID and API secret key. [Jump to encryptToIPFS](../../SDK/Explanation/encryption#encrypttoipfs).
@@ -18,8 +18,9 @@ This example will show you how to encrypt and decrypt static data using the Lit 
 At the top of your file, instantiate your Lit Node client like so:
 
 ```js
-const client = new LitJsSdk.LitNodeClient();
-const chain = "ethereum";
+import * as LitJsSdk from "@lit-protocol/lit-node-client";
+
+const client = new LitJsSdk.LitNodeClient({});
 ```
 
 Create a Lit class and set the litNodeClient.
@@ -42,11 +43,11 @@ export default new Lit()
 Get more info on functions in the [API docs](https://js-sdk.litprotocol.com/index.html).
 
 Steps to Encrypt
+
 1. Obtain an `authSig` and create an access control condition.
 2. Encrypt the static content (string, file, etc.) to get the `encryptedString`, for example.
 3. Use `litNodeClient.saveEncryptionKey` to tie the `accessControlConditions` with the `symmetricKey` we got above. This returns us the `encryptedSymmetricKey`.
 4. Finally, we have to store the `encryptedString` & other metadata: `encryptedSymmetricKey`, `accessControlConditions` (or other conditions eg: `evmContractConditions`) and `chain`. IPFS is generally used to store these values.
-
 
 ### Access Control & AuthSig
 
@@ -206,7 +207,6 @@ The full decryption process should look like:
   return { decryptedString }
   }
 ```
-
 
 # Encryption & Upload to IPFS
 

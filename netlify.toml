@@ -656,7 +656,7 @@ force = false
 # home redirect 7/11/23, pointing to V2... update to V3 when ready
 [[redirects]]
   from = "/"
-  to = "/v2/"
+  to = "/v3/"
   status = 302
   force = false
 

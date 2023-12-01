@@ -649,7 +649,7 @@ force = false
 
 [[redirects]]
   from = "/*"
-  to = "/v2/:splat"
+  to = "/v3/:splat"
   status = 302
   force = false
 

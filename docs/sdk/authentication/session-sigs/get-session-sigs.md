@@ -61,7 +61,7 @@ const sessionSigs = await litNodeClient.getSessionSigs({
   resourceAbilityRequests: [
     {
       resource: litResource,
-      ability: LitAbility.AccessControlDescription
+      ability: LitAbility.AccessControlConditionDecryption
     }
   ],
   authNeededCallback,

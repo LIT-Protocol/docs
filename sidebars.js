@@ -131,6 +131,7 @@ const sidebars = {
                     "sdk/authentication/session-sigs/auth-methods/social-login",
                     "sdk/authentication/session-sigs/auth-methods/web-authn",
                     "sdk/authentication/session-sigs/auth-methods/email-sms",
+                    "sdk/authentication/session-sigs/auth-methods/custom-auth",
                   ],
                 },
               ],

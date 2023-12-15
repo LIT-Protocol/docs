@@ -54,6 +54,9 @@ const mintInfo = await contractClient.mintWithAuth({
 ```
 
 ### Minting PKPs using the Lit relayer 
+
+The relayer is an open source project, and we run one for your use.  The source code is available [here](https://github.com/LIT-Protocol/relay-server).  If you want to use our Relayer, you'll need a free API key which you can get by filling out [this form](https://forms.gle/RNZYtGYTY9BcD9MEA).
+
 ```js
 import { AuthMethodScope, AuthMethodType } from '@lit-protocol/constants';
 

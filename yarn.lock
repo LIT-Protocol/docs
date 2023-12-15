@@ -2253,7 +2253,7 @@
 
 "@lit-protocol/constants@^3.0.24":
   version "3.0.24"
-  resolved "https://registry.npmjs.org/@lit-protocol/constants/-/constants-3.0.24.tgz#dc93cf89099a34002de3c7800accc4dabbdec512"
+  resolved "https://registry.yarnpkg.com/@lit-protocol/constants/-/constants-3.0.24.tgz#dc93cf89099a34002de3c7800accc4dabbdec512"
   integrity sha512-SosWglxjaS4kVUfrb1Wx4k38WmvCOoYO6dkNzSFl+Qe5mtrPaoYrJuD+Exvcu7FQVUIkwq9yILBiNHkYhDruSw==
   dependencies:
     "@lit-protocol/auth-helpers" "3.0.24"

@@ -123,7 +123,9 @@ An alternative to minting the PKP NFT via the Lit Relay Server is to send a tran
 
 ```javascript
 // Using the session examples above you can call to fetch pkps by the auth method gotten from the provider examples
-const txHash = await session.fetchPKPThroughRelayer(authMethod);
+const txHash = await session.fetchPKPThroughRelayer(authMethod,  {
+    permittedAuthMethodScopes: [[AuthMethodScope.SignAnything]]
+});
 ```
 
 :::note
@@ -201,7 +203,7 @@ const authNeededCallback = async (params: AuthCallbackParams) => {
 
 const resourceAbilities = [
   {
-    resource: new LitActionResource("*"),
+    resource: new LitPkpResource("*"),
     ability: LitAbility.PKPSigning,
   },
 ];

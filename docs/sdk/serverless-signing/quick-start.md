@@ -62,7 +62,9 @@ The JS below will be run by every node in the network in parallel.
 ```jsx
 const go = async () => {
   // this is the string "Hello World" for testing
-  const toSign = [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100];
+  const toSign = new Uint8Array(
+    await crypto.subtle.digest('SHA-256', new TextEncoder().encode('Hello world'))
+  );
   // this requests a signature share from the Lit Node
   // the signature share will be automatically returned in the HTTP response from the node
   const sigShare = await Lit.Actions.signEcdsa({
@@ -108,13 +110,16 @@ const runLitAction = async () => {
 
   const litNodeClient = new LitJsSdk.LitNodeClient({ litNetwork: "serrano" });
   await litNodeClient.connect();
+  const toSign = new Uint8Array(
+    await crypto.subtle.digest('SHA-256', new TextEncoder().encode('Hello world'))
+  );
   const signatures = await litNodeClient.executeJs({
     code: litActionCode,
     authSig,
     // all jsParams can be used anywhere in your litActionCode
     jsParams: {
       // this is the string "Hello World" for testing
-      toSign: [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100],
+      toSign,
       publicKey:
         "0x0404e12210c57f81617918a5b783e51b6133790eb28a79f141df22519fb97977d2a681cc047f9f1a9b533df480eb2d816fb36606bd7c716e71a179efd53d2a55d1",
       sigName: "sig1",
@@ -156,8 +161,11 @@ const authSig = {
 };
 
 const runLitAction = async () => {
+  const toSign = new Uint8Array(
+    await crypto.subtle.digest('SHA-256', new TextEncoder().encode('Hello world'))
+  );
   const litNodeClient = new LitJsSdk.LitNodeClientNodeJs({
-    litNetwork: "serrano",
+    litNetwork: "cayenne",
   });
   await litNodeClient.connect();
   const signatures = await litNodeClient.executeJs({
@@ -166,7 +174,7 @@ const runLitAction = async () => {
     // all jsParams can be used anywhere in your litActionCode
     jsParams: {
       // this is the string "Hello World" for testing
-      toSign: [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100],
+      toSign,
       publicKey:
         "0x0404e12210c57f81617918a5b783e51b6133790eb28a79f141df22519fb97977d2a681cc047f9f1a9b533df480eb2d816fb36606bd7c716e71a179efd53d2a55d1",
       sigName: "sig1",
@@ -199,13 +207,16 @@ const go = async () => {
 go();
 `;
 
+const toSign = new Uint8Array(
+  await crypto.subtle.digest('SHA-256', new TextEncoder().encode('Hello world'))
+);
 const signatures = await litNodeClient.executeJs({
   code: litActionCode,
   authSig,
   // all jsParams can be used anywhere in your litActionCode
   jsParams: {
     // this is the string "Hello World" for testing
-    toSign: [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100],
+    toSign,
     publicKey:
       "0x0404e12210c57f81617918a5b783e51b6133790eb28a79f141df22519fb97977d2a681cc047f9f1a9b533df480eb2d816fb36606bd7c716e71a179efd53d2a55d1",
     sigName: "sig1",
@@ -220,13 +231,16 @@ The ipfs ID: `QmRwN9GKHvCn4Vk7biqtr6adjXMs7PzzYPCzNCRjPFiDjm` contains the same 
 You can check out the code here: https://ipfs.litgateway.com/ipfs/QmRwN9GKHvCn4Vk7biqtr6adjXMs7PzzYPCzNCRjPFiDjm .
 
 ```jsx
+const toSign = new Uint8Array(
+    await crypto.subtle.digest('SHA-256', new TextEncoder().encode('Hello world'))
+);
 const signatures = await litNodeClient.executeJs({
   ipfsId: "QmRwN9GKHvCn4Vk7biqtr6adjXMs7PzzYPCzNCRjPFiDjm",
   authSig,
   // all jsParams can be used anywhere in your Lit Action Code
   jsParams: {
     // this is the string "Hello World" for testing
-    toSign: [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100],
+    toSign,
     publicKey:
       "0x0404e12210c57f81617918a5b783e51b6133790eb28a79f141df22519fb97977d2a681cc047f9f1a9b533df480eb2d816fb36606bd7c716e71a179efd53d2a55d1",
     sigName: "sig1",

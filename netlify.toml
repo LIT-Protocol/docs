@@ -660,3 +660,8 @@ force = false
   status = 302
   force = false
 
+[[redirects]]
+  from = "/v3/sdk/access-control/condition-types/lit-action-conditions"
+  to = "/v3/sdk/access-control/lit-action-conditions"
+  status = 302
+  force = false

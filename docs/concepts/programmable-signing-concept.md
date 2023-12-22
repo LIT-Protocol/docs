@@ -6,19 +6,19 @@ sidebar_position: 2
 
 ## Overview
 
-The Lit Network can be used for programmable signing and condition-based transaction automation. Functionally, this feature gives developers the ability to use distributed serverless functions to build apps that can sign data with their own private key. These keys are:
+With the Lit network, you can generate decentralized key pairs for signing and encryption. Associated with these signing keys is the ability to create powerful serverless functions and condition-based signing automations using Lit Actions. Written in JavaScript, Lit Actions allow you to define the rules and logic PKPs should follow when signing data. These rules are:
 
-1. [Blockchain Agnostic](../resources/supported-chains#programmable-key-pairs): Lit keys can be used to sign transactions on any blockchains or state machines using [ECDSA](https://blog.cloudflare.com/ecdsa-the-digital-signature-algorithm-of-a-better-internet/) for digital signatures. Currently, the [SDK](https://github.com/LIT-Protocol/js-sdk/tree/master/packages/pkp-client) provides easy-to-use methods for creating wallets on EVM and Cosmos based chains.
-2. Programmable: Lit keys can be programmed to sign based on pre-defined conditions, referred to as [conditional signatures](../sdk/serverless-signing/conditional-signing.md) in the docs. This is useful for defining [signing automations](https://spark.litprotocol.com/automated-portfolio-rebalancing-uniswap/), handling [authentication](../sdk/wallets/auth-methods), or generating [proofs](https://spark.litprotocol.com/authenticity-matters/) over off-chain data.
-3. Fault-tolerant: Each key is generated collectively by the Lit nodes through a process called [Distributed Key Generation](https://en.wikipedia.org/wiki/Distributed_key_generation) (DKG). As a network, this allows Lit to generate a new key pair where no one node ever holds the key in its entirety.
 
-To get started building with these tools right away, check out the Lit [SDK install guide](../sdk/serverless-signing/overview.md). Otherwise, keep reading to get a better understanding of how digital signatures work, why the technology is important, and potential ways this tooling can be implemented in the real world!
+1. [Blockchain Agnostic](../resources/supported-chains#programmable-key-pairs): Define signing automations on any blockchain or state machine that is supported by Lit. Currently, the Lit [SDK](../sdk/installation) provides easy-to-use methods for creating wallets and signing transactions on EVM and Cosmos-based chains.
+2. Programmable: Program signing based on pre-defined conditions, referred to as [conditional signatures](../sdk/serverless-signing/conditional-signing.md) in the docs. This is useful for creating [DeFi automations](https://spark.litprotocol.com/automated-portfolio-rebalancing-uniswap/), handling [authentication](../sdk/wallets/auth-methods) logic, and generating [proofs](https://spark.litprotocol.com/authenticity-matters/) over off-chain data.
+
+To get started building with these tools right away, check out the [Lit Actions](../sdk/serverless-signing/overview) page. Otherwise, keep reading to get a better understanding of how serverless signing works and potential ways to implement in the real world.
 
 ## Introduction to Digital Signatures
 
-Made possible by [public key cryptography](https://en.wikipedia.org/wiki/Public_key_infrastructure), digital signatures provide a tamper-resistant means of verifying the authenticity and integrity of data on the Web. Data “signed” by an individual private key can be mathematically verified against the associated public key. It is this nature of mathematical verifiability that makes digital signatures so powerful. You can trust, with high confidence, that a particular signature is in fact authentic and hasn’t been forged or tampered with.
+Another core application of [public key cryptography](https://en.wikipedia.org/wiki/Public_key_infrastructure), digital signatures provide a secure means of verifying the authenticity and integrity of data produced on the web. A signature created with a private key can be mathematically verified against the associated public key, providing a high probability that the signed data is in fact authentic and hasn’t been tampered with.
 
-Digital signatures are a core component of the account and transaction logic used by blockchains and other distributed systems. Every time you send some tokens on Ethereum or post a message on Orbis, a message is created and signed by your private key (AKA your wallet). 
+Digital signatures also make up a key aspect of the account and transaction logic used by blockchains and other distributed systems. Your wallet (AKA your private key) allows you to create and send transactions. Every time you send some tokens on Ethereum or post a message on Orbis, the action is signed before being sent on-chain. 
 
 ## Programmable Signatures with Lit
 
@@ -36,7 +36,7 @@ Use serverless signing for:
 
 Some links to help you get started building with serverless signing:
 
-- Overview of [serverless signing](../sdk/serverless-signing/overview.md)
+- Overview of [serverless signing](../sdk/serverless-signing/overview)
 - Getting started with the [Lit SDK](../sdk/installation)
 - The [Lit Learning Lab](/learningLab/intro-to-lit/prog-signing)
 - [Projects building with Lit](https://github.com/LIT-Protocol/awesome/tree/main#projects-and-integrations)

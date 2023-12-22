@@ -6,6 +6,8 @@ sidebar_position: 2
 
 You can use any wallet or auth method to generate session signatures with the `getSessionSigs()` function from the Lit SDK. This function generates a session keypair and uses a callback function that signs the generated session key to create an `AuthSig` that is scoped to specific capabilities.
 
+**Note:** The nonce should be the latest Ethereum blockhash returned by the nodes during the handshake
+
 ```javascript
 import { LitNodeClient } from '@lit-protocol/lit-node-client';
 import { LitAccessControlConditionResource, LitAbility } from '@lit-protocol/auth-helpers';
@@ -19,6 +21,8 @@ const litNodeClient = new LitNodeClient({
   debug: true,
 });
 await litNodeClient.connect();
+
+let nonce = litNodeClient.getLatestBlockhash();
 
 /**
  * When the getSessionSigs function is called, it will generate a session key
@@ -37,6 +41,7 @@ const authNeededCallback = async ({ chain, resources, expiration, uri }) => {
     chainId: "1",
     expirationTime: expiration,
     resources,
+    nonce,
   });
   const toSign = message.prepareMessage();
   const signature = await wallet.signMessage(toSign);
@@ -61,7 +66,7 @@ const sessionSigs = await litNodeClient.getSessionSigs({
   resourceAbilityRequests: [
     {
       resource: litResource,
-      ability: LitAbility.AccessControlDescription
+      ability: LitAbility.AccessControlConditionDecryption
     }
   ],
   authNeededCallback,

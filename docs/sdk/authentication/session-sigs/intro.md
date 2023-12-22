@@ -37,7 +37,7 @@ Given the following example `AuthSig`:
         URI: lit:session:6a1f1e8a00b61867b85eaf329d6fdf855220ac3e32f44ec13e4db0dd303dea6a
         Version: 1
         Chain ID: 1
-        Nonce: ZfYjGsNyaDDFlaftP
+        Nonce: 0xfe88c94d860f01a17f961bf4bdfb6e0c6cd10d3fda5cc861e805ca1240c58553
         Issued At: 2022-10-30T08:25:33.371Z
         Expiration Time: 2022-11-06T08:25:33.348Z
         Resources:
@@ -72,7 +72,7 @@ Here is an example `SessionSig` that uses a session keypair to sign the `AuthSig
                 URI: lit:session:6a1f1e8a00b61867b85eaf329d6fdf855220ac3e32f44ec13e4db0dd303dea6a
                 Version: 1
                 Chain ID: 1
-                Nonce: ZfYjGsNyaDDFlaftP
+                Nonce: 0xfe88c94d860f01a17f961bf4bdfb6e0c6cd10d3fda5cc861e805ca1240c58553
                 Issued At: 2022-10-30T08:25:33.371Z
                 Expiration Time: 2022-11-06T08:25:33.348Z
                 Resources:

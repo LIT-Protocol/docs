@@ -18,6 +18,7 @@ At completion of this reading you should be able to:
 
 ## What is Account Kit?
 [Alchemy's Account Kit](https://www.alchemy.com/account-kit) is a complete toolkit to embed smart accounts in your app with social login, gas abstraction, batch transactions, and more.
+[Lit Protocol's AA signer](https://accountkit.alchemy.com/smart-accounts/signers/guides/lit.html) is a complete solution for powering AA with a Lit signer.
 
 Powered by account abstraction (ERC-4337), Account Kit provides all the tools you need to onboard users with zero friction:
 
@@ -84,6 +85,8 @@ values={[
 
 ```js
 npm i @lit-protocol/lit-node-client@cayenne
+npm i @lit-protocol/crypto@cayenne
+npm i @lit-protocol/auth-helpers@cayenne
 ```
 
 </TabItem>
@@ -92,7 +95,32 @@ npm i @lit-protocol/lit-node-client@cayenne
 
 ```js
 yarn add @lit-protocol/lit-node-client@cayenne
+yarn add @lit-protocol/crypto@cayenne
+yarn add @lit-protocol/auth-helpers@cayenne
 ```
+
+Install the `Alchemy AA signer` package`:
+
+<Tabs
+defaultValue="npm"
+values={[
+{label: 'npm', value: 'npm'},
+{label: 'yarn', value: 'yarn'},
+]}>
+<TabItem value="npm">
+
+```js
+npm i @alchemy/aa-signers
+```
+
+</TabItem>
+
+<TabItem value="sms">
+
+```js
+yarn add @alchemy/aa-signers
+```
+
 
 </TabItem>
 
@@ -100,7 +128,7 @@ yarn add @lit-protocol/lit-node-client@cayenne
 
 ### 2. Get A Programmable Key Pair (PKP)
 
-Get some LIT Testnet tokens from Lit's [Chronicle network](../../network/rollup.mdx). 
+Get some testLIT test tokens from Lit's [Chronicle network](../../network/rollup.mdx).
 
 To obtain a PKP, [read more within the Lit docs](../../sdk/wallets/intro.md). 
 

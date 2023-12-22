@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 For references to the Lit Actions functions which can be accessed inside a Lit Action via the `Lit.Actions` object, check out the [Lit Actions](http://actions-docs.litprotocol.com/) API docs.
 
-Need some `LIT` test tokens to mint a PKP? Get some from the [faucet](https://faucet.litprotocol.com/)!
+Need some `testLIT` test tokens to mint a PKP? Get some from the [faucet](https://faucet.litprotocol.com/)!
 
 :::
 

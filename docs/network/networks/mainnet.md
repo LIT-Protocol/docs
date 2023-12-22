@@ -5,9 +5,9 @@
 :::note
 **STATE OF THE NETWORK**
 
-Lit V0, the mainnet beta (AKA 'Habanero'), is set to launch on Friday, December 1st. Habanero will be the latest version of the Lit Network that will support [ID encrypt](../../sdk/access-control/encryption.md), [user wallets](../../sdk/wallets/intro.md), and [serverless signing](../../sdk/serverless-signing/overview.md). 
+Lit V0, the mainnet beta (AKA the 'Habanero network'), is set to launch in December. Habanero is a decentralized mainnet designed for application developers building apps in production. Habanero will support [ID encrypt](../../sdk/access-control/encryption.md), [user wallets](../../sdk/wallets/intro.md), and [serverless signing](../../sdk/serverless-signing/overview.md). 
 
-The initial DKG will be conducted with subsequent DKGs to follow until the network is stable. This means that the initial keys that are generated on Habanero **MAY BE DELETED**. As such, please do not use Habanero to store real assets until stability has been confirmed. Please monitor this page for changes or join the [Lit Builders Circle](https://t.me/+aa73FAF9Vp82ZjJh) for status updates.
+After the initial DKG is conducted, subsequent DKGs may follow until the network is stable. This means that the initial keys that are generated on Habanero **MAY BE DELETED**. As such, please do not use Habanero to store real assets until stability has been confirmed. Please monitor this page for changes or join the [Lit Builders Circle](https://t.me/+aa73FAF9Vp82ZjJh) for status updates.
 :::
 
 Main networks should be used by applications that are currently live in production, designed to store live assets. Mainnet keys are persistent and will not be deleted. 

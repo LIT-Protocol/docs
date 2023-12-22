@@ -142,7 +142,6 @@ For Authentication
 
 Next, setup the `LitSigner`
 
-`lit.ts`
 ```js
 import { LitSigner } from "@alchemy/aa-signers";
 import { LitAuthMethod } from "@alchemy/aa-signers/lit-protocol";
@@ -156,14 +155,18 @@ const PKP_PUBLIC_KEY = "<YOUR PKP PUBLIC KEY>";
 const litSigner = new LitSigner<LitAuthMethod>({
   pkpPublicKey: PKP_PUBLIC_KEY,
   rpcUrl: POLYGON_MUMBAI_RPC_URL,
+  network: "cayenne"
 });
 ```
+
+::: note
+You may pass your own instance of `LitNodeClient` to `LitSigner` as `inner` if not an instance will be created.
+:::
+
 
 ### 4. Use SmartAccountSigner with LightAccount
 We can link the `SmartAccountSigner` to a `LightSmartContractAccount` from `aa-accounts`:
 
-
-`example.ts`
 ```js
 import { AlchemyProvider } from "@alchemy/aa-alchemy";
 import {
@@ -186,6 +189,17 @@ const provider = new AlchemyProvider({
       rpcClient,
     })
 );
+```
+
+### 5. Authenticating with the Lit Signer
+Before the `AlchemyProvider` can use the `LitSigner` we must `authenticate`
+
+To provide authentication `context` [read about our authentication methods](../../sdk/authentication/session-sigs/auth-methods/). 
+
+```js
+litSigner.authenticate({
+  context: "<your auth method or session signatures>"
+});
 ```
 
 ## Next Steps

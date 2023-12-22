@@ -2242,34 +2242,34 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@lit-protocol/auth-helpers@3.0.24":
-  version "3.0.24"
-  resolved "https://registry.yarnpkg.com/@lit-protocol/auth-helpers/-/auth-helpers-3.0.24.tgz#e72206887b7aaad193de66837538859504705d2d"
-  integrity sha512-8Qt09e59as/oyRS4phxCBdHonmZBSs4ZMK15Qi3wUtT1f/bJ4pYE1PqoD877kWbR1ri4Ov4dCw0IcW7tn97sZg==
+"@lit-protocol/auth-helpers@3.0.27":
+  version "3.0.27"
+  resolved "https://registry.yarnpkg.com/@lit-protocol/auth-helpers/-/auth-helpers-3.0.27.tgz#865eab381f5b9debac2165db2d1953bb10bad708"
+  integrity sha512-cIzJguIRUpjBma6hNjzXAO3MsB7499KRlpTTmFRbsZZfuM+NM6T/2vM4vaslX1JtwJ6YqRoBibSp4kRSP4t+iQ==
   dependencies:
     siwe "^2.0.5"
     siwe-recap "0.0.2-alpha.0"
     tslib "^2.3.0"
 
-"@lit-protocol/constants@^3.0.24":
-  version "3.0.24"
-  resolved "https://registry.yarnpkg.com/@lit-protocol/constants/-/constants-3.0.24.tgz#dc93cf89099a34002de3c7800accc4dabbdec512"
-  integrity sha512-SosWglxjaS4kVUfrb1Wx4k38WmvCOoYO6dkNzSFl+Qe5mtrPaoYrJuD+Exvcu7FQVUIkwq9yILBiNHkYhDruSw==
+"@lit-protocol/constants@^3.0.27":
+  version "3.0.27"
+  resolved "https://registry.yarnpkg.com/@lit-protocol/constants/-/constants-3.0.27.tgz#e228e8916b20d87ef70929403d268e4cd192cba0"
+  integrity sha512-73scvCbW4IsCzjuxFBqG73iV3JJEqOIVuWXkhPKIcPJQPN/IAtkrS+GAGDZauG6rYcwDPLJae5iLQxq7VKGiYA==
   dependencies:
-    "@lit-protocol/auth-helpers" "3.0.24"
-    "@lit-protocol/types" "3.0.24"
+    "@lit-protocol/auth-helpers" "3.0.27"
+    "@lit-protocol/types" "3.0.27"
     ethers "^5.7.1"
     jszip "^3.10.1"
     siwe "^2.0.5"
     siwe-recap "0.0.2-alpha.0"
     tslib "^2.3.0"
 
-"@lit-protocol/types@3.0.24":
-  version "3.0.24"
-  resolved "https://registry.yarnpkg.com/@lit-protocol/types/-/types-3.0.24.tgz#4761fef4a89353e0ec2bb420e6c39019ea1d9234"
-  integrity sha512-7nxc4hs1A5BhQcByMpaTK4acZckzMXoy1fSymVgGNFO37xEfL/mN9Oad1+7CdET9/mbTQRyzA2LcYWFJ9FvCOw==
+"@lit-protocol/types@3.0.27":
+  version "3.0.27"
+  resolved "https://registry.yarnpkg.com/@lit-protocol/types/-/types-3.0.27.tgz#9efc92505d2dcae08ab64cd2113efb09108bc44c"
+  integrity sha512-x/fL1iGNxSEN+wfhhfPvDjeKH+G6Q8CrWPdfZ7eYuuP/3nUH0AFqZHy6f+R1YL83HMdIpAWpjeL2bgKoum6kzA==
   dependencies:
-    "@lit-protocol/auth-helpers" "3.0.24"
+    "@lit-protocol/auth-helpers" "3.0.27"
     ethers "^5.7.1"
     jszip "^3.10.1"
     siwe "^2.0.5"

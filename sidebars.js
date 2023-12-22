@@ -229,6 +229,7 @@ const sidebars = {
             "sdk/serverless-signing/processing-validation",
             "sdk/serverless-signing/key-claiming",
             "sdk/serverless-signing/eip191",
+            "sdk/serverless-signing/zero-to-hero",
           ],
         },
         "sdk/tests",

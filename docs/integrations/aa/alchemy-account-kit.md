@@ -75,7 +75,7 @@ yarn add @lit-protocol/pkp-ethers@cayenne
 
 </Tabs>
 
-Install the `LitNodeClient` package`:
+Install the `LitNodeClient` package:
 
 <Tabs
 defaultValue="npm"
@@ -104,7 +104,7 @@ yarn add @lit-protocol/auth-helpers@cayenne
 </Tabs>
 
 
-Install the `Alchemy AA signer` package`:
+Install the `Alchemy AA signer` package:
 
 <Tabs
 defaultValue="npm"
@@ -189,7 +189,5 @@ const provider = new AlchemyProvider({
 ```
 
 ## Next Steps
-
-Continue learning about [Lit's severless signing](../../sdk/serverless-signing/conditional-signing.md) capabilities. 
 
 Explore [Account Kit](https://accountkit.alchemy.com/).

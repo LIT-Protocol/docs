@@ -39,8 +39,13 @@ import { checkAndSignAuthMessage } from '@lit-protocol/lit-node-client';
 
 const authSig = await checkAndSignAuthMessage({
   chain: "ethereum",
+  nonce,
 });
 ```
+
+:::note
+Be sure to use the latest blockhash from the `litNodeClient` as the nonce.
+:::
 
 When called, `checkAndSignAuthMessage` triggers a wallet selection popup in the user's browser. The user is then asked to sign a message, confirming ownership of their crypto address. The signature of the signed message is returned as the `authSig` variable.
 
@@ -60,11 +65,16 @@ const authSig = await ethConnect.signAndSaveAuthMessage({
   account: walletAddress,
   chainId: 1,
   expiration: new Date(Date.now() + 1000 * 60 * 60 * 24).toISOString(),
+  nonce,
 });
 ```
 
 :::note
 Be sure to import `cosmosConnect` and `solConnect` for Cosmos and Solana respectively.
+:::
+
+:::note
+Be sure to use the latest blockhash from the `litNodeClient` as the nonce.
 :::
 
 ### Using EIP-1271 for Account Abstraction

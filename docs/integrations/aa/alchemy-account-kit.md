@@ -63,7 +63,7 @@ npm i @lit-protocol/pkp-ethers@cayenne
 
 </TabItem>
 
-<TabItem value="sms">
+<TabItem value="yarn">
 
 ```js
 yarn add @lit-protocol/pkp-ethers@cayenne
@@ -91,7 +91,7 @@ npm i @lit-protocol/auth-helpers@cayenne
 
 </TabItem>
 
-<TabItem value="sms">
+<TabItem value="yarn">
 
 ```js
 yarn add @lit-protocol/lit-node-client@cayenne
@@ -115,15 +115,12 @@ npm i @alchemy/aa-signers
 
 </TabItem>
 
-<TabItem value="sms">
+<TabItem value="yarn">
 
 ```js
 yarn add @alchemy/aa-signers
 ```
-
-
 </TabItem>
-
 </Tabs>
 
 ### 2. Get A Programmable Key Pair (PKP)

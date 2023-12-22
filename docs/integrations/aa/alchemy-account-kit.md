@@ -163,9 +163,11 @@ const litSigner = new LitSigner<LitAuthMethod>({
 });
 ```
 
-;;; note
+:::note
+
 You may pass your own instance of `LitNodeClient` to `LitSigner` as `inner` if not an instance will be created.
-;;;
+
+:::
 
 
 ### 4. Use SmartAccountSigner with LightAccount

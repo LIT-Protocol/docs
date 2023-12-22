@@ -44,7 +44,7 @@ const authSig = await checkAndSignAuthMessage({
 ```
 
 :::note
-Be sure to use the latest blockhash from the `litNodeClient` as the nonce.
+Be sure to use the latest blockhash from the `litNodeClient` as the nonce. You can get it from the `litNodeClient.getLatestBlockhash()`.
 :::
 
 When called, `checkAndSignAuthMessage` triggers a wallet selection popup in the user's browser. The user is then asked to sign a message, confirming ownership of their crypto address. The signature of the signed message is returned as the `authSig` variable.
@@ -74,7 +74,7 @@ Be sure to import `cosmosConnect` and `solConnect` for Cosmos and Solana respect
 :::
 
 :::note
-Be sure to use the latest blockhash from the `litNodeClient` as the nonce.
+Be sure to use the latest blockhash from the `litNodeClient` as the nonce. You can get it from the `litNodeClient.getLatestBlockhash()`.
 :::
 
 ### Using EIP-1271 for Account Abstraction

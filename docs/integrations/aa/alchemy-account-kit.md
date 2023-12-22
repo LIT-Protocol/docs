@@ -25,9 +25,13 @@ At completion of this reading you should be able to:
 Powered by account abstraction (ERC-4337), Account Kit provides all the tools you need to onboard users with zero friction:
 
 -**aa-sdk**: a flexible library to integrate, deploy, and use smart accounts
+
 -**Light Account**: a gas-optimized ERC-4337 smart contract account
+
 -**Signers**: integrations with your favorite social login and passkey providers
+
 -**Gas Manager APIs**: a programmable API to sponsor gas fees in your app‍
+
 -**Bundler APIs**: the most reliable Bundler to submit UserOps onchain at scale
 
 With Account Kit, you can create a smart account for every user. Smart accounts are smart contract wallets that leverage account abstraction to radically simplify every step of the onboarding experience. Now, a new user can:
@@ -159,9 +163,9 @@ const litSigner = new LitSigner<LitAuthMethod>({
 });
 ```
 
-::: note
+;;; note
 You may pass your own instance of `LitNodeClient` to `LitSigner` as `inner` if not an instance will be created.
-:::
+;;;
 
 
 ### 4. Use SmartAccountSigner with LightAccount

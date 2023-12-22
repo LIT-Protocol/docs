@@ -210,4 +210,4 @@ litSigner.authenticate({
 
 ## Next Steps
 
-Explore [Account Kit](https://accountkit.alchemy.com/).
+Explore [Lit Alchemy AA signer documentation](https://accountkit.alchemy.com/packages/aa-signers/lit-protocol/introduction.html).

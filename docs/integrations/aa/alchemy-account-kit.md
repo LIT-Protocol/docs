@@ -137,8 +137,9 @@ For Authentication
 
 ### 3. Create a SmartAccountAuthenticator
 
-Next, setup the `LitSigner` and `SmartAccountSigner`:
+Next, setup the `LitSigner`
 
+`lit.ts`
 ```js
 import { LitSigner } from "@alchemy/aa-signers";
 import { LitAuthMethod } from "@alchemy/aa-signers/lit-protocol";
@@ -160,7 +161,6 @@ We can link the `SmartAccountSigner` to a `LightSmartContractAccount` from `aa-a
 
 
 `example.ts`
-
 ```js
 import { AlchemyProvider } from "@alchemy/aa-alchemy";
 import {

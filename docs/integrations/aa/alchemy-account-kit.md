@@ -100,6 +100,9 @@ yarn add @lit-protocol/lit-node-client@cayenne
 yarn add @lit-protocol/crypto@cayenne
 yarn add @lit-protocol/auth-helpers@cayenne
 ```
+</TabItem>
+</Tabs>
+
 
 Install the `Alchemy AA signer` package`:
 
@@ -131,7 +134,7 @@ Get some testLIT test tokens from Lit's [Chronicle network](../../network/rollup
 
 To obtain a PKP, [read more within the Lit docs](../../sdk/wallets/intro.md). 
 
-To obtain an Auth Method [read about our authentication methods](../../sdk/authentication/session-sigs/auth-methods/)
+To obtain an Auth Method [read about our authentication methods](../../sdk/authentication/session-sigs/auth-methods/).
 
 For Authentication
 

@@ -8,9 +8,11 @@ import TabItem from '@theme/TabItem';
 - Familiarity with JavaScript
 
 ## Overview
-In this section we're gonna cover an end-to-end example from minting a PKP through the ContractsSDK, setting its scope & signing a message with it inside a Lit Action.
+The following section provides an end-to-end example of minting a PKP (using the contractsSDK) and signing a message using Lit Actions.
 
-Installed the latest contracts-sdk on `cayenne`
+### Installation
+
+Install the latest contracts-sdk on `cayenne`
 
 ```bash
 yarn install @lit-protocol/contracts-sdk@cayenne
@@ -18,11 +20,11 @@ yarn install @lit-protocol/contracts-sdk@cayenne
 
 ## Set up the controller
 
-To initialize a LitContracts client you need an Eth Signer. This can be a standard Ethers wallet or also a `PKPEthersWallet` (more info on the later [here](../authentication/session-sigs/auth-methods/add-remove-auth-methods)). But here, we're gonna use the standard Ethers wallet.
+To initialize a LitContracts client you need an Eth Signer. This can be a standard Ethers wallet or also a `PKPEthersWallet` (more info on the latter [here](../authentication/session-sigs/auth-methods/add-remove-auth-methods)). But here, we're gonna use the standard Ethers wallet.
 
 ## Initialize the ContractsSDK
 
-We're using the ContractsSDK for the minting the PKP & interacting with it (updating the scopes). So let's initialize it
+We're using the ContractsSDK for the minting the PKP & interacting with it (updating the scopes). The first step is to initialize the ContractsSDK
 
 ```jsx
 const contractClient = new LitContracts({
@@ -42,7 +44,7 @@ Now that we've the ContractsSDK initialized we're ready to mint the PKP using it
 
 ### Get the Latest Eth Blockhash
 
-Since the ContractsSDK doesn't proveid you with the latest Eth Blockhash which is supposed to be the nonce for our AuthSig signed message we have to use the LitNodeClient to get that.
+Since the ContractsSDK doesn't proveid you with the latest Eth Blockhash which is supposed to be the nonce for our AuthSig signed message we have to use the LitNodeClient to get that. More info [here](https://developer.litprotocol.com/v3/sdk/authentication/auth-sig/#obtaining-an-authsig-on-the-server-side).
 
 You first need to install the `LitNodeClient` or `LitNodeClientNodeJs` depending on the environment:
 
@@ -126,7 +128,7 @@ const mintInfo = await contractClient.mintWithAuth({
 
 ## Check the scope for the PKP
 
-This step isn't necessary for signing with the PKP but can be done to view whether the minted PKP has proper scopes which are required for signing. The first step is to get the `authId` from the `authMethod` as the PKP contracts stores a mapping from the `authId` & its scopes. The `3` below is just the maxScopeId which should be greater than the number of Auth Method scopes that you define.
+This step isn't necessary for signing with the PKP but can be done to view whether the minted PKP has proper scopes which are required for signing. The first step is to get the `authId` from the `authMethod` as the PKP contracts stores a mapping from the `authId` & its scopes. The `3` below is just the maxScopeId which should be greater than the number of [Auth Method scopes](https://developer.litprotocol.com/v3/sdk/wallets/auth-methods/#auth-method-scopes) that you define.
 
 ```jsx
 const authId = await LitAuthClient.getAuthIdByAuthMethod(authMethod);
@@ -176,6 +178,13 @@ const signatures = await litNodeClient.executeJs({
 console.log("signatures: ", signatures);
 ```
 
+:::note
+The signatures above are the signatures from the nodes using the PKP. In Cayenne we have 3 nodes so only 2 valid signature shares are required to combine the shares. Hence you will see one od the node always fail to sign.
+:::
+
 ## Conclusion
 
-The signatures above are the signatures from the nodes using the PKP. In Cayenne we have 3 nodes so only 2 valid signature shares are required to combine the shares. Hence you will see one od the node always fail to sign.
+This page showed how you can mint a PKP and use it to sign messages with Lit Actions. To learn more, check out these resources:
+- [Generating signed transactions](https://developer.litprotocol.com/v3/sdk/serverless-signing/processing-validation/)
+- [Fetching off-chain data](https://developer.litprotocol.com/v3/sdk/serverless-signing/fetch/)
+- [Connecting PKPs to dApps](https://developer.litprotocol.com/v3/sdk/wallets/walletconnect/)

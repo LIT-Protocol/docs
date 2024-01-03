@@ -1,7 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Getting Started
+# Quick Start
 
 :::note
 💡 Lit Actions and PKPs are still heavily in development and things may change.

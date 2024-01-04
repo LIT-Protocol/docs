@@ -57,15 +57,22 @@ const mintInfo = await contractClient.mintWithAuth({
 
 The relayer is an open source project, and we run one for your use.  The source code is available [here](https://github.com/LIT-Protocol/relay-server).  If you want to use our Relayer, you'll need a free API key which you can get by filling out [this form](https://forms.gle/RNZYtGYTY9BcD9MEA).
 
-```js
-import { AuthMethodScope, AuthMethodType } from '@lit-protocol/constants';
+### Authenticating using `signMessage` Callback
 
+```js
+import { LitAuthClient } from '@lit-protocol/lit-auth-client';
+import { AuthMethodScope, AuthMethodType, ProviderType } from '@lit-protocol/constants';
+import * as ethers from 'ethers';
+
+const provider = new ethers.providers.JsonRpcProvider("your rpc url");
+let wallet = new ethers.Wallet("your wallet private key", provider);
 const authProvider = litAuthClient.initProvider(ProviderType.EthWallet);
 
-const authMethod = {
-  authMethodType: AuthMethodType.EthWallet,
-  accessToken: ...,
-};
+let authMethod = authProvider.authenticate({
+  signMessage: (message: string) => {
+    return await wallet.signMessage(message);
+  }
+});
 
 // -- setting scope for the auth method
 // <https://developer.litprotocol.com/v3/sdk/wallets/auth-methods/#auth-method-scopes>
@@ -78,6 +85,31 @@ const mintTx = await authProvider.mintPKPThroughRelayer(
   options
 );
 ```
+
+### Authenticating using `Web3 Provider`
+
+```js
+import { LitAuthClient } from '@lit-protocol/lit-auth-client';
+import { AuthMethodScope, AuthMethodType, ProviderType } from '@lit-protocol/constants';
+import {Wallet} from 'ethers';
+
+const authProvider = litAuthClient.initProvider(ProviderType.EthWallet);
+
+// Will call `checkAndSignAuthMessage({chain: ethereum})`
+let authMethod = await authProvider.authenticate({chain: "ethereum"});
+
+// -- setting scope for the auth method
+// <https://developer.litprotocol.com/v3/sdk/wallets/auth-methods/#auth-method-scopes>
+const options = {
+  permittedAuthMethodScopes: [[AuthMethodScope.SignAnything]],
+};
+
+const mintTx = await authProvider.mintPKPThroughRelayer(
+  authMethod,
+  options
+);
+```
+
 
 **Demos**: 
 1. [Minting a PKP with an auth method and permitted scopes (Easy)](https://github.com/LIT-Protocol/js-sdk/blob/feat/SDK-V3/e2e-nodejs/group-contracts/test-contracts-write-mint-a-pkp-and-set-scope-1-2-easy.mjs)

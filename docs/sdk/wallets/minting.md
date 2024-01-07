@@ -58,7 +58,7 @@ const mintInfo = await contractClient.mintWithAuth({
 The relayer is an open source project, and we run one for your use.  The source code is available [here](https://github.com/LIT-Protocol/relay-server).  If you want to use our Relayer, you'll need a free API key which you can get by filling out [this form](https://forms.gle/RNZYtGYTY9BcD9MEA).
 
 ### Authenticating using `signMessage` Callback
-
+If you wish to sign with an ethers wallet type or `signer` you may use the `signMessage` callback to implement a signing callback for the `SIWE` message.
 ```js
 import { LitAuthClient } from '@lit-protocol/lit-auth-client';
 import { AuthMethodScope, AuthMethodType, ProviderType } from '@lit-protocol/constants';
@@ -87,7 +87,8 @@ const mintTx = await authProvider.mintPKPThroughRelayer(
 ```
 
 ### Authenticating using `Web3 Provider`
-
+In the case where you wish to generagte a signature from a browser extension wallet (MetaMask, Brave Wallet, etc)
+you may simply call `authenticate` which calls `checkAndSignAuthMessage`.
 ```js
 import { LitAuthClient } from '@lit-protocol/lit-auth-client';
 import { AuthMethodScope, AuthMethodType, ProviderType } from '@lit-protocol/constants';

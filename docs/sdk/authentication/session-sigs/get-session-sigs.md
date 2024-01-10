@@ -76,6 +76,7 @@ const sessionSigs = await litNodeClient.getSessionSigs({
 :::note
  If running the sdk in a Server enviorment session signatures may not be cached unless you provide an instance of `Storage` to the runtime.
  [here](https://www.npmjs.com/package/node-localstorage) is an implementation of `LocalStorage` which creates local files to persist storage data.
+ If storage is not available, session keys *MUST* be persisted in an external data store. 
  ```javascript
  const LocalStorage = require('node-localstorage').LocalStorage;
  const litNodeClient = new LitNodeClient({

@@ -73,6 +73,22 @@ const sessionSigs = await litNodeClient.getSessionSigs({
 });
 ```
 
+:::note
+ If running the sdk in a Server enviorment session signatures may not be cached unless you provide an instance of `Storage` to the runtime.
+ [here](https://www.npmjs.com/package/node-localstorage) is an implementation of `LocalStorage` which creates local files to persist storage data.
+ If storage is not available, session keys *MUST* be persisted in an external data store. 
+ ```javascript
+ const LocalStorage = require('node-localstorage').LocalStorage;
+ const litNodeClient = new LitNodeClient({
+  litNetwork: "cayenne",
+  debug: true,
+  storageProvider: {
+    provider: new LocalStorage('./storage.test.db'),
+  }
+ });
+ ```
+:::
+
 The `getSessionSigs()` function will try to create a session key for you and store it in local storage. You can also generate the session key yourself using `generateSessionKeyPair()` function and store it however you like. You can then pass the generated session key to `getSessionSigs()` as the `sessionKey` param.
 
 In the example above, we construct a SIWE message manually, but you can use the `checkAndSignAuthMessage` when in a browser context.

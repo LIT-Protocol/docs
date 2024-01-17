@@ -36,6 +36,20 @@ async function authWithGoogle() {
 
 At the start of the authentication flow, users will be redirected to the social login page hosted by Lit. Once users have successfully signed in, they will be redirected back to your web app.
 
+In case you want to use a custom OAuth project URL instead of the one provided by Lit, you can pass a callback in the `signIn` method and modify the URL as needed.
+
+```javascript
+async function authWithGoogle() {
+  const provider = litAuthClient.getProvider(
+    ProviderType.Google
+  );
+  await provider.signIn((url) => {
+    // modify url as needed
+    window.location.assign(url);
+  });
+}
+```
+
 :::note
 For Discord OAuth, you will initialize the provider with `ProviderType.Discord`.
 :::

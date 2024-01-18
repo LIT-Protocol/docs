@@ -133,4 +133,4 @@ You will also need the PKP public key in order to generate a [sessionSig](../../
 
 ## Custom Auth / Adding new Auth Methods not yet supported by Lit
 
-More info on this is available [here](../../sdk/authentication/session-sigs/auth-methods/custom-auth)
+More info on this is available [here](../../sdk/authentication/session-sigs/auth-methods/custom-auth/)

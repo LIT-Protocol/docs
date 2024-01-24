@@ -55,6 +55,8 @@ You can learn more about compatible chains [here.](http://ethanfast.com/top-cryp
 
 - baseGoerli
 
+- baseSepolia
+
 - moonbeam
 
 - moonriver
@@ -68,6 +70,8 @@ You can learn more about compatible chains [here.](http://ethanfast.com/top-cryp
 - sepolia
 
 - scrollAlphaTestnet
+
+- scroll
 
 - zksync
 

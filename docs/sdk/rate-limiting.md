@@ -4,6 +4,11 @@
 
 By default, all users get three free requests on Lit every 24 hours. In order to use the network beyond the rate limit, you must reserve additional capacity. This can be done using capacity credits, which allow holders to reserve a configurable number of requests (measured in requests per second) over a fixed length of time (i.e. one week).
 
+:::note
+Currently Rate Limiting is only enabled on `Habanero` and `Manzano`
+see [here](https://developer.litprotocol.com/v3/network/networks/testnet) for test networks
+see [here](https://developer.litprotocol.com/v3/network/networks/mainnet) for mainnet networks
+:::
 
 ## **Minting A Rate Limit NFT**
 
@@ -28,6 +33,7 @@ In the above example, we are configuring 2 properties
 - `requestsPerDay` - How many requests can be sent in a 24 hour period.
 - `daysUntilUTCMidnightExpiration` - The number of days until the nft will expire. expiration will occur at `UTC Midnight` of the day specified.
 
+
 Once you mint your NFT you will be able to send X many requests per day where X is the number specified in `requestsPerDay`.
 
 :::note
@@ -46,11 +52,7 @@ const litNodeClient = new LitNodeClient({
 
 await litNodeClient.connect();
 
-// we will create an delegation auth sig, which internally we will create
-// a recap object, add the resource "lit-ratelimitincrease://{tokenId}" to it, and add it to the siwe
-// message. We will then sign the siwe message with the dApp owner's wallet.
-const { rliDelegationAuthSig, litResource } =
-await litNodeClient.createRliDelegationAuthSig({
+const { rliDelegationAuthSig, litResource } = await litNodeClient.createRliDelegationAuthSig({
     uses: '0',
     dAppOwnerWallet: dAppOwnerWallet,
     rliTokenId: rliTokenIdStr,
@@ -62,17 +64,23 @@ await litNodeClient.createRliDelegationAuthSig({
 ```
 To delegate your Rate Limit NFT there are 4 properties to configure
 
-uses - How many time the delegation may be used
-dAppOwnerWallet - The owner of the wallet as an `ethers Wallet instance`
-rliTokenId -  The `token identifier` of the Rate Limit NFT
-addresses - The wallet addresses which will be delegated to.
+`uses` - How many time the delegation may be used
+`dAppOwnerWallet` - The owner of the wallet as an `ethers Wallet instance`
+`rliTokenId` -  The `token identifier` of the Rate Limit NFT
+`addresses` - The wallet addresses which will be delegated to
 
 
 ## **Generating Sessions from delegation signature**
 To create sesssions from your delegation signature you can use the following example:
 
 ```javascript
- const authNeededCallback = async ({ resources, expiration, uri }) => {
+  const litNodeClient = new LitNodeClient({
+      litNetwork: "manzano",
+      checkNodeAttestation: true,
+  });
+
+  await litNodeClient.connect();
+  const authNeededCallback = async ({ resources, expiration, uri }) => {
     // you can change this resource to anything you would like to specify
     const litResource = new LitActionResource('*');
 
@@ -98,9 +106,9 @@ To create sesssions from your delegation signature you can use the following exa
     console.log('authCallback verified:', verified);
 
     let siweMessage = new siwe.SiweMessage({
-      domain: 'localhost:3000',
+      domain: 'localhost:3000', // change to your domain ex: example.app.com
       address: dAppOwnerWallet_address,
-      statement: 'Some custom statement.',
+      statement: 'Some custom statement.', // configure to what ever you would like
       uri,
       version: '1',
       chainId: '1',
@@ -125,7 +133,6 @@ To create sesssions from your delegation signature you can use the following exa
   };
 
   let sessionSigs = await litNodeClient.getSessionSigs({
-    // sessionKey,
     expiration: new Date(Date.now() + 1000 * 60 * 60 * 24).toISOString(), // 24 hours
     chain: 'ethereum',
     resourceAbilityRequests: [
@@ -138,3 +145,5 @@ To create sesssions from your delegation signature you can use the following exa
     rliDelegationAuthSig,
   });
 ```
+
+In the above example we are configuring a wallet to sign a `session signature` which is delegated access to a `Rate Limit NFT` which allows another wallet to use the rate limit nft delegated to it.

@@ -8,6 +8,12 @@ sidebar_position: 4
 
 By default, all users get three free requests on Lit every 24 hours. In order to use the network beyond the rate limit, you must reserve additional capacity. This can be done using capacity credits, which allow holders to reserve a configurable number of requests (measured in requests per second) over a fixed length of time (i.e. one week).
 
+:::note
+Currently Rate Limiting is only enabled on `Habanero` and `Manzano`
+see [here](https://developer.litprotocol.com/v3/network/networks/testnet) for test networks
+see [here](https://developer.litprotocol.com/v3/network/networks/mainnet) for mainnet networks
+:::
+
 # **Processing Requests**
 
 In order to send transactions on Lit, you must first authenticate with the [Lit nodes](https://developer.litprotocol.com/v3/sdk/authentication/overview). This can be done using one of two ways:
@@ -25,13 +31,6 @@ In order to send transactions on Lit, you must first authenticate with the [Lit 
 2. [Auth sigs](https://developer.litprotocol.com/v3/sdk/authentication/auth-sig): a signature obtained from a user proving they own a particular a particular key (NOT RECOMMENDED)
 
 Every time you authenticate with Lit, the request context (i.e. wallet address, owned capacity credits, etc) is extracted and validated against the Rate Limiting Module to ensure capacity has not been breached.
-
-### **Purchasing Capacity Credits**
-
-You can purchase capacity credits from the [Lit explorer](https://explorer.litprotocol.com/get-credits). Each Capacity Credit NFT comes with flexible terms that can be customized by 2 factors:
-
-1. Requests per second
-2. Expiry date 
 
 To mint a Capacity Credit NFT, you’ll need some testLITPRO tokens. These are test tokens that hold no real value and should only be used to pay for usage on Habanero. TestLITPRO tokens should only be claimed from the verified faucet, linked [here](https://faucet.litprotocol.com/).
 

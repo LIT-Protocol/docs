@@ -119,7 +119,7 @@ const sidebars = {
                 "sdk/authentication/session-sigs/capability-objects",
                 "sdk/authentication/session-sigs/get-session-sigs",
                 "sdk/authentication/session-sigs/usage",
-                "sdk/rate-limiting",
+                "sdk/authentication/session-sigs/rate-limiting",
                 {
                   type: "category",
                   label: "Walletless Signatures",

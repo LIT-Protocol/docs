@@ -34,11 +34,76 @@ async function authWithGoogle() {
 }
 ```
 
-At the start of the authentication flow, users will be redirected to the social login page hosted by Lit. Once users have successfully signed in, they will be redirected back to your web app.
+By default, Lit's social login providers use Lit's OAuth project. In case you want to use a custom OAuth project instead of the one provided by Lit, you can pass a callback in the `signIn` method and modify the URL as needed.
 
-:::note
-For Discord OAuth, you will initialize the provider with `ProviderType.Discord`.
-:::
+```javascript
+// Set up LitAuthClient
+const litAuthClient = new LitAuthClient({
+  litRelayConfig: {
+     // Request a Lit Relay Server API key here: https://forms.gle/RNZYtGYTY9BcD9MEA
+    relayApiKey: '<Your Lit Relay Server API Key>',
+  },
+});
+
+// Initialize Google provider
+litAuthClient.initProvider(ProviderType.Google, {
+  // The URL of your web app where users will be redirected after authentication
+  redirectUri: '<Your redirect URI>',
+});
+
+// Begin login flow with Google but using your own OAuth project
+async function authWithGoogle() {
+  const provider = litAuthClient.getProvider(
+    ProviderType.Google
+  );
+  await provider.signIn((url) => {
+    const myURL = new URL(url);
+    
+    // Modify URL as needed
+    myURL.host = 'mycustomdomain.com';
+    myURL.pathname = '/myCustomOauthLoginFlow';
+    // myURL.searchParams.get('app_redirect') is your redirect URI for logged in users
+    
+    window.location.assign(url);
+  });
+}
+```
+
+To login using Discord, you need to initialize the provider with `ProviderType.Discord` and pass it a Discord `clientId` along `redirectUri`
+
+```javascript
+// Set up LitAuthClient
+const litAuthClient = new LitAuthClient({
+  litRelayConfig: {
+     // Request a Lit Relay Server API key here: https://forms.gle/RNZYtGYTY9BcD9MEA
+    relayApiKey: '<Your Lit Relay Server API Key>',
+  },
+});
+
+// Initialize Discord provider
+litAuthClient.initProvider(ProviderType.Discord, {
+  // The URL of your web app where users will be redirected after authentication
+  redirectUri: '<Your redirect URI>',
+  clientId: '<Your Discord Client ID>',
+});
+
+// Begin login flow with Discord
+async function authWithDiscord() {
+  const provider = litAuthClient.getProvider(
+    ProviderType.Discord
+  );
+  await provider.signIn((url) => {
+    const myURL = new URL(url);
+    
+    // Modify URL as needed
+    myURL.host = 'mycustomdomain.com';
+    myURL.pathname = '/myCustomOauthLoginFlow';
+    // myURL.searchParams.get('app_redirect') is your redirect URI for logged in users
+    
+    window.location.assign(url);
+  });
+}
+```
 
 :::note
 

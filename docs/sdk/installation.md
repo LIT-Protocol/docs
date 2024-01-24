@@ -23,7 +23,7 @@ values={[
 Install the `@lit-protocol/lit-node-client` package, which can be used in both browser and Node environments:
 
 ```sh
-yarn add @lit-protocol/lit-node-client
+yarn add @lit-protocol/lit-node-client@cayenne
 ```
 
 Use the **Lit JS SDK V3**:
@@ -39,7 +39,7 @@ import * as LitJsSdk from "@lit-protocol/lit-node-client";
 Install the `@lit-protocol/lit-node-client-nodejs`, which is for Node environments only:
 
 ```sh
-yarn add @lit-protocol/lit-node-client-nodejs
+yarn add @lit-protocol/lit-node-client-nodejs@cayenne
 ```
 
 Use the **Lit JS SDK V3**:

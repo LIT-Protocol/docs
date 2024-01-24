@@ -57,6 +57,7 @@ const sidebars = {
         "concepts/access-control-concept",
         "concepts/programmable-signing-concept",
         "concepts/pkps-as-wallet",
+        "concepts/rate-limit-nft",
       ],
     },
     {

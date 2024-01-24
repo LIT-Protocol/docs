@@ -6,13 +6,14 @@ By default, all users get three free requests on Lit every 24 hours. In order to
 
 :::note
 Currently Rate Limiting is only enabled on `Habanero` and `Manzano`
-see [here](https://developer.litprotocol.com/v3/network/networks/testnet) for test networks
-see [here](https://developer.litprotocol.com/v3/network/networks/mainnet) for mainnet networks
+see [here](../network/networks/testnet) for test networks
+see [here](../network/networks/mainnet) for mainnet networks
 :::
 
-## **Minting A Rate Limit NFT**
+## **Minting Capacity Credits**
 
-In order to increase your rate limit you'll need to mint an `Rate Limit NFT`. To do so, you can use our `contract-sdk` to mint the nft
+In order to increase your rate limit you'll need to mint an `Capacity Credit NFT`. To do so, you can use our `contract-sdk` to mint the nft
+You can download the `contracts-sdk` from `npm` [here](https://www.npmjs.com/package/@lit-protocol/contracts-sdk)
 
 ```javascript
 let contractClient = new LitContracts({
@@ -22,8 +23,8 @@ let contractClient = new LitContracts({
   });
 
   await contractClient.connect();
-
-  const { rliTokenIdStr } = await contractClient.mintRLI({
+  // this identifier will be used in delegation requests. 
+  const { tokenIdStr } = await contractClient.mintRLI({
      requestsPerDay: 14400, // 10 request per minute
      daysUntilUTCMidnightExpiration: 2,
   });
@@ -33,16 +34,17 @@ In the above example, we are configuring 2 properties
 - `requestsPerDay` - How many requests can be sent in a 24 hour period.
 - `daysUntilUTCMidnightExpiration` - The number of days until the nft will expire. expiration will occur at `UTC Midnight` of the day specified.
 
-
 Once you mint your NFT you will be able to send X many requests per day where X is the number specified in `requestsPerDay`.
+Once the `Capacity Credit` is minted the `tokenId` can be used in delegation requests. 
+
 
 :::note
-To use your new Rate Limit Increase NFT you will have to sign an `Auth Signature` with the the wallet which holds the NFT.
+To use your new Capacity Credit NFT you will have to sign an `Auth Signature` with the the wallet which holds the NFT.
 :::
 
-## **Deligating Access to your Rate Limit NFT**
+## **Deligating Access to your Capacity Credit NFT**
 
-Usage of your Rate Limit NFT may be delegated to other wallets. To create a `Rate Limit Delegation` you can do so with the following example
+Usage of your Rate Limit NFT may be delegated to other wallets. To create a `Capacity Credit NFT delegation` you can do so with the following example
 
 ```javascript
 const litNodeClient = new LitNodeClient({
@@ -78,7 +80,7 @@ To create sesssions from your delegation signature you can use the following exa
       litNetwork: "manzano",
       checkNodeAttestation: true,
   });
-
+  
   await litNodeClient.connect();
   const authNeededCallback = async ({ resources, expiration, uri }) => {
     // you can change this resource to anything you would like to specify
@@ -102,8 +104,6 @@ To create sesssions from your delegation signature you can use the following exa
     if (!verified) {
       throw new Error('Failed to verify capabilities for resource');
     }
-
-    console.log('authCallback verified:', verified);
 
     let siweMessage = new siwe.SiweMessage({
       domain: 'localhost:3000', // change to your domain ex: example.app.com
@@ -146,4 +146,4 @@ To create sesssions from your delegation signature you can use the following exa
   });
 ```
 
-In the above example we are configuring a wallet to sign a `session signature` which is delegated access to a `Rate Limit NFT` which allows another wallet to use the rate limit nft delegated to it.
+In the above example we are configuring a wallet to sign a `session signature` which is delegated access to a `Capacity Credit NFT` which allows another wallet to use the rate limit nft delegated to it.

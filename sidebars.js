@@ -57,7 +57,7 @@ const sidebars = {
         "concepts/access-control-concept",
         "concepts/programmable-signing-concept",
         "concepts/pkps-as-wallet",
-        "concepts/rate-limit-nft-concept",
+        "concepts/capacity-credits-concept",
       ],
     },
     {
@@ -119,7 +119,7 @@ const sidebars = {
                 "sdk/authentication/session-sigs/capability-objects",
                 "sdk/authentication/session-sigs/get-session-sigs",
                 "sdk/authentication/session-sigs/usage",
-                "sdk/authentication/session-sigs/rate-limiting",
+                "sdk/authentication/session-sigs/capacity-credits",
                 {
                   type: "category",
                   label: "Walletless Signatures",

@@ -95,6 +95,7 @@ const sidebars = {
       className: "category-not-collapsible",
       items: [
         "sdk/installation",
+        "sdk/rate-limiting",
         {
           type: "category",
           label: "Authentication",

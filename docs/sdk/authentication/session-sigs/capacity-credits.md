@@ -44,7 +44,7 @@ To use your new Capacity Credit NFT you will have to sign an `Auth Signature` wi
 
 ## **Deligating Access to your Capacity Credit NFT**
 
-Usage of your Rate Limit NFT may be delegated to other wallets. To create a `Capacity Credit NFT delegation` you can do so with the following example
+Usage of your Capacity Credit NFT may be delegated to other wallets. To create a `Capacity Credit NFT delegation` you can do so with the following example
 
 ```javascript
 const litNodeClient = new LitNodeClient({
@@ -146,4 +146,4 @@ To create sesssions from your delegation signature you can use the following exa
   });
 ```
 
-In the above example we are configuring a wallet to sign a `session signature` which is delegated access to a `Capacity Credit NFT` which allows another wallet to use the rate limit nft delegated to it.
+In the above example we are configuring a wallet to sign a `session signature` which is delegated access to a `Capacity Credit NFT` which allows another wallet to use the credit for increased network usage.

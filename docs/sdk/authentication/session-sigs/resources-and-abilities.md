@@ -31,5 +31,5 @@ A Lit Ability is an action to be performed. It can only be one of the following:
 - Threshold decryption from an access control condition
 - Threshold signing from an access control condition
 - Threshold signing with a PKP NFT
-- Authenticating with an increased rate limit threshold with a RLI NFT
+- Authenticating with an increased rate limit threshold with a Capacity Credit NFT
 - Threshold signing of a piece of Lit Action code

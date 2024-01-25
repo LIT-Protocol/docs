@@ -6,8 +6,8 @@ By default, all users get three free requests on Lit every 24 hours. In order to
 
 :::note
 Currently Rate Limiting is only enabled on `Habanero` and `Manzano`
-see [here](../network/networks/testnet) for test networks
-see [here](../network/networks/mainnet) for mainnet networks
+see [here](../../../network/networks/testnet) for test networks
+see [here](../../../network/networks/mainnet) for mainnet networks
 :::
 
 ## **Minting Capacity Credits**
@@ -18,8 +18,7 @@ You can download the `contracts-sdk` from `npm` [here](https://www.npmjs.com/pac
 ```javascript
 let contractClient = new LitContracts({
     signer: dAppOwnerWallet,
-    debug: process.env.DEBUG === 'true' ?? LITCONFIG.TEST_ENV.debug,
-    network: process.env.NETWORK ?? LITCONFIG.TEST_ENV.litNetwork,
+    network: 'manzano'
   });
 
   await contractClient.connect();

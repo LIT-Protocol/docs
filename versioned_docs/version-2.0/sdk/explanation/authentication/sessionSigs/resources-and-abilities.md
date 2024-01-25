@@ -12,7 +12,7 @@ A Lit Resource refers to one of the following:
 
 - An access control condition
 - A Programmable Key Pair (PKP) NFT
-- A Rate Limit Increase (RLI) NFT
+- A Capacity Increase NFT
 - A Lit Action
 
 Each Lit Resource is identified by its Resource Key:

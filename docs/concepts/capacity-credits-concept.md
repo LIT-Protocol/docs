@@ -23,7 +23,7 @@ In order to send transactions on Lit, you must first authenticate with the [Lit 
 
 Every time you authenticate with Lit, the request context (i.e. wallet address, owned capacity credits, etc) is extracted and validated against the Rate Limiting Module to ensure capacity has not been breached.
 
-# ** Capacity Credits (RLM)**
+# **Capacity Credits**
 
 In order to send transactions on Lit, you must first authenticate with the [Lit nodes](../sdk/authentication/overview). This can be done using one of two ways:
 

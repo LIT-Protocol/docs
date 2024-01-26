@@ -14,7 +14,7 @@ see [here](../../../network/networks/mainnet) for mainnet networks
 
 ## **Minting Capacity Credits**
 
-In order to increase your rate limit you'll need to mint an `Capacity Credit NFT`. To do so, you can use our `contract-sdk` to mint the nft
+In order to increase your rate limit you'll need to mint an `Capacity Credits NFT`. To do so, you can use our `contract-sdk` to mint the nft
 You can download the `contracts-sdk` from `npm` [here](https://www.npmjs.com/package/@lit-protocol/contracts-sdk)
 
 ```javascript
@@ -26,7 +26,7 @@ let contractClient = new LitContracts({
 
 await contractClient.connect();
 // this identifier will be used in delegation requests. 
-const { tokenIdStr } = await contractClient.mintRLI({
+const { capacityTokenIdStr } = await contractClient.mintCapacityCreditsNFT({
   requestsPerDay: 14400, // 10 request per minute
   daysUntilUTCMidnightExpiration: 2,
 });
@@ -41,12 +41,12 @@ Once the `Capacity Credit` is minted the `tokenId` can be used in delegation req
 
 
 :::note
-To use your new Capacity Credit NFT you will have to sign an `Auth Signature` with the the wallet which holds the NFT.
+To use your new Capacity Credits NFT you will have to sign an `Auth Signature` with the the wallet which holds the NFT.
 :::
 
-## **Deligating Access to your Capacity Credit NFT**
+## **Deligating Access to your Capacity Credits NFT**
 
-Usage of your Capacity Credit NFT may be delegated to other wallets. To create a `Capacity Credit NFT delegation` you can do so with the following example
+Usage of your Capacity Credits NFT may be delegated to other wallets. To create a `Capacity Credits NFT delegation` you can do so with the following example
 Here we use the `capacityTokenId` we recieved when minting our Capacity Credit.
 
 ```javascript
@@ -57,7 +57,7 @@ const litNodeClient = new LitNodeClient({
 
 await litNodeClient.connect();
 
-const { capacityDelegationAuthSig, litResource } =
+const { capacityDelegationAuthSig } =
   await litNodeClient.createCapacityDelegationAuthSig({
     uses: '1',
     dAppOwnerWallet: walletWithCapacityCredit,
@@ -128,8 +128,7 @@ Here we are delegating usage of `Capacity Credit` from a wallet which posseses t
       sig: signature.replace('0x', ''),
       derivedVia: 'web3.eth.personal.sign',
       signedMessage: messageToSign,
-      address: dAppOwnerWallet_address.replace('0x', '').toLowerCase(),
-      algo: null,
+      address: dAppOwnerWallet_address,
     };
 
     return authSig;
@@ -145,11 +144,11 @@ Here we are delegating usage of `Capacity Credit` from a wallet which posseses t
       },
     ],
     authNeededCallback,
-    rliDelegationAuthSig,
+    capacityDelegationAuthSig,
   });
 ```
 
-In the above example we are configuring a wallet to sign a `session signature` which is delegated access to a `Capacity Credit NFT` which allows another wallet to use the credit for increased network usage.
+In the above example we are configuring a wallet to sign a `session signature` which is delegated access to a `Capacity Credits NFT` which allows another wallet to use the credit for increased network usage.
 
 
 ## **Delegation to a PKP**

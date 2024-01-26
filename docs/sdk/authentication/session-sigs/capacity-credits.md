@@ -16,17 +16,18 @@ In order to increase your rate limit you'll need to mint an `Capacity Credit NFT
 You can download the `contracts-sdk` from `npm` [here](https://www.npmjs.com/package/@lit-protocol/contracts-sdk)
 
 ```javascript
+const walletWithCapacityCredit = new Wallet("<your private key or mnemonic>");
 let contractClient = new LitContracts({
-    signer: dAppOwnerWallet,
-    network: 'manzano'
-  });
+  signer: dAppOwnerWallet,
+  network: 'manzano'
+});
 
-  await contractClient.connect();
-  // this identifier will be used in delegation requests. 
-  const { tokenIdStr } = await contractClient.mintRLI({
-     requestsPerDay: 14400, // 10 request per minute
-     daysUntilUTCMidnightExpiration: 2,
-  });
+await contractClient.connect();
+// this identifier will be used in delegation requests. 
+const { tokenIdStr } = await contractClient.mintRLI({
+  requestsPerDay: 14400, // 10 request per minute
+  daysUntilUTCMidnightExpiration: 2,
+});
 ```
 
 In the above example, we are configuring 2 properties
@@ -44,6 +45,7 @@ To use your new Capacity Credit NFT you will have to sign an `Auth Signature` wi
 ## **Deligating Access to your Capacity Credit NFT**
 
 Usage of your Capacity Credit NFT may be delegated to other wallets. To create a `Capacity Credit NFT delegation` you can do so with the following example
+Here we use the `capacityTokenId` we recieved when minting our Capacity Credit.
 
 ```javascript
 const litNodeClient = new LitNodeClient({
@@ -53,26 +55,26 @@ const litNodeClient = new LitNodeClient({
 
 await litNodeClient.connect();
 
-const { rliDelegationAuthSig, litResource } = await litNodeClient.createRliDelegationAuthSig({
-    uses: '5', // this can be any
-    dAppOwnerWallet: dAppOwnerWallet,
-    rliTokenId: rliTokenIdStr,
-    addresses: [
-    dAppOwnerWallet_address.replace('0x', '').toLowerCase(),
-    delegatedWalletB_address.replace('0x', '').toLowerCase(),
-    ],
-});
+const { capacityDelegationAuthSig, litResource } =
+  await litNodeClient.createCapacityDelegationAuthSig({
+    uses: '1',
+    dAppOwnerWallet: walletWithCapacityCredit,
+    capacityTokenId: capacityTokenIdStr,
+    delegateeAddresses: [secondWalletPKPInfo.ethAddress],
+  });
 ```
 To delegate your Rate Limit NFT there are 4 properties to configure
 
 `uses` - How many time the delegation may be used
 `dAppOwnerWallet` - The owner of the wallet as an `ethers Wallet instance`
-`rliTokenId` -  The `token identifier` of the Rate Limit NFT
-`addresses` - The wallet addresses which will be delegated to
+`capacityTokenId` -  The `token identifier` of the Rate Limit NFT
+`delegateeAddresses` - The wallet addresses which will be delegated to
 
 
 ## **Generating Sessions from delegation signature**
-To create sesssions from your delegation signature you can use the following example:
+To create sesssions from your delegation signature you can use the following example.
+Here we are delegating usage of `Capacity Credit` from a wallet which posseses the NFT to another self custody wallet which does not posses `Capacity Credit`.
+
 
 ```javascript
   const litNodeClient = new LitNodeClient({
@@ -146,3 +148,88 @@ To create sesssions from your delegation signature you can use the following exa
 ```
 
 In the above example we are configuring a wallet to sign a `session signature` which is delegated access to a `Capacity Credit NFT` which allows another wallet to use the credit for increased network usage.
+
+
+## **Delegation to a PKP**
+To Delegate to a pkp wallet from a wallet which posses `Capacity Credit` we can modify the above example:
+```javascript
+  const { capacityDelegationAuthSig } =
+    await litNodeClient.createCapacityDelegationAuthSig({
+      uses: '1',
+      dAppOwnerWallet: walletWithCapacityCredit,
+      capacityTokenId: capacityTokenIdStr,
+      delegateeAddresses: ["<your pkp ethereum address>"],
+    });
+  
+    const pkpAuthNeededCallback = async ({
+      expiration,
+      resources,
+      resourceAbilityRequests,
+    }) => {
+      // -- validate
+      if (!expiration) {
+        throw new Error('expiration is required');
+      }
+
+      if (!resources) {
+        throw new Error('resources is required');
+      }
+
+      if (!resourceAbilityRequests) {
+        throw new Error('resourceAbilityRequests is required');
+      }
+
+      const response = await litNodeClient.signSessionKey({
+        statement: 'Some custom statement.',
+        authMethods: [secondWalletControllerAuthMethod],
+        pkpPublicKey: secondWalletPKPInfo.publicKey,
+        expiration: expiration,
+        resources: resources,
+        chainId: 1,
+
+        // optional (this would use normal siwe lib, without it, it would use lit-siwe)
+        resourceAbilityRequests: resourceAbilityRequests,
+      });
+
+      console.log('response:', response);
+
+      return response.authSig;
+  };
+
+  const pkpSessionSigs = await litNodeClient.getSessionSigs({
+    pkpPublicKey: secondWalletPKPInfo.publicKey,
+    expiration: new Date(Date.now() + 1000 * 60 * 60 * 24).toISOString(), // 24 hours
+    chain: 'ethereum',
+    resourceAbilityRequests: [
+      {
+        resource: new LitPKPResource('*'),
+        ability: LitAbility.PKPSigning,
+      },
+    ],
+    authNeededCallback: pkpAuthNeededCallback,
+    capacityDelegationAuthSig, // here is where we add the delegation to our session request
+  });
+  
+  console.log("generated session with delegation ", pkpSessionSigs);
+
+  const res = await litNodeClient.executeJs({
+    sessionSigs: pkpSessionSigs,
+    code: `(async () => {
+        const sigShare = await LitActions.signEcdsa({
+          toSign: dataToSign,
+          publicKey,
+          sigName: "sig",
+        });
+      })();`,
+    authMethods: [],
+    jsParams: {
+      dataToSign: ethers.utils.arrayify(
+        ethers.utils.keccak256([1, 2, 3, 4, 5])
+      ),
+      publicKey: secondWalletPKPInfo.publicKey,
+    },
+  });
+
+  console.log("signature result ", res);
+
+```

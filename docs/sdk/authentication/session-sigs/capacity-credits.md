@@ -24,7 +24,7 @@ let contractClient = new LitContracts({
 
 await contractClient.connect();
 // this identifier will be used in delegation requests. 
-const { tokenIdStr } = await contractClient.mintRLI({
+const { capacityTokenIdStr } = await contractClient.mintCapacityCreditsNFT({
   requestsPerDay: 14400, // 10 request per minute
   daysUntilUTCMidnightExpiration: 2,
 });
@@ -55,7 +55,7 @@ const litNodeClient = new LitNodeClient({
 
 await litNodeClient.connect();
 
-const { capacityDelegationAuthSig, litResource } =
+const { capacityDelegationAuthSig } =
   await litNodeClient.createCapacityDelegationAuthSig({
     uses: '1',
     dAppOwnerWallet: walletWithCapacityCredit,
@@ -126,8 +126,7 @@ Here we are delegating usage of `Capacity Credit` from a wallet which posseses t
       sig: signature.replace('0x', ''),
       derivedVia: 'web3.eth.personal.sign',
       signedMessage: messageToSign,
-      address: dAppOwnerWallet_address.replace('0x', '').toLowerCase(),
-      algo: null,
+      address: dAppOwnerWallet_address,
     };
 
     return authSig;
@@ -143,7 +142,7 @@ Here we are delegating usage of `Capacity Credit` from a wallet which posseses t
       },
     ],
     authNeededCallback,
-    rliDelegationAuthSig,
+    capacityDelegationAuthSig,
   });
 ```
 

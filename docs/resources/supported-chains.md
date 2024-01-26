@@ -11,103 +11,99 @@ You can learn more about compatible chains [here.](http://ethanfast.com/top-cryp
 
 ## Cayenne (Access Control & PKP)
 
-- ethereum
-
-- polygon
-
-- fantom
-
-- xdai
-
-- bsc
+- alfajores
 
 - arbitrum
 
-- avalanche
-
-- fuji
-
-- harmony
-
-- mumbai
-
-- goerli
-
-- cronos
-
-- optimism
-
-- celo
-
 - aurora
 
-- eluvio
+- avalanche
 
-- alfajores
-
-- xdc
-
-- evmos
-
-- evmosTestnet
-
-- bscTestnet
+- base
 
 - baseGoerli
 
 - baseSepolia
 
-- moonbeam
+- bsc
 
-- moonriver
+- bscTestnet
 
-- moonbaseAlpha
+- celo
+
+- cheqdMainnet
+
+- cheqdTestnet
+
+- chiado
+
+- chronicleTestnet
+
+- cosmos
+
+- cronos
+
+- eluvio
+
+- ethereum
+
+- evmos
+
+- evmosCosmos
+
+- evmosCosmosTestnet
+
+- evmosTestnet
+
+- fantom
 
 - filecoin
 
+- fuji
+
+- goerli
+
+- harmony
+
 - hyperspace
 
-- sepolia
+- juno
 
-- scrollAlphaTestnet
+- klaytn
 
-- scroll
+- kyve
 
-- zksync
-
-- base
+- lineaGoerli
 
 - lukso
 
 - luksoTestnet
 
-- zora
-
-- zoraGoerli
-
-- zksyncTestnet
-
-- lineaGoerli
-
-- chronicleTestnet
-
-- chiado
-
-- zkEvm
+- mantle
 
 - mantleTestnet
 
-- mantle
+- moonbaseAlpha
 
-- klaytn
+- moonbeam
 
-- publicGoodsNetwork
+- moonriver
+
+- mumbai
+
+- optimism
 
 - optimismGoerli
 
-- waevEclipseTestnet
+- polygon
 
-- waevEclipseDevnet
+- publicGoodsNetwork
+
+- scroll
+
+- scrollAlphaTestnet
+
+- sepolia
 
 - solana
 
@@ -115,17 +111,21 @@ You can learn more about compatible chains [here.](http://ethanfast.com/top-cryp
 
 - solanaTestnet
 
-- cosmos
+- waevEclipseDevnet
 
-- kyve
+- waevEclipseTestnet
 
-- evmosCosmos
+- xdai
 
-- evmosCosmosTestnet
+- xdc
 
-- cheqdMainnet
+- zkEvm
 
-- cheqdTestnet
+- zksync
 
-- juno
+- zksyncTestnet
+
+- zora
+
+- zoraGoerli
 

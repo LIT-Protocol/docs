@@ -21,6 +21,7 @@ md +=
   "## Cayenne (Access Control & PKP)\n\n";
 
 md += Object.keys(ALL_LIT_CHAINS)
+  .sort()
   .map((c) => `- ${c}\n\n`)
   .join("");
 

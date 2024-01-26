@@ -17,6 +17,10 @@ see [here](../../../network/networks/mainnet) for mainnet networks
 In order to increase your rate limit you'll need to mint an `Capacity Credits NFT`. To do so, you can use our `contract-sdk` to mint the nft
 You can download the `contracts-sdk` from `npm` [here](https://www.npmjs.com/package/@lit-protocol/contracts-sdk)
 
+:::note
+see [here](https://www.npmjs.com/package/@lit-protocol/contracts-sdk) for installing the contracts-sdk
+:::
+
 ```javascript
 const walletWithCapacityCredit = new Wallet("<your private key or mnemonic>");
 let contractClient = new LitContracts({
@@ -152,11 +156,13 @@ In the above example we are configuring a wallet to sign a `session signature` w
 
 
 ## **Delegation to a PKP**
-To Delegate to a pkp wallet from a wallet which posses `Capacity Credit` we can modify the above example:
+To Delegate to a pkp wallet from a wallet which posses `Capacity Credit` we can modify the above example as shown below.
+For more information on session signatures and pkps see [here](./authentication/session-sigs/intro.md)
+
 ```javascript
   const { capacityDelegationAuthSig } =
     await litNodeClient.createCapacityDelegationAuthSig({
-      uses: '1',
+      uses: '10',
       dAppOwnerWallet: walletWithCapacityCredit,
       capacityTokenId: capacityTokenIdStr,
       delegateeAddresses: ["<your pkp ethereum address>"],

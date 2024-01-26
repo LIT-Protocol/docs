@@ -21,7 +21,7 @@ In order to send transactions on Lit, you must first authenticate with the [Lit 
 1. [Session signatures](https://developer.litprotocol.com/v3/sdk/authentication/session-sigs/intro): signatures scoped to specific capabilities or resources, designed to be ephemeral and limited in scope. (RECOMMENDED)
 2. [Auth sigs](https://developer.litprotocol.com/v3/sdk/authentication/auth-sig): a signature obtained from a user proving they own a particular a particular key (NOT RECOMMENDED)
 
-Every time you authenticate with Lit, the request context (i.e. wallet address, owned capacity credits, etc) is extracted and validated against the Rate Limiting Module to ensure capacity has not been breached.
+Every time you authenticate with Lit, the request context (i.e. wallet address, owned capacity credits, etc) is extracted and validated against the Capacity Credit Increase Module to ensure capacity has not been breached.
 
 # **Capacity Credits**
 
@@ -30,7 +30,7 @@ In order to send transactions on Lit, you must first authenticate with the [Lit 
 1. [Session signatures](../sdk/authentication/session-sigs/intro): signatures scoped to specific capabilities or resources, designed to be ephemeral and limited in scope. (RECOMMENDED)
 2. [Auth sigs](../sdk/authentication/auth-sig): a signature obtained from a user proving they own a particular a particular key (NOT RECOMMENDED)
 
-Every time you authenticate with Lit, the request context (i.e. wallet address, owned capacity credits, etc) is extracted and validated against the Rate Limiting Module to ensure capacity has not been breached.
+Every time you authenticate with Lit, the request context (i.e. wallet address, owned capacity credits, etc) is extracted and validated against the Capacity Credit Increase Module to ensure capacity has not been breached.
 
 To mint a Capacity Credit NFT, you’ll need some `LIT` test token. These are test tokens that hold no real value and should only be used to pay for usage on Habanero. `LIT` test token should only be claimed from the verified faucet, linked [here](https://faucet.litprotocol.com/).
 

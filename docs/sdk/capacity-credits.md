@@ -55,7 +55,7 @@ Here we use the `capacityTokenId` we recieved when minting our Capacity Credit.
 
 ```javascript
 const litNodeClient = new LitNodeClient({
-    litNetwork: "manzano",
+    litNetwork: "habanero",
     checkNodeAttestation: true,
 });
 
@@ -84,7 +84,7 @@ Here we are delegating usage of `Capacity Credit` from a wallet which posseses t
 
 ```javascript
   const litNodeClient = new LitNodeClient({
-      litNetwork: "manzano",
+      litNetwork: "habanero",
       checkNodeAttestation: true,
   });
   
@@ -160,13 +160,10 @@ To Delegate to a pkp wallet from a wallet which posses `Capacity Credit` we can 
 For more information on session signatures and pkps see [here](./authentication/session-sigs/intro.md)
 
 ```javascript
-  const { capacityDelegationAuthSig } =
-    await litNodeClient.createCapacityDelegationAuthSig({
-      uses: '10',
-      dAppOwnerWallet: walletWithCapacityCredit,
-      capacityTokenId: capacityTokenIdStr,
-      delegateeAddresses: ["<your pkp ethereum address>"],
-    });
+  const litNodeClient = new LitNodeClient({
+      litNetwork: "habanero",
+      checkNodeAttestation: true,
+  });
   
     const pkpAuthNeededCallback = async ({
       expiration,

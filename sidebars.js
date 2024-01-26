@@ -96,6 +96,7 @@ const sidebars = {
       className: "category-not-collapsible",
       items: [
         "sdk/installation",
+        "sdk/capacity-credits",
         {
           type: "category",
           label: "Authentication",
@@ -119,7 +120,6 @@ const sidebars = {
                 "sdk/authentication/session-sigs/capability-objects",
                 "sdk/authentication/session-sigs/get-session-sigs",
                 "sdk/authentication/session-sigs/usage",
-                "sdk/authentication/session-sigs/capacity-credits",
                 {
                   type: "category",
                   label: "Walletless Signatures",

@@ -23,13 +23,13 @@ values={[
 Install the `@lit-protocol/lit-node-client` package, which can be used in both browser and Node environments:
 
 ```sh
-yarn add @lit-protocol/lit-node-client@cayenne
+yarn add @lit-protocol/lit-node-client
 ```
 
 Use the **Lit JS SDK V3**:
 
 ```js
-import * as LitJsSdk from "@lit-protocol/lit-node-client";
+import * as LitJsSdk from "@lit-protocol/lit-node-client@cayenne";
 ```
 
 </TabItem>
@@ -39,13 +39,13 @@ import * as LitJsSdk from "@lit-protocol/lit-node-client";
 Install the `@lit-protocol/lit-node-client-nodejs`, which is for Node environments only:
 
 ```sh
-yarn add @lit-protocol/lit-node-client-nodejs@cayenne
+yarn add @lit-protocol/lit-node-client-nodejs
 ```
 
 Use the **Lit JS SDK V3**:
 
 ```js
-import * as LitJsSdk from "@lit-protocol/lit-node-client-nodejs";
+import * as LitJsSdk from "@lit-protocol/lit-node-client-nodejs@cayenne";
 ```
 
 </TabItem>
@@ -88,16 +88,9 @@ Within a file (in the Lit example repos it will likely be called `lit.js`), set 
 ```js
 const client = new LitJsSdk.LitNodeClient({
   litNetwork: 'cayenne',
-})
+});
 
-class Lit {
-  private litNodeClient
-  async connect() {
-    await client.connect()
-    this.litNodeClient = client
-  }
-}
-export default new Lit()
+await client.connect();
 ```
 
 ## Debug Logging and Lit Node Client configuration

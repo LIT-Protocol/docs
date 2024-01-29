@@ -60,7 +60,7 @@ await contractClient.connect();
 
 ## Mint the PKP
 
-Now that we've the ContractsSDK initialized we're ready to mint the PKP using it. Since we want to allow out PKP to sign messages we have to add Auth Method scopes for `SigningAnything` & `OnlySignMessages` as below otherwise you'll get an error stating that the PKP isn't authorized to sign.
+Now that we've the ContractsSDK initialized we're ready to mint the PKP using it. Since we want to allow out PKP to sign messages we have to add Auth Method scopes for `SigningAnything` & `PersonalSign` as below otherwise you'll get an error stating that the PKP isn't authorized to sign.
 
 **Note:** You're gonna need an AuthSig for setting the `authMethod`. In the browser you can use `checkAndSignAuthMessage` or use [Hot wallet signing](https://developer.litprotocol.com/v3/support/faq/#1-cant-use-checkandsignauthmessage-in-a-backend-project) in the backend.
 
@@ -143,7 +143,7 @@ const mintInfo = await contractClient.mintWithAuth({
   scopes: [
     AuthMethodScope.NoPermissions,
     AuthMethodScope.SignAnything,
-    AuthMethodScope.OnlySignMessages,
+    AuthMethodScope.PersonalSign,
   ],
 });
 ```
@@ -162,7 +162,7 @@ await contractClient.pkpPermissionsContract.read.getPermittedAuthMethodScopes(
 );
 
 const signAnythingScope = scopes[1];
-const onlySignMessagesScope = scopes[2];
+const personalSignScope = scopes[2];
 ```
 
 ## Lit Action Signing with the PKP

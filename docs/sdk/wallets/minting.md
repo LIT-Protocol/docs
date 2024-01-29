@@ -38,7 +38,7 @@ const mintInfo = await contractClient.mintWithAuth({
   scopes: [
 		// AuthMethodScope.NoPermissions,
 		AuthMethodScope.SignAnything, 
-		AuthMethodScope.OnlySignMessages
+		AuthMethodScope.PersonalSign
 	],
 });
 

@@ -17,10 +17,6 @@ see [here](../../../network/networks/mainnet) for mainnet networks
 In order to increase your rate limit you'll need to mint an `Capacity Credits NFT`. To do so, you can use our `contract-sdk` to mint the nft
 You can download the `contracts-sdk` from `npm` [here](https://www.npmjs.com/package/@lit-protocol/contracts-sdk)
 
-:::note
-see [here](https://www.npmjs.com/package/@lit-protocol/contracts-sdk) for installing the contracts-sdk
-:::
-
 ```javascript
 const walletWithCapacityCredit = new Wallet("<your private key or mnemonic>");
 let contractClient = new LitContracts({

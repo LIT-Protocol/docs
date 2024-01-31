@@ -74,7 +74,7 @@ In this example stub, the litNodeClient is stored in a global variable `app.loca
 ```js
 app.locals.litNodeClient = new LitJsSdk.LitNodeClientNodeJs({
   alertWhenUnauthorized: false,
-  litNetwork: "cayenne",
+  litNetwork: "manzano",
 });
 await app.locals.litNodeClient.connect();
 ```
@@ -87,10 +87,23 @@ Within a file (in the Lit example repos it will likely be called `lit.js`), set 
 
 ```js
 const client = new LitJsSdk.LitNodeClient({
-  litNetwork: 'cayenne',
+  litNetwork: 'manzano',
 });
 
 await client.connect();
+```
+
+## Checking attestation reports from the SEV SNP Enviorment
+If you would like to attest to the virtual machine running on the nodes durring the `connect()` process. you can set `checkNodeAttestation` to `true` when initalizing the `LitNodeClient`.
+For an in depth guide on SEV SNP attestation see [here](https://www.amd.com/content/dam/amd/en/documents/developer/lss-snp-attestation.pdf)
+```js
+const litNodeClient = new LitJsSdk.LitNodeClientNodeJs({
+  alertWhenUnauthorized: false,
+  litNetwork: "manzano",
+  checkNodeAttestation: true
+});
+
+await litNodeClient.connect();
 ```
 
 ## Debug Logging and Lit Node Client configuration

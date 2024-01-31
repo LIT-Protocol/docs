@@ -2,7 +2,7 @@
 
 # Overview
 
-By default, all users get three free requests on Lit every 24 hours. In order to use the network beyond the rate limit, you must reserve additional capacity. This can be done using capacity credits, which allow holders to reserve a configurable number of requests (measured in requests per second) over a fixed length of time (i.e. one week).
+By default, there are 0 requests allowed on the network per user, per day. In order to use the network beyond the rate limit, you must reserve capacity. This can be done using capacity credits, which allow holders to reserve a configurable number of requests (measured in requests per second) over a fixed length of time (i.e. one week).
 
 For more information on Capacity Credits and network rate limiting see [here](../../../concepts/capacity-credits-concept.md)
 
@@ -25,7 +25,8 @@ see [here](https://www.npmjs.com/package/@lit-protocol/contracts-sdk) for instal
 const walletWithCapacityCredit = new Wallet("<your private key or mnemonic>");
 let contractClient = new LitContracts({
   signer: dAppOwnerWallet,
-  network: 'manzano'
+  network: 'manzano',
+  checkNodeAttestation: true
 });
 
 await contractClient.connect();
@@ -55,7 +56,7 @@ Here we use the `capacityTokenId` we recieved when minting our Capacity Credit.
 
 ```javascript
 const litNodeClient = new LitNodeClient({
-    litNetwork: "habanero",
+    litNetwork: "manzano",
     checkNodeAttestation: true,
 });
 
@@ -84,7 +85,7 @@ Here we are delegating usage of `Capacity Credit` from a wallet which posseses t
 
 ```javascript
   const litNodeClient = new LitNodeClient({
-      litNetwork: "habanero",
+      litNetwork: "manzano",
       checkNodeAttestation: true,
   });
   
@@ -161,7 +162,7 @@ For more information on session signatures and pkps see [here](./authentication/
 
 ```javascript
   const litNodeClient = new LitNodeClient({
-      litNetwork: "habanero",
+      litNetwork: "manzano",
       checkNodeAttestation: true,
   });
   

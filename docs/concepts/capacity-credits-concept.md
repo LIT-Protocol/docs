@@ -4,15 +4,15 @@ sidebar_position: 4
 
 # Paying For Usage 
 
+:::note
+Currently Rate Limiting is only enabled on `Habanero` and `Manzano`.
+See [here](../network/networks/testnet) for a list of test networks.
+See [here](../network/networks/mainnet) for a list of mainnet networks.
+:::
+
 # Overview
 
-By default, all users get zero free requests on Lit every 24 hours. In order to use the network, you must reserve capacity. This can be done using capacity credits, which allow holders to reserve a configurable number of requests (measured in requests per day) over a fixed length of time (i.e. one week).
-
-:::note
-Currently Rate Limiting is only enabled on `Habanero` and `Manzano`
-see [here](../network/networks/testnet) for test networks
-see [here](../network/networks/mainnet) for mainnet networks
-:::
+In order to use Lit, you must reserve capacity on the network. This can be done using capacity credits, which allow holders to reserve a configurable number of requests (measured in requests per day) over a fixed length of time (i.e. one week).
 
 # **Processing Requests**
 
@@ -32,7 +32,7 @@ In order to send transactions on Lit, you must first authenticate with the [Lit 
 
 Every time you authenticate with Lit, the request context (i.e. wallet address, owned capacity credits, etc) is extracted and validated against the Rate Limiting Module to ensure capacity has not been breached.
 
-To mint a Capacity Credit NFT, you’ll need some `LIT` test token. These are test tokens that hold no real value and should only be used to pay for usage on Habanero. `LIT` test token should only be claimed from the verified faucet, linked [here](https://faucet.litprotocol.com/).
+To mint a Capacity Credit NFT, you’ll need some 'testLITPRO' tokens. These are test tokens that hold no real value and should only be used to pay for usage on Habanero. `testLITPRO` test token should only be claimed from the verified faucet, linked [here](https://faucet.litprotocol.com/).
 
 For minting a Capacity Credits NFT see example docs for using our contract-sdk [here](../sdk/rate-limiting) 
 

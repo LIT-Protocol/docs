@@ -3,7 +3,7 @@
 :::note
 PKPs are still heavily in development and things may change. We're grateful for [feedback](https://forms.gle/4UJNRcQspZyvsTHt8) on how to improve the docs and examples!
 
-Need some `testLIT` test tokens to mint a PKP on Chronicle? Use the faucet: https://faucet.litprotocol.com/
+Need some `testLPX` test tokens to mint a PKP on Chronicle? Use the faucet: https://faucet.litprotocol.com/
 
 **PKP Developer Preview is Live!**
 Get a PKP on the [PKP Explorer](https://explorer.litprotocol.com/mint-pkp)

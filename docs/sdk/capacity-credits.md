@@ -1,21 +1,22 @@
 # Capacity Credits
 
+:::note
+Currently Rate Limiting is only enabled on `Habanero` and `Manzano`.
+See [here](../../../network/networks/testnet) for a list of test networks.
+See [here](../../../network/networks/mainnet) for a list of mainnet networks.
+:::
+
 # Overview
 
-By default, there are 0 requests allowed on the network per user, per day. In order to use the network beyond the rate limit, you must reserve capacity. This can be done using capacity credits, which allow holders to reserve a configurable number of requests (measured in requests per second) over a fixed length of time (i.e. one week).
+In order to use Lit, you must reserve capacity on the network. This can be done using capacity credits, which allow holders to reserve a configurable number of requests (measured in requests per second) over a fixed length of time (i.e. one week).
 
 For more information on Capacity Credits and network rate limiting see [here](../../../concepts/capacity-credits-concept.md)
 
-:::note
-Currently Rate Limiting is only enabled on `Habanero` and `Manzano`
-see [here](../../../network/networks/testnet) for test networks
-see [here](../../../network/networks/mainnet) for mainnet networks
-:::
-
 ## **Minting Capacity Credits**
 
-In order to increase your rate limit you'll need to mint an `Capacity Credits NFT`. To do so, you can use our `contract-sdk` to mint the nft
-You can download the `contracts-sdk` from `npm` [here](https://www.npmjs.com/package/@lit-protocol/contracts-sdk)
+In order to increase your rate limit you'll need to mint an `Capacity Credits NFT`. To do so, you can use our `contract-sdk` to mint the NFT. You can download the `contracts-sdk` from `npm` [here](https://www.npmjs.com/package/@lit-protocol/contracts-sdk)
+
+You’ll also need some 'testLPX' tokens for minting. These are test tokens that hold no real value and should only be used to pay for usage on Habanero. `testLPX` should only be claimed from the verified faucet, linked [here](https://faucet.litprotocol.com/).
 
 ```javascript
 const walletWithCapacityCredit = new Wallet("<your private key or mnemonic>");

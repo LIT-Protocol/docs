@@ -134,11 +134,11 @@ yarn add @alchemy/aa-signers
 
 ### 2. Get A Programmable Key Pair (PKP)
 
-Get some testLIT test tokens from Lit's [Chronicle network](../../network/rollup.mdx).
+Get some testLPX test tokens from Lit's [Chronicle network](../../network/rollup.mdx).
 
 To obtain a PKP, [read more within the Lit docs](../../sdk/wallets/intro.md). 
 
-To obtain an Auth Method [read about our authentication methods](../../sdk/authentication/session-sigs/auth-methods/).
+To define an Auth Method [read about Lit's authentication methods](../../sdk/authentication/session-sigs/auth-methods/).
 
 For Authentication
 
@@ -200,7 +200,7 @@ const provider = new AlchemyProvider({
 ### 5. Authenticating with the Lit Signer
 Before the `AlchemyProvider` can use the `LitSigner` we must `authenticate`
 
-To provide authentication `context` [read about our authentication methods](../../sdk/authentication/session-sigs/auth-methods/). 
+To provide authentication `context` [read about Lit's authentication methods](../../sdk/authentication/session-sigs/auth-methods/). 
 
 ```js
 litSigner.authenticate({

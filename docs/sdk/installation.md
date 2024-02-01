@@ -96,6 +96,11 @@ await client.connect();
 ## Checking attestation reports from the SEV SNP Enviorment
 If you would like to attest to the virtual machine running on the nodes durring the `connect()` process. you can set `checkNodeAttestation` to `true` when initalizing the `LitNodeClient`.
 For an in depth guide on SEV SNP attestation see [here](https://www.amd.com/content/dam/amd/en/documents/developer/lss-snp-attestation.pdf)
+
+:::note
+`checkNodeAttestation` is only supported on `manzano` and `habanero`
+:::
+
 ```js
 const litNodeClient = new LitJsSdk.LitNodeClientNodeJs({
   alertWhenUnauthorized: false,

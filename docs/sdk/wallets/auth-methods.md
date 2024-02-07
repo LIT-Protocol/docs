@@ -42,7 +42,7 @@ Auth methods support scoping, which permits what they can be used for within Lit
 | Scope Name         | Scope Number | Description                                                                                                                                                                                                                                               |
 | ------------------ | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Sign Anything      | 1            | This scope allows signing any data                                                                                                                                                                                                                        |
-| Only Sign Messages | 2            | This scope only allows signing messages using the [EIP-191 scheme](https://eips.ethereum.org/EIPS/eip-191) which prefixes "Ethereum Signed Message" to the data to be signed. This prefix prevents creating signatures that can be used for transactions. |
+| Personal Sign | 2            | This scope only allows signing messages using the [EIP-191 scheme](https://eips.ethereum.org/EIPS/eip-191) which prefixes "Ethereum Signed Message" to the data to be signed. This prefix prevents creating signatures that can be used for transactions. |
 
 You can also set scopes: [] which will mean that the auth method can only be used for authentication, but not authorization. This means that the auth method can be used to prove that the user is who they say they are, but cannot be used to sign transactions or messages.
 
@@ -79,7 +79,7 @@ if (scopes[1] !== false) {
 }
 
 if (scopes[2] !== false) {
-  return fail('scope 2 (only sign messages) should be false');
+  return fail('scope 2 (personal sign) should be false');
 }
 ```
 2. Set the scopes:

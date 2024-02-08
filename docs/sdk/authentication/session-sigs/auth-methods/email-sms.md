@@ -147,21 +147,21 @@ Below is an example of an authentication method from successful authentication
 }
 ```
 
-### Generating `SessionSigs`
+## Generating `SessionSigs`
 
-After successfully authenticating with an `AuthMethod`, you can generate `Session Signatures` using the provider's `getSessionSigs` method. The `getSessionSigs` method takes in an `AuthMethod` object, a PKP public key, and other session-specific arguments such as `resourceAbilityRequests` and returns a `SessionSig` object.
+After successfully authenticating with a social login provider, you can generate `SessionSigs` using the provider's `getSessionSigs` method. The `getSessionSigs` method takes in an `AuthMethod` object, optional `LitNodeClient` object, a PKP public key, and other session-specific arguments in `SessionSigsParams` object such as `resourceAbilityRequests` and `chain`. View the [API Docs](https://js-sdk.litprotocol.com/interfaces/types_src.BaseProviderSessionSigsParams.html).
 
 ```javascript
 // Get session signatures for the given PKP public key and auth method
 const sessionSigs = await provider.getSessionSigs({
-  authMethod: "<AuthMethod object returned from authenticate()>",
+  authMethod: '<AuthMethod object returned from authenticate()>',
+  pkpPublicKey: '<YOUR PKP PUBLIC KEY>'
   sessionSigsParams: {
-    chain: "ethereum",
-    resourceAbilityRequests: [
-      {
+    chain: 'ethereum',
+    resourceAbilityRequests: [{
         resource: litResource,
-        ability: LitAbility.AccessControlConditionDecryption,
-      },
+        ability: LitAbility.AccessControlConditionDecryption
+      }
     ],
   },
 });

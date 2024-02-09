@@ -64,7 +64,7 @@ values={[
 Install the `@lit-protocol/lit-node-client` package, which can be used in both browser and Node environments:
 
 ```sh
-yarn add @lit-protocol/lit-node-client
+yarn add @lit-protocol/lit-node-client@beta
 ```
 
 Use the **Lit JS SDK V3**:
@@ -74,7 +74,7 @@ Both the Habanero and Manzano networks can be accessed using the '@beta' tag bel
 :::
 
 ```js
-import * as LitJsSdk from "@lit-protocol/lit-node-client@beta";
+import * as LitJsSdk from "@lit-protocol/lit-node-client";
 ```
 
 </TabItem>
@@ -84,7 +84,7 @@ import * as LitJsSdk from "@lit-protocol/lit-node-client@beta";
 Install the `@lit-protocol/lit-node-client-nodejs`, which is for Node environments only:
 
 ```sh
-yarn add @lit-protocol/lit-node-client-nodejs
+yarn add @lit-protocol/lit-node-client-nodejs@beta
 ```
 
 Use the **Lit JS SDK V3**:
@@ -94,7 +94,7 @@ Both the Habanero and Manzano networks can be accessed using the '@beta' tag bel
 :::
 
 ```js
-import * as LitJsSdk from "@lit-protocol/lit-node-client-nodejs@beta";
+import * as LitJsSdk from "@lit-protocol/lit-node-client-nodejs";
 ```
 
 </TabItem>

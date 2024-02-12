@@ -35,6 +35,8 @@ Several auth methods are supported by Lit directly. These include methods config
 
 Check out the implementation details within the SDK section [here](../../sdk/authentication/session-sigs/auth-methods/overview).
 
+**Note:** When using the `ACTION` Auth Method, it's necessary to convert the IPFS CID from base58 encoding to byte-like before passing it to the Lit Protocol SDK. You can achieve this conversion using the `getBytesFromMultihash` function provided in the `utils` module.
+
 ### Auth Method Scopes
 
 Auth methods support scoping, which permits what they can be used for within Lit. These scopes are passed in to the "scopes" array as numbers when adding an auth method, or minting a PKP with PKPHelper. An overview of minting with scopes is provided in this [section](../wallets/minting). The scopes are as follows:

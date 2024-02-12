@@ -67,12 +67,12 @@ const { capacityDelegationAuthSig } =
     delegateeAddresses: [secondWalletPKPInfo.ethAddress],
   });
 ```
-To delegate your Rate Limit NFT there are 4 properties to configure
+To delegate your Rate Limit NFT there are 4 properties to configure:
 
-`uses` - How many time the delegation may be used
-`dAppOwnerWallet` - The owner of the wallet as an `ethers Wallet instance`
-`capacityTokenId` -  The `token identifier` of the Rate Limit NFT
-`delegateeAddresses` - The wallet addresses which will be delegated to
+- `uses` - How many time the delegation may be used
+- `dAppOwnerWallet` - The owner of the wallet as an `ethers Wallet instance`
+- `capacityTokenId` -  The `token identifier` of the Rate Limit NFT
+- `delegateeAddresses` - The wallet addresses which will be delegated to
 
 
 ## **Generating Sessions from delegation signature**

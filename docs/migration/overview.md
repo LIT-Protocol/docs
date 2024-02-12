@@ -260,7 +260,7 @@ module.exports = {
 ```
 
 ### Using Create React App (CRA)
-If you are using CRA you may see the errors related to `stream` `buffer` and `crypto` to being found / handled. You can fix this with the following webpack override
+If you are using CRA you may see the errors related to `stream`, `buffer`, `crypto`, `http`, `https`, `url`, `zlib` and `assert` to being found / handled. You can fix this with the following webpack override
 
 ```javascript
 const webpack = require('webpack'); // Import webpack
@@ -275,6 +275,11 @@ module.exports = {
                 'crypto': require.resolve('crypto-browserify'), // Fallback for 'crypto'
                 'stream': require.resolve('stream-browserify'), // Fallback for 'stream'
                 'buffer': require.resolve('buffer/'), // Add this line
+                'http': require.resolve('stream-http'), // Add this line
+                'https': require.resolve('https-browserify'), // Add this line
+                'url': require.resolve('url/'), // Add this line
+                'zlib': require.resolve('browserify-zlib'), // Add this line
+                'assert': require.resolve('assert/'), // Add this line
             },
         };
 
@@ -301,7 +306,7 @@ module.exports = {
 }; 
 ```
 
-In the above we are replacing `crypto`, `stream`, and `buffer` with browser compatible replacements.
+In the above we are replacing `stream`, `buffer`, `crypto`, `http`, `https`, `url`, `zlib` and `assert` with browser compatible replacements.
 We also modify the default Create React App's `module rules` to include other JavaScript file extensions.
 
 You may need to install [react-app-rewired](https://www.npmjs.com/package/react-app-rewired) to override the webpack confgiuration with the above.

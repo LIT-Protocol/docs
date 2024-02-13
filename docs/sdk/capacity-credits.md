@@ -27,9 +27,16 @@ let contractClient = new LitContracts({
 });
 
 await contractClient.connect();
+```
+
+Under the hood, every request is converted to `requestsPerKilosecond`. However, for your convenience, we offer `requestsPerSecond` and `requestsPerDay`, tailored to your usage context.
+
+```js
 // this identifier will be used in delegation requests. 
 const { capacityTokenIdStr } = await contractClient.mintCapacityCreditsNFT({
-  requestsPerDay: 14400, // 10 request per minute
+  requestsPerKilosecond: 80,
+  // requestsPerDay: 14400,
+  // requestsPerSecond: 10,
   daysUntilUTCMidnightExpiration: 2,
 });
 ```

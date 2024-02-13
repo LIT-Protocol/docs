@@ -131,7 +131,7 @@ async function main() {
   const statement =
     'This is a test statement.  You can put anything you want here.';
     
-  // expirtaion time in ISO 8601 format
+  // expiration time in ISO 8601 format.  This is 7 days in the future, calculated in milliseconds
   const expirationTime = new Date(
     Date.now() + 1000 * 60 * 60 * 24 * 7 * 10000
   ).toISOString();

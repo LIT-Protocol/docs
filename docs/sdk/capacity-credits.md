@@ -10,7 +10,7 @@ See [here](../network/networks/mainnet.md) for a list of mainnet networks.
 
 In order to use Lit, you must reserve capacity on the network. This can be done using capacity credits, which allow holders to reserve a configurable number of requests (measured in requests per second) over a fixed length of time (i.e. one week).
 
-For more information on Capacity Credits and network rate limiting see [here](../../../concepts/capacity-credits-concept.md)
+For more information on Capacity Credits and network rate limiting see [here](../concepts/capacity-credits-concept)
 
 ## **Minting Capacity Credits**
 

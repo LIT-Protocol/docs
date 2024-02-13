@@ -35,7 +35,7 @@ Several auth methods are supported by Lit directly. These include methods config
 
 Check out the implementation details within the SDK section [here](../../sdk/authentication/session-sigs/auth-methods/overview).
 
-**Note:** When using the `ACTION` Auth Method, it's necessary to convert the IPFS CID from base58 encoding to byte-like before passing it to the Lit Protocol SDK. You can achieve this conversion using the `getBytesFromMultihash` function provided in the `utils` module.
+**Note:** When using the `ACTION` Auth Method, it's necessary to convert the IPFS CID from base58 encoding to bytes-like before passing it to the Lit Protocol SDK. You can achieve this conversion using the `getBytesFromMultihash` function provided in the `utils` module of the `contracts-sdk`.
 
 ### Auth Method Scopes
 

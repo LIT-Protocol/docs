@@ -37,7 +37,7 @@ This how-to guide walks you through the steps to integrate Lit's OTP sign-in wit
 #### **Installing packages**
 
 ```bash
-npm install stytch @lit-protocol/pkp-ethers@cayenne @lit-protocol/lit-auth-client@cayenne @lit-protocol/auth-helpers@cayenne @lit-protocol/types@cayenne @lit-protocol/lit-node-client-nodejs@cayenne
+npm install stytch @lit-protocol/pkp-ethers @lit-protocol/lit-auth-client @lit-protocol/auth-helpers @lit-protocol/types @lit-protocol/lit-node-client-nodejs
 ```
 
 #### **Make an account with Stytch and get the Project ID and Secret**

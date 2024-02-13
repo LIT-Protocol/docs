@@ -7,7 +7,7 @@ How to generate a [signed Ethereum transaction](https://github.com/LIT-Protocol
 This example relies on the following packages: 
 
 ```jsx
-@lit-protocol/lit-node-client@cayenne
+@lit-protocol/lit-node-client
 @ethersproject/transactions
 @ethersproject/signing-key
 @ethersproject/bytes 
@@ -91,7 +91,7 @@ go();
 ## Generating a Session Key
 
 ```jsx
-@lit-protocol/lit-node-client@cayenne
+@lit-protocol/lit-node-client
 @ethersproject/wallet
 @ethersproject/transactions
 siwe

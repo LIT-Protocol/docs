@@ -37,7 +37,7 @@ In the example below, we will write a simple Lit Action that requests a signatur
 Install the latest contracts-sdk on `cayenne`
 
 ```bash
-yarn install @lit-protocol/contracts-sdk@cayenne
+yarn install @lit-protocol/contracts-sdk
 ```
 
 ## Set up the controller
@@ -79,7 +79,7 @@ values={[
 <TabItem value="browser">
 
 ```bash
-yarn add @lit-protocol/lit-node-client@cayenne
+yarn add @lit-protocol/lit-node-client
 ```
 
 </TabItem>
@@ -87,7 +87,7 @@ yarn add @lit-protocol/lit-node-client@cayenne
 <TabItem value="nodejs">
 
 ```bash
-yarn add @lit-protocol/lit-node-client-nodejs@cayenne
+yarn add @lit-protocol/lit-node-client-nodejs
 ```
 
 </TabItem>

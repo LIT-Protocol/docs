@@ -11,8 +11,8 @@ You can also use the handy helper contract on Chronicle [here](https://chain.lit
 
 ### Installing the required packages
 ```bash
-yarn add @lit-protocol/lit-auth-client@cayenne
-yarn add @lit-protocol/contracts-sdk@cayenne
+yarn add @lit-protocol/lit-auth-client
+yarn add @lit-protocol/contracts-sdk
 ```
 
 ### Initializing your `LitContract` instance

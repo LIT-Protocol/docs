@@ -34,7 +34,7 @@ Every time you authenticate with Lit, the request context (i.e. wallet address, 
 
 To mint a Capacity Credit NFT, you’ll need some 'testLPX' tokens. These are test tokens that hold no real value and should only be used to pay for usage on Habanero. `testLPX` test token should only be claimed from the verified faucet, linked [here](https://faucet.litprotocol.com/).
 
-For minting a Capacity Credits NFT see example docs for using our contract-sdk [here](../sdk/rate-limiting) 
+For minting a Capacity Credits NFT see example docs for using our contract-sdk [here](../sdk/capacity-credits) 
 
 ### **Delegating Capacity — Paying for Your Users’ Requests**
 You can also delegate your capacity credits to other users. For example, Alice owns a Capacity Credit NFT and wants to let Bob use it, but only for a specific Lit Actions or another resource or set of resources that she owns.

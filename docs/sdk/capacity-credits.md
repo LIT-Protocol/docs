@@ -69,7 +69,7 @@ const { capacityDelegationAuthSig } =
 ```
 To delegate your Rate Limit NFT there are 4 properties to configure:
 
-- `uses` - How many time the delegation may be used
+- `uses` - How many times the delegation may be used
 - `dAppOwnerWallet` - The owner of the wallet as an `ethers Wallet instance`
 - `capacityTokenId` -  The `token identifier` of the Rate Limit NFT
 - `delegateeAddresses` - The wallet addresses which will be delegated to

@@ -14,7 +14,7 @@ Authorization refers to confirming that a user is allowed to use a PKP.  Specifi
 
 Note: Currently, an [auth signature](../../auth-sig), is **always required** to communicate with the Lit nodes and make a request to the network. It doesn't matter if you are decrypting a piece of data or calling a Lit Action, an auth sig will always be required.
 
-In the case that a user doesn’t own a wallet (and therefore cannot produce a valid AuthSig), and you're using an Auth Method supported by Lit, they can present their alternative auth method to the Lit SDK which will convert it into a “compliant” AuthSig. This is documented in our [docs](overview).  If you're not using an auth method supported by Lit, then your AuthSig is not for authorization, but you must still present one for Rate Limit authentication.  In this case, the rate limit is tracked against the AuthSig, and you may wish to pay for your users requests by giving this wallet a Rate Limit Increase NFT.  
+In the case that a user doesn’t own a wallet (and therefore cannot produce a valid AuthSig), and you're using an Auth Method supported by Lit, they can present their alternative auth method to the Lit SDK which will convert it into a “compliant” AuthSig. This is documented in our [docs](overview).  If you're not using an auth method supported by Lit, then your AuthSig is not for authorization, but you must still present one for Rate Limit authentication.  In this case, the rate limit is tracked against the AuthSig, and you may wish to pay for your users requests by giving this wallet a Capacity Credit NFT.  
 
 The flow for using an auth method already supported by lit, with custom Authorization, is as follows:
 

@@ -1,16 +1,16 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Getting Started
+# Quick Start
 
-:::note
-💡 Lit Actions and PKPs are still heavily in development and things may change.
+:::info
+**STATE OF THE NETWORK**
 
-**API DOCUMENTATION** For the most up to date API documentation, check out the [Lit JS SDK V3 docs](https://lit-js-sdk-v3-api-docs.vercel.app/).
+The Lit Habanero Mainnet Beta is now live. Check out the [docs on migration](../../network/migration-guide) to learn how you can start building on Habanero today. 
 
 For references to the Lit Actions functions which can be accessed inside a Lit Action via the `Lit.Actions` object, check out the [Lit Actions](http://actions-docs.litprotocol.com/) API docs.
 
-Need some `LIT` test tokens to mint a PKP? Get some from the [faucet](https://faucet.litprotocol.com/)!
+Need some `testLPX` test tokens to mint a PKP? Get some from the [faucet](https://faucet.litprotocol.com/)!
 
 :::
 
@@ -18,6 +18,9 @@ Need some `LIT` test tokens to mint a PKP? Get some from the [faucet](https:/
 
 - Familiarity with JavaScript
 - Read the Overview section about [serverless signing](../serverless-signing/overview.md)
+
+## Overview
+The following section provides an end-to-end example of minting a PKP (using the ContractsSDK) and signing a message using Lit Actions.
 
 ## What are Lit Actions
 
@@ -29,56 +32,68 @@ In order to collect the responses from the Lit nodes, you'll also need to write 
 
 In the example below, we will write a simple Lit Action that requests a signature from the Lit nodes and signs a message that says "Hello World".
 
-## 1. Install the Lit JS SDK V3
+## Installation
 
-On the client side
+Install the latest contracts-sdk on `cayenne`
+
+```bash
+yarn install @lit-protocol/contracts-sdk@cayenne
+```
+
+## Set up the controller
+
+To initialize a LitContracts client you need an Eth Signer. This can be a standard Ethers wallet or also a `PKPEthersWallet` (more info on the latter [here](../authentication/session-sigs/auth-methods/add-remove-auth-methods)). But here, we're gonna use the standard Ethers wallet.
+
+## Initialize the ContractsSDK
+
+We're using the ContractsSDK for the minting the PKP & interacting with it (updating the scopes). The first step is to initialize the ContractsSDK
 
 ```jsx
+const contractClient = new LitContracts({
+  signer: wallet,
+});
+
+await contractClient.connect();
+```
+
+**Note:** The default LitNetwork for the ContractsSDK is Cayenne so there's no need to set the network explicitly.
+
+## Mint the PKP
+
+Now that we've the ContractsSDK initialized we're ready to mint the PKP using it. Since we want to allow out PKP to sign messages we have to add Auth Method scopes for `SigningAnything` & `PersonalSign` as below otherwise you'll get an error stating that the PKP isn't authorized to sign.
+
+**Note:** You're gonna need an AuthSig for setting the `authMethod`. In the browser you can use `checkAndSignAuthMessage` or use [Hot wallet signing](https://developer.litprotocol.com/v3/support/faq/#1-cant-use-checkandsignauthmessage-in-a-backend-project) in the backend.
+
+### Get the Latest Eth Blockhash
+
+Since the ContractsSDK doesn't proveid you with the latest Eth Blockhash which is supposed to be the nonce for our AuthSig signed message we have to use the LitNodeClient to get that. More info [here](https://developer.litprotocol.com/v3/sdk/authentication/auth-sig/#obtaining-an-authsig-on-the-server-side).
+
+You first need to install the `LitNodeClient` or `LitNodeClientNodeJs` depending on the environment:
+
+<Tabs
+defaultValue="browser"
+values={[
+{label: 'Browser', value: 'browser'},
+{label: 'NodeJS', value: 'nodejs'},
+]}>
+<TabItem value="browser">
+
+```bash
 yarn add @lit-protocol/lit-node-client@cayenne
 ```
 
-For server side
+</TabItem>
 
-```jsx
+<TabItem value="nodejs">
+
+```bash
 yarn add @lit-protocol/lit-node-client-nodejs@cayenne
 ```
 
-## 2. Obtain a PKP
+</TabItem>
+</Tabs>
 
-Go to https://explorer.litprotocol.com/ and mint a PKP.
-
-:::tip
-
-Save the public key which will be used in the steps below.
-
-:::
-
-## 3. Request a Signature
-
-The Lit Action below will sign the string "Hello World" with the shared testnet ECDSA key and return the signature.
-
-The JS below will be run by every node in the network in parallel.
-
-```jsx
-const go = async () => {
-  // this is the string "Hello World" for testing
-  const toSign = new Uint8Array(
-    await crypto.subtle.digest('SHA-256', new TextEncoder().encode('Hello world'))
-  );
-  // this requests a signature share from the Lit Node
-  // the signature share will be automatically returned in the HTTP response from the node
-  const sigShare = await Lit.Actions.signEcdsa({
-    toSign,
-    publicKey:
-      "0x0404e12210c57f81617918a5b783e51b6133790eb28a79f141df22519fb97977d2a681cc047f9f1a9b533df480eb2d816fb36606bd7c716e71a179efd53d2a55d1",
-    sigName: "sig1",
-  });
-};
-
-go();
-```
-
-You also need some client side JS to send the above JS to the nodes, collect the signature shares, combine them, and print the complete signature. In the following code, we store the above code into a variable called `litActionCode`. We execute it, obtain the signature, and print it:
+And use the nonce when crafting the authSig:
 
 <Tabs
 defaultValue="browser"
@@ -91,44 +106,10 @@ values={[
 ```jsx
 import * as LitJsSdk from "@lit-protocol/lit-node-client";
 
-// this code will be run on the node
-const litActionCode = `
-const go = async () => {  
-  // this requests a signature share from the Lit Node
-  // the signature share will be automatically returned in the HTTP response from the node
-  // all the params (toSign, publicKey, sigName) are passed in from the LitJsSdk.executeJs() function
-  const sigShare = await Lit.Actions.signEcdsa({ toSign, publicKey , sigName });
-};
+const litNodeClient = new LitJsSdk.LitNodeClient({ litNetwork: 'cayenne' });
+await litNodeClient.connect();
 
-go();
-`;
-
-const runLitAction = async () => {
-  // you need an AuthSig to auth with the nodes
-  // this will get it from MetaMask or any browser wallet
-  const authSig = await LitJsSdk.checkAndSignAuthMessage({ chain: "ethereum" });
-
-  const litNodeClient = new LitJsSdk.LitNodeClient({ litNetwork: "serrano" });
-  await litNodeClient.connect();
-  const toSign = new Uint8Array(
-    await crypto.subtle.digest('SHA-256', new TextEncoder().encode('Hello world'))
-  );
-  const signatures = await litNodeClient.executeJs({
-    code: litActionCode,
-    authSig,
-    // all jsParams can be used anywhere in your litActionCode
-    jsParams: {
-      // this is the string "Hello World" for testing
-      toSign,
-      publicKey:
-        "0x0404e12210c57f81617918a5b783e51b6133790eb28a79f141df22519fb97977d2a681cc047f9f1a9b533df480eb2d816fb36606bd7c716e71a179efd53d2a55d1",
-      sigName: "sig1",
-    },
-  });
-  console.log("signatures: ", signatures);
-};
-
-runLitAction();
+const nonce = litNodeClient.getLatestBlockhash();
 ```
 
 </TabItem>
@@ -138,120 +119,118 @@ runLitAction();
 ```jsx
 import * as LitJsSdk from "@lit-protocol/lit-node-client-nodejs";
 
-// this code will be run on the node
-const litActionCode = `
-const go = async () => {  
-  // this requests a signature share from the Lit Node
-  // the signature share will be automatically returned in the HTTP response from the node
-  // all the params (toSign, publicKey, sigName) are passed in from the LitJsSdk.executeJs() function
-  const sigShare = await Lit.Actions.signEcdsa({ toSign, publicKey , sigName });
-};
+const litNodeClient = new LitJsSdk.LitNodeClientNodeJs({ litNetwork: 'cayenne' });
+await litNodeClient.connect();
 
-go();
-`;
-
-// you need an AuthSig to auth with the nodes
-// normally you would obtain an AuthSig by calling LitJsSdk.checkAndSignAuthMessage({chain})
-const authSig = {
-  sig: "0x2bdede6164f56a601fc17a8a78327d28b54e87cf3fa20373fca1d73b804566736d76efe2dd79a4627870a50e66e1a9050ca333b6f98d9415d8bca424980611ca1c",
-  derivedVia: "web3.eth.personal.sign",
-  signedMessage:
-    "localhost wants you to sign in with your Ethereum account:\n0x9D1a5EC58232A894eBFcB5e466E3075b23101B89\n\nThis is a key for Partiful\n\nURI: https://localhost/login\nVersion: 1\nChain ID: 1\nNonce: 1LF00rraLO4f7ZSIt\nIssued At: 2022-06-03T05:59:09.959Z",
-  address: "0x9D1a5EC58232A894eBFcB5e466E3075b23101B89",
-};
-
-const runLitAction = async () => {
-  const toSign = new Uint8Array(
-    await crypto.subtle.digest('SHA-256', new TextEncoder().encode('Hello world'))
-  );
-  const litNodeClient = new LitJsSdk.LitNodeClientNodeJs({
-    litNetwork: "cayenne",
-  });
-  await litNodeClient.connect();
-  const signatures = await litNodeClient.executeJs({
-    code: litActionCode,
-    authSig,
-    // all jsParams can be used anywhere in your litActionCode
-    jsParams: {
-      // this is the string "Hello World" for testing
-      toSign,
-      publicKey:
-        "0x0404e12210c57f81617918a5b783e51b6133790eb28a79f141df22519fb97977d2a681cc047f9f1a9b533df480eb2d816fb36606bd7c716e71a179efd53d2a55d1",
-      sigName: "sig1",
-    },
-  });
-  console.log("signatures: ", signatures);
-};
-
-runLitAction();
+const nonce = litNodeClient.getLatestBlockhash();
 ```
 
 </TabItem>
 </Tabs>
 
-Passing JS to be run by the Lit Nodes
-
-There are 2 ways to pass JS run by the Lit Nodes. You may pass the raw JS in the `code` param, or you may pass the IPFS ID of a file that contains the JS in the `ipfsId` param. The following two examples are equivalent:
-
-**Using the code param**
+**Note:** The `mintInfo` contains all the required info for the PKP including its `tokenId` & `publicKey`.
 
 ```jsx
-const litActionCode = `
-const go = async () => {
-  // this requests a signature share from the Lit Node
-  // the signature share will be automatically returned in the HTTP response from the node
-  // all the params (toSign, publicKey, sigName) are passed in from the LitJsSdk.executeJs() function
-  const sigShare = await LitActions.signEcdsa({ toSign, publicKey, sigName });
+const mintCost = await contractClient.pkpNftContract.read.mintCost(); you can check how much it costs to mint a PKP with this
+
+const authMethod = {
+  authMethodType: AuthMethodType.EthWallet,
+  accessToken: JSON.stringify(authSig),
 };
 
-go();
-`;
-
-const toSign = new Uint8Array(
-  await crypto.subtle.digest('SHA-256', new TextEncoder().encode('Hello world'))
-);
-const signatures = await litNodeClient.executeJs({
-  code: litActionCode,
-  authSig,
-  // all jsParams can be used anywhere in your litActionCode
-  jsParams: {
-    // this is the string "Hello World" for testing
-    toSign,
-    publicKey:
-      "0x0404e12210c57f81617918a5b783e51b6133790eb28a79f141df22519fb97977d2a681cc047f9f1a9b533df480eb2d816fb36606bd7c716e71a179efd53d2a55d1",
-    sigName: "sig1",
-  },
+const mintInfo = await contractClient.mintWithAuth({
+  authMethod,
+  scopes: [
+    AuthMethodScope.NoPermissions,
+    AuthMethodScope.SignAnything,
+    AuthMethodScope.PersonalSign,
+  ],
 });
 ```
 
-**Using the ipfsId param**
+## Check the scope for the PKP
+
+This step isn't necessary for signing with the PKP but can be done to view whether the minted PKP has proper scopes which are required for signing. The first step is to get the `authId` from the `authMethod` as the PKP contracts stores a mapping from the `authId` & its scopes. The `3` below is just the maxScopeId which should be greater than the number of [Auth Method scopes](https://developer.litprotocol.com/v3/sdk/wallets/auth-methods/#auth-method-scopes) that you define.
+
+```jsx
+const authId = await LitAuthClient.getAuthIdByAuthMethod(authMethod);
+await contractClient.pkpPermissionsContract.read.getPermittedAuthMethodScopes(
+  mintInfo.pkp.tokenId,
+  AuthMethodType.EthWallet,
+  authId,
+  3
+);
+
+const signAnythingScope = scopes[1];
+const personalSignScope = scopes[2];
+```
+
+## Lit Action Signing with the PKP
+
+We'll again use the `litNodeClient` to call the `executeJs` to sign the message with the PKP.
+
+:::note
+`toSign` data is required to be in 32 byte format. 
+
+The `ethers.utils.arrayify(ethers.utils.keccak256(...)` can be used to convert the `toSign` data to the correct format.
+:::
+
+Set up the Lit Action code to be run on the Lit nodes.
+
+```jsx
+const litActionCode = `
+    const go = async () => {
+    // The params toSign, publicKey, sigName are passed from the jsParams fields and are available here
+    const sigShare = await Lit.Actions.signEcdsa({ toSign, publicKey, sigName });
+    };
+
+    go();
+`;
+
+const signatures = await litNodeClient.executeJs({
+  code: litActionCode,
+  authSig,
+  jsParams: {
+    toSign: [84, 104, 105, 115, 32, 109, 101, 115, 115, 97, 103, 101, 32, 105, 115, 32, 101, 120, 97, 99, 116, 108, 121, 32, 51, 50, 32, 98, 121, 116, 101, 115],
+    publicKey: mintInfo.pkp.publicKey,
+    sigName: "sig1",
+  },
+});
+
+console.log("signatures: ", signatures);
+```
+
+:::note
+The signatures above are the signatures from the nodes using the PKP. In Cayenne we have 3 nodes so only 2 valid signature shares are required to combine the shares. Hence you will see one od the node always fail to sign.
+:::
+
+### Using the ipfsId param
 
 The ipfs ID: `QmRwN9GKHvCn4Vk7biqtr6adjXMs7PzzYPCzNCRjPFiDjm` contains the same code as the "litActionCode" variable above.
 
 You can check out the code here: https://ipfs.litgateway.com/ipfs/QmRwN9GKHvCn4Vk7biqtr6adjXMs7PzzYPCzNCRjPFiDjm .
 
 ```jsx
-const toSign = new Uint8Array(
-    await crypto.subtle.digest('SHA-256', new TextEncoder().encode('Hello world'))
-);
 const signatures = await litNodeClient.executeJs({
   ipfsId: "QmRwN9GKHvCn4Vk7biqtr6adjXMs7PzzYPCzNCRjPFiDjm",
   authSig,
-  // all jsParams can be used anywhere in your Lit Action Code
   jsParams: {
-    // this is the string "Hello World" for testing
-    toSign,
-    publicKey:
-      "0x0404e12210c57f81617918a5b783e51b6133790eb28a79f141df22519fb97977d2a681cc047f9f1a9b533df480eb2d816fb36606bd7c716e71a179efd53d2a55d1",
+    toSign: [84, 104, 105, 115, 32, 109, 101, 115, 115, 97, 103, 101, 32, 105, 115, 32, 101, 120, 97, 99, 116, 108, 121, 32, 51, 50, 32, 98, 121, 116, 101, 115],
+    publicKey: mintInfo.pkp.publicKey,
     sigName: "sig1",
   },
 });
 ```
 
+:::note
+You can provide either a `code` param or a `ipfsId` param for the Lit Actions code but not both.
+:::
+
 ## Conclusion and More Examples
 
-And that's it, you have now successfully written your first Lit Action!
+This page showed how you can mint a PKP and use it to sign messages with Lit Actions. To learn more, check out these resources:
+- [Generating signed transactions](../serverless-signing/processing-validation.md)
+- [Fetching off-chain data](../serverless-signing/fetch.md)
+- [Connecting PKPs to dApps](../wallets/walletconnect.md)
 
-Continue on to the modules ahead to learn more about the types of use cases and functionality that can be supported, as well as example implementations associated with each.
-
-Reach out to us on [Discord](https://litgateway.com/discord) if you need help or have questions!
+Reach out to the Lit Protocol development team on [Discord](https://litgateway.com/discord) if you need help or have questions!

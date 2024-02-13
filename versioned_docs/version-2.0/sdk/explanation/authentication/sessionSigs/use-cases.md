@@ -6,7 +6,7 @@ _Note that these are not yet currently possible as we need to implement proof ve
 
 ### Letting A User Use Your Rate Limit Increase (RLI) NFT
 
-Alice owns a Rate Limit Increase NFT and wants to let Bob use it, but only for specific Lit Actions or another resource or set of resources that she owns.
+Alice owns a Capacity Credit NFT and wants to let Bob use it, but only for specific Lit Actions or another resource or set of resources that she owns.
 
 Alice can create a session capability object that specifies the ability to Authenticate with an RLI NFT as well as request for Threshold Execution against a particular Lit Action IPFS CID(s). Alice then signs and issues these capabilities to Bob.
 

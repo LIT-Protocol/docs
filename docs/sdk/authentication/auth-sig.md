@@ -14,7 +14,7 @@ You can use any signature compliant with EIP-4361, also known as Sign in with Et
 {
 	"sig": "0x18720b54cf0d29d618a90793d5e76f4838f04b559b02f1f01568d8e81c26ae9536e11bb90ad311b79a5bc56149b14103038e5e03fee83931a146d93d150eb0f61c",
 	"derivedVia": "web3.eth.personal.sign",
-	"signedMessage": "localhost wants you to sign in with your Ethereum account:\n0x1cD4147AF045AdCADe6eAC4883b9310FD286d95a\n\nThis is a test statement.  You can put anything you want here.\n\nURI: https://localhost/login\nVersion: 1\nChain ID: 1\nNonce: gzdlw7mR57zMcGFzz\nIssued At: 2022-04-15T22:58:44.754Z",
+	"signedMessage": "localhost wants you to sign in with your Ethereum account:\n0x1cD4147AF045AdCADe6eAC4883b9310FD286d95a\n\nThis is a test statement.  You can put anything you want here.\n\nURI: https://localhost/login\nVersion: 1\nChain ID: 1\nNonce: 0xfe88c94d860f01a17f961bf4bdfb6e0c6cd10d3fda5cc861e805ca1240c58553\nIssued At: 2022-04-15T22:58:44.754Z",
 	"address": "0x1cD4147AF045AdCADe6eAC4883b9310FD286d95a"
 }
 ```
@@ -39,8 +39,13 @@ import { checkAndSignAuthMessage } from '@lit-protocol/lit-node-client';
 
 const authSig = await checkAndSignAuthMessage({
   chain: "ethereum",
+  nonce,
 });
 ```
+
+:::note
+Be sure to use the latest blockhash from the `litNodeClient` as the nonce. You can get it from the `litNodeClient.getLatestBlockhash()`.
+:::
 
 When called, `checkAndSignAuthMessage` triggers a wallet selection popup in the user's browser. The user is then asked to sign a message, confirming ownership of their crypto address. The signature of the signed message is returned as the `authSig` variable.
 
@@ -60,11 +65,16 @@ const authSig = await ethConnect.signAndSaveAuthMessage({
   account: walletAddress,
   chainId: 1,
   expiration: new Date(Date.now() + 1000 * 60 * 60 * 24).toISOString(),
+  nonce,
 });
 ```
 
 :::note
 Be sure to import `cosmosConnect` and `solConnect` for Cosmos and Solana respectively.
+:::
+
+:::note
+Be sure to use the latest blockhash from the `litNodeClient` as the nonce. You can get it from the `litNodeClient.getLatestBlockhash()`.
 :::
 
 ### Using EIP-1271 for Account Abstraction
@@ -94,6 +104,8 @@ If you want to clear the `AuthSig` stored in local storage, you can call the [`d
 
 If you want to obtain an `AuthSig` on the server-side, you can instantiate an `ethers.Signer` to sign a SIWE message, which will produce a signature that can be used in an `AuthSig` object.
 
+**Note:** The nonce should be the latest Ethereum blockhash returned by the nodes during the handshake
+
 ```js
 const LitJsSdk = require('@lit-protocol/lit-node-client-nodejs');
 const { ethers } = require("ethers");
@@ -107,6 +119,8 @@ async function main() {
 	});
   await litNodeClient.connect();
 
+  let nonce = litNodeClient.getLatestBlockhash();
+
   // Initialize the signer
   const wallet = new ethers.Wallet('<Your private key>');
   const address = ethers.getAddress(await wallet.getAddress());
@@ -116,6 +130,12 @@ async function main() {
   const origin = 'https://localhost/login';
   const statement =
     'This is a test statement.  You can put anything you want here.';
+    
+  // expiration time in ISO 8601 format.  This is 7 days in the future, calculated in milliseconds
+  const expirationTime = new Date(
+    Date.now() + 1000 * 60 * 60 * 24 * 7 * 10000
+  ).toISOString();
+  
   const siweMessage = new siwe.SiweMessage({
     domain,
     address: address,
@@ -123,6 +143,8 @@ async function main() {
     uri: origin,
     version: '1',
     chainId: 1,
+    nonce,
+    expirationTime,
   });
   const messageToSign = siweMessage.prepareMessage();
   

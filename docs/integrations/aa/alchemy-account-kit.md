@@ -17,14 +17,21 @@ At completion of this reading you should be able to:
 ---
 
 ## What is Account Kit?
+
 [Alchemy's Account Kit](https://www.alchemy.com/account-kit) is a complete toolkit to embed smart accounts in your app with social login, gas abstraction, batch transactions, and more.
+
+[Lit Protocol's AA signer](https://accountkit.alchemy.com/smart-accounts/signers/guides/lit.html) is a complete solution for powering AA with a Lit signer.
 
 Powered by account abstraction (ERC-4337), Account Kit provides all the tools you need to onboard users with zero friction:
 
 -**aa-sdk**: a flexible library to integrate, deploy, and use smart accounts
+
 -**Light Account**: a gas-optimized ERC-4337 smart contract account
+
 -**Signers**: integrations with your favorite social login and passkey providers
+
 -**Gas Manager APIs**: a programmable API to sponsor gas fees in your app‍
+
 -**Bundler APIs**: the most reliable Bundler to submit UserOps onchain at scale
 
 With Account Kit, you can create a smart account for every user. Smart accounts are smart contract wallets that leverage account abstraction to radically simplify every step of the onboarding experience. Now, a new user can:
@@ -62,7 +69,7 @@ npm i @lit-protocol/pkp-ethers@cayenne
 
 </TabItem>
 
-<TabItem value="sms">
+<TabItem value="yarn">
 
 ```js
 yarn add @lit-protocol/pkp-ethers@cayenne
@@ -72,7 +79,7 @@ yarn add @lit-protocol/pkp-ethers@cayenne
 
 </Tabs>
 
-Install the `LitNodeClient` package`:
+Install the `LitNodeClient` package:
 
 <Tabs
 defaultValue="npm"
@@ -84,38 +91,64 @@ values={[
 
 ```js
 npm i @lit-protocol/lit-node-client@cayenne
+npm i @lit-protocol/crypto@cayenne
+npm i @lit-protocol/auth-helpers@cayenne
 ```
 
 </TabItem>
 
-<TabItem value="sms">
+<TabItem value="yarn">
 
 ```js
 yarn add @lit-protocol/lit-node-client@cayenne
+yarn add @lit-protocol/crypto@cayenne
+yarn add @lit-protocol/auth-helpers@cayenne
+```
+</TabItem>
+</Tabs>
+
+
+Install the `Alchemy AA signer` package:
+
+<Tabs
+defaultValue="npm"
+values={[
+{label: 'npm', value: 'npm'},
+{label: 'yarn', value: 'yarn'},
+]}>
+<TabItem value="npm">
+
+```js
+npm i @alchemy/aa-signers
 ```
 
 </TabItem>
 
+<TabItem value="yarn">
+
+```js
+yarn add @alchemy/aa-signers
+```
+</TabItem>
 </Tabs>
 
 ### 2. Get A Programmable Key Pair (PKP)
 
-Get some LIT Testnet tokens from Lit's [Chronicle network](../../network/rollup.mdx). 
+Get some testLPX test tokens from Lit's [Chronicle network](../../network/rollup.mdx).
 
-Then mint a PKP through the [PKP explorer](https://explorer.litprotocol.com/mint-pkp).
+To obtain a PKP, [read more within the Lit docs](../../sdk/wallets/intro.md). 
 
-For other ways to obtain a PKP, [read more within the Lit docs](../../sdk/wallets/intro.md). 
+To define an Auth Method [read about Lit's authentication methods](../../sdk/authentication/session-sigs/auth-methods/).
 
-### 3. Create a SmartAccountSigner
+For Authentication
 
-Next, setup the `LitNodeClient` and `PKPEthersWallet` to create a `SmartAccountSigner`:
+### 3. Create a SmartAccountAuthenticator
+
+Next, setup the `LitSigner`
 
 ```js
-import { WalletClientSigner, type SmartAccountSigner } from "@alchemy/aa-core";
-import { LitAbility, LitActionResource } from "@lit-protocol/auth-helpers";
-import { LitNodeClient } from "@lit-protocol/lit-node-client";
-import { PKPEthersWallet } from "@lit-protocol/pkp-ethers";
-import { AuthCallbackParams } from "@lit-protocol/types";
+import { LitSigner } from "@alchemy/aa-signers";
+import { LitAuthMethod } from "@alchemy/aa-signers/lit-protocol";
 import { createWalletClient, custom } from "viem";
 import { polygonMumbai } from "viem/chains";
 
@@ -123,160 +156,58 @@ const API_KEY = "<YOUR ALCHEMY API KEY>";
 const POLYGON_MUMBAI_RPC_URL = `${polygonMumbai.rpcUrls.alchemy.http[0]}/${API_KEY}`;
 const PKP_PUBLIC_KEY = "<YOUR PKP PUBLIC KEY>";
 
-const litNodeClient = new LitNodeClient({
-  litNetwork: "cayenne",
-  debug: false,
+const litSigner = new LitSigner<LitAuthMethod>({
+  pkpPublicKey: PKP_PUBLIC_KEY,
+  rpcUrl: POLYGON_MUMBAI_RPC_URL,
+  network: "cayenne"
 });
-await litNodeClient.connect();
-
-const resourceAbilities = [
-  {
-    resource: new LitActionResource("*"),
-    ability: LitAbility.PKPSigning,
-  },
-];
-
-/**
- * For provisioning keys and setting up authentication methods see documentation below
- * https://developer.litprotocol.com/v2/pkp/minting
- */
-const authNeededCallback = async (params: AuthCallbackParams) => {
-  const response = await litNodeClient.signSessionKey({
-    sessionKey: params.sessionKeyPair,
-    statement: params.statement,
-    authMethods: [],
-    pkpPublicKey: PKP_PUBLIC_KEY,
-    expiration: params.expiration,
-    resources: params.resources,
-    chainId: 1,
-  });
-  return response.authSig;
-};
-
-const sessionSigs = await litNodeClient
-  .getSessionSigs({
-    chain: "ethereum",
-    expiration: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7).toISOString(),
-    resourceAbilityRequests: resourceAbilities,
-    authNeededCallback,
-  })
-  .catch((err) => {
-    console.log("error while attempting to access session signatures: ", err);
-    throw err;
-  });
-
-const pkpWallet = new PKPEthersWallet({
-  pkpPubKey: PKP_PUBLIC_KEY,
-  rpc: POLYGON_MUMBAI_RPC_URL,
-  controllerSessionSigs: sessionSigs,
-});
-
-// a smart account signer you can use as an owner on ISmartContractAccount
-export const litSigner: SmartAccountSigner = new WalletClientSigner(
-  createWalletClient({ transport: custom(pkpWallet.rpcProvider) }), // JsonRpcProvider instance,
-  "lit" // signerType
-);
 ```
+
+:::note
+
+You may pass your own instance of `LitNodeClient` to `LitSigner` as `inner` if not an instance will be created.
+
+:::
+
 
 ### 4. Use SmartAccountSigner with LightAccount
 We can link the `SmartAccountSigner` to a `LightSmartContractAccount` from `aa-accounts`:
 
-
-`example.ts`
-
 ```js
 import { AlchemyProvider } from "@alchemy/aa-alchemy";
-import { LightSmartContractAccount } from "@alchemy/aa-accounts";
-import { litSigner } from "./lit";
+import {
+  LightSmartContractAccount,
+  getDefaultLightAccountFactoryAddress,
+} from "@alchemy/aa-accounts";
+import { polygonMumbai } from "viem/chains";
+import { createLitSigner } from "./lit";
+const chain = polygonMumbai;
 
-const chain = sepolia;
 const provider = new AlchemyProvider({
   apiKey: "ALCHEMY_API_KEY",
   chain,
-  entryPointAddress: "0x...",
 }).connect(
   (rpcClient) =>
     new LightSmartContractAccount({
-      entryPointAddress: "0x...",
-      chain: rpcClient.chain,
+      chain,
       owner: litSigner,
-      factoryAddress: "0x...",
+      factoryAddress: getDefaultLightAccountFactoryAddress(chain),
       rpcClient,
     })
 );
 ```
 
-`lit.ts`
+### 5. Authenticating with the Lit Signer
+Before the `AlchemyProvider` can use the `LitSigner` we must `authenticate`
+
+To provide authentication `context` [read about Lit's authentication methods](../../sdk/authentication/session-sigs/auth-methods/). 
+
 ```js
-import { WalletClientSigner, type SmartAccountSigner } from "@alchemy/aa-core";
-import { LitAbility, LitActionResource } from "@lit-protocol/auth-helpers";
-import { LitNodeClient } from "@lit-protocol/lit-node-client";
-import { PKPEthersWallet } from "@lit-protocol/pkp-ethers";
-import { AuthCallbackParams } from "@lit-protocol/types";
-import { createWalletClient, custom } from "viem";
-import { polygonMumbai } from "viem/chains";
-
-const API_KEY = "<YOUR API KEY>";
-const POLYGON_MUMBAI_RPC_URL = `${polygonMumbai.rpcUrls.alchemy.http[0]}/${API_KEY}`;
-const PKP_PUBLIC_KEY = "<YOUR PKP PUBLIC KEY>";
-
-const litNodeClient = new LitNodeClient({
-  litNetwork: "cayenne",
-  debug: false,
+litSigner.authenticate({
+  context: "<your auth method or session signatures>"
 });
-await litNodeClient.connect();
-
-const resourceAbilities = [
-  {
-    resource: new LitActionResource("*"),
-    ability: LitAbility.PKPSigning,
-  },
-];
-
-/**
- * For provisioning keys and setting up authentication methods see documentation below
- * https://developer.litprotocol.com/v2/pkp/minting
- */
-const authNeededCallback = async (params: AuthCallbackParams) => {
-  const response = await litNodeClient.signSessionKey({
-    sessionKey: params.sessionKeyPair,
-    statement: params.statement,
-    authMethods: [],
-    pkpPublicKey: PKP_PUBLIC_KEY,
-    expiration: params.expiration,
-    resources: params.resources,
-    chainId: 1,
-  });
-  return response.authSig;
-};
-
-const sessionSigs = await litNodeClient
-  .getSessionSigs({
-    chain: "ethereum",
-    expiration: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7).toISOString(),
-    resourceAbilityRequests: resourceAbilities,
-    authNeededCallback,
-  })
-  .catch((err) => {
-    console.log("error while attempting to access session signatures: ", err);
-    throw err;
-  });
-
-const pkpWallet = new PKPEthersWallet({
-  pkpPubKey: PKP_PUBLIC_KEY,
-  rpc: POLYGON_MUMBAI_RPC_URL,
-  controllerSessionSigs: sessionSigs,
-});
-
-// a smart account signer you can use as an owner on ISmartContractAccount
-export const litSigner: SmartAccountSigner = new WalletClientSigner(
-  createWalletClient({ transport: custom(pkpWallet.rpcProvider) }), // JsonRpcProvider instance,
-  "lit" // signerType
-);
 ```
 
 ## Next Steps
 
-Continue learning about [Lit's severless signing](../../sdk/serverless-signing/conditional-signing.md) capabilities. 
-
-Explore [Account Kit](https://accountkit.alchemy.com/).
+Explore [Lit Alchemy AA signer documentation](https://accountkit.alchemy.com/packages/aa-signers/lit-protocol/introduction.html).

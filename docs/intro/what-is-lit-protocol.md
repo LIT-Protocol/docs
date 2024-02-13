@@ -37,10 +37,10 @@ Get started on your developer journey by diving right into the code:
 
 ## Join the Community
 
-Join our developer community on [Discord](https://litgateway.com/discord) and [Telegram](https://t.me/+aa73FAF9Vp82ZjJh) to stay up to date on the latest developments, troubleshoot errors, get technical support, and engage with fellow builders. Have an idea for a project or currently building? Take a look at our [Ecosystem RFPs](https://github.com/LIT-Protocol/Ecosystem-Ideas) and [Grant program](https://github.com/LIT-Protocol/LitGrants).
+Join the Lit developer community on [Discord](https://litgateway.com/discord) and [Telegram](https://t.me/+aa73FAF9Vp82ZjJh) to stay up to date on the latest developments, troubleshoot errors, get technical support, and engage with fellow builders. Have an idea for a project or currently building? Take a look at Lit's [Ecosystem RFPs](https://github.com/LIT-Protocol/Ecosystem-Ideas) and [Grant program](https://github.com/LIT-Protocol/LitGrants).
 
-Check out our [blog](https://spark.litprotocol.com/) to read about new product announcements, integrations, ecosystem updates, and additional insights into the world of cryptography and web3.
+Check out the Lit [blog](https://spark.litprotocol.com/) to read about new product announcements, integrations, ecosystem updates, and additional insights into the world of cryptography and web3.
 
-Subscribe to our [community calendar](https://calendar.google.com/calendar/u/5?cid=Y19hMnVxZDNjaHVqZ2Q0a3FqbGlvcDdxY2JhMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t) to stay up to date on sponsored events, hackathons, office hours, and additional opportunities to meet the Lit team!
+Subscribe to Lit's [community calendar](https://calendar.google.com/calendar/u/5?cid=Y19hMnVxZDNjaHVqZ2Q0a3FqbGlvcDdxY2JhMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t) to stay up to date on sponsored events, hackathons, office hours, and additional opportunities to engage with the Lit development team.
 
-Follow us on [Twitter](https://twitter.com/LitProtocol).
+Follow Lit on [X](https://twitter.com/LitProtocol).

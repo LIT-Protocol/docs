@@ -14,7 +14,7 @@ The Lit network operates through a distributed federation of nodes, where each n
 ## Objectives
 At completion of this reading you should be able to:
 
-- Explain how the Lit network uses threshold cryptgraphy.
+- Explain how the Lit network uses threshold cryptography.
 
 ---
 

@@ -46,4 +46,4 @@ Generating signed proofs over arbitrary Web data: Using digital signatures to ve
 
 You can find even more examples, ideas, and resources [here](https://github.com/LIT-Protocol/awesome/blob/main/README.md).
 
-Have an idea for a project? [Get in touch](https://nut.sh/ell/forms/352580/YEk9vu)!
+Have an idea for a project? [Get in touch](https://forms.gle/jNsLvvwcySDprtAx7)!

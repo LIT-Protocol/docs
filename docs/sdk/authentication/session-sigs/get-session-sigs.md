@@ -6,6 +6,8 @@ sidebar_position: 2
 
 You can use any wallet or auth method to generate session signatures with the `getSessionSigs()` function from the Lit SDK. This function generates a session keypair and uses a callback function that signs the generated session key to create an `AuthSig` that is scoped to specific capabilities.
 
+**Note:** The nonce should be the latest Ethereum blockhash returned by the nodes during the handshake
+
 ```javascript
 import { LitNodeClient } from '@lit-protocol/lit-node-client';
 import { LitAccessControlConditionResource, LitAbility } from '@lit-protocol/auth-helpers';
@@ -19,6 +21,8 @@ const litNodeClient = new LitNodeClient({
   debug: true,
 });
 await litNodeClient.connect();
+
+let nonce = litNodeClient.getLatestBlockhash();
 
 /**
  * When the getSessionSigs function is called, it will generate a session key
@@ -37,6 +41,7 @@ const authNeededCallback = async ({ chain, resources, expiration, uri }) => {
     chainId: "1",
     expirationTime: expiration,
     resources,
+    nonce,
   });
   const toSign = message.prepareMessage();
   const signature = await wallet.signMessage(toSign);
@@ -61,12 +66,28 @@ const sessionSigs = await litNodeClient.getSessionSigs({
   resourceAbilityRequests: [
     {
       resource: litResource,
-      ability: LitAbility.AccessControlDescription
+      ability: LitAbility.AccessControlConditionDecryption
     }
   ],
   authNeededCallback,
 });
 ```
+
+:::note
+ If running the sdk in a Server enviorment session signatures may not be cached unless you provide an instance of `Storage` to the runtime.
+ [here](https://www.npmjs.com/package/node-localstorage) is an implementation of `LocalStorage` which creates local files to persist storage data.
+ If storage is not available, session keys *MUST* be persisted in an external data store. 
+ ```javascript
+ const LocalStorage = require('node-localstorage').LocalStorage;
+ const litNodeClient = new LitNodeClient({
+  litNetwork: "cayenne",
+  debug: true,
+  storageProvider: {
+    provider: new LocalStorage('./storage.test.db'),
+  }
+ });
+ ```
+:::
 
 The `getSessionSigs()` function will try to create a session key for you and store it in local storage. You can also generate the session key yourself using `generateSessionKeyPair()` function and store it however you like. You can then pass the generated session key to `getSessionSigs()` as the `sessionKey` param.
 

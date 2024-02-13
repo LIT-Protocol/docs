@@ -35,6 +35,8 @@ Several auth methods are supported by Lit directly. These include methods config
 
 Check out the implementation details within the SDK section [here](../../sdk/authentication/session-sigs/auth-methods/overview).
 
+**Note:** When using the `ACTION` Auth Method, it's necessary to convert the IPFS CID from base58 encoding to bytes-like before passing it to the Lit Protocol SDK. You can achieve this conversion using the `getBytesFromMultihash` function provided in the `utils` module of the `contracts-sdk`.
+
 ### Auth Method Scopes
 
 Auth methods support scoping, which permits what they can be used for within Lit. These scopes are passed in to the "scopes" array as numbers when adding an auth method, or minting a PKP with PKPHelper. An overview of minting with scopes is provided in this [section](../wallets/minting). The scopes are as follows:
@@ -42,7 +44,7 @@ Auth methods support scoping, which permits what they can be used for within Lit
 | Scope Name         | Scope Number | Description                                                                                                                                                                                                                                               |
 | ------------------ | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Sign Anything      | 1            | This scope allows signing any data                                                                                                                                                                                                                        |
-| Only Sign Messages | 2            | This scope only allows signing messages using the [EIP-191 scheme](https://eips.ethereum.org/EIPS/eip-191) which prefixes "Ethereum Signed Message" to the data to be signed. This prefix prevents creating signatures that can be used for transactions. |
+| Personal Sign | 2            | This scope only allows signing messages using the [EIP-191 scheme](https://eips.ethereum.org/EIPS/eip-191) which prefixes "Ethereum Signed Message" to the data to be signed. This prefix prevents creating signatures that can be used for transactions. |
 
 You can also set scopes: [] which will mean that the auth method can only be used for authentication, but not authorization. This means that the auth method can be used to prove that the user is who they say they are, but cannot be used to sign transactions or messages.
 
@@ -79,7 +81,7 @@ if (scopes[1] !== false) {
 }
 
 if (scopes[2] !== false) {
-  return fail('scope 2 (only sign messages) should be false');
+  return fail('scope 2 (personal sign) should be false');
 }
 ```
 2. Set the scopes:
@@ -129,8 +131,8 @@ After a PKP is generated and assigned an auth method, you can pass the AuthMetho
 
 The PKP public key is required to initialize a new 'wallet' object when using [Lit and WalletConnect](https://github.com/LIT-Protocol/pkp-walletconnect/blob/main/components/CallRequest.js#L44) together.
 
-You will also need the PKP public key in order to generate a [sessionSig](../../sdk/authentication/session-sigs/intro) which is required to communicate with the Lit nodes, as seen in this [example](https://github.com/LIT-Protocol/oauth-pkp-signup-example/blob/main/src/App.tsx#L422).
+You will also need the PKP public key in order to generate a [sessionSig](https://developer.litprotocol.com/v3/sdk/authentication/session-sigs/intro) which is required to communicate with the Lit nodes, as seen in this [example](https://github.com/LIT-Protocol/oauth-pkp-signup-example/blob/main/src/App.tsx#L422).
 
 ## Custom Auth / Adding new Auth Methods not yet supported by Lit
 
-More info on this is available [here](../../sdk/authentication/session-sigs/auth-methods/custom-auth)
+More info on this is available [here](https://developer.litprotocol.com/v3/sdk/authentication/session-sigs/auth-methods/custom-auth).

@@ -3,14 +3,14 @@ import TabItem from '@theme/TabItem';
 
 # Quick Start
 
-:::note
-💡 Lit Actions and PKPs are still heavily in development and things may change.
+:::info
+**STATE OF THE NETWORK**
 
-**API DOCUMENTATION** For the most up to date API documentation, check out the [Lit JS SDK V3 docs](https://lit-js-sdk-v3-api-docs.vercel.app/).
+The Lit Habanero Mainnet Beta is now live. Check out the [docs on migration](../../network/migration-guide) to learn how you can start building on Habanero today. 
 
 For references to the Lit Actions functions which can be accessed inside a Lit Action via the `Lit.Actions` object, check out the [Lit Actions](http://actions-docs.litprotocol.com/) API docs.
 
-Need some `testLIT` test tokens to mint a PKP? Get some from the [faucet](https://faucet.litprotocol.com/)!
+Need some `testLPX` test tokens to mint a PKP? Get some from the [faucet](https://faucet.litprotocol.com/)!
 
 :::
 
@@ -60,7 +60,7 @@ await contractClient.connect();
 
 ## Mint the PKP
 
-Now that we've the ContractsSDK initialized we're ready to mint the PKP using it. Since we want to allow out PKP to sign messages we have to add Auth Method scopes for `SigningAnything` & `OnlySignMessages` as below otherwise you'll get an error stating that the PKP isn't authorized to sign.
+Now that we've the ContractsSDK initialized we're ready to mint the PKP using it. Since we want to allow out PKP to sign messages we have to add Auth Method scopes for `SigningAnything` & `PersonalSign` as below otherwise you'll get an error stating that the PKP isn't authorized to sign.
 
 **Note:** You're gonna need an AuthSig for setting the `authMethod`. In the browser you can use `checkAndSignAuthMessage` or use [Hot wallet signing](https://developer.litprotocol.com/v3/support/faq/#1-cant-use-checkandsignauthmessage-in-a-backend-project) in the backend.
 
@@ -143,7 +143,7 @@ const mintInfo = await contractClient.mintWithAuth({
   scopes: [
     AuthMethodScope.NoPermissions,
     AuthMethodScope.SignAnything,
-    AuthMethodScope.OnlySignMessages,
+    AuthMethodScope.PersonalSign,
   ],
 });
 ```
@@ -162,7 +162,7 @@ await contractClient.pkpPermissionsContract.read.getPermittedAuthMethodScopes(
 );
 
 const signAnythingScope = scopes[1];
-const onlySignMessagesScope = scopes[2];
+const personalSignScope = scopes[2];
 ```
 
 ## Lit Action Signing with the PKP
@@ -229,8 +229,8 @@ You can provide either a `code` param or a `ipfsId` param for the Lit Actions co
 ## Conclusion and More Examples
 
 This page showed how you can mint a PKP and use it to sign messages with Lit Actions. To learn more, check out these resources:
-- [Generating signed transactions](https://developer.litprotocol.com/v3/sdk/serverless-signing/processing-validation/)
-- [Fetching off-chain data](https://developer.litprotocol.com/v3/sdk/serverless-signing/fetch/)
-- [Connecting PKPs to dApps](https://developer.litprotocol.com/v3/sdk/wallets/walletconnect/)
+- [Generating signed transactions](../serverless-signing/processing-validation.md)
+- [Fetching off-chain data](../serverless-signing/fetch.md)
+- [Connecting PKPs to dApps](../wallets/walletconnect.md)
 
-Reach out to us on [Discord](https://litgateway.com/discord) if you need help or have questions!
+Reach out to the Lit Protocol development team on [Discord](https://litgateway.com/discord) if you need help or have questions!

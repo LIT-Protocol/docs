@@ -1,13 +1,11 @@
 # Introduction
 
-:::note
-PKPs are still heavily in development and things may change. We're grateful for [feedback](https://forms.gle/4UJNRcQspZyvsTHt8) on how to improve the docs and examples!
+:::info
+**STATE OF THE NETWORK**
 
-Need some `testLIT` test tokens to mint a PKP on Chronicle? Use the faucet: https://faucet.litprotocol.com/
+The Lit Habanero Mainnet Beta is now live. Check out the [docs on migration](../../network/migration-guide) to learn how you can start building on Habanero today. 
 
-**PKP Developer Preview is Live!**
-Get a PKP on the [PKP Explorer](https://explorer.litprotocol.com/mint-pkp)
-
+Need some `testLPX` test tokens to mint a PKP on Chronicle? Use the faucet: https://faucet.litprotocol.com/
 :::
 
 ## Quick Start
@@ -15,7 +13,7 @@ Get a PKP on the [PKP Explorer](https://explorer.litprotocol.com/mint-pkp)
 Ready to jump right in? Quickly learn how you can integrate Programmable Key Pairs (PKPs) into your own product:
 
 1. Resource: [Minting a PKP using the Lit Explorer](https://explorer.litprotocol.com/mint-pkp)
-2. Resource: [Testnet Faucet](https://chronicle-faucet-app.vercel.app/)
+2. Resource: [Testnet Faucet](https://faucet.litprotocol.com/)
 3. Concept: [Assigning an Authentication Method](../wallets/auth-methods.md) (and associated [blog post](https://spark.litprotocol.com/how-authentication-works-with-pkps/))
 4. SDK Package: [Using PKPs as Wallets](../wallets/walletconnect.md) 
 

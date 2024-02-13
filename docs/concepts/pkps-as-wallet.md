@@ -4,10 +4,10 @@ sidebar_position: 3
 
 # User Wallets
 
-:::warning
+:::info
 **STATE OF THE NETWORK**
 
-Lit Programmable Key Pairs (PKPs) are still heavily in development and should NOT BE USED to store or transact live assets. DO NOT store assets you are not prepared to lose. During this period, we're grateful for feedback on how to improve the docs and examples.
+Storing and transacting live assets with Programmable Key Pairs (PKPs) IS now supported on the [Habanero Mainnet Beta](../network/networks/mainnet). Take a look at the docs on [migration](../network/migration-guide) to start building today!
 :::
 
 ## Overview

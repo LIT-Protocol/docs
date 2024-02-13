@@ -55,6 +55,10 @@ go();
 
 ```jsx
 const runLitAction = async () => {
+  const message = new Uint8Array(
+    await crypto.subtle.digest('SHA-256', new TextEncoder().encode('Hello world'))
+  );
+
   const litNodeClient = new LitJsSdk.LitNodeClient({
     alertWhenUnauthorized: false,
     litNetwork: "cayenne",
@@ -66,8 +70,7 @@ const runLitAction = async () => {
     authSig,
     // all jsParams can be used anywhere in your litActionCode
     jsParams: {
-      // this is the string "Hello World" for testing
-      toSign: [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100],
+      toSign: message,
       publicKey:
         "0x02e5896d70c1bc4b4844458748fe0f936c7919d7968341e391fb6d82c258192e64",
       sigName: "sig1",

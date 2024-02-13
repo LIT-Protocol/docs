@@ -4,18 +4,26 @@ sidebar_position: 2
 
 # Community Resources
 
-Join Our Developer Hub on [Discord](https://discord.gg/GnTtFukpHq).
+Welcome to Lit Protocol's Community Resources! Here you'll find everything you need to get involved and stay connected with our community.
 
-Check out this amazing list of example projects, code demos, educational content, and more awesome resources [here](https://github.com/LIT-Protocol/awesome/blob/main/README.md).
+## Join Our Developer Hub
+- **Discord:** [Join our Discord server](https://discord.gg/GnTtFukpHq) and engage with fellow developers, ask questions, and stay updated.
 
-Looking to build with us? [Contact Lit Protocol](https://forms.gle/n4WKtsyxaduEz8dDA).
+## Explore Examples and Educational Content
+- **GitHub Repository:** Discover a plethora of example projects, code demos, educational content, and more on our [Awesome Lit Repository](https://github.com/LIT-Protocol/awesome/blob/main/README.md).
 
-Lit [Ecosystem RFPs](https://github.com/LIT-Protocol/Ecosystem-Ideas/issues).
+## Get Involved
+- **Contact Us:** Interested in building with us or have inquiries? [Contact Lit Protocol](https://forms.gle/n4WKtsyxaduEz8dDA) directly.
 
-Lit [Request for Startups](https://spark.litprotocol.com/request-for-startups/).
+## Opportunities
+- **Ecosystem RFPs:** Explore and contribute to Lit Protocol's [Ecosystem RFPs](https://github.com/LIT-Protocol/Ecosystem-Ideas/issues) on GitHub.
+- **Request for Startups:** Have a startup idea? Submit it through our [Request for Startups form](https://spark.litprotocol.com/request-for-startups/).
 
-Subscribe to the Lit Community [Calendar](https://litgateway.com/calendar) to stay up to date on the latest developments.
+## Stay Updated
+- **Community Calendar:** Subscribe to the Lit Community [Calendar](https://litgateway.com/calendar) to stay informed about upcoming events, workshops, and releases.
 
-[Jobs at Lit](https://jobs.lever.co/litprotocol).
+## Join Us
+- **Jobs:** Explore opportunities to join our team at [Lit Protocol](https://jobs.lever.co/litprotocol).
 
+We look forward to having you be a part of our vibrant community!
 

@@ -130,6 +130,12 @@ async function main() {
   const origin = 'https://localhost/login';
   const statement =
     'This is a test statement.  You can put anything you want here.';
+    
+  // expiration time in ISO 8601 format.  This is 7 days in the future, calculated in milliseconds
+  const expirationTime = new Date(
+    Date.now() + 1000 * 60 * 60 * 24 * 7 * 10000
+  ).toISOString();
+  
   const siweMessage = new siwe.SiweMessage({
     domain,
     address: address,
@@ -138,6 +144,7 @@ async function main() {
     version: '1',
     chainId: 1,
     nonce,
+    expirationTime,
   });
   const messageToSign = siweMessage.prepareMessage();
   

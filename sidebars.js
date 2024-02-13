@@ -57,6 +57,7 @@ const sidebars = {
         "concepts/access-control-concept",
         "concepts/programmable-signing-concept",
         "concepts/pkps-as-wallet",
+        "concepts/capacity-credits-concept",
       ],
     },
     {
@@ -76,11 +77,12 @@ const sidebars = {
         },
         "network/feature-matrix",
         "network/rollup",
+        "network/migration-guide"
       ],
     },
     {
       type: "category",
-      label: "Migration to V3",
+      label: "Migrating to the SDK V3",
       collapsible: true,
       items: [
         "migration/overview",
@@ -95,6 +97,7 @@ const sidebars = {
       className: "category-not-collapsible",
       items: [
         "sdk/installation",
+        "sdk/capacity-credits",
         {
           type: "category",
           label: "Authentication",

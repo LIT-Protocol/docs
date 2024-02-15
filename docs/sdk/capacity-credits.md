@@ -23,7 +23,6 @@ const walletWithCapacityCredit = new Wallet("<your private key or mnemonic>");
 let contractClient = new LitContracts({
   signer: dAppOwnerWallet,
   network: 'manzano',
-  checkNodeAttestation: true
 });
 
 await contractClient.connect();

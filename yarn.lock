@@ -2242,34 +2242,43 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@lit-protocol/auth-helpers@3.0.32":
-  version "3.0.32"
-  resolved "https://registry.yarnpkg.com/@lit-protocol/auth-helpers/-/auth-helpers-3.0.32.tgz#1879796afee55e8c23950c9a10f2ca8bed5e1a89"
-  integrity sha512-QSnApvcDMkxSpRy6P46RSeCJcOJ05JC8WW++VeFkQbzRKcYU8lfkF39Xi6/I1h9sv2LFHrfbT7fY7ijPF7IjWA==
+"@lit-protocol/accs-schemas@0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@lit-protocol/accs-schemas/-/accs-schemas-0.0.3.tgz#fdcabd16b78df5b065e8ea581af7ba21eccf7182"
+  integrity sha512-hjdJzeHHRABnelu3dZVQFEJUVdtJ9bs7in6uknvWonhTgr4N2m4uMMmYSMGMLXFBpMC53F8V3iF47KxZllCHtQ==
+  dependencies:
+    ajv "^8.12.0"
+
+"@lit-protocol/auth-helpers@3.1.4":
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/@lit-protocol/auth-helpers/-/auth-helpers-3.1.4.tgz#8e263e76f433acb0a63cb1ca12f5b75728384b44"
+  integrity sha512-Bg9SSosfS6uSvot8ewFRcTQm8rpTdOtCYXSrmIUcd7tb810F4FDslptlour+Q0fByCjIqFdOwipeznk4EDDjmw==
   dependencies:
     siwe "^2.0.5"
     siwe-recap "0.0.2-alpha.0"
     tslib "^2.3.0"
 
-"@lit-protocol/constants@^3.0.32":
-  version "3.0.32"
-  resolved "https://registry.yarnpkg.com/@lit-protocol/constants/-/constants-3.0.32.tgz#c41bd2bc0b583bed747fcf518a9c712fde7174a3"
-  integrity sha512-hSna3+qRGuS9Hg6VrUnBUrLH+PZQINBQAEIwq2xQzWR234H1za1g9PNMibgjCfwcV2j9f6tiJgYoPAp4n0O21w==
+"@lit-protocol/constants@^3.1.4":
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/@lit-protocol/constants/-/constants-3.1.4.tgz#cf55dc677c3cd9abbe5ddeee10270d5df599ad77"
+  integrity sha512-3aXIuea9SB5UfRbVgn5CxFnDeQe9hnoYE8r0KMq71skKt7d4AavEmVm/kIzCR7dWibbnPLdlgqBVqrGRh3S9/g==
   dependencies:
-    "@lit-protocol/auth-helpers" "3.0.32"
-    "@lit-protocol/types" "3.0.32"
+    "@lit-protocol/accs-schemas" "0.0.3"
+    "@lit-protocol/auth-helpers" "3.1.4"
+    "@lit-protocol/types" "3.1.4"
     ethers "^5.7.1"
     jszip "^3.10.1"
     siwe "^2.0.5"
     siwe-recap "0.0.2-alpha.0"
     tslib "^2.3.0"
 
-"@lit-protocol/types@3.0.32":
-  version "3.0.32"
-  resolved "https://registry.yarnpkg.com/@lit-protocol/types/-/types-3.0.32.tgz#6c0971a21dff6cb1a72ad5e70ab40f9a6caa92b6"
-  integrity sha512-rizsbqNzA+g8uP/Tfc3GPf+3ZCinYY886iTQbSY2wY7pj70ws3rmM9g/d5CS1laQvAhNlV6ak8uO9P0MVrppmg==
+"@lit-protocol/types@3.1.4":
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/@lit-protocol/types/-/types-3.1.4.tgz#18f23a09e3aa172b1123357b43081987567a907c"
+  integrity sha512-R2V/3+DLLhrriweTc1n032PqB0TszYnNJs03sEuvIy2hkIoTunwUHdLKw5glaRRzTIZRimUBmJgo/ZLQa2pkiQ==
   dependencies:
-    "@lit-protocol/auth-helpers" "3.0.32"
+    "@lit-protocol/accs-schemas" "0.0.3"
+    "@lit-protocol/auth-helpers" "3.1.4"
     ethers "^5.7.1"
     jszip "^3.10.1"
     siwe "^2.0.5"
@@ -3132,7 +3141,7 @@ ajv@^6.12.2, ajv@^6.12.4, ajv@^6.12.5:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-ajv@^8.0.0, ajv@^8.9.0:
+ajv@^8.0.0, ajv@^8.12.0, ajv@^8.9.0:
   version "8.12.0"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.12.0.tgz#d1a0527323e22f53562c567c00991577dfbe19d1"
   integrity sha512-sRu1kpcO9yLtYxBKvqfTeh9KzZEwO3STyX1HT+4CaDzC6HpTGYhIhPIzj9XuKU7KYDwnaeh5hcOwjy1QuJzBPA==

@@ -118,9 +118,9 @@ Check out this PKP x WalletConnect example [here](https://github.com/LIT-Protoco
 
 Yes! Check out this [sample project.](https://github.com/dOrgJelli/lit-protocol-wasm-test/blob/d4b8873f9a5bceaf98e7f7a1bf325bf597cbfa40/src/App.js#L6-L51.)
 
-### 12. Why I'm getting following error message while making connection to Lit nodes "Error: Unable to verify the first certificate in nodejs"?
+### 12. I am getting the following error when connecting to the Lit nodes: "Error: Unable to verify the first certificate in nodejs". What may be causing this?
 
-If you're facing the `Error: unable to verify the first certificate` issue in Node.js while making connection to Lit nodes, then please ensure that you don't have unnecessary firewalls on your network preventing Lit calls to work properly. You can use VPNs or software like https://1.1.1.1/ to get access to more open and safer internet.
+If you're facing this error while using Node.js, please first verify that you don't have unnecessary firewalls on your network that are preventing you from connecting to the Lit network properly. If you're using a VPN or software solution such as https://1.1.1.1/ , you should not face any issues.
 
 <br />
 

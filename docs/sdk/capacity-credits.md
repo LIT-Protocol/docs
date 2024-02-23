@@ -87,6 +87,9 @@ Here we are delegating usage of `Capacity Credit` from a wallet which posseses t
 
 
 ```javascript
+
+  const DELEGATEE_WALLET = new ethers.Wallet(your_private_key_string, provider);
+
   const litNodeClient = new LitNodeClient({
       litNetwork: "manzano",
       checkNodeAttestation: true,
@@ -118,7 +121,7 @@ Here we are delegating usage of `Capacity Credit` from a wallet which posseses t
 
     let siweMessage = new siwe.SiweMessage({
       domain: 'localhost:3000', // change to your domain ex: example.app.com
-      address: dAppOwnerWallet_address,
+      address: DELEGATEE_WALLET.address,
       statement: 'Some custom statement.', // configure to what ever you would like
       uri,
       version: '1',
@@ -130,13 +133,13 @@ Here we are delegating usage of `Capacity Credit` from a wallet which posseses t
     siweMessage = recapObject.addToSiweMessage(siweMessage);
 
     const messageToSign = siweMessage.prepareMessage();
-    const signature = await dAppOwnerWallet.signMessage(messageToSign);
+    const signature = await DELEGATEE_WALLET.signMessage(messageToSign);
 
     const authSig = {
       sig: signature.replace('0x', ''),
       derivedVia: 'web3.eth.personal.sign',
       signedMessage: messageToSign,
-      address: dAppOwnerWallet_address,
+      address: DELEGATEE_WALLET.address,
     };
 
     return authSig;

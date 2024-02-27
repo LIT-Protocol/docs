@@ -136,3 +136,16 @@ var unifiedAccessControlConditions = [
   },
 ];
 ```
+
+## Supported Comparators for Return Value Test
+
+Below is a list of supported comparators that can be specified in the `returnValueTest.comparator` field within the `unifiedAccessControlConditions` parameter. These comparators are utilized for performing return value tests on Lit Action conditions.
+
+- `>` (Greater Than)
+- `<` (Less Than)
+- `>=` (Greater Than or Equal To)
+- `<=` (Less Than or Equal To)
+- `=` (Equal To)
+- `!=` (Not Equal To)
+- `contains` (Contains the specified value)
+- `!contains` (Does not contain the specified value)

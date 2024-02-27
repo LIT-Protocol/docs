@@ -6,14 +6,54 @@ To write to the blockchain, the `LitContracts` instance must be created with a `
 
 ## Initialize `PKPEthersWallet`
 
-`PKPEthersWallet` must be instantiated with an `AuthSig` or a `SessionSig` in order to authorize signing requests. To learn how to generate these signatures, refer to the [Authentication section](../../../../authentication/overview).
+`PKPEthersWallet` must be instantiated with an `AuthSig`, `AuthenticationProps` or a `SessionSig` (deprecated) in order to authorize signing requests. To learn how to generate these signatures, refer to the [Authentication section](../../../authentication/overview).
+
+Ideally you would want to pass `AuthenticationProps` as it will update `SessionSigs` for you based on current conditions while retaining the benefits of sessions.
+
+You can only pass one of the three. If you pass more than one, `PKPEthersWallet` will throw an exception when constructing or trying to use it.
 
 ```js
+import { LitNodeClient } from "@lit-protocol/lit-node-client";
+import { LitAbility, LitActionResource } from '@lit-protocol/auth-helpers';
 import { PKPEthersWallet } from "@lit-protocol/pkp-ethers";
 
+// If you haven't done before, create a LitNodeClient instance
+const litNodeClient = new LitNodeClient({
+  litNetwork: "cayenne",
+});
+await litNodeClient.connect();
+
+// Prepare needed params for authContext
+const resourceAbilities = [
+  {
+    resource: new LitActionResource("*"),
+    ability: LitAbility.PKPSigning,
+  },
+];
+
+const authNeededCallback = async (params: AuthCallbackParams) => {
+  const response = await litNodeClient.signSessionKey({
+    statement: params.statement,
+    authMethods: [authMethod],
+    expiration: params.expiration,
+    resources: params.resources,
+    chainId: 1,
+  });
+  return response.authSig;
+};
+
 const pkpWallet = new PKPEthersWallet({
-  controllerAuthSig: "<Your AuthSig>",
-  // Or you can also pass in controllerSessionSigs
+  authContext: {
+    client: litNodeClient,
+    getSessionSigsProps: {
+      chain: 'ethereum',
+      expiration: new Date(Date.now() + 60_000 * 60).toISOString(),
+      resourceAbilityRequests: resourceAbilities,
+      authNeededCallback,
+    },
+  },
+  // controllerAuthSig: authSig,
+  // controllerSessionSigs: sesionSigs, // (deprecated)
   pkpPubKey: "<Your PKP public key>",
   rpc: "https://chain-rpc.litprotocol.com/http",
 });
@@ -21,21 +61,6 @@ await pkpWallet.init();
 ```
 
 To view more constructor options for `PKPEthersWallet`, check out the [API docs](https://js-sdk.litprotocol.com/interfaces/types_src.PKPEthersWalletProp.html).
-
-:::note
-
-**Passing `SessionSigs`**
-
-When generating session signatures for `PKPEthersWallet`, be sure to request the ability to execute Lit Actions by passing the following object in the `resourceAbilityRequests` array:
-
-```js
-{
-  resource: new LitActionResource('*'),
-  ability: LitAbility.LitActionExecution,
-}
-```
-
-:::
 
 ## Initialize `LitContracts`
 
@@ -56,7 +81,7 @@ To view more constructor options for `LitContracts`, check out the [API docs](ht
 
 To add an auth method, you must pass an `authMethod` object, which should have the following properties:
 
-- `authMethodType`: A number representing the type of auth method you want to add. Refer to the supported auth methods table [here](../../../../wallets/auth-methods).
+- `authMethodType`: A number representing the type of auth method you want to add. Refer to the supported auth methods table [here](../../../wallets/auth-methods).
 - `id`: Bytes that represent a hash of a string that uniquely identifies the auth method
 - `userPubkey`: Public key of a WebAuthn credential (only required when using WebAuthn as an auth method)
 
@@ -96,6 +121,10 @@ The `addPermittedAuthMethod` function takes the following arguments:
 - `authMethod`: The auth method you want to add
 - `overrides`: An optional object that allows you to customize [certain parameters](https://docs.ethers.org/v5/api/contract/contract/#contract-functionsSend) of the transaction (e.g, `gasPrice`, `gasLimit`)
 
+**Note:** Here, we have specified a hardcoded `gasLimit` of `400000`. Users should note that this `gasLimit` is a number which is dependent on the authentication methods being added. For estimating the `gasLimit` specific to your use case, please visit [Estimating Gas](#estimating-gas) section.
+
+Alternatively, you can set a sufficiently high `gasLimit` fee based on your testing and requirements.
+
 ## Remove an Auth Method
 
 To remove an auth method, call the `removePermittedAuthMethod` function on the `PKPPermissions` contract.
@@ -113,9 +142,13 @@ const transaction =
 The `removePermittedAuthMethod` function takes the following arguments:
 
 - `tokenId`: The token ID of the PKP you want to remove an auth method from
-- `authMethodType`: A number representing the type of auth method you want to remove. Refer to the supported auth methods table [here](../../../../wallets/auth-methods#existing-supported-auth-methods).
+- `authMethodType`: A number representing the type of auth method you want to remove. Refer to the supported auth methods table [here](../../../wallets/auth-methods#existing-supported-auth-methods).
 - `id`: Bytes that represent a hash of a string that uniquely identifies the auth method you want to remove
 - `overrides`: An optional object that allows you to customize [certain parameters](https://docs.ethers.org/v5/api/contract/contract/#contract-functionsSend) of the transaction (e.g, `gasPrice`, `gasLimit`)
+
+**Note:** Here, we have specified a hardcoded `gasLimit` of `400000`. Users should note that this `gasLimit` is a number which is dependent on the authentication methods being added. For estimating the `gasLimit` specific to your use case, please visit [Estimating Gas](#estimating-gas) section.
+
+Alternatively, you can set a sufficiently high `gasLimit` fee based on your testing and requirements.
 
 ## Estimating Gas
 

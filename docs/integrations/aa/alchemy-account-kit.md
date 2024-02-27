@@ -138,7 +138,7 @@ Get some testLPX test tokens from Lit's [Chronicle network](../../network/rollup
 
 To obtain a PKP, [read more within the Lit docs](../../sdk/wallets/intro.md). 
 
-To define an Auth Method [read about Lit's authentication methods](../../sdk/authentication/session-sigs/auth-methods/).
+To define an Auth Method [read about Lit's authentication methods](../../sdk/authentication/session-sigs/auth-methods/overview).
 
 For Authentication
 
@@ -200,7 +200,7 @@ const provider = new AlchemyProvider({
 ### 5. Authenticating with the Lit Signer
 Before the `AlchemyProvider` can use the `LitSigner` we must `authenticate`
 
-To provide authentication `context` [read about Lit's authentication methods](../../sdk/authentication/session-sigs/auth-methods/). 
+To provide authentication `context` [read about Lit's authentication methods](../../sdk/authentication/session-sigs/auth-methods/overview). 
 
 ```js
 litSigner.authenticate({

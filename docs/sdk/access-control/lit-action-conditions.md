@@ -4,9 +4,9 @@ sidebar_position: 4
 
 # Lit Action Conditions
 
-You can create a Lit Action Condition to grant access whenever a given Lit Action returns true. Lit Actions are JS code that can be executed on the Lit Protocol network. You can use Lit Actions to create custom access control conditions.
+You can create a Lit Action Condition to grant access whenever a given Lit Action meets the conditions you set. Lit Actions are JS code that can be executed on the Lit Protocol network. You can use Lit Actions to create custom access control conditions.
 
-## An Example of Lit Action Conditions
+## Example: Lit Action Must Return True
 
 Suppose you wanted to make a Lit Action that returns true if the forecast temperature is below 40 degrees. You could use this to create a document that can only be decrypted when it's cold out.
 
@@ -48,3 +48,12 @@ var accessControlConditions = [
 ```
 
 You can see a full working example of this here: https://github.com/LIT-Protocol/js-serverless-function-test/blob/main/js-sdkTests/decrypt.js
+
+## Return Value Options
+
+Your JS function can return any string (not just true or false), and you can compare it against any string in your `returnValueTest`.  Note that only strings are supported here, so you should stick to the `comparator` options that make sense with strings.  These are below:
+
+* =
+* != 
+* contains
+* !contains

@@ -170,7 +170,7 @@ const pkps = await session.fetchPKPsThroughRelayer(authMethod)
 ```
 
 
-### 7. Generate the Controller Session Signatures
+### 7. Generate the Controller Session Signatures or its context to generate them on demand
 
 ```js
 const litNodeClient = new LitNodeClientNodeJs({
@@ -201,6 +201,7 @@ const authNeededCallback = async (params: AuthCallbackParams) => {
     return response.authSig;
 };
  
+// Not needed when passing authContext to PKPEthersWallet
 const sessionSigs = await litNodeClient.getSessionSigs({
     chain: "ethereum",
     expiration: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7).toISOString(),
@@ -213,15 +214,28 @@ const sessionSigs = await litNodeClient.getSessionSigs({
 });
 ```
 
+It is recommended to generate the `authContext` to create sessionSigs on demand. That way you won't have to worry about refreshing them when they expire or network conditions have changed.
+
+You can check more in the [Authentication section](../../sdk/authentication/overview)
+
 
 ### 8. Initialize the PKP Wallet
 We will now generate a wallet that can act a regular Ethers.js wallet, but will use the PKPs minted through Lit to sign transactions under the hood.
 
 ```js
 const pkpWallet = new PKPEthersWallet({
-    pkpPubKey: pkp[pkp.length - 1].publicKey,
-    rpc: "<standard RPC URL for the chain you are using>", // e.g. https://rpc.ankr.com/eth_goerli
-    controllerSessionSigs: sessionSigs
+  pkpPubKey: pkp[pkp.length - 1].publicKey,
+  rpc: "<standard RPC URL for the chain you are using>", // e.g. https://rpc.ankr.com/eth_goerli
+  authContext: {
+    client: litNodeClient,
+    getSessionSigsProps: {
+      chain: 'ethereum',
+      expiration: new Date(Date.now() + 60_000 * 60).toISOString(),
+      resourceAbilityRequests: resourceAbilities,
+      authNeededCallback,
+    },
+  },
+  // controllerSessionSigs: sesionSigs, // (deprecated) If you will be passing sessionSigs directly, do not pass authContext
 });
  
 await pkpWallet.init();

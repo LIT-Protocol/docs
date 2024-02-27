@@ -11,7 +11,7 @@ Developers can leverage the Lit Network to build decentralized applications with
 
 The Lit Network can be used to introduce private and permissioned data to the open web through [threshold encryption](../resources/how-it-works.md), addressing the “public-by-default” nature of blockchains and public storage networks like IPFS. 
 
-Encrypting your data with Lit is simple and a completely [client-side operation](../sdk/access-control/encryption.md). In order to decrypt, users have to meet the ([access control conditions](../sdk/access-control/evm/basic-examples)) you set. Some possible use cases for decentralized access control include:
+Encrypting your data with Lit is simple and a completely [client-side operation](../sdk/access-control/encryption.md). In order to decrypt, users have to meet the ([access control conditions](../sdk/access-control/evm/basic-examples.md)) you set. Some possible use cases for decentralized access control include:
 
 1. Encrypted wallet-based messaging: Secure wallet-to-wallet communication. [Examples](https://github.com/LIT-Protocol/awesome/blob/main/README.md).
 

@@ -13,17 +13,53 @@ To connect a PKP and a dApp, you will need to:
 `PKPClient` represents a PKP and initializes signers for use across multiple blockchains (note: EVM-only at the moment).
 
 ```js
+import { LitNodeClient } from "@lit-protocol/lit-node-client";
+import { LitAbility, LitActionResource } from '@lit-protocol/auth-helpers';
 import { PKPClient } from "@lit-protocol/pkp-client";
 
+// If you haven't done before, create a LitNodeClient instance
+const litNodeClient = new LitNodeClient({
+  litNetwork: "cayenne",
+});
+await litNodeClient.connect();
+
+// Prepare needed params for authContext
+const resourceAbilities = [
+  {
+    resource: new LitActionResource("*"),
+    ability: LitAbility.PKPSigning,
+  },
+];
+
+const authNeededCallback = async (params: AuthCallbackParams) => {
+  const response = await litNodeClient.signSessionKey({
+    statement: params.statement,
+    authMethods: [authMethod],
+    expiration: params.expiration,
+    resources: params.resources,
+    chainId: 1,
+  });
+  return response.authSig;
+};
+
 const pkpClient = new PKPClient({
-  controllerAuthSig: "<Your AuthSig>",
-  // Or you can also pass in controllerSessionSigs
+  authContext: {
+    client: litNodeClient,
+    getSessionSigsProps: {
+      chain: 'ethereum',
+      expiration: new Date(Date.now() + 60_000 * 60).toISOString(),
+      resourceAbilityRequests: resourceAbilities,
+      authNeededCallback,
+    },
+  },
+  // controllerAuthSig: authSig,
+  // controllerSessionSigs: sesionSigs, // (deprecated)
   pkpPubKey: "<Your PKP public key>",
 });
 await pkpClient.connect();
 ```
 
-The `controllerAuthSig` (or `controllerSessionSigs`) is used to authorize requests to the Lit nodes. To learn how to leverage different authentication methods, refer to the [Authentication section](../../authentication/overview).
+The `getSessionSigsProps`, `controllerAuthSig` or `controllerSessionSigs` (this last one deprecated) are used to authorize requests to the Lit nodes. To learn how to leverage different authentication methods, refer to the [Authentication section](../authentication/overview).
 
 To view more constructor options, refer to the [API docs](https://js-sdk.litprotocol.com/interfaces/types_src.PKPClientProp.html).
 

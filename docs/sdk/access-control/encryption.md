@@ -73,11 +73,11 @@ Steps to Encrypt
 
 1. Obtain an `authSig` and create an access control condition.
 2. Encrypt the static content (string, file, zip, etc...) using `LitJsSdk.encryptString` to get the `ciphertext` and `dataToEncryptHash`.
-3. Finally, store the `ciphertext`, `dataToEncryptHash` and other metadata: `accessControlConditions` (or other conditions eg: `evmContractConditions`) and `chain`. You'll need to pass in these
+3. Finally, store the `ciphertext`, `dataToEncryptHash` and other metadata: `accessControlConditions` (or other conditions eg: `evmContractConditions`) and `chain`.
 
-#### Access Control & AuthSig
+#### Setting Access Control Conditions
 
-In this example, we will set the accessControlConditions on if a wallet has at least 0.000001 ETH:
+In this example, our access control condition will check if a wallet has at least 0.000001 ETH:
 
 ```js
 const accessControlConditions = [
@@ -95,7 +95,7 @@ const accessControlConditions = [
 ];
 ```
 
-#### AuthSig
+#### Passing an AuthSig
 
 First, obtain an authSig. This will ask MetaMask to sign a message proving the holder owns the crypto address. The chain we are using in this example is `ethereum`, you can check out additional supported chains [here](../../resources/supported-chains.md).
 

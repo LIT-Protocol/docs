@@ -2242,43 +2242,43 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@lit-protocol/accs-schemas@0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@lit-protocol/accs-schemas/-/accs-schemas-0.0.3.tgz#fdcabd16b78df5b065e8ea581af7ba21eccf7182"
-  integrity sha512-hjdJzeHHRABnelu3dZVQFEJUVdtJ9bs7in6uknvWonhTgr4N2m4uMMmYSMGMLXFBpMC53F8V3iF47KxZllCHtQ==
+"@lit-protocol/accs-schemas@0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@lit-protocol/accs-schemas/-/accs-schemas-0.0.6.tgz#a2dd4677bdfe33fd1a45b8f6919d1eff92633012"
+  integrity sha512-/NIZkAN+kgAarWefBX1a4DiNerUtv8JOdQmqUo45cnlDp89X9HkiK+8gm9z2p9gojtvxMqqId7wW8J8NHXVRDg==
   dependencies:
     ajv "^8.12.0"
 
-"@lit-protocol/auth-helpers@3.1.4":
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/@lit-protocol/auth-helpers/-/auth-helpers-3.1.4.tgz#8e263e76f433acb0a63cb1ca12f5b75728384b44"
-  integrity sha512-Bg9SSosfS6uSvot8ewFRcTQm8rpTdOtCYXSrmIUcd7tb810F4FDslptlour+Q0fByCjIqFdOwipeznk4EDDjmw==
+"@lit-protocol/auth-helpers@3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@lit-protocol/auth-helpers/-/auth-helpers-3.2.1.tgz#7f4c47a608221316ccd6e65bd634e03dbc02f859"
+  integrity sha512-nkuEifffHbfgQ3M9dSnSyP+sE+JN2vNrz6cLvpPO/gmDldL4c5KebPHUNeEa+LSxuaXLo5G46RsM7pBcStUrpw==
   dependencies:
     siwe "^2.0.5"
     siwe-recap "0.0.2-alpha.0"
     tslib "^2.3.0"
 
-"@lit-protocol/constants@^3.1.4":
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/@lit-protocol/constants/-/constants-3.1.4.tgz#cf55dc677c3cd9abbe5ddeee10270d5df599ad77"
-  integrity sha512-3aXIuea9SB5UfRbVgn5CxFnDeQe9hnoYE8r0KMq71skKt7d4AavEmVm/kIzCR7dWibbnPLdlgqBVqrGRh3S9/g==
+"@lit-protocol/constants@^3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@lit-protocol/constants/-/constants-3.2.1.tgz#c78bd37bfd6acc568cf18b97aac7685a926aaa74"
+  integrity sha512-gYXLpSBsFHZsS8OTjdKdZYjuWbOemgO/ujKX479TBl7nPvit41Xi+EeyAqTaE27qDepZ7Fi2jBGrlovI9alROw==
   dependencies:
-    "@lit-protocol/accs-schemas" "0.0.3"
-    "@lit-protocol/auth-helpers" "3.1.4"
-    "@lit-protocol/types" "3.1.4"
+    "@lit-protocol/accs-schemas" "0.0.6"
+    "@lit-protocol/auth-helpers" "3.2.1"
+    "@lit-protocol/types" "3.2.1"
     ethers "^5.7.1"
     jszip "^3.10.1"
     siwe "^2.0.5"
     siwe-recap "0.0.2-alpha.0"
     tslib "^2.3.0"
 
-"@lit-protocol/types@3.1.4":
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/@lit-protocol/types/-/types-3.1.4.tgz#18f23a09e3aa172b1123357b43081987567a907c"
-  integrity sha512-R2V/3+DLLhrriweTc1n032PqB0TszYnNJs03sEuvIy2hkIoTunwUHdLKw5glaRRzTIZRimUBmJgo/ZLQa2pkiQ==
+"@lit-protocol/types@3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@lit-protocol/types/-/types-3.2.1.tgz#b0e63988663a98d06a6fcbdb9b0694e7b10ada98"
+  integrity sha512-fnPtXTfvXqU2dvyaT4wnBb31V3B3EaZQfueKbHziloif8N2nX8ApJd0X/v2fae5yzuXcPaCfC9oyIUsQIJIQ+g==
   dependencies:
-    "@lit-protocol/accs-schemas" "0.0.3"
-    "@lit-protocol/auth-helpers" "3.1.4"
+    "@lit-protocol/accs-schemas" "0.0.6"
+    "@lit-protocol/auth-helpers" "3.2.1"
     ethers "^5.7.1"
     jszip "^3.10.1"
     siwe "^2.0.5"

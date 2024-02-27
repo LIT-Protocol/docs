@@ -234,6 +234,18 @@ const sidebars = {
             "sdk/serverless-signing/eip191",
           ],
         },
+        {
+          type: "category",
+          label: "Migrations",
+          link: {
+            type: "doc",
+            id: "sdk/serverless-signing/overview",
+          },
+          collapsible: true,
+          items: [
+            "sdk/migrations/3.2.0",
+          ],
+        },
         "sdk/tests",
       ],
     },

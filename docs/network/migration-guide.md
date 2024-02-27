@@ -31,15 +31,16 @@ You can use the same v3 SDK for both Cayenne and Habanero, but note that you wil
 
 ### For PKP Signing / Lit Actions use cases
 
-Since Habanero has new root keys, you will need to re-mint any PKPs on Habanero.  To do this, you can loop over all your old users and simply mint a new PKP on Habanero with the exact same auth methods.  At this point, your users could use both the old network PKP and the new network PKP with the same auth methods.  
+Since Habanero has new root keys, you will need to re-mint any PKPs on Habanero as old PKPs cannot be directly migrated from the old networks.  To do this, you can loop over all your old users and simply mint a new PKP on Habanero with the exact same auth methods.  
 
-However, the ETH address of each PKP will be different. Your users may have things tied to the old PKP ETH address, like assets stored there, or AA wallets that see that PKP as authorized signer. So the next step is to migrate these items.  
+> **Note:** To facilitate this process, we have an example script that automates the re-minting of PKPs on Habanero. This script allows you to seamlessly generate new PKPs for all your users, ensuring the same authentication methods are preserved. You can access the script [here](https://github.com/LIT-Protocol/PKP-Migrate).
+
+At this point, your users could use both the old network PKPs and the new network PKPs with the same auth methods. However, the ETH address of each PKP will be different. Your users may have things tied to the old PKP ETH address, like assets stored there, or AA wallets that see that PKP as authorized signer. So the next step is to migrate these items.  
 
 In the case of assets, like ETH or Tokens or NFTs, you must have the user send these to their new PKP wallet address. Once they have sent their assets, the migration is complete.
 
 In the case of AA wallets, you would change the authorized signer from the old PKP wallet address to the new PKP wallet address. Once you’ve done this, the migration is complete.
 
-We have an example script here that will perform the re-minting for you: https://github.com/LIT-Protocol/PKP-Migrate
 
 ## Performing re-encryption
 

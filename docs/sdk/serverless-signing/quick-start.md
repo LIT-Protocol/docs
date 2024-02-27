@@ -24,7 +24,7 @@ The following section provides an end-to-end example of minting a PKP (using the
 
 ## What are Lit Actions
 
-Lit Actions are JavaScript programs used to define signing conditions for [PKPs](../../wallets/intro). In other words, they are the immutable "rules" that dictate what or who has permission to sign using a particular PKP.
+Lit Actions are JavaScript programs used to define signing conditions for [PKPs](../wallets/intro). In other words, they are the immutable "rules" that dictate what or who has permission to sign using a particular PKP.
 
 To create a Lit Action write some JavaScript code that will accomplish your goals. The Lit Protocol provides JS function bindings to do things like request a signature or check an arbitrary condition. If you need to include dependencies like NPM packages, use a bundler like Webpack or ESBuild to create a single JS file and provide that bundle as your Lit Action.
 

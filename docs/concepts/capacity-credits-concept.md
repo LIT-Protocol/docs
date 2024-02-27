@@ -14,15 +14,6 @@ See [here](../network/networks/mainnet) for a list of mainnet networks.
 
 In order to use Lit, you must reserve capacity on the network. This can be done using capacity credits, which allow holders to reserve a configurable number of requests (measured in requests per day) over a fixed length of time (i.e. one week).
 
-# **Processing Requests**
-
-In order to send transactions on Lit, you must first authenticate with the [Lit nodes](../sdk/authentication/overview). This can be done using one of two ways:
-
-1. [Session signatures](https://developer.litprotocol.com/v3/sdk/authentication/session-sigs/intro): signatures scoped to specific capabilities or resources, designed to be ephemeral and limited in scope. (RECOMMENDED)
-2. [Auth sigs](https://developer.litprotocol.com/v3/sdk/authentication/auth-sig): a signature obtained from a user proving they own a particular key (NOT RECOMMENDED)
-
-Every time you authenticate with Lit, the request context (i.e. wallet address, owned capacity credits, etc) is extracted and validated against the Rate Limiting Module to ensure capacity has not been breached.
-
 # **Capacity Credits**
 
 In order to send transactions on Lit, you must first authenticate with the [Lit nodes](../sdk/authentication/overview). This can be done using one of two ways:

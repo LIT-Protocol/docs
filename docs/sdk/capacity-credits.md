@@ -20,7 +20,7 @@ In order to increase your rate limit, you'll need to mint a `Capacity Credits NF
 
 A `Capacity Credits NFT` can be very easily minted from the Lit Explorer. So, here we will show how you can mint it using `contracts-sdk`. You can download the `contracts-sdk` from `npm` [here](https://www.npmjs.com/package/@lit-protocol/contracts-sdk).
 
-You’ll also need some 'testLPX' tokens for minting. These are test tokens that hold no real value and should only be used to pay for usage on Habanero. `testLPX` should only be claimed from the verified faucet, linked [here](https://faucet.litprotocol.com/).
+You’ll also need some 'testLIT' tokens for minting. These are test tokens that hold no real value and should only be used to pay for usage on Habanero. `testLIT` should only be claimed from the verified faucet, linked [here](https://faucet.litprotocol.com/).
 
 ```javascript
 const walletWithCapacityCredit = new Wallet("<your private key or mnemonic>");

@@ -5,7 +5,7 @@
 
 [Habanero Mainnet](../../network/networks/mainnet) and [Manzano Testnet](../../network/networks/testnet) are now live. Check out the [docs on migration](../../network/migration-guide) to learn how you can start building on Habanero and Manzano today. 
 
-Need some `testLPX` test tokens to mint a PKP on Chronicle? Use the faucet: https://faucet.litprotocol.com/
+Need some `testLIT` test tokens to mint a PKP on Chronicle? Use the faucet: https://faucet.litprotocol.com/
 :::
 
 ## Quick Start

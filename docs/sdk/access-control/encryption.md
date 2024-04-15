@@ -20,7 +20,7 @@ Here is a high-level, step-by-step breakdown of encryption and decryption:
 
 ### Encryption
 
-1. Alice chooses some access control condition and private data and constructs the identity parameter
+1. Alice chooses an access control condition, some private data and then constructs the identity parameter
 2. Alice encrypts the private data using the BLS network public key and the identity parameter to get a ciphertext
 3. Alice stores the encryption metadata - set of access control conditions, hash of the private data etc. - and the ciphertext wherever she wants
 
@@ -69,15 +69,24 @@ export default new Lit()
 
 Get more info on functions in the [API docs](https://js-sdk.litprotocol.com/index.html).
 
-Steps to Encrypt
+Encrypting data requires the following steps:
 
-1. Obtain an `authSig` and create an access control condition.
-2. Encrypt the static content (string, file, zip, etc...) using `LitJsSdk.encryptString` to get the `ciphertext` and `dataToEncryptHash`.
-3. Finally, store the `ciphertext`, `dataToEncryptHash` and other metadata: `accessControlConditions` (or other conditions eg: `evmContractConditions`) and `chain`.
+1. Obtain an [`authSig`](../../resources/glossary.md#auth-sig).
+2. Create access control conditions.
+3. Encrypt the static content (string, file, zip, etc...) using `LitJsSdk.encryptString` to get the `ciphertext` and `dataToEncryptHash`.
+4. Finally, store the `ciphertext`, `dataToEncryptHash` and other metadata: `accessControlConditions` (or other conditions eg: `evmContractConditions`) and `chain`.
 
-#### Setting Access Control Conditions
+#### Obtaining an AuthSig
 
-In this example, our access control condition will check if a wallet has at least 0.000001 ETH:
+The following code will prompt the user to sign a message, proving they own the corresponding crypto address. The chain we are using in this example is `ethereum`, you can check out additional supported chains [here](../../resources/supported-chains.md).
+
+```js
+const authSig = await LitJsSdk.checkAndSignAuthMessage({ chain: "ethereum" });
+```
+
+#### Create Access Control Conditions
+
+In this example, our access control conditions will check if a wallet (`:userAddress`) has at least `0.000001 ETH` on `ethereum` at the `latest` block:
 
 ```js
 const accessControlConditions = [
@@ -95,21 +104,27 @@ const accessControlConditions = [
 ];
 ```
 
-#### Passing an AuthSig
-
-First, obtain an authSig. This will ask MetaMask to sign a message proving the holder owns the crypto address. The chain we are using in this example is `ethereum`, you can check out additional supported chains [here](../../resources/supported-chains.md).
-
-```js
-const authSig = await LitJsSdk.checkAndSignAuthMessage({ chain: "ethereum" });
-```
-
 #### Encrypting Content
 
-- If you are encrypting a string, use `encryptString()`. You could also use `zipAndEncryptString()` if you wanted to zip the string before encrypting it (saves space, but takes time to zip)
-- If you are encrypting a large file (more than 20mb) then you should use `encryptFile()` because it is fast (a 1gb file only takes 2 seconds to encrypt).
-- If you are encrypting a small file (less than 20mb) then you can use `encryptFileAndZipWithMetadata()` which will zip the file, and include all metadata in the zip, so you don't have to store anything else. If you want to store the metadata yourself, manually, you can use `zipAndEncryptFiles()` instead.
+To encrypt a string, use one of the following functions:
 
-In the example, we are using `encryptString()`. All encryption methods will output the ciphertext and a hash of the plaintext data, which are used during decryption.
+- [`encryptString()`](https://v3.api-docs.getlit.dev/functions/encryption_src.encryptString.html) - Used to encrypt the raw string.
+- [`zipAndEncryptString()`](https://v3.api-docs.getlit.dev/functions/encryption_src.zipAndEncryptString.html) - Compresses the string (using [JSZip](https://www.npmjs.com/package/jszip)) before encrypting it.
+  -  Useful for saving space, but takes additional time to perform the zip.
+
+To encrypt a file, use:
+
+- [`encryptFile()`](https://v3.api-docs.getlit.dev/functions/encryption_src.encryptFile.html) - Used to encrypt a file without doing any zipping or packing.
+  - Because zipping larger files takes time, this function is useful when encrypting large files ( > 20mb).
+  - Requires you to store the file metadata.
+- [`encryptFileAndZipWithMetadata()`](https://v3.api-docs.getlit.dev/functions/encryption_src.encryptFileAndZipWithMetadata.html) - Used to encrypt a file and then zip it up with the metadata (using [JSZip](https://www.npmjs.com/package/jszip)).
+  - Useful when you don't want to store the file metadata separately.
+- [`zipAndEncryptFiles()`](https://v3.api-docs.getlit.dev/functions/encryption_src.zipAndEncryptFiles.html) - Used to zip and encrypt multiple files.
+  - Does **not** include the file metadatas in the zip, so you must store those yourself.
+
+In this example, we are using `encryptString()`:
+
+**Note**: All encryption functions will output the `ciphertext` and a hash of the plaintext data (`dataToEncryptHash`) as base64 encoded strings, both of which are used during decryption.
 
 ```js
 const { ciphertext, dataToEncryptHash } = await LitJsSdk.encryptString(
@@ -123,34 +138,48 @@ const { ciphertext, dataToEncryptHash } = await LitJsSdk.encryptString(
 );
 ```
 
-**Note**: Both `ciphertext` and `dataToEncryptHash` will be base64 encoded strings.
-
 #### Putting it all together
 
-The encryption function should look like:
+The full code, including an encryption function, should look like:
 
-```js
-async encrypt(message: string) {
-  if (!this.litNodeClient) {
-    await this.connect()
+```ts
+const client = new LitJsSdk.LitNodeClient({
+  litNetwork: "cayenne",
+});
+const chain = "ethereum";
+
+class Lit {
+  private litNodeClient;
+
+  async connect() {
+    await client.connect();
+    this.litNodeClient = client;
   }
 
-  const authSig = await LitJsSdk.checkAndSignAuthMessage({ chain })
-  const { ciphertext, dataToEncryptHash } = await LitJsSdk.encryptString(
-    {
-      accessControlConditions,
-      authSig,
-      chain: 'ethereum',
-      dataToEncrypt: 'this is a secret message',
-    },
-    litNodeClient,
-  );
+  async encrypt(message: string) {
+    if (!this.litNodeClient) {
+      await this.connect();
+    }
 
-  return {
-    ciphertext,
-    dataToEncryptHash,
-  };
+    const authSig = await LitJsSdk.checkAndSignAuthMessage({ chain });
+    const { ciphertext, dataToEncryptHash } = await LitJsSdk.encryptString(
+      {
+        accessControlConditions,
+        authSig,
+        chain: "ethereum",
+        dataToEncrypt: "this is a secret message",
+      },
+      litNodeClient
+    );
+
+    return {
+      ciphertext,
+      dataToEncryptHash,
+    };
+  }
 }
+
+export default new Lit();
 ```
 
 ### Decrypting

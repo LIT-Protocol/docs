@@ -26,6 +26,15 @@ yarn add @lit-protocol/lit-node-client
 
 ```
 
+OR
+
+```jsx
+npm i @lit-protocol/lit-node-client
+```
+:::note
+If you are using `NodeJS` you should install `@lit-protocol/lit-node-client-nodejs`
+:::
+
 Use the **Lit JS SDK V4**:
 
 ```jsx
@@ -196,6 +205,8 @@ To encrypt a file, use:
 - [encryptFileAndZipWithMetadata()](https://v3.api-docs.getlit.dev/functions/encryption_src.encryptFileAndZipWithMetadata.html) - Used to encrypt a file and then zip it up with the metadata (using [JSZip](https://www.npmjs.com/package/jszip)). This is useful for when you don't want to store the file metadata separately.
 - [zipAndEncryptFiles()](https://v3.api-docs.getlit.dev/functions/encryption_src.zipAndEncryptFiles.html) - Used to zip and encrypt multiple files. This does **not** include the file metadatas in the zip, so you must store those yourself.
 
+Encryption can be performed entirely client-side and doesn't require making a request to the Lit nodes.
+
 In this example, we are using `encryptString()`:
 
 :::note
@@ -336,6 +347,76 @@ const siwe = require('siwe');
 
 main();
 ```
+
+## Mint Capacity Credits and Delegate Usage
+
+In order to execute a transaction with Lit, you’ll need to reserve capacity on the network using Capacity Credits. These allow holders to reserve a set number of requests (requests per second) over a desired period of time (i.e. one week). You can mint a Capacity Credit NFT using the `contracts-sdk` in a couple of easy steps. 
+
+The first step is to initialize a signer. This should be a wallet controlled by your application and the same wallet you’ll use to mint the Capacity Credit NFT:
+
+```jsx
+const walletWithCapacityCredit = new Wallet("<your private key or mnemonic>");
+let contractClient = new LitContracts({
+  signer: dAppOwnerWallet,
+  network: 'habanero',
+});
+
+await contractClient.connect();
+```
+
+After you’ve set your wallet, your next step is to mint the NFT:
+
+```jsx
+
+// this identifier will be used in delegation requests. 
+const { capacityTokenIdStr } = await contractClient.mintCapacityCreditsNFT({
+  requestsPerKilosecond: 80,
+  // requestsPerDay: 14400,
+  // requestsPerSecond: 10,
+  daysUntilUTCMidnightExpiration: 2,
+});
+```
+
+In the above example, we are configuring 2 properties:
+
+- `requestsPerDay` - How many requests can be sent in a 24 hour period.
+- `daysUntilUTCMidnightExpiration` - The number of days until the nft will expire. expiration will occur at `UTC Midnight` of the day specified.
+
+Once you mint your NFT you will be able to send X many requests per day where X is the number specified in `requestsPerDay`. Once the `Capacity Credit` is minted the `tokenId` can be used in delegation requests.
+
+### Delegate usage of your NFT
+
+Once you have minted a Capacity Credits NFT, you can delegate usage of it to the PKP we minted earlier. This will allow the delegatee address(es) to use it to make requests to the Lit nodes (in this case, to make a decryption request).
+
+```jsx
+const { capacityDelegationAuthSig } =
+  await litNodeClient.createCapacityDelegationAuthSig({
+    uses: '1',
+    signer: wallet,
+    capacityTokenId: capacityTokenIdStr,
+    delegateeAddresses: [walletAddress],
+  });
+```
+
+To delegate your Rate Limit NFT there are 4 properties to configure:
+
+- `uses` - How many times the delegation may be used
+- `dAppOwnerWallet` - The owner of the wallet as an `ethers Wallet instance`
+- `capacityTokenId` - The `token identifier` of the Rate Limit NFT
+- `delegateeAddresses` - The wallet addresses which will be delegated to
+
+:::note
+The `delegateeAddress` parameter is optional. If omitted, anyone can use your `capacityDelegationAuthSig` to use your app without restrictions. In this case, you can utilize other restrictions like the `uses` param to limit the amount of usage by your users.
+:::
+
+Check out a complete example [here](https://github.com/LIT-Protocol/js-sdk/blob/1286138adc09ac2d34371f3ac12a9088ada367ec/e2e-nodejs/group-rli/test-rli-from-lit-node-client-diff-delegatee.mjs).
+
+### Using a delegated `AuthSig`  from a backend
+
+If using a `mainnet` in order to keep the wallet which holds the `Capacity Credit NFT` secure it is recommended to call `createCapacityDelegationAuthSig` from `LitNodeClient` in a backend context. There are a few recommended web servers you can use in order to host an api endpoint which can return the `capacityDelegationAuthSig` . Some links are provided below to help get started:
+
+- [ExpressJS](https://www.npmjs.com/package/express)
+- [Node HTTP server](https://nodejs.org/api/http.html#http)
 
 ### Decryption
 

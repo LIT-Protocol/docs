@@ -53,7 +53,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Installation',
+      label: 'Installing the Lit SDK',
       link: {
         type: 'doc',
         id: 'sdk/installation',

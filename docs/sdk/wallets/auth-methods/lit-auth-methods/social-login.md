@@ -118,6 +118,8 @@ If you are using Lit Relay Server, you will need to request an API key [here](ht
 At the `redirectUri` specified when initializing the providers, call `handleSignInRedirect`. You can also use `isSignInRedirect` method to check if the app is in the redirect state or not.
 
 ```javascript
+import { isSignInRedirect } from '@lit-protocol/lit-auth-client';
+
 async function handleRedirect() {
   // Check if app has been redirected from Lit login server
   if (isSignInRedirect(redirectUri)) {

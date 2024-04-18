@@ -1,4 +1,4 @@
-# Introduction
+# Introduction to User Wallets
 
 :::info
 **STATE OF THE NETWORK**
@@ -7,15 +7,6 @@
 
 Need some `testLIT` test tokens to mint a PKP on Chronicle? Use the faucet: https://faucet.litprotocol.com/
 :::
-
-## Quick Start
-
-Ready to jump right in? Quickly learn how you can integrate Programmable Key Pairs (PKPs) into your own product:
-
-1. Resource: [Minting a PKP using the Lit Explorer](https://explorer.litprotocol.com/mint-pkp)
-2. Resource: [Testnet Faucet](https://faucet.litprotocol.com/)
-3. Concept: [Assigning an Authentication Method](../wallets/auth-methods.md) (and associated [blog post](https://spark.litprotocol.com/how-authentication-works-with-pkps/))
-4. SDK Package: [Using PKPs as Wallets](../wallets/walletconnect.md) 
 
 ## Overview
 
@@ -30,6 +21,16 @@ Each Programmable Key Pair (PKP) is a versatile MPC wallet that can be used to [
 3. Atomicity: Using [Mint/Grant/Burn](../serverless-signing/overview), you can atomically link a PKP to an authorized set of Lit Actions. This method guarantees that a particular PKP can only ever be used to sign data from within the approved set, and nothing else. 
 4. Fault-tolerant: Each PKP is generated collectively by the Lit nodes through a process called [Distributed Key Generation](https://en.wikipedia.org/wiki/Distributed_key_generation) (DKG). As a network, this allows Lit to generate a new wallet where the private key never exists in its entirety. 
 5. Interoperable: Use a provider like [WalletConnect](../wallets/walletconnect.md) to connect PKPs to your favorite dApps, just like any other EOA wallet.
+
+## Resources
+
+Learn how you can integrate Programmable Key Pairs (PKPs) into your own product:
+
+1. [Quick Start Guide](../wallets/quick-start.md)
+2. [Minting a PKP using the Lit Explorer](https://explorer.litprotocol.com/mint-pkp)
+3. [Testnet Faucet](https://faucet.litprotocol.com/)
+4. [Assigning an Authentication Method](../wallets/auth-methods.md) (and associated [blog post](https://spark.litprotocol.com/how-authentication-works-with-pkps/))
+5. [Using PKPs as Wallets](../wallets/walletconnect.md) 
 
 ## Examples and Use Cases
 

@@ -2,21 +2,11 @@
 sidebar_position: 1
 ---
 
-# Intro
+# Introduction to Encryption/Decryption
 
 :::info
 [Habanero Mainnet](../../network/networks/mainnet) and [Manzano Testnet](../../network/networks/testnet) are now live. Check out the [docs on migration](../../network/migration-guide) to learn how you can start building on Habanero and Manzano today. 
 :::
-
-## Quick Start
-
-Ready to jump right in? Quickly learn how you can integrate decentralized access control today:
-
-1. Guide: [Encryption with Lit](../access-control/encryption.md)
-2. Integration: [Storing Private Data on ComposeDB](../../integrations/storage/ceramic-example.md)
-3. Integration: [Encrypting Data on Arweave Using Lit and Irys](../../integrations/storage/irys.md) 
-4. Code: [Basic EVM Conditions](../access-control/evm/basic-examples)
-5. Code: [Access Control Using Off-Chain Inputs](../access-control/lit-action-conditions)
 
 ## Overview
 
@@ -34,6 +24,16 @@ Lit supports the use of both on and [off-chain data](../access-control/lit-actio
 1. Access Control Conditions can be defined using state from most EVM chains, Cosmos, and Solana.. View the full list [here](../../resources/supported-chains.md).
 2. AND + OR operators ([boolean logic](../access-control/condition-types/boolean-logic)) can be used to combine any of the supported conditions listed above.
 3. Storage provider of choice: use your preferred storage solution, including [IPFS](https://spark.litprotocol.com/encrypttoipfs/), Arweave, Ceramic, or even a centralized provider, like AWS.
+
+## Resources
+
+Learn how you can integrate decentralized access control with Lit into your own product:
+
+1. [Quick Start Guide](../access-control/quick-start.md)
+2. [Storing Private Data on ComposeDB](../../integrations/storage/ceramic-example.md)
+3. [Encrypting Data on Arweave Using Lit and Irys](../../integrations/storage/irys.md) 
+4. [Basic EVM Conditions](../access-control/evm/basic-examples)
+5. [Access Control Using Off-Chain Inputs](../access-control/lit-action-conditions)
 
 ## Examples and Use Cases
 

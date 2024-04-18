@@ -1,15 +1,15 @@
 
 # Lit v0 Migration Guide
 
-The launch of Lit v0 introduces the [Habanero Mainnet Beta](../network/networks/mainnet.md) and the [Manzano Testnet](../network/networks/testnet.md). 
+The launch of Lit v0 introduces the [Habanero Mainnet](../network/networks/mainnet.md) and the [Manzano Testnet](../network/networks/testnet.md). 
 
-The keys created and managed on the Habanero Mainnet Beta are ready to be used for deploying production-level applications and user experiences. This means that sending, receiving, and managing real world assets IS now supported. Any keys that are created on the v0 network are persistent, will not be deleted, and will eventually be migrated to the v1 network when it is released later this year.
+The keys created and managed on the Habanero Mainnet are ready to be used for deploying production-level applications and user experiences. This means that sending, receiving, and managing real world assets IS now supported. Any keys that are created on the v0 network are persistent, will not be deleted, and will eventually be migrated to the v1 network when it is released later this year.
 
 If you are currently in early-stage research and development, you should be using the Manzano Testnet. Sending, receiving, and managing real world assets on Manzano is NOT recommended. 
 
-In order to deploy to Habanero or Manzano, you’ll first need to make sure you're using the v3 SDK. If you haven’t yet upgraded to v3, you can do so following these [upgrade instructions](../migration/overview.md). Once you've upgraded, the next step will be to connect to the appropriate network branch in your SDK config, either [Habanero](../network/networks/mainnet.md) or [Manzano](../network/networks/testnet.md).
+In order to deploy to Habanero or Manzano, you’ll first need to make sure you're using the v3 or v4 SDK. If you haven’t yet upgraded to v3 or v4, you can do so following these [upgrade instructions](../sdk/migrations/3.0.0/overview.md). Once you've upgraded, the next step will be to connect to the appropriate network branch in your SDK config, either [Habanero](../network/networks/mainnet.md) or [Manzano](../network/networks/testnet.md).
 
-Once your application is using v3, you can follow the following migration guide to learn how to perform re-encryption (if you're using [access control](../sdk/access-control/intro.md)) or re-mint PKPs (if you're building with [user wallets](../sdk/wallets/intro.md)) on Habanero or Manzano. 
+Once your application is using v3 or v4, you can follow the following migration guide to learn how to perform re-encryption (if you're using [access control](../sdk/access-control/intro.md)) or re-mint PKPs (if you're building with [user wallets](../sdk/wallets/intro.md)) on Habanero or Manzano. 
 
 ## Migrating From Jalapeno
 
@@ -17,13 +17,13 @@ Jalapeno only supports encryption / decryption use cases, so this guide will onl
 
 You can learn more about re-encryption at the end of this guide.
 
-If you’re migrating from Jalapeno to Habanero, it’s important to remember that they have different, incompatible Lit JS SDK versions.  Jalapeno only works with version 2.x.x and Habanero only works with 3.x.x. You will therefore need to decrypt with the v2 sdk and then re-encrypt with the v3 sdk. 
+If you’re migrating from Jalapeno to Habanero, it’s important to remember that they have different, incompatible Lit JS SDK versions.  Jalapeno only works with version 2.x.x and Habanero only works with 3.x.x and above. You will therefore need to decrypt with the v2 sdk and then re-encrypt with the v3 or v4 sdk. 
 
 ## Migrating From Cayenne
 
 ### For encryption / decryption use cases
 
-Cayenne and Habanero (or Manzano) have different root keys and, so you’ll need to re-encrypt your user’s content in order to migrate to Habanero (or Manzano). In order to perform re-encryption, you can use the same v3 SDK for both Cayenne and Habanero (or Manzano), but note that you will need 2 instances of the SDK, one connected to each network. First, use Cayenne SDK instance to decrypt the encrypted data and then use Habanero (or Manzano) SDK instance to re-encrypt it.  
+Cayenne and Habanero (or Manzano) have different root keys and, so you’ll need to re-encrypt your user’s content in order to migrate to Habanero (or Manzano). In order to perform re-encryption, you can use the same v3 or v4 SDK for both Cayenne and Habanero (or Manzano), but note that you will need 2 instances of the SDK, one connected to each network. First, use Cayenne SDK instance to decrypt the encrypted data and then use Habanero (or Manzano) SDK instance to re-encrypt it.  
 
 You can learn more about re-encryption at the end of this guide.
 
@@ -41,11 +41,11 @@ In the case of AA wallets, you would change the authorized signer from the old P
 
 
 ## Performing re-encryption
-Re-encryption is simply, decrypting the content, then encrypting it again. The v3 SDK of the encryption system introduces significant enhancements compared to v2 SDK. It employs a more intricate yet secure method of encryption and decryption, utilizing hashes and a comprehensive set of parameters to bolster security and integrity. 
+Re-encryption is simply, decrypting the content, then encrypting it again. The v3 and v4 SDK of the encryption system introduces significant enhancements compared to v2 SDK. It employs a more intricate yet secure method of encryption and decryption, utilizing hashes and a comprehensive set of parameters to bolster security and integrity. 
 
 The Lit network employs an ID-based encryption method allowing only users who meet specific identity criteria to decrypt data. This process involves the use of the BLS network signature as a decryption key, which is generated based on access control conditions and private data. Encryption occurs client-side, requiring minimal network interaction—just a single round for decryption to gather necessary signature shares. Read more about ID based encryption [here](../sdk/access-control/encryption/#how-does-id-encrypt-work).
 
-Unlike v2, both encryption and decryption processes in v3 explicitly rely on the `litNodeClient` showcasing a deeper integration with the Lit network's infrastructure. Additionally, v3 incorporates a data hash (`dataToEncryptHash`) during encryption, allowing for additional validation and integrity checks, which were absent in v2. Furthermore, v3 transitions from using basic types (like `string`) to structured request and response objects, like `EncryptStringRequest` and `DecryptRequest`, indicates a shift towards more detailed and configurable encryption/decryption operations to cater to diverse use cases.
+Unlike v2, both encryption and decryption processes in v3 and v4 explicitly rely on the `litNodeClient` showcasing a deeper integration with the Lit network's infrastructure. Additionally, v3 and v4 incorporates a data hash (`dataToEncryptHash`) during encryption, allowing for additional validation and integrity checks, which were absent in v2. Furthermore, v3 and v4 transitions from using basic types (like `string`) to structured request and response objects, like `EncryptStringRequest` and `DecryptRequest`, indicates a shift towards more detailed and configurable encryption/decryption operations to cater to diverse use cases.
 
 In the case of a migration from an old Lit Network to Habanero, you would follow these steps to learn how to decrypt and re-encrypt your data:
 
@@ -102,7 +102,7 @@ async decrypt(encryptedString, encryptedSymmetricKey) {
 ```
 ### 3. Connect to `Habanero` or `Manzano` and encrypt it again
 ```js
-class LitV3 {
+class LitV3 {  // or Class LitV4
   private litNodeClient;
 
   async connect() {
@@ -171,13 +171,13 @@ values={[
 Install the `@lit-protocol/lit-node-client` package, which can be used in both browser and Node environments:
 
 ```sh
-yarn add @lit-protocol/lit-node-client@beta
+yarn add @lit-protocol/lit-node-client
 ```
 
-Use the **Lit JS SDK V3**:
+Use the **Lit JS SDK V4**:
 
 :::note
-Both the Habanero and Manzano networks can be accessed using the '@beta' tag below. You'll need to specify the network you want to connect to ('habanero' or 'manzano') when initializing your node client config.
+You'll need to specify the network you want to connect to ('habanero' or 'manzano') when initializing your node client config.
 :::
 
 ```js
@@ -191,13 +191,13 @@ import * as LitJsSdk from "@lit-protocol/lit-node-client";
 Install the `@lit-protocol/lit-node-client-nodejs`, which is for Node environments only:
 
 ```sh
-yarn add @lit-protocol/lit-node-client-nodejs@beta
+yarn add @lit-protocol/lit-node-client-nodejs
 ```
 
-Use the **Lit JS SDK V3**:
+Use the **Lit JS SDK V4**:
 
 :::note
-Both the Habanero and Manzano networks can be accessed using the '@beta' tag below. You'll need to specify the network you want to connect to ('habanero' or 'manzano') when initializing your node client config.
+You'll need to specify the network you want to connect to ('habanero' or 'manzano') when initializing your node client config.
 :::
 
 ```js

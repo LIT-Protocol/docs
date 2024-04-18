@@ -12,8 +12,10 @@ V2 refers to `2.x.x` versions of [js-sdk](https://github.com/LIT-Protocol/js-sdk
 
 V3 refers to `3.x.x` versions of [js-sdk](https://github.com/LIT-Protocol/js-sdk)
 
-| Feature | V1 | V2 | V3 |
-| --- | --- | --- | --- |
+V4 refers to `4.x.x` versions of [js-sdk](https://github.com/LIT-Protocol/js-sdk)
+
+| Feature | V1 | V2 | V3 / V4 |
+| :---: | :---: | :---: | :---: |
 | `jalapeno` network | ✅ | ✅ | ❌ |
 | `serrano` network | ✅ | ✅ | ❌ |
 | `cayenne` network | ❌ | ❌ | ✅ |

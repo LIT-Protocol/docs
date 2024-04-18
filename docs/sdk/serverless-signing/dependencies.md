@@ -3,7 +3,7 @@
 We preload some dependencies for you: 
 
 * Ethers v5.7 is loaded and available via the global `ethers` object
-* The jsonwebtoken library located here https://www.npmjs.com/package/jsonwebtoken is loaded and available via the global `jsonwebtoken` object
+* The jsonwebtoken library located here https://www.npmjs.com/package/jsonwebtoken is loaded and available via the global `jwt` object
 
 
 ## Adding your own dependencies

@@ -12,11 +12,14 @@ Main networks should be used by applications that are currently live in producti
 
 You can set your Lit Network in the [LitNodeClient config of the Lit SDK](../../sdk/installation.md), by passing the network name to the `litNetwork` parameter.
 
+<div class="testnet-networks-table">
 
-| Name | Description | Supported Algorithms | Supported Features | Status | SDK Version | Deprecation timeline | Contracts |
+| Name | Description | Supported Algorithms | Supported Features | Status | SDK Version | Development status | Contracts |
 | ---- | ----------- | -------------------- | ------------------ | ------ | ----------- | -------------------- | --------------- |
-| Jalapeno | Centralized alpha network. Persistent, keys will not be deleted. | BLS | Encryption | [Live](https://jalapeno-status.litprotocol.com/) | V1, V2 | None | n/a |
-| Habanero | Decentralized mainnet. Persistent, keys will not be deleted. | BLS, ECDSA | Encryption, User Wallets (PKPs), Serverless Signing (Lit Actions) | Live | V3, V4 | TBD | [habanero](https://github.com/LIT-Protocol/networks/tree/main/habanero) | 
+| Jalapeno | Centralized alpha network. Persistent, keys will not be deleted. | BLS | Encryption | [Live](https://jalapeno-status.litprotocol.com/) | V1, V2 | Deprecated.  Do not build new apps that use this network. | n/a |
+| Habanero | Decentralized mainnet. Persistent, keys will not be deleted. | BLS, ECDSA | Encryption, User Wallets (PKPs), Serverless Signing (Lit Actions) | Live | V4+ | Good to use | [habanero](https://github.com/LIT-Protocol/networks/tree/main/habanero) | 
+
+</div>
 
 ## Token Usage
 If you'd like to use Habanero, you'll need some 'testLPX' tokens to pay for network fees and [gas](../rollup.mdx) when minting PKPs. Habanero uses a test token for payments and gas that holds no real world value. You can acquire some tokens from the verified [faucet](https://faucet.litprotocol.com/).

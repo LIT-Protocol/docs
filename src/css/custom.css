@@ -760,3 +760,12 @@ html[data-theme='dark'] .alert--danger {
   flex-direction: column;
   padding: 1rem 1.125rem;
 }
+
+.testnet-networks-table tbody {  color: white; }
+.testnet-networks-table tbody tr:nth-child(1) { background: #e22525; }
+.testnet-networks-table tbody tr:nth-child(n+2) { background: green; }
+
+
+.mainnet-networks-table tbody {  color: white; }
+.mainnet-networks-table tbody tr:nth-child(1) { background: #e22525; }
+.mainnet-networks-table tbody tr:nth-child(n+2) { background: green; }

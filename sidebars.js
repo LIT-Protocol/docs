@@ -68,7 +68,8 @@ const sidebars = {
           link: {
             type: 'generated-index',
             title: 'Migrating from earlier versions',
-            description: 'Learn how to migrate from earlier versions of the Lit SDK!',
+            description:
+              'Learn how to migrate from earlier versions of the Lit SDK!',
             keywords: ['migrations'],
           },
           items: [
@@ -80,22 +81,19 @@ const sidebars = {
                 id: 'sdk/migrations/3.0.0/overview',
               },
               collapsed: true,
-              items: [
-                'network/feature-matrix',
-                'sdk/migrations/3.0.0/changes',
-              ],
+              items: ['network/feature-matrix', 'sdk/migrations/3.0.0/changes'],
             },
             'sdk/migrations/3.2.0',
             'sdk/migrations/4.0.0',
-          ]
-        }
+          ],
+        },
       ],
     },
     {
       type: 'category',
       label: 'Guides',
       collapsed: true,
-      link:{
+      link: {
         type: 'generated-index',
         title: 'Lit SDK Guides',
         description: 'Learn how to use the Lit SDK!',
@@ -145,13 +143,14 @@ const sidebars = {
               type: 'category',
               label: 'Advanced Topics',
               collapsed: true,
-              link:{
+              link: {
                 type: 'generated-index',
                 title: 'Advanced Topics',
-                description: 'Learn about the advanced topics for User Wallets in Lit SDK!',
+                description:
+                  'Learn about the advanced topics for User Wallets in Lit SDK!',
                 keywords: ['user wallets'],
               },
-              items:[
+              items: [
                 {
                   type: 'category',
                   label: 'Auth Methods',
@@ -201,7 +200,7 @@ const sidebars = {
                   collapsed: true,
                   items: ['sdk/wallets/claimable-keys/usage'],
                 },
-              ]
+              ],
             },
           ],
         },
@@ -219,13 +218,14 @@ const sidebars = {
               type: 'category',
               label: 'Advanced Topics',
               collapsed: true,
-              link:{
+              link: {
                 type: 'generated-index',
                 title: 'Advanced Topics',
-                description: 'Learn about the advanced topics for Encryption/Decryption in Lit SDK!',
+                description:
+                  'Learn about the advanced topics for Encryption/Decryption in Lit SDK!',
                 keywords: ['encryption', 'decryption'],
               },
-              items:[
+              items: [
                 'sdk/access-control/jwt-auth',
                 {
                   type: 'category',
@@ -263,7 +263,7 @@ const sidebars = {
                   collapsed: true,
                   items: ['sdk/access-control/lit-action-conditions'],
                 },
-              ]
+              ],
             },
           ],
         },
@@ -281,10 +281,11 @@ const sidebars = {
               type: 'category',
               label: 'Advanced Topics',
               collapsed: true,
-              link:{
+              link: {
                 type: 'generated-index',
                 title: 'Advanced Topics',
-                description: 'Learn about the advanced topics for Compute (Lit Actions) in Lit SDK!',
+                description:
+                  'Learn about the advanced topics for Compute (Lit Actions) in Lit SDK!',
                 keywords: ['compute', 'lit actions'],
               },
               items: [
@@ -294,10 +295,11 @@ const sidebars = {
                 'sdk/serverless-signing/key-claiming',
                 'sdk/serverless-signing/eip191',
                 'sdk/serverless-signing/dependencies',
-              ]
-            }
+              ],
+            },
           ],
         },
+        'sdk/paying-for-lit',
       ],
     },
     {
@@ -337,7 +339,8 @@ const sidebars = {
           link: {
             type: 'generated-index',
             title: 'Lit Tools',
-            description: 'Learn about the different tools that can help you with Lit SDK!',
+            description:
+              'Learn about the different tools that can help you with Lit SDK!',
             keywords: ['tools'],
           },
           items: [
@@ -392,7 +395,7 @@ const sidebars = {
       label: 'Resources and Support',
       collapsed: true,
       link: {
-        type:'doc',
+        type: 'doc',
         id: 'support/intro',
       },
       items: [
@@ -401,7 +404,7 @@ const sidebars = {
         'resources/supported-chains',
         'resources/contracts',
         'resources/glossary',
-        'support/faq', 
+        'support/faq',
         'support/bug-bounty',
       ],
     },
@@ -412,10 +415,11 @@ const sidebars = {
       link: {
         type: 'generated-index',
         title: 'Lit SDK API Reference',
-        description: 'Get the API reference for different versions of the Lit SDK!',
+        description:
+          'Get the API reference for different versions of the Lit SDK!',
         keywords: ['api-reference'],
       },
-      items:[
+      items: [
         'api-reference/v4-sdk',
         {
           type: 'category',
@@ -424,7 +428,8 @@ const sidebars = {
           link: {
             type: 'generated-index',
             title: 'Legacy SDK Versions',
-            description: 'Get the API reference for older versions of the Lit SDK!',
+            description:
+              'Get the API reference for older versions of the Lit SDK!',
             keywords: ['api-reference'],
           },
           items: [
@@ -433,15 +438,13 @@ const sidebars = {
             'api-reference/v1-sdk',
           ],
         },
-      ]
+      ],
     },
     {
       type: 'category',
       label: 'Additional Examples',
       collapsed: true,
-      items: [
-        'additional-examples/intro',
-      ],
+      items: ['additional-examples/intro'],
     },
   ],
 };

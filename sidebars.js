@@ -291,6 +291,11 @@ const sidebars = {
                 'sdk/serverless-signing/key-claiming',
                 'sdk/serverless-signing/eip191',
                 'sdk/serverless-signing/dependencies',
+                'sdk/serverless-signing/combining-decryption-shares',
+                `sdk/serverless-signing/combining-signatures`,
+                'sdk/serverless-signing/run-once',
+                `sdk/serverless-signing/get-rpc-url`,
+                'sdk/serverless-signing/broadcast-and-collect'
               ]
             }
           ],

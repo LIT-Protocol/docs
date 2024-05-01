@@ -17,8 +17,9 @@ let txn = {
     nonce: 0,
 };
 
-// using ether's 'serializeTxnForSigning'
-const toSign = serializeTxnForSigning(txn);
+// using ether's serializeTransaction
+// https://docs.ethers.org/v5/api/utils/transactions/#transactions--functions
+const toSign = ethers.utils.serializeTransaction(txn);
 const signature = await Lit.Actions.signAndCombineEcdsa({
     toSign,
     publicKey,
@@ -40,6 +41,17 @@ let res = await Lit.Actions.runOnce({ waitForResponse: true, name: "txnSender" }
 Lit.Actions.setResponse(res);
 })()
 `
+
+await client.connect();
+const res = client.executeJs({
+    code,
+    sessionSigs: {} // your session
+    jsParams: {
+        publicKey: "<your pkp public key>",
+    }
+});
+
+console.log("transactions in latest block from all nodes: ", res);
 ```
 
 For information on `signAndCombineEcdsa see [here](./combining-signatures.md).

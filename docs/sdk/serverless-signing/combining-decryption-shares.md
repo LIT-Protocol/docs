@@ -28,7 +28,6 @@ We will start by performing an `encrypt` operation as shown below using the `Lit
     network: 'cayenne'
   });
   await client.connect();
-  // ==================== Test Logic ====================
   const { ciphertext, dataToEncryptHash } = await LitJsSdk.encryptString(
     {
       accessControlConditions,

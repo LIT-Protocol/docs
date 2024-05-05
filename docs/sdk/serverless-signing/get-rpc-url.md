@@ -7,14 +7,19 @@ Within a Lit action, you may wish to have access to an RPC URL which is specific
 
 ## Getting the RPC context from all nodes
 ```js
-code = `
+code = `(async () => {
     const rpcUrl = await Lit.Actions.getRpcUrl({ chain: "ethereum" });
     const blockByNumber = await provider.send("eth_getBlockByNumber", ["pending", false]);
     const transactions = blockByNumber.transactions;
     Lit.Actions.setResponse(JSON.stringify(transactions));
+})();
 `;
 
+const client = new LitNodeClient({
+network: 'cayenne'
+});
 await client.connect();
+
 const res = client.executeJs({
     code,
     sessionSigs: {} // your session
@@ -27,7 +32,7 @@ In the above example we are allowing every node to use their `rpc url` for the `
 ## Getting the RPC context from a single node
 
 ```js
-code = `
+code = `(async () => {
     let res = await Lit.Actions.runOnce({ waitForResponse: true, name: "txnSender" }, async () => {
         const rpcUrl = await Lit.Actions.getRpcUrl({ chain: "ethereum" });
         const blockByNumber = await provider.send("eth_getBlockByNumber", ["pending", false]);
@@ -36,9 +41,13 @@ code = `
     });
     // get the broadcast result from the single node which executed the block query and return it from all clients.
     Lit.Actions.setResponse(res);
+})();
 `;
-
+const client = new LitNodeClient({
+network: 'cayenne'
+});
 await client.connect();
+
 const res = client.executeJs({
     code,
     sessionSigs: {} // your session

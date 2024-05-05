@@ -45,32 +45,34 @@ console.log("response from singing in a transaction: ", res);
 With the built in `EthersJS` we are able to take advantage of the `serializeTxnForSigning` implementations and serialize a transaction, which is then signed, combined and then sent back to the client.
 
 ```js
-const code = `
-const sigName = "sig1";
-// an example transaction
-// the 'from' address should be your pkp's ethereum address
-let txn = {
-  to: "0x1234",
-  value: 1000000000000000,
-  gas: 21000,
-  gasPrice: 20000000000,
-  nonce: 0,
-};
-// using ether's serializeTransaction
-// https://docs.ethers.org/v5/api/utils/transactions/#transactions--functions
-const toSign = ethers.utils.serializeTransaction(txn);
-const signature = await Lit.Actions.signAndCombineEcdsa({
-  toSign,
-  publicKey,
-  sigName,
-});
+const code = `(async () => {
+  const sigName = "sig1";
+  let txn = {
+      to: "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+      value: 1000000000000000,
+      gasPrice: 20000000000,
+      nonce: 0,
+  };
+
+  // using ether's serializeTransaction
+  // https://docs.ethers.org/v5/api/utils/transactions/#transactions--functions
+  let toSign = ethers.utils.serializeTransaction(txn);
+  toSign = await new TextEncoder().encode(toSign);
+  const signature = await Lit.Actions.signAndCombineEcdsa({
+      toSign,
+      publicKey,
+      sigName,
+  });
+  const signature = await Lit.Actions.signAndCombineEcdsa({
+    toSign,
+    publicKey,
+    sigName,
+  });
+})();
 `;
 
 const client = new LitNodeClient({
     litNetwork: 'cayenne',
-    debug: globalThis.LitCI.debug,
-    checkNodeAttestation: globalThis.LitCI.sevAttestation,
-    contractContext: cc,
 });
 
 await client.connect();

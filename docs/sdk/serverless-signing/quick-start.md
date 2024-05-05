@@ -254,7 +254,7 @@ import { AuthMethodScope, AuthMethodType } from '@lit-protocol/constants';
 
 const authMethod = {
   authMethodType: AuthMethodType.EthWallet,
-  accessToken: '...',
+  accessToken: JSON.stringify(authSig),
 };
 
 const mintInfo = await contractClient.mintWithAuth({

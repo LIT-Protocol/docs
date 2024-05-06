@@ -87,6 +87,7 @@ const sidebars = {
             },
             'sdk/migrations/3.2.0',
             'sdk/migrations/4.0.0',
+            'sdk/migrations/6.0.0',
           ]
         }
       ],

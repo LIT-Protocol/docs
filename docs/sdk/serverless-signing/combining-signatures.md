@@ -63,10 +63,11 @@ const code = `(async () => {
       publicKey,
       sigName,
   });
-  const signature = await Lit.Actions.signAndCombineEcdsa({
-    toSign,
-    publicKey,
-    sigName,
+
+  // set the response to the signature output. but no need to send the signature out of the action
+  // if your use case requires the signature to not be seen by the client
+  Lit.Actions.setResponse({
+    response: signature
   });
 })();
 `;

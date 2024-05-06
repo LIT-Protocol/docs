@@ -32,7 +32,6 @@ const code = `
         // get the node operator's rpc url for the 'ethereum' chain
         const rpcUrl = await Lit.Actions.getRpcUrl({ chain: "ethereum" });
         const provider = new ethers.providers.JsonRpcProvider(rpcUrl);
-        provider = new ethers.providers.JsonRpcProvider(rpcUrl);
         const tx = await provider.sendTransaction(signature);
         return tx; // return the tx to be broadcast to all other nodes
     });

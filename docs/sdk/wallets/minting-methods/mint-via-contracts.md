@@ -16,6 +16,8 @@ yarn add @lit-protocol/lit-auth-client
 yarn add @lit-protocol/contracts-sdk
 ```
 
+ps: the `contracts-sdk` is actually facing issues with vite's config with yarn and pnpm, you can switch to bun as a quick fix or follow the [issue on github](https://github.com/LIT-Protocol/Issues-and-Reports/issues/31)
+
 ## Initializing your `LitContract` instance
 ```js
 import { LitContracts } from '@lit-protocol/contracts-sdk';

@@ -98,6 +98,8 @@ yarn add @lit-protocol/contracts-sdk
 yarn add @lit-protocol/lit-auth-client
 ```
 
+ps: the `contracts-sdk` is actually facing issues with vite's config with yarn and pnpm, you can switch to bun as a quick fix or follow the [issue on github](https://github.com/LIT-Protocol/Issues-and-Reports/issues/31)
+
 ### Set up a controller wallet
 
 To initialize a LitContracts client you need an Ethereum Signer. This can be a standard Ethereum wallet (ethers) or a PKP (more info on the latter **[here](https://developer.litprotocol.com/v3/sdk/wallets/auth-methods/lit-auth-methods/add-remove-auth-methods)**). Here, we're going to use a standard Ethereum wallet.

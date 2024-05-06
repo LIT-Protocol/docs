@@ -370,6 +370,8 @@ OR
 npm i @lit-protocol/contracts-sdk
 ```
 
+ps: the `contracts-sdk` is actually facing issues with vite's config with yarn and pnpm, you can switch to bun as a quick fix or follow the [issue on github](https://github.com/LIT-Protocol/Issues-and-Reports/issues/31)
+
 The next step is to initialize a signer. This should be a wallet controlled by your application and the same wallet you’ll use to mint the Capacity Credit NFT:
 
 ```jsx

@@ -3,6 +3,7 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 # Decrypting and Combining Within an Action
 
 ## Overview
+
 Within a Lit action, you may choose to combine a `decryption shares` from within the context of an action. Meaning signature shares from each node will be combined and given to every node which recieved a request to execute the given action. Combining within an action may be useful if you wish to take advantage of the `Secure Compute Enviorment` offered by the Lit network. Actions which take combine signatures from within their own execution context will no provide the shares of the signatures to the client. So all information will stay in the trusted execution enviorment (TEE).
 
 

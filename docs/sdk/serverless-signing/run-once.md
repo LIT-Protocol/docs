@@ -6,7 +6,7 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 
 Typically, when a Lit Action is called it is executed across every Lit node in parallel. With `runOnce`, you have the ability to perform specified operations on a single node, versus all of them at once.
 
-The runOnce function takes another function(s) as a parameter and a deterministic algorithm is used to select the Lit node that it will be executed on. This node will run the function and broadcast the result to all of the other Lit nodes.
+The `runOnce` function takes another function(s) as a parameter and a deterministic algorithm is used to select the Lit node that it will be executed on. This node will run the function and broadcast the result to all of the other Lit nodes.
 
 ## Using a Single Node to Send a Transaction
 

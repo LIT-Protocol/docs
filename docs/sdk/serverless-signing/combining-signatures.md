@@ -69,7 +69,7 @@ const code = `(async () => {
       sigName,
   });
 
-  // set the response to the signature output. but no need to send the signature out of the action
+  // here we're setting the response to the signature output, but there's no need to do this
   // if your use case requires the signature to not be seen by the client
   Lit.Actions.setResponse({
     response: signature

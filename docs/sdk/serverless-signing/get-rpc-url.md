@@ -38,7 +38,7 @@ In the above example we are requesting every node to use their `rpcUrl` for the 
 code = `(async () => {
     let res = await Lit.Actions.runOnce({ waitForResponse: true, name: "txnSender" }, async () => {
         const rpcUrl = await Lit.Actions.getRpcUrl({ chain: "ethereum" });
-        const blockByNumber = await provider.send("eth_getBlockByNumber", ["pending", false]);
+        const blockByNumber = await provider.send("eth_getBlockByNumber", ["latest", false]);
         const transactions = blockByNumber.transactions;
         return res;
     });

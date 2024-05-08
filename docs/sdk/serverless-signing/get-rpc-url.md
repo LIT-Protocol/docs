@@ -23,7 +23,7 @@ network: 'cayenne'
 });
 await client.connect();
 
-const res = client.executeJs({
+const res = await client.executeJs({
     code,
     sessionSigs: {} // your session
     jsParams: {}

@@ -34,7 +34,7 @@ const code = `
         sigName,
     });
 
-    // the code in the block will only be run by one node
+    // the code in the function given to runOnce below will only be run by one node
     let res = await Lit.Actions.runOnce({ waitForResponse: true, name: "txnSender" }, async () => {
         // get the node operator's rpc url for the 'ethereum' chain
         const rpcUrl = await Lit.Actions.getRpcUrl({ chain: "ethereum" });

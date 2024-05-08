@@ -3,7 +3,10 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 # Get Chain RPC URLs Within an Action
 
 ## Overview
-Within a Lit action, you may wish to have access to an RPC URL which is specific to a given blockchain. This can be useful for situations where you may wish to interact with a given chain by either sending transactions, calling contract methods, pulling block data, etc.
+
+You can use the getRpcUrl function within a Lit Action to call make an RPC call to a given blockchain. This can be useful for sending transactions, calling contract methods, pulling block data, and other related use cases.
+
+By default, this RPC call will be made by all the nodes in parallel. You can check out an example of making this call on a single node below.
 
 ## Getting the RPC context from all nodes
 ```js

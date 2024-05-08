@@ -3,24 +3,31 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 # Run on a Single Node Within an Action
 
 ## Overview
-Witin a Lit action, you may want only a single node to perform a specific piece of your lit action logic, and let the result be broadcast to all other nodes which are executing the same Lit action in parallel. `runOnce` takes a function as a parameter, and all the nodes use a deterministic algorithm to choose which node will run the function that is passed to runOnce. This single node runs the function, and then broadcasts the result to all the other nodes.
+
+Typically, when a Lit Action is called it is executed across every Lit node in parallel. With runOnce, you have the ability to perform specified operations on a single node, versus all of them at once.
+
+The runOnce function takes another function(s) as a parameter and a deterministic algorithm is used to select the Lit node that it will be executed on. This node will run the function and broadcast the result to all of the other Lit nodes.
+
+## Using a Single Node to Send a Transaction
 
 ```js
 const code = `
 (async () => {
     const sigName = "sig1";
+    // example transaction
     let txn = {
         to: "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
-        value: 1000000000000000,
+        value: 1,
         gasPrice: 20000000000,
         nonce: 0,
     };
 
     // using ether's serializeTransaction
     // https://docs.ethers.org/v5/api/utils/transactions/#transactions--functions
-    let toSign = ethers.utils.serializeTransaction(txn);
+    const serializedTx = ethers.utils.serializeTransaction(txn);
+    let hash = utils.keccak256(ethers.utils.toUtf8Bytes(serializedTx));
     // encode the message into an uint8array for signing
-    toSign = await new TextEncoder().encode(toSign);
+    const toSign = await new TextEncoder().encode(hash);
     const signature = await Lit.Actions.signAndCombineEcdsa({
         toSign,
         publicKey,

@@ -4,14 +4,17 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 
 ## Overview
 
-Within a Lit action, you may choose to combine a `decryption shares` from within the context of an action. Meaning signature shares from each node will be combined and given to every node which recieved a request to execute the given action. Combining within an action may be useful if you wish to take advantage of the `Secure Compute Enviorment` offered by the Lit network. Actions which take combine signatures from within their own execution context will no provide the shares of the signatures to the client. So all information will stay in the trusted execution enviorment (TEE).
+Decryption with Lit is typically done client-side by an authorized party at the time of access. The decryptAndCombine function allows you to decrypt data within a Lit Action. This function is useful for performing operations over sensitive data, where the data itself remains private within the confines of each Lit node's TEE.
+
+When you call decryptAndCombine, the decryption shares are collected from each Lit node before they are combined on a single node.
 
 
 # Encrypting content
 We will start by performing an `encrypt` operation as shown below using the `LitNodeClient` this operation is entirely done on the client, so no need for any lit action invovelment.
+
 ```js
  const chain = 'ethereum';
-  const accessControlConditions = [
+ const accessControlConditions = [
     {
       contractAddress: '',
       standardContractType: '',

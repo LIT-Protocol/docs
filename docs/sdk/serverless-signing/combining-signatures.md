@@ -13,7 +13,7 @@ When you call `signAndCombineEcdsa`, the signature shares are collected from eac
 ```js
 const code = `(async () => {
   // sign "hello world" and allow all the nodes to combine the signature and return it to the action.
-  let utf8Encode = new TextEncoder();
+  const utf8Encode = new TextEncoder();
   const toSign = utf8Encode.encode('Hello World');
 
   // Will use the authentication provided to the `executeJs` call from the sdk on the client.

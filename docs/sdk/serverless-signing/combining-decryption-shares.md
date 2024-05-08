@@ -4,7 +4,7 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 
 ## Overview
 
-Decryption with Lit is typically done client-side by an authorized party at the time of access. The decryptAndCombine function allows you to decrypt data within a Lit Action. This function is useful for performing operations over sensitive data, where the data itself remains private within the confines of each Lit node's TEE.
+Decryption with Lit is typically done client-side by an authorized party at the time of access. The decryptAndCombine function allows you to decrypt data within a Lit Action. This function is useful for performing operations over sensitive data, where the data itself remains private within the confines of each Lit node's Trusted Execution Environment (TEE).
 
 When you call decryptAndCombine, the decryption shares are collected from each Lit node before they are combined on a single node.
 

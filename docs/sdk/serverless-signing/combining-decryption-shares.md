@@ -61,7 +61,7 @@ const code = `(async () => {
   Lit.Actions.setResponse({ response: resp });
 })();`
 
-const res = client.executeJs({
+const res = await client.executeJs({
     code,
     sessionSigs: {} // your session
     jsParams: {

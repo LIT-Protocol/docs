@@ -12,7 +12,7 @@ By default, this RPC call will be made by all the nodes in parallel. You can che
 ```js
 code = `(async () => {
     const rpcUrl = await Lit.Actions.getRpcUrl({ chain: "ethereum" });
-    const blockByNumber = await provider.send("eth_getBlockByNumber", ["pending", false]);
+    const blockByNumber = await provider.send("eth_getBlockByNumber", ["latest", false]);
     const transactions = blockByNumber.transactions;
     Lit.Actions.setResponse(JSON.stringify(transactions));
 })();

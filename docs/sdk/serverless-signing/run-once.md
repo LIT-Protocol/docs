@@ -2,6 +2,10 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 
 # Run on a Single Node Within an Action
 
+:::info
+    Only available on the `cayenne` network
+:::
+
 ## Overview
 
 Typically, when a Lit Action is called it is executed across every Lit node in parallel. With `runOnce`, you have the ability to perform specified operations on a single node, versus all of them at once.

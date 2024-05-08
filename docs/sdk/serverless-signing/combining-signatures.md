@@ -2,6 +2,10 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 
 # Combine Signatures Within an Action
 
+:::info
+    Only available on the `cayenne` network
+:::
+
 ## Overview 
 
 When you sign a message with using [Lit's PKPs](https://developer.litprotocol.com/v3/sdk/serverless-signing/quick-start), signature shares are typically combined client-side to form the complete signature. The `signAndCombineEcdsa` function allows you to combine these shares within a Lit Action, meaning they will remain within the confines of each Lit node's Trusted Execution Environment (TEE) and not exposed to the end client.

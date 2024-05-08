@@ -2,6 +2,10 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 
 # Decrypting and Combining Within an Action
 
+:::info
+    Only available on the `cayenne` network
+:::
+
 ## Overview
 
 Decryption with Lit is typically done client-side by an authorized party at the time of access. The decryptAndCombine function allows you to decrypt data within a Lit Action. This function is useful for performing operations over sensitive data, where the data itself remains private within the confines of each Lit node's Trusted Execution Environment (TEE).
@@ -29,7 +33,7 @@ We will start by performing an `encrypt` operation as shown below using the `Lit
   ];
   const message = 'Hello world';
   const client = new LitNodeClient({
-    network: 'cayenne'
+    litNetwork: 'cayenne'
   });
   await client.connect();
   const { ciphertext, dataToEncryptHash } = await LitJsSdk.encryptString(

@@ -4,7 +4,7 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 
 ## Overview
 
-Broadcast and collect' allows you to run an operation on each node in the Lit network, collect their responses, and aggregate those responses into a single data set shared across all of the nodes. This is useful if you'd like the ability to perform additional operations over their responses, such as calculating a median or average.
+Broadcast and collect allows you to run an operation on each node in the Lit network, collect their responses, and aggregate those responses into a single data set shared across all of the nodes. This is useful if you'd like the ability to perform additional operations over their responses, such as calculating a median or average.
 
 When you call this function, the responses from each node will be grouped and then returned back to each node for further processing.
 

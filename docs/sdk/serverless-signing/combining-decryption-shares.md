@@ -45,7 +45,7 @@ We will start by performing an `encrypt` operation as shown below using the `Lit
   console.log("cipher text:", ciphertext, "hash:", dataToEncryptHash);
 ```
 
-Let's now take the `cipther text` and `hash of encrypted data` and use it from a Lit Action to decrypt within the `TEE`.
+Let's now take the `ciphertext` and `dataToEncryptHash` and use it from a Lit Action to decrypt within the TEE.
 In the below example we set the `authSig` to `null` as a way to tell the Lit Action runtime to use the `authSig` which was provided to the node through the `executeJs` call's `sessionSigs`.
 If you wish you may provide a different Auth Signature if the one provided from the session is not relevant to your use case. 
 ```js

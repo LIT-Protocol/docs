@@ -63,7 +63,7 @@ const res = await client.executeJs({
 
 console.log("transactions in latest block from all nodes: ", res);
 ```
-In the above `runOnce` example you'll notice we provide two properties in the `param object`
+In the above `runOnce` example, within the Lit Action code, you'll notice we specify two properties in the object passed to `Lit.Actions.runOnce`:
 - *`waitForResponse`* - boolean to wait for all nodes to respond if set to `true`
 - *`name`* - string to name the response from the operations. Helpful if using `runOnce` multiple times in a single action.
 

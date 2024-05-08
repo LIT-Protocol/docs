@@ -10,7 +10,7 @@ When you call `decryptAndCombine`, the decryption shares are collected from each
 
 
 # Encrypting content
-We will start by performing an `encrypt` operation as shown below using the `LitNodeClient` this operation is entirely done on the client, so no need for any lit action invovelment.
+We will start by performing an `encrypt` operation as shown below using the `LitNodeClient`. This operation is entirely done on the client, so no need for any Lit Action involvement.
 
 ```js
  const chain = 'ethereum';

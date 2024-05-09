@@ -3,7 +3,7 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 # Combine Signatures Within an Action
 
 :::info
-    Only available on the `test` network
+Only available on the `test` network
 :::
 
 ## Overview

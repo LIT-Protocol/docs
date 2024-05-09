@@ -3,9 +3,7 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 # Run on a Single Node Within an Action
 
 :::note
-
-    Only available on the `test` networks
-
+Only available on the `test` networks
 :::
 
 ## Overview
@@ -17,9 +15,7 @@ The `runOnce` function takes another function as a parameter and a deterministic
 ## Using a Single Node to Send a Transaction
 
 :::warning
-    The value returned from the function provided to `runOnce` 
-    must return a value which can be serialized with `toString` 
-    otherwise you will recieve a return value of `[ERROR]`
+The value returned from the function provided to `runOnce` must return a value which can be serialized with `toString` otherwise you will recieve a return value of `[ERROR]`
 :::
 
 ```js

@@ -3,7 +3,7 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 # Broadcast and Collect Within an Action
 
 :::info
-    Only available on the `cayenne` network
+    Only available on the `test` network
 :::
 
 ## Overview

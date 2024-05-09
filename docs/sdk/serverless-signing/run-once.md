@@ -2,17 +2,25 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 
 # Run on a Single Node Within an Action
 
-:::info
-    Only available on the `cayenne` network
+:::note
+
+    Only available on the `test` networks
+
 :::
 
 ## Overview
 
 Typically, when a Lit Action is called it is executed across every Lit node in parallel. With `runOnce`, you have the ability to perform specified operations on a single node, versus all of them at once.
 
-The `runOnce` function takes another function(s) as a parameter and a deterministic algorithm is used to select the Lit node that it will be executed on. This node will run the function and broadcast the result to all of the other Lit nodes.
+The `runOnce` function takes another function as a parameter and a deterministic algorithm is used to select the Lit node that it will be executed on. This node will run the function and broadcast the result to all of the other Lit nodes.
 
 ## Using a Single Node to Send a Transaction
+
+:::warning
+    The value returned from the function provided to `runOnce` 
+    must return a value which can be serialized with `toString` 
+    otherwise you will recieve a return value of `[ERROR]`
+:::
 
 ```js
 const code = `
@@ -44,7 +52,7 @@ const code = `
         const rpcUrl = await Lit.Actions.getRpcUrl({ chain: "ethereum" });
         const provider = new ethers.providers.JsonRpcProvider(rpcUrl);
         const tx = await provider.sendTransaction(signature);
-        return tx; // return the tx to be broadcast to all other nodes
+        return tx.blockHash; // return the tx to be broadcast to all other nodes
     });
 
     // set the response from the action as the result of runOnce operation

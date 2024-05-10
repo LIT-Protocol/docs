@@ -76,6 +76,18 @@ In the above `runOnce` example, within the Lit Action code, you'll notice we spe
 - *`name`* - string to name the response from the operations. Helpful if using `runOnce` multiple times in a single action.
 
 
+## ExecuteJs `response strategy`
+
+When using `runOnce` you might want to set the result of the `runOnce` execution as a response from the Lit Action. By default the `response strategy` is to use the least occuring response from a node executing the Lit Action as the response returned in the `ExecuteJsResponse`. The options for strategies are the following.
+
+- `leastCommon` - the least occuring response will be returned as part of the result.
+- `mostCommon` - the most common response will be returned as part of the result.
+- `custom` - a response that is returned from the provided `customFilter` will be added to the execution result.
+
+:::note
+In the event all responses are the same then the strategy will not be relevant.
+:::
+
 For information on `signAndCombineEcdsa` see [here](./combining-signatures.md).
 
 For information on `getRpcUrl` see [here](./get-rpc-url.md).

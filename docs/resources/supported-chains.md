@@ -115,6 +115,7 @@ values={[
 <TabItem value="cayenne">
 
 - alfajores
+- amoy
 - anvil
 - arbitrum
 - aurora

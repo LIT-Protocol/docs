@@ -14,9 +14,7 @@ Authentication refers to confirming a users identity.  This generally involves r
 
 Authorization refers to confirming that a user is allowed to use a PKP.  Specifically, it's checking the permissions of a PKP and making sure that the user that was Authenticated is also authorized to use a PKP.  
 
-Note: Currently, an [auth signature](../../authentication/auth-sig), is **always required** to communicate with the Lit nodes and make a request to the network. It doesn't matter if you are decrypting a piece of data or calling a Lit Action, an auth sig will always be required.
-
-In the case that a user doesn’t own a wallet (and therefore cannot produce a valid AuthSig), and you're using an Auth Method supported by Lit, they can present their alternative auth method to the Lit SDK which will convert it into a “compliant” AuthSig. This is documented in our [docs](overview).  If you're not using an auth method supported by Lit, then your AuthSig is not for authorization, but you must still present one for Rate Limit authentication.  In this case, the rate limit is tracked against the AuthSig, and you may wish to pay for your users requests by giving this wallet a Capacity Credit NFT.  
+Note: Currently, a [Session Signature](../../authentication/session-sigs/intro.md), is **always required** to communicate with the Lit nodes and make a request to the network. It doesn't matter if you are decrypting a piece of data or calling a Lit Action, a Session Sig will always be required.
 
 The flow for using an auth method already supported by lit, with custom Authorization, is as follows:
 
@@ -50,16 +48,6 @@ const go = async () => {
 go();
 `;
 
-// you need an AuthSig to auth with the nodes
-// normally you would obtain an AuthSig by calling LitJsSdk.checkAndSignAuthMessage({chain})
-const authSig = {
-  sig: "0x2bdede6164f56a601fc17a8a78327d28b54e87cf3fa20373fca1d73b804566736d76efe2dd79a4627870a50e66e1a9050ca333b6f98d9415d8bca424980611ca1c",
-  derivedVia: "web3.eth.personal.sign",
-  signedMessage:
-    "localhost wants you to sign in with your Ethereum account:\n0x9D1a5EC58232A894eBFcB5e466E3075b23101B89\n\nThis is a key for Partiful\n\nURI: https://localhost/login\nVersion: 1\nChain ID: 1\nNonce: 1LF00rraLO4f7ZSIt\nIssued At: 2022-06-03T05:59:09.959Z",
-  address: "0x9D1a5EC58232A894eBFcB5e466E3075b23101B89",
-};
-
 const runLitAction = async () => {
   const litNodeClient = new LitJsSdk.LitNodeClient({
     alertWhenUnauthorized: false,
@@ -69,7 +57,7 @@ const runLitAction = async () => {
   await litNodeClient.connect();
   const results = await litNodeClient.executeJs({
     code: litActionCode,
-    authSig,
+    sessionSigs,
     authMethods: [
       // {
       //   // discord oauth

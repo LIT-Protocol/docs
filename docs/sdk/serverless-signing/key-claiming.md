@@ -31,7 +31,7 @@ const keyId = ethers.utils.keccak256(ethers.utils.toUtf8Bytes("theIPFSIdOfYourLi
 
 ```jsx
   const res = await client.executeJs({
-    authSig,
+    sessionSigs,
     code: `(async () => {
       Lit.Actions.claimKey({keyId: userId});
     })();`,
@@ -57,7 +57,7 @@ const keyId = ethers.utils.keccak256(ethers.utils.toUtf8Bytes("theIPFSIdOfYourLi
   const keyId = ethers.utils.keccak256(ethers.utils.toUtf8Bytes("theIPFSIdOfYourLitAction_yourUserId"))
 
   const res = await client.executeJs({
-    authSig,
+    sessionSigs,
     code: `(async () => {
       Lit.Actions.claimKey({keyId: userId});
     })();`,
@@ -73,7 +73,7 @@ const keyId = ethers.utils.keccak256(ethers.utils.toUtf8Bytes("theIPFSIdOfYourLi
     keyType: 2,
     permittedIpfsCIDs: [],
     permittedIpfsCIDScopes: [],
-    permittedAddresses:: [],
+    permittedAddresses: [],
     permittedAddressScopes: [],
     permittedAuthMethodTypes: [AuthMethodType.EthWallet],
     permittedAuthMethodIds: [`0x${authMethodId}`],

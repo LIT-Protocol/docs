@@ -12,7 +12,6 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "update-chains": "node updateChains.js",
     "prepare": "husky install",
     "run:crawler": "node scripts/run-crawler.mjs",
     "tools": "node tools.mjs"

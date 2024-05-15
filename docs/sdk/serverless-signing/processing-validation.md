@@ -38,7 +38,7 @@ const litActionCode = fs.readFileSync("./build/signTxnTest.js");
 
 Where we will refer to the `signTxnTest.js` file here: https://github.com/LIT-Protocol/js-serverless-function-test/blob/main/build/signTxnTest.js.
 
-Set up an AuthSig, you can read more about that here.
+Set up a SessionSig, you can read more about that [here](../../sdk/authentication/session-sigs/get-session-sigs).
 
 Call the Lit Actions code with the Lit nodes
 
@@ -53,7 +53,7 @@ const go = async () => {
   await litNodeClient.connect();
   const results = await litNodeClient.executeJs({
     code: litActionCode,
-    authSig,
+    sessionSigs,
     jsParams: {},
   });
   const { signatures, response } = results;
@@ -125,7 +125,7 @@ Note that your Lit Action is being run on multiple nodes that may provide differ
 ```jsx
 const results = await litNodeClient.executeJs({
   code: "console.log('hello')",
-  authSig,
+  sessionSigs,
 });
 console.log("logs: ", results.logs);
 ```
@@ -139,7 +139,7 @@ Note that your Lit Action is being run on multiple nodes that may provide differ
 ```jsx
 const results = await litNodeClient.executeJs({
   code: "LitActions.setResponse({response: JSON.stringify({hello: 'world'})})",
-  authSig,
+  sessionSigs,
 });
 console.log("response: ", results.response);
 ```
@@ -205,7 +205,7 @@ const runLitAction = async () => {
   await litNodeClient.connect();
   const results = await litNodeClient.executeJs({
     code: litActionCode,
-    authSig,
+    sessionSigs,
     // all jsParams can be used anywhere in your litActionCode
     jsParams: {
       functionToRun: "signEcdsa",

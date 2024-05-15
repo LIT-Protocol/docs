@@ -69,7 +69,7 @@ const runLitAction = async () => {
   await litNodeClient.connect();
   const signatures = await litNodeClient.executeJs({
     code: litActionCode,
-    authSig,
+    sessionSigs,
     // all jsParams can be used anywhere in your litActionCode
     jsParams: {
       toSign: message,

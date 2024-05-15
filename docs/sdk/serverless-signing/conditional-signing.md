@@ -60,6 +60,8 @@ go();
 
 Obtain an AuthSig
 
+This AuthSig is used for the conditional check in our Lit Action. The address of the key that signed the message to produce this AuthSig will be used as the `:userAddress` when the Lit Action checks that the balance is greater than 1 Wei.
+
 ```jsx
 // you need an AuthSig to auth with the nodes
 // normally you would obtain an AuthSig by calling LitJsSdk.checkAndSignAuthMessage({chain})
@@ -73,6 +75,8 @@ const authSig = {
 };
 
 ```
+
+Obtain a [SessionSigs](../../sdk/authentication/session-sigs/get-session-sigs) to be used for authenticating with the Lit network. Without a `SessionSigs`, you will not be able to make requests to the network.
 
 Run the Lit Action code on the Lit nodes:
 
@@ -88,7 +92,7 @@ await litNodeClient.connect();
 
 const signatures =await litNodeClient.executeJs({
     code: litActionCode,
-    authSig,
+    sessionSigs,
     jsParams: {
       conditions: [
         {

@@ -12,6 +12,10 @@ Cosmos access control currently is missing various security properties due to th
 
 :::
 
+:::info
+Cosmos Access Control Conditions are supported only by Auth Sigs not Session Sigs (read more about the difference between the two approaches [here](../../authentication/overview.md)).
+:::
+
 Cosmos Access Control conditions work a little different than EVM access control conditions. Cosmos conditions let you make a Cosmos or KYVE RPC call, and then filter and parse the response. This is useful for checking the balance of an account, checking the owner of an account, or checking the number of tokens a user has.
 
 Note that Cosmos Conditions can only be used via the `unifiedAccessControlConditions` parameter.

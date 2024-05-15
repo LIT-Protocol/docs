@@ -2,15 +2,23 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 
 # Decrypting and Combining Within an Action
 
+:::info
+Only available on the `test` network
+:::
+
 ## Overview
-Within a Lit action, you may choose to combine a `decryption shares` from within the context of an action. Meaning signature shares from each node will be combined and given to every node which recieved a request to execute the given action. Combining within an action may be useful if you wish to take advantage of the `Secure Compute Enviorment` offered by the Lit network. Actions which take combine signatures from within their own execution context will no provide the shares of the signatures to the client. So all information will stay in the trusted execution enviorment (TEE).
+
+Decryption with Lit is typically done client-side by an authorized party at the time of access. The decryptAndCombine function allows you to decrypt data within a Lit Action. This function is useful for performing operations over sensitive data, where the data itself remains private within the confines of each Lit node's Trusted Execution Environment (TEE).
+
+When you call `decryptAndCombine`, the decryption shares are collected from each Lit node before they are combined on a single node.
 
 
 # Encrypting content
-We will start by performing an `encrypt` operation as shown below using the `LitNodeClient` this operation is entirely done on the client, so no need for any lit action invovelment.
+We will start by performing an `encrypt` operation as shown below using the `LitNodeClient`. This operation is entirely done on the client, so no need for any Lit Action involvement.
+
 ```js
  const chain = 'ethereum';
-  const accessControlConditions = [
+ const accessControlConditions = [
     {
       contractAddress: '',
       standardContractType: '',
@@ -25,14 +33,13 @@ We will start by performing an `encrypt` operation as shown below using the `Lit
   ];
   const message = 'Hello world';
   const client = new LitNodeClient({
-    network: 'cayenne'
+    litNetwork: 'cayenne'
   });
   await client.connect();
-  // ==================== Test Logic ====================
   const { ciphertext, dataToEncryptHash } = await LitJsSdk.encryptString(
     {
       accessControlConditions,
-      authSig: globalThis.LitCI.CONTROLLER_AUTHSIG,
+      sessionSigs: {}, // your session
       chain,
       dataToEncrypt: message,
     },
@@ -42,22 +49,23 @@ We will start by performing an `encrypt` operation as shown below using the `Lit
   console.log("cipher text:", ciphertext, "hash:", dataToEncryptHash);
 ```
 
-Let's now take the `cipther text` and `hash of encrypted data` and use it from a Lit Action to decrypt within the `TEE`.
-
+Let's now take the `ciphertext` and `dataToEncryptHash` and use it from a Lit Action to decrypt within the TEE.
+In the below example we set the `authSig` to `null` as a way to tell the Lit Action runtime to use the `authSig` which was provided to the node through the `executeJs` call's `sessionSigs`.
+If you wish you may provide a different Auth Signature if the one provided from the session is not relevant to your use case. 
 ```js
 const code = `(async () => {
   const resp = await Lit.Actions.decryptAndCombine({
     accessControlConditions,
     ciphertext,
     dataToEncryptHash,
-    authSig,
+    authSig: null,
     chain: 'ethereum',
   });
 
   Lit.Actions.setResponse({ response: resp });
 })();`
 
-const res = client.executeJs({
+const res = await client.executeJs({
     code,
     sessionSigs: {} // your session
     jsParams: {

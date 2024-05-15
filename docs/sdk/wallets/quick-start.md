@@ -58,7 +58,7 @@ await client.connect();
 ```
 
 :::note
-To avoid errors from Lit nodes due to stale `authSig`, make sure to clear the local storage for `authSig` before reconnecting or restarting the client. One way to do this is to disconnect the client first and then reconnect.
+To avoid errors from Lit nodes due to stale `sessionSigs`, make sure to clear the local storage for `sessionSigs` before reconnecting or restarting the client. One way to do this is to disconnect the client first and then reconnect.
 :::
 
 The client listens to network state, and those listeners will keep your client running until you explicitly disconnect from the Lit network. To stop the client listeners and allow the browser to disconnect gracefully, call:
@@ -121,18 +121,46 @@ You’ll need to ensure you have some test tokens to pay for gas fees. You can c
 
 ## Authenticate with the Lit Network
 
-In order to interact with the nodes in the Lit Network, you will need to generate and present signatures. You can do this by generating either an 'Auth Sig' or a 'Session Sig' (read more about the difference between the two approaches [here](../authentication/overview.md)). Any signature compliant with EIP-4361 (also known as Sign in with Ethereum (SIWE)) cam be used for this. 
+In order to interact with the nodes in the Lit Network, you will need to generate and present signatures. You can do this by generating a 'Session Sig'. Any signature compliant with EIP-4361 (also known as Sign in with Ethereum (SIWE)) cam be used for this. 
 
-### Obtaining an `AuthSig` in the browser[](https://developer.litprotocol.com/v3/sdk/authentication/auth-sig#obtaining-an-authsig-in-the-browser)
+### Obtaining a `SessionSigs` in the browser
 
-### Using `checkAndSignAuthMessage`[](https://developer.litprotocol.com/v3/sdk/authentication/auth-sig#using-checkandsignauthmessage)
-
-The Lit SDK `checkAndSignAuthMessage()` function provides a convenient way to obtain an `AuthSig` from an externally-owned account in a browser environment.
+Using the Lit SDK and the methods `createSiweMessageWithRecaps` and `generateAuthSig` from the `@lit-protocol/auth-helpers` package, we can create a `SessionSigs` by signing a SIWE message using a private key stored in a browser wallet like MetaMask:
 
 ```jsx
-const authSig = await checkAndSignAuthMessage({
+const provider = new ethers.providers.Web3Provider(window.ethereum);
+await provider.send("eth_requestAccounts", []);
+const ethersSigner = provider.getSigner();
+
+const litNodeClient = new LitNodeClient({
+    litNetwork: "habanero",
+  });
+await litNodeClient.connect();
+
+const sessionSigs = await litNodeClient.getSessionSigs({
   chain: "ethereum",
-  nonce,
+  expiration: new Date(Date.now() + 1000 * 60 * 60 * 24).toISOString(), // 24 hours
+  resourceAbilityRequests: [
+    {
+      resource: new LitActionResource("*"),
+      ability: LitAbility.LitActionExecution,
+    },
+  ],
+  authNeededCallback: async ({ resourceAbilityRequests, expiration, uri }) => {
+    const toSign = await createSiweMessageWithRecaps({
+      uri,
+      expiration,
+      resources: resourceAbilityRequests,
+      walletAddress: await ethersSigner.getAddress(),
+      nonce: await litNodeClient.getLatestBlockhash(),
+      litNodeClient,
+    });
+
+    return await generateAuthSig({
+      signer: ethersSigner,
+      toSign,
+    });
+  },
 });
 ```
 
@@ -255,7 +283,7 @@ import { AuthMethodScope, AuthMethodType } from '@lit-protocol/constants';
 
 const authMethod = {
   authMethodType: AuthMethodType.EthWallet,
-  accessToken: '...',
+  accessToken: JSON.stringify(authSig),
 };
 
 const mintInfo = await contractClient.mintWithAuth({

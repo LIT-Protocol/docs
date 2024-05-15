@@ -12,6 +12,10 @@ Solana access control currently is missing various security properties due to th
 
 :::
 
+:::info
+Solana Access Control Conditions are supported only by Auth Sigs not Session Sigs (read more about the difference between the two approaches [here](../../authentication/overview.md)).
+:::
+
 Solana Access Control conditions work a little different than EVM access control conditions. Solana conditions let you make a Solana RPC call, and then filter and parse the response. This is useful for things like checking the balance of an account, checking the owner of an account, or checking the number of tokens a user has.
 
 Note that you can use Solana RPC Conditions in the same way you would use EVM conditions, but you should pass a `solRpcConditions` array instead of a `accessControlConditions` or `evmContractConditions` array.

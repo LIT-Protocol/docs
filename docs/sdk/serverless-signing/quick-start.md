@@ -59,7 +59,7 @@ await client.connect();
 ```
 
 :::note
-To avoid errors from Lit nodes due to stale `authSig`, make sure to clear the local storage for `authSig` before reconnecting or restarting the client. One way to do this is to disconnect the client first and then reconnect.
+To avoid errors from Lit nodes due to stale `sessionSigs`, make sure to clear the local storage for `sessionSigs` before reconnecting or restarting the client. One way to do this is to disconnect the client first and then reconnect.
 :::
 
 The client listens to network state, and those listeners will keep your client running until you explicitly disconnect from the Lit network. To stop the client listeners and allow the browser to disconnect gracefully, call:
@@ -97,6 +97,7 @@ await app.locals.litNodeClient.disconnect();
 ```jsx
 yarn add @lit-protocol/contracts-sdk
 yarn add @lit-protocol/lit-auth-client
+yarn add @lit-protocol/auth-helpers
 ```
 
 ### Set up a controller wallet
@@ -123,16 +124,46 @@ You’ll need to ensure you have some test tokens to pay for gas fees. You can c
 :::
 
 ## Authenticate with the Lit Network
-In order to interact with the nodes in the Lit Network, you will need to generate and present signatures. You can do this by generating either an 'Auth Sig' or a 'Session Sig' (read more about the difference between the two approaches [here](../authentication/overview.md)). Any signature compliant with EIP-4361 (also known as Sign in with Ethereum (SIWE)) cam be used for this. 
+In order to interact with the nodes in the Lit Network, you will need to generate and present signatures. You can do this by generating a 'Session Sig'. Any signature compliant with EIP-4361 (also known as Sign in with Ethereum (SIWE)) cam be used for this. 
 
-### Obtaining an `AuthSig` in the browser
+### Obtaining a `SessionSigs` in the browser
 
-The Lit SDK `checkAndSignAuthMessage()` function provides a convenient way to obtain an `AuthSig` from an externally-owned account in a browser environment.
+Using the Lit SDK and the methods `createSiweMessageWithRecaps` and `generateAuthSig` from the `@lit-protocol/auth-helpers` package, we can create a `SessionSigs` by signing a SIWE message using a private key stored in a browser wallet like MetaMask:
 
 ```jsx
-const authSig = await checkAndSignAuthMessage({
+const provider = new ethers.providers.Web3Provider(window.ethereum);
+await provider.send("eth_requestAccounts", []);
+const ethersSigner = provider.getSigner();
+
+const litNodeClient = new LitNodeClient({
+    litNetwork: "habanero",
+  });
+await litNodeClient.connect();
+
+const sessionSigs = await litNodeClient.getSessionSigs({
   chain: "ethereum",
-  nonce,
+  expiration: new Date(Date.now() + 1000 * 60 * 60 * 24).toISOString(), // 24 hours
+  resourceAbilityRequests: [
+    {
+      resource: new LitActionResource("*"),
+      ability: LitAbility.LitActionExecution,
+    },
+  ],
+  authNeededCallback: async ({ resourceAbilityRequests, expiration, uri }) => {
+    const toSign = await createSiweMessageWithRecaps({
+      uri,
+      expiration,
+      resources: resourceAbilityRequests,
+      walletAddress: await ethersSigner.getAddress(),
+      nonce: await litNodeClient.getLatestBlockhash(),
+      litNodeClient,
+    });
+
+    return await generateAuthSig({
+      signer: ethersSigner,
+      toSign,
+    });
+  },
 });
 ```
 
@@ -140,7 +171,7 @@ const authSig = await checkAndSignAuthMessage({
 Be sure to use the latest blockhash from the `litNodeClient` as the nonce. You can get it from the `litNodeClient.getLatestBlockhash()`.
 :::
 
-### Obtaining an `Session Signature` on the server-side
+### Obtaining a `Session Signature` on the server-side
 
 If you want to obtain an `Session Signature` on the server-side, you can instantiate an `ethers.Signer` to sign a SIWE message, which will produce a signature that can be used in an `Session Signature` object.
 
@@ -254,7 +285,7 @@ import { AuthMethodScope, AuthMethodType } from '@lit-protocol/constants';
 
 const authMethod = {
   authMethodType: AuthMethodType.EthWallet,
-  accessToken: '...',
+  accessToken: JSON.stringify(authSig),
 };
 
 const mintInfo = await contractClient.mintWithAuth({
@@ -470,7 +501,7 @@ const litActionCode = `
 
 const signatures = await litNodeClient.executeJs({
   code: litActionCode,
-  authSig,
+  sessionSigs,
   jsParams: {
     toSign: [84, 104, 105, 115, 32, 109, 101, 115, 115, 97, 103, 101, 32, 105, 115, 32, 101, 120, 97, 99, 116, 108, 121, 32, 51, 50, 32, 98, 121, 116, 101, 115],
     publicKey: mintInfo.pkp.publicKey,
@@ -488,7 +519,7 @@ The ipfs ID: `QmRwN9GKHvCn4Vk7biqtr6adjXMs7PzzYPCzNCRjPFiDjm` contains the sam
 ```jsx
 const signatures = await litNodeClient.executeJs({
   ipfsId: "QmRwN9GKHvCn4Vk7biqtr6adjXMs7PzzYPCzNCRjPFiDjm",
-  authSig,
+  sessionSigs,
   jsParams: {
     toSign: [84, 104, 105, 115, 32, 109, 101, 115, 115, 97, 103, 101, 32, 105, 115, 32, 101, 120, 97, 99, 116, 108, 121, 32, 51, 50, 32, 98, 121, 116, 101, 115],
     publicKey: mintInfo.pkp.publicKey,

@@ -41,7 +41,9 @@ import * as LitJsSdk from "@lit-protocol/lit-node-client";
 ```
 
 :::note
-You should use **at least Node v19.9.0** because of the need for  **crypto** support..
+You should use **at least Node v19.9.0** for
+- **crypto** support.
+- **webcrypto** library support if targeting `web`.
 :::
 
 ### Client-Side Usage

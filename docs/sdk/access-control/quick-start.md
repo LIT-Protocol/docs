@@ -23,7 +23,10 @@ Ensure you have the following requirements in place:
 
 Install the `@lit-protocol/lit-node-client` package, which can be used in both browser and Node environments:
 
-You should use **at least Node v19.9.0** because of the need for  **crypto** support.
+You should use **at least Node v19.9.0** for 
+- **crypto** support.
+- **webcrypto** library support if targeting `web`.
+
 
 ```jsx
 yarn add @lit-protocol/lit-node-client

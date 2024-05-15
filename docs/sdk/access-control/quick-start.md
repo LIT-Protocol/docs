@@ -23,6 +23,8 @@ Ensure you have the following requirements in place:
 
 Install the `@lit-protocol/lit-node-client` package, which can be used in both browser and Node environments:
 
+You should use **at least Node v19.9.0** because of the need for  **crypto** support.
+
 ```jsx
 yarn add @lit-protocol/lit-node-client
 ```
@@ -34,7 +36,17 @@ npm i @lit-protocol/lit-node-client
 ```
 
 :::note
-You should use **at least Node v16.16.0** because of the need for the **webcrypto** library.
+If you are using `NodeJS` you should install `@lit-protocol/lit-node-client-nodejs`
+:::
+
+Use the **Lit JS SDK V4**:
+
+```jsx
+import * as LitJsSdk from "@lit-protocol/lit-node-client";
+```
+
+:::note
+You should use **at least Node vv19.9.0** because of the need for  **crypto** support..
 :::
 
 You also need to install the following lit packages whose functions are used in the example below:

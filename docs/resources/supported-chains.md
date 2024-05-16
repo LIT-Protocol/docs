@@ -123,6 +123,7 @@ values={[
 - base
 - baseGoerli
 - baseSepolia
+- blast
 - bsc
 - celo
 - cheqdMainnet

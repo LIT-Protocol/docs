@@ -124,6 +124,7 @@ values={[
 - baseGoerli
 - baseSepolia
 - blast
+- blastSepolia
 - bsc
 - celo
 - cheqdMainnet

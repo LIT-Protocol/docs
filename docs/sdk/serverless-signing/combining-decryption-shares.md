@@ -13,7 +13,7 @@ Decryption with Lit is typically done client-side by an authorized party at the 
 When you call `decryptAndCombine`, the decryption shares are collected from each Lit node before they are combined on a single node.
 
 
-# Encrypting content
+## Encrypting content
 We will start by performing an `encrypt` operation as shown below using the `LitNodeClient`. This operation is entirely done on the client, so no need for any Lit Action involvement.
 
 ```js
@@ -77,3 +77,6 @@ const res = await client.executeJs({
 
 console.log("decrypted content sent from lit action:", res);
 ```
+
+## Decrypting an API Key From Within an Action
+For a guide on decrypting an api for secure usage from within a lit action [here](https://github.com/LIT-Protocol/developer-guides-code/tree/master/decrypt-api-key-in-action)

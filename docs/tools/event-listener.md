@@ -2,6 +2,10 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 
 # Event Listener
 
+:::note
+The Event Listener has been updated to be compatible with Lit's [v0.1](https://spark.litprotocol.com/lit-v0-1-live-on-testnet/) network upgrade. You can access the latest build of the event listener [here](https://www.npmjs.com/package/@lit-protocol/lit-listener-sdk?activeTab=versions).
+:::
+
  <iframe width="640" 
          height="480" 
          src="https://www.youtube.com/embed/gcT8Bp5oepo" 

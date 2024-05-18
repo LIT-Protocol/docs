@@ -11,6 +11,9 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
          allowfullscreen>
  </iframe>
 
+:::note
+Only available on the `test` networks
+:::
 
 The [Lit event listener](https://github.com/LIT-Protocol/LitListenerSDK) allows you to create specific event-based triggers for executing Lit Actions.
 

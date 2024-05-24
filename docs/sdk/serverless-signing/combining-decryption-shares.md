@@ -13,7 +13,7 @@ Decryption with Lit is typically done client-side by an authorized party at the 
 When you call `decryptAndCombine`, the decryption shares are collected from each Lit node before they are combined on a single node.
 
 
-## Encrypting content
+# Encrypting content
 We will start by performing an `encrypt` operation as shown below using the `LitNodeClient`. This operation is entirely done on the client, so no need for any Lit Action involvement.
 
 ```js
@@ -49,6 +49,27 @@ We will start by performing an `encrypt` operation as shown below using the `Lit
   console.log("cipher text:", ciphertext, "hash:", dataToEncryptHash);
 ```
 
+## Using IPFS ID as an Access Control Parameter
+When defining your `ACC` rules you may wish to define an `Curernt Action IPFS ID` which ay be added to your condition as show below
+
+```js
+{
+  contractAddress: '',
+  standardContractType: '',
+  chain,
+  method: 'eth_getBalance',
+  parameters: [':currentActionIpfsId', 'latest'],
+  returnValueTest: {
+    comparator: '=',
+    value: '<your ipfs cid>',
+  },
+}
+```
+
+The id will be added to the access control condition check when using `decryptAndCombine` from an action.
+
+## Using decryptAndCombine
+
 Let's now take the `ciphertext` and `dataToEncryptHash` and use it from a Lit Action to decrypt within the TEE.
 In the below example we set the `authSig` to `null` as a way to tell the Lit Action runtime to use the `authSig` which was provided to the node through the `executeJs` call's `sessionSigs`.
 If you wish you may provide a different Auth Signature if the one provided from the session is not relevant to your use case. 
@@ -77,6 +98,7 @@ const res = await client.executeJs({
 
 console.log("decrypted content sent from lit action:", res);
 ```
+
 
 ## Decrypting an API Key From Within an Action
 For a guide on decrypting an api for secure usage from within a lit action [here](https://github.com/LIT-Protocol/developer-guides-code/tree/master/decrypt-api-key-in-action)

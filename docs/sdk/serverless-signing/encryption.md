@@ -14,6 +14,24 @@ Within a Lit action, you may choose to `encrypt` from within the context of an a
 The Lit Action implementation of `encrypt` will not return the `dataToEncryptHash`. This can be created with the `crypto.subtle.digest` implementation by specifying the `SHA-256` hashing option if your use case requires the message hash.
 :::
 
+## Using IPFS ID as an Access Control Parameter
+When defining your `ACC` rules you may wish to define an `Curernt Action IPFS ID` which ay be added to your condition as show below
+
+```js
+{
+  contractAddress: '',
+  standardContractType: '',
+  chain,
+  method: 'eth_getBalance',
+  parameters: [':currentActionIpfsId', 'latest'],
+  returnValueTest: {
+    comparator: '=',
+    value: '<your ipfs cid>',
+  },
+}
+```
+
+
 # Encrypting content
 
 ```js
@@ -38,7 +56,7 @@ The Lit Action implementation of `encrypt` will not return the `dataToEncryptHas
     await client.connect();
 
     const code =`(async () => {
-        let ciphertext = Lit.Actions.encrypt({
+        let { ciphertext, dataToEncryptHash } = Lit.Actions.encrypt({
             accessControlConditions,
             to_encrypt: dataToEncrypt
         });

@@ -140,7 +140,7 @@ Our first step is to install the required dependencies:
   - The package allows us to easily interact with the Capacity Credits contract.
 
 :::info
-The minimum version of Node supported when using the SDK is `v16.16.0` because of the need for the `webcrypto` library.
+The minimum version of Node supported when using the SDK is `v19` because of the need for the `webcrypto` library.
 :::
 
 <Tabs
@@ -168,43 +168,13 @@ npm install --save @lit-protocol/lit-node-client @lit-protocol/lit-auth-client @
 
 ##### Connecting the SDK to the Lit Network
 
-After getting it installed, we're going to import the SDK, instantiate an instance of `LitNodeClient`, and connect it to the Lit `cayenne` testnet.
-
-The below code is going to vary depending on whether your code is running client-side (e.g. within a browser), or server-side (e.g. within a Node.js environment), please make sure you're following along with the correct code for your execution environment:
-
-<Tabs
-defaultValue="client-side"
-values={[
-{label: 'For Client Side Usage', value: 'client-side'},
-{label: 'For Server Side Usage', value: 'server-side'},
-]}>
-<TabItem value="client-side">
+After getting it installed, we're going to import the SDK, instantiate an instance of `LitNodeClient`, and connect it to the Lit `habanero` testnet.
 
 ```js
 import * as LitJsSdk from "@lit-protocol/lit-node-client";
 
 const main = async () => {
     const litNodeClient = new LitJsSdk.LitNodeClient({
-        litNetwork: 'cayenne',
-    });
-    await litNodeClient.connect();
-}
-
-main();
-```
-
-This code is pretty straightforward, we import the SDK, instantiate an instance of `LitNodeClient`, specify the `litNetwork` we want to connect our client to, and lastly we're calling `await litNodeClient.connect();` to connect our instance of `LitNodeClient` to the Lit `cayenne` network.
-
-</TabItem>
-
-<TabItem value="server-side">
-
-```js
-import * as LitJsSdk from "@lit-protocol/lit-node-client";
-
-const main = async () => {
-    const litNodeClient = new LitJsSdk.LitNodeClientNodeJs({
-        alertWhenUnauthorized: false,
         litNetwork: 'habanero',
     });
     await litNodeClient.connect();
@@ -213,29 +183,60 @@ const main = async () => {
 main();
 ```
 
-This code is pretty straightforward, we import the SDK, instantiate an instance of `LitNodeClientNodeJs`, specify the `litNetwork` we want to connect our client to, and lastly we're calling `await litNodeClient.connect();` to connect our instance of `LitNodeClientNodeJs` to the Lit `cayenne` network.
+:::note
+You should set `alertWhenUnauthorized` to `false` when executing server-side. If this were set to `true` or omitted, the SDK would try to show a JavaScript `alert()` when we try to use the SDK without first being authorized. However, regardless of what this property is set to, an exception will be thrown in this scenario.
 
-`alertWhenUnauthorized` is set to `false` since we're executing server-side. If this were set to `true` or omitted, the SDK would try to show a JavaScript `alert()` when we try to use the SDK without first being authorized. However, regardless of what this property is set to, an exception will be thrown in this scenario.
-
-</TabItem>
-</Tabs>
+```js
+const litNodeClient = new LitJsSdk.LitNodeClient({
+    litNetwork: 'habanero',
+    alertWhenUnauthorized: false
+});
+```
+:::
 
 ##### Authenticating with the Lit Network
 
-Now that the SDK is installed and we've got a `LitNodeClient` connected to the network, our next step is authenticate ourselves with the Lit network so we can begin making requests to it. To do this, we're going to make use of [Session Signatures](../sdk/authentication/session-sigs/intro):
+Now that the SDK is installed and we've got a `LitNodeClient` connected to the network, our next step is authenticate ourselves with the Lit network so we can begin making requests to it. To do this, we're going to make use of [Session Signatures](../sdk/authentication/session-sigs/intro).
 
-<Tabs
-defaultValue="siwe"
-values={[
-{label: 'Using SIWE', value: 'siwe'},
-{label: 'Using Something Else', value: 'something-else'},
-]}>
-<TabItem value="siwe">
-</TabItem>
+Our first step is to create a signer wallet:
 
-<TabItem value="something-else">
-</TabItem>
-</Tabs>
+```js
+const ethersSigner = new ethers.Wallet(
+  process.env.PRIVATE_KEY,
+  new ethersProviders.JsonRpcProvider(
+    "https://chain-rpc.litprotocol.com/http"
+  )
+);
+```
+
+Then we'll want to call `litNodeClient.getSessionSigs`:
+
+```js
+const sessionSigs = await litNodeClient.getSessionSigs({
+  chain: "ethereum",
+  expiration: new Date(Date.now() + 1000 * 60 * 60 * 24).toISOString(), // 24 hours
+  resourceAbilityRequests: [],
+  authNeededCallback: async ({ resourceAbilityRequests, expiration, uri }) => {
+    const toSign = await createSiweMessageWithRecaps({
+      uri,
+      expiration,
+      resources: resourceAbilityRequests,
+      walletAddress: await ethersSigner.getAddress(),
+      nonce: await litNodeClient.getLatestBlockhash(),
+      litNodeClient,
+    });
+
+    return await generateAuthSig({
+      signer: ethersSigner,
+      toSign,
+    });
+  };,
+});
+```
+
+Because we're only using our Session Signatures to authenticate with the Lit network, we're leaving `resourceAbilityRequests` empty as we don't require any abilities such as execute Lit Actions, or decrypting data.
+
+The `authNeededCallback` function we're passing is going to authenticate us with the Lit network as it's proof to the Lit nodes that are in control of the private key for `walletAddress`. This works because we are signing a [ERC-4361 (Sign in With Ethereum)](https://eips.ethereum.org/EIPS/eip-4361) message, and the Lit nodes are able to call `ecrecover` on our signature and verify it matches `walletAddress`.
 
 ### Delegating Capacity Credits
 

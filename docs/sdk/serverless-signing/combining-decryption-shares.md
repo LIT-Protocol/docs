@@ -50,7 +50,7 @@ We will start by performing an `encrypt` operation as shown below using the `Lit
 ```
 
 ## Using IPFS ID as an Access Control Parameter
-When defining your `ACC` rules you may wish to define an `Curernt Action IPFS ID` which ay be added to your condition as show below. this is useful for restricting `decryption` to only permit a single `Lit Action` to decrypt your data, in situtations like using an `api key`.
+When defining your `ACC` rules you may wish to use `Curernt Action IPFS ID` which may be added to your condition as show below. this is useful for restricting `decryption` to only permit a single `Lit Action` to decrypt your data.
 
 ```js
 {
@@ -61,12 +61,12 @@ When defining your `ACC` rules you may wish to define an `Curernt Action IPFS ID
   parameters: [':currentActionIpfsId', 'latest'],
   returnValueTest: {
     comparator: '=',
-    value: '<your ipfs cid>',
+    value: '<your ipfs id>',
   },
 }
 ```
 
-The id will be added to the access control condition check when using `decryptAndCombine` from an action.
+The ID will be included in the access control check when you use decryptAndCombine in an action. It's best to use the currentActionIpfsId when you want to share encrypted content that only a specific implementation can decrypt. This is useful for situations where you want to restrict access to sensitive information, like an API key, so that it can only be decrypted by a specific Lit Action. This way, the content will only be decrypted when decryptAndCombine is called within that action, keeping your credentials secure within the TEE (Trusted Execution Environment) of the Lit Network.
 
 ## Using decryptAndCombine
 

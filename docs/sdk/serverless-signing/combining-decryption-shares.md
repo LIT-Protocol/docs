@@ -50,7 +50,7 @@ We will start by performing an `encrypt` operation as shown below using the `Lit
 ```
 
 ## Using IPFS ID as an Access Control Parameter
-When defining your `ACC` rules you may wish to use `Curernt Action IPFS ID` which may be added to your condition as show below. this is useful for restricting `decryption` to only permit a single `Lit Action` to decrypt your data.
+When defining your Access Control Conditions rules you may wish to use `currentActionIpfsId` which may be added to your condition as shown below. This is useful for restricting decryption to only permit a single Lit Action to decrypt your data.
 
 ```js
 {

@@ -16,7 +16,7 @@ The Lit Action implementation of `encrypt` will not return the `dataToEncryptHas
 
 ## Using IPFS ID as an Access Control Parameter
 
-The ID will be included in the access control check when you use decryptAndCombine in an action. It's best to use the currentActionIpfsId when you want to share encrypted content that only a specific implementation can decrypt. This is useful for situations where you want to restrict access to sensitive information, like an API key, so that it can only be decrypted by a specific Lit Action. This way, the content will only be decrypted when decryptAndCombine is called within that action, keeping your credentials secure within the TEE (Trusted Execution Environment) of the Lit Network.
+The ID will be included in the access control check when you use `decryptAndCombine` in an action. It's best to use the `currentActionIpfsId` when you want to share encrypted content that only a specific implementation can decrypt. This is useful for situations where you want to restrict access to sensitive information, like an API key, so that it can only be decrypted by a specific Lit Action. This way, the content will only be decrypted when `decryptAndCombine` is called within that action, keeping your credentials secure within the TEE (Trusted Execution Environment) of the Lit Network.
 
 
 ```js

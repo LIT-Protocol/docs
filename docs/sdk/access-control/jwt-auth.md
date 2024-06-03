@@ -91,11 +91,7 @@ const litNodeClient = new LitJsSdk.LitNodeClient();
 await litNodeClient.connect();
 ```
 
-First, obtain an `authSig` from the user. This will ask their metamask to sign a message proving they own the crypto address in their wallet. Remember to pass the chain you're using!
-
-```js
-const authSig = await LitJsSdk.checkAndSignAuthMessage({ chain: "polygon" });
-```
+First, obtain `sessionSigs` from the user to authenticate with Lit network as stated [here](./quick-start#obtain-a-session-sigs).
 
 Now, using the `accessControlConditions` you can use the `getSignedToken` function to get the token:
 
@@ -103,7 +99,7 @@ Now, using the `accessControlConditions` you can use the `getSignedToken` functi
 const jwt = await litNodeClient.getSignedToken({
   accessControlConditions,
   chain,
-  authSig,
+  sessionSigs,
 });
 ```
 

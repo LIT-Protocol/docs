@@ -419,6 +419,7 @@ const sidebars = {
         keywords: ['api-reference'],
       },
       items:[
+        'api-reference/latest',
         {
           type: 'category',
           label: 'Legacy SDK Versions',

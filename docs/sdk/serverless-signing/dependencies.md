@@ -7,6 +7,11 @@ We preload some dependencies for you:
 * Ethers v5.7 is loaded and available via the global `ethers` object
 * The jsonwebtoken library located here https://www.npmjs.com/package/jsonwebtoken is loaded and available via the global `jwt` object
 
+:::note
+You cannot use `require` or `import` to load other dependencies in Lit Actions except for pre-loaded dependencies like `ethers` and `jsonwebtoken`. If you need to use other dependencies, you can bundle them and upload the bundle as a single Lit Action file. 
+
+Moreover, there is 5mb size limit on a Lit Action file. 
+:::
 
 ## Adding your own dependencies
 

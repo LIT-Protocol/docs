@@ -20,7 +20,7 @@ const code = `(async () => {
   const utf8Encode = new TextEncoder();
   const toSign = utf8Encode.encode('Hello World');
 
-  // Will use the authentication provided to the `executeJs` call from the sdk on the client.
+  // Will use the authentication provided to the "executeJs" call from the sdk on the client.
   const signature = await Lit.Actions.signAndCombineEcdsa({
     toSign,
     publicKey,

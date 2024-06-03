@@ -109,10 +109,10 @@ const config = {
             position: 'left',
             label: 'Ecosystem',
           },
-          {
-            type: 'docsVersionDropdown',
-            position: 'right',
-          },
+          // {
+          //   type: 'docsVersionDropdown',
+          //   position: 'right',
+          // },
           {
             href: 'https://github.com/LIT-Protocol/js-sdk',
             position: 'right',

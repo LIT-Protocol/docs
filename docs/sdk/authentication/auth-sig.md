@@ -8,6 +8,10 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 
 An `AuthSig` is a wallet signature obtained from a user. Wallet signatures are required to communicate with the Lit Nodes and authorize requests.
 
+:::warning
+The SDK v6.x.x and above will only accept SessionSigs to authenticate with the Lit Nodes. The Wallet Signatures or AuthSigs will no longer be accepted as a form of authentication.
+:::
+
 ## Format of an `AuthSig`
 
 You can use any signature compliant with EIP-4361, also known as Sign in with Ethereum (SIWE), for the `AuthSig`. However, the signature must be presented in an `AuthSig` object formatted like so:
@@ -135,7 +139,7 @@ async function main() {
     
   // expiration time in ISO 8601 format.  This is 7 days in the future, calculated in milliseconds
   const expirationTime = new Date(
-    Date.now() + 1000 * 60 * 60 * 24 * 7 * 10000
+    Date.now() + 1000 * 60 * 60 * 24 * 7
   ).toISOString();
   
   const siweMessage = new siwe.SiweMessage({

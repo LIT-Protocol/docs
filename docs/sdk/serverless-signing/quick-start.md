@@ -25,7 +25,7 @@ Ensure you have the following requirements in place:
 
 1. Operating System: Linux, Mac OS, or Windows.
 2. Development Environment: You'll need an Integrated Development Environment (IDE) installed. We recommend Visual Studio Code.
-3. Languages: The Lit JS SDK V4 supports JavaScript. Make sure you have the appropriate language environment set up.
+3. Languages: The Lit JS SDK V4 and above supports JavaScript. Make sure you have the appropriate language environment set up.
 4. Internet Connection: A stable internet connection is required for installation, updates, and interacting with the Lit nodes.
 
 Install the `@lit-protocol/lit-node-client` package, which can be used in both browser and Node environments:
@@ -105,6 +105,10 @@ yarn add @lit-protocol/auth-helpers
 ### Set up a controller wallet
 
 To initialize a LitContracts client you need an Ethereum Signer. This can be a standard Ethereum wallet (ethers) or a PKP (more info on the latter **[here](https://developer.litprotocol.com/v3/sdk/wallets/auth-methods/lit-auth-methods/add-remove-auth-methods)**). Here, we're going to use a standard Ethereum wallet.
+
+:::warning
+You'll need to use ethers.js v5 with the Lit SDK. The Lit SDK is not compatible with ethers.js v6 or higher.
+:::
 
 ### Initialize the `contracts-sdk`
 
@@ -316,7 +320,7 @@ You should now have successfully minted a PKP! You can verify that the PKP has t
 import { LitAuthClient } from '@lit-protocol/lit-auth-client';
 
 const authId = await LitAuthClient.getAuthIdByAuthMethod(authMethod);
-await contractClient.pkpPermissionsContract.read.getPermittedAuthMethodScopes(
+const scopes = await contractClient.pkpPermissionsContract.read.getPermittedAuthMethodScopes(
   mintInfo.pkp.tokenId,
   AuthMethodType.EthWallet,
   authId,

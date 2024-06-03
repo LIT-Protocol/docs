@@ -64,7 +64,7 @@ const code = `(async () => {
   // using ether's serializeTransaction
   // https://docs.ethers.org/v5/api/utils/transactions/#transactions--functions
   const serializedTx = ethers.utils.serializeTransaction(txn);
-  let hash = utils.keccak256(ethers.utils.toUtf8Bytes(serializedTx));
+  let hash = ethers.utils.keccak256(ethers.utils.toUtf8Bytes(serializedTx));
   // encode the message into an uint8array for signing
   const toSign = await new TextEncoder().encode(hash);
   const signature = await Lit.Actions.signAndCombineEcdsa({

@@ -106,7 +106,7 @@ Check out this PKP x WalletConnect example [here](https://github.com/LIT-Protoco
 
 ### 11. Is Web Assembly supported in Lit Actions?
 
-Yes! Check out this [sample project.](https://github.com/dOrgJelli/lit-protocol-wasm-test/blob/d4b8873f9a5bceaf98e7f7a1bf325bf597cbfa40/src/App.js#L6-L51.)
+No, currently Web Assembly is not supported within Lit Actions.
 
 ### 12. I am getting the following error when connecting to the Lit nodes: "Error: Unable to verify the first certificate in nodejs". What may be causing this?
 

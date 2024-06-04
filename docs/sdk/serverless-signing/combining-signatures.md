@@ -19,7 +19,9 @@ const code = `(async () => {
   // sign "hello world" and allow all the nodes to combine the signature and return it to the action.
   const utf8Encode = new TextEncoder();
   const toSign = utf8Encode.encode('Hello World');
-
+  ethers.utils.arrayify(
+    ethers.utils.keccak256(toSign)
+  );
   // Will use the authentication provided to the "executeJs" call from the sdk on the client.
   const signature = await Lit.Actions.signAndCombineEcdsa({
     toSign,

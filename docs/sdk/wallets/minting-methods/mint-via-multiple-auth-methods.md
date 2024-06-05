@@ -1,3 +1,5 @@
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Mint via multiple Auth Methods
 You can also mint a PKP using [multiple Auth Methods](../auth-methods#existing-supported-auth-methods) (i.e. Multi-Factor Authentication). This can be done in two different ways:
 1. [Using `LitAuthClient`](#using-litauthclient)
@@ -230,3 +232,4 @@ const tokenId = mintTxReceipt.events[0].topics[1];
 ```
 
 View `Minting a PKP with multiple Auth Methods via ContractsSDK` example in our SDK [here](https://github.com/LIT-Protocol/js-sdk/blob/251482b90761e9e0e734cb08c0c4a93b563b6869/e2e-nodejs/group-contracts/test-contracts-write-mint-a-pkp-and-set-scope-1-advanced.mjs).
+<FeedbackComponent/>

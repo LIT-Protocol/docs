@@ -2,12 +2,18 @@
 sidebar_position: 4
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Solana Examples
 
 :::danger
 
 Solana access control currently is missing various security properties due to the Solana communities lack of a standard on a signed message format.  You should not use Solana access control for anything mission critical in it's current form.  Any EDDSA signature that is valid will allow auth via Solana.  This means, if a given wallet has ever made a Solana txn, it's possilble to auth as that wallet by taking the signature from the chain and presenting it to Lit for auth.  If you're building on Solana, please reach out, so we can work on a standard signed message format to solve this problem.
 
+:::
+
+:::info
+Solana Access Control Conditions are supported only by Auth Sigs not Session Sigs (read more about the difference between the two approaches [here](../../authentication/overview.md)).
 :::
 
 Solana Access Control conditions work a little different than EVM access control conditions. Solana conditions let you make a Solana RPC call, and then filter and parse the response. This is useful for things like checking the balance of an account, checking the owner of an account, or checking the number of tokens a user has.
@@ -149,3 +155,5 @@ The condition below will derive a PDA using pdaParams, pdaInterface, and pdaKey.
   },
 ];
 ```
+
+<FeedbackComponent/>

@@ -1,3 +1,5 @@
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 
 # Migrating to Lit v0
 
@@ -106,8 +108,23 @@ async decrypt(encryptedString, encryptedSymmetricKey) {
 ```
 ### 3. Connect to `Habanero` or `Manzano` and encrypt it again
 ```js
+import {ethers} from "ethers";
+import {
+  LitAccessControlConditionResource,
+  LitAbility,
+  createSiweMessageWithRecaps,
+  generateAuthSig,
+} from "@lit-protocol/auth-helpers";
+
 class LitV3 {  // or Class LitV4
+  private ethersWallet;
   private litNodeClient;
+
+  constructor(yourPrivateKey) {
+    this.ethersWallet = new ethers.Wallet(
+      yourPrivateKey
+    );
+  }
 
   async connect() {
     const client = new LitJsSdk.LitNodeClient({
@@ -117,12 +134,65 @@ class LitV3 {  // or Class LitV4
     this.litNodeClient = client;
   }
 
+  async getSessionSignatures(){
+      // Get the latest blockhash
+      const latestBlockhash = await this.litNodeClient.getLatestBlockhash();
+
+      // Define the authNeededCallback function
+      const authNeededCallback = async(params) => {
+        if (!params.uri) {
+          throw new Error("uri is required");
+        }
+        if (!params.expiration) {
+          throw new Error("expiration is required");
+        }
+
+        if (!params.resourceAbilityRequests) {
+          throw new Error("resourceAbilityRequests is required");
+        }
+
+        // Create the SIWE message
+        const toSign = await createSiweMessageWithRecaps({
+          uri: params.uri,
+          expiration: params.expiration,
+          resources: params.resourceAbilityRequests,
+          walletAddress: this.ethersWallet.address,
+          nonce: latestBlockhash,
+          litNodeClient: this.litNodeClient,
+        });
+
+        // Generate the authSig
+        const authSig = await generateAuthSig({
+          signer: this.ethersWallet,
+          toSign,
+        });
+
+        return authSig;
+      }
+
+      // Define the Lit resource
+      const litResource = new LitAccessControlConditionResource('*');
+
+      // Get the session signatures
+      const sessionSigs = await this.litNodeClient.getSessionSigs({
+          chain: 'ethereum',
+          resourceAbilityRequests: [
+              {
+                  resource: litResource,
+                  ability: LitAbility.AccessControlConditionDecryption,
+              },
+          ],
+          authNeededCallback,
+      });
+      return sessionSigs;
+  }
+
   async encrypt(message) {
     if (!this.litNodeClient) {
       await this.connect();
     }
   
-    const authSig = await LitJsSdk.checkAndSignAuthMessage({ chain: 'ethereum' });
+    const sessionSigs = await this.getSessionSignatures();
     const accessControlConditions = [
       {
         contractAddress: "",
@@ -140,7 +210,7 @@ class LitV3 {  // or Class LitV4
     const { ciphertext, dataToEncryptHash } = await LitJsSdk.encryptString(
       {
         accessControlConditions,
-        authSig,
+        sessionSigs,
         chain: 'ethereum',
         dataToEncrypt: message,
       },
@@ -212,7 +282,9 @@ import * as LitJsSdk from "@lit-protocol/lit-node-client-nodejs";
 </Tabs>
 
 :::note
-You should use **at least Node v16.16.0** because of the need for the **webcrypto** library.
+You should use **at least Node v19.9.0**
+- **crypto** support.
+- **webcrypto** library support if targeting `web`.
 :::
 
 ## Connection to the Lit Network
@@ -275,3 +347,4 @@ A `Capacity Credits NFT` can be very easily minted from the Lit Explorer. For mi
 You’ll also need some 'testLPX' tokens for minting. These are test tokens that hold no real value and should only be used to pay for usage on Habanero. `testLPX` should only be claimed from the verified faucet, linked [here](https://faucet.litprotocol.com/).
 
 For more information on Capacity Credits and network rate limiting see [here](../concepts/capacity-credits-concept)
+<FeedbackComponent/>

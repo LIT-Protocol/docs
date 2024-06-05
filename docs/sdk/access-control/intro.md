@@ -2,6 +2,8 @@
 sidebar_position: 1
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Encryption and Access Control
 
 :::info
@@ -58,3 +60,5 @@ You can get started with encryption following this [quick start](../access-contr
 2. [Encrypting Data on Arweave Using Lit and Irys](../../integrations/storage/irys.md) 
 3. [Basic EVM Conditions](../access-control/evm/basic-examples)
 4. [Access Control Using Off-Chain Inputs](../access-control/lit-action-conditions)
+
+<FeedbackComponent/>

@@ -8,6 +8,8 @@ Learn how Lit [Programmable Key Pairs](../../sdk/wallets/intro.md) can be a sign
 
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 ## Objectives
 At completion of this reading you should be able to:
 
@@ -211,3 +213,5 @@ litSigner.authenticate({
 ## Next Steps
 
 Explore [Lit Alchemy AA signer documentation](https://accountkit.alchemy.com/packages/aa-signers/lit-protocol/introduction.html).
+
+<FeedbackComponent/>

@@ -2,6 +2,8 @@
 sidebar_position: 3
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # ComposeDB (Ceramic)
 
 ## Save Data Encrypted with Lit Protocol to the Ceramic Network on ComposeDB
@@ -230,3 +232,5 @@ Developers are encouraged to join the Ceramic community, engage with members of 
 - Follow the Ceramic Network on [Twitter](https://twitter.com/ceramicnetwork) for updates
 - Browse technical tutorials and feature release announcements on the Ceramic [blog](https://blog.ceramic.network/)
 - Check out the [YouTube Channel](https://www.youtube.com/channel/UCgCLq5dx7sX-yUrrEbtYqVw) for presentations and videos
+
+<FeedbackComponent/>

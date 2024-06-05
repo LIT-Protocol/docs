@@ -645,18 +645,17 @@ force = false
   status = 302
   force = false
 
-# 6/28/23
+# 4/6/24, redirect V3 links to without V3 links
 
 [[redirects]]
-  from = "/*"
-  to = "/v3/:splat"
+  from = "/v3/*"
+  to = "/:splat"
   status = 302
   force = false
 
-# home redirect 7/11/23, pointing to V2... update to V3 when ready
 [[redirects]]
-  from = "/"
-  to = "/v3/"
+  from = "/v3/"
+  to = "/"
   status = 302
   force = false
 

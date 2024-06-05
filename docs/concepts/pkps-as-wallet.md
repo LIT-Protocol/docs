@@ -2,6 +2,8 @@
 sidebar_position: 3
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # User Wallets (Programmable Key Pairs)
 
 :::info
@@ -37,3 +39,5 @@ Some links to further reading and resources to help you get started building wit
 - Working with [User Wallets](../sdk/wallets/intro)
 - [Creating a wallet](../sdk/wallets/minting)
 - Overview of supported [authentication methods](../sdk/wallets/auth-methods)
+
+<FeedbackComponent/>

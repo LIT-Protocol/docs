@@ -1,3 +1,5 @@
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Mainnet
 
 ## Overview
@@ -32,3 +34,5 @@ Upgrading to the v3 SDK can be done by following the [migration guide](../../sdk
 If your app currently has users in production (on the v1 or v2 SDK), we recommend upgrading internally while keeping users on the current branch until after Habanero is live and fully functional. Once you've upgraded to v3 and Habanero is stable, you’ll just need to perform the necessary migration tasks dependent on the Lit tooling that you’re using:
 - If you’re using Lit for encryption (AKA decentralized access control): Perform re-encryption with Habanero keys.
 - If you’re building with PKPs (AKA user wallets): Re-mint PKPs on Habanero with the same auth methods.
+
+<FeedbackComponent/>

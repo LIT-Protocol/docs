@@ -2,6 +2,8 @@
 sidebar_position: 2
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Boolean Logic
 
 Lit Protocol supports boolean logic when checking conditions. Use an object with the "operator" property set to "and" or "or" to combine conditions.
@@ -92,3 +94,5 @@ const accessControlConditions = [
   ]
 ]
 ```
+
+<FeedbackComponent/>

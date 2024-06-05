@@ -3,6 +3,8 @@ slug: /what-is-lit
 sidebar_position: 2
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # What is Lit Protocol
 
 :::info
@@ -62,3 +64,4 @@ Check out the Lit [blog](https://spark.litprotocol.com/) to read about new produ
 Subscribe to Lit's [community calendar](https://calendar.google.com/calendar/u/5?cid=Y19hMnVxZDNjaHVqZ2Q0a3FqbGlvcDdxY2JhMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t) to stay up to date on sponsored events, hackathons, office hours, and additional opportunities to engage with the Lit development team.
 
 Follow Lit on [X](https://twitter.com/LitProtocol).
+<FeedbackComponent/>

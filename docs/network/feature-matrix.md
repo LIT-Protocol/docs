@@ -1,3 +1,5 @@
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Feature Matrix
 
 :::info
@@ -28,3 +30,4 @@ V4 refers to `4.x.x` versions of [js-sdk](https://github.com/LIT-Protocol/js-sdk
 | Session Signatures | ✅ | ✅ | ✅ |
 
 _ACC stands for Access Control Condition._
+<FeedbackComponent/>

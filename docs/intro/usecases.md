@@ -3,6 +3,8 @@ slug: /usecases
 sidebar_position: 4
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Use Cases
 
 :::info
@@ -51,3 +53,5 @@ Generating signed proofs over arbitrary Web data: Using digital signatures to ve
 You can find even more examples, ideas, and resources [here](https://github.com/LIT-Protocol/awesome/blob/main/README.md).
 
 Have an idea for a project? [Get in touch](https://forms.gle/jNsLvvwcySDprtAx7)!
+
+<FeedbackComponent/>

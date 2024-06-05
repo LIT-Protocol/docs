@@ -2,6 +2,8 @@
 sidebar_position: 2
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Glossary
 
 ## Definitions of commonly used terms and core concepts.
@@ -120,3 +122,5 @@ Webhooks are one way that apps can send automated messages or information to oth
 A zero-knowledge proof is a cryptographic method that allows an individual to prove that an arbitrary statement is true without requiring that they disclose any of the underlying data that the proof was generated against.
 
 A trivial example would be proving that you are over the age of 18, without actually disclosing your birthday or any PII.
+
+<FeedbackComponent/>

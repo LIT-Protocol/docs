@@ -2,6 +2,8 @@
 sidebar_position: 1
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # How Does Lit Protocol Work
 
 ## Introduction
@@ -97,4 +99,4 @@ Learn more about how Lit Protocol works by checking out the resources below:
 - About [encryption and access control](../concepts/access-control-concept.md).
 - About [decentralized compute](../concepts/programmable-signing-concept.md).
 
-Did you find this guide helpful? If not, please [reach out](https://docs.google.com/forms/d/e/1FAIpQLScBVsg-NhdMIC1H1mozh2zaVX0V4WtmEPSPrtmqVtnj_3qqNw/viewform?usp=send_form).
+<FeedbackComponent/>

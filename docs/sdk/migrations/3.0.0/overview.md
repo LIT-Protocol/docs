@@ -2,6 +2,8 @@
 sidebar_position: 2
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -340,3 +342,4 @@ for usage with the above package you can change your run script
 ## Changelog
 
 Changes to the **Lit JS SDK V3** will be tracked in the [changelog](https://github.com/LIT-Protocol/js-sdk/blob/master/CHANGELOG.md).
+<FeedbackComponent/>

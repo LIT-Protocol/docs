@@ -1,3 +1,7 @@
-# SDK v3.x.x
+import FeedbackComponent from "@site/src/pages/feedback.md";
 
-The most recent API docs can be viewed [here](https://lit-js-sdk-v3-api-docs.vercel.app/).
+# SDK v5.x.x to v3.x.x
+
+The SDK v5.x.x to v3.x.x API docs can be viewed [here](https://lit-js-sdk-v3-api-docs.vercel.app/).
+
+<FeedbackComponent/>

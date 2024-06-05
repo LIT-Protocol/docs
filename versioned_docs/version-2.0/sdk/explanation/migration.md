@@ -14,7 +14,9 @@ The **Lit JS SDK V2** has been entirely revamped from the earlier `lit-js-sdk` a
 ## Installing the V2 SDK
 
 :::note
-You should use **at least Node v16.16.0** because of the need for the **webcrypto** library.
+You should use **at least Node v19.9.0**
+- **crypto** support.
+- **webcrypto** library support if targeting `web`.
 :::
 
 Get started with **Lit JS SDK V2** by installing the package best suited for your environment.

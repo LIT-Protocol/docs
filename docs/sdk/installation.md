@@ -1,3 +1,5 @@
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -56,7 +58,7 @@ import * as LitJsSdk from "@lit-protocol/lit-node-client-nodejs";
 </Tabs>
 
 :::note
-You should use **at least Node v16.16.0** because of the need for the **webcrypto** library.
+You should use **at least Node v19.9.0** because of the need for **crypto** support.
 :::
 
 ## Connection to the Lit Network
@@ -65,7 +67,7 @@ The SDK requires an active connection to the Lit nodes to perform most functions
 
 In web apps, this is typically done on first page load and can be shared between all your pages. In NodeJS apps, this is done when when the server starts.
 
-Calling `connect()` on the `litNodeClient`` returns a promise that resolves when you are connected to the Lit network.
+Calling `connect()` on the `litNodeClient` returns a promise that resolves when you are connected to the Lit network.
 
 ### SDK installed via NodeJS / serverside usage
 
@@ -73,21 +75,21 @@ In this example stub, the litNodeClient is stored in a global variable `app.loca
 
 > Keep in mind that in the server-side implementation, the client class is named `LitNodeClientNodeJs`.
 
-`client.connect()` returns a promise that resolves when you are connected to the Lit network.
+`app.locals.litNodeClient.connect()` returns a promise that resolves when you are connected to the Lit network.
 
 ```js
 app.locals.litNodeClient = new LitJsSdk.LitNodeClientNodeJs({
   alertWhenUnauthorized: false,
-  litNetwork: "cayenne",
+  litNetwork: "habanero",
 });
 await app.locals.litNodeClient.connect();
 ```
 
 The litNodeClient listens to network state, and those listeners will keep your Node.js process running until you explicitly disconnect from the Lit network.
-To stop the litNodeClient listeners and allow node to exit gracefully, call `client.disconnect()`
+To stop the litNodeClient listeners and allow node to exit gracefully, call:
 
 ```js
-await app.locals.litNodeClient.disconnect()
+await app.locals.litNodeClient.disconnect();
 ```
 
 ### SDK installed for client side usage
@@ -98,10 +100,20 @@ Within a file (in the Lit example repos it will likely be called `lit.js`), set 
 
 ```js
 const client = new LitJsSdk.LitNodeClient({
-  litNetwork: 'cayenne',
+  litNetwork: 'habanero',
 });
 
 await client.connect();
+```
+
+:::note
+To avoid errors from Lit nodes due to stale `authSig`, make sure to clear the local storage for `authSig` before reconnecting or restarting the client. One way to do this is to disconnect the client first and then reconnect.
+:::
+
+The client listens to network state, and those listeners will keep your client running until you explicitly disconnect from the Lit network. To stop the client listeners and allow the browser to disconnect gracefully, call:
+
+```js
+await client.disconnect();
 ```
 
 ## Debug Logging and Lit Node Client configuration
@@ -109,3 +121,5 @@ await client.connect();
 The `LitNodeClient` object has a number of config params you can pass, documented here: https://v5.api-docs.getlit.dev/
 
 For example, to turn off logging, you could set `debug` to `false` like this: `const client = new LitJsSdk.LitNodeClient({debug: false})`
+
+<FeedbackComponent/>

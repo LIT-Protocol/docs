@@ -1,3 +1,5 @@
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Intro
 
 ## Quick Start
@@ -51,3 +53,5 @@ Below is a table of how each supported authentication method derives the `key id
 
 
 Continue to the next section to learn how to create HD keys and claim them.
+
+<FeedbackComponent/>

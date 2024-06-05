@@ -4,6 +4,8 @@ Learn how to use Lit Protocol with account abstraction providers to streamline h
 
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 ## Objectives
 At completion of this reading you should be able to:
 
@@ -53,3 +55,5 @@ AA providers like Alchemy, Biconomy, and Pimlico are pioneering smart account te
 | [Pimlico](https://www.pimlico.io/) | This how-to guide will walk you through the steps to integrate Lit Protocol's OTP sign-in with email, SMS, and Whatsapp with a smart account whose user operations are relayed and sponsored by Pimlico. | [guide](../aa/pimlico.md) |
 | - | If you are an AA provider, reach out to the Lit developement team to be included! | [Reach out to the team](https://nut.sh/ell/forms/352580/YEk9vu) |
 
+
+<FeedbackComponent/>

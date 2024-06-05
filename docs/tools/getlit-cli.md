@@ -2,6 +2,8 @@
 sidebar_position: 5
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # GetLit CLI
 
 ![](https://raw.githubusercontent.com/LIT-Protocol/getlit/main/banner.png)
@@ -168,3 +170,4 @@ Lit Protocol supports [derived keys](https://developer.litprotocol.com/v3/sdk/wa
 ```bash
 getlit derive-pkp --userId --projectId --format
 ```
+<FeedbackComponent/>

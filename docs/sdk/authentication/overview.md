@@ -2,6 +2,8 @@
 sidebar_position: 1
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Overview
 
 :::info
@@ -31,3 +33,5 @@ This is the recommended way to interact with PKP entities as it will automatical
 `SessionSigs` are only available on Ethereum and are heavily in development, so things may change. Be sure to use the latest version of the Lit JS SDK.
 
 :::
+
+<FeedbackComponent/>

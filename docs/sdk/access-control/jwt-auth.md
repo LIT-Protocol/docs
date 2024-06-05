@@ -1,3 +1,5 @@
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # JWT Auth
 
 Access control conditions can be used to "gate" the signing of JWTs that are used to load dynamic content from a server.
@@ -89,11 +91,7 @@ const litNodeClient = new LitJsSdk.LitNodeClient();
 await litNodeClient.connect();
 ```
 
-First, obtain an `authSig` from the user. This will ask their metamask to sign a message proving they own the crypto address in their wallet. Remember to pass the chain you're using!
-
-```js
-const authSig = await LitJsSdk.checkAndSignAuthMessage({ chain: "polygon" });
-```
+First, obtain `sessionSigs` from the user to authenticate with Lit network as stated [here](./quick-start#obtain-a-session-sigs).
 
 Now, using the `accessControlConditions` you can use the `getSignedToken` function to get the token:
 
@@ -101,8 +99,10 @@ Now, using the `accessControlConditions` you can use the `getSignedToken` functi
 const jwt = await litNodeClient.getSignedToken({
   accessControlConditions,
   chain,
-  authSig,
+  sessionSigs,
 });
 ```
 
 You can then present this JWT to a server, which can verify it using the [`verifyJwt` function](https://js-sdk.litprotocol.com/functions/encryption_src.verifyJwt.html).
+
+<FeedbackComponent/>

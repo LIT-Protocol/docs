@@ -2,6 +2,8 @@
 sidebar_position: 2
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Generating SessionSigs
 
 You can use any wallet or auth method to generate session signatures with the `getSessionSigs()` function from the Lit SDK. This function generates a session keypair and uses a callback function that signs the generated session key to create an `AuthSig` that is scoped to specific capabilities.
@@ -107,3 +109,5 @@ When session capability objects are omitted from the `getSessionSigs()` function
 ## Clearing Local Storage
 
 If you want to clear the session key stored in the browser local storage, you can call the [`disconnectWeb3` method](https://js-sdk.litprotocol.com/functions/auth_browser_src.ethConnect.disconnectWeb3.html).
+
+<FeedbackComponent/>

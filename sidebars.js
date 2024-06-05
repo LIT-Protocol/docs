@@ -85,6 +85,7 @@ const sidebars = {
             },
             'sdk/migrations/3.2.0',
             'sdk/migrations/4.0.0',
+            'sdk/migrations/6.0.0',
           ],
         },
       ],
@@ -146,8 +147,6 @@ const sidebars = {
               link: {
                 type: 'generated-index',
                 title: 'Advanced Topics',
-                description:
-                  'Learn about the advanced topics for User Wallets in Lit SDK!',
                 keywords: ['user wallets'],
               },
               items: [
@@ -221,8 +220,6 @@ const sidebars = {
               link: {
                 type: 'generated-index',
                 title: 'Advanced Topics',
-                description:
-                  'Learn about the advanced topics for Encryption/Decryption in Lit SDK!',
                 keywords: ['encryption', 'decryption'],
               },
               items: [
@@ -284,8 +281,6 @@ const sidebars = {
               link: {
                 type: 'generated-index',
                 title: 'Advanced Topics',
-                description:
-                  'Learn about the advanced topics for Compute (Lit Actions) in Lit SDK!',
                 keywords: ['compute', 'lit actions'],
               },
               items: [
@@ -295,6 +290,11 @@ const sidebars = {
                 'sdk/serverless-signing/key-claiming',
                 'sdk/serverless-signing/eip191',
                 'sdk/serverless-signing/dependencies',
+                'sdk/serverless-signing/combining-decryption-shares',
+                `sdk/serverless-signing/combining-signatures`,
+                'sdk/serverless-signing/run-once',
+                `sdk/serverless-signing/get-rpc-url`,
+                'sdk/serverless-signing/broadcast-and-collect',
               ],
             },
           ],
@@ -420,7 +420,7 @@ const sidebars = {
         keywords: ['api-reference'],
       },
       items: [
-        'api-reference/v4-sdk',
+        'api-reference/latest',
         {
           type: 'category',
           label: 'Legacy SDK Versions',

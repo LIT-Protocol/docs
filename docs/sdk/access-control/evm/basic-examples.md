@@ -2,6 +2,8 @@
 sidebar_position: 2
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Basic Examples
 
 This page defines some basic access control conditions (referred to as `accessControlConditions` in the code) based on standard contract types like ERC20, ERC721, and ERC1155 for EVM (Ethereum) chains. Also included are some conditions like wallet address ownership, proof of humanity, and POAP possession. You may set your conditions, and define the `returnValueTest` under which access should be granted.
@@ -275,3 +277,5 @@ const accessControlConditions = [
   }
 ]
 ```
+
+<FeedbackComponent/>

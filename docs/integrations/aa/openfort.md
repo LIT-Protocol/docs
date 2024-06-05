@@ -1,3 +1,5 @@
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 
 # Openfort
 
@@ -69,3 +71,4 @@ If you have questions, comments, or need help with code, contact the Openfort te
 - On X [@openfortxyz](https://twitter.com/openfortxyz)
 
 You can find Lit on [X](https://twitter.com/LitProtocol), [Discord](https://discord.gg/hhqksjTJn3), and [Telegram](https://t.me/+aa73FAF9Vp82ZjJh)
+<FeedbackComponent/>

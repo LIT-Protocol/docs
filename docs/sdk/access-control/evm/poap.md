@@ -2,6 +2,8 @@
 sidebar_position: 3
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # POAP Examples
 
 ## Must posess a POAP with a specific name
@@ -79,3 +81,5 @@ var accessControlConditions = [
   },
 ];
 ```
+
+<FeedbackComponent/>

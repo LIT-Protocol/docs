@@ -2,6 +2,8 @@
 sidebar_position: 1
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Capability Objects
 
 Session signatures work by having scoped capabilities be granted to session keys by an inner `AuthSig`. The capability object is a [SIWE ReCap](https://eips.ethereum.org/EIPS/eip-5573) object.
@@ -56,3 +58,4 @@ sessionCapabilityObject.addCapabilityForResource(
     LitAbility.AccessControlConditionDecryption
 );
 ```
+<FeedbackComponent/>

@@ -1,3 +1,5 @@
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Decentralized Compute with Lit Actions
 
 :::info
@@ -37,3 +39,5 @@ You can create your first Lit Action by following this [quick start](../serverle
 1. [GetLit CLI](../../tools/getlit-cli.md): The GetLitCLI simplifies the Lit Action development process.
 2. [Event Listener](../../tools/event-listener.md): Use the Lit Event Listener to create event-based triggers for Lit Actions.
 3. [DeFi Automation](https://spark.litprotocol.com/automated-portfolio-rebalancing-uniswap/): Check out this example of using Lit Actions to automate portfolio rebalancing on Uniswap.
+
+<FeedbackComponent/>

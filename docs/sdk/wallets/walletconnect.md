@@ -1,3 +1,5 @@
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Connecting PKPs to dApps
 
 Leverage Lit Protocol and WalletConnect V2 to seamlessly connect PKPs to hundreds of dApps. WalletConnect enables secure communication between wallets and dApps through QR code scanning and deep linking. With WalletConnect, PKPs act as MPC wallets, interacting with dApps without ever exposing private keys.
@@ -146,3 +148,5 @@ const signClient = pkpWalletConnect.getSignClient();
 ```
 
 Refer to the [WalletConnect V2 docs](https://docs.walletconnect.com/2.0/) for more information on their protocol and SDKs.
+
+<FeedbackComponent/>

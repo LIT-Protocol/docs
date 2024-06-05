@@ -1,3 +1,5 @@
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Use Cases
 
 Below are some use cases of how to use session signatures and capability objects.
@@ -21,3 +23,4 @@ Alice owns a PKP and Bob wants use it with a specific Lit Action that he has not
 Alice can create a session capability object that specifies the ability to perform Threshold Execution with a PKP NFT. Alice then signs and issues this capability to Bob.
 
 Bob can generate an `AuthSig` by delegating equal rights to Bob's session keys, and attaching the capabilities granted to him by Alice as a proof in the session capability object. Bob can subsequently generate a `SessionSig` that requests for Alice's PKP NFT as well as Bob's Lit Action IPFS CID in the `resourceAbilityRequests`.
+<FeedbackComponent/>

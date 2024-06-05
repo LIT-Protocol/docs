@@ -1,3 +1,5 @@
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Adding and Removing Auth Methods
 
 Configure auth methods for your PKP using the [`@lit-protocol/contracts-sdk`](https://js-sdk.litprotocol.com/modules/contracts_sdk_src.html) package.
@@ -188,3 +190,5 @@ const authMethods =
 ```
 
 The `getPermittedAuthMethods` function returns an array of `authMethod` objects, each of which will include `authMethodType`, `id`, and `userPubkey` values.
+
+<FeedbackComponent/>

@@ -1,3 +1,5 @@
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Lit Networks
 
 You can set your Lit Network in the LitNodeClient config of the Lit SDK, by passing the network name to the `litNetwork` parameter.
@@ -9,3 +11,5 @@ You can set your Lit Network in the LitNodeClient config of the Lit SDK, by pass
 | Cayenne  | BLS, ECDSA           | Encryption, Signing, Lit Actions | September 2023 | Centralized test network. Not persistent, keys will be deleted.                                                                                                         | Beta: https://cayenne-status.litprotocol.com/ |
 | Manzano  | ECDSA                | Signing                          | November 2023  | Decentralized test network. No persistency guarantees, but will try to keep keys if possible.                                                                           | Coming Soon                                   |
 | Habanero | ECDSA                | Encryption, Signing, Lit Actions | December 2023  | Decentralized main network. Persistent, so keys will not be deleted.                                                                                                    | Coming Soon                                   |
+
+<FeedbackComponent/>

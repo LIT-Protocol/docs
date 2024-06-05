@@ -1,3 +1,5 @@
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -67,7 +69,7 @@ const runLitAction = async () => {
   await litNodeClient.connect();
   const signatures = await litNodeClient.executeJs({
     code: litActionCode,
-    authSig,
+    sessionSigs,
     // all jsParams can be used anywhere in your litActionCode
     jsParams: {
       toSign: message,
@@ -115,3 +117,5 @@ const runLitAction = async () => {
     `;
 
 ```
+
+<FeedbackComponent/>

@@ -1,3 +1,5 @@
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Testnet
 
 
@@ -24,3 +26,4 @@ You can set your Lit Network in the [LitNodeClient config of the Lit SDK](../../
 
 ## Token Usage
 If you'd like to use Manzano, you'll need some 'testLPX' tokens to pay for network fees and [gas](../rollup.mdx) when minting PKPs. Manzano uses a test token for payments and gas that holds no real world value. You can acquire some tokens from the verified [faucet](https://faucet.litprotocol.com/).
+<FeedbackComponent/>

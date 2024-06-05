@@ -2,6 +2,8 @@
 sidebar_position: 1
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Session Signatures
 
 :::note
@@ -120,3 +122,5 @@ URI: lit:session:6a1f1e8a00b61867b85eaf329d6fdf855220ac3e32f44ec13e4db0dd303dea6
 #### Node Address
 
 The `nodeAddress` will be different for each node, which means that, for a 30-node network, the SDK will generate 30 different `sig` and `signedMessage` parameters.
+
+<FeedbackComponent/>

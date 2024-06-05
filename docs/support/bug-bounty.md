@@ -1,3 +1,5 @@
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Bug Bounty
 
 We have a bug bounty program to reward security researchers who find and report vulnerabilities in our code. We are committed to keeping our code secure and we want to reward those who help us achieve that goal.
@@ -12,3 +14,5 @@ If you find something and want to report it, email bugs@litprotocol.com with the
 - Your name, email address, and country of residence
 
 Not all our repos are covered by the bug bounty program. For example, our documentation repos and some application repos are not covered. If you are unsure if a repo is covered, please email bugs@litprotocol.com to check.
+
+<FeedbackComponent/>

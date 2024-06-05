@@ -2,6 +2,8 @@
 sidebar_position: 4
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Paying For Usage 
 
 :::info
@@ -92,7 +94,7 @@ You can read more about Session Signatures [here](../sdk/authentication/session-
     const signature = await dAppOwnerWallet.signMessage(messageToSign);
 
     const authSig = {
-      sig: signature.replace('0x', ''),
+      sig: signature,
       derivedVia: 'web3.eth.personal.sign',
       signedMessage: messageToSign,
       address: dAppOwnerWallet_address,
@@ -121,3 +123,5 @@ You can read more about Session Signatures [here](../sdk/authentication/session-
 - **Capacity Management**: Keep an eye on your usage limit and expiration date.
 - **Understanding Limits**: Be aware that there are no free requests on `Habanero` mainnet. On `Manzano` testnet, free tier rate limit is set to three free requests per day. You can use Capacity credits to reserve more usage on these networks.
 - **Delegation**: You can create restrictions on your delegations to ensure that your users don't take your `capacityDelegationAuthSig` and use it for other apps.
+
+<FeedbackComponent/>

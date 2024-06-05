@@ -2,6 +2,8 @@
 sidebar_position: 2
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -152,3 +154,5 @@ All of the methods now require `ILitNodeClient` in the function argument.
 All of the functionality for encrypting and decrypting private data is now implemented by the `encrypt` and `decrypt` methods.
 
 All of the functionality for obtaining a BLS network signature over a JWT is now implemented by the `getSignedToken` method.
+
+<FeedbackComponent/>

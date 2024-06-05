@@ -2,6 +2,8 @@
 sidebar_position: 4
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Lit Action Conditions
 
 You can create a Lit Action Condition to grant access whenever a given Lit Action meets the conditions you set. Lit Actions are JS code that can be executed on the Lit Protocol network. You can use Lit Actions to create custom access control conditions.
@@ -57,3 +59,5 @@ Your JS function can return any string (not just true or false), and you can com
 * != 
 * contains
 * !contains
+
+<FeedbackComponent/>

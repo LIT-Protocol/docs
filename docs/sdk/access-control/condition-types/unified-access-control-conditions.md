@@ -2,6 +2,8 @@
 sidebar_position: 1
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Unified Access Control Conditions
 
 You can mix and match EVM Basic Conditions, EVM Custom Contract Conditions, Solana RPC Conditions, and Cosmos Conditions in the same array. Use the `unifiedAccessControlConditions` parameter to specify the conditions on any of the LitNodeClient methods.
@@ -149,3 +151,5 @@ Below is a list of supported comparators that can be specified in the `returnVal
 - `!=` (Not Equal To)
 - `contains` (Contains the specified value)
 - `!contains` (Does not contain the specified value)
+
+<FeedbackComponent/>

@@ -1,3 +1,5 @@
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -138,3 +140,5 @@ You will also need the PKP public key in order to generate a [sessionSig](https:
 ## Custom Auth / Adding new Auth Methods not yet supported by Lit
 
 More info on this is available [here](auth-methods/custom-auth).
+
+<FeedbackComponent/>

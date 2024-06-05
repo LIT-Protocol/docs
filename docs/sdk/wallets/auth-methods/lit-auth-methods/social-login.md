@@ -2,6 +2,8 @@
 sidebar_position: 2
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Social Login
 
 Social login offers users a convenient way to authenticate with Lit Protocol by leveraging their existing social accounts. Currently, Lit Protocol supports Google and Discord OAuth.
@@ -157,3 +159,5 @@ const sessionSigs = await provider.getSessionSigs({
   },
 });
 ```
+
+<FeedbackComponent/>

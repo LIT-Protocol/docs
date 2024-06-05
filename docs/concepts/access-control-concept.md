@@ -2,6 +2,8 @@
 sidebar_position: 1
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Encryption and Access Control
 
 :::info
@@ -48,3 +50,5 @@ Some links to further reading and resources to help you get started building on 
 - [Access Control with Lit](../sdk/access-control/encryption)
 - The [Lit Learning Lab](/learningLab/intro-to-lit/acc)
 - Projects building [privacy and encryption tooling](https://github.com/LIT-Protocol/awesome/tree/main#privacy-and-encryption)
+
+<FeedbackComponent/>

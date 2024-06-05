@@ -1,3 +1,5 @@
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Security Considerations
 
 ## Session Keys
@@ -33,3 +35,4 @@ Another possible replay attack comes from an `AuthSig` being provided solely, an
 ### AuthSig and SessionSig Coupling
 
 Since a full `SessionSig` object couples an (inner) `AuthSig` with an (outer) `SessionSig`, this means that it is impossible for a node to attach a session signature that would be valid against an `AuthSig` that they have obtained elsewhere, i.e. in an attempt to perform a replay attack. This is because the public key in the session signature must match that which is signed against in the (inner) `AuthSig` object.
+<FeedbackComponent/>

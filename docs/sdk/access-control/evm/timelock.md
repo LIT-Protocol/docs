@@ -2,6 +2,8 @@
 sidebar_position: 4
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Timelock Example
 
 ## Timelock (Time-based Access Control)
@@ -23,3 +25,5 @@ var accessControlConditions = [
   },
 ];
 ```
+
+<FeedbackComponent/>

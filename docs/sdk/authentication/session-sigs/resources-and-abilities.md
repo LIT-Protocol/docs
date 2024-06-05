@@ -2,6 +2,8 @@
 sidebar_position: 2
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Lit Resources and Abilities
 
 Lit Resources and Abilities are used to specifying what action is to be done against which resource. These are primitives that are used to seucrely authenticate users through appropriate scoping of users' abilities across various resources.
@@ -33,3 +35,5 @@ A Lit Ability is an action to be performed. It can only be one of the following:
 - Threshold signing with a PKP NFT
 - Authenticating with an increased rate limit threshold with a Capacity Credit NFT
 - Threshold signing of a piece of Lit Action code
+
+<FeedbackComponent/>

@@ -9,6 +9,8 @@ Learn how to use Lit Protocol's one time password (OTP) sign-in (email, SMS, and
 
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 ## Objectives
 At completion of this reading you should be able to:
 
@@ -273,3 +275,5 @@ const initCode = ethers.utils.hexConcat([
 Continue exploring Lit by reading more about [programmable signing](../../concepts/programmable-signing-concept.md). 
 
 Check out [more examples](https://docs.pimlico.io/tutorial) from Pimlico.
+
+<FeedbackComponent/>

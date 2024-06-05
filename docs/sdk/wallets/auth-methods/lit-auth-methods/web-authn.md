@@ -2,6 +2,8 @@
 sidebar_position: 3
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # WebAuthn
 
 WebAuthn enables users to authenticate with web apps using biometrics, passkeys, or other authenticators, providing user-friendly and secure alternative to traditional password-based authentication.
@@ -101,3 +103,5 @@ While the registration step involves minting a PKP via the Lit Relay Server (or,
 
 This works by using a recent block hash on the underlying blockchain (Polygon Mumbai) as a challenge, and having the user authenticate with their platform authenticator to generate a credential assertion (signature). When each Lit node receives this credential assertion from the client, they can recover the COSE credential public key which is stored in the smart contract to verify whether the assertion / signature is valid. If the signature is valid, then the nodes will return `AuthSig` signature shares back to the client.
 
+
+<FeedbackComponent/>

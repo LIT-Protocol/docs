@@ -1,3 +1,5 @@
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Capacity Credits
 
 :::info
@@ -20,7 +22,7 @@ In order to increase your rate limit, you'll need to mint a `Capacity Credits NF
 
 A `Capacity Credits NFT` can be very easily minted from the Lit Explorer. So, here we will show how you can mint it using `contracts-sdk`. You can download the `contracts-sdk` from `npm` [here](https://www.npmjs.com/package/@lit-protocol/contracts-sdk).
 
-You’ll also need some 'testLPX' tokens for minting. These are test tokens that hold no real value and should only be used to pay for usage on Habanero. `testLPX` should only be claimed from the verified faucet, linked [here](https://faucet.litprotocol.com/).
+You’ll also need some `testLPX` tokens for minting. These are test tokens that hold no real value and should only be used to pay for usage on Habanero. `testLPX` should only be claimed from the verified faucet, linked [here](https://faucet.litprotocol.com/).
 
 ```javascript
 const walletWithCapacityCredit = new Wallet("<your private key or mnemonic>");
@@ -58,8 +60,9 @@ To use your new Capacity Credits NFT you will have to sign an `Auth Signature` w
 
 ## **Delegating Access to your Capacity Credits NFT**
 
-Usage of your Capacity Credits NFT may be delegated to other wallets. To create a `Capacity Credits NFT delegation` you can do so with the following example
-Here we use the `capacityTokenId` we recieved when minting our Capacity Credit.
+Usage of your Capacity Credits NFT may be delegated to other wallets. To create a `Capacity Credits NFT delegation` you can do so with the following example.
+
+Here we use the `capacityTokenId` we received when minting our Capacity Credit.
 
 ```javascript
 const litNodeClient = new LitNodeClient({
@@ -84,13 +87,22 @@ To delegate your Rate Limit NFT there are 4 properties to configure:
 - `capacityTokenId` -  The `token identifier` of the Rate Limit NFT
 - `delegateeAddresses` - The wallet addresses which will be delegated to
 
-:::note
-The `delegateeAddress` parameter is optional. If omitted, anyone can use your `capacityDelegationAuthSig` to use your app without restrictions. In this case, you can utilize other restrictions like the `uses` param to limit the amount of usage by your users. 
-:::
+### `createCapacityDelegationAuthSig`
+
+There has been some confusion on the parameters for `createCapacityDelegationAuthSig`, particularly `capacityTokenId`, `delegateeAddresses`, and `uses` when delegating capacity credits.
+
+Below is a table detailing the expected behaviors of each:
+
+| Parameter | Provided with Values | Not Provided | Provided but Empty Array |
+| --- | --- | --- | --- |
+| capacityTokenId | Scopes the delegation to specific NFTs identified by the IDs in the array. The function will only consider the NFTs whose IDs are listed. | All NFTs owned by the user are considered eligible under the delegation. The delegation applies universally to all NFTs the user owns. | N/A |
+| delegateeAddresses | Restricts the use of the delegation to the addresses listed in the array. Only users whose addresses are included can utilise the delegated capabilities. | The delegation is universally applicable to anyone. There are no restrictions on who can use the delegated capabilities. | No one is allowed to use the delegated capabilities since there are no valid user addresses specified. |
+| uses | Sets a limit on the number of times the delegation can be used. The function enforces this limit and prevents use beyond it. | There is no limit on the number of times the delegation can be used. The capability can be used indefinitely. | Theoretically, an empty value for uses would mean no uses are possible, effectively disabling the delegation, but typically this scenario should either not be allowed by schema/logic or treated as zero, which also disables the delegation. |
 
 ## **Generating Sessions from delegation signature**
-To create sesssions from your delegation signature you can use the following example.
-Here we are delegating usage of `Capacity Credit` from a wallet which posseses the NFT to another self custody wallet which does not posses `Capacity Credit`.
+To create sessions from your delegation signature you can use the following example.
+
+Here we are delegating usage of `Capacity Credit` from a wallet which possesses the NFT to another self custody wallet which does not posses a `Capacity Credit`.
 
 
 ```javascript
@@ -145,7 +157,7 @@ Here we are delegating usage of `Capacity Credit` from a wallet which posseses t
     const signature = await DELEGATEE_WALLET.signMessage(messageToSign);
 
     const authSig = {
-      sig: signature.replace('0x', ''),
+      sig: signature,
       derivedVia: 'web3.eth.personal.sign',
       signedMessage: messageToSign,
       address: DELEGATEE_WALLET.address,
@@ -172,7 +184,7 @@ In the above example we are configuring a wallet to sign a `session signature` w
 
 
 ## **Delegation to a PKP**
-To Delegate to a pkp wallet from a wallet which posses `Capacity Credit` we can modify the above example as shown below.
+To Delegate to a pkp wallet from a wallet which possesses a `Capacity Credit` we can modify the above example as shown below.
 For more information on session signatures and pkps see [here](./authentication/session-sigs/intro.md)
 
 ```javascript
@@ -253,3 +265,5 @@ For more information on session signatures and pkps see [here](./authentication/
   console.log("signature result ", res);
 
 ```
+
+<FeedbackComponent/>

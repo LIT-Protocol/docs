@@ -2,6 +2,8 @@
 sidebar_position: 5
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -81,7 +83,7 @@ values={[
 | NodeResourceIdNotFound                     | Invalid resourceId param.                                                                                                                                                                                                                                                        |
 | NodeRpcError                               | Error making the call to RPC url for the passed chain param. Please ensure that the contract call that you're making is correct including the contract address & it's passed params. Especially ensure the correctness of the functionAbi if you're using Custom Contract calls. |
 | NodeStorageError                           | An error occured while storing the encryption condition. Please look at the returned error for more info.                                                                                                                                                                        |
-| NodeWrongNetwork                           | Either you didn't pass a chain param or it's invalid/not supported yet. Please see all the supported chain [here](../../v3/resources/supported-chains/)                                                                                                                             |
+| NodeWrongNetwork                           | Either you didn't pass a chain param or it's invalid/not supported yet. Please see all the supported chain [here](../resources/supported-chains/)                                                                                                                             |
 | NodeHTTPConversionError                    | Internal error with the RPC url for the provided chain param. Please try again. If this error persists contact us on Discord.                                                                                                                                                    |
 | NodeUnknownError                           | An unknow error occured. Please try again. If this error persists contact us on Discord.                                                                                                                                                                                         |
 | NodeParserError                            | Error parsing a provided param. Please look at the returned error for more info.                                                                                                                                                                                                 |
@@ -90,7 +92,7 @@ values={[
 | NodeSIWESigConversionError                 | Invalid SIWE capability's sig param. Please look at the returned error for more info.                                                                                                                                                                                            |
 | NodeSIWESessionKeySignatureInvalid         | session.pubkey isn't signed in the wallet-signed SIWE message.                                                                                                                                                                                                                   |
 | NodeBlockchainError                        | Error making an on-chain call. Please look at the returned error for more info.                                                                                                                                                                                                  |
-| NodeBlockchainChainUnknown                 | Invalid chain value for the provided Authsig.sig param. Please see all the supported chain [here](../../v3/resources/supported-chains/)]                                                                                                                                            |
+| NodeBlockchainChainUnknown                 | Invalid chain value for the provided Authsig.sig param. Please see all the supported chain [here](../resources/supported-chains/)]                                                                                                                                            |
 | NodeWalletSignatureJSONError               | Error parsing Authsig. Please look at the returned error for more info.                                                                                                                                                                                                          |
 | NodePOAPJSONError                          | Internal error parsing POAP as a JSON. Please try again. If this error persists contact us on Discord.                                                                                                                                                                           |
 | NodeCosmosJSONError                        | Error parsing Cosmos result. Please ensure that the Cosmos condition passed is correct.                                                                                                                                                                                          |
@@ -126,3 +128,5 @@ values={[
 ## Wallet Error Handling
 
 MetaMask and other wallets throw errors themselves. The format for those exceptions can be found [here](https://docs.metamask.io/guide/ethereum-provider.html#errors).
+
+<FeedbackComponent/>

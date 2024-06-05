@@ -2,6 +2,8 @@
 sidebar_position: 2
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Decentralized Compute with Lit Actions
 
 :::info
@@ -44,3 +46,5 @@ Some links to help you get started building with serverless signing:
 - Getting started with the [Lit SDK](../sdk/installation)
 - The [Lit Learning Lab](/learningLab/intro-to-lit/prog-signing)
 - [Projects building with Lit](https://github.com/LIT-Protocol/awesome/tree/main#projects-and-integrations)
+
+<FeedbackComponent/>

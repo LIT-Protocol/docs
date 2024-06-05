@@ -29,20 +29,21 @@ const config = {
           // Please change this to your repo.
           editUrl: 'https://github.com/LIT-Protocol/docs/tree/main',
           routeBasePath: '/',
-          versions: {
-            '2.0': {
-              badge: true,
-              label: 'v2.x.x',
-              path: 'v2',
-              banner: 'none',
-            },
-            current: {
-              badge: true,
-              label: 'v3.x.x',
-              path: 'v3',
-              banner: 'none',
-            },
-          },
+          disableVersioning: true,
+          // versions: {
+          //   '2.0': {
+          //     badge: true,
+          //     label: 'v2.x.x',
+          //     path: 'v2',
+          //     banner: 'none',
+          //   },
+          //   current: {
+          //     badge: true,
+          //     label: 'v3.x.x',
+          //     path: 'v3',
+          //     banner: 'none',
+          //   },
+          // },
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -95,7 +96,7 @@ const config = {
           alt: 'Lit Protocol',
           src: 'brand/lit-logo-black.svg',
           srcDark: 'brand/lit-logo-white.svg',
-          href: 'https://developer.litprotocol.com/v3/',
+          href: 'https://developer.litprotocol.com/',
         },
         items: [
           {
@@ -109,10 +110,10 @@ const config = {
             position: 'left',
             label: 'Ecosystem',
           },
-          {
-            type: 'docsVersionDropdown',
-            position: 'right',
-          },
+          // {
+          //   type: 'docsVersionDropdown',
+          //   position: 'right',
+          // },
           {
             href: 'https://github.com/LIT-Protocol/js-sdk',
             position: 'right',
@@ -153,7 +154,7 @@ const config = {
               },
               {
                 label: 'API',
-                href: 'https://js-sdk.litprotocol.com/index.html',
+                href: 'https://v5.api-docs.getlit.dev/',
               },
             ],
           },
@@ -162,7 +163,7 @@ const config = {
             items: [
               {
                 label: 'Support',
-                to: '/support',
+                to: '/support/intro',
               },
             ],
           },

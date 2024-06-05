@@ -1,3 +1,5 @@
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -23,27 +25,25 @@ Ensure you have the following requirements in place:
 
 1. Operating System: Linux, Mac OS, or Windows.
 2. Development Environment: You'll need an Integrated Development Environment (IDE) installed. We recommend Visual Studio Code.
-3. Languages: The Lit JS SDK V4 supports JavaScript. Make sure you have the appropriate language environment set up.
+3. Languages: The Lit JS SDK V4 and above supports JavaScript. Make sure you have the appropriate language environment set up.
 4. Internet Connection: A stable internet connection is required for installation, updates, and interacting with the Lit nodes.
 
 Install the `@lit-protocol/lit-node-client` package, which can be used in both browser and Node environments:
 
 ```jsx
 yarn add @lit-protocol/lit-node-client
-
 ```
 
 Use the **Lit JS SDK V4**:
 
 ```jsx
-import * as LitJsSdkfrom "@lit-protocol/lit-node-client";
-
+import * as LitJsSdk from "@lit-protocol/lit-node-client";
 ```
 
 :::note
-
-You should use **at least Node v16.16.0** because of the need for the **webcrypto** library.
-
+You should use **at least Node v19.9.0** for
+- **crypto** support.
+- **webcrypto** library support if targeting `web`.
 :::
 
 ### Client-Side Usage
@@ -53,11 +53,21 @@ Within a file (in the Lit example repos it will likely be called `lit.js`), set
 `client.connect()` will return a promise that resolves when you are connected to the Lit Network.
 
 ```jsx
-const client =new LitJsSdk.LitNodeClient({
+const client = new LitJsSdk.LitNodeClient({
   litNetwork: 'habanero',
 });
 
 await client.connect();
+```
+
+:::note
+To avoid errors from Lit nodes due to stale `sessionSigs`, make sure to clear the local storage for `sessionSigs` before reconnecting or restarting the client. One way to do this is to disconnect the client first and then reconnect.
+:::
+
+The client listens to network state, and those listeners will keep your client running until you explicitly disconnect from the Lit network. To stop the client listeners and allow the browser to disconnect gracefully, call:
+
+```jsx
+await client.disconnect();
 ```
 
 ### Server-Side Usage
@@ -65,40 +75,46 @@ await client.connect();
 In this example stub, the litNodeClient is stored in a global variable `app.locals.litNodeClient` so that it can be used throughout the server. `app.locals` is provided by **[Express](https://expressjs.com/)** for this purpose. You may have to use what your own server framework provides for this purpose, instead.
 
 :::note
-
 Keep in mind that in the server-side implementation, the client class is named LitNodeClientNodeJs.
-
 :::
 
-The `client.connect()` method returns a promise that resolves when you are connected to the Lit network.
+`app.locals.litNodeClient.connect()` returns a promise that resolves when you are connected to the Lit network.
 
 ```jsx
-app.locals.litNodeClient =new LitJsSdk.LitNodeClientNodeJs({
+app.locals.litNodeClient = new LitJsSdk.LitNodeClientNodeJs({
   alertWhenUnauthorized: false,
   litNetwork: 'habanero',
 });
 await app.locals.litNodeClient.connect();
-
 ```
 
-The litNodeClient listens to network state, and those listeners will keep your Node.js process running until you explicitly disconnect from the Lit network. To stop the litNodeClient listeners and allow node to exit gracefully, call `client.disconnect()` and 
-
-`await app.locals.litNodeClient.disconnect()`
-
-## Install the required packages
+The litNodeClient listens to network state, and those listeners will keep your Node.js process running until you explicitly disconnect from the Lit network. To stop the litNodeClient listeners and allow node to exit gracefully, call: 
 
 ```jsx
-yarn add @lit-protocol/lit-auth-client
+await app.locals.litNodeClient.disconnect();
+```
+
+## Install the Required Packages
+
+```jsx
 yarn add @lit-protocol/contracts-sdk
+yarn add @lit-protocol/lit-auth-client
+yarn add @lit-protocol/auth-helpers
 ```
 
 ### Set up a controller wallet
 
 To initialize a LitContracts client you need an Ethereum Signer. This can be a standard Ethereum wallet (ethers) or a PKP (more info on the latter **[here](https://developer.litprotocol.com/v3/sdk/wallets/auth-methods/lit-auth-methods/add-remove-auth-methods)**). Here, we're going to use a standard Ethereum wallet.
 
+:::warning
+You'll need to use ethers.js v5 with the Lit SDK. The Lit SDK is not compatible with ethers.js v6 or higher.
+:::
+
 ### Initialize the `contracts-sdk`
 
 ```jsx
+import { LitContracts } from '@lit-protocol/contracts-sdk';
+
 const contractClient = new LitContracts({
   signer: wallet,
   network: 'habanero',
@@ -114,16 +130,46 @@ You’ll need to ensure you have some test tokens to pay for gas fees. You can c
 :::
 
 ## Authenticate with the Lit Network
-In order to interact with the nodes in the Lit Network, you will need to generate and present signatures. You can do this by generating either an 'Auth Sig' or a 'Session Sig' (read more about the difference between the two approaches [here](../authentication/overview.md)). Any signature compliant with EIP-4361 (also known as Sign in with Ethereum (SIWE)) cam be used for this. 
+In order to interact with the nodes in the Lit Network, you will need to generate and present signatures. You can do this by generating a 'Session Sig'. Any signature compliant with EIP-4361 (also known as Sign in with Ethereum (SIWE)) cam be used for this. 
 
-### Obtaining an `AuthSig` in the browser
+### Obtaining a `SessionSigs` in the browser
 
-The Lit SDK `checkAndSignAuthMessage()` function provides a convenient way to obtain an `AuthSig` from an externally-owned account in a browser environment.
+Using the Lit SDK and the methods `createSiweMessageWithRecaps` and `generateAuthSig` from the `@lit-protocol/auth-helpers` package, we can create a `SessionSigs` by signing a SIWE message using a private key stored in a browser wallet like MetaMask:
 
 ```jsx
-const authSig = await checkAndSignAuthMessage({
+const provider = new ethers.providers.Web3Provider(window.ethereum);
+await provider.send("eth_requestAccounts", []);
+const ethersSigner = provider.getSigner();
+
+const litNodeClient = new LitNodeClient({
+    litNetwork: "habanero",
+  });
+await litNodeClient.connect();
+
+const sessionSigs = await litNodeClient.getSessionSigs({
   chain: "ethereum",
-  nonce,
+  expiration: new Date(Date.now() + 1000 * 60 * 60 * 24).toISOString(), // 24 hours
+  resourceAbilityRequests: [
+    {
+      resource: new LitActionResource("*"),
+      ability: LitAbility.LitActionExecution,
+    },
+  ],
+  authNeededCallback: async ({ resourceAbilityRequests, expiration, uri }) => {
+    const toSign = await createSiweMessageWithRecaps({
+      uri,
+      expiration,
+      resources: resourceAbilityRequests,
+      walletAddress: await ethersSigner.getAddress(),
+      nonce: await litNodeClient.getLatestBlockhash(),
+      litNodeClient,
+    });
+
+    return await generateAuthSig({
+      signer: ethersSigner,
+      toSign,
+    });
+  },
 });
 ```
 
@@ -131,7 +177,7 @@ const authSig = await checkAndSignAuthMessage({
 Be sure to use the latest blockhash from the `litNodeClient` as the nonce. You can get it from the `litNodeClient.getLatestBlockhash()`.
 :::
 
-### Obtaining an `Session Signature` on the server-side
+### Obtaining a `Session Signature` on the server-side
 
 If you want to obtain an `Session Signature` on the server-side, you can instantiate an `ethers.Signer` to sign a SIWE message, which will produce a signature that can be used in an `Session Signature` object.
 
@@ -173,61 +219,58 @@ const siweMessage = new siwe.SiweMessage({
 });
 const messageToSign = siweMessage.prepareMessage();
   
-  // Sign the message and format the authSig
-  const signature = await wallet.signMessage(messageToSign);
-	
-  const authSig = {
-    sig: signature,
-    derivedVia: 'web3.eth.personal.sign',
-    signedMessage: messageToSign,
-    address: address,
-  };
+// Sign the message and format the authSig
+const signature = await wallet.signMessage(messageToSign);
 
-  console.log(authSig);
-  
-  // Form the authNeededCallback to create a session with
-  // the wallet signature.
-  const authNeededCallback = async (params) => {
-    const response = await client.signSessionKey({
-      statement: params.statement,
-      authMethods: [
-        {
-          authMethodType: 1,
-          // use the authSig created above to authenticate
-          // allowing the pkp to sign on behalf.
-          accessToken: JSON.stringify(authSig),
-        },
-      ],
-      pkpPublicKey: `<your pkp public key>`,
-      expiration: params.expiration,
-      resources: params.resources,
-      chainId: 1,
-    });
-    return response.authSig;
-  };
-	
-	// Set resources to allow for signing of any message.
-  const resourceAbilities = [
-    {
-      resource: new LitActionResource('*'),
-      ability: LitAbility.PKPSigning,
-    },
-  ];
-  // Get the session key for the session signing request
-  // will be accessed from local storage or created just in time.
-  const sessionKeyPair = client.getSessionKey();
-  
-  // Request a session with the callback to sign
-  // with an EOA wallet from the custom auth needed callback created above.
-  const sessionSigs = await client.getSessionSigs({
-	  chain: "ethereum",
-	  expiration:  new Date(Date.now() + 60_000 * 60).toISOString(),
-    resourceAbilityRequests: resourceAbilities,
-    authNeededCallback,
-  });
-}
+const authSig = {
+ sig: signature,
+ derivedVia: 'web3.eth.personal.sign',
+ signedMessage: messageToSign,
+ address: address,
+};
 
-main();
+console.log(authSig);
+
+// Form the authNeededCallback to create a session with
+// the wallet signature.
+const authNeededCallback = async (params) => {
+ const response = await client.signSessionKey({
+   statement: params.statement,
+   authMethods: [
+     {
+       authMethodType: 1,
+       // use the authSig created above to authenticate
+       // allowing the pkp to sign on behalf.
+       accessToken: JSON.stringify(authSig),
+     },
+   ],
+   pkpPublicKey: `<your pkp public key>`,
+   expiration: params.expiration,
+   resources: params.resources,
+   chainId: 1,
+ });
+ return response.authSig;
+};
+
+// Set resources to allow for signing of any message.
+const resourceAbilities = [
+ {
+   resource: new LitActionResource('*'),
+   ability: LitAbility.PKPSigning,
+ },
+];
+// Get the session key for the session signing request
+// will be accessed from local storage or created just in time.
+const sessionKeyPair = client.getSessionKey();
+
+// Request a session with the callback to sign
+// with an EOA wallet from the custom auth needed callback created above.
+const sessionSigs = await client.getSessionSigs({
+   chain: "ethereum",
+   expiration:  new Date(Date.now() + 60_000 * 60).toISOString(),
+   resourceAbilityRequests: resourceAbilities,
+   authNeededCallback,
+});
 ```
 
 ## Mint a PKP and Add Permitted Scopes
@@ -248,7 +291,7 @@ import { AuthMethodScope, AuthMethodType } from '@lit-protocol/constants';
 
 const authMethod = {
   authMethodType: AuthMethodType.EthWallet,
-  accessToken: '...',
+  accessToken: JSON.stringify(authSig),
 };
 
 const mintInfo = await contractClient.mintWithAuth({
@@ -274,8 +317,10 @@ const mintInfo = await contractClient.mintWithAuth({
 You should now have successfully minted a PKP! You can verify that the PKP has the necessary permissions for signing by calling the following function:
 
 ```jsx
+import { LitAuthClient } from '@lit-protocol/lit-auth-client';
+
 const authId = await LitAuthClient.getAuthIdByAuthMethod(authMethod);
-await contractClient.pkpPermissionsContract.read.getPermittedAuthMethodScopes(
+const scopes = await contractClient.pkpPermissionsContract.read.getPermittedAuthMethodScopes(
   mintInfo.pkp.tokenId,
   AuthMethodType.EthWallet,
   authId,
@@ -300,6 +345,7 @@ The first step is to initialize a signer. This should be a wallet controlled by 
 
 ```jsx
 const walletWithCapacityCredit = new Wallet("<your private key or mnemonic>");
+
 let contractClient = new LitContracts({
   signer: dAppOwnerWallet,
   network: 'habanero',
@@ -311,7 +357,6 @@ await contractClient.connect();
 After you’ve set your wallet, your next step is to mint the NFT:
 
 ```jsx
-
 // this identifier will be used in delegation requests. 
 const { capacityTokenIdStr } = await contractClient.mintCapacityCreditsNFT({
   requestsPerKilosecond: 80,
@@ -434,8 +479,8 @@ We can use the Capacity Credit delegation to generate a Session Signature for th
   });
 
   console.log("signature result ", res);
-
 ```
+
 ## Sign a Transaction
 
 ### Lit Action Signing
@@ -462,7 +507,7 @@ const litActionCode = `
 
 const signatures = await litNodeClient.executeJs({
   code: litActionCode,
-  authSig,
+  sessionSigs,
   jsParams: {
     toSign: [84, 104, 105, 115, 32, 109, 101, 115, 115, 97, 103, 101, 32, 105, 115, 32, 101, 120, 97, 99, 116, 108, 121, 32, 51, 50, 32, 98, 121, 116, 101, 115],
     publicKey: mintInfo.pkp.publicKey,
@@ -480,7 +525,7 @@ The ipfs ID: `QmRwN9GKHvCn4Vk7biqtr6adjXMs7PzzYPCzNCRjPFiDjm` contains the sam
 ```jsx
 const signatures = await litNodeClient.executeJs({
   ipfsId: "QmRwN9GKHvCn4Vk7biqtr6adjXMs7PzzYPCzNCRjPFiDjm",
-  authSig,
+  sessionSigs,
   jsParams: {
     toSign: [84, 104, 105, 115, 32, 109, 101, 115, 115, 97, 103, 101, 32, 105, 115, 32, 101, 120, 97, 99, 116, 108, 121, 32, 51, 50, 32, 98, 121, 116, 101, 115],
     publicKey: mintInfo.pkp.publicKey,
@@ -498,4 +543,4 @@ By now you should have successfully written a Lit Action, minted a PKP, and used
 3. [Using Dependencies](../serverless-signing/dependencies.md).
 4. [Creating Blockchain Transactions](../serverless-signing/processing-validation.md).
 
-Did you find this guide helpful? If not, please [get in touch](https://docs.google.com/forms/d/e/1FAIpQLScBVsg-NhdMIC1H1mozh2zaVX0V4WtmEPSPrtmqVtnj_3qqNw/viewform?usp=send_form).
+<FeedbackComponent/>

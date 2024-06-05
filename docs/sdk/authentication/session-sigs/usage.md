@@ -2,9 +2,11 @@
 sidebar_position: 3
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Authenticate with SessionSigs
 
-Once you have obtained `SessionSigs`, you can replace where you provide an `AuthSig` with the `SessionSigs` object. Below are some examples using the Lit SDK.
+Once you have obtained `SessionSigs`, you can use them to authenticate to the Lit nodes as shown in the examples below.
 
 ## Making Signing Requests
 
@@ -83,3 +85,4 @@ const decryptedString = await decryptedFiles["string.txt"].async(
 );
 console.log("decrypted string", decryptedString);
 ```
+<FeedbackComponent/>

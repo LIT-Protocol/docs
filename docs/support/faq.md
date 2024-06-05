@@ -2,6 +2,8 @@
 sidebar_position: 2
 ---
 
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # FAQ
 
 ## General Questions
@@ -207,3 +209,5 @@ These security measures work together to make attacks, such as running multiple 
 ## I have a question that isn't answered here. Where can I get help?
 
 Join our [Discord](https://litgateway.com/discord) and post your question in our forums!
+
+<FeedbackComponent/>

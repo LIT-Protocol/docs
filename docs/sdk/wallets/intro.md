@@ -1,3 +1,5 @@
+import FeedbackComponent from "@site/src/pages/feedback.md";
+
 # Introduction to User Wallets
 
 :::info
@@ -37,3 +39,5 @@ You can get started with user wallets following this [quick start](../wallets/qu
 2. [Use a PKP as a Signer on a Smart Account](https://spark.litprotocol.com/account-abstraction-and-mpc/)
 3. [Using the Lit Explorer](../../tools/pkpexplorer.md)
 4. [Working with Claimable Keys](../wallets/claimable-keys/intro.md)
+
+<FeedbackComponent/>

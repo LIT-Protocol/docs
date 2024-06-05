@@ -9,7 +9,7 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 
 # Generating Session Signatures
 
-[Session signatures](./intro.md) can be obtained using the [getSessionSigs](https://v5.api-docs.getlit.dev/classes/lit_node_client_src.LitNodeClientNodeJs.html#getSessionSigs) method provided by the Lit SDK. This method will generate a _session keypair_ for you locally, and will use the `authNeededCallback` method you specify to sign the session keypair, authorizing it to use the specified [Lit Resources and Abilities](./resources-and-abilities.md) on the Lit network.
+[Session signatures](./intro.md) can be obtained using the [getSessionSigs](https://v5.api-docs.getlit.dev/classes/lit_node_client_src.LitNodeClientNodeJs.html#getSessionSigs) method provided by the Lit SDK. This method will generate a _session keypair_ for you locally, and will use the `authNeededCallback` method you specify to sign the Session Keypair, authorizing it to use the specified [Lit Resources and Abilities](./resources-and-abilities.md) on the Lit network.
 
 Below we will walk through an example of generating session signatures, the full code implementation can be found [here](https://github.com/LIT-Protocol/developer-guides-code/blob/wyatt/get-session-sigs-via-auth-sig/get-session-sigs-via-auth-sig/nodejs).
 
@@ -27,19 +27,20 @@ This guide also has a dependency on the following packages:
 - `"@lit-protocol/constants": "^6.0.0-beta.3"`
 - `"@lit-protocol/lit-node-client": "^6.0.0-beta.3"`
 - `"ethers": "v5"`
-- `"node-localstorage": "^3.0.5"` (Optional dependency depending on whether or not you're executing the Lit code within a browser. Explained further in the [Connecting to the Lit Network](#connecting-to-the-lit-network) section)
+- `"node-localstorage": "^3.0.5"`
+  - (Optional dependency depending on whether or not you're executing the Lit code within a browser. Explained further in the [Connecting to the Lit Network](#connecting-to-the-lit-network) section)
 
 ## Paying for Usage of the Lit Network
 
 The correct code implementation will depend on whether you're using the free-to-use `cayenne` network, or one of the "paid" networks: `habanero` or `manzano`.
 
-Usage of the `habanero` and `manzano` networks require the use of [Lit Capacity Credits](../../../sdk/capacity-credits.md). Currently, Capacity Credits are paid for using the `testLPX` token and don't require any real-world money. However, in the future you will need to pay real-world money for usage of Lit networks, and `habanero` and `manzano` are the Lit networks were this functionality is being tested and refined.
+Usage of the `habanero` and `manzano` networks require the use of [Lit Capacity Credits](../../../sdk/capacity-credits.md). Currently, Capacity Credits are paid for using the `testLPX` token and don't require any real-world money. However, in the future you will need to pay real-world money for usage of Lit networks, and `habanero` and `manzano` are the Lit networks where this functionality is being tested and refined.
 
 So, some of the below code snippets will show different implementations based on whether you intend to use the code on `cayenne` or `habanero`/`manzano` networks.
 
 ## Specifying an Ethereum Private Key
 
-Our first step will be to specify what Etheruem private key we will use to provide the Authorization Signature for our Session Keys:
+Our first step will be to specify what Ethereum private key we will use to provide the Authorization Signature for our Session Keys:
 
 ```ts
 const ETHEREUM_PRIVATE_KEY = process.env.ETHEREUM_PRIVATE_KEY;
@@ -57,7 +58,7 @@ Next we'll use our `ETHEREUM_PRIVATE_KEY` constant to instantiate an instance of
 const ethersSigner = new ethers.Wallet(ETHEREUM_PRIVATE_KEY);
 ```
 
-We will be using this wallet to sign the Authorization Signature for our Session Keys, granting our Session Keys the ability to use the [Lit Resources and Abilities](./resources-and-abilities.md) we'll specify when making the call to generation our Session Signatures.
+We will be using this wallet to sign the Authorization Signature for our Session Keys, granting our Session Keys the ability to use the [Lit Resources and Abilities](./resources-and-abilities.md) we'll specify when making the call to generate our Session Signatures.
 
 ## Connecting to the Lit Network
 

@@ -305,6 +305,22 @@ const sidebars = {
             },
           ],
         },
+        {
+          type: 'category',
+          label: 'Wrapped Keys',
+          collapsed: true,
+          link: {
+            type: 'doc',
+            id: 'sdk/wrapped-keys/overview',
+          },
+          items: [
+            'sdk/wrapped-keys/generating-wrapped-key',
+            // 'sdk/wrapped-keys/importing-key',
+            // 'sdk/wrapped-keys/exporting-wrapped-key',
+            // 'sdk/wrapped-keys/sign-message',
+            // 'sdk/wrapped-keys/sign-transaction',
+          ],
+        },
       ],
     },
     {

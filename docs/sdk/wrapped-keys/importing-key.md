@@ -7,8 +7,9 @@ This guide covers the `importPrivateKey` function from the Wrapped Keys SDK. For
 
 Using the `importPrivateKey` function, you can import an existing private key into the Lit network to be turned into a Wrapped Key. The private key will first be encrypted using Lit network's BLS key, and the resulting encryption metadata (`ciphertext` and `dataToEncryptHash`) will be returned to you and stored by Lit on your behalf in a private DynamoDB instance.
 
-Afterwards, you will be able to make use of the SDK's signing methods (`signTransactionWithEncryptedKey` and `signMessageWithEncryptedKey`) to sign messages and transaction with the imported private key, all within a Lit node's trusted execution environment.
+Afterwards, you will be able to make use of the SDK's signing methods (`signTransactionWithEncryptedKey` and `signMessageWithEncryptedKey`) to sign messages and transaction with the resulting Wrapped Key, all within a Lit node's trusted execution environment.
 
+<!-- TODO Update URL once this PR is merged: https://github.com/LIT-Protocol/developer-guides-code/pull/21 -->
 Below we will walk through an implementation of `importPrivateKey`. The full code implementation can be found [here](https://github.com/LIT-Protocol/developer-guides-code/blob/wyatt/wrapped-keys/wrapped-keys/nodejs/src/importKey.ts).
 
 ## Prerequisites
@@ -20,25 +21,46 @@ Before continuing with this guide, you should have an understanding of:
 
 ## `importPrivateKey`'s Interface
 
-<!-- TODO Update once Wrapped Keys PR is merged -->
-[Source code](https://github.com/LIT-Protocol/js-sdk/blob/b80cee7035639ef4739c6190812eecbf2d2dab2e/packages/wrapped-keys/src/lib/wrapped-keys.ts#L88-L127)
+<!-- TODO Update once Wrapped Keys PR is merged: https://github.com/LIT-Protocol/js-sdk/pull/513 -->
+[Source code](https://github.com/LIT-Protocol/js-sdk/blob/ac8f17372a2c0a204286515e35b6abeb26e1effc/packages/wrapped-keys/src/lib/api/import-private-key.ts)
 
 ```ts
-/**
+/** All API calls for the wrapped keys service require these arguments.
  *
- * Import a provided Solana/EVM private key into our DynamoDB instance. First the key is pre-pended with LIT_PREFIX for security reasons. Then the updated key is encrypted and stored in the database
- *
- * @param pkpSessionSigs - The PKP sessionSigs used to associated the PKP with the generated private key
- * @param privateKey - The private key imported into the database
- * @param litNodeClient - The Lit Node Client used for executing the Lit Action
- *
- * @returns { Promise<string> } - The PKP EthAddres associated with the Wrapped Key
+ * @typedef BaseApiParams
+ * @property {SessionSigsMap} pkpSessionSigs - The PKP sessionSigs used to associate the PKP with the generated private key and authenticate with the wrapped keys backend service.
+ * @property {ILitNodeClient} litNodeClient - The Lit Node Client used for executing the Lit Action and identifying which wrapped keys backend service to communicate with.
  */
-export async function importPrivateKey({
-  pkpSessionSigs,
-  privateKey,
-  litNodeClient,
-}: ImportPrivateKeyParams): Promise<string>
+interface BaseApiParams {
+  pkpSessionSigs: SessionSigsMap;
+  litNodeClient: ILitNodeClient;
+}
+
+/** @typedef ImportPrivateKeyParams
+ * @extends BaseApiParams
+ *
+ * @property { string } privateKey The private key to be imported into the wrapped keys service
+ * @property { string } publicKey The public key of the key being imported into the wrapped keys service
+ * @property { string } keyType The algorithm type of the key; this might be K256, ed25519, or other key formats.  The `keyType` will be included in the metadata returned from the wrapped keys service
+ */
+interface ImportPrivateKeyParams extends BaseApiParams {
+  privateKey: string;
+  publicKey: string;
+  keyType: string;
+}
+
+/**
+ * Import a provided private key into the wrapped keys service backend.
+ * First, the key is pre-pended with `LIT_PREFIX` for security reasons, then the salted key is encrypted and stored in the backend service.
+ * The key will be associated with the PKP address embedded in the `pkpSessionSigs` you provide. One and only one wrapped key can be associated with a given LIT PKP.
+ *
+ * @param { ImportPrivateKeyParams } params The parameters required to import the private key into the wrapped keys backend service
+ *
+ * @returns { Promise<string> } - The LIT PKP Address associated with the Wrapped Key
+ */
+async function importPrivateKey(
+  params: ImportPrivateKeyParams
+): Promise<string>
 ```
 
 ### Parameters
@@ -63,13 +85,17 @@ When a Wrapped Key is generated, it's encrypted with the following [Access Contr
 ];
 ```
 
-where `pkpAddress` is the addressed derived from the `pkpSessionSigs`. This restricts the decryption of the Wrapped Key to only those whom can generate valid Authentication Signatures from the PKP which generated the Wrapped Key.
+where `pkpAddress` is the address derived from the `pkpSessionSigs`. This restricts the decryption (and by extension, usage) of the Wrapped Key to only those whom can generate valid Authentication Signatures from the PKP which generated the Wrapped Key.
 
 A valid `pkpSessionSigs` object can be obtained using the [getPkpSessionSigs](https://v6-api-doc-lit-js-sdk.vercel.app/classes/lit_node_client_src.LitNodeClientNodeJs.html#getPkpSessionSigs) helper method available on an instance of [LitNodeClient](https://v6-api-doc-lit-js-sdk.vercel.app/classes/lit_node_client_src.LitNodeClient.html). We dive deeper into obtaining a `pkpSessionSigs` using `getPkpSessionSigs` in the [Generating PKP Session Signatures](#generating-pkp-session-signatures) section of this guide.
 
-### `privateKey`
+#### `litNodeClient`
 
-This parameter is the private key (as a `string`) you're importing into the Lit network to be made into a Wrapped Key. It's encrypted using the [encryptString](https://v6-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.encryptString.html) method from the Lit SDK, using the following [Access Control Conditions](../../sdk/access-control/evm/basic-examples):
+This is an instance of the [LitNodeClient](https://v6-api-doc-lit-js-sdk.vercel.app/classes/lit_node_client_src.LitNodeClient.html) that is connected to a Lit network. It's used to communicate with both the Lit network and the Wrapped Keys service.
+
+#### `privateKey`
+
+This parameter is the private key (as a clear text `string`) you're importing into the Lit network to be made into a Wrapped Key. The Wrapped Keys SDK encrypts it using the [encryptString](https://v6-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.encryptString.html) method from the Lit SDK, with the following [Access Control Conditions](../../sdk/access-control/evm/basic-examples):
 
 ```ts
 [
@@ -91,9 +117,13 @@ where `pkpAddress` is derived from the provided `pkpSessionSigs`.
 
 This means that the PKP used to produce the Session Signatures (`pkpSessionSigs`) is the only entity authorized to decrypt the imported private key.
 
-#### `litNodeClient`
+#### `publicKey`
 
-This is an instance of the [LitNodeClient](https://v6-api-doc-lit-js-sdk.vercel.app/classes/lit_node_client_src.LitNodeClient.html) that is connected to a Lit network.
+This is the public key for the private key you're importing. It's stored in Lit's private DynamoDB instance to allow for querying of the Wrapped Key's address without having to decrypt the private key within the Wrapped Key's Lit Action.
+
+#### `keyType`
+
+This is the algorithm used to derive the private key you're importing. This might be `K256`, `ECDSA`, `ed25519`, or other key formats.
 
 ### Return Value
 
@@ -219,20 +249,15 @@ When `getPkpSessionSigs` is called, the following happens:
 
 Now that we have all that we need, we can call `importPrivateKey` to import our key as a Wrapped Key.
 
-Currently the Wrapped Keys SDK supports signing with the private keys using the following curves, so you should only import keys derived from these curves:
-
-- `ECDSA` Commonly used in EVM based blockchains
-  - When importing an `ECDSA` private key, provide it as a `0x` prefixed hexadecimal string
-- `Ed25519` Used by Solana
-  - When importing an `Ed25519` private key, provide it as a `base58` encoded string
-
 ```ts
 import { importPrivateKey } from "@lit-protocol/wrapped-keys";
 
 const pkpAddress = await importPrivateKey({
     pkpSessionSigs,
-    privateKey,
     litNodeClient,
+    privateKey: process.env.ETHEREUM_PRIVATE_KEY,
+    publicKey: process.env.ETHEREUM_PUBLIC_KEY,
+    keyType: 'ecdsa'
 });
 ```
 

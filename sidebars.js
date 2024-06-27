@@ -318,7 +318,7 @@ const sidebars = {
             'sdk/wrapped-keys/importing-key',
             'sdk/wrapped-keys/exporting-wrapped-key',
             'sdk/wrapped-keys/getting-wrapped-key-metadata',
-            // 'sdk/wrapped-keys/storing-wrapped-key-metadata',
+            'sdk/wrapped-keys/storing-wrapped-key-metadata',
             'sdk/wrapped-keys/sign-message',
             'sdk/wrapped-keys/sign-transaction',
           ],

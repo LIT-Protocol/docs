@@ -498,6 +498,10 @@ When `getPkpSessionSigs` is called, the following happens:
 
 ### Signing a Transaction With A Wrapped Key
 
+Now that we know what the `signTransactionWithEncryptedKey` function does, it's parameters, and it's return values, let's now dig into a complete implementation.
+
+The full code implementation can be found [here](https://github.com/LIT-Protocol/developer-guides-code/blob/wyatt/wrapped-keys/wrapped-keys/nodejs/src/signTransactionWithWrappedKey.ts).
+
 <Tabs
 defaultValue="evm"
 values={[

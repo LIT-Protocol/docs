@@ -21,45 +21,23 @@ Before continuing with this guide, you should have an understanding of:
 
 ## `importPrivateKey`'s Interface
 
-<!-- TODO Update once Wrapped Keys PR is merged: https://github.com/LIT-Protocol/js-sdk/pull/513 -->
+<!-- TODO Update URL once Wrapped Keys PR is merged: https://github.com/LIT-Protocol/js-sdk/pull/513 -->
 [Source code](https://github.com/LIT-Protocol/js-sdk/blob/ac8f17372a2c0a204286515e35b6abeb26e1effc/packages/wrapped-keys/src/lib/api/import-private-key.ts)
 
 ```ts
-/** All API calls for the wrapped keys service require these arguments.
- *
- * @typedef BaseApiParams
- * @property {SessionSigsMap} pkpSessionSigs - The PKP sessionSigs used to associate the PKP with the generated private key and authenticate with the wrapped keys backend service.
- * @property {ILitNodeClient} litNodeClient - The Lit Node Client used for executing the Lit Action and identifying which wrapped keys backend service to communicate with.
- */
-interface BaseApiParams {
-  pkpSessionSigs: SessionSigsMap;
-  litNodeClient: ILitNodeClient;
-}
-
-/** @typedef ImportPrivateKeyParams
- * @extends BaseApiParams
- *
- * @property { string } privateKey The private key to be imported into the wrapped keys service
- * @property { string } publicKey The public key of the key being imported into the wrapped keys service
- * @property { string } keyType The algorithm type of the key; this might be K256, ed25519, or other key formats.  The `keyType` will be included in the metadata returned from the wrapped keys service
- */
-interface ImportPrivateKeyParams extends BaseApiParams {
-  privateKey: string;
-  publicKey: string;
-  keyType: string;
-}
-
 /**
  * Import a provided private key into the wrapped keys service backend.
  * First, the key is pre-pended with `LIT_PREFIX` for security reasons, then the salted key is encrypted and stored in the backend service.
  * The key will be associated with the PKP address embedded in the `pkpSessionSigs` you provide. One and only one wrapped key can be associated with a given LIT PKP.
- *
- * @param { ImportPrivateKeyParams } params The parameters required to import the private key into the wrapped keys backend service
- *
- * @returns { Promise<string> } - The LIT PKP Address associated with the Wrapped Key
  */
 async function importPrivateKey(
-  params: ImportPrivateKeyParams
+  params: {
+    pkpSessionSigs: SessionSigsMap;
+    litNodeClient: ILitNodeClient;
+    privateKey: string;
+    publicKey: string;
+    keyType: string;
+  }
 ): Promise<string>
 ```
 
@@ -123,7 +101,7 @@ This is the public key for the private key you're importing. It's stored in Lit'
 
 #### `keyType`
 
-This is the algorithm used to derive the private key you're importing. This might be `K256`, `ECDSA`, `ed25519`, or other key formats.
+This is the algorithm used to derive the private key you're importing. This might be `EcdsaK256`, `ed25519`, or other key formats.
 
 ### Return Value
 

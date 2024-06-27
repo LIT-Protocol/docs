@@ -27,7 +27,7 @@ Before continuing with this guide, you should have an understanding of:
  * This method fetches the encrypted key from the wrapped keys service, then executes a Lit Action that decrypts the key inside the LIT action and uses
  * the decrypted key to sign the provided transaction
  */
-export async function signMessageWithEncryptedKey(
+async function signMessageWithEncryptedKey(
   params: {
     pkpSessionSigs: SessionSigsMap;
     litNodeClient: ILitNodeClient;
@@ -69,12 +69,14 @@ This is an instance of the [LitNodeClient](https://v6-api-doc-lit-js-sdk.vercel.
 
 #### `network`
 
-This parameter dictates what message signing Lit Action is used to sign `messageToSign`. It must be one of the supported Wrapped Keys [Networks](https://github.com/LIT-Protocol/js-sdk/blob/b80cee7035639ef4739c6190812eecbf2d2dab2e/packages/wrapped-keys/src/lib/constants.ts#L5) which currently consists of:
+<!-- TODO Update URLs once Wrapped Keys PR is merged: https://github.com/LIT-Protocol/js-sdk/pull/513 -->
 
-  - `evm` This will use the [signMessageWithEthereumEncryptedKey](https://github.com/LIT-Protocol/js-sdk/blob/b80cee7035639ef4739c6190812eecbf2d2dab2e/packages/wrapped-keys/src/lib/litActions/ethereum/src/signMessageWithEthereumEncryptedKey.js) Lit Action.
+This parameter dictates what message signing Lit Action is used to sign `messageToSign`. It must be one of the supported Wrapped Keys [Networks](https://github.com/LIT-Protocol/js-sdk/blob/ac8f17372a2c0a204286515e35b6abeb26e1effc/packages/wrapped-keys/src/lib/types.ts#L9-L12) which currently consists of:
+
+  - `evm` This will use the [signMessageWithEthereumEncryptedKey](https://github.com/LIT-Protocol/js-sdk/blob/ac8f17372a2c0a204286515e35b6abeb26e1effc/packages/wrapped-keys/src/lib/litActions/ethereum/src/signMessageWithEthereumEncryptedKey.js) Lit Action.
     - Use this network if your Wrapped Key is a private key derived from the ECDSA curve. 
     - Uses Ethers.js' [signMessage](https://docs.ethers.org/v5/api/signer/#Signer-signMessage) function to sign `messageToSign`.
-  - `solana` This will use the [signMessageWithSolanaEncryptedKey](https://github.com/LIT-Protocol/js-sdk/blob/b80cee7035639ef4739c6190812eecbf2d2dab2e/packages/wrapped-keys/src/lib/litActions/solana/src/signMessageWithSolanaEncryptedKey.js) Lit Action.
+  - `solana` This will use the [signMessageWithSolanaEncryptedKey](https://github.com/LIT-Protocol/js-sdk/blob/ac8f17372a2c0a204286515e35b6abeb26e1effc/packages/wrapped-keys/src/lib/litActions/solana/src/signMessageWithSolanaEncryptedKey.js) Lit Action.
     - Use this network if your Wrapped Key is a private key derived from the Ed25519 curve.
     - Uses the [@solana/web3.js](https://github.com/solana-labs/solana-web3.js) package to create a signer using the decrypted Wrapped Key, and the [tweetnacl](https://github.com/dchest/tweetnacl-js) package to sign `messageToSign`.
 
@@ -207,7 +209,7 @@ const { importPrivateKey } = api;
 const signature = await signMessageWithEncryptedKey({
   pkpSessionSigs,
   network: 'evm',
-  messageToSign: "The answer to the universe is 42.",
+  messageToSign: "The answer to the Universe is 42.",
   litNodeClient,
 });
 ```
@@ -224,7 +226,7 @@ const { importPrivateKey } = api;
 const signature = await signMessageWithEncryptedKey({
   pkpSessionSigs,
   network: 'solana',
-  messageToSign: "The answer to the universe is 42.",
+  messageToSign: "The answer to the Universe is 42.",
   litNodeClient,
 });
 ```

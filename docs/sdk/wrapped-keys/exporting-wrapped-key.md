@@ -223,7 +223,9 @@ Be mindful when and where you're calling this method as to not expose the privat
 Now that we have all that we need, we can call `exportPrivateKey` to export the underlying private key for the Wrapped Key:
 
 ```ts
-import { exportPrivateKey } from "@lit-protocol/wrapped-keys";
+import { api } from "@lit-protocol/wrapped-keys";
+
+const { exportPrivateKey } = api;
 
 const exportedPrivateKeyResult = await exportPrivateKey({
     pkpSessionSigs,

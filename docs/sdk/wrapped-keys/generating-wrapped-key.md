@@ -5,10 +5,11 @@ import TabItem from '@theme/TabItem';
 
 This guide covers the `generatePrivateKey` function from the Wrapped Keys SDK. For an overview of what a Wrapped Key is and what can be done with it, please go [here](./overview.md).
 
-Using the `generatePrivateKey` function, you can request a Lit node to generate a new private key within it's trusted execution environment (TEE). Once generated, the private key will be encrypted using Lit network's BLS key, and the resulting encryption metadata (`ciphertext` and `dataToEncryptHash`) will be returned and stored by Lit on your behalf.
+Using the `generatePrivateKey` function, you can request a Lit node to generate a new private key within it's trusted execution environment (TEE). Once generated, the private key will be encrypted using Lit network's BLS key, and the resulting encryption metadata (`ciphertext` and `dataToEncryptHash`) will be returned and stored by Lit on your behalf in a private DynamoDB instance.
 
 Afterwards, you will be able to make use of the SDK's signing methods (`signTransactionWithEncryptedKey` and `signMessageWithEncryptedKey`) to sign messages and transaction with the generated private key, all within a Lit node's TEE.
 
+<!-- TODO Update URL once this PR is merged: https://github.com/LIT-Protocol/developer-guides-code/pull/21 -->
 Below we will walk through an implementation of `generatePrivateKey`. The full code implementation can be found [here](https://github.com/LIT-Protocol/developer-guides-code/blob/wyatt/wrapped-keys/wrapped-keys/nodejs/src/generateWrappedKey.ts).
 
 ## Prerequisites
@@ -20,25 +21,27 @@ Before continuing with this guide, you should have an understanding of:
 
 ## `generatePrivateKey`'s Interface
 
-<!-- TODO Update once Wrapped Keys PR is merged -->
-[Source code](https://github.com/LIT-Protocol/js-sdk/blob/b80cee7035639ef4739c6190812eecbf2d2dab2e/packages/wrapped-keys/src/lib/wrapped-keys.ts#L29-L86)
+<!-- TODO Update URL once Wrapped Keys PR is merged: https://github.com/LIT-Protocol/js-sdk/pull/513 -->
+[Source code](https://github.com/LIT-Protocol/js-sdk/blob/ac8f17372a2c0a204286515e35b6abeb26e1effc/packages/wrapped-keys/src/lib/api/generate-private-key.ts)
 
 ```ts
 /**
+ * Generates a random private key inside a Lit Action, and persists the key and its metadata to the wrapped keys service.
+ * Returns the public key of the random private key, and the PKP address that it was associated with.
+ * We don't return the generated wallet address since it can be derived from the publicKey
  *
- * Generates a random Solana/EVM private key inside the corresponding Lit Action and returns the publicKey of the random private key. We don't return the generated wallet address since it can be derived from the publicKey
- *
- * @param pkpSessionSigs - The PKP sessionSigs used to associated the PKP with the generated private key
- * @param network - The network for which the private key needs to be generated. This is used to call different Lit Actions since the keys will be of different types
- * @param litNodeClient - The Lit Node Client used for executing the Lit Action
- *
- * @returns { Promise<GeneratePrivateKeyResponse> } - The publicKey of the generated random private key along with the PKP EthAddres associated with the Wrapped Key
+ * The key will be associated with the PKP address embedded in the `pkpSessionSigs` you provide. One and only one wrapped key can be associated with a given LIT PKP.
  */
-export async function generatePrivateKey({
-  pkpSessionSigs,
-  network,
-  litNodeClient,
-}: GeneratePrivateKeyParams): Promise<GeneratePrivateKeyResponse>
+async function generatePrivateKey(
+  params: {
+    pkpSessionSigs: SessionSigsMap;
+    litNodeClient: ILitNodeClient;
+    network: 'evm' | 'solana';
+  }
+): Promise<{
+    pkpAddress: string;
+    generatedPublicKey: string;
+}>
 ```
 
 ### Parameters
@@ -67,23 +70,30 @@ where `pkpAddress` is the addressed derived from the `pkpSessionSigs`. This rest
 
 A valid `pkpSessionSigs` object can be obtained using the [getPkpSessionSigs](https://v6-api-doc-lit-js-sdk.vercel.app/classes/lit_node_client_src.LitNodeClientNodeJs.html#getPkpSessionSigs) helper method available on an instance of [LitNodeClient](https://v6-api-doc-lit-js-sdk.vercel.app/classes/lit_node_client_src.LitNodeClient.html). We dive deeper into obtaining a `pkpSessionSigs` using `getPkpSessionSigs` in the [Generating PKP Session Signatures](#generating-pkp-session-signatures) section of this guide.
 
-#### `network`
-
-This parameter dictates what elliptic curve is used to generate the private key. It must be one of the supported Wrapped Keys [Networks](https://github.com/LIT-Protocol/js-sdk/blob/b80cee7035639ef4739c6190812eecbf2d2dab2e/packages/wrapped-keys/src/lib/constants.ts#L5) which currently consists of:
-
-  - `evm` This will generate a private key using the ECDSA curve.
-  - `solana` This will generate a private key using the Ed25519 curve.
-
 #### `litNodeClient`
 
 This is an instance of the [LitNodeClient](https://v6-api-doc-lit-js-sdk.vercel.app/classes/lit_node_client_src.LitNodeClient.html) that is connected to a Lit network.
 
+#### `network`
+
+<!-- TODO Update URL once Wrapped Keys PR is merged: https://github.com/LIT-Protocol/js-sdk/pull/513 -->
+This parameter dictates what elliptic curve is used to generate the private key. It must be one of the supported Wrapped Keys [Networks](https://github.com/LIT-Protocol/js-sdk/blob/ac8f17372a2c0a204286515e35b6abeb26e1effc/packages/wrapped-keys/src/lib/types.ts#L12) which currently consists of:
+
+  - `evm` This will generate a private key using the ECDSA curve.
+  - `solana` This will generate a private key using the Ed25519 curve.
+
 ### Return Value
 
-`generatePrivateKey` will return a [GeneratePrivateKeyResponse](https://github.com/LIT-Protocol/js-sdk/blob/b80cee7035639ef4739c6190812eecbf2d2dab2e/packages/wrapped-keys/src/lib/interfaces.ts#L15-L18) object after it successfully generates and encrypts the private key and stores the encryption metadata.
+<!-- TODO Update URL once Wrapped Keys PR is merged: https://github.com/LIT-Protocol/js-sdk/pull/513 -->
+`generatePrivateKey` will return a [GeneratePrivateKeyResult](https://github.com/LIT-Protocol/js-sdk/blob/ac8f17372a2c0a204286515e35b6abeb26e1effc/packages/wrapped-keys/src/lib/types.ts#L82-L90) object after it successfully generates and encrypts the private key and stores the encryption metadata.
 
 ```ts
-interface GeneratePrivateKeyResponse {
+/** @typedef GeneratePrivateKeyResult
+ * @property { string } pkpAddress The LIT PKP Address that the key was linked to; this is derived from the provided pkpSessionSigs
+ * @property { string } generatedPublicKey The public key component of the newly generated keypair
+ *
+ */
+interface GeneratePrivateKeyResult {
   pkpAddress: string;
   generatedPublicKey: string;
 }
@@ -95,47 +105,7 @@ This address, derived from the `pkpSessionSigs`, is what was used for the Access
 
 #### `generatedPublicKey`
 
-This is the corresponding public key for the generated private key, and can be used to resolve the corresponding address like so:
-
-<Tabs
-defaultValue="eth"
-values={[
-{label: 'Ethereum Address', value: 'eth'},
-{label: 'Solana Address', value: 'sol'},
-]}>
-<TabItem value="eth">
-
-```js
-import * as ethers from 'ethers';
-
-// generatePrivateKeyResponse is the return value from generatePrivateKey.
-// It's being omitted in this code example for brevity.
-const { generatedPublicKey } = generateWrappedKeyResponse;
-
-// Remove the prefix if it's '0x04' (uncompressed key) or just '0x'
-const prefixLength = generatedPublicKey.startsWith('0x04') ? 4 : 2;
-const sanitizedPublicKey = generatedPublicKey.slice(prefixLength);
-
-// Compute the keccak256 hash of the public key and extract the address
-const addressHash = ethers.utils.keccak256(`0x${sanitizedPublicKey}`);
-const ethAddress = ethers.utils.getAddress(`0x${addressHash.slice(-40)}`);
-```
-
-</TabItem>
-
-<TabItem value="sol">
-
-```js
-import { PublicKey } from '@solana/web3.js';
-
-// generatePrivateKeyResponse is the return value from generatePrivateKey.
-// It's being omitted in this code example for brevity.
-const generatedPublicKey = new PublicKey(generateWrappedKeyResponse.generatedPublicKey);
-const solanaAddress = generatedPublicKey.toBase58();
-```
-
-</TabItem>
-</Tabs>
+This is the public key for the generated private key. The corresponding address, derived from the public key, can be obtained using the [getEncryptedKeyMetadata](./get-wrapped-key-metadata.md) function from the Wrapped Keys SDK.
 
 ## Example Implementation
 
@@ -271,13 +241,15 @@ values={[
 
 ```ts
 import {
-  generatePrivateKey,
+  api,
   NETWORK_EVM,
 } from "@lit-protocol/wrapped-keys";
 
+const { generatePrivateKey } = api;
+
 const { pkpAddress, generatedPublicKey } = await generatePrivateKey({
     pkpSessionSigs,
-    network: NETWORK_EVM,
+    network: 'evm',
     litNodeClient,
 });
 ```
@@ -288,13 +260,15 @@ const { pkpAddress, generatedPublicKey } = await generatePrivateKey({
 
 ```ts
 import {
-  generatePrivateKey,
+  api,
   NETWORK_SOLANA,
 } from "@lit-protocol/wrapped-keys";
 
+const { generatePrivateKey } = api;
+
 const { pkpAddress, generatedPublicKey } = await generatePrivateKey({
     pkpSessionSigs,
-    network: NETWORK_SOLANA,
+    network: 'solana',
     litNodeClient,
 });
 ```
@@ -306,10 +280,9 @@ const { pkpAddress, generatedPublicKey } = await generatePrivateKey({
 
 The full code implementation can be found [here](https://github.com/LIT-Protocol/developer-guides-code/blob/wyatt/wrapped-keys/wrapped-keys/nodejs/src/generateWrappedKey.ts).
 
-After executing the example implementation above, you will have a `generatedPublicKey` returned from the `generatePrivateKey` function. This will be the public key associated with the generated Wrapped Key.
+After executing the example implementation above, the `generatePrivateKey` function will return you an object containing the corresponding public key for your generated Wrapped Key, and the PKP address that is associated with it (and used to encrypt the Wrapped Key).
 
 With you new Wrapped Key, you can explore the additional guides in this section to sign messages and transactions:
 
 - [Signing a Message](./sign-message.md)
 - [Signing a Transaction](./sign-transaction.md)
-

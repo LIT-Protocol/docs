@@ -101,7 +101,7 @@ This is the public key for the private key you're importing. It's stored in Lit'
 
 #### `keyType`
 
-This is the algorithm used to derive the private key you're importing. This might be `EcdsaK256`, `ed25519`, or other key formats.
+This is the algorithm used to derive the private key you're importing. This might be `K256`, `ed25519`, or other key formats.
 
 ### Return Value
 
@@ -235,7 +235,7 @@ const pkpAddress = await importPrivateKey({
     litNodeClient,
     privateKey: process.env.ETHEREUM_PRIVATE_KEY,
     publicKey: process.env.ETHEREUM_PUBLIC_KEY,
-    keyType: 'ecdsa'
+    keyType: 'K256'
 });
 ```
 

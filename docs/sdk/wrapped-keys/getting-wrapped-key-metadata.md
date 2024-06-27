@@ -8,7 +8,7 @@ This guide covers the `getEncryptedKeyMetadata` function from the Wrapped Keys S
 The `getEncryptedKeyMetadata` function allows you to request a Wrapped Key's metadata stored within Lit's private DynamoDB instance. Covered in detail [further in this guide](#return-value), the metadata includes properties such as the encrypted private key's `ciphertext` and `dataToEncryptHash` that could be used to decrypt the key outside of the Wrapped Key Lit Actions.
 
 <!-- TODO The dev guide code example doesn't currently exist. Currently blocked by the publishing of the updated Wrapped Keys SDK (https://github.com/LIT-Protocol/js-sdk/pull/513) -->
-Below we will walk through an implementation of `signTransactionWithEncryptedKey`. The full code implementation can be found [here](https://github.com/LIT-Protocol/developer-guides-code/blob/wyatt/wrapped-keys/wrapped-keys/nodejs/src/getWrappedKeyMetadata.ts).
+Below we will walk through an implementation of `getEncryptedKeyMetadata`. The full code implementation can be found [here](https://github.com/LIT-Protocol/developer-guides-code/blob/wyatt/wrapped-keys/wrapped-keys/nodejs/src/getWrappedKeyMetadata.ts).
 
 ## Prerequisites
 

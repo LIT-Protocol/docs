@@ -7,7 +7,7 @@ This guide provides an overview of how custom Lit Actions can be used to provide
 
 Typically, you would want to implement a custom Lit Action to support signing with a Wrapped Key that has an underlying private key derived from an curve other than what's currently supported by the Wrapped Keys SDK.
 
-However, you are able to provide an arbitrary Lit Action code, so you can adapt Wrapped Keys to support your use case.
+However, you are able to provide arbitrary Lit Action code, so you can adapt Wrapped Keys to support your use case.
 
 <!-- TODO Update URLs once Wrapped Keys PR is merged: https://github.com/LIT-Protocol/js-sdk/pull/513 -->
 ## Provided Wrapped Keys Lit Actions

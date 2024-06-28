@@ -107,7 +107,8 @@ const { ciphertext, dataToEncryptHash } = await encryptString(
                 },
             },
         ],
-        dataToEncrypt: process.env.CLEAR_TEXT_PRIVATE_KEY,
+        // For enhanced security, "lit_" should be prepended to all stored private keys.
+        dataToEncrypt: `lit_${process.env.CLEAR_TEXT_PRIVATE_KEY}`,
     },
     litNodeClient,
 )

@@ -86,6 +86,8 @@ To work with the Wrapped Keys SDK, your Lit Action should return the `ciphertext
 
 ```ts
 (async () => {
+    const LIT_PREFIX = 'lit_';
+
     const result = await Lit.Actions.runOnce(
         { waitForResponse: true, name: 'encryptedPrivateKey' },
         async () => {
@@ -93,7 +95,9 @@ To work with the Wrapped Keys SDK, your Lit Action should return the `ciphertext
 
             const generatedPrivateKey = "your_private_key";
             const utf8Encode = new TextEncoder();
-            const encodedPrivateKey = utf8Encode.encode(generatedPrivateKey);
+            const encodedPrivateKey = utf8Encode.encode(
+                `${LIT_PREFIX}${generatedPrivateKey}` // For enhanced security, you should prepend all generated private keys with "lit_"
+            );
 
             const { ciphertext, dataToEncryptHash } = await Lit.Actions.encrypt({
                 accessControlConditions, // This should be passed into the Lit Action
@@ -116,6 +120,10 @@ To work with the Wrapped Keys SDK, your Lit Action should return the `ciphertext
     });
 })
 ```
+
+#### Storing the Encryption Metadata
+
+After generating and encrypting the private key, the resulting encryption metadata (`ciphertext`, `dataToEncryptHash`, and the `publicKey`) should be stored in Lit's private instance of DynamoDB using the [storeEncryptedKeyMetadata](./storing-wrapped-key-metadata.md) method included in the Wrapped Keys SDK.
 
 ### Decrypting a Wrapped Key
 
@@ -161,12 +169,18 @@ This value should be hardcoded as `null`.
 
 This value should be hardcoded as `ethereum`.
 
+#### Fetching a Wrapped Key's Metadata
+
+If you stored the encryption metadata in Lit's private instance of DynamoDB using the [storeEncryptedKeyMetadata](./storing-wrapped-key-metadata.md) method, then you can retrieve the metadata using the [getEncryptedKeyMetadata](./getting-wrapped-key-metadata.md) method included in the Wrapped Keys SDK.
+
 #### Example Implementation
 
 Once you have the required arguments, you can call `decryptToSingleNode` like so:
 
 ```ts
 (async () => {
+    const LIT_PREFIX = 'lit_';
+
     let decryptedPrivateKey;
     try {
         decryptedPrivateKey = await Lit.Actions.decryptToSingleNode({
@@ -187,6 +201,12 @@ Once you have the required arguments, you can call `decryptToSingleNode` like so
         // Exit the nodes which don't have the decryptedData
         return;
     }
+
+    // Here we're checking if LIT_PREFIX was prepended to the private key,
+    // and removing it if it exists before using the key.
+    const privateKey = decryptedPrivateKey.startsWith(LIT_PREFIX)
+        ? decryptedPrivateKey.slice(LIT_PREFIX.length)
+        : decryptedPrivateKey;
 
     // The rest of your Lit Action code...
 })

@@ -185,6 +185,10 @@ The PKP's Ethereum address will be used for the Access Control Conditions used t
 The `expiration` used for the Auth Method **must** be 10 minutes or less to be valid.
 :::
 
+:::note
+The Auth Method used in this example implementation is signing a Sign in With Ethereum ([EIP-4361](https://eips.ethereum.org/EIPS/eip-4361)) message using an Externally Owned Account (EOA), but any Auth Method can be used to authenticate with Lit to get PKP Session Signatures.
+:::
+
 ```ts
 import { EthWalletProvider } from "@lit-protocol/lit-auth-client";
 import {

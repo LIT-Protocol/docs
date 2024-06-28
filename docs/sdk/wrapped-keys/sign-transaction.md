@@ -5,7 +5,7 @@ import TabItem from '@theme/TabItem';
 
 This guide covers the `signTransactionWithEncryptedKey` function from the Wrapped Keys SDK. For an overview of what a Wrapped Key is and what can be done with it, please go [here](./overview.md).
 
-Using the `signTransactionWithEncryptedKey` function, you can sign an arbitrary message using a Wrapped Key. The Wrapped Keys SDK will look up the corresponding encryption metadata (`ciphertext` and `dataToEncryptHash`) for your PKP in Lit's private DynamoDB instance. If found, it well then use your provided PKP Session Signatures to authorize decryption of the private key, and will sign your provided message, returning the signed message.
+Using the `signTransactionWithEncryptedKey` function, you can sign a transaction using a Wrapped Key. The Wrapped Keys SDK will look up the corresponding encryption metadata (`ciphertext` and `dataToEncryptHash`) for your PKP in Lit's private DynamoDB instance. If found, it well then use your provided PKP Session Signatures to authorize decryption of the private key, and will sign your provided message, returning the signed message. If the [broadcast](#broadcast) setting is enabled, then the signed transaction will also be broadcasted to the specified [chain](#chain).
 
 Below we will walk through an implementation of `signTransactionWithEncryptedKey`. The full code implementation can be found [here](https://github.com/LIT-Protocol/developer-guides-code/blob/wyatt/wrapped-keys/wrapped-keys/nodejs/src/signTransactionWithWrappedKey.ts).
 

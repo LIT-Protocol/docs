@@ -74,7 +74,7 @@ Then, as you can see in the [Solana Wrapped Keys Lit Actions](#wrapped-keys-deri
 
 ### Generating and Encrypting a Private Key
 
-If you want to implementing generation and encryption of a private key using an alternative private key algorithm, then you should make use of the the following [Lit Actions SDK](https://actions-docs.litprotocol.com/#welcome) methods:
+If you want to implementing generation and encryption of a private key using an alternative private key algorithm, then you should make use of the following Lit Actions SDK methods:
 
 [runOnce](https://actions-docs.litprotocol.com/#runonce) allows you to specify code that should only be ran by a single Lit node instead of having all Lit nodes run the same code. This is useful for executing the code that generates and encrypts the private key.
 

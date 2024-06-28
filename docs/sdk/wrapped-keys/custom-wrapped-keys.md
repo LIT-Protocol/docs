@@ -5,7 +5,7 @@ import TabItem from '@theme/TabItem';
 
 This guide provides an overview of how custom Lit Actions can be used to provide functionality, such as signing, with Wrapped Keys. For an overview of what a Wrapped Key is and what can be done with it, please go [here](./overview.md).
 
-Typically, you would want to implement a custom Lit Action to support signing with a Wrapped Key that has an underlying private key derived from an algorithm other than what's current supported by the Wrapped Keys SDK.
+Typically, you would want to implement a custom Lit Action to support signing with a Wrapped Key that has an underlying private key derived from an curve other than what's current supported by the Wrapped Keys SDK.
 
 However, you are able to provide an arbitrary Lit Action IPFS CID, so you can adapt Wrapped Keys to support your use case.
 

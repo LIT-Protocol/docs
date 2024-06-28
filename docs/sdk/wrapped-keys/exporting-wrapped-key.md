@@ -202,16 +202,6 @@ const pkpSessionSigs = await litNodeClient.getPkpSessionSigs({
 });
 ```
 
-When `getPkpSessionSigs` is called, the following happens:
-
-1. Session Keys are generated locally
-2. A request to the Lit network is submitted to authorize our Session Keys to perform the requested resource abilities (`resourceAbilityRequests`)
-3. The Lit network executes our `authMethods` to authenticate us
-   - In our case we're using `EthWalletProvider.authenticate` to generate an Authentication Signature (a Sign in With Ethereum message) that verifies we have access to the private key of a corresponding Ethereum address.
-4. The Lit network checks whether or not the authenticated Ethereum address is authorized to use the PKP
-5. If authorized, the Lit network produces signature shares for our PKP, signing a message that grants our Session Keys with the requested resource abilities
-6. The PKP signature shares are returned to us to use for our `generatePrivateKey` request
-
 ### Exporting a Wrapped Key
 
 :::warning

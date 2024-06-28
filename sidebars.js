@@ -321,6 +321,7 @@ const sidebars = {
             'sdk/wrapped-keys/storing-wrapped-key-metadata',
             'sdk/wrapped-keys/sign-message',
             'sdk/wrapped-keys/sign-transaction',
+            'sdk/wrapped-keys/custom-wrapped-keys',
           ],
         },
       ],

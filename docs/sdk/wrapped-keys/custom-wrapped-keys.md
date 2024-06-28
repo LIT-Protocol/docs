@@ -38,7 +38,7 @@ For Wrapped Keys derived from the `ed25519` algorithm (used for Solana private k
 
 ## Implementing a Custom Lit Action
 
-Implementing your own Lit Action allows you to do something different than what the provided Wrapped Key Lit Actions do. For example, supporting new functionality such as signing with a private key derived from an alternative algorithm.
+Implementing your own Lit Action allows you to do something different than what the provided Wrapped Key Lit Actions do. For example, supporting new functionality such as signing with a private key derived from an alternative curve to `K256` or `ed25519`.
 
 You can use the [Provided Wrapped Keys Lit Actions](#provided-wrapped-keys-lit-actions) as guides on how to implement your custom Lit Action. Below we will be covering common functionality for Wrapped Key Lit Actions.
 

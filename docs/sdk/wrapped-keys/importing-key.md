@@ -186,6 +186,10 @@ The `LIT_PKP_PUBLIC_KEY` environment variable is required. This PKP should be ow
 
 The PKP's Ethereum address will be used for the Access Control Conditions used to encrypt the generated private key, and by default, will be the only entity able to authorize decryption of the private key.
 
+:::note
+The `expiration` used for the Auth Method **must** be 10 minutes or less to be valid.
+:::
+
 ```ts
 import { EthWalletProvider } from "@lit-protocol/lit-auth-client";
 import {

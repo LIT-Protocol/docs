@@ -183,6 +183,11 @@ Once you have the required arguments, you can call `decryptToSingleNode` like so
         return;
     }
 
+    if (!decryptedPrivateKey) {
+        // Exit the nodes which don't have the decryptedData
+        return;
+    }
+
     // The rest of your Lit Action code...
 })
 ```

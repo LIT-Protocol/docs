@@ -19,7 +19,7 @@ Before continuing with this guide, you should have an understanding of:
 ## `exportPrivateKey`'s Interface
 
 <!-- TODO Update URL once Wrapped Keys PR is merged: https://github.com/LIT-Protocol/js-sdk/pull/513 -->
-[Source code](https://github.com/LIT-Protocol/js-sdk/blob/ac8f17372a2c0a204286515e35b6abeb26e1effc/packages/wrapped-keys/src/lib/api/export-private-key.ts)
+[Source code](https://github.com/LIT-Protocol/js-sdk/blob/master/packages/wrapped-keys/src/lib/api/export-private-key.ts)
 
 ```ts
 /** Exports a previously persisted private key from the wrapped keys service for direct use by the caller, along with the keys metadata

@@ -22,7 +22,7 @@ Before continuing with this guide, you should have an understanding of:
 ## `generatePrivateKey`'s Interface
 
 <!-- TODO Update URL once Wrapped Keys PR is merged: https://github.com/LIT-Protocol/js-sdk/pull/513 -->
-[Source code](https://github.com/LIT-Protocol/js-sdk/blob/ac8f17372a2c0a204286515e35b6abeb26e1effc/packages/wrapped-keys/src/lib/api/generate-private-key.ts)
+[Source code](https://github.com/LIT-Protocol/js-sdk/blob/master/packages/wrapped-keys/src/lib/api/generate-private-key.ts)
 
 ```ts
 /**
@@ -77,7 +77,7 @@ This is an instance of the [LitNodeClient](https://v6-api-doc-lit-js-sdk.vercel.
 #### `network`
 
 <!-- TODO Update URL once Wrapped Keys PR is merged: https://github.com/LIT-Protocol/js-sdk/pull/513 -->
-This parameter dictates what elliptic curve is used to generate the private key. It must be one of the supported Wrapped Keys [Networks](https://github.com/LIT-Protocol/js-sdk/blob/ac8f17372a2c0a204286515e35b6abeb26e1effc/packages/wrapped-keys/src/lib/types.ts#L12) which currently consists of:
+This parameter dictates what elliptic curve is used to generate the private key. It must be one of the supported Wrapped Keys [Networks](https://github.com/LIT-Protocol/js-sdk/blob/master/packages/wrapped-keys/src/lib/types.ts#L12) which currently consists of:
 
   - `evm` This will generate a private key using the ECDSA curve.
   - `solana` This will generate a private key using the Ed25519 curve.
@@ -85,7 +85,7 @@ This parameter dictates what elliptic curve is used to generate the private key.
 ### Return Value
 
 <!-- TODO Update URL once Wrapped Keys PR is merged: https://github.com/LIT-Protocol/js-sdk/pull/513 -->
-`generatePrivateKey` will return a [GeneratePrivateKeyResult](https://github.com/LIT-Protocol/js-sdk/blob/ac8f17372a2c0a204286515e35b6abeb26e1effc/packages/wrapped-keys/src/lib/types.ts#L82-L90) object after it successfully generates and encrypts the private key and stores the encryption metadata.
+`generatePrivateKey` will return a [GeneratePrivateKeyResult](https://github.com/LIT-Protocol/js-sdk/blob/master/packages/wrapped-keys/src/lib/types.ts#L82-L90) object after it successfully generates and encrypts the private key and stores the encryption metadata.
 
 ```ts
 /** @typedef GeneratePrivateKeyResult

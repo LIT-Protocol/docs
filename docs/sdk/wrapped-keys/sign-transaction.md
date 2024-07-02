@@ -19,7 +19,7 @@ Before continuing with this guide, you should have an understanding of:
 ## `signTransactionWithEncryptedKey`'s Interface
 
 <!-- TODO Update URL once Wrapped Keys PR is merged: https://github.com/LIT-Protocol/js-sdk/pull/513 -->
-[Source code](https://github.com/LIT-Protocol/js-sdk/blob/ac8f17372a2c0a204286515e35b6abeb26e1effc/packages/wrapped-keys/src/lib/api/sign-transaction-with-encrypted-key.ts)
+[Source code](https://github.com/LIT-Protocol/js-sdk/blob/master/packages/wrapped-keys/src/lib/api/sign-transaction-with-encrypted-key.ts)
 
 <Tabs
 defaultValue="evm"
@@ -153,12 +153,12 @@ This is an instance of the [LitNodeClient](https://v6-api-doc-lit-js-sdk.vercel.
 
 <!-- TODO Update URLs once Wrapped Keys PR is merged: https://github.com/LIT-Protocol/js-sdk/pull/513 -->
 
-This parameter dictates what transaction signing Lit Action is used to sign `unsignedTransaction`. It must be one of the supported Wrapped Keys [Networks](https://github.com/LIT-Protocol/js-sdk/blob/ac8f17372a2c0a204286515e35b6abeb26e1effc/packages/wrapped-keys/src/lib/types.ts#L9-L12) which currently consists of:
+This parameter dictates what transaction signing Lit Action is used to sign `unsignedTransaction`. It must be one of the supported Wrapped Keys [Networks](https://github.com/LIT-Protocol/js-sdk/blob/master/packages/wrapped-keys/src/lib/types.ts#L9-L12) which currently consists of:
 
-  - `evm` This will use the [signTransactionWithEthereumEncryptedKey](https://github.com/LIT-Protocol/js-sdk/blob/ac8f17372a2c0a204286515e35b6abeb26e1effc/packages/wrapped-keys/src/lib/litActions/ethereum/src/signTransactionWithEthereumEncryptedKey.js) Lit Action.
+  - `evm` This will use the [signTransactionWithEthereumEncryptedKey](https://github.com/LIT-Protocol/js-sdk/blob/master/packages/wrapped-keys/src/lib/litActions/ethereum/src/signTransactionWithEthereumEncryptedKey.js) Lit Action.
     - Use this network if your Wrapped Key is a private key derived from the ECDSA curve.
     - Uses Ethers.js' [signTransaction](https://docs.ethers.org/v5/api/signer/#Signer-signTransaction) function to sign `unsignedTransaction`.
-  - `solana` This will use the [signTransactionWithSolanaEncryptedKey](https://github.com/LIT-Protocol/js-sdk/blob/ac8f17372a2c0a204286515e35b6abeb26e1effc/packages/wrapped-keys/src/lib/litActions/solana/src/signTransactionWithSolanaEncryptedKey.js) Lit Action.
+  - `solana` This will use the [signTransactionWithSolanaEncryptedKey](https://github.com/LIT-Protocol/js-sdk/blob/master/packages/wrapped-keys/src/lib/litActions/solana/src/signTransactionWithSolanaEncryptedKey.js) Lit Action.
     - Use this network if your Wrapped Key is a private key derived from the Ed25519 curve.
     - Uses the [@solana/web3.js](https://github.com/solana-labs/solana-web3.js) package to create a signer using the decrypted Wrapped Key, and a [Transaction](https://solana-labs.github.io/solana-web3.js/classes/Transaction.html) instance to sign the serialized unsigned transaction.
 

@@ -324,6 +324,16 @@ const sidebars = {
             'sdk/wrapped-keys/custom-wrapped-keys',
           ],
         },
+        {
+          type: 'category',
+          label: 'Programmable Key Pairs (PKPs)',
+          collapsed: true,
+          // link: {
+          //   type: 'doc',
+          //   id: 'sdk/pkps/overview',
+          // },
+          items: ['sdk/pkps/manage-auth-methods-owns-itself'],
+        },
       ],
     },
     {

@@ -630,3 +630,5 @@ if (isPermittedA)
 ### Summary
 
 The full code implementation can be found [here](https://github.com/LIT-Protocol/developer-guides-code/blob/71b41fd2d46d55cf486e1d7014a09ed4f90a85c5/pkp-update-authmethod/nodejs/src/index.ts).
+
+After executing the example implementation above, you will have completed all the steps covered in the [Overview](#overview) section. You will have a PKP that currently only has `process.env.LIT_ACTION_CHECK_ADDRESS_B` as a permitted Authentication Method, meaning only `ETHEREUM_PRIVATE_KEY_B`'s Ethereum address can be authorized to use the PKP.

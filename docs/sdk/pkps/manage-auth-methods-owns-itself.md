@@ -432,6 +432,8 @@ Because we transferred ownership of the PKP NFT to itself, it's the only authori
 To do this we're going to make use of the `PKPEthersWallet` export from the `@lit-protocol/pkp-ethers` package:
 
 ```ts
+import { PKPEthersWallet } from "@lit-protocol/pkp-ethers";
+
 const pkpEthersWalletA = new PKPEthersWallet({
     litNodeClient,
     pkpPubKey: mintedPkp.publicKey,
@@ -452,6 +454,8 @@ We previously instantiated a `LitContractClient` in the [Instantiating a `LitCon
 Now we're going to instantiate another `LitContractClient` instance, this time using the PKP Ethers Wallet as the signer:
 
 ```ts
+import { LitContracts } from "@lit-protocol/contracts-sdk";
+
 const litContractsPkpSignerA = new LitContracts({
     signer: pkpEthersWalletA,
     network: 'datil-dev',
@@ -559,6 +563,8 @@ const pkpSessionSigsB = await litNodeClient.getLitActionSessionSigs({
 Also similar to [Instantiating a PKP Ethers Wallet Using `pkpSessionSigsB`](#instantiating-a-pkp-ethers-wallet-using-pkpsessionsigsa), we create a `PKPEthersWallet` instance, but with `pkpSessionSigsB` as the `controllerSessionSigs`:
 
 ```ts
+import { PKPEthersWallet } from "@lit-protocol/pkp-ethers";
+
 const pkpEthersWalletB = new PKPEthersWallet({
     litNodeClient,
     pkpPubKey: mintedPkp.publicKey,
@@ -572,6 +578,8 @@ await pkpEthersWalletB.init();
 Similar to [Instantiating a `LitContractClient` with `pkpSessionSigsA`](#instantiating-a-litcontractclient-with-pkpsessionsigsa), we create an instance using `pkpEthersWalletB`:
 
 ```ts
+import { LitContracts } from "@lit-protocol/contracts-sdk";
+
 const litContractsPkpSignerB = new LitContracts({
     signer: pkpEthersWalletB,
     network: 'datil-dev',

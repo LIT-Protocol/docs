@@ -2,10 +2,10 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 
 # Mint via Contracts
 
-You can mint a PKP NFT from the PKP contract on Chronicle - Lit's custom EVM rollup testnet - using 
-1. The [Lit explorer](https://explorer.litprotocol.com/mint-pkp), 
-2. The Lit relayer (sign up for an API key [here](https://forms.gle/RNZYtGYTY9BcD9MEA)) or 
-3. The contracts directly using the [contracts-sdk](https://js-sdk.litprotocol.com/modules/contracts_sdk_src.html) ([Here](https://chain.litprotocol.com/address/0xDe905Fde36562270AA6FEeBAbC5aB1f440f733c2) is the handy helper contract on Chronicle to mint and assign auth methods. You can view all of the deployed contract addresses [here](https://github.com/LIT-Protocol/networks/tree/main/habanero)).
+You can mint a PKP NFT from the PKP contract on Chronicle Yellowstone - Lit's custom EVM rollup testnet - using:
+1. The [Lit explorer](https://explorer.litprotocol.com)
+2. The Lit relayer (sign up for an API key [here](https://forms.gle/RNZYtGYTY9BcD9MEA))
+3. The contracts directly using the [contracts-sdk](https://js-sdk.litprotocol.com/modules/contracts_sdk_src.html) ([Here](https://chain.litprotocol.com/address/0xDe905Fde36562270AA6FEeBAbC5aB1f440f733c2) is the handy helper contract on Chronicle Yellowstone to mint and assign auth methods. You can view all of the deployed contract addresses [here](https://github.com/LIT-Protocol/networks/tree/main/datil)).
 
 The NFT represents root ownership of the PKP. The NFT owner can grant other users (via a wallet address) or grant Lit Actions the ability to use the PKP to sign and decrypt data. They also have the ability to assign additional authentication methods, described at the bottom of the page.
 

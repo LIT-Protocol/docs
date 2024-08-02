@@ -18,10 +18,11 @@ You can only pass one of the three. If you pass more than one, `PKPEthersWallet`
 import { LitNodeClient } from "@lit-protocol/lit-node-client";
 import { LitAbility, LitActionResource } from '@lit-protocol/auth-helpers';
 import { PKPEthersWallet } from "@lit-protocol/pkp-ethers";
+import { LIT_RPC, LitNetwork } from "@lit-protocol/constants";
 
 // If you haven't done before, create a LitNodeClient instance
 const litNodeClient = new LitNodeClient({
-  litNetwork: "datil-dev",
+  litNetwork: LitNetwork.DatilDev,
 });
 await litNodeClient.connect();
 
@@ -57,7 +58,7 @@ const pkpWallet = new PKPEthersWallet({
   // controllerAuthSig: authSig,
   // controllerSessionSigs: sesionSigs, // (deprecated)
   pkpPubKey: "<Your PKP public key>",
-  rpc: "https://chain-rpc.litprotocol.com/http",
+  rpc: LIT_RPC.CHRONICLE_YELLOWSTONE,
 });
 await pkpWallet.init();
 ```

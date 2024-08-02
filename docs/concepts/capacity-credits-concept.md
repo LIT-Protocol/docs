@@ -7,7 +7,7 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 # Paying For Usage 
 
 :::info
-Currently Rate Limiting is only enabled on `Habanero` and `Manzano`.
+Currently Rate Limiting is only enabled on `Datil` and `Datil-test`.
 See [here](../network/networks/testnet) for a list of test networks.
 See [here](../network/networks/mainnet) for a list of mainnet networks.
 :::
@@ -29,7 +29,7 @@ Every time you authenticate with Lit, the request context (i.e. wallet address, 
 
 A `Capacity Credits NFT` can be very easily minted from the Lit Explorer. So, here we will show how you can mint it using `contracts-sdk`. You can download the `contracts-sdk` from `npm` [here](https://www.npmjs.com/package/@lit-protocol/contracts-sdk).
 
-You’ll also need some 'testLPX' tokens for minting. These are test tokens that hold no real value and should only be used to pay for usage on Habanero. `testLPX` should only be claimed from the verified faucet, linked [here](https://faucet.litprotocol.com/).
+You’ll also need some 'tstLPX' tokens for minting. These are test tokens that hold no real value and should only be used to pay for usage on Datil. `tstLPX` should only be claimed from the verified faucet, linked [here](https://chronicle-yellowstone-faucet.getlit.dev/).
 
 For minting a Capacity Credits NFT see example docs for using our contract-sdk [here](../sdk/capacity-credits#minting-capacity-credits).
 
@@ -44,12 +44,14 @@ Lit employs `SessionSig` as a secure method for session management, utilizing ed
 
 You can read more about Session Signatures [here](../sdk/authentication/session-sigs/intro.md).
 
->**Note**: With the migration to SDK v3, the use of `AuthSigs` is no longer recommended for various tasks such as access control, encryption, minting PKPs, Lit Action signing with the PKP, etc. This change is due to the requirement for `capacityDelegationAuthSig` in signatures, as capacity credits are now required on both `Habanero` and `Manzano` networks. We strongly advise users to transition to using `SessionSigs` alongside `capacityDelegationAuthSig`, as `AuthSigs` lack the necessary capabilities to delegate capacity credits moving forward.  You may continue to use `AuthSigs` for the time being, but the limitation is that the `AuthSig` must have capacity credits to use the service.  This means every one of your users must buy capacity credits from Lit.  Instead, you can buy capacity credits centrally and delegate their use to your users. You can generate a `SessionSig` with the help of `capacityDelegationAuthSig` object in the following way (and replace it with `AuthSig` in your project):
+>**Note**: With the migration to SDK v3, the use of `AuthSigs` is no longer recommended for various tasks such as access control, encryption, minting PKPs, Lit Action signing with the PKP, etc. This change is due to the requirement for `capacityDelegationAuthSig` in signatures, as capacity credits are now required on both `Datil` and `Datil-test` networks. We strongly advise users to transition to using `SessionSigs` alongside `capacityDelegationAuthSig`, as `AuthSigs` lack the necessary capabilities to delegate capacity credits moving forward.  You may continue to use `AuthSigs` for the time being, but the limitation is that the `AuthSig` must have capacity credits to use the service.  This means every one of your users must buy capacity credits from Lit.  Instead, you can buy capacity credits centrally and delegate their use to your users. You can generate a `SessionSig` with the help of `capacityDelegationAuthSig` object in the following way (and replace it with `AuthSig` in your project):
 
 
 ```javascript
+import { LitNetwork } from "@lit-protocol/constants";
+
   const litNodeClient = new LitNodeClient({
-      litNetwork: "manzano",
+      litNetwork: LitNetwork.DatilTest,
       checkNodeAttestation: true,
   });
   
@@ -121,7 +123,7 @@ You can read more about Session Signatures [here](../sdk/authentication/session-
 ### **Best Practices**
 
 - **Capacity Management**: Keep an eye on your usage limit and expiration date.
-- **Understanding Limits**: Be aware that there are no free requests on `Habanero` mainnet. On `Manzano` testnet, free tier rate limit is set to three free requests per day. You can use Capacity credits to reserve more usage on these networks.
+- **Understanding Limits**: Be aware that there are no free requests on `Datil` mainnet. On `Datil-test` testnet, free tier rate limit is set to three free requests per day. You can use Capacity credits to reserve more usage on these networks.
 - **Delegation**: You can create restrictions on your delegations to ensure that your users don't take your `capacityDelegationAuthSig` and use it for other apps.
 
 <FeedbackComponent/>

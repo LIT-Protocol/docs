@@ -83,7 +83,7 @@ const sidebars = {
                 id: 'sdk/migrations/3.0.0/overview',
               },
               collapsed: true,
-              items: ['network/feature-matrix', 'sdk/migrations/3.0.0/changes'],
+              items: ['sdk/migrations/3.0.0/changes'],
             },
           ],
         },
@@ -99,6 +99,7 @@ const sidebars = {
       },
       items: [
         'connecting-to-a-lit-network/testnets',
+        `connecting-to-a-lit-network/mainnets`,
         'connecting-to-a-lit-network/migrating-to-datil',
         {
           type: 'category',

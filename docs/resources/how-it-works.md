@@ -67,18 +67,18 @@ Currently, the Lit network is in [Mainnet Beta](../network/migration-guide.md) a
 
 ### Node Operators
 
-The current node operators active on the Habanero Mainnet Beta include:
+The full list of Datil node operators includes:
 
 - Lit Protocol (our node)
-- [Collab.Land](https://www.collab.land/?ref=spark.litprotocol.com)
+- [Hypha](https://hypha.coop/?ref=spark.litprotocol.com)
+- [Thunderhead](https://thunderhead.xyz/?ref=spark.litprotocol.com)
+- [Zeiron](https://zerion.io/?ref=spark.litprotocol.com)
+- [HireNodes](https://hirenodes.io/?ref=spark.litprotocol.com)
+- [ETHGlobal](https://ethglobal.com/?ref=spark.litprotocol.com)
 - [Terminal3](https://www.terminal3.io/?ref=spark.litprotocol.com)
-- [Bware Labs](https://bwarelabs.com/?ref=spark.litprotocol.com)
-- [Streamr](https://streamr.network/?ref=spark.litprotocol.com)
-- [1kx](https://1kx.network/?ref=spark.litprotocol.com)
-- [Molecule](https://www.molecule.xyz/?ref=spark.litprotocol.com)
 - [Imperator](https://www.imperator.co/?ref=spark.litprotocol.com)
 - [01node](https://01node.com/?ref=spark.litprotocol.com)
-- [CMT Digital](https://cmt.digital/?ref=spark.litprotocol.com)
+- [Cheqd](https://cheqd.io/?ref=spark.litprotocol.com)
 
 ### The Lit Protocol Token (LITKEY)
 

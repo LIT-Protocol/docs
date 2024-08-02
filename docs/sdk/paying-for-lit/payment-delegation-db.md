@@ -17,7 +17,7 @@ To simplify this process of delegating Capacity Credits, we've implemented the P
 ## The Payment Delegation Database
 
 :::info
-Currently the Payment Delegation Database is only supported on the `habanero` and `datil-test` Lit networks. Payment for usage is **not** required on the `datil-dev` network.
+Currently the Payment Delegation Database is only supported on the `datil` and `datil-test` Lit networks. Payment for usage is **not** required on the `datil-dev` network.
 :::
 
 The Payment Delegation Database is a [smart contract](https://github.com/LIT-Protocol/LitNodeContracts/blob/main/contracts/lit-node/PaymentDelegation/PaymentDelegationFacet.sol) deployed on Lit's rollup, [Chronicle Yellowstone](../../connecting-to-a-lit-network/lit-blockchains/chronicle-yellowstone). Lit's [Relayer server](https://github.com/LIT-Protocol/relay-server) has been updated to provide two new API routes to interface with the Payment Delegation Database contract:
@@ -43,7 +43,7 @@ Before continuing with this guide, you should have an understanding of:
       - Add users as `payees` for your `payer` wallet
 - You must have a valid Lit Relayer API key
   - This can be obtained by filling out [this form](https://docs.google.com/forms/d/e/1FAIpQLSeVraHsp1evK_9j-8LpUBiEJWFn4G5VKjOWBmHFjxFRJZJdrg/viewform)
-- You should know which paid Lit network you're going to use: `habanero` or `datil-test`
+- You should know which paid Lit network you're going to use: `datil` or `datil-test`
 
 This guide doesn't have any external dependencies, but relies on `fetch` being natively available in Node.js, which means the minimum supported version is `v18`.
 
@@ -63,9 +63,9 @@ A full implementation of the code in this section can be found [here](https://gi
 
 To register a new `payer` wallet, you're going to need to decide which Lit network you'd like to use. Currently the Relayer server has two endpoints depending on the Lit network:
 
-- For `habanero`, we'll be making requests to:
+- For `datil`, we'll be making requests to:
     ```
-    https://habanero-relayer.getlit.dev/register-payer
+    https://datil-relayer.getlit.dev/register-payer
     ```
 - For `datil-test`, we'll be making requests to:
     ```
@@ -88,16 +88,16 @@ You'll want to replace `YOUR_LIT_RELAYER_API_KEY` with the API key that was gene
 Next we'll make the `fetch` request to the `register-payer` endpoint:
 
 <Tabs
-defaultValue="habanero"
+defaultValue="datil"
 values={[
-{label: 'Using Habanero', value: 'habanero'},
+{label: 'Using Datil', value: 'datil'},
 {label: 'Using DatilTest', value: 'datil-test'},
 ]}>
-<TabItem value="habanero">
+<TabItem value="datil">
 
 ```ts
 const response = await fetch(
-    "https://habanero-relayer.getlit.dev/register-payer", 
+    "https://datil-relayer.getlit.dev/register-payer", 
     {
         method: "POST",
         headers,
@@ -167,9 +167,9 @@ Remember that `payerSecretKey` is essentially the private key to your new `payer
 A full implementation of this code for this section can be found [here](https://github.com/LIT-Protocol/developer-guides-code/blob/wyatt/payment-delegation-relayer/payment-delegation-db-relayer/nodejs/src/addUsers.ts).
 
 To add users as `payees` for your `payer` wallet, you're going to need the Relayer API URL for the same Lit network you registered your `payer` on:
-  - For `habanero`, we'll be making requests to:
+  - For `datil`, we'll be making requests to:
       ```
-      https://habanero-relayer.getlit.dev/add-users
+      https://datil-relayer.getlit.dev/add-users
       ```
   - For `datil-test`, we'll be making requests to:
       ```
@@ -195,16 +195,16 @@ You'll want to replace `YOUR_LIT_RELAYER_API_KEY` with the API key that was gene
 Next we'll make the `fetch` request to the `add-users` endpoint:
 
 <Tabs
-defaultValue="habanero"
+defaultValue="datil"
 values={[
-{label: 'Using Habanero', value: 'habanero'},
+{label: 'Using Datil', value: 'datil'},
 {label: 'Using DatilTest', value: 'datil-test'},
 ]}>
-<TabItem value="habanero">
+<TabItem value="datil">
 
 ```ts
 const response = await fetch(
-    "https://habanero-relayer.getlit.dev/add-users", 
+    "https://datil-relayer.getlit.dev/add-users", 
     {
         method: "POST",
         headers,

@@ -77,9 +77,11 @@ In this example stub, the litNodeClient is stored in a global variable `app.loca
 `app.locals.litNodeClient.connect()` returns a promise that resolves when you are connected to the Lit network.
 
 ```js
+import { LitNetwork } from "@lit-protocol/constants";
+
 app.locals.litNodeClient = new LitJsSdk.LitNodeClientNodeJs({
   alertWhenUnauthorized: false,
-  litNetwork: "habanero",
+  litNetwork: LitNetwork.Datil,
 });
 await app.locals.litNodeClient.connect();
 ```
@@ -98,8 +100,10 @@ Within a file (in the Lit example repos it will likely be called `lit.js`), set 
 `client.connect()` will return a promise that resolves when you are connected to the Lit Network.
 
 ```js
+import { LitNetwork } from "@lit-protocol/constants";
+
 const client = new LitJsSdk.LitNodeClient({
-  litNetwork: 'habanero',
+  litNetwork: LitNetwork.Datil,
 });
 
 await client.connect();

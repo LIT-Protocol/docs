@@ -8,7 +8,7 @@ You can use the Lit network to encrypt your data and store it privately on the o
 
 Lit can only be used to generate and store encryption keys, so you will need to store the ciphertext and metadata yourself using your storage provider of choice (such as IPFS, Arweave, or even a centralized storage solution). Once your data has been encrypted, the Lit network will enforce who is allowed to decrypt it.
 
-This guide uses Lit's [Habanero Network](../../network/networks/mainnet.md), the Mainnet Beta, which is designed for application developers aiming to build **production-ready** applications. For those developing in a test environment, the Manzano Network is recommended. More on Lit networks [here](../../network/networks/testnet.md).
+This guide uses Lit's [Datil Network](../../network/networks/mainnet.md), the Mainnet Beta, which is designed for application developers aiming to build **production-ready** applications. For those developing in a test environment, the Datil-test Network is recommended. More on Lit networks [here](../../network/networks/testnet.md).
 
 For developers looking to explore beyond the basics, check out Advanced Topics.
 
@@ -18,7 +18,7 @@ Ensure you have the following requirements in place:
 
 1. Operating System: Linux, Mac OS, or Windows.
 2. Development Environment: You'll need an Integrated Development Environment (IDE) installed. We recommend Visual Studio Code.
-3. Languages: The Lit JS SDK V4 and above supports JavaScript. Make sure you have the appropriate language environment set up.
+3. Languages: The Lit JS SDK supports JavaScript. Make sure you have the appropriate language environment set up.
 4. Internet Connection: A stable internet connection is required for installation, updates, and interacting with the Lit nodes.
 
 Install the `@lit-protocol/lit-node-client` package, which can be used in both browser and Node environments:
@@ -42,7 +42,7 @@ npm i @lit-protocol/lit-node-client
 If you are using `NodeJS` you should install `@lit-protocol/lit-node-client-nodejs`
 :::
 
-Use the **Lit JS SDK V4**:
+Use the **Lit JS SDK**:
 
 ```jsx
 import * as LitJsSdk from "@lit-protocol/lit-node-client";
@@ -268,11 +268,13 @@ npm i @lit-protocol/contracts-sdk
 The next step is to initialize a signer. This should be a wallet controlled by your application and the same wallet you’ll use to mint the Capacity Credit NFT:
 
 ```jsx
+import { LitNetwork } from "@lit-protocol/constants";
+
 const walletWithCapacityCredit = new Wallet("<your private key or mnemonic>");
 
 let contractClient = new LitContracts({
   signer: dAppOwnerWallet,
-  network: 'habanero',
+  network: LitNetwork.Datil,
 });
 
 await contractClient.connect();

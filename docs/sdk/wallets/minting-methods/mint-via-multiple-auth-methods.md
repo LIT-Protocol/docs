@@ -182,10 +182,11 @@ First, configure your Ethereum provider and the controller wallet. Initialize th
 
 ```javascript
 import { LitContracts } from '@lit-protocol/contracts-sdk';
+import { LitNetwork } from "@lit-protocol/constants";
 
 const contractClient = new LitContracts({
   signer: controllerWallet,    // Your ethers wallet
-  network: 'manzano',
+  network: LitNetwork.DatilTest,
 });
 
 await contractClient.connect();

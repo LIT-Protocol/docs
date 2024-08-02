@@ -70,7 +70,7 @@ const pkpBTCAddress = bitcoinjs.payments.p2pkh({
 
 ### 4. "Internal JSON-RPC error" When attempting to mint a PKP
 
-Make sure that you have some LPX test tokens in your wallet before minting a PKP in order to pay for gas. You can use the faucet to claim test tokens: https://faucet.litprotocol.com/.
+Make sure that you have some LPX test tokens in your wallet before minting a PKP in order to pay for gas. You can claim test tokens at the [faucet](https://chronicle-yellowstone-faucet.getlit.dev/).
 
 ### 5. “Error: Invalid arrayify value” upon passing an IPFS CID to a function (e.g. isPermittedActions) while interacting with the PKPPermissions contract?
 
@@ -184,7 +184,7 @@ So, you can see, the nodes don't talk to each other when decrypting the content.
 
 ### 4. How do new nodes that come online discover the key shares they need to help decrypt previously-encrypted data?
 
-Right now, Manzano and Habanero are federated networks being run by named 3rd party operators. The ultimate goal is to transition to a fully permissionless network. Root keys are updated every epoch, rendering old shares functionally useless. New shares are shared with new operators through proactive secret sharing. The network uses threshold encryption with a 2/3 threshold, providing redundancy and security.
+Right now, Datil-test and Datil are federated networks being run by named 3rd party operators. The ultimate goal is to transition to a fully permissionless network. Root keys are updated every epoch, rendering old shares functionally useless. New shares are shared with new operators through proactive secret sharing. The network uses threshold encryption with a 2/3 threshold, providing redundancy and security.
 
 ### 5. What's to prevent one person from running many Lit Protocol nodes so as to acquire sufficient key fragments across their nodes to be able to reconstitute the decryption key for some pieces of content?
 

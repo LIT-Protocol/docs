@@ -46,7 +46,7 @@ Ensure you have the following requirements in place:
 
 1. Operating System: Linux, Mac OS, or Windows.
 2. Development Environment: You'll need an Integrated Development Environment (IDE) installed. We recommend Visual Studio Code.
-3. Languages: The Lit JS SDK V4 and above supports JavaScript. Make sure you have the appropriate language environment set up.
+3. Languages: The Lit JS SDK supports JavaScript. Make sure you have the appropriate language environment set up.
 4. Internet Connection: A stable internet connection is required for installation, updates, and interacting with the Lit nodes.
 
 Install the `@lit-protocol/lit-node-client` package, which can be used in both browser and Node environments:
@@ -282,11 +282,13 @@ npm i @lit-protocol/contracts-sdk
 The next step is to initialize a signer. This should be a wallet controlled by your application and the same wallet you’ll use to mint the Capacity Credit NFT:
 
 ```jsx
+import { LitNetwork } from "@lit-protocol/constants";
+
 const walletWithCapacityCredit = new Wallet("<your private key or mnemonic>");
 
 let contractClient = new LitContracts({
   signer: dAppOwnerWallet,
-  network: 'habanero',
+  network: LitNetwork.Datil,
 });
 
 await contractClient.connect();

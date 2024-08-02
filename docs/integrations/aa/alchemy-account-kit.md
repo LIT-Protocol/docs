@@ -136,7 +136,7 @@ yarn add @alchemy/aa-signers
 
 ### 2. Get A Programmable Key Pair (PKP)
 
-Get some testLPX test tokens from Lit's [Chronicle network](../../network/rollup.mdx).
+Get some tstLPX test tokens from Lit's [Chronicle Yellowstone network](https://chronicle-yellowstone-faucet.getlit.dev/).
 
 To obtain a PKP, [read more within the Lit docs](../../sdk/wallets/intro.md). 
 

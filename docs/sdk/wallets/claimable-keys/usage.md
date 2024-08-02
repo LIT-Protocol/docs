@@ -41,15 +41,16 @@ An example of claiming with a customized `ClaimProcessor` using the `contracts-s
 ```jsx
 import { LitContracts } from '@lit-protocol/contracts-sdk';
 import { ClaimRequest, ClaimResult, ClientClaimProcessor } from "@lit-protocol/types"
+import { LIT_RPC, LitNetwork } from "@lit-protocol/constants";
 
 const client = new LitNodeClient({
-	litNetwork: "datil-dev",
+	litNetwork: LitNetwork.DatilDev,
 	debug: false
 });
 await client.connect();
 let claimReq: ClaimRequest<ClientClaimProcessor> = {
       authMethod, // provide an auth method to claim a key Identifier mapped to the given auth method
-      signer: new ethers.Wallet("<your private key>", new ethers.providers.JsonRpcProvider("https://chain-rpc.litprotocol.com/http")),
+      signer: new ethers.Wallet("<your private key>", new ethers.providers.JsonRpcProvider(LIT_RPC.CHRONICLE_YELLOWSTONE)),
       mintCallback: async (claimRes: ClaimResult<ClientClaimProcessor>) => {
           const litContracts = new LitContracts({ signer: claimRes.signer });
           await litContracts.connect();

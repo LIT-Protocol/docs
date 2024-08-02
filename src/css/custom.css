@@ -771,8 +771,12 @@ html[data-theme='dark'] .alert--danger {
 .testnet-networks-table tbody tr:nth-child(4) {
   background: green; 
 }
+.testnet-networks-table tbody tr:nth-child(5) {
+  background: green; 
+}
 
 
 .mainnet-networks-table tbody {  color: white; }
 .mainnet-networks-table tbody tr:nth-child(1) { background: #e22525; }
-.mainnet-networks-table tbody tr:nth-child(n+2) { background: green; }
+.mainnet-networks-table tbody tr:nth-child(2) { background: #e22525; }
+.mainnet-networks-table tbody tr:nth-child(3) { background: green; }

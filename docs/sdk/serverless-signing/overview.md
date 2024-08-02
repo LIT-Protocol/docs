@@ -5,7 +5,7 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 :::info
 **STATE OF THE NETWORK**
 
-Using Lit Actions in production IS now supported on the [Habanero Mainnet](../../network/networks/mainnet) and [Manzano Testnet](../../network/networks/testnet). Check out the [docs on migration](../../network/migration-guide) to learn how you can start building on Habanero today. 
+Using Lit Actions in production IS now supported on the [Datil Mainnet](../../network/networks/mainnet) and [Datil Testnet](../../network/networks/testnet). Check out the [docs on migration](../../network/migration-guide) to learn how you can start building on Datil today. 
 
 :::
 

@@ -4,8 +4,8 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 
 :::info
     Only available on the Lit networks:
-        - `habanero`
-        - `manzano`
+        - `datil`
+        - `datil-test`
         - `datil-dev` 
 :::
 

@@ -154,7 +154,7 @@ const config = {
               },
               {
                 label: 'API',
-                href: 'https://v5.api-docs.getlit.dev/',
+                href: 'https://v6-api-doc-lit-js-sdk.vercel.app/',
               },
             ],
           },

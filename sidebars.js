@@ -151,6 +151,8 @@ const sidebars = {
                 'sdk/authentication/session-sigs/capability-objects',
                 'sdk/capacity-credits',
                 'sdk/authentication/session-sigs/get-session-sigs',
+                'sdk/authentication/session-sigs/get-pkp-session-sigs',
+                'sdk/authentication/session-sigs/get-lit-action-session-sigs',
                 'sdk/authentication/session-sigs/usage',
               ],
             },

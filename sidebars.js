@@ -59,7 +59,12 @@ const sidebars = {
         type: 'doc',
         id: 'tutorials/overview',
       },
-      items: ['tutorials/encrypting-first-message'],
+      items: [
+        'tutorials/encrypting-message',
+        'tutorials/signing-tx-with-pkp',
+        'tutorials/conditionally-signing-with-pkp',
+        'tutorials/create-wallet-with-google',
+      ],
     },
     {
       type: 'category',
@@ -234,26 +239,46 @@ const sidebars = {
                 'how-to-guides/user-wallet/wrapped-keys/list',
                 'how-to-guides/user-wallet/wrapped-keys/sign-msg',
                 'how-to-guides/user-wallet/wrapped-keys/sign-tx',
-                
+
                 {
-              type: 'category',
-              label: 'Custom Wrapped Keys',
-              collapsed: true,
-              link: {
-                type: 'doc',
-                id: 'how-to-guides/user-wallet/wrapped-keys/custom/overview',
-              },
-              items: [
-                'how-to-guides/user-wallet/wrapped-keys/custom/generate-and-encrypt',
-                'how-to-guides/user-wallet/wrapped-keys/custom/store-metadata',
-                'how-to-guides/user-wallet/wrapped-keys/custom/get-metadata',
-                'how-to-guides/user-wallet/wrapped-keys/custom/decrypting',
-                'how-to-guides/user-wallet/wrapped-keys/custom/custom-lit-action',
-              ],
-            },
+                  type: 'category',
+                  label: 'Custom Wrapped Keys',
+                  collapsed: true,
+                  link: {
+                    type: 'doc',
+                    id: 'how-to-guides/user-wallet/wrapped-keys/custom/overview',
+                  },
+                  items: [
+                    'how-to-guides/user-wallet/wrapped-keys/custom/generate-and-encrypt',
+                    'how-to-guides/user-wallet/wrapped-keys/custom/store-metadata',
+                    'how-to-guides/user-wallet/wrapped-keys/custom/get-metadata',
+                    'how-to-guides/user-wallet/wrapped-keys/custom/decrypting',
+                    'how-to-guides/user-wallet/wrapped-keys/custom/custom-lit-action',
+                  ],
+                },
               ],
             },
           ],
+        },
+        {
+          type: 'category',
+          label: 'Encrypt with Lit',
+          collapsed: true,
+          link: {
+            type: 'doc',
+            id: 'how-to-guides/encrypt/overview',
+          },
+          items: [],
+        },
+        {
+          type: 'category',
+          label: 'Use Lit Actions for Decentralized Compute',
+          collapsed: true,
+          link: {
+            type: 'doc',
+            id: 'how-to-guides/lit-actions/overview',
+          },
+          items: [],
         },
       ],
     },
@@ -270,6 +295,16 @@ const sidebars = {
         'reference-guides/auth-sigs',
         'reference-guides/session-sigs',
       ],
+    },
+    {
+      type: 'category',
+      label: 'Tools',
+      collapsed: true,
+      link: {
+        type: 'doc',
+        id: 'tools/overview',
+      },
+      items: ['tutorials/encrypting-message'],
     },
     // {
     //   type: 'category',

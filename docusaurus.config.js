@@ -102,7 +102,7 @@ const config = {
           {
             type: 'doc',
             position: 'left',
-            docId: 'intro/overview',
+            docId: 'getting-started/overview',
             label: 'Docs',
           },
           {

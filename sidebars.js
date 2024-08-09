@@ -45,306 +45,212 @@ const sidebars = {
       type: 'category',
       label: 'Getting Started',
       collapsed: true,
-      items: [
-        'intro/overview',
-        'intro/what-is-lit-protocol',
-        'resources/how-it-works',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Installing the Lit SDK',
       link: {
         type: 'doc',
-        id: 'sdk/installation',
+        id: 'getting-started/overview',
       },
-      collapsed: true,
-      items: [
-        {
-          type: 'category',
-          label: 'Migrating from earlier versions',
-          collapsed: true,
-          link: {
-            type: 'generated-index',
-            title: 'Migrating from earlier versions',
-            description:
-              'Learn how to migrate from earlier versions of the Lit SDK!',
-            keywords: ['migrations'],
-          },
-          items: [
-            'sdk/migrations/6.0.0',
-            'sdk/migrations/4.0.0',
-            'sdk/migrations/3.2.0',
-            {
-              type: 'category',
-              label: 'Migrating from 2.x.x to 3.x.x',
-              link: {
-                type: 'doc',
-                id: 'sdk/migrations/3.0.0/overview',
-              },
-              collapsed: true,
-              items: ['network/feature-matrix', 'sdk/migrations/3.0.0/changes'],
-            },
-          ],
-        },
-      ],
+      items: ['getting-started/what-is-lit-protocol'],
     },
     {
       type: 'category',
-      label: 'Connecting to a Lit Network',
+      label: 'Tutorials',
       collapsed: true,
       link: {
         type: 'doc',
-        id: 'connecting-to-a-lit-network/connecting',
+        id: 'tutorials/overview',
       },
-      items: [
-        'connecting-to-a-lit-network/testnets',
-        'connecting-to-a-lit-network/migrating-to-datil',
-        {
-          type: 'category',
-          label: 'Lit Blockchains',
-          collapsed: true,
-          items: [
-            'connecting-to-a-lit-network/lit-blockchains/chronicle-yellowstone',
-            'connecting-to-a-lit-network/lit-blockchains/chronicle',
-          ],
-        },
-      ],
+      items: ['tutorials/encrypting-first-message'],
     },
     {
       type: 'category',
-      label: 'Guides',
+      label: 'How To Guides',
       collapsed: true,
       link: {
-        type: 'generated-index',
-        title: 'Lit SDK Guides',
-        description: 'Learn how to use the Lit SDK!',
-        keywords: ['guides'],
+        type: 'doc',
+        id: 'how-to-guides/overview',
       },
       items: [
         {
           type: 'category',
-          label: 'Paying for Lit',
+          label: 'Authenticate with Lit',
           collapsed: true,
-          items: ['sdk/paying-for-lit/payment-delegation-db'],
-        },
-        {
-          type: 'category',
-          label: 'Authentication',
           link: {
             type: 'doc',
-            id: 'sdk/authentication/overview',
+            id: 'how-to-guides/authenticate/overview',
           },
-          collapsed: true,
           items: [
-            'sdk/authentication/auth-sig',
+            'how-to-guides/authenticate/generate-auth-sig',
             {
               type: 'category',
-              label: 'Session Signatures',
+              label: 'Generate Session Signatures',
+              collapsed: true,
               link: {
                 type: 'doc',
-                id: 'sdk/authentication/session-sigs/intro',
+                id: 'how-to-guides/authenticate/generate-session-signatures/overview',
               },
-              collapsed: true,
               items: [
-                'sdk/authentication/session-sigs/resources-and-abilities',
-                'sdk/authentication/session-sigs/capability-objects',
-                'sdk/capacity-credits',
-                'sdk/authentication/session-sigs/get-session-sigs',
-                'sdk/authentication/session-sigs/usage',
+                'how-to-guides/authenticate/generate-session-signatures/using-auth-sig',
+                'how-to-guides/authenticate/generate-session-signatures/using-lit-action',
+                'how-to-guides/authenticate/generate-session-signatures/using-pkp',
+                'how-to-guides/authenticate/generate-session-signatures/automatically',
               ],
             },
-            'sdk/authentication/security',
+            'how-to-guides/authenticate/with-specific-resources',
+            'how-to-guides/authenticate/with-specific-capabilities',
           ],
         },
         {
           type: 'category',
-          label: 'User Wallets',
+          label: 'Pay for Usage of Lit',
+          collapsed: true,
           link: {
             type: 'doc',
-            id: 'user-wallets/overview',
+            id: 'how-to-guides/pay-for-usage/overview',
           },
-          collapsed: true,
           items: [
             {
               type: 'category',
-              label: 'Programmable Key Pairs (PKPs)',
+              label: 'Capacity Credits',
+              collapsed: true,
               link: {
                 type: 'doc',
-                id: 'user-wallets/pkps/overview',
+                id: 'how-to-guides/pay-for-usage/capacity-credits/overview',
               },
-              collapsed: true,
               items: [
-                'user-wallets/pkps/quick-start',
+                'how-to-guides/pay-for-usage/capacity-credits/mint',
+                'how-to-guides/pay-for-usage/capacity-credits/delegate',
+                'how-to-guides/pay-for-usage/capacity-credits/create-session',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Lit Relayer',
+              collapsed: true,
+              link: {
+                type: 'doc',
+                id: 'how-to-guides/pay-for-usage/lit-relayer/overview',
+              },
+              items: ['how-to-guides/pay-for-usage/lit-relayer/minting-a-pkp'],
+            },
+            {
+              type: 'category',
+              label: 'Payment Delegation Database',
+              collapsed: true,
+              link: {
+                type: 'doc',
+                id: 'how-to-guides/pay-for-usage/payment-delegation-db/overview',
+              },
+              items: [
+                'how-to-guides/pay-for-usage/payment-delegation-db/register-a-payer',
+                'how-to-guides/pay-for-usage/payment-delegation-db/pay-for-users',
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Setup a User Wallet',
+          collapsed: true,
+          link: {
+            type: 'doc',
+            id: 'how-to-guides/user-wallet/overview',
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'Using PKPs',
+              collapsed: true,
+              link: {
+                type: 'doc',
+                id: 'how-to-guides/user-wallet/pkps/overview',
+              },
+              items: [
                 {
                   type: 'category',
-                  label: 'Minting a PKP',
+                  label: 'Mint a PKP',
+                  collapsed: true,
                   link: {
                     type: 'doc',
-                    id: 'user-wallets/pkps/minting/overview',
+                    id: 'how-to-guides/user-wallet/pkps/minting/overview',
                   },
-                  collapsed: true,
-                  items: [
-                    'user-wallets/pkps/minting/via-contracts',
-                    'user-wallets/pkps/minting/via-social',
-                    'user-wallets/pkps/minting/via-web-authn',
-                    'user-wallets/pkps/minting/via-multiple-auth-methods',
-                  ],
-                },
-                'user-wallets/pkps/walletconnect',
-                {
-                  type: 'category',
-                  label: 'Advanced Topics',
-                  link: {
-                    type: 'doc',
-                    id: 'user-wallets/pkps/advanced-topics/overview',
-                  },
-                  collapsed: true,
                   items: [
                     {
                       type: 'category',
-                      label: 'Auth Methods',
+                      label: 'Via Social Auth Methods',
                       collapsed: true,
                       link: {
                         type: 'doc',
-                        id: 'user-wallets/pkps/advanced-topics/auth-methods/overview',
+                        id: 'how-to-guides/user-wallet/pkps/minting/via-social/overview',
                       },
                       items: [
-                        'user-wallets/pkps/advanced-topics/auth-methods/add-remove-auth-methods',
-                        'user-wallets/pkps/advanced-topics/auth-methods/social-login',
-                        'user-wallets/pkps/advanced-topics/auth-methods/web-authn',
-                        'user-wallets/pkps/advanced-topics/auth-methods/email-sms',
-                        'user-wallets/pkps/advanced-topics/auth-methods/custom-auth',
+                        'how-to-guides/user-wallet/pkps/minting/via-social/using-discord',
+                        'how-to-guides/user-wallet/pkps/minting/via-social/using-google',
                       ],
                     },
-                    {
-                      type: 'category',
-                      label: 'Claimable Keys (HD Keys)',
-                      link: {
-                        type: 'doc',
-                        id: 'user-wallets/pkps/claimable-keys/intro',
-                      },
-                      collapsed: true,
-                      items: ['user-wallets/pkps/claimable-keys/usage'],
-                    },
+                    'how-to-guides/user-wallet/pkps/minting/via-contract',
+                    'how-to-guides/user-wallet/pkps/minting/via-stych',
+                    'how-to-guides/user-wallet/pkps/minting/via-webauthn',
+                    'how-to-guides/user-wallet/pkps/minting/via-custom',
+                    'how-to-guides/user-wallet/pkps/minting/with-multiple-auth-methods',
                   ],
                 },
+                {
+                  type: 'category',
+                  label: 'Manage Auth Methods',
+                  collapsed: true,
+                  items: [
+                    'how-to-guides/user-wallet/pkps/auth-methods/add',
+                    'how-to-guides/user-wallet/pkps/auth-methods/remove',
+                    'how-to-guides/user-wallet/pkps/auth-methods/custom',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Connect to dApps',
+                  collapsed: true,
+                  items: [
+                    'how-to-guides/user-wallet/pkps/connecting-to-dapps/via-walletconnect',
+                    'how-to-guides/user-wallet/pkps/connecting-to-dapps/via-pkpetherswallet',
+                  ],
+                },
+                'how-to-guides/user-wallet/pkps/deterministically-derive-keys',
+                'how-to-guides/user-wallet/pkps/sign-txs',
               ],
             },
             {
               type: 'category',
-              label: 'Wrapped Keys',
+              label: 'Using Wrapped Keys',
               collapsed: true,
               link: {
                 type: 'doc',
-                id: 'user-wallets/wrapped-keys/overview',
+                id: 'how-to-guides/user-wallet/wrapped-keys/overview',
               },
               items: [
-                'user-wallets/wrapped-keys/generating-wrapped-key',
-                'user-wallets/wrapped-keys/importing-key',
-                'user-wallets/wrapped-keys/exporting-wrapped-key',
-                'user-wallets/wrapped-keys/getting-wrapped-key-metadata',
-                'user-wallets/wrapped-keys/storing-wrapped-key-metadata',
-                'user-wallets/wrapped-keys/listing-wrapped-keys',
-                'user-wallets/wrapped-keys/sign-message',
-                'user-wallets/wrapped-keys/sign-transaction',
-                'user-wallets/wrapped-keys/custom-wrapped-keys',
-              ],
-            },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Encryption and Access Control',
-          link: {
-            type: 'doc',
-            id: 'sdk/access-control/intro',
-          },
-          collapsed: true,
-          items: [
-            'sdk/access-control/quick-start',
-            {
+                'how-to-guides/user-wallet/wrapped-keys/generate',
+                'how-to-guides/user-wallet/wrapped-keys/import',
+                'how-to-guides/user-wallet/wrapped-keys/export',
+                'how-to-guides/user-wallet/wrapped-keys/get-metadata',
+                'how-to-guides/user-wallet/wrapped-keys/store-metadata',
+                'how-to-guides/user-wallet/wrapped-keys/list',
+                'how-to-guides/user-wallet/wrapped-keys/sign-msg',
+                'how-to-guides/user-wallet/wrapped-keys/sign-tx',
+                
+                {
               type: 'category',
-              label: 'Advanced Topics',
+              label: 'Custom Wrapped Keys',
               collapsed: true,
               link: {
-                type: 'generated-index',
-                title: 'Advanced Topics',
-                keywords: ['encryption', 'decryption'],
+                type: 'doc',
+                id: 'how-to-guides/user-wallet/wrapped-keys/custom/overview',
               },
               items: [
-                'sdk/access-control/jwt-auth',
-                {
-                  type: 'category',
-                  label: 'Types of Conditions',
-                  collapsed: true,
-                  items: [
-                    'sdk/access-control/condition-types/unified-access-control-conditions',
-                    'sdk/access-control/condition-types/boolean-logic',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'EVM',
-                  collapsed: true,
-                  items: [
-                    'sdk/access-control/evm/basic-examples',
-                    'sdk/access-control/evm/custom-contract-calls',
-                    'sdk/access-control/evm/poap',
-                    'sdk/access-control/evm/timelock',
-                    'sdk/access-control/evm/siwe',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Other Chains',
-                  collapsed: true,
-                  items: [
-                    'sdk/access-control/other-chains/sol-rpc-conditions',
-                    'sdk/access-control/other-chains/cosmos-conditions',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Off-Chain',
-                  collapsed: true,
-                  items: ['sdk/access-control/lit-action-conditions'],
-                },
+                'how-to-guides/user-wallet/wrapped-keys/custom/generate-and-encrypt',
+                'how-to-guides/user-wallet/wrapped-keys/custom/store-metadata',
+                'how-to-guides/user-wallet/wrapped-keys/custom/get-metadata',
+                'how-to-guides/user-wallet/wrapped-keys/custom/decrypting',
+                'how-to-guides/user-wallet/wrapped-keys/custom/custom-lit-action',
               ],
             },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Decentralized Compute (Lit Actions)',
-          link: {
-            type: 'doc',
-            id: 'sdk/serverless-signing/overview',
-          },
-          collapsed: true,
-          items: [
-            'sdk/serverless-signing/quick-start',
-            {
-              type: 'category',
-              label: 'Advanced Topics',
-              collapsed: true,
-              link: {
-                type: 'generated-index',
-                title: 'Advanced Topics',
-                keywords: ['compute', 'lit actions'],
-              },
-              items: [
-                'sdk/serverless-signing/conditional-signing',
-                'sdk/serverless-signing/fetch',
-                'sdk/serverless-signing/processing-validation',
-                'sdk/serverless-signing/key-claiming',
-                'sdk/serverless-signing/eip191',
-                'sdk/serverless-signing/dependencies',
-                'sdk/serverless-signing/combining-decryption-shares',
-                `sdk/serverless-signing/combining-signatures`,
-                'sdk/serverless-signing/run-once',
-                `sdk/serverless-signing/get-rpc-url`,
-                'sdk/serverless-signing/broadcast-and-collect',
               ],
             },
           ],
@@ -353,147 +259,471 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Appendix',
-      collapsed: true,
-      link: {
-        type: 'generated-index',
-        title: 'Appendix',
-        description: 'Learn about the appendix for the Lit SDK!',
-        keywords: ['appendix'],
-      },
-      items: [
-        {
-          type: 'category',
-          label: 'Networks',
-          collapsed: true,
-          link: {
-            type: 'generated-index',
-            title: 'Lit Networks',
-            description: 'Learn about the different Lit Networks!',
-            keywords: ['networks'],
-          },
-          items: [
-            {
-              type: 'category',
-              label: 'Lit Networks',
-              collapsed: true,
-              items: ['network/networks/testnet', 'network/networks/mainnet'],
-            },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Useful Tools',
-          collapsed: true,
-          link: {
-            type: 'generated-index',
-            title: 'Lit Tools',
-            description:
-              'Learn about the different tools that can help you with Lit SDK!',
-            keywords: ['tools'],
-          },
-          items: [
-            'tools/access-control',
-            'tools/getlit-cli',
-            'tools/event-listener',
-            'tools/pkpexplorer',
-            'tools/searchlit',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Integrations',
-          collapsed: true,
-          link: {
-            type: 'generated-index',
-            title: 'Integrations with Lit SDK',
-            description: 'Learn about the different integrations with Lit SDK!',
-            keywords: ['integrations'],
-          },
-          items: [
-            {
-              type: 'category',
-              label: 'Smart Contract Accounts',
-              link: {
-                type: 'doc',
-                id: 'integrations/aa/overview',
-              },
-              collapsed: true,
-              items: [
-                'integrations/aa/alchemy-account-kit',
-                'integrations/aa/pimlico',
-                'integrations/aa/openfort',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Storage',
-              collapsed: true,
-              items: [
-                'integrations/storage/ceramic-example',
-                'integrations/storage/irys',
-              ],
-            },
-          ],
-        },
-        'sdk/tests',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Resources and Support',
+      label: 'Reference Guides',
       collapsed: true,
       link: {
         type: 'doc',
-        id: 'support/intro',
+        id: 'reference-guides/overview',
       },
       items: [
-        'intro/usecases',
-        'resources/supported-chains',
-        'resources/contracts',
-        'resources/glossary',
-        'support/faq',
-        'support/bug-bounty',
+        'reference-guides/capacity-credits',
+        'reference-guides/auth-sigs',
+        'reference-guides/session-sigs',
       ],
     },
-    {
-      type: 'category',
-      label: 'API Reference',
-      collapsed: true,
-      link: {
-        type: 'generated-index',
-        title: 'Lit SDK API Reference',
-        description:
-          'Get the API reference for different versions of the Lit SDK!',
-        keywords: ['api-reference'],
-      },
-      items: [
-        'api-reference/latest',
-        {
-          type: 'category',
-          label: 'Legacy SDK Versions',
-          collapsed: true,
-          link: {
-            type: 'generated-index',
-            title: 'Legacy SDK Versions',
-            description:
-              'Get the API reference for older versions of the Lit SDK!',
-            keywords: ['api-reference'],
-          },
-          items: [
-            'api-reference/v3-sdk',
-            'api-reference/v2-sdk',
-            'api-reference/v1-sdk',
-          ],
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Additional Examples',
-      collapsed: true,
-      items: ['additional-examples/intro'],
-    },
+    // {
+    //   type: 'category',
+    //   label: 'Getting Started',
+    //   collapsed: true,
+    //   items: [
+    //     'intro/overview',
+    //     'intro/what-is-lit-protocol',
+    //     'resources/how-it-works',
+    //   ],
+    // },
+    // {
+    //   type: 'category',
+    //   label: 'Installing the Lit SDK',
+    //   link: {
+    //     type: 'doc',
+    //     id: 'sdk/installation',
+    //   },
+    //   collapsed: true,
+    //   items: [
+    //     {
+    //       type: 'category',
+    //       label: 'Migrating from earlier versions',
+    //       collapsed: true,
+    //       link: {
+    //         type: 'generated-index',
+    //         title: 'Migrating from earlier versions',
+    //         description:
+    //           'Learn how to migrate from earlier versions of the Lit SDK!',
+    //         keywords: ['migrations'],
+    //       },
+    //       items: [
+    //         'sdk/migrations/6.0.0',
+    //         'sdk/migrations/4.0.0',
+    //         'sdk/migrations/3.2.0',
+    //         {
+    //           type: 'category',
+    //           label: 'Migrating from 2.x.x to 3.x.x',
+    //           link: {
+    //             type: 'doc',
+    //             id: 'sdk/migrations/3.0.0/overview',
+    //           },
+    //           collapsed: true,
+    //           items: ['network/feature-matrix', 'sdk/migrations/3.0.0/changes'],
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // },
+    // {
+    //   type: 'category',
+    //   label: 'Connecting to a Lit Network',
+    //   collapsed: true,
+    //   link: {
+    //     type: 'doc',
+    //     id: 'connecting-to-a-lit-network/connecting',
+    //   },
+    //   items: [
+    //     'connecting-to-a-lit-network/testnets',
+    //     'connecting-to-a-lit-network/migrating-to-datil',
+    //     {
+    //       type: 'category',
+    //       label: 'Lit Blockchains',
+    //       collapsed: true,
+    //       items: [
+    //         'connecting-to-a-lit-network/lit-blockchains/chronicle-yellowstone',
+    //         'connecting-to-a-lit-network/lit-blockchains/chronicle',
+    //       ],
+    //     },
+    //   ],
+    // },
+    // {
+    //   type: 'category',
+    //   label: 'Guides',
+    //   collapsed: true,
+    //   link: {
+    //     type: 'generated-index',
+    //     title: 'Lit SDK Guides',
+    //     description: 'Learn how to use the Lit SDK!',
+    //     keywords: ['guides'],
+    //   },
+    //   items: [
+    //     {
+    //       type: 'category',
+    //       label: 'Paying for Lit',
+    //       collapsed: true,
+    //       items: ['sdk/paying-for-lit/payment-delegation-db'],
+    //     },
+    //     {
+    //       type: 'category',
+    //       label: 'Authentication',
+    //       link: {
+    //         type: 'doc',
+    //         id: 'sdk/authentication/overview',
+    //       },
+    //       collapsed: true,
+    //       items: [
+    //         'sdk/authentication/auth-sig',
+    //         {
+    //           type: 'category',
+    //           label: 'Session Signatures',
+    //           link: {
+    //             type: 'doc',
+    //             id: 'sdk/authentication/session-sigs/intro',
+    //           },
+    //           collapsed: true,
+    //           items: [
+    //             'sdk/authentication/session-sigs/resources-and-abilities',
+    //             'sdk/authentication/session-sigs/capability-objects',
+    //             'sdk/capacity-credits',
+    //             'sdk/authentication/session-sigs/get-session-sigs',
+    //             'sdk/authentication/session-sigs/usage',
+    //           ],
+    //         },
+    //         'sdk/authentication/security',
+    //       ],
+    //     },
+    //     {
+    //       type: 'category',
+    //       label: 'User Wallets',
+    //       link: {
+    //         type: 'doc',
+    //         id: 'user-wallets/overview',
+    //       },
+    //       collapsed: true,
+    //       items: [
+    //         {
+    //           type: 'category',
+    //           label: 'Programmable Key Pairs (PKPs)',
+    //           link: {
+    //             type: 'doc',
+    //             id: 'user-wallets/pkps/overview',
+    //           },
+    //           collapsed: true,
+    //           items: [
+    //             'user-wallets/pkps/quick-start',
+    //             {
+    //               type: 'category',
+    //               label: 'Minting a PKP',
+    //               link: {
+    //                 type: 'doc',
+    //                 id: 'user-wallets/pkps/minting/overview',
+    //               },
+    //               collapsed: true,
+    //               items: [
+    //                 'user-wallets/pkps/minting/via-contracts',
+    //                 'user-wallets/pkps/minting/via-social',
+    //                 'user-wallets/pkps/minting/via-web-authn',
+    //                 'user-wallets/pkps/minting/via-multiple-auth-methods',
+    //               ],
+    //             },
+    //             'user-wallets/pkps/walletconnect',
+    //             {
+    //               type: 'category',
+    //               label: 'Advanced Topics',
+    //               link: {
+    //                 type: 'doc',
+    //                 id: 'user-wallets/pkps/advanced-topics/overview',
+    //               },
+    //               collapsed: true,
+    //               items: [
+    //                 {
+    //                   type: 'category',
+    //                   label: 'Auth Methods',
+    //                   collapsed: true,
+    //                   link: {
+    //                     type: 'doc',
+    //                     id: 'user-wallets/pkps/advanced-topics/auth-methods/overview',
+    //                   },
+    //                   items: [
+    //                     'user-wallets/pkps/advanced-topics/auth-methods/add-remove-auth-methods',
+    //                     'user-wallets/pkps/advanced-topics/auth-methods/social-login',
+    //                     'user-wallets/pkps/advanced-topics/auth-methods/web-authn',
+    //                     'user-wallets/pkps/advanced-topics/auth-methods/email-sms',
+    //                     'user-wallets/pkps/advanced-topics/auth-methods/custom-auth',
+    //                   ],
+    //                 },
+    //                 {
+    //                   type: 'category',
+    //                   label: 'Claimable Keys (HD Keys)',
+    //                   link: {
+    //                     type: 'doc',
+    //                     id: 'user-wallets/pkps/claimable-keys/intro',
+    //                   },
+    //                   collapsed: true,
+    //                   items: ['user-wallets/pkps/claimable-keys/usage'],
+    //                 },
+    //               ],
+    //             },
+    //           ],
+    //         },
+    //         {
+    //           type: 'category',
+    //           label: 'Wrapped Keys',
+    //           collapsed: true,
+    //           link: {
+    //             type: 'doc',
+    //             id: 'user-wallets/wrapped-keys/overview',
+    //           },
+    //           items: [
+    //             'user-wallets/wrapped-keys/generating-wrapped-key',
+    //             'user-wallets/wrapped-keys/importing-key',
+    //             'user-wallets/wrapped-keys/exporting-wrapped-key',
+    //             'user-wallets/wrapped-keys/getting-wrapped-key-metadata',
+    //             'user-wallets/wrapped-keys/storing-wrapped-key-metadata',
+    //             'user-wallets/wrapped-keys/listing-wrapped-keys',
+    //             'user-wallets/wrapped-keys/sign-message',
+    //             'user-wallets/wrapped-keys/sign-transaction',
+    //             'user-wallets/wrapped-keys/custom-wrapped-keys',
+    //           ],
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       type: 'category',
+    //       label: 'Encryption and Access Control',
+    //       link: {
+    //         type: 'doc',
+    //         id: 'sdk/access-control/intro',
+    //       },
+    //       collapsed: true,
+    //       items: [
+    //         'sdk/access-control/quick-start',
+    //         {
+    //           type: 'category',
+    //           label: 'Advanced Topics',
+    //           collapsed: true,
+    //           link: {
+    //             type: 'generated-index',
+    //             title: 'Advanced Topics',
+    //             keywords: ['encryption', 'decryption'],
+    //           },
+    //           items: [
+    //             'sdk/access-control/jwt-auth',
+    //             {
+    //               type: 'category',
+    //               label: 'Types of Conditions',
+    //               collapsed: true,
+    //               items: [
+    //                 'sdk/access-control/condition-types/unified-access-control-conditions',
+    //                 'sdk/access-control/condition-types/boolean-logic',
+    //               ],
+    //             },
+    //             {
+    //               type: 'category',
+    //               label: 'EVM',
+    //               collapsed: true,
+    //               items: [
+    //                 'sdk/access-control/evm/basic-examples',
+    //                 'sdk/access-control/evm/custom-contract-calls',
+    //                 'sdk/access-control/evm/poap',
+    //                 'sdk/access-control/evm/timelock',
+    //                 'sdk/access-control/evm/siwe',
+    //               ],
+    //             },
+    //             {
+    //               type: 'category',
+    //               label: 'Other Chains',
+    //               collapsed: true,
+    //               items: [
+    //                 'sdk/access-control/other-chains/sol-rpc-conditions',
+    //                 'sdk/access-control/other-chains/cosmos-conditions',
+    //               ],
+    //             },
+    //             {
+    //               type: 'category',
+    //               label: 'Off-Chain',
+    //               collapsed: true,
+    //               items: ['sdk/access-control/lit-action-conditions'],
+    //             },
+    //           ],
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       type: 'category',
+    //       label: 'Decentralized Compute (Lit Actions)',
+    //       link: {
+    //         type: 'doc',
+    //         id: 'sdk/serverless-signing/overview',
+    //       },
+    //       collapsed: true,
+    //       items: [
+    //         'sdk/serverless-signing/quick-start',
+    //         {
+    //           type: 'category',
+    //           label: 'Advanced Topics',
+    //           collapsed: true,
+    //           link: {
+    //             type: 'generated-index',
+    //             title: 'Advanced Topics',
+    //             keywords: ['compute', 'lit actions'],
+    //           },
+    //           items: [
+    //             'sdk/serverless-signing/conditional-signing',
+    //             'sdk/serverless-signing/fetch',
+    //             'sdk/serverless-signing/processing-validation',
+    //             'sdk/serverless-signing/key-claiming',
+    //             'sdk/serverless-signing/eip191',
+    //             'sdk/serverless-signing/dependencies',
+    //             'sdk/serverless-signing/combining-decryption-shares',
+    //             `sdk/serverless-signing/combining-signatures`,
+    //             'sdk/serverless-signing/run-once',
+    //             `sdk/serverless-signing/get-rpc-url`,
+    //             'sdk/serverless-signing/broadcast-and-collect',
+    //           ],
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // },
+    // {
+    //   type: 'category',
+    //   label: 'Appendix',
+    //   collapsed: true,
+    //   link: {
+    //     type: 'generated-index',
+    //     title: 'Appendix',
+    //     description: 'Learn about the appendix for the Lit SDK!',
+    //     keywords: ['appendix'],
+    //   },
+    //   items: [
+    //     {
+    //       type: 'category',
+    //       label: 'Networks',
+    //       collapsed: true,
+    //       link: {
+    //         type: 'generated-index',
+    //         title: 'Lit Networks',
+    //         description: 'Learn about the different Lit Networks!',
+    //         keywords: ['networks'],
+    //       },
+    //       items: [
+    //         {
+    //           type: 'category',
+    //           label: 'Lit Networks',
+    //           collapsed: true,
+    //           items: ['network/networks/testnet', 'network/networks/mainnet'],
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       type: 'category',
+    //       label: 'Useful Tools',
+    //       collapsed: true,
+    //       link: {
+    //         type: 'generated-index',
+    //         title: 'Lit Tools',
+    //         description:
+    //           'Learn about the different tools that can help you with Lit SDK!',
+    //         keywords: ['tools'],
+    //       },
+    //       items: [
+    //         'tools/access-control',
+    //         'tools/getlit-cli',
+    //         'tools/event-listener',
+    //         'tools/pkpexplorer',
+    //         'tools/searchlit',
+    //       ],
+    //     },
+    //     {
+    //       type: 'category',
+    //       label: 'Integrations',
+    //       collapsed: true,
+    //       link: {
+    //         type: 'generated-index',
+    //         title: 'Integrations with Lit SDK',
+    //         description: 'Learn about the different integrations with Lit SDK!',
+    //         keywords: ['integrations'],
+    //       },
+    //       items: [
+    //         {
+    //           type: 'category',
+    //           label: 'Smart Contract Accounts',
+    //           link: {
+    //             type: 'doc',
+    //             id: 'integrations/aa/overview',
+    //           },
+    //           collapsed: true,
+    //           items: [
+    //             'integrations/aa/alchemy-account-kit',
+    //             'integrations/aa/pimlico',
+    //             'integrations/aa/openfort',
+    //           ],
+    //         },
+    //         {
+    //           type: 'category',
+    //           label: 'Storage',
+    //           collapsed: true,
+    //           items: [
+    //             'integrations/storage/ceramic-example',
+    //             'integrations/storage/irys',
+    //           ],
+    //         },
+    //       ],
+    //     },
+    //     'sdk/tests',
+    //   ],
+    // },
+    // {
+    //   type: 'category',
+    //   label: 'Resources and Support',
+    //   collapsed: true,
+    //   link: {
+    //     type: 'doc',
+    //     id: 'support/intro',
+    //   },
+    //   items: [
+    //     'intro/usecases',
+    //     'resources/supported-chains',
+    //     'resources/contracts',
+    //     'resources/glossary',
+    //     'support/faq',
+    //     'support/bug-bounty',
+    //   ],
+    // },
+    // {
+    //   type: 'category',
+    //   label: 'API Reference',
+    //   collapsed: true,
+    //   link: {
+    //     type: 'generated-index',
+    //     title: 'Lit SDK API Reference',
+    //     description:
+    //       'Get the API reference for different versions of the Lit SDK!',
+    //     keywords: ['api-reference'],
+    //   },
+    //   items: [
+    //     'api-reference/latest',
+    //     {
+    //       type: 'category',
+    //       label: 'Legacy SDK Versions',
+    //       collapsed: true,
+    //       link: {
+    //         type: 'generated-index',
+    //         title: 'Legacy SDK Versions',
+    //         description:
+    //           'Get the API reference for older versions of the Lit SDK!',
+    //         keywords: ['api-reference'],
+    //       },
+    //       items: [
+    //         'api-reference/v3-sdk',
+    //         'api-reference/v2-sdk',
+    //         'api-reference/v1-sdk',
+    //       ],
+    //     },
+    //   ],
+    // },
+    // {
+    //   type: 'category',
+    //   label: 'Additional Examples',
+    //   collapsed: true,
+    //   items: ['additional-examples/intro'],
+    // },
   ],
 };
 

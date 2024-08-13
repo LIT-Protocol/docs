@@ -2,7 +2,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import FeedbackComponent from "@site/src/pages/feedback.md";
 
-# Paying for Users Via The Lit Relayer
+# Payment Delegation Database
 
 ## Paying for Lit
 

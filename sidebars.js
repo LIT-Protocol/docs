@@ -114,6 +114,41 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Paying for Usage of Lit',
+      collapsed: true,
+      link: {
+        type: 'doc',
+        id: 'paying-for-lit/overview',
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Capacity Credits',
+          collapsed: true,
+          link: {
+            type: 'doc',
+            id: 'paying-for-lit/capacity-credit-intro',
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'Minting a Capacity Credit',
+              collapsed: true,
+              items: [
+                'paying-for-lit/minting-capacity-credit/via-contract',
+                'paying-for-lit/minting-capacity-credit/via-explorer',
+              ],
+            },
+            'paying-for-lit/delegating-credit',
+            'paying-for-lit/using-delegated-auth-sig',
+          ],
+        },
+        'paying-for-lit/lit-relayer',
+        'paying-for-lit/payment-delegation-db',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Guides',
       collapsed: true,
       link: {
@@ -123,12 +158,6 @@ const sidebars = {
         keywords: ['guides'],
       },
       items: [
-        {
-          type: 'category',
-          label: 'Paying for Lit',
-          collapsed: true,
-          items: ['sdk/paying-for-lit/payment-delegation-db'],
-        },
         {
           type: 'category',
           label: 'Authentication',

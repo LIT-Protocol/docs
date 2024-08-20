@@ -30,7 +30,7 @@ Each Programmable Key Pair (PKP) is a versatile multi-party computation wallet t
 **Features**
 
 1. [Blockchain Agnostic](../../v3/resources/supported-chains): PKPs can be used to sign transactions on any blockchains or state machines using [ECDSA](https://blog.cloudflare.com/ecdsa-the-digital-signature-algorithm-of-a-better-internet/) for digital signatures. Currently, the [SDK](https://github.com/LIT-Protocol/js-sdk/tree/master/packages/pkp-client) provides easy-to-use methods for creating wallets on EVM and Cosmos based chains.
-2. Programmable: Lit Actions contain the application logic that each PKP should follow. This is useful for defining [signing automations](../../v3/sdk/wallets/intro), handling authentication, or generating conditional proofs.
+2. Programmable: Lit Actions contain the application logic that each PKP should follow. This is useful for defining [signing automations](../../docs/user-wallets/pkps/overview), handling authentication, or generating conditional proofs.
 3. Fault-tolerant: Each PKP is generated collectively by the Lit nodes through a process called [Distributed Key Generation](https://en.wikipedia.org/wiki/Distributed_key_generation) (DKG). As a network, this allows Lit to generate a new key-pair where the private key never exists in its entirety.
 4. Interoperable: Use [WalletConnect](https://github.com/LIT-Protocol/pkp-walletconnect) to connect PKPs to your favorite dApps, just like any other EOA wallet.
 
@@ -91,7 +91,7 @@ Build powerful infrastructure that harnesses the power of Lit!
 
 Example Projects:
 
-- [Yacht Labs](https://yachtlabs.io/blog/yacht-lit-swap): Cross-chain atomic swaps with PKPs and Lit Actions
+- [Yacht Labs](https://spark.litprotocol.com/xchain-bridging-yacht-lit-swap/): Cross-chain atomic swaps with PKPs and Lit Actions
 - [Curve Labs](https://github.com/Curve-Labs/lit-privacy/tree/main): SDK for building privacy-preserving interactions on-chain
 
 **Web3 Social**
@@ -119,6 +119,6 @@ Improve the state of [web3 gaming](https://spark.litprotocol.com/lit-and-web3-g
 
 ## Learn More
 
-Read the Lit developer docs on [programmatic signing](https://developer.litprotocol.com/v3/sdk/wallets/intro).
+Read the Lit developer docs on how [PKPs](../../docs/user-wallets/pkps/overview) to enable programmatic signing.
 
 In order to utilize the Lit functions for PKPs and Lit Actions, you'll need the [Lit JS SDK](https://github.com/LIT-Protocol/js-sdk).

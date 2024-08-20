@@ -15,7 +15,7 @@ Lit is a decentralized key management and compute network. Builders of apps, wal
 
 The system builds off of contemporary work in applied cryptography, sealed confidential hardware, and peer-to-peer networking to provide the maximum amount of control and privacy to developers.
 
-Developers can use Lit to build apps with [private data](../sdk/access-control/quick-start.md), intuitive [onboarding and wallet management](../sdk/wallets/quick-start.md), and [private, immutable programs](../sdk/serverless-signing/quick-start.md) that run based on the rules you set.
+Developers can use Lit to build apps with [private data](../sdk/access-control/quick-start.md), intuitive [onboarding and wallet management](../user-wallets/overview.md), and [private, immutable programs](../sdk/serverless-signing/quick-start.md) that run based on the rules you set.
 
 Get started with the [Lit SDK](../sdk/installation.md).
 
@@ -47,7 +47,7 @@ Get started on your developer journey by diving right into the code:
 
 - [**Lit SDK**](../sdk/installation.md): The Lit JS SDK provides developers with a modular framework for implementing Lit functionality into their own applications.
 - [**Encryption Quick Start**](../sdk/access-control/quick-start.md): Learn how to encrypt and decrypt content using the SDK.
-- [**Wallets Quick Start**](../sdk/wallets/quick-start.md): Learn how to build user wallets with the Lit SDK.
+- [**Wallets Quick Start**](../user-wallets/pkps/quick-start.md): Learn how to build user wallets with the Lit SDK.
 - [**Compute Quick Start**](../sdk/serverless-signing/quick-start.md): Get started with Lit Actions.
 - [**Lit CLI**](../tools/getlit-cli.md): A command line tool that makes developing Lit Actions easy!
 - [**API Reference**](https://js-sdk.litprotocol.com/index.html): An overview of SDK functions and packages.

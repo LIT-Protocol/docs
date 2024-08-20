@@ -21,7 +21,7 @@ Each Lit Resource is identified by its Resource Key:
 
 - For access control conditions, the resource key is derived from the hash of either the encrypted symmetric key or the JWT signing payload (resource ID)
 - For PKP NFTs, the resource key is the token ID of the NFT
-- For RLI NFTs, the resource key is the token ID of the NFT
+- For Capacity Credit NFTs, the resource key is the token ID of the NFT
 - For Lit Actions, the resource key is the IPFS Content ID (CID) of the Lit Action code
 
 A wildcard resource key, identified by `*`, refers to all of the resources in that category, i.e. all of the PKP NFTs or all of the access control conditions.

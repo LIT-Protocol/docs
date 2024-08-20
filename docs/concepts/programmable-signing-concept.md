@@ -15,7 +15,7 @@ With the Lit network, you can generate decentralized key pairs for signing and e
 
 
 1. [Blockchain Agnostic](../resources/supported-chains#programmable-key-pairs): Define signing automations on any blockchain or state machine that is supported by Lit. Currently, the Lit [SDK](../sdk/installation) provides easy-to-use methods for creating wallets and signing transactions on EVM and Cosmos-based chains.
-2. Programmable: Program signing based on pre-defined conditions, referred to as [conditional signatures](../sdk/serverless-signing/conditional-signing.md) in the docs. This is useful for creating [DeFi automations](https://spark.litprotocol.com/automated-portfolio-rebalancing-uniswap/), handling [authentication](../sdk/wallets/auth-methods) logic, and generating [proofs](https://spark.litprotocol.com/authenticity-matters/) over off-chain data.
+2. Programmable: Program signing based on pre-defined conditions, referred to as [conditional signatures](../sdk/serverless-signing/conditional-signing.md) in the docs. This is useful for creating [DeFi automations](https://spark.litprotocol.com/automated-portfolio-rebalancing-uniswap/), handling [authentication](../user-wallets/pkps/advanced-topics/auth-methods/overview) logic, and generating [proofs](https://spark.litprotocol.com/authenticity-matters/) over off-chain data.
 
 To get started building with these tools right away, check out the [Lit Actions](../sdk/serverless-signing/overview) page. Otherwise, keep reading to get a better understanding of how serverless signing works and potential ways to implement in the real world.
 

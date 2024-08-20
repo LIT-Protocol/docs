@@ -46,7 +46,7 @@ Ensure you have the following requirements in place:
 
 1. Operating System: Linux, Mac OS, or Windows.
 2. Development Environment: You'll need an Integrated Development Environment (IDE) installed. We recommend Visual Studio Code.
-3. Languages: The Lit JS SDK V4 and above supports JavaScript. Make sure you have the appropriate language environment set up.
+3. Languages: The Lit JS SDK supports JavaScript. Make sure you have the appropriate language environment set up.
 4. Internet Connection: A stable internet connection is required for installation, updates, and interacting with the Lit nodes.
 
 Install the `@lit-protocol/lit-node-client` package, which can be used in both browser and Node environments:
@@ -200,19 +200,19 @@ const accessControlConditions = [
 
 To encrypt a string, use one of the following functions:
 
-- [encryptString()](https://v5.api-docs.getlit.dev/functions/encryption_src.encryptString.html) - Used to encrypt the raw string.
+- [encryptString()](https://v6-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.encryptString.html) - Used to encrypt the raw string.
 - - [encryptString()](../../) - Used to encrypt the raw string.
-- [zipAndEncryptString()](https://v5.api-docs.getlit.dev/functions/encryption_src.zipAndEncryptString.html) - Compresses the string (using [JSZip](https://www.npmjs.com/package/jszip)) before encrypting it. This is useful for saving space, but takes additional time to perform the zip.
+- [zipAndEncryptString()](https://v6-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.zipAndEncryptString.html) - Compresses the string (using [JSZip](https://www.npmjs.com/package/jszip)) before encrypting it. This is useful for saving space, but takes additional time to perform the zip.
 
 To encrypt a file, use:
 
-- [encryptFile()](https://v5.api-docs.getlit.dev/functions/encryption_src.encryptFile.html) - Used to encrypt a file without doing any zipping or packing. Because zipping larger files takes time, this function is useful when encrypting large files ( > 20mb). This also requires that you store the file metadata.
-- [encryptFileAndZipWithMetadata()](https://v5.api-docs.getlit.dev/functions/encryption_src.encryptFileAndZipWithMetadata.html) - Used to encrypt a file and then zip it up with the metadata (using [JSZip](https://www.npmjs.com/package/jszip)). This is useful for when you don't want to store the file metadata separately.
-- [zipAndEncryptFiles()](https://v5.api-docs.getlit.dev/functions/encryption_src.zipAndEncryptFiles.html) - Used to zip and encrypt multiple files. This does **not** include the file metadata in the zip, so you must store those yourself.
+- [encryptFile()](https://v6-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.encryptFile.html) - Used to encrypt a file without doing any zipping or packing. Because zipping larger files takes time, this function is useful when encrypting large files ( > 20mb). This also requires that you store the file metadata.
+- [encryptFileAndZipWithMetadata()](https://v6-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.encryptFileAndZipWithMetadata.html) - Used to encrypt a file and then zip it up with the metadata (using [JSZip](https://www.npmjs.com/package/jszip)). This is useful for when you don't want to store the file metadata separately.
+- [zipAndEncryptFiles()](https://v6-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.zipAndEncryptFiles.html) - Used to zip and encrypt multiple files. This does **not** include the file metadata in the zip, so you must store those yourself.
 
 Apart from these, we have one more function which can be used to encrypt both strings and files:
 
-- [encryptToJson()](https://v5.api-docs.getlit.dev/functions/encryption_src.encryptToJson.html) - Used to encrypt a string or file and serialize all the metadata required to decrypt i.e. accessControlConditions, evmContractConditions, solRpcConditions, unifiedAccessControlConditions & chain to JSON. It is useful for encrypting/decrypting data in IPFS or other storage without compressing it in a ZIP file.
+- [encryptToJson()](https://v6-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.encryptToJson.html) - Used to encrypt a string or file and serialize all the metadata required to decrypt i.e. accessControlConditions, evmContractConditions, solRpcConditions, unifiedAccessControlConditions & chain to JSON. It is useful for encrypting/decrypting data in IPFS or other storage without compressing it in a ZIP file.
 
 Encryption can be performed entirely client-side and doesn't require making a request to the Lit nodes.
 
@@ -282,11 +282,13 @@ npm i @lit-protocol/contracts-sdk
 The next step is to initialize a signer. This should be a wallet controlled by your application and the same wallet you’ll use to mint the Capacity Credit NFT:
 
 ```jsx
+import { LitNetwork } from "@lit-protocol/constants";
+
 const walletWithCapacityCredit = new Wallet("<your private key or mnemonic>");
 
 let contractClient = new LitContracts({
   signer: dAppOwnerWallet,
-  network: 'habanero',
+  network: LitNetwork.Datil,
 });
 
 await contractClient.connect();
@@ -523,11 +525,11 @@ If using a `mainnet` in order to keep the wallet which holds the `Capacity Credi
 
 To decrypt use the following functions depending on the function used to encrypt:
 
-- [decryptToString()](https://v5.api-docs.getlit.dev/functions/encryption_src.decryptToString.html) for [encryptString()](https://v5.api-docs.getlit.dev/functions/encryption_src.encryptString.html)
-- [decryptToZip()](https://v5.api-docs.getlit.dev/functions/encryption_src.decryptToZip.html) for [zipAndEncryptString()](https://v5.api-docs.getlit.dev/functions/encryption_src.zipAndEncryptString.html) & [zipAndEncryptFiles()](https://v5.api-docs.getlit.dev/functions/encryption_src.zipAndEncryptFiles.html)
-- [decryptToFile()](https://v5.api-docs.getlit.dev/functions/encryption_src.decryptToFile.html) for [encryptFile()](https://v5.api-docs.getlit.dev/functions/encryption_src.encryptFile.html)
-- [decryptZipFileWithMetadata()](https://v5.api-docs.getlit.dev/functions/encryption_src.decryptZipFileWithMetadata.html) for [encryptFileAndZipWithMetadata()](https://v5.api-docs.getlit.dev/functions/encryption_src.encryptFileAndZipWithMetadata.html)
-- [decryptFromJson()](https://v5.api-docs.getlit.dev/functions/encryption_src.decryptFromJson.html) for [encryptToJson()](https://v5.api-docs.getlit.dev/functions/encryption_src.encryptToJson.html)
+- [decryptToString()](https://v6-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.decryptToString.html) for [encryptString()](https://v6-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.encryptString.html)
+- [decryptToZip()](https://v6-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.decryptToZip.html) for [zipAndEncryptString()](https://v6-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.zipAndEncryptString.html) & [zipAndEncryptFiles()](https://v6-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.zipAndEncryptFiles.html)
+- [decryptToFile()](https://v6-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.decryptToFile.html) for [encryptFile()](https://v6-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.encryptFile.html)
+- [decryptZipFileWithMetadata()](https://v6-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.decryptZipFileWithMetadata.html) for [encryptFileAndZipWithMetadata()](https://v6-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.encryptFileAndZipWithMetadata.html)
+- [decryptFromJson()](https://v6-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.decryptFromJson.html) for [encryptToJson()](https://v6-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.encryptToJson.html)
 
 In the example, we used `encryptString()` to encrypt so we will use `decryptToString()` to decrypt. Pass in the data  `accessControlConditions`, `ciphertext`, `dataToEncryptHash`, and `authSig`.
 

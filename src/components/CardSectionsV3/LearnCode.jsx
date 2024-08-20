@@ -25,7 +25,7 @@ export default function LearnCodeSection({ title, className }) {
       <Card
         title="📄 V2 Docs"
         description="For accessing the Lit V2 docs (deprecated)."
-        to="https://developer.litprotocol.com/v2/" 
+        to="https://developer.litprotocol.com/api-reference/v2-sdk" 
       />
       <Card
         title="🛠 Tools"

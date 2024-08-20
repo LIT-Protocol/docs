@@ -10,12 +10,13 @@ To write to the blockchain, the `LitContracts` instance must be created with a `
 
 ```js
 import { PKPEthersWallet } from "@lit-protocol/pkp-ethers";
+import { LIT_RPC } from "@lit-protocol/constants";
 
 const pkpWallet = new PKPEthersWallet({
   controllerAuthSig: "<Your AuthSig>",
   // Or you can also pass in controllerSessionSigs
   pkpPubKey: "<Your PKP public key>",
-  rpc: "https://chain-rpc.litprotocol.com/http",
+  rpc: LIT_RPC.CHRONICLE_YELLOWSTONE,
 });
 await pkpWallet.init();
 ```

@@ -29,7 +29,7 @@ To view more constructor options, refer to the [API docs](https://js-sdk.litprot
 
 ## 2. Initialize `PKPWalletConnect` with the `PKPClient`
 
-`PKPWalletConnect` wraps [`@walletconnect/web3wallet`](https://docs.walletconnect.com/2.0/web/web3wallet/wallet-usage) to manage WalletConnect session proposals and requests using the given PKPClient.
+`PKPWalletConnect` wraps [`@walletconnect/web3wallet`](https://www.npmjs.com/package/@walletconnect/web3wallet) to manage WalletConnect session proposals and requests using the given PKPClient.
 
 ```js
 import { PKPWalletConnect } from '@lit-protocol/pkp-walletconnect';

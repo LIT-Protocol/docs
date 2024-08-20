@@ -117,7 +117,7 @@ A new Lit Action called `newAction` and the test are automatically created in th
 
 ### `getlit setup`
 
-Recall that in order to build a Lit project, an [AuthSig](https://developer.litprotocol.com/v3/sdk/authentication/auth-sig) and a [PKP](https://developer.litprotocol.com/v3/sdk/wallets/intro) are needed. `setup` command is used to mint the PKP and create the AuthSig.
+Recall that in order to build a Lit project, an [AuthSig](https://developer.litprotocol.com/v3/sdk/authentication/auth-sig) and a [PKP](../user-wallets/pkps/overview) are needed. `setup` command is used to mint the PKP and create the AuthSig.
 
 ```bash
 getlit setup
@@ -165,7 +165,7 @@ getlit search --get --format --publicKey --authMethodId --userId --appId
 
 ### `getlit derive-pkp`
 
-Lit Protocol supports [derived keys](https://developer.litprotocol.com/v3/sdk/wallets/claimable-keys/intro/). Users are able to claim the key from the authentication method identifier:
+Lit Protocol supports [derived keys](../user-wallets/pkps/claimable-keys/intro). Users are able to claim the key from the authentication method identifier:
 
 ```bash
 getlit derive-pkp --userId --projectId --format

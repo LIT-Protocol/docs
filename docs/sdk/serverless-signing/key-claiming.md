@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-Lit Actions have their own support for [claiming](../wallets/claimable-keys/intro.md). Instead of using an [auth method](../wallets/auth-methods) use your own `userId` with the Lit Action's `IPFS CID` to create an `appId`. This allows for deriving custom claims without the need for an authentication method.
+Lit Actions have their own support for [claiming](../../user-wallets/pkps/claimable-keys/intro). Instead of using an [auth method](../../user-wallets/pkps/advanced-topics/auth-methods/overview) use your own `userId` with the Lit Action's `IPFS CID` to create an `appId`. This allows for deriving custom claims without the need for an authentication method.
 
 # How it works
 Instead of pre-authenticating the `access token` within an `Authentication Method`, claiming in a Lit Action allows you to define your own `userId` and use the Actions `IPFS CID` to form the `key identifier` through your own user identifier. This doesn't require a pre-authentication step which allows you to set up your own claims to then be routed on-chain with our `contract-sdk`.

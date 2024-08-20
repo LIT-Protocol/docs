@@ -10,12 +10,13 @@ The [`@lit-protocol/pkp-ethers` package](https://github.com/LIT-Protocol/js-sdk/
 
 ```js
 import { PKPEthersWallet } from "@lit-protocol/pkp-ethers";
+import { LIT_RPC } from "@lit-protocol/constants";
 
 const pkpWallet = new PKPEthersWallet({
   controllerAuthSig: "<Your AuthSig>",
   // Or you can also pass in controllerSessionSigs
   pkpPubKey: "<Your PKP public key>",
-  rpc: "https://chain-rpc.litprotocol.com/http",
+  rpc: LIT_RPC.CHROINCLE_YELLOWSTONE,
 });
 await pkpWallet.init();
 ```

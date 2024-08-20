@@ -15,18 +15,21 @@ PKPs rely on the [ECDSA](https://blog.cloudflare.com/ecdsa-the-digital-signature
 
 You can learn more about compatible chains [here.](http://ethanfast.com/top-crypto.html)
 
+:::note
+To sign on any chain not currently supported by Programmable Key Pairs, see [Wrapped Keys](../user-wallets/wrapped-keys/overview)
+:::
+
 ## Supported Chains (Access Control & PKP)
 
 <Tabs
-defaultValue="habanero"
+defaultValue="datil"
 values={[
-{label: 'Habanero', value: 'habanero'},
-{label: 'Manzano', value: 'manzano'},
+{label: 'Datil', value: 'datil'},
+{label: 'DatilTest', value: 'datil-test'},
 {label: 'DatilDev', value: 'datil-dev'},
-{label: 'Jalapeno', value: 'jalapeno'},
 ]}>
 
-<TabItem value="habanero">
+<TabItem value="datil">
 
 - ethereum
 - polygon
@@ -69,7 +72,7 @@ values={[
 
 </TabItem>
 
-<TabItem value="manzano">
+<TabItem value="datil-test">
 
 - ethereum
 - polygon
@@ -177,60 +180,6 @@ values={[
 - klaytn
 - publicGoodsNetwork
 - waevEclipseTestnet
-
-</TabItem>
-
-<TabItem value="jalapeno">
-
-- ethereum
-- polygon
-- xdai
-- bsc
-- bscTestnet
-- base
-- baseGoerli
-- fantom
-- arbitrum
-- avalanche
-- harmony
-- mumbai
-- goerli
-- ropsten
-- kovan
-- rinkeby
-- cronos
-- optimism
-- celo
-- fuji
-- aurora
-- eluvio
-- alfajores
-- xdc
-- evmos
-- evmosTestnet
-- moonbeam
-- moonriver
-- moonbaseAlpha
-- filecoin
-- hyperspace
-- scrollAlphaTestnet
-- scroll
-- lineaGoerli
-- lukso
-- luksoTestnet
-- chiado
-- zora
-- zoraGoerli
-- zkEvm
-- zkSync
-- zksyncTestnet
-- mantleTestnet
-- mantle
-- klaytn
-- publicGoodsNetwork
-- waevEclipseTestnet
-- waevEclipseDevnet
-- verifyTestnet
 
 </TabItem>
 

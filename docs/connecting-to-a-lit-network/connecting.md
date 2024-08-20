@@ -4,10 +4,11 @@ After installing the Lit SDK, you can connect an instance of [LitNodeClient](htt
 
 ```ts
 import { LitNodeClient } from "@lit-protocol/lit-node-client";
+import { LitNetwork } from "@lit-protocol/constants";
 
 const litNodeClient = new LitNodeClient({
     // Change this to the Lit SDK Network Identifier you want to connect to
-    litNetwork: 'datil-dev',
+    litNetwork: LitNetwork.DatilDev,
 });
 await litNodeClient.connect();
 ```
@@ -22,10 +23,10 @@ If you are currently using these networks, please review the [Migrating to Datil
 
 ### Mainnets
 
-| Name       | Lit SDK Network Identifier | Doc Page Link | Network is Live           |
-|------------|----------------------------|---------------|---------------------------|
-| Datil-prod | `datil-prod`               | n/a           | ❌                        |
-| Habanero   | `habanero`                 | n/a           | ⚠️ Going to be deprecated |
+| Name       | Lit SDK Network Identifier | Doc Page Link                | Network is Live           |
+|------------|----------------------------|------------------------------|---------------------------|
+| Datil | `datil`               | [Link](./mainnets#datil)| ✅                        |
+| Habanero   | `habanero`                 | n/a                          | ⚠️ Going to be deprecated |
 
 ### Testnets
 

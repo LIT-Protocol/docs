@@ -97,7 +97,7 @@ The technology that underpins cryptocurrency and most of the security infrastruc
 
 ### **[Rate Limiting](https://explorer.litprotocol.com/rlis)**
 
-By default, each Lit Action execution comes with a "free plan" that allows you to execute a limited number of requests/millisecond on the Lit nodes. To lift this limitation, you can "upgrade" your plan by purchasing an RLI NFT that comes with "flexible terms" which can be customized by 2 factors, the number of requests/millisecond and the expiry date.
+By default, each Lit Action execution comes with a "free plan" that allows you to execute a limited number of requests/millisecond on the Lit nodes. To lift this limitation, you can "upgrade" your plan by minting a new [Capacity Credit](../sdk/capacity-credits) which has two customizable factors, the number of requests/millisecond and the expiry date.
 
 ### **[Session Keys](../sdk/authentication/session-sigs/intro.md)**
 

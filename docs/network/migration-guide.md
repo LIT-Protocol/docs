@@ -1,4 +1,7 @@
 import FeedbackComponent from "@site/src/pages/feedback.md";
+import OldMigrationNotice from "@site/src/pages/old-migration-notice.md";
+
+<OldMigrationNotice/>
 
 
 # Migrating to Lit v0
@@ -15,7 +18,7 @@ If you are currently in early-stage research and development, you should be usin
 
 In order to deploy to Habanero or Manzano, you’ll first need to make sure you're using the v3 or v4 SDK. If you haven’t yet upgraded to v3 or v4, you can do so following these [upgrade instructions](../sdk/migrations/3.0.0/overview.md). Once you've upgraded, the next step will be to connect to the appropriate network branch in your SDK config, either [Habanero](../network/networks/mainnet.md) or [Manzano](../network/networks/testnet.md).
 
-Once your application is using v3 or v4, you can follow the following migration guide to learn how to perform re-encryption (if you're using [access control](../sdk/access-control/intro.md)) or re-mint PKPs (if you're building with [user wallets](../sdk/wallets/intro.md)) on Habanero or Manzano. 
+Once your application is using v3 or v4, you can follow the following migration guide to learn how to perform re-encryption (if you're using [access control](../sdk/access-control/intro.md)) or re-mint PKPs (if you're building with [user wallets](../user-wallets/overview)) on Habanero or Manzano. 
 
 ## Migrating From Jalapeno
 
@@ -248,7 +251,7 @@ Install the `@lit-protocol/lit-node-client` package, which can be used in both b
 yarn add @lit-protocol/lit-node-client
 ```
 
-Use the **Lit JS SDK V4**:
+Use the **Lit JS SDK**:
 
 :::note
 You'll need to specify the network you want to connect to ('habanero' or 'manzano') when initializing your node client config.
@@ -268,7 +271,7 @@ Install the `@lit-protocol/lit-node-client-nodejs`, which is for Node environmen
 yarn add @lit-protocol/lit-node-client-nodejs
 ```
 
-Use the **Lit JS SDK V4**:
+Use the **Lit JS SDK**:
 
 :::note
 You'll need to specify the network you want to connect to ('habanero' or 'manzano') when initializing your node client config.
@@ -344,7 +347,7 @@ Currently Rate Limiting is enabled on `Habanero` and `Manzano`. In order to use 
 
 A `Capacity Credits NFT` can be very easily minted from the Lit Explorer. For minting Capacity Credits using `contracts-sdk` see [here](../sdk/capacity-credits).
 
-You’ll also need some 'testLPX' tokens for minting. These are test tokens that hold no real value and should only be used to pay for usage on Habanero. `testLPX` should only be claimed from the verified faucet, linked [here](https://faucet.litprotocol.com/).
+You’ll also need some 'tstLPX' tokens for minting. These are test tokens that hold no real value and should only be used to pay for usage on Habanero. `tstLPX` should only be claimed from the verified faucet, linked [here](https://chronicle-yellowstone-faucet.getlit.dev/).
 
 For more information on Capacity Credits and network rate limiting see [here](../concepts/capacity-credits-concept)
 <FeedbackComponent/>

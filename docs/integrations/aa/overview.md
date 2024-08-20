@@ -23,7 +23,7 @@ How AA enhances user experience:
 
 1. Programmed security - The requirement of additional confirmations in the event of fraud detection such as two-factor authentication, additional signing with a web3 wallet, or confirmation through another smart contract.
 
-2. Social Recovery - In [Why we need wide adoption of social recovery wallets](https://vitalik.ca/general/2021/01/11/recovery.html) by Vitalik Buterin, he writes that a good wallet design needs to satisfy three key criteria: no single point of failure, low mental overhead, and maximum ease of transacting. Social recovery with AA can look like a multi-signature transaction to approve changing a signing key if an account has been compromised or lost.
+2. Social Recovery - In [Why we need wide adoption of social recovery wallets](https://vitalik.eth.limo/general/2021/01/11/recovery.html) by Vitalik Buterin, he writes that a good wallet design needs to satisfy three key criteria: no single point of failure, low mental overhead, and maximum ease of transacting. Social recovery with AA can look like a multi-signature transaction to approve changing a signing key if an account has been compromised or lost.
 
 
 ## How to use Lit with Account Abstraction (AA)
@@ -53,7 +53,7 @@ AA providers like Alchemy, Biconomy, and Pimlico are pioneering smart account te
 | --- | --- | --- |
 | [Account Kit by Alchemy](https://accountkit.alchemy.com/) | Combining Lit Protocol's pkp wallet with Account Kit allows you to use your Programmable Key Pairs (PKPs) as a smart account for your users. | [guide](../aa/alchemy-account-kit.md) |
 | [Pimlico](https://www.pimlico.io/) | This how-to guide will walk you through the steps to integrate Lit Protocol's OTP sign-in with email, SMS, and Whatsapp with a smart account whose user operations are relayed and sponsored by Pimlico. | [guide](../aa/pimlico.md) |
-| - | If you are an AA provider, reach out to the Lit developement team to be included! | [Reach out to the team](https://nut.sh/ell/forms/352580/YEk9vu) |
+| - | If you are an AA provider, reach out to the Lit developement team to be included! | [Reach out to the team](https://docs.google.com/forms/d/e/1FAIpQLScBVsg-NhdMIC1H1mozh2zaVX0V4WtmEPSPrtmqVtnj_3qqNw/viewform) |
 
 
 <FeedbackComponent/>

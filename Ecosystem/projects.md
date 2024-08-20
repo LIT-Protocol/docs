@@ -64,12 +64,11 @@
 - **[XMTP Chat App](https://github.com/GeorgeFane/lit-xmtp)** with token gating enabled by Lit Protocol.
 - **[DAP](https://github.com/dap-cool/protocol)**: An SDK for encrypting and decrypting files with Lit Protocol. 
 - **[DECK](https://usedeck.vercel.app/)**: Private data sharing for Web3.
-- **[Cask](https://blog.cask.fi/cask-protocol-integrates-with-lit-protocol-to-attach-private-data-to-nfts-token-gate-content-496b2c5bb995)**: Automated, recurring payments.
+- **[Cask](https://caskprotocol.medium.com/cask-protocol-integrates-with-lit-protocol-to-attach-private-data-to-nfts-token-gate-content-496b2c5bb995)**: Automated, recurring payments.
 - **[AlgoveraAI](https://github.com/AlgoveraAI/streamlit-metamask?ref=spark.litprotocol.com)**: Token-gated Streamlit applications.
 
 ### Wallets and Account Abstraction (AA)
 
-- **[Peaze](https://www.peaze.com/)**: Seamless onboarding for Web3.
 - **[Pimlico](https://docs.pimlico.io/how-to/integrations/lit-protocol)**: An infrastructure platform building the next generation of smart wallets.
 - **[MagicWallet](https://github.com/DustilDawn/Magic)**: One account, multiple seedless wallets.
 - **[litu safu](https://ethglobal.com/showcase/litu-safu-m9tja)**: Use a PKP as a signer on a Safe.
@@ -100,5 +99,3 @@
 ### E-Commerce
 
 - **[Shopify](https://apps.shopify.com/lit-token-access)**: Blockchain-based access control for your online store.
-- **[Heirloom DAO](https://www.heirloomdao.com/)**: Subscriptions as NFTs.
-- **[Club Goods](https://www.clubgoods.xyz/)**: An e-commerce experiment at the intersection of storytelling, community tokens and physical goods.

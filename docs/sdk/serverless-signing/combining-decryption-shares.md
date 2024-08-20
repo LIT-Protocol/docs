@@ -56,12 +56,12 @@ When defining your Access Control Conditions rules you may wish to use `currentA
 {
   contractAddress: '',
   standardContractType: '',
-  chain,
-  method: 'eth_getBalance',
-  parameters: [':currentActionIpfsId', 'latest'],
+  chain: 'ethereum',
+  method: '',
+  parameters: [':currentActionIpfsId'],
   returnValueTest: {
     comparator: '=',
-    value: '<your ipfs id>',
+    value: '<YOUR_LIT_ACTION_IPFS_CID>',
   },
 }
 ```

@@ -147,11 +147,11 @@ async function encryptData(dataToEncrypt) {
 
 ## Storing on Arweave via Irys
 
-To use Irys to store data on Arweave, first connect to an [Irys node](https://docs.irys.xyz/overview/nodes). This function uses the same private key from our `.env` file and connects to the Irys Devnet where uploads are stored for 60 days. In a production environment, you would change this to use Irys' [Node 1 or 2](https://docs.irys.xyz/overview/nodes) where uploads are permanent.
+To use Irys to store data on Arweave, first connect to an [Irys node](https://arweave-tools.irys.xyz/irys-sdk/irys-in-the-browser#connecting-to-a-node). This function uses the same private key from our `.env` file and connects to the Irys Devnet where uploads are stored for 60 days. In a production environment, you would change this to use Irys' [Node 1 or 2](https://arweave-tools.irys.xyz/irys-sdk/irys-in-the-browser#connecting-to-a-node) where uploads are permanent.
 
 :::info
 This code is configured to MATIC to pay for uploads, and while working with the Irys Devnet, you need to fund your
-wallet with [free MUMBAI MATIC Devnet](https://mumbaifaucet.com/) tokens. Alternatively, you could use [any other
+wallet with [free MUMBAI MATIC Devnet](https://www.alchemy.com/dapps/mumbai-faucet) tokens. Alternatively, you could use [any other
 Devnet token](../../resources/supported-chains) supported by Irys.
 :::
 
@@ -173,7 +173,7 @@ async function getIrys() {
 
 Then write a function that takes the encrypted data, the original data hash, the access control conditions, and stores it all on Arweave using Irys.
 
-Irys' upload function returns [a signed receipt](https://docs.irys.xyz/learn/receipts) containing the exact time (in milliseconds) of the upload and also a transaction ID, which can then be used to [download the data from a gateway](https://docs.irys.xyz/developer-docs/downloading).
+Irys' upload function returns [a signed receipt](https://arweave-tools.irys.xyz/overview/receipts) containing the exact time (in milliseconds) of the upload and also a transaction ID, which can then be used to [download the data from a gateway](https://arweave-tools.irys.xyz/overview/downloading).
 
 :::info
 For simplicity, we'll consolidate all three values into a JSON object and upload it to Irys in one transaction. This

@@ -32,7 +32,7 @@ Encrypting your data with Lit is simple and a completely [client-side operation]
 
 ### Programmable Signing and User Wallets
 
-Interrelated but distinct from Lit’s decentralized encryption capabilities is the ability to generate programmable keys for non-custodial [user onboarding](../sdk/wallets/intro.md) and [serverless signing](../sdk/serverless-signing/overview.md). Some potential use cases include:
+Interrelated but distinct from Lit’s decentralized encryption capabilities is the ability to generate programmable keys for non-custodial [user onboarding](../user-wallets/pkps/overview.md) and [serverless signing](../sdk/serverless-signing/overview.md). Some potential use cases include:
 
 1. Event listening and condition-based transaction execution: Automate transactions with condition-based execution, enabling use cases such as on-chain limit orders, recurring payments, and more. [Example](https://spark.litprotocol.com/automated-portfolio-rebalancing-uniswap/).
 

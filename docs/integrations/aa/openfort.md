@@ -62,7 +62,7 @@ If you need a test contract address, use 0x38090d1636069c0ff1Af6bc1737Fb996B7f63
 npm run dev
 ```
 
-Visit [http://localhost:3000](http://localhost:3000) to start playing with the app.
+Once running, visit `http://localhost:3000` to start playing with the app.
 
 ## Get support
 

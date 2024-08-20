@@ -13,7 +13,7 @@ Lit Actions are JavaScript functions that can be used read and write data across
 
 In the following guide, we will write a simple Lit Action that requests a signature from the Lit nodes and signs the message "Hello World".
 
-This guide uses Lit's [Habanero Network](../../network/networks/mainnet.md), the Mainnet Beta, which is designed for application developers aiming to build **production-ready** applications. For those developing in a test environment, the Manzano Network is recommended. More on Lit networks [here](../../network/networks/testnet.md).
+This guide uses Lit's [Datil Network](../../network/networks/mainnet.md), the Mainnet Beta, which is designed for application developers aiming to build **production-ready** applications. For those developing in a test environment, the Datil-test Network is recommended. More on Lit networks [here](../../network/networks/testnet.md).
 
 For developers looking to explore beyond the basics, check out Advanced Topics. 
 
@@ -25,7 +25,7 @@ Ensure you have the following requirements in place:
 
 1. Operating System: Linux, Mac OS, or Windows.
 2. Development Environment: You'll need an Integrated Development Environment (IDE) installed. We recommend Visual Studio Code.
-3. Languages: The Lit JS SDK V4 and above supports JavaScript. Make sure you have the appropriate language environment set up.
+3. Languages: The Lit JS SDK supports JavaScript. Make sure you have the appropriate language environment set up.
 4. Internet Connection: A stable internet connection is required for installation, updates, and interacting with the Lit nodes.
 
 Install the `@lit-protocol/lit-node-client` package, which can be used in both browser and Node environments:
@@ -34,7 +34,7 @@ Install the `@lit-protocol/lit-node-client` package, which can be used in both
 yarn add @lit-protocol/lit-node-client
 ```
 
-Use the **Lit JS SDK V4**:
+Use the **Lit JS SDK**:
 
 ```jsx
 import * as LitJsSdk from "@lit-protocol/lit-node-client";
@@ -53,8 +53,10 @@ Within a file (in the Lit example repos it will likely be called `lit.js`), set
 `client.connect()` will return a promise that resolves when you are connected to the Lit Network.
 
 ```jsx
+import { LitNetwork } from "@lit-protocol/constants";
+
 const client = new LitJsSdk.LitNodeClient({
-  litNetwork: 'habanero',
+  litNetwork: LitNetwork.Datil,
 });
 
 await client.connect();
@@ -81,9 +83,11 @@ Keep in mind that in the server-side implementation, the client class is named 
 `app.locals.litNodeClient.connect()` returns a promise that resolves when you are connected to the Lit network.
 
 ```jsx
+import { LitNetwork } from "@lit-protocol/constants";
+
 app.locals.litNodeClient = new LitJsSdk.LitNodeClientNodeJs({
   alertWhenUnauthorized: false,
-  litNetwork: 'habanero',
+  litNetwork: LitNetwork.Datil,
 });
 await app.locals.litNodeClient.connect();
 ```
@@ -104,7 +108,7 @@ yarn add @lit-protocol/auth-helpers
 
 ### Set up a controller wallet
 
-To initialize a LitContracts client you need an Ethereum Signer. This can be a standard Ethereum wallet (ethers) or a PKP (more info on the latter **[here](https://developer.litprotocol.com/v3/sdk/wallets/auth-methods/lit-auth-methods/add-remove-auth-methods)**). Here, we're going to use a standard Ethereum wallet.
+To initialize a LitContracts client you need an Ethereum Signer. This can be a standard Ethereum wallet (ethers) or a PKP (more info on the latter [here](../../user-wallets/pkps/advanced-topics/auth-methods/add-remove-auth-methods)). Here, we're going to use a standard Ethereum wallet.
 
 :::warning
 You'll need to use ethers.js v5 with the Lit SDK. The Lit SDK is not compatible with ethers.js v6 or higher.
@@ -114,10 +118,11 @@ You'll need to use ethers.js v5 with the Lit SDK. The Lit SDK is not compatible 
 
 ```jsx
 import { LitContracts } from '@lit-protocol/contracts-sdk';
+import { LitNetwork } from "@lit-protocol/constants";
 
 const contractClient = new LitContracts({
   signer: wallet,
-  network: 'habanero',
+  network: LitNetwork.Datil,
 });
 
 await contractClient.connect();
@@ -125,7 +130,7 @@ await contractClient.connect();
 
 :::note
 
-You’ll need to ensure you have some test tokens to pay for gas fees. You can claim test tokens from our verified faucet: https://faucet.litprotocol.com/
+You’ll need to ensure you have some test tokens to pay for gas fees. You can claim test tokens from our verified [faucet](https://chronicle-yellowstone-faucet.getlit.dev/).
 
 :::
 
@@ -137,12 +142,22 @@ In order to interact with the nodes in the Lit Network, you will need to generat
 Using the Lit SDK and the methods `createSiweMessageWithRecaps` and `generateAuthSig` from the `@lit-protocol/auth-helpers` package, we can create a `SessionSigs` by signing a SIWE message using a private key stored in a browser wallet like MetaMask:
 
 ```jsx
+import { LitNodeClient } from "@lit-protocol/lit-node-client";
+import { LitNetwork } from "@lit-protocol/constants";
+import {
+  LitAbility,
+  LitAccessControlConditionResource,
+  generateAuthSig,
+  createSiweMessageWithRecaps 
+  } from "@lit-protocol/auth-helpers";
+import * as ethers from "ethers";
+
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 await provider.send("eth_requestAccounts", []);
 const ethersSigner = provider.getSigner();
 
 const litNodeClient = new LitNodeClient({
-    litNetwork: "habanero",
+    litNetwork: LitNetwork.Datil,
   });
 await litNodeClient.connect();
 
@@ -278,7 +293,7 @@ Now that we have installed all of the required packages and authenticated with t
 
 Permitted scopes are a crucial part of defining the capabilities of each authentication method you use. They determine what actions a given authentication method can perform with the PKP. For instance, the `SignAnything` scope allows an auth method to sign any data, while the `PersonalSign` scope restricts it to signing messages using the EIP-191 scheme.
 
-You can also set scopes: `[]` which will mean that the auth method can only be used for authentication, but not authorization. This means that the auth method can be used to prove that the user is who they say they are, but cannot be used to sign transactions or messages. You can read more about Auth Method scopes **[here](https://developer.litprotocol.com/v3/sdk/wallets/auth-methods#auth-method-scopes)**.
+You can also set scopes: `[]` which will mean that the auth method can only be used for authentication, but not authorization. This means that the auth method can be used to prove that the user is who they say they are, but cannot be used to sign transactions or messages. You can read more about Auth Method scopes [here](https://v6-api-doc-lit-js-sdk.vercel.app/interfaces/types_src.MintWithAuthParams.html#scopes).
 
 The following code block demonstrates how to mint a PKP with specific permitted scopes:
 
@@ -335,7 +350,7 @@ Additional Demos:
 
 1. **[Minting a PKP with an auth method and permitted scopes (Easy)](https://github.com/LIT-Protocol/js-sdk/blob/feat/SDK-V3/e2e-nodejs/group-contracts/test-contracts-write-mint-a-pkp-and-set-scope-1-2-easy.mjs)**
 2. **[Minting a PKP with an auth method and permitted scopes (Advanced)](https://github.com/LIT-Protocol/js-sdk/blob/feat/SDK-V3/e2e-nodejs/group-contracts/test-contracts-write-mint-a-pkp-and-set-scope-1-advanced.mjs)**
-3. **[Minting a PKP using social login](https://developer.litprotocol.com/v3/sdk/wallets/minting-methods/mint-via-social)**
+3. **[Minting a PKP using social login](../../user-wallets/pkps/minting/via-social.md)**
 
 ## Mint Capacity Credits and Delegate Usage
 
@@ -344,11 +359,13 @@ In order to execute a transaction with Lit, you’ll need to reserve capacity on
 The first step is to initialize a signer. This should be a wallet controlled by your application and the same wallet you’ll use to mint the Capacity Credit NFT:
 
 ```jsx
+import { LitNetwork } from "@lit-protocol/constants";
+
 const walletWithCapacityCredit = new Wallet("<your private key or mnemonic>");
 
 let contractClient = new LitContracts({
   signer: dAppOwnerWallet,
-  network: 'habanero',
+  network: LitNetwork.Datil,
 });
 
 await contractClient.connect();

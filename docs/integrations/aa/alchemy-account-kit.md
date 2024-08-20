@@ -3,7 +3,7 @@ import TabItem from '@theme/TabItem';
 
 # Alchemy Account Kit
 
-Learn how Lit [Programmable Key Pairs](../../sdk/wallets/intro.md) can be a signer for Alchemy's Account Kit!
+Learn how Lit [Programmable Key Pairs](../../user-wallets/pkps/overview.md) can be a signer for Alchemy's Account Kit!
 
 
 ---
@@ -22,7 +22,7 @@ At completion of this reading you should be able to:
 
 [Alchemy's Account Kit](https://www.alchemy.com/account-kit) is a complete toolkit to embed smart accounts in your app with social login, gas abstraction, batch transactions, and more.
 
-[Lit Protocol's AA signer](https://accountkit.alchemy.com/smart-accounts/signers/guides/lit.html) is a complete solution for powering AA with a Lit signer.
+[Lit Protocol's AA signer](https://accountkit.alchemy.com/packages/aa-signers/lit-protocol/introduction#lit-signer) is a complete solution for powering AA with a Lit signer.
 
 Powered by account abstraction (ERC-4337), Account Kit provides all the tools you need to onboard users with zero friction:
 
@@ -136,11 +136,11 @@ yarn add @alchemy/aa-signers
 
 ### 2. Get A Programmable Key Pair (PKP)
 
-Get some testLPX test tokens from Lit's [Chronicle network](../../network/rollup.mdx).
+Get some tstLPX test tokens from Lit's [Chronicle Yellowstone network](https://chronicle-yellowstone-faucet.getlit.dev/).
 
-To obtain a PKP, [read more within the Lit docs](../../sdk/wallets/intro.md). 
+To obtain a PKP, [read more within the Lit docs](../../user-wallets/pkps/quick-start). 
 
-To define an Auth Method [read about Lit's authentication methods](../../sdk/wallets/auth-methods).
+To define an Auth Method [read about Lit's authentication methods](../../user-wallets/pkps/advanced-topics/auth-methods/overview).
 
 For Authentication
 
@@ -202,7 +202,7 @@ const provider = new AlchemyProvider({
 ### 5. Authenticating with the Lit Signer
 Before the `AlchemyProvider` can use the `LitSigner` we must `authenticate`
 
-To provide authentication `context` [read about Lit's authentication methods](../../sdk/wallets/auth-methods). 
+To provide authentication `context` [read about Lit's authentication methods](../../user-wallets/pkps/advanced-topics/auth-methods/overview). 
 
 ```js
 litSigner.authenticate({

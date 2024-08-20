@@ -3,7 +3,7 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 # Capacity Credits
 
 :::info
-Currently Rate Limiting is only enabled on `Habanero` and `Manzano`.
+Currently Rate Limiting is only enabled on `Datil` and `Datil-test`.
 See [here](../network/networks/testnet.md) for a list of test networks.
 See [here](../network/networks/mainnet.md) for a list of mainnet networks.
 :::
@@ -22,13 +22,15 @@ In order to increase your rate limit, you'll need to mint a `Capacity Credits NF
 
 A `Capacity Credits NFT` can be very easily minted from the Lit Explorer. So, here we will show how you can mint it using `contracts-sdk`. You can download the `contracts-sdk` from `npm` [here](https://www.npmjs.com/package/@lit-protocol/contracts-sdk).
 
-You’ll also need some `testLPX` tokens for minting. These are test tokens that hold no real value and should only be used to pay for usage on Habanero. `testLPX` should only be claimed from the verified faucet, linked [here](https://faucet.litprotocol.com/).
+You’ll also need some `tstLPX` tokens for minting. These are test tokens that hold no real value and should only be used to pay for usage on Datil-test and Datil. `tstLPX` should only be claimed from the verified faucet, linked [here](https://chronicle-yellowstone-faucet.getlit.dev/).
 
 ```javascript
+import { LitNetwork } from "@lit-protocol/constants";
+
 const walletWithCapacityCredit = new Wallet("<your private key or mnemonic>");
 let contractClient = new LitContracts({
   signer: dAppOwnerWallet,
-  network: 'manzano',
+  network: LitNetwork.DatilTest,
 });
 
 await contractClient.connect();
@@ -65,8 +67,10 @@ Usage of your Capacity Credits NFT may be delegated to other wallets. To create 
 Here we use the `capacityTokenId` we received when minting our Capacity Credit.
 
 ```javascript
+import { LitNetwork } from "@lit-protocol/constants";
+
 const litNodeClient = new LitNodeClient({
-    litNetwork: "manzano",
+    litNetwork: LitNetwork.DatilTest,
     checkNodeAttestation: true,
 });
 
@@ -106,11 +110,12 @@ Here we are delegating usage of `Capacity Credit` from a wallet which possesses 
 
 
 ```javascript
+  import { LitNetwork } from "@lit-protocol/constants";
 
   const DELEGATEE_WALLET = new ethers.Wallet(your_private_key_string, provider);
 
   const litNodeClient = new LitNodeClient({
-      litNetwork: "manzano",
+      litNetwork: LitNetwork.DatilTest,
       checkNodeAttestation: true,
   });
   await litNodeClient.connect();
@@ -188,8 +193,10 @@ To Delegate to a pkp wallet from a wallet which possesses a `Capacity Credit` we
 For more information on session signatures and pkps see [here](./authentication/session-sigs/intro.md)
 
 ```javascript
+import { LitNetwork } from "@lit-protocol/constants";
+
   const litNodeClient = new LitNodeClient({
-      litNetwork: "manzano",
+      litNetwork: LitNetwork.DatilTest,
       checkNodeAttestation: true,
   });
   

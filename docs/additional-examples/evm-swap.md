@@ -1,18 +1,18 @@
-# Cross Chain EVM Swap
+# Performing a Cross-Chain Swap with PKPs and Lit Actions
 In this section, we will demonstrate how you can use PKPs and Lit Actions to perform a cross-chain swap. There are three parts to this flow:
 
-- Understanding Lit PKPs as escrow
-- Lit Action
+- Using Lit PKPs as escrow
+- Using Lit Actions to define swap parameters
 - Implementing Mint/Grant/Burn with SDK
 
-## 1) Understanding Lit PKPs as escrow
+## 1) Using Lit PKPs as escrow accounts
 
 A Private key is meant for signing transactions which are executed on the blockchain, a network verifies if the transaction is a legitimate one and then executes it. With Lit Network we can generate a special type of private keys which can be programmed to sign transactions only when certain conditions are met. With this, we can create several escrow mechanisms, and we will look into how we can execute a cross-chain swap.
 
-### A swap example would be:
-Suppose Alice holds 100 token A on Base and Bob holds 100 token B on Chronicles and they both agree to a swap of,
+### Example:
+Suppose Alice holds 100 token A on Base and Bob holds 100 token B on Chronicle and they both agree to a swap of,
 - 4 token A from Alice to Bob on Base
-- 8 token B from Bob to Alice on Chronicles
+- 8 token B from Bob to Alice on Chronicle
 
 We have an [example code](https://github.com/anshss/lit-evm-swap) for the below solution.
 
@@ -21,24 +21,11 @@ When you generate a PKP on the LIT Network, a PKP NFT is first minted to your wa
 
 Lit Actions are programmable code written in Javascript which can run on the LIT Network. We can program a Lit Action so that if certain permissions are met for a pkp, it must sign specific transactions that can be sent to the blockchain. We need to grant a Lit Action as a permitted action to the PKP to allow the Lit Action to generate signatures with it.
 
-We can create an escrow pkp in the following way (Mint/ Grant/ Burn)
+We can create a PKP "escrow" using the Mint/Grant/Burn approach in the following way:
 
 - Mint a PKP on Lit
-- Grant a permitted Lit Action
-- Burn the PKP NFT so that no more auth methods can be modified
-
-This approach will allow us to create scenarios where a private key can generate signs based on conditions and unlock robust opportunities like cross-chain swapping, messaging or bridging.
-
-For a Swap Lit Action, both parties need to deposit their funds to the PKP and based on the conditions the PKP should be completing the swap:
-
-- Alice (or Bob) creates a Mint/Grant/Burn PKP
-- Alice deposits 4 token A on Base Sepolia to the PKP
-- Bob deposits 8 token B on Chronicles to the PKP
-- Alice (or Bob) executes the Lit Action.
-
-Lit Action execution, checks conditions and executes the swap from the PKP
-
-If the swap conditions aren't met then the Lit Action execution shall revert the funds to their depositors.
+- Grant a permitted Lit Action to sign with it
+- Burn the PKP so that it can't be used to sign anything else other than what is outlined in the Lit Action logic
 
 ### Architecture for Mint/Grant/Burn
 
@@ -46,9 +33,20 @@ If the swap conditions aren't met then the Lit Action execution shall revert the
 
 ## 2) Lit Action
 
+For a Swap Lit Action, both parties need to deposit their funds to the PKP and based on the conditions the PKP should be completing the swap:
+
+- Alice (or Bob) creates a Mint/Grant/Burn PKP
+- Alice deposits 4 token A on Base Sepolia to the PKP
+- Bob deposits 8 token B on Chronicle to the PKP
+- Alice (or Bob) executes the Lit Action.
+
+When the Lit Action is executed, each Lit node verifies that the conditions are met before provisioning their key share and executing the swap using the PKP
+
+If the swap conditions aren't met, the Lit Action execution will revert and the tokens will be returned to the initial depositors (Alice and Bob)
+
 Now we'll dive into the depths of the Lit Action and explore how we can conduct conditional signing.
 
-Below are the parameters that decide the swapping conditions.
+Below are the parameters for the cross-chain swap. In the example below, we'll be transferring 4 tokens A on Sepolia for 8 tokens B on Chronicle Yellowstone. These tokens are minted by a custom contract.
 
 ```js
 const chainAParams = {
@@ -71,26 +69,26 @@ const chainBParams = {
     chainId: 175188,
 };
 /* 
-deposit1: wallet A deposits on chain B, if action executes, funds are transferred to wallet B
-deposit2: wallet B deposits on chain A, if action executes, funds are transferred to wallet A
+deposit1: wallet X deposits on chain B, if action executes, funds are transferred to wallet Y
+deposit2: wallet Y deposits on chain A, if action executes, funds are transferred to wallet X
 */
 ```
 :::info
-On the chains section, we can specify any of the chains [supported](../resources/supported-chains) by LIT.
+You can use any of the chains [supported](../resources/supported-chains) by Lit when setting your own swap parameters
 :::
 
-You can find a generator which takes the above params to generate a Lit Action for swap: [swapActionGenerator.js](https://github.com/anshss/lit-evm-swap/blob/main/lit/swapActionGenerator.js)
+The following code can be used to generate the swap Lit Action based on the parameters above: [swapActionGenerator.js](https://github.com/anshss/lit-evm-swap/blob/main/lit/swapActionGenerator.js)
 
 Remember, once a Mint/Grant/Burn PKP is created, anyone can execute the Lit Action on the Lit Network. This execution needs to define the parameters needed by the Lit Action to run. While generating a sign or checking conditions on the action, we need information around the pkp for which we are doing it. Due to this, we need to construct our Lit Action in a way that works with any PKP.
 
 Our Lit Action primarily focuses on three factors:
 
-- Access Conditions for checking funds on both chains
+- Access control conditions for checking funds on both chains
 - Transaction objects for transferring funds between swap parties
-- Clawback Transaction objects for revert transferring funds to their owners
-- Lit Action conditions which decide which transaction object to sign and return
+- Clawback transaction objects to revert transferred funds back to their owners if the swap parameters aren't met
+- Lit action conditions which decide which transaction object to sign and return
 
-We'll use [Lit's Access Control](../sdk/access-control/evm/basic-examples#must-posess-at-least-one-erc20-token) here to verify if the conditions are being met for the swap. There need to be 2 conditions for a swap to execute,
+We'll use an [Access Control Condition (ACC)](../sdk/access-control/evm/basic-examples#must-posess-at-least-one-erc20-token) here to verify if the swap conditions are met before it is executed. These conditions are:
 
 - Have token A funds reached on Chain A?
 - Have token B funds reached on Chain B?
@@ -111,8 +109,7 @@ const chainACondition = {
 };
 // parameter field would be later replaced by the pkpAddress in the action
 ```
-
-There need to be two transaction objects, each of which transfers funds between the swap parties. Each of them will be calling function `transfer(address, uint256)` on the token's smart contract. This information is captured in the "data" field of the object. We can get that in the following way,
+We need to create two transaction objects, each of which will transfer the funds between the two swap parties that have been set. Each party will call the `transfer(address, uint256)` function on the token's smart contract. This information is captured in the "data" field of the object which we can fetch in the following way:
 
 ```js
 function generateCallData(counterParty, amount) {
@@ -142,7 +139,7 @@ let chainATransaction = {
 
 Clawback transaction objects are transactions that transfer funds back to the depositors if the swap conditions aren't met. These will have a different value for the `data` field and can be generated again using the `generateCallData()` function, with the `counterParty` value set to the depositor.
 
-Let's start with writing a Lit Action,
+Now that we've covered all of the relevant background information, let's write our full Lit Action:
 
 ```js
 const go = async () => {
@@ -187,7 +184,7 @@ We then, extend our transaction object with the gas configs which will be receiv
 
 Now our action checks if the conditions are passed on both chains, it takes `authSig` as a parameter here and then logs the result of both condition checks. We'll look into auth sigs while we learn to execute lit actions.
 
-For generating signatures inside our Lit Action, we'll use `Lit.Actions.signEcdsa`. This method allows us to use a pkp (which lets an action generate a sign) for generating signatures. Our Lit Action will now decide based on checked conditions and generate appropriately signed transactions which we can send to the blockchain later.
+To generate signatures inside of our Lit Action, we'll use the `Lit.Actions.signEcdsa` method. Our Lit Action will verify that the conditions we've specified are met before generating the appropriate signed transactions which we'll be able to send to chain later
 
 ```js
     if (chainAConditionsPass && chainBConditionsPass) {
@@ -256,20 +253,19 @@ As everything on the blockchain works on hexadecimal hashes, we need to hash our
 go();
 ```
 
-A must `Lit.Actions.setResponse` needs to be set before we are closing the execution of a Lit Action. This is the response which is shown after the execution of a Lit Action.
+We need to remember to set `Lit.Actions.setResponse` before we finish executing the Lit Action. This defines the response that will be shown when the Lit Action finishes executing.
 
-Complete Lit Action can be found at [swapAction.js](https://github.com/anshss/lit-evm-swap/blob/main/lit/swapAction.js).
+The complete swap Lit Action can be found [here](https://github.com/anshss/lit-evm-swap/blob/main/lit/swapAction.js).
 
 ## 3) Implementing Mint/Grant/Burn with SDK
 
-### Installing Packages
+### Installing and importing the relevant packages
 
 ```bash
 npm i @lit-protocol/lit-node-client @lit-protocol/contracts-sdk 
 @simplewebauthn/browser  @lit-protocol/types ethers
 ```
 
-### Imports Declarations
 
 ```js
 import { LitNodeClient } from "@lit-protocol/lit-node-client";
@@ -286,7 +282,7 @@ import { ethers } from "ethers";
 import bs58 from "bs58";
 ```
 
-### Create Wallet instances
+### Creating our two wallet instances
 
 These wallets will represent the two parties involved in the swap.
 
@@ -311,10 +307,10 @@ async function getWalletB() {
         provider
     );
     return wallet;
-}c
+}
 ```
 
-### Create Lit Action and upload it to IPFS
+### Creating our Lit Action and uploading it to IPFS
 
 Once we are done with our Lit Action, we need to upload it to IPFS so we get an immutable CID which will always point to our action.
 
@@ -338,6 +334,7 @@ We'll create a single function to perform 3 calls at once
 - Burn the PKP NFT by transferring it to itself so auth methods become immutable
 
 Now, our PKP will only be used to execute the Lit Action we permitted. It will generate signatures only when the Lit Action is running and not in any other situations. We have already designed the Lit Action to create the correct signed transactions based on the conditions.
+
 ```js
 export async function mintGrantBurnPKP(action_ipfs, mintedPKP) {
     console.log("minting started..");
@@ -388,7 +385,7 @@ export async function mintGrantBurnPKP(action_ipfs, mintedPKP) {
 }
 ```
 
-### Deposit Methods
+### Depositing tokens for the swap
 
 To deposit swap tokens along with some native tokens for gas
 

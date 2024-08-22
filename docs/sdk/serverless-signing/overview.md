@@ -23,7 +23,7 @@ A simple example would be a Lit Action that checks if a number is prime. To star
 
 - **[Blockchain Agnostic](../../resources/supported-chains.md)**: Lit Actions can be used to read and write data to or even between blockchains with Programmable Key Pairs
 - **Immutable**: Once a Lit Action has been published, it cannot be modified, just like a smart contract deployed on a blockchain. The [Mint/Grant/Burn](https://github.com/LIT-Protocol/js-sdk/blob/70a041a97b56ba1a75724ba2cd56952b622e8a7f/packages/contracts-sdk/src/abis/PKPNFT.ts#L376) function allows you to atomically link a PKP to an authorized set of Lit Actions, guaranteeing that a particular PKP can only ever be used to sign data from within the approved set.
-- **Off-Chain Compatibility**: You can make arbitrary HTTP requests from a Lit Action, meaning you can pull in data from off-chain sources natively, without needing to use of a third party oracle.
+- **Off-Chain Compatibility**: You can make arbitrary HTTP requests from a Lit Action, meaning you can pull in data from off-chain sources natively, without needing to use of a third party oracle.
 
 ### Examples
 

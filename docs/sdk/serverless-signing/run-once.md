@@ -1,16 +1,14 @@
 import FeedbackComponent from "@site/src/pages/feedback.md";
 
-# Run on a Single Node Within an Action
-
-:::note
-Only available on the `test` networks
-:::
+# Running a Lit Action on a single node
 
 ## Overview
 
 Typically, when a Lit Action is called it is executed across every Lit node in parallel. With `runOnce`, you have the ability to perform specified operations on a single node, versus all of them at once.
 
-The `runOnce` function takes another function as a parameter and a deterministic algorithm is used to select the Lit node that it will be executed on. This node will run the function and broadcast the result to all of the other Lit nodes.
+The `runOnce` function takes another function as a parameter and a deterministic algorithm is used to select the Lit node that it will be executed on. The selected node will run the function and broadcast the result to all of the other Lit nodes.
+
+The following code example uses the `runOnce` function to send a signed Ethereum transaction to chain. 
 
 ## Using a Single Node to Send a Transaction
 
@@ -55,7 +53,7 @@ const code = `
     // will be sent by all nodes, even though only a single node did the computation
     Lit.Actions.setResponse(res);
 })()
-`
+`;
 const client = new LitNodeClient({
     litNetwork: "datil-dev",
 });
@@ -88,6 +86,6 @@ When using `runOnce` you might want to set the result of the `runOnce` execution
 In the event all responses are the same then the strategy will not be relevant.
 :::
 
-For information on `signAndCombineEcdsa` see [here](./combining-signatures.md).
+For information on using the `signAndCombineEcdsa` function go [here](./combining-signatures.md).
 
-For information on `getRpcUrl` see [here](./get-rpc-url.md).
+For information on using the `getRpcUrl` function go [here](./get-rpc-url.md).

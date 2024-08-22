@@ -1,20 +1,17 @@
 import FeedbackComponent from "@site/src/pages/feedback.md";
 
-# Decrypting and Combining Within an Action
-
-:::info
-Only available on the `test` network
-:::
+# Decrypting within a Lit Action
 
 ## Overview
 
-Decryption with Lit is typically done client-side by an authorized party at the time of access. The decryptAndCombine function allows you to decrypt data within a Lit Action. This function is useful for performing operations over sensitive data, where the data itself remains private within the confines of each Lit node's Trusted Execution Environment (TEE).
+Decryption with Lit is typically performed client-side by an authorized user at the time of access. This process is documented [here](../access-control/quick-start.md). However, an alternative method of decryption is supported using Lit Actions. Specifically, the `decryptAndCombine` function can be used to decrypt data within a Lit Action. This is useful for performing operations over sensitive data, where the data itself remains private within the confines of each Lit node's Trusted Execution Environment (TEE). You can learn more about Lit's architecture [here](../../resources/how-it-works#sealed-and-confidential-hardware.md).
 
-When you call `decryptAndCombine`, the decryption shares are collected from each Lit node before they are combined on a single node.
+When you call `decryptAndCombine`, each Lit node's decryption shares are collected and combined on a single node and used to decrypt the given content.
 
+The following doc will provide a complete walkthrough of using `decryptAndCombine`. We'll start by encrypting a string client-side before using a Lit Action to decrypt it. At the bottom of the page you'll find a complete example that demonstrates how you can use this functionality to decrypt an API key and perform a remote API call from within an Action. 
 
 # Encrypting content
-We will start by performing an `encrypt` operation as shown below using the `LitNodeClient`. This operation is entirely done on the client, so no need for any Lit Action involvement.
+The first step is to encrypt your data. The encryption operation will be performed client-side *outside* of your Lit Action using the `LitNodeClient`:
 
 ```js
  const chain = 'ethereum';
@@ -48,9 +45,12 @@ We will start by performing an `encrypt` operation as shown below using the `Lit
 
   console.log("cipher text:", ciphertext, "hash:", dataToEncryptHash);
 ```
+Let's break this down. The first step was creating your Access Control Condition (ACC), which is used to specify who or under what conditions your data should be able to be decrypted.
 
-## Using IPFS ID as an Access Control Parameter
-When defining your Access Control Conditions rules you may wish to use `currentActionIpfsId` which may be added to your condition as shown below. This is useful for restricting decryption to only permit a single Lit Action to decrypt your data.
+The second step was actually encrypting the static content (string, file, zip, etc...) using the `encryptString` function. This returns a `ciphertext` and `dataToEncryptHash`. The `ciphertext`, `dataToEncryptHash`, chain data, and any other metadata (such as your `accessControlConditions`) should be stored on your storage provider of choice. A solid choice is IPFS. 
+
+## Using IPFS CID as an Access Control Parameter
+For this example, you can set your Access Control parameter as `currentActionIpfsId` which can be accomplished using the snippet below. This will mean that only a specific Lit Action (based on the IPFS CID where it has been deployed) will be able to decrypt your data. No other party will ever have access. This is useful for situations where you want to restrict access to sensitive information, like an API key, so that it can only be decrypted by a specific Lit Action.
 
 ```js
 {
@@ -66,13 +66,12 @@ When defining your Access Control Conditions rules you may wish to use `currentA
 }
 ```
 
-The ID will be included in the access control check when you use `decryptAndCombine` in an action. It's best to use the `currentActionIpfsId` when you want to share encrypted content that only a specific implementation can decrypt. This is useful for situations where you want to restrict access to sensitive information, like an API key, so that it can only be decrypted by a specific Lit Action. This way, the content will only be decrypted when `decryptAndCombine` is called within that action, keeping your credentials secure within the TEE (Trusted Execution Environment) of the Lit Network.
-
 ## Using decryptAndCombine
 
-Let's now take the `ciphertext` and `dataToEncryptHash` and use it from a Lit Action to decrypt within the TEE.
-In the below example we set the `authSig` to `null` as a way to tell the Lit Action runtime to use the `authSig` which was provided to the node through the `executeJs` call's `sessionSigs`.
-If you wish you may provide a different Auth Signature if the one provided from the session is not relevant to your use case. 
+We can now use the `ciphertext` and `dataToEncryptHash` that we got earlier during the encryption step and pass it into our Lit Action. 
+
+In the below example we set the `authSig` to `null` as a way to tell the Lit Action runtime to use the `authSig` which was provided to the node when you call `executeJs` which returns `sessionSigs`. If you wish you may provide a different Auth Signature if the one provided from the session is not relevant to your use case. You can learn more about authentication and creating session signatures using these [docs](../authentication/session-sigs/intro.md).
+
 ```js
 const code = `(async () => {
   const resp = await Lit.Actions.decryptAndCombine({
@@ -99,6 +98,5 @@ const res = await client.executeJs({
 console.log("decrypted content sent from lit action:", res);
 ```
 
-
-## Decrypting an API Key From Within an Action
-For a guide on decrypting an api for secure usage from within a lit action [here](https://github.com/LIT-Protocol/developer-guides-code/tree/master/decrypt-api-key-in-action)
+## Complete Example: Decrypting an API Key From Within an Action
+The following example demonstrates how you can decrypt an API key within a Lit Action. Once decrypted, the API key can be used to perform a remote API call. Check out the complete code example [here](https://github.com/LIT-Protocol/developer-guides-code/tree/master/decrypt-api-key-in-action).

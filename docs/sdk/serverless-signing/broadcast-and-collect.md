@@ -2,17 +2,15 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 
 # Broadcast and Collect Within an Action
 
-:::info
-Only available on the `test` network
-:::
-
 ## Overview
 
-Broadcast and collect allows you to run an operation on each node in the Lit network, collect their responses, and aggregate those responses into a single data set shared across all of the nodes. This is useful if you'd like the ability to perform additional operations over their responses, such as calculating a median or average.
+The `broadcastAndCollect` function let's you run an operation on every node in the Lit network, collect their responses, and aggregate them into a single data set. This is useful if you'd like to perform additional operations over their responses, such as calculating a median or average.
 
-When you call this function, the responses from each node will be grouped and then returned back to each node for further processing.
+When you call this function, the responses from each node will be grouped together before being returned back to each node for further processing.
 
 # Broadcasting and Collecting a fetch response
+
+The following Lit Action uses `broadcastAndCollect` to fetch the forecast using the weather.gov API before combining the responses from each Lit node into a single array. 
 
 ```js
 const code = `(async () => {

@@ -7,7 +7,7 @@ sidebar_position: 2
 Welcome to Lit Protocol's Community Resources! Here you'll find everything you need to get involved and stay connected with our community.
 
 ## Join Our Developer Hub
-- **Discord:** [Join our Discord server](https://discord.gg/GnTtFukpHq) and engage with fellow developers, ask questions, and stay updated.
+- **Discord:** [Join our Telegram group](https://t.me/+aa73FAF9Vp82ZjJh) and engage with fellow developers, ask questions, and stay updated.
 
 ## Explore Examples and Educational Content
 - **GitHub Repository:** Discover a plethora of example projects, code demos, educational content, and more on our [Awesome Lit Repository](https://github.com/LIT-Protocol/awesome/blob/main/README.md).

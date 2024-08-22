@@ -160,13 +160,8 @@ const sidebars = {
         {
           type: 'category',
           label: 'Authentication',
-          link: {
-            type: 'doc',
-            id: 'sdk/authentication/overview',
-          },
           collapsed: true,
           items: [
-            'sdk/authentication/auth-sig',
             {
               type: 'category',
               label: 'Session Signatures',

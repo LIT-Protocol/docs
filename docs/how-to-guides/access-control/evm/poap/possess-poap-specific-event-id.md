@@ -1,0 +1,1 @@
+# Must Possess a POAP with a Specific Event ID

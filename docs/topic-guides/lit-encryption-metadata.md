@@ -1,0 +1,1 @@
+# Lit Encryption Metadata

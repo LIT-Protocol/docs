@@ -45,11 +45,11 @@ const sidebars = {
       type: 'category',
       label: 'Overview',
       collapsible: false,
-      link: {
-        type: 'doc',
-        id: 'overview/intro',
-      },
-      items: ['overview/what-is-lit', 'overview/how-lit-works'],
+      items: [
+        'overview/intro',
+        'overview/what-is-lit',
+        'overview/how-lit-works',
+      ],
     },
     {
       type: 'category',

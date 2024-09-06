@@ -251,7 +251,7 @@ go();
 
 We need to remember to set `Lit.Actions.setResponse` before we finish executing the Lit Action. This defines the response that will be shown when the Lit Action finishes executing.
 
-The complete swap Lit Action can be found [here](https://github.com/anshss/lit-evm-swap/blob/main/lit/swapAction.js).
+The complete swap Lit Action can be found [here](https://github.com/LIT-Protocol/evm-swap-example/blob/main/lit/litAction-example.js).
 
 ## 3) Implementing Mint/Grant/Burn with SDK
 

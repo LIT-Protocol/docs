@@ -645,7 +645,7 @@ function formatSignature(signature) {
 }
 ```
 
-You can also explore other methods, such as checking permissions on the PKP, checking the fund status of each wallet, or the PKP itself [here](https://github.com/anshss/lit-evm-swap/blob/main/lit/utils.js).
+You can also explore other methods, such as checking permissions on the PKP, checking the fund status of each wallet, or the PKP itself [here](https://github.com/LIT-Protocol/evm-swap-example/blob/main/lit/utils.js).
 
 ## Summary
 In the following example you should have learned how to:

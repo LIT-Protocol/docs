@@ -357,13 +357,13 @@ export async function mintGrantBurnPKP(action_ipfs, mintedPKP) {
 
     const tx =
         await litContracts.pkpHelperContract.write.mintNextAndAddAuthMethods(
-            AuthMethodType.LitAction,
-            [AuthMethodType.LitAction],
-            [bytesAction],
-            ["0x"],
-            [[AuthMethodScope.SignAnything]],
-            false,
-            true,
+            AuthMethodType.LitAction, // keyType
+            [AuthMethodType.LitAction], // permittedAuthMethodTypes
+            [bytesAction], // permittedAuthMethodIds
+            ["0x"], // permittedAuthMethodPubkeys
+            [[AuthMethodScope.SignAnything]], // permittedAuthMethodScopes
+            false, // addPkpEthAddressAsPermittedAddress
+            true, // sendPkpToItself
             {
                 value: pkpMintCost,
                 maxFeePerGas: ethers.BigNumber.from("1800000000"),

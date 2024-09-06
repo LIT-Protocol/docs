@@ -269,7 +269,7 @@ npm i \
 ```js
 import { LitNodeClient } from "@lit-protocol/lit-node-client";
 import { LitContracts } from "@lit-protocol/contracts-sdk";
-import { LitNetwork, AuthMethodScope, LIT_CHAINS } from "@lit-protocol/constants";
+import { LitNetwork, AuthMethodScope, LIT_RPC, LIT_CHAINS } from "@lit-protocol/constants";
 import { LitAbility } from "@lit-protocol/types";
 import {
     LitActionResource,

@@ -299,7 +299,7 @@ async function getWalletA() {
 
 async function getWalletB() {
     const provider = new ethers.providers.JsonRpcProvider(
-        `https://yellowstone-rpc.litprotocol.com/`
+        LIT_RPC.CHRONICLE_YELLOWSTONE
     );
     const wallet = new ethers.Wallet(
         process.env.NEXT_PUBLIC_PRIVATE_KEY_2,

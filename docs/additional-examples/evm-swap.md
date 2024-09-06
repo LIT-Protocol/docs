@@ -258,8 +258,11 @@ The complete swap Lit Action can be found [here](https://github.com/LIT-Protocol
 ### Installing and importing the relevant packages
 
 ```bash
-npm i @lit-protocol/lit-node-client @lit-protocol/contracts-sdk 
-@simplewebauthn/browser  @lit-protocol/types ethers
+npm i \
+@lit-protocol/lit-node-client \
+@lit-protocol/contracts-sdk \
+@simplewebauthn/browser \
+@lit-protocol/types ethers \
 ```
 
 

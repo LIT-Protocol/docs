@@ -2,18 +2,17 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 
 # Decrypting within a Lit Action
 
-
 ## Overview
 
-Decryption with Lit can be performed client-side by an authorized user, but it can also be performed within a Lit Action.
+Decryption with Lit can be performed either client-side by an authorized user or within a Lit Action.
 
-Lit Actions have two methods for decrypting data: `decryptToSingleNode` and `decryptAndCombine`. The former reduces the execution scope of the Lit Action to a single node and decypts the data there. The latter collects each Lit node's decryption share, combines them, and then decrypts the data.
+Lit Actions have two methods for decrypting data: `decryptToSingleNode` and `decryptAndCombine`. The former reduces the execution scope of the Lit Action to a single node and decrypts the data there. The latter collects each Lit node's decryption share, combines them, and then decrypts the data on a single node. The key difference between the two is that `decryptToSingleNode` only uses the decryption share of a single Lit node, while `decryptAndCombine` uses all of the decryption shares of all Lit nodes.
 
-When `decryptToSingleNode` is used, the execution scope being reduced to a single Lit node means that any behavior that requires multiple nodes (i.e. console logs, `signAndCombineEcdsa`, etc...) will encounter a timeout error.
+When `decryptToSingleNode` is used, the execution scope being reduced to a single Lit node means that any behavior that requires multiple nodes (i.e. console logs, `signAndCombineEcdsa`) will encounter a timeout error.
 
 Using decryption within a Lit Action is useful for performing operations over sensitive data, where the data itself remains private within the confines of each Lit node's Trusted Execution Environment (TEE). You can learn more about Lit's architecture [here](../../resources/how-it-works#sealed-and-confidential-hardware.md).
 
-The below example will demonstrate encrypting an API key client-side, decrypting it within a Lit Action, and using the decrypted API key to query the blocknumber on Base.
+The following example demonstrates how to encrypt an API key client-side, then decrypt and use it within a Lit Action to query the block number on Base.
 
 ## Prerequsites
 - Knowledge of [SessionSigs](../authentication/session-sigs/intro)

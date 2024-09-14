@@ -26,7 +26,7 @@ The complete code example is available in the [Lit Developer Guides Code Reposit
 
 The `decryptAndCombine` function uses the `accessControlConditions` to specify who and under what conditions the data can be decrypted. The `ciphertext` and `dataToEncryptHash` are the encrypted data and the hash of the data that was encrypted.
 
-We set the `authSig` to null as a way to tell the Lit Action runtime to use the `authSig` which was provided to the node when you call `executeJs`. It will use the AuthSig within the session signatures. 
+We set the `authSig` to `null` as a way to tell the Lit Action runtime to use the `authSig` which was provided to the node when `executeJs` was called; The AuthSig is sourced from the session signatures. 
 
 Then our decrypted API key is used to query the blocknumber on Base.
 

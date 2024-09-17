@@ -102,18 +102,26 @@ const config = {
           {
             type: 'doc',
             position: 'left',
-            docId: 'overview/intro',
-            label: 'Docs',
+            docId: 'learn/overview/intro',
+            label: 'Learn',
           },
+          {
+            type: 'doc',
+            position: 'left',
+            docId: 'build/overview/intro',
+            label: 'Build',
+          },
+          // {
+          //   type: 'doc',
+          //   position: 'left',
+          //   docId: 'overview/intro',
+          //   label: 'Docs',
+          // },
           {
             to: 'ecosystem/lit-grants',
             position: 'left',
             label: 'Ecosystem',
           },
-          // {
-          //   type: 'docsVersionDropdown',
-          //   position: 'right',
-          // },
           {
             href: 'https://github.com/LIT-Protocol/js-sdk',
             position: 'right',

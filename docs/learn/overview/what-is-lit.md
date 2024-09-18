@@ -1,3 +1,7 @@
+---
+slug: /learn/overview/what-is-lit
+---
+
 import FeedbackComponent from "@site/src/pages/feedback.md";
 
 # What is Lit Protocol

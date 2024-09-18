@@ -1,0 +1,666 @@
+[[redirects]]
+  from = "/docs/SDK/accessControlConditionExamples"
+  to = "/docs/AccessControlConditions/evmBasicExamples"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/docs/accessControlModal"
+  to = "/docs/tools-and-examples/share-modal"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/docs/LitTools/shareModal"
+  to = "/v2/SDK/ToolsAndExamples/Tools/shareModal"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/docs/jwtVerifier"
+  to = "/docs/tools-and-examples/additional-integrations#js-jwt-verifier"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/docs/LitTools/jwtVerifier"
+  to = "/docs/tools-and-examples/additional-integrations#js-jwt-verifier"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/docs/examples"
+  to = "/docs/tools-and-examples/sdk-examples/EncryptAndDecrypt/installation"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/docs/ExamplesAndGuides/examples"
+  to = "/docs/tools-and-examples/sdk-examples/EncryptAndDecrypt/installation"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/docs/oauth"
+  to = "/docs/tools-and-examples/additional-integrations#oauth-integrations"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/docs/LitTools/oauth"
+  to = "/docs/tools-and-examples/additional-integrations#oauth-integrations"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/docs/ceramicIntegration"
+  to = "/docs/tools-and-examples/Ceramic/intro"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/docs/LitTools/ceramicIntegration"
+  to = "/docs/tools-and-examples/Ceramic/intro"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/docs/LitTools/JSSDK/intro"
+  to = "/docs/sdk/intro"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/docs/LitTools/JSSDK/installation"
+  to = "/docs/sdk/installation"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/docs/LitTools/JSSDK/staticContent"
+  to = "/docs/tools-and-examples/sdk-examples/EncryptAndDecrypt/installation"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/docs/ExamplesAndGuides/SDKExamples/EncryptAndDecrypt/installation"
+  to = "/docs/tools-and-examples/sdk-examples/EncryptAndDecrypt/installation"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/docs/LitTools/JSSDK/dynamicContent"
+  to = "/docs/tools-and-examples/sdk-examples/dynamicContent"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/docs/ExamplesAndGuides/SDKExamples/dynamicContent"
+  to = "/docs/tools-and-examples/sdk-examples/dynamicContent"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/docs/LitTools/JSSDK/authSig"
+  to = "/docs/sdk/auth-sig"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/docs/LitTools/JSSDK/errorHandling"
+  to = "/docs/sdk/errorHandling"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/docs/LitTools/JSSDK/tests"
+  to = "/docs/sdk/tests"
+  status = 302
+  force = false
+  
+[[redirects]]
+from = "/docs/ExamplesAndGuides/examples"
+to = "/docs/ExamplesAndGuides/sdk-examples/examples"
+status = 302
+force = false
+
+[[redirects]]
+  from = "/docs/whatislit/whatislitprotocol/"
+  to = "/"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/docs/WhatIsLit/howItWorks"
+  to = "/docs/Introduction/how-it-works"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/docs/intro"
+  to = "/what-is-lit"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/docs/AccessControlConditions/evmBasicExamples"
+  to = "/docs/AccessControlConditions/evm/basic-examples"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/docs/AccessControlConditions/evmCustomContractCalls"
+  to = "/docs/AccessControlConditions/evm/custom-contract-calls"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/docs/ExamplesAndGuides/Ceramic/installation"
+  to = "/docs/tools-and-examples/Ceramic/installation"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/docs/ExamplesAndGuides/Ceramic/encryption"
+  to = "/docs/tools-and-examples/Ceramic/encryption"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/docs/ExamplesAndGuides/Ceramic/decryption"
+  to = "/docs/tools-and-examples/Ceramic/decryption"
+  status = 302
+  force = false
+
+  [[redirects]]
+  from = "/docs/ExamplesAndGuides/bundlrxarweave"
+  to = "/docs/tools-and-examples/bundlrxarweave"
+  status = 302
+  force = false
+
+# 7/21/22 - dating for deprecation purposes
+
+[[redirects]]
+  from = "/docs/Introduction/whatIsLitProtocol"
+  to = "/docs/what-is-lit"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/docs/*"
+  to = "/:splat"
+  status = 302
+  force = false
+
+# 10/18/22 - docs re-org 1.5
+
+[[redirects]]
+  from = "/LitActionsAndPKPs/whatAreLitActionsAndPKPs"
+  to = "/v2/litActions/intro"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/LitActionsAndPKPs/workingWithLitActions"
+  to = "/lit-actions/hello-world"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/LitActionsAndPKPs/ToolsAndExamples"
+  to = "/pkp/tools-and-examples"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/SDK/installation"
+  to = "/sdk/explanation/installation"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/SDK/authSig"
+  to = "/sdk/explanation/auth-sig"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/SDK/sessionKeys"
+  to = "/sdk/explanation/auth-sig"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/SDK/errorHandling"
+  to = "/sdk/explanation/tests"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/SDK/tests"
+  to = "/sdk/explanation/tests"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/AccessControlConditions/intro"
+  to = "/coreConcepts/access-control/intro"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/AccessControlConditions/EVM/basicExamples"
+  to = "/coreConcepts/access-control/evm/:splat"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/AccessControlConditions/EVM/*"
+  to = "/coreConcepts/access-control/:splat"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/AccessControlConditions/solRpcConditions"
+  to = "/coreConcepts/access-control/other-chains/sol-rpc-conditions"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/AccessControlConditions/cosmosConditions"
+  to = "/coreConcepts/access-control/other-chains/cosmos-conditions"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/AccessControlConditions/unifiedAccessControlConditions"
+  to = "/coreConcepts/access-control/condition-types/unified-access-control-conditions"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/AccessControlConditions/booleanLogic"
+  to = "/sdk/access-control/condition-types/boolean-logic"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/ToolsAndExamples/Ceramic/*"
+  to = "/tools-and-examples/Integrations/Ceramic/intro"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/ToolsAndExamples/bundlrxarweave"
+  to = "/tools-and-examples/Integrations/bundlrxarweave"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/ToolsAndExamples/additionalIntegrations"
+  to = "/tools-and-examples/Integrations/additional-integrations"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/ToolsAndExamples/shareModal"
+  to = "/tools-and-examples/Tools/share-modal"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/tools-and-examples/sdkexamples/dynamiccontent/"
+  to = "/tools-and-examples/Tools/jwtverify"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/ToolsAndExamples/SDKExamples/examples"
+  to = "/tools-and-examples/sdk-examples/dynamicContent"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/litGrants"
+  to = "/ecosystem/lit-grants"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/Introduction/whatIsLitProtocol#join-the-community"
+  to = "/ecosystem/community"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/faq"
+  to = "/support/faq"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/supportedChains"
+  to = "/resources/supported-chains"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/litactionsandpkps/whatarelitactionsandpkps/*"
+  to = "/coreConcepts/LitActionsAndPKPs/intro"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/accesscontrolconditions/*"
+  to = "/coreConcepts/access-control/intro"
+  status = 302
+  force = false
+
+# 10/26/22 - dating for deprecation purposes
+  
+  [[redirects]]
+  from = "/coreconcepts/litactionsandpkps/workingwithlitactions"
+  to = "/sdk/explanation/litActions"
+  status = 302
+  force = false
+
+  [[redirects]]
+  from = "/SDK/Explanation/EncryptionCategory/*"
+  to = "/sdk/explanation/encryption"
+  status = 302
+  force = false
+
+# 01/12/23 - Lit Actions into it's own section
+[[redirects]]
+  from = "/SDK/Explanation/litActions"
+  to = "/sdk/explanation/lit-actions/hello-world"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/ToolsAndExamples/SDKExamples/EncryptAndDecrypt/*"
+  to = "/sdk/explanation/encryption"
+  status = 302
+  force = false
+
+
+# 02/14/23 - Move up Lit Actions sections from within SDK to the core concepts / programmatic signing section
+[[redirects]]
+  from = "/SDK/Explanation/LitActions/conditionalSigning/*"
+  to = "/lit-actions/working-with-actions/working-with-actions/conditional-signing"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/SDK/Explanation/LitActions/usingFetch"
+  to = "/lit-actions/working-with-actions/using-fetch"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/SDK/Explanation/LitActions/authHelpers/*"
+  to = "/lit-actions/auth-helpers"
+  status = 302
+  force = false
+
+# 03/22/23 - docs re-org, flattening structure of docs
+
+[[redirects]]
+  from = "/Introduction/whatIsLitProtocol"
+  to = "/what-is-lit"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/Introduction/howItWorks"
+  to = "/resources/how-it-works"
+  status = 302
+  force = false
+
+# multiple bc redirects are case sensitive
+
+[[redirects]]
+  from = "/Introduction/stateOfNetwork"
+  to = "/support/state-of-network"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/introduction/stateofnetwork"
+  to = "/support/state-of-network"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/introduction/stateOfNetwork"
+  to = "/support/state-of-network"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/coreConcepts/usecases"
+  to = "/useCases"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/coreConcepts/accessControl/*"
+  to = "/access-control/:splat"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/coreConcepts/LitActionsAndPKPs/intro"
+  to = "/pkp/intro"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/coreConcepts/LitActionsAndPKPs/PKPs"
+  to = "/pkp/intro"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/coreConcepts/LitActionsAndPKPs/actions/authHelpers"
+  to = "/lit-actions/auth-helpers"
+  status = 302
+  force = false
+  
+[[redirects]]
+  from = "/coreConcepts/LitActionsAndPKPs/actions/litActions"
+  to = "/lit-actions/intro"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/coreConcepts/LitActionsAndPKPs/actions/conditionalSigning"
+  to = "/v2/LitActions/workingWithActions/conditionalSigning"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/coreConcepts/LitActionsAndPKPs/actions/usingFetch"
+  to = "/v2/LitActions/workingWithActions/usingFetch"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/coreConcepts/Wallets/*"
+  to = "/pkp/wallets/:splat"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/SDK/Explanation/LitActions/usingEIP"
+  to = "/lit-actions/using-eip"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/SDK/Explanation/LitActions/logAndReturn"
+  to = "/lit-actions/working-with-actions/log-and-return"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/SDK/Explanation/LitActions/contracts"
+  to = "/resources/contracts"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/support/glossary"
+  to = "/resources/glossary"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/LitActions/logAndReturn"
+  to = "/lit-actions/working-with-actions/log-and-return"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/LitActions/usingEIP"
+  to = "/lit-actions/additional-examples/using-eip"
+  status = 302
+  force = false
+
+# 3/28 - continue adding support for links missing from initial pass
+[[redirects]]
+  from = "/support/supportedchains/"
+  to = "/resources/supported-chains"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/introduction/stateofnetwork"
+  to = "/support/state-of-network"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/introduction/stateofnetwork/*"
+  to = "/support/state-of-network"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/coreconcepts/litactionsandpkps/actions/*"
+  to = "/v2/litActions/intro"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/coreconcepts/wallets/intro/*"
+  to = "/pkp/wallets/intro"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/SDK/Explanation/WalletSigs/*"
+  to = "/sdk/explanation/authentication/*"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/pkp/wallets/intro"
+  to = "/resources/pkps-as-wallet"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/pkp/wallets/examples"
+  to = "/resources/pkps-as-wallet"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/pkp/wallets/sendingTxs"
+  to = "/pkp/usage"
+  status = 302
+  force = false
+
+# 6/5/23
+
+[[redirects]]
+  from = "/LitActions/usingPKPsAndActions"
+  to = "/resources/pkps-and-actions"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/resources/pkpsAndActions"
+  to = "/pkp/pkps-and-actions"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/LitActions/mintGrantBurn"
+  to = "/pkp/pkps-and-actions"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/resources/pkpsAsWallet"
+  to = "/concepts/pkps-as-wallet"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/SDK/Explanation/authentication/sessionSigs/authMethods/overview"
+  to = "/pkp/authMethods/authHelpers"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/pkp/authHelpers"
+  to = "/pkp/authMethods/authHelpers"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/SDK/Explanation/authentication/sessionSigs/authMethods/socialLogin"
+  to = "/pkp/authMethods/socialLogin"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/SDK/Explanation/authentication/sessionSigs/authMethods/webAuthn"
+  to = "/pkp/authMethods/webAuthn"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/SDK/Explanation/authentication/sessionSigs/authMethods/email-sms"
+  to = "/pkp/authMethods/email-sms"
+  status = 302
+  force = false
+
+# 10/24/23
+[[redirects]]
+  from = "/v3/concepts/claimable-keys"
+  to = "/v3/sdk/wallets/claimable-keys/intro"
+  status = 302
+  force = false
+
+# 4/6/24, redirect V3 links to without V3 links
+
+[[redirects]]
+  from = "/v3/*"
+  to = "/:splat"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/v3/"
+  to = "/"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/v3/sdk/access-control/condition-types/lit-action-conditions"
+  to = "/v3/sdk/access-control/lit-action-conditions"
+  status = 302
+  force = false

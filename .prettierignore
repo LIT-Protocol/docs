@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.prettierrc
+blog/
+docs/
+Ecosystem/
+learningLab/
+not-docs/
+static/
+unusedPages/
+versioned_docs/
+versioned_sidebars/

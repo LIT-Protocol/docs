@@ -1,0 +1,27 @@
+name: reindex-crawler
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js [16.x]
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - name: Install dependencies
+        run: yarn
+      - name: Trigger crawler reindexing
+        run: yarn run:crawler
+        env:
+          CRAWLER_USER_ID: ${{ secrets.CRAWLER_USER_ID }}
+          CRAWLER_API_KEY: ${{ secrets.CRAWLER_API_KEY }}
+          CRAWLER_API_BASE_URL: ${{ secrets.CRAWLER_API_BASE_URL }}
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}

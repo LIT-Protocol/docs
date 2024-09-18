@@ -8,7 +8,11 @@ Decryption with Lit can be performed either client-side by an authorized user or
 
 Using decryption within a Lit Action is useful for performing operations over sensitive data, where the data itself remains private within the confines of each Lit node's Trusted Execution Environment (TEE). You can learn more about Lit's architecture [here](../../resources/how-it-works#sealed-and-confidential-hardware.md).
 
-Lit Actions have two methods for decrypting data: `decryptToSingleNode` and `decryptAndCombine`. The former reduces the execution scope of the Lit Action to a single node and decrypts the data there. The latter collects each Lit node's decryption share, combines them, and then decrypts the data on a single node. The key difference between the two is that `decryptToSingleNode` only uses the decryption share of a single Lit node, while `decryptAndCombine` uses all of the decryption shares of all Lit nodes.
+Lit Actions have two methods for decrypting data: `decryptToSingleNode` and `decryptAndCombine`. 
+
+As the name implies, `decryptToSingleNode` will request the signature shares from all the Lit node in the network and will combine them only within a single Lit node. This means the fully decrypted data will only exist within a single Lit node's TEE.
+
+`decryptAndCombine` runs on every Lit node in the network, requesting signature shares from all the other nodes and combining them within each Lit node's TEE. This means the fully decrypted data will exist within all the Lit nodes TEE, and an error will be thrown by the network if the Lit nodes do not reach consensus on the decrypted data.
 
 When `decryptToSingleNode` is used, the execution scope being reduced to a single Lit node means that any behavior that requires multiple nodes (i.e. console logs, `signAndCombineEcdsa`) will encounter a timeout error.
 

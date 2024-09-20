@@ -17,8 +17,8 @@ Use one of the [mainnets](./mainnets) for longer term persistence, and for handl
 
 | Name       | Lit Blockchain                                                      | Description                                                                                                                                                                   | Minimum Lit SDK Version | Lit SDK Network Identifier | Requires Payment |
 |------------|---------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|----------------------------|------------------|
-| Datil-test | [Chronicle Yellowstone](./lit-blockchains/chronicle-yellowstone.md) | Centralized testnet designed for pre-production development. No persistency guarantees. Payment is enforced.                                                                  | `^6.4.0`                | `datil-test`               | ✅                |
-| Datil-dev  | [Chronicle Yellowstone](./lit-blockchains/chronicle-yellowstone.md) | Centralized testnet designed for early-stage development. Keys are not persistent and may be deleted. This network does not enforce payment and can be used for free testing. | `^6.4.0`                | `datil-dev`                | ❌                |
+| Datil-test | [Chronicle Yellowstone](./lit-blockchains/chronicle-yellowstone.md) | Centralized testnet designed for pre-production development. No persistency guarantees. Payment is enforced.                                                                  | `6.x.x`                | `datil-test`               | ✅                |
+| Datil-dev  | [Chronicle Yellowstone](./lit-blockchains/chronicle-yellowstone.md) | Centralized testnet designed for early-stage development. Keys are not persistent and may be deleted. This network does not enforce payment and can be used for free testing. | `6.x.x`                | `datil-dev`                | ❌                |
 
 :::info
 
@@ -34,7 +34,7 @@ If your application is currently deployed on Lit networks: Cayenne, Manzano, and
 
 ### Lit SDK Version Compatibility
 
-The minimum version of the Lit SDK that supports `datil-test` is `6.4.0`. You can install the latest SDK version from NPM, which includes this support by default:
+The minimum version of the Lit SDK that supports `datil-test` is the latest `6.x.x` release. You can install the latest SDK version from NPM, which includes this support by default:
 
 <Tabs
 defaultValue="npm"
@@ -65,9 +65,10 @@ To connect to Datil-test, please follow the [Connecting to a Lit Network](../../
 
 ```ts
 import { LitNodeClient } from '@lit-protocol/lit-node-client';
+import { LitNetwork } from "@lit-protocol/constants";
 
 const litNodeClient = new LitNodeClient({
-  litNetwork: 'datil',
+  litNetwork: LitNetwork.DatilTest,
 });
 await litNodeClient.connect();
 ```
@@ -80,7 +81,7 @@ If your application is currently deployed on Lit networks: Cayenne, Manzano, and
 
 ### Lit SDK Version Compatibility
 
-The minimum version of the Lit SDK that supports `datil-dev` is `6.4.0`. You can install the latest SDK version from NPM:
+The minimum version of the Lit SDK that supports `datil-dev` is the latest `6.x.x` release. You can install the latest SDK version from NPM:
 
 <Tabs
 defaultValue="npm"
@@ -111,9 +112,10 @@ To connect to Datil-dev, please follow the [Connecting to a Lit Network](../../.
 
 ```ts
 import { LitNodeClient } from '@lit-protocol/lit-node-client';
+import { LitNetwork } from "@lit-protocol/constants";
 
 const litNodeClient = new LitNodeClient({
-  litNetwork: 'datil',
+  litNetwork: LitNetwork.DatilDev,
 });
 await litNodeClient.connect();
 ```

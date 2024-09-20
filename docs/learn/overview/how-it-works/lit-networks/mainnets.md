@@ -12,7 +12,7 @@ While mainnets may be deprecated in the future, assets will be transferable to n
 
 | Name  | Lit Blockchain                                                   | Description                                                                                                                                 | Minimum Lit SDK Version | Lit SDK Network Identifier | Requires Payment |
 |-------|------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|----------------------------|------------------|
-| Datil | [Chronicle Yellowstone](./lit-blockchains/chronicle-yellowstone) | Decentralized mainnet designed for production deployment. Guaranteed real world asset transferability to new mainnets. Payment is enforced. | `^6.4.0`                | `datil`                    | ✅                |
+| Datil | [Chronicle Yellowstone](./lit-blockchains/chronicle-yellowstone) | Decentralized mainnet designed for production deployment. Guaranteed real world asset transferability to new mainnets. Payment is enforced. | `6.x.x`                | `datil`                    | ✅                |
 
 ## The Datil Network
 
@@ -22,7 +22,7 @@ If your application is currently deployed on Lit networks: Cayenne, Manzano, and
 
 ### Lit SDK Version Compatibility
 
-The minimum version of the Lit SDK that supports `datil` is `6.4.0`. You can install the latest SDK version from NPM, which includes this support by default:
+The minimum version of the Lit SDK that supports `datil` is the latest `6.x.x` release. You can install the latest SDK version from NPM, which includes this support by default:
 
 <Tabs
 defaultValue="npm"
@@ -59,9 +59,10 @@ To connect to Datil, please follow the [Connecting to a Lit Network](../../../..
 
 ```ts
 import { LitNodeClient } from '@lit-protocol/lit-node-client';
+import { LitNetwork } from "@lit-protocol/constants";
 
 const litNodeClient = new LitNodeClient({
-  litNetwork: 'datil',
+  litNetwork: LitNetwork.Datil,
 });
 await litNodeClient.connect();
 ```

@@ -1,3 +1,4 @@
+import FeedbackComponent from "@site/src/pages/feedback.md";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -93,3 +94,5 @@ To connect to the new Datil networks, make the following changes:
 These changes should not break your existing implementations, assuming you've handled the migration of PKPs and encrypted data as mentioned above.
 
 If you encounter issues after migrating from an existing network to a Datil network, please reach out to us on our [Telegram](https://t.me/+aa73FAF9Vp82ZjJh) for support.
+
+<FeedbackComponent/>

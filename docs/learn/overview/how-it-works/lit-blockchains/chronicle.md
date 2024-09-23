@@ -32,7 +32,7 @@ The `tstLIT` test token serves as the gas token for transactions on Chronicle. P
 
 To obtain the `tstLIT` test token:
 
-- **Use the [Faucet](https://chronicle-yellowstone-faucet.getlit.dev/):** The `tstLIT` test token will be sent to your wallet address, allowing you to perform transactions on the rollup.
+- **Use the [Faucet](https://faucet.litprotocol.com/):** The `tstLIT` test token will be sent to your wallet address, allowing you to perform transactions on the rollup.
 
 **Note:** You must have the `tstLIT` test token in your wallet when minting a PKP, as it is used to pay the gas cost.
 

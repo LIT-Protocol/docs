@@ -83,7 +83,7 @@ Join the Lit developer community on [Discord](https://litgateway.com/discord) an
 
 Have an idea for a project or currently building one? Check out Lit's [Ecosystem RFPs](https://github.com/LIT-Protocol/Ecosystem-Ideas) and [Grant program](https://github.com/LIT-Protocol/LitGrants).
 
-Stay informed by following Lit on [X](https://x.com/LitProtocol), and by reading the Lit [blog](https://spark.litprotocol.com/) for new product announcements, integrations, ecosystem updates, and insights into cryptography and web3.
+Stay informed by following Lit on [X](https://x.com/LitProtocol), and by reading the Lit [blog](https://spark.litprotocol.com/) for new product announcements, integrations, ecosystem updates, and insights into cryptography and Web3.
 
 Subscribe to Lit's [community calendar](https://calendar.google.com/calendar/u/5?cid=Y19hMnVxZDNjaHVqZ2Q0a3FqbGlvcDdxY2JhMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t) to stay updated on sponsored events, hackathons, office hours, and other opportunities to engage with the Lit development team.
 

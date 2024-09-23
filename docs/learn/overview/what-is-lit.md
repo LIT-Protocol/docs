@@ -55,7 +55,7 @@ Lit Protocol and its ecosystem partners are driving innovation across various se
 
 ### Developer Tooling
 
-Projects like [Alchemy](https://alchemy.com/?ref=spark.litprotocol.com), [Pimlico](https://www.pimlico.io/?ref=spark.litprotocol.com), [Openfort](https://www.openfort.xyz/?ref=spark.litprotocol.com), [Lens Protocol](https://www.lens.xyz/?ref=spark.litprotocol.com), [Orbis](https://useorbis.com/?ref=spark.litprotocol.com), [Spheron](https://spheron.network/?ref=spark.litprotocol.com), and [Snowball](https://www.snowballtools.xyz/?ref=spark.litprotocol.com) leverage Lit's generalized services to provide developers with SDKs that power specific use cases such as account abstraction, private data on web3 social platforms, token-gated chat, and mobile wallet tooling.
+Projects like [Alchemy](https://alchemy.com/?ref=spark.litprotocol.com), [Pimlico](https://www.pimlico.io/?ref=spark.litprotocol.com), [Openfort](https://www.openfort.xyz/?ref=spark.litprotocol.com), [Lens Protocol](https://www.lens.xyz/?ref=spark.litprotocol.com), [Orbis](https://useorbis.com/?ref=spark.litprotocol.com), [Spheron](https://spheron.network/?ref=spark.litprotocol.com), and [Snowball](https://www.snowballtools.xyz/?ref=spark.litprotocol.com) leverage Lit's generalized services to provide developers with SDKs that power specific use cases such as account abstraction, private data on Web3 social platforms, token-gated chat, and mobile wallet tooling.
 
 ### Data Marketplaces
 

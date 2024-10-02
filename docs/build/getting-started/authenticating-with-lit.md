@@ -9,9 +9,9 @@ The Lit SDK has multiple methods for generating session signatures:
 
 - [`getSessionSigs`](../session-sigs/generating-a-session/using-auth-sig.md)
 - [`getPkpSessionSigs`](../session-sigs/generating-a-session/using-pkp.md)
-- ['getLitActionSessionSigs`](../session-sigs/generating-a-session/using-lit-action.md)
+- [`getLitActionSessionSigs`](../session-sigs/generating-a-session/using-lit-action.md)
 
-The best method to use depends on your use case. This example will use `getSessionSigs`.
+The best method to use depends on your use case.
 
 ### Storing Session Signatures
 If you're using Node.js, the session signatures will be stored wherever the `storageProvider` is configured to store them. If no `storageProvider` is provided, the session signatures will not be stored.

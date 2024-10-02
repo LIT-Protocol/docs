@@ -1,6 +1,6 @@
 # Installing the SDK
 
-This guide covers the installation of the `@lit-protocol/lit-node-client` package, which contains the core functionality of the Lit SDK. The package can be used in both browser and Node.js environments. 
+The `@lit-protocol/lit-node-client` package forms the core of the Lit SDK, providing essential functionality for both browser and Node.js environments. This page guides you through its installation process.
 
 ## Installation with npm or Yarn
 <Tabs

@@ -134,15 +134,19 @@ There are two ways to store a Lit Action. You can either write the code inline, 
 <p>
 
 ```jsx
-const _litActionCode = async () => {
-  if (magicNumber >= 42) {
-      LitActions.setResponse({ response:"The number is greater than or equal to 42!" });
-  } else {
-      LitActions.setResponse({ response: "The number is less than 42!" });
-  }
-}
+//@ts-nocheck
 
-const litActionCode = `(${_litActionCode.toString()})();`;
+const _litActionCode = async () => {
+  try {
+    const provider = new ethers.providers.JsonRpcProvider("https://ethereum.blockpi.network/v1/rpc/public");
+    const blockNumber = await provider.getBlockNumber();
+    LitActions.setResponse({ response: "Blocknumber: " + blockNumber });
+  } catch (error) {
+    LitActions.setResponse({ response: error.message });
+  }
+};
+
+export const litActionCode = `(${_litActionCode.toString()})();`;
 ```
 
 </p>
@@ -152,9 +156,13 @@ const litActionCode = `(${_litActionCode.toString()})();`;
 
 To execute the Lit Action, we use the `executeJs` function. You'll need to pass in the `sessionSigs` and `code` parameters. The `jsParams` parameter is optional, and can be used to pass in parameters to the Lit Action. 
 
-If you'd like to use the IPFS method mentioned previously, you would instead use `ipfsId` instead of `code: litActionCode`, and the `ipfsId` would be the IPFS CID of the Lit Action code.
+When this function is called, each Lit node will receive the request to execute the Lit Action. After each node has retrieved the latest Ethereum block number, they will compare the result to reach consensus before returning the response.
 
 More details on the `executeJs` method can be found [here](https://v6-api-doc-lit-js-sdk.vercel.app/interfaces/types_src.JsonExecutionSdkParams.html).
+
+:::info
+If you'd like to use the IPFS method mentioned previously, you would instead use `ipfsId` instead of `code: litActionCode`, and the `ipfsId` would be the IPFS CID of the Lit Action code.
+:::
 
 <details>
 <summary>Click here to see how this is done</summary>
@@ -162,14 +170,19 @@ More details on the `executeJs` method can be found [here](https://v6-api-doc-li
 
 ```ts
 const response = await litNodeClient.executeJs({
-  sessionSigs: sessionSignatures,
-  code: litActionCode,
-  jsParams: {
-    magicNumber: 43,
-  }
+    sessionSigs,
+    code: litActionCode,
 });
 ```
-
+Response:
+{
+  success: true,
+  signedData: {},
+  decryptedData: {},
+  claimData: {},
+  response: 'Blocknumber: 20879532',
+  logs: undefined
+}
 </p>
 </details>
 

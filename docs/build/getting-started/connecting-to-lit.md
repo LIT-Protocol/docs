@@ -16,9 +16,9 @@ const litNodeClient = new LitNodeClient({
 await litNodeClient.connect();
 ```
 
-### The `LitNetwork` Constant
+### `LitNetwork` Constant
 
-The `LitNetwork` constant contains the past and current Lit networks. Imported from the `@lit-protocol/constants` package, it can be used to initialize a `LitNodeClient` instance. The `LitNetwork` constant is an enum; the current networks in the enum can be found [here](https://v6-api-doc-lit-js-sdk.vercel.app/enums/constants_src.LitNetwork.html).
+The `LitNetwork` constant contains the past and present Lit networks. The constant is imported from the `@lit-protocol/constants` package. The current networks in the constant can be found [here](https://v6-api-doc-lit-js-sdk.vercel.app/enums/constants_src.LitNetwork.html).
 
 ### `LitNodeClient` Flags
 

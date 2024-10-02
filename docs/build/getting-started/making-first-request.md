@@ -2,7 +2,7 @@
 
 ## Start Here
 
-This guide will walk you through the process of creating and executing your first Lit Action. The steps include connecting to the Lit network, writing and deploying your Lit Action code, and finally executing the Lit Action. You can use the provided code snippets to execute this on your own machine.
+This guide will walk you through the process of creating and executing your first Lit Action. The configuration includes: connecting to the Lit network, writing and deploying your Lit Action code, and finally executing the Lit Action. You can use the provided code snippets to execute this on your own machine.
 
 This guide uses Lit's [Datil-dev Network](../../learn/overview/how-it-works/lit-networks/testnets.md) which is designed for application developers aiming to get familiar with the Lit SDK. Payment is not required on this network, and therefore the code is less complex. For those aiming to build production-ready applications, the [Datil-test Network](../../learn/overview/how-it-works/lit-networks/testnets.md) is recommended. Once ready, these applications can then be deployed on [Datil](../../learn/overview/how-it-works/lit-networks/mainnets.md), the Lit production network.
 
@@ -77,8 +77,7 @@ const ethersWallet = new ethers.Wallet(
 
 ### Generating Session Signatures
 
-Session signatures are used to authenticate and maintain an active connection to the nodes in the Lit network. They are required when executing a Lit Action or any other functionality (i.e. signing) with Lit. There is more than one way to generate session signatures, and that those methods can be found on their dedicated pages in the [Session Signatures](../authentication/session-sigs/intro) section.
-
+Session Signatures are used to authenticate and maintain an active connection to the nodes in the Lit network. They are required when executing a Lit Action or any other functionality (i.e. signing) with Lit. An introduction to Session Signatrues and authenticating with the Lit network can be found [here](./authenticating-with-lit.md).
 <details>
 <summary>Click here to see how this is done</summary>
 <p>
@@ -121,7 +120,6 @@ const sessionSignatures = await litNodeClient.getSessionSigs({
   },
 });
 ```
-
 </p>
 </details>
 
@@ -129,6 +127,7 @@ const sessionSignatures = await litNodeClient.getSessionSigs({
 
 There are two ways to store a Lit Action. You can either write the code inline, or you can use IPFS to store the code. In this example, we'll use the inline method.
 
+This Lit Action will simply return the current block number of the Ethereum network.
 <details>
 <summary>Click here to see how this is done</summary>
 <p>
@@ -154,7 +153,7 @@ export const litActionCode = `(${_litActionCode.toString()})();`;
 
 ## Executing the Lit Action
 
-To execute the Lit Action, we use the `executeJs` function. You'll need to pass in the `sessionSigs` and `code` parameters. The `jsParams` parameter is optional, and can be used to pass in parameters to the Lit Action. 
+To execute the Lit Action, we use the `executeJs` function. You'll need to pass in the `sessionSigs` and `code` parameters. There is an optional `jsParams` parameter, and it can be used to pass in parameters to the Lit Action. 
 
 When this function is called, each Lit node will receive the request to execute the Lit Action. After each node has retrieved the latest Ethereum block number, they will compare the result to reach consensus before returning the response.
 
@@ -174,7 +173,10 @@ const response = await litNodeClient.executeJs({
     code: litActionCode,
 });
 ```
+
 Response:
+
+```json
 {
   success: true,
   signedData: {},
@@ -183,12 +185,13 @@ Response:
   response: 'Blocknumber: 20879532',
   logs: undefined
 }
+```
 </p>
 </details>
 
 # Learn More
 
-By now you should have successfully written and executed a Lit Action. If you’d like to learn more about what’s possible with Lit Actions, check out the [Advanced Topics](https://developer.litprotocol.com/category/advanced-topics-1) section.
+By now you should have successfully written and executed a Lit Action. If you’d like to learn more about what’s possible with Lit Actions, check out the [Advanced Topics](link TBD) section.
 
 <FeedbackComponent/>
 

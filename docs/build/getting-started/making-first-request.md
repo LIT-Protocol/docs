@@ -1,7 +1,5 @@
 # Making Your First Request
 
-## Start Here
-
 This guide will walk you through the process of creating and executing your first Lit Action. The configuration includes: connecting to the Lit network, writing and deploying your Lit Action code, and finally executing the Lit Action. You can use the provided code snippets to execute this on your own machine.
 
 This guide uses Lit's [Datil-dev Network](../../learn/overview/how-it-works/lit-networks/testnets.md) which is designed for application developers aiming to get familiar with the Lit SDK. Payment is not required on this network, and therefore the code is less complex. For those aiming to build production-ready applications, the [Datil-test Network](../../learn/overview/how-it-works/lit-networks/testnets.md) is recommended. Once ready, these applications can then be deployed on [Datil](../../learn/overview/how-it-works/lit-networks/mainnets.md), the Lit production network.
@@ -123,7 +121,7 @@ const sessionSignatures = await litNodeClient.getSessionSigs({
 </p>
 </details>
 
-## Storing the Lit Action
+### Storing the Lit Action
 
 There are two ways to store a Lit Action. You can either write the code inline, or you can use IPFS to store the code. In this example, we'll use the inline method.
 
@@ -151,7 +149,7 @@ export const litActionCode = `(${_litActionCode.toString()})();`;
 </p>
 </details>
 
-## Executing the Lit Action
+### Executing the Lit Action
 
 To execute the Lit Action, we use the `executeJs` function. You'll need to pass in the `sessionSigs` and `code` parameters. There is an optional `jsParams` parameter, and it can be used to pass in parameters to the Lit Action. 
 

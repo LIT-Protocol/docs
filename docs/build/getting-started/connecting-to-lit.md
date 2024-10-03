@@ -2,7 +2,7 @@
 
 The `LitNodeClient` is used to connect your session to the Lit network. After initializing a `LitNodeClient` instance, you can use the `connect()` method to establish a connection.
 
-When initializing a `LitNodeClient` instance, you must provide a `LitNetwork` instance.
+When initializing a `LitNodeClient` instance, you must provide a `litNetwork`.
 
 ```tsx
 import { LitNodeClient } from '@lit-protocol/lit-node-client';

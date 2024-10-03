@@ -1,6 +1,8 @@
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
+
 # Installing the SDK
 
-The `@lit-protocol/lit-node-client` package forms the core of the Lit SDK, providing essential functionality for both browser and Node.js environments. This page guides you through its installation process.
+The `@lit-protocol/lit-node-client` package forms the core of the Lit SDK, providing essential functionality for both Node.js and browser environments. This page guides you through its installation process.
 
 ## Installation with npm or Yarn
 <Tabs

@@ -1,6 +1,10 @@
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
+
 # Making Your First Request
 
 This guide will walk you through the process of creating and executing your first Lit Action. The configuration includes: connecting to the Lit network, writing and deploying your Lit Action code, and finally executing the Lit Action. You can use the provided code snippets to execute this on your own machine.
+
+Lit Actions are decentralized computing on the Lit network. If you're unfamiliar with Lit Actions, you can find more information [here](../../learn/lit-actions/overview.md).
 
 This guide uses Lit's [Datil-dev Network](../../learn/overview/how-it-works/lit-networks/testnets.md) which is designed for application developers aiming to get familiar with the Lit SDK. Payment is not required on this network, and therefore the code is less complex. For those aiming to build production-ready applications, the [Datil-test Network](../../learn/overview/how-it-works/lit-networks/testnets.md) is recommended. Once ready, these applications can then be deployed on [Datil](../../learn/overview/how-it-works/lit-networks/mainnets.md), the Lit production network.
 
@@ -151,9 +155,9 @@ export const litActionCode = `(${_litActionCode.toString()})();`;
 
 ### Executing the Lit Action
 
-To execute the Lit Action, we use the `executeJs` function. You'll need to pass in the `sessionSigs` and `code` parameters. There is an optional `jsParams` parameter, and it can be used to pass in parameters to the Lit Action. 
+To execute the Lit Action, we use the `executeJs` method. You'll need to pass in the `sessionSigs` and `code` parameters. The `jsParams` parameter is optional, and can be used to pass parameters to the Lit Action. 
 
-When this function is called, each Lit node will receive the request to execute the Lit Action. After each node has retrieved the latest Ethereum block number, they will compare the result to reach consensus before returning the response.
+When this function is called, each Lit node will receive the request to execute the Lit Action. After each node has retrieved the latest Ethereum block number, they will internally compare the result and reach consensus before returning the response.
 
 More details on the `executeJs` method can be found [here](https://v6-api-doc-lit-js-sdk.vercel.app/interfaces/types_src.JsonExecutionSdkParams.html).
 

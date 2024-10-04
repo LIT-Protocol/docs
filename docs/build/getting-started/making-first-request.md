@@ -2,8 +2,6 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 # Making Your First Request
 
-## Start Here
-
 This guide will walk you through the process of creating and executing your first Lit Action. The configuration includes: connecting to the Lit network, writing and deploying your Lit Action code, and finally executing the Lit Action. You can use the provided code snippets to execute this on your own machine.
 
 Lit Actions are decentralized computing on the Lit network. If you're unfamiliar with Lit Actions, you can find more information [here](../../learn/lit-actions/overview.md).

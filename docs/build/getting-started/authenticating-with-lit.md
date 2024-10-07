@@ -1,8 +1,8 @@
 # Authenticating with Lit
-After connecting, sending requests to the Lit network requires authentication. This authentication is necessary to ensure that the Lit network can identify your session and only grant you access to the resources you're authorized to access.
+In order to send transactions on Lit, you need to authenticate with the Lit nodes. The authentication process allows you to establish an active session and ensures that you have access to the capabilities relevant to your specific use case.
 
 ## Session Signatures
-Lit uses Session Signatures to authenticate your session. A detailed description of Session Signatures can be found [here](../session-sigs/overview.md).
+Authentication is handled via Session Signatures. Session Signatures allow you to use a specific Lit "Ability" (i.e. signing a transaction) with a particular Lit "Resource" (i.e. a Programmable Key Pair). You can find a detailed explanation [here](../session-sigs/overview.md).
 
 ### Generating Session Signatures
 The Lit SDK has multiple methods for generating Session Signatures:

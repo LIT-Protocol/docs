@@ -1,1 +1,57 @@
 # Connecting to Lit
+
+The `LitNodeClient` is used to connect your session to the Lit network. After initializing a `LitNodeClient` instance, you can use the `connect()` method to establish a connection.
+
+When initializing a `LitNodeClient` instance, you must provide a `litNetwork`.
+
+```tsx
+import { LitNodeClient } from '@lit-protocol/lit-node-client';
+import { LitNetwork } from '@lit-protocol/constants';
+
+const litNodeClient = new LitNodeClient({
+  litNetwork: LitNetwork.DatilDev,
+  debug: false,
+});
+
+await litNodeClient.connect();
+```
+
+### `LitNetwork` Constant
+
+The `LitNetwork` constant contains the past and present Lit networks. The constant is imported from the `@lit-protocol/constants` package. The current networks in the constant can be found [here](https://v6-api-doc-lit-js-sdk.vercel.app/enums/constants_src.LitNetwork.html).
+
+### `LitNodeClient` Flags
+
+You have the option to pass flags to the `LitNodeClient` instance. These flags are used to configure the Lit network connection. You can find a complete list of flags in the [LitNodeClient Config](https://v6-api-doc-lit-js-sdk.vercel.app/interfaces/types_src.LitNodeClientConfig.html). This example will show you the most common flags: `debug` and `storageProvider`.
+
+#### `debug`
+
+The `debug` flag is used to enable or disable debug logging. When enabled, debug logs will be written to the console. This flag will only provide debug logs when executing in a Node.js environment. In a browser environment, the `debug` flag will be ignored.
+
+#### `storageProvider`
+
+The `storageProvider` flag is used to configure the storage provider used by the Lit network. When provided, the session keypair will be stored in the provided storage.
+
+If not provided, a new session keypair will be generated each time the `LitNodeClient` is initialized.
+
+In a browser environment, the `storageProvider` flag will be ignored. The session keypair will be stored in the browser's local storage. To clear the cached session keypair, you can use the `disconnectWeb3()` function.
+
+### Disconnecting from the Lit Network
+
+To disconnect from the Lit network, you can use the `disconnect()` method. This detaches Lit's listeners for contract changes and stops network polling.
+
+### Additional Support
+
+If you encounter any issues, providing the Lit team with your request ID can help us resolve the problem faster.
+
+In a Node.js environment, the request ID will be logged to the console when an error occurs. If this is not the case, you can enable debug logging by setting the `debug` flag to `true` in the `LitNodeClient` instance; the request ID will then be logged to the console.
+
+In a browser environment, the request ID will be logged to the console when an error occurs. If not, you can find the error in the **Network** tab of your browser's developer tools; scrolling to the bottom of the page will show the request ID.
+
+### API Reference
+
+To learn more about `LitNodeClient` properties and methods, visit the [API Reference Docs](https://v6-api-doc-lit-js-sdk.vercel.app/classes/core_src.LitCore.html).
+
+### Code Example
+
+A short code example of connecting to the Lit network with a `LitNodeClient` instance can be found in our developer guides repo [here](https://github.com/LIT-Protocol/developer-guides-code/tree/master/starter-guides). There are examples for both Node.js and the browser.

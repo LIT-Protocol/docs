@@ -4,17 +4,27 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 This guide will walk you through the process of encrypting and decrypting data with Lit. 
 
-The configuration includes: connecting to the Lit network, defining access control conditions, encrypting your data, and finally decrypting your data. You can use the provided code snippets to execute this on your own machine.
+We will cover: 
 
-Lit encrypts your data and enforce who is allowed to decrypt it, but storing the ciphertext and metadata is up to you, whether this be the IPFS, Arweave, or a centralized database.
+- Connecting to the Lit network
+- Defining Access Control Conditions (ACCs)
+- Encrypting your data
+- Decrypting your data
 
-This guide uses Lit's [Datil-dev Network](../../learn/overview/how-it-works/lit-networks/testnets.md) which is designed for application developers aiming to get familiar with the Lit SDK. Payment is not required on this network, and therefore the code is less complex. For those aiming to build production-ready applications, the [Datil-test Network](../../learn/overview/how-it-works/lit-networks/testnets.md) is recommended. Once ready, these applications can then be deployed on [Datil](../../learn/overview/how-it-works/lit-networks/mainnets.md), the Lit production network.
+You can use the provided code snippets to execute this code on your own machine.
 
-For developers looking to explore beyond the basics, check out our advanced examples of encryption [here](Link TBD).
+This guide uses Lit's [Datil-dev Network](../../learn/overview/how-it-works/lit-networks/testnets.md), a free test network designed for developers to familiarize themselves with the Lit SDK. Since no payment is required, the code is less complex. For building production-ready applications, the [Datil-test Network](../../learn/overview/how-it-works/lit-networks/testnets.md) is recommended. Once your application is ready for deployment, you can move it to [Datil](../../learn/overview/how-it-works/lit-networks/mainnets.md), the Lit production network.
+
+For developers looking to explore beyond the basics, you can learn more about Lit's encryption capabilities [here](../encryption/overview.md).
 
 ## Installing the Lit SDK
 
-To get started with Encryption and the Lit SDK, you'll need to install these packages:
+To start encrypting with the Lit SDK, you'll need to install these packages:
+
+- `@lit-protocol/lit-node-client`: The core Lit SDK package.
+- `@lit-protocol/constants`: A package containing useful constants across the SDK.
+- `@lit-protocol/auth-helpers`: A package containing useful functions for generating Session Signatures and authentication.
+- `ethers@v5`: A package for interacting with Ethereum, required for wallet operations.
 
 <Tabs
 defaultValue="npm"
@@ -51,9 +61,9 @@ If you're just getting started with Lit or development in general, we recommend 
 
 ### Connecting to the Lit Network
 
-Encrypting and decrypting with Lit requires an active connection to the Lit network. This can be done by initializing a [LitNodeClient](./connecting-to-lit.md) instance, which will establish a connection to the Lit nodes.
+Encrypting and decrypting with Lit requires an active connection to the Lit network. This is achieved by initializing a [LitNodeClient](./connecting-to-lit.md) instance, which connects to Lit nodes.
 
-We will also be initializing an Ethereum wallet using the `ETHEREUM_PRIVATE_KEY` environment variable, which is required for generating session signatures in this example.
+Additionally, we'll initialize an Ethereum wallet using the `ETHEREUM_PRIVATE_KEY` environment variable. This wallet is essential for generating session signatures, which authenticate your requests with the Lit network.
 
 <details>
 <summary>Click here to see how this is done</summary>
@@ -81,9 +91,7 @@ const ethersWallet = new ethers.Wallet(
 
 ### Defining Access Control Conditions
 
-Access Control Conditions are used to define who is allowed to decrypt the data. Once the specified conditions are met, the decryption will be successful. More on Access Control Conditions (ACCs) can be found [here](link TBD).
-
-The ACCs in this example will do a comparison of the Ethereum address of the wallet trying to decrypt the data, and the address specified in the ACC. If the two match, the decryption will be successful.
+Access Control Conditions (ACCs) define the rules for who can decrypt your data. In this example, the ACC specifies that only a user with a particular Ethereum address can decrypt the data. If the address of the decrypting wallet matches the one in the ACC, decryption proceeds successfully. You can learn more about ACCs [here](../access-control/overview.md).
 
 <details>
 <summary>Click here to see how this is done</summary>
@@ -109,10 +117,12 @@ const accessControlConditions = [
 </details>
 
 ### Encrypting Data
+The Lit SDK offers several methods for encrypting data, which you can explore [here](https://v6-api-doc-lit-js-sdk.vercel.app/modules/encryption_src.html). In this example, we'll use the `encryptString` method.
 
-The Lit SDK has many methods for encrypting data, which you can find [here](https://v6-api-doc-lit-js-sdk.vercel.app/modules/encryption_src.html). In this example, we'll use the `encryptString` method.
+We start by defining the string we want to encrypt, stored in the `data` variable. Using the `encryptString` method, we encrypt the data by providing the `accessControlConditions` and `dataToEncrypt` as parameters. This method returns an object containing:
 
-We first defined the string we want to encrypt, stored as the `toEncrypt` variable. We then used the `encryptString` method to encrypt the data, taking the `accessControlConditions` and `dataToEncrypt` as parameters. The `encryptString` method returns an object containing the `ciphertext` and `dataToEncryptHash`. The `dataToEncryptHash` is the hash of the encrypted data, and can be used to verify the integrity of the data. The `ciphertext` is the encrypted data itself.
+- `ciphertext`: The encrypted data.
+- `dataToEncryptHash`: A hash of the original data before encryption, used to verify data integrity.
 
 <details>
 <summary> Click here to see how this is done</summary>
@@ -130,14 +140,15 @@ const { ciphertext, dataToEncryptHash } = await encryptString(
 );
 ```
 
-<p>
+</p>
 </details>
 
 ### Generating Session Signatures
 
-Session Signatures are used to authenticate and maintain an active connection to the nodes in the Lit network. They are required when performing decryption or any other functionality (i.e. signing) with Lit. An introduction to Session Signatrues and authenticating with the Lit network can be found [here](./authenticating-with-lit.md).
+Session Signatures authenticate your interactions with the Lit network and are essential for decryption and other functionalities like signing. They prove your identity and permissions without repeatedly requiring your private key. You can learn more about Session Signatures and authentication [here](./authenticating-with-lit.md).
 
-In this case, we can use the `generateResourceString` method to generate the resource string for our encrypted data. This method restricts the decryption permissions of the session, allowing it to only decrypt the data if the ACCs and `dataToEncryptHash` match.
+In this step, we'll generate Session Signatures that grants permission to decrypt our specific piece of data. We use the `generateResourceString` method to create a unique resource identifier based on our ACCs and the `dataToEncryptHash`. This ensures the session can only decrypt data that matches these parameters.
+
 <details>
 <summary>Click here to see how this is done</summary>
 <p>
@@ -189,8 +200,7 @@ const sessionSigs = await litNodeClient.getSessionSigs({
 </details>
 
 ### Decrypting Data
-
-Now that we have the Session Signatures, we can use the `decryptToString` method to decrypt the data. Like encryption, the Lit SDK has many methods for decrypting data, which you can find [here](https://v6-api-doc-lit-js-sdk.vercel.app/modules/encryption_src.html).
+With the Session Signatures in place, we can proceed to decrypt the data using the `decryptToString` method. This method sends a decryption request to the Lit network, which verifies your permissions based on the ACCs and Session Signature. If all conditions are met, the data is decrypted and returned as a string. You can explore other decryption methods [here](https://v6-api-doc-lit-js-sdk.vercel.app/modules/encryption_src.html).
 
 <details>
 <summary> Click here to see how this is done</summary>
@@ -210,12 +220,15 @@ const decryptionResult = await decryptToString(
 ```
 
 </p>
+</details>
 
-Our `decryptionResult` will be the decrypted data, which in this case is the string we defined earlier: `The answer to the universe is 41.`
+Our `decryptionResult` will be the decrypted data, which in this case is the string we defined earlier:
+
+ `The answer to the universe is 41.`
 
 # Learn More
 
-By now you should have successfully encrypted and decrypted data with Lit. If you’d like to learn more about what’s possible with Lit's encryption and more specialized Access Control Conditions, check out the [Advanced Topics](link TBD) section.
+By now you should have successfully encrypted and decrypted data with Lit. If you’d like to learn more about what’s possible with Lit's encryption and more specialized Access Control Conditions, visit the [Encryption](../encryption/overview.md) and [Access Control](../access-control/overview.md) sections.
 
 <FeedbackComponent/>
 

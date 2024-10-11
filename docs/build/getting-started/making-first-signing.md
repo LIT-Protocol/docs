@@ -2,19 +2,27 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 # Making Your First Signing Request
 
-This guide will walk you through one method of performing Programmable Key Pair (PKP) signing with Lit.
+This guide will walk you through one method of performing Programmable Key Pair (PKP) signing with Lit. PKPs are programmable key pairs that can be used to sign data. They are typically used with [Lit Actions](../lit-actions/overview.md) while executing code on the Lit network, but they can also be used standalone.
 
-The configuration includes: connecting to the Lit network, minting a PKP owned by an Ethereum wallet, and finally signing a message with the PKP.
+We will cover:
 
-PKPs are programmable key pairs that can be used to sign data. They are typically used with [Lit Actions](../lit-actions/overview.md) while executing code on the Lit network, but they can also be used standalone.
+- Connecting to the Lit network
+- Minting a PKP owned by an Ethereum wallet
+- Signing a message with the PKP
 
-This guide uses Lit's [Datil-dev Network](../../learn/overview/how-it-works/lit-networks/testnets.md) which is designed for application developers aiming to get familiar with the Lit SDK. Payment is not required on this network, and therefore the code is less complex. For those aiming to build production-ready applications, the [Datil-test Network](../../learn/overview/how-it-works/lit-networks/testnets.md) is recommended. Once ready, these applications can then be deployed on [Datil](../../learn/overview/how-it-works/lit-networks/mainnets.md), the Lit production network.
+This guide uses Lit's [Datil-dev Network](../../learn/overview/how-it-works/lit-networks/testnets.md), a free test network designed for developers to familiarize themselves with the Lit SDK. Since no payment is required, the code is less complex. For building production-ready applications, the [Datil-test Network](../../learn/overview/how-it-works/lit-networks/testnets.md) is recommended. Once your application is ready for deployment, you can move it to [Datil](../../learn/overview/how-it-works/lit-networks/mainnets.md), the Lit production network.
 
 For developers looking to explore beyond the basics, check out our PKPs section [here](../pkps/overview.md) for more advanced examples of PKP usage.
 
 ## Installing the Lit SDK
 
-To get started with PKP signing and the Lit SDK, you'll need to install these packages:
+To start PKP signing with theLit SDK, you'll need to install these packages:
+
+- `@lit-protocol/lit-node-client`: The core Lit SDK package.
+- `@lit-protocol/constants`: A package containing useful constants across the SDK.
+- `@lit-protocol/auth-helpers`: A package containing useful functions for generating Session Signatures and authentication.
+- `@lit-protocol/contracts-sdk`: A package containing useful functions for interacting with the Chronicle Yellowstone blockchain.
+- `ethers@v5`: A package for interacting with Ethereum, required for wallet operations.
 
 <Tabs
 defaultValue="npm"
@@ -53,9 +61,13 @@ If you're just getting started with Lit or development in general, we recommend 
 
 ### Connecting to the Lit Network
 
-Signing with Lit requires an active connection to the Lit network. This can be done by initializing a [LitNodeClient](./connecting-to-lit.md) instance, which will establish a connection to the Lit nodes.
+Signing with Lit requires an active connection to the Lit network. You can establish this connection by initializing a [LitNodeClient](./connecting-to-lit.md) instance.
 
-We will also be initializing an Ethereum wallet using the `ETHEREUM_PRIVATE_KEY` environment variable, which is required for generating session signatures and minting the PKP in this example.
+Additionally, we'll initialize an Ethereum wallet using the `ETHEREUM_PRIVATE_KEY` environment variable. This wallet is essential for:
+
+- Generating Session Signatures, which authenticate your requests with the Lit network.
+- Minting the PKP, as it allows us to pay the minting fee on the blockchain.
+
 <details>
 <summary>Click here to see how this is done</summary>
 <p>
@@ -82,7 +94,7 @@ const ethersWallet = new ethers.Wallet(
 
 ### Minting a PKP
 
-We will perform the signing using a PKP in this example. To mint the PKP, we will use use the `LitContracts` class, which is used to interact with the [Chronicle Yellowstone](../../learn/overview/how-it-works/lit-blockchains/chronicle-yellowstone.md) blockchain. Setting the `signer` to the wallet we initialized earlier will allow us to pay the PKP minting fee.
+We'll perform the signing using a PKP. A PKP is a programmable key pair that enables secure signing operations on the Lit network. To mint the PKP, we'll use the `LitContracts` class, which interacts with the [Chronicle Yellowstone](../../learn/overview/how-it-works/lit-blockchains/chronicle-yellowstone.md) blockchain—Lit's custom EVM rollup. By setting the `signer` to the wallet we initialized earlier, we can pay the PKP minting fee.
 
 <details>
 <summary>Click here to see how this is done</summary>
@@ -106,9 +118,15 @@ const pkp = (await litContracts.pkpNftContractUtils.write.mint()).pkp;
 
 ### Generating Session Signatures
 
-Session Signatures are used to authenticate and maintain an active connection to the nodes in the Lit network. They are required when performing PKP signing or any other functionality (i.e. decryption) with Lit. An introduction to Session Signatrues and authenticating with the Lit network can be found [here](./authenticating-with-lit.md).
+Session Signatures authenticate your interactions with the Lit network and are essential for PKP signing and other functionalities like decryption. They allow you to prove your identity and permissions without exposing your private key. You can learn more about Session Signatures and authentication [here](./authenticating-with-lit.md).
 
-In this case, we enable our session to sign with PKPs, and specify that it can only use the PKP we just minted. We also enable the Lit Action Execution resource, which allows us to execute Lit Actions because the `pkpSign` method we will be using requires it.
+In this step, we'll generate Session Signatures that grant permission to:
+
+- Sign with PKPs: We specify that the session can only use the PKP we just minted by including its token ID in the resource ability requests.
+- Execute Lit Actions: We enable the Lit Action Execution resource because the `pkpSign` method requires permission to execute Lit Actions.
+
+These permissions ensure that the session can only perform specific actions with defined resources, enhancing security.
+
 <details>
 <summary>Click here to see how this is done</summary>
 <p>
@@ -161,7 +179,9 @@ const sessionSigs = await litNodeClient.getSessionSigs({
 
 ### Signing Data
 
-Now that we have the Session Signatures, we can use the `pkpSign` method to sign the data using our PKP. If you'd like to see the `pkpSign` parameters, you can find them [here](https://v6-api-doc-lit-js-sdk.vercel.app/classes/lit_node_client_src.LitNodeClientNodeJs.html#pkpSign).
+With the Session Signatures in place, we can use the `pkpSign` method to sign our data using the PKP. In this example, we're signing the hash of the message **"The answer to the universe is 41."**.
+
+If you'd like to see the `pkpSign` method's parameters, you can find them [here](https://v6-api-doc-lit-js-sdk.vercel.app/classes/lit_node_client_src.LitNodeClientNodeJs.html#pkpSign).
 
 <details>
 <summary> Click here to see how this is done</summary>
@@ -183,7 +203,8 @@ Our `signingResult` will appear as an ECDSA signature:
 <details>
 <summary> Click here to see the signature</summary>
 <p>
-```json
+
+```ts
 {
   r: '2755ed0cc55452c5c1ba75cad13167c537a44a6cd0fdb9da3e48a05bf8de3c5d',
   s: '3458584d1524f9d52aef1ec97386f1914fcf948f2b63c8fd8406dec38be0744f',
@@ -198,7 +219,7 @@ Our `signingResult` will appear as an ECDSA signature:
 
 # Learn More
 
-By now you should have successfully signed data with Lit. If you’d like to learn more about what’s possible with Lit's PKP signing, check out the [Advanced Topics](link TBD) section.
+By now you should have successfully signed data using a Lit PKP. If you’d like to learn more about what’s possible with Lit's PKP signing, visit the [Programmable Key Pairs](../pkps/overview.md) section.
 
 <FeedbackComponent/>
 

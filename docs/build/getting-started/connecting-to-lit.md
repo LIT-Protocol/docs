@@ -43,17 +43,17 @@ import { disconnectWeb3 } from "@lit-protocol/auth-browser";
 
 let litNodeClient;
 try {
-    litNodeClient = new LitNodeClient({
-        litNetwork: LitNetwork.DatilDev,
-        debug: false,
-    });
+  litNodeClient = new LitNodeClient({
+      litNetwork: LitNetwork.DatilDev,
+      debug: false,
+  });
 
-    await litNodeClient.connect();
+  await litNodeClient.connect();
 } catch (error) {
   // handle errors
 } finally {
-    disconnectWeb3();
-    litNodeClient.disconnect();
+  disconnectWeb3();
+  litNodeClient.disconnect();
 }
 
 ### Disconnecting from the Lit Network

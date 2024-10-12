@@ -34,7 +34,27 @@ The `storageProvider` flag is used to configure the storage provider used by the
 
 If not provided, a new session keypair will be generated each time the `LitNodeClient` is initialized.
 
-In a browser environment, the `storageProvider` flag will be ignored. The session keypair will be stored in the browser's local storage. To clear the cached session keypair, you can use the `disconnectWeb3()` function.
+In a browser environment, the `storageProvider` flag will be ignored, and the session keypair will be stored in the browser's local storage. To clear the cached session keypair, you can use the `disconnectWeb3` function (imported from the `@lit-protocol/auth-browser` package) like so:
+
+```ts
+import { LitNodeClient } from '@lit-protocol/lit-node-client';
+import { LitNetwork } from '@lit-protocol/constants';
+import { disconnectWeb3 } from "@lit-protocol/auth-browser";
+
+let litNodeClient;
+try {
+    litNodeClient = new LitNodeClient({
+        litNetwork: LitNetwork.DatilDev,
+        debug: false,
+    });
+
+    await litNodeClient.connect();
+} catch (error) {
+  // handle errors
+} finally {
+    disconnectWeb3();
+    litNodeClient.disconnect();
+}
 
 ### Disconnecting from the Lit Network
 

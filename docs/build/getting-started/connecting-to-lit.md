@@ -85,7 +85,7 @@ The following is an example of a response to a request made using `LitNodeClient
 
 ![Lit Node Client Browser Request](../../../static/build/getting-started/browser-request-id.png)
 
-`lit_066cca7a587ce` is the Lit request ID that you should provide to the Lit team when making a support request.
+`lit_62db9cad45377` is the Lit request ID that you should provide to the Lit team when making a support request.
 
 ### API Reference
 

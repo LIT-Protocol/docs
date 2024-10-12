@@ -55,6 +55,7 @@ try {
   disconnectWeb3();
   litNodeClient.disconnect();
 }
+```
 
 ### Disconnecting from the Lit Network
 

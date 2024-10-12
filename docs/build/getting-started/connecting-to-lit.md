@@ -63,11 +63,29 @@ To disconnect from the Lit network, you can use the `disconnect()` method. This 
 
 ### Additional Support
 
-If you encounter any issues, providing the Lit team with your request ID can help us resolve the problem faster.
+If you encounter any issues, providing the Lit team with your Lit request ID can help us resolve the problem faster.
+
+#### Node.js Environment
 
 In a Node.js environment, the request ID will be logged to the console when an error occurs. If this is not the case, you can enable debug logging by setting the `debug` flag to `true` in the `LitNodeClient` instance; the request ID will then be logged to the console.
 
+The following is an example log from `LitNodeClient` when `debug` was set to `true`:
+
+```
+[Lit-JS-SDK v6.8.1] [2024-10-12T02:45:37.100Z] [DEBUG] [core] [id: a1eefc564ff6b] executeJs responseData from node
+```
+
+`[id: a1eefc564ff6b]` is the Lit request ID that you should provide to the Lit team when making a support request.
+
+#### Browser Environment
+
 In a browser environment, the request ID will be logged to the console when an error occurs. If not, you can find the error in the **Network** tab of your browser's developer tools; scrolling to the bottom of the page will show the request ID.
+
+The following is an example of a response to a request made using `LitNodeClient` in the browser:
+
+![Lit Node Client Browser Request](../../../static/build/getting-started/browser-request-id.png)
+
+`lit_066cca7a587ce` is the Lit request ID that you should provide to the Lit team when making a support request.
 
 ### API Reference
 

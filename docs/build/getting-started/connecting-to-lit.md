@@ -22,7 +22,7 @@ The `LitNetwork` constant contains the past and present Lit networks. The consta
 
 ### `LitNodeClient` Flags
 
-You have the option to pass flags to the `LitNodeClient` instance. These flags are used to configure the Lit network connection. You can find a complete list of flags in the [LitNodeClient Config](https://v6-api-doc-lit-js-sdk.vercel.app/interfaces/types_src.LitNodeClientConfig.html). This example will show you the most common flags: `debug` and `storageProvider`.
+You have the option to pass flags to the `LitNodeClient` instance. These flags are used to configure the Lit network connection. You can find a complete list of flags in the [LitNodeClient Config](https://v6-api-doc-lit-js-sdk.vercel.app/interfaces/types_src.LitNodeClientConfig.html). In this guide we will cover the most common flags: `debug` and `storageProvider`.
 
 #### `debug`
 

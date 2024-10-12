@@ -52,14 +52,15 @@ try {
 } catch (error) {
   // handle errors
 } finally {
-  disconnectWeb3();
-  litNodeClient.disconnect();
+  disconnectWeb3(); // <--- When this function call is executed,
+                    // the session keypair will be deleted from the browser's local storage
+  litNodeClient.disconnect(); // <--- Here we disconnect from the Lit network
 }
 ```
 
 ### Disconnecting from the Lit Network
 
-To disconnect from the Lit network, you can use the `disconnect()` method. This detaches Lit's listeners for contract changes and stops network polling.
+To disconnect from the Lit network, you can use the `disconnect()` method on the `LitNodeClient` instance (as shown in the example above). This detaches Lit's listeners for contract changes and stops network polling.
 
 ### Additional Support
 

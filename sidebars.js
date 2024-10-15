@@ -223,8 +223,9 @@ const sidebars = {
       items: [
         'build/getting-started/installing-sdk',
         'build/getting-started/connecting-to-lit',
-        'build/getting-started/authenticating-with-lit',
-        'build/getting-started/making-first-request',
+        'build/getting-started/generating-session-sigs',
+        'build/getting-started/making-first-decryption',
+        'build/getting-started/making-first-signing',
       ],
     },
     {

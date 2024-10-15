@@ -30,11 +30,11 @@ The `debug` flag is used to enable or disable debug logging. When enabled, debug
 
 #### `storageProvider`
 
-The `storageProvider` flag is used to configure the storage provider used by the Lit network. When provided, the session keypair will be stored in the provided storage.
+The `storageProvider` flag is used to configure the storage provider used by the Lit network. When provided, the Session Keypair will be stored in the provided storage.
 
-If not provided, a new session keypair will be generated each time the `LitNodeClient` is initialized.
+If not provided, a new Session Keypair will be generated each time the `LitNodeClient` is initialized.
 
-In a browser environment, the `storageProvider` flag will be ignored, and the session keypair will be stored in the browser's local storage. To clear the cached session keypair, you can use the `disconnectWeb3` function (imported from the `@lit-protocol/auth-browser` package) like so:
+In a browser environment, the `storageProvider` flag will be ignored, and the Session Keypair will be stored in the browser's local storage. To clear the cached Session Keypair, you can use the `disconnectWeb3` function (imported from the `@lit-protocol/auth-browser` package) like so:
 
 ```ts
 import { LitNodeClient } from '@lit-protocol/lit-node-client';
@@ -53,7 +53,7 @@ try {
   // handle errors
 } finally {
   disconnectWeb3(); // <--- When this function call is executed,
-                    // the session keypair will be deleted from the browser's local storage
+                    // the Session Keypair will be deleted from the browser's local storage
   litNodeClient.disconnect(); // <--- Here we disconnect from the Lit network
 }
 ```

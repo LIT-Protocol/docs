@@ -19,7 +19,7 @@ This guide uses Lit's [Datil-dev Network](../../learn/overview/how-it-works/lit-
 For more in-depth guides on Lit's encryption capabilities, please see the [Encryption](../encryption/overview.md) section.
 :::
 
-## Installing the Lit Dependencies
+## Installing the Example Dependencies
 
 To start encrypting with the Lit SDK, you'll need to install these packages:
 

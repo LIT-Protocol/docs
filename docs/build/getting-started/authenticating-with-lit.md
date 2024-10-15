@@ -1,1 +1,0 @@
-# Authenticating with Lit

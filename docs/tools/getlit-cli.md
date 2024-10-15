@@ -6,6 +6,16 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 
 # GetLit CLI
 
+:::note
+
+The GetLit CLI tool is currently **incompatible** with the latest version of the Lit SDK and must be updated before it can be used by developers building on any of the Lit 'Datil' networks. These updates are planned and the community will be notified as soon as they've been completed. 
+
+If you're new to Lit Actions and are looking for a place to start, please consult the [quick start](https://developer.litprotocol.com/sdk/serverless-signing/quick-start) guide.
+
+If you're looking for support or would like to stay up to date with the latest updates, please join Lit's [Ecosystem Builders channel](https://t.me/+aa73FAF9Vp82ZjJh) on Telegram.
+
+:::
+
 ![](https://raw.githubusercontent.com/LIT-Protocol/getlit/main/banner.png)
 
 The GetLit CLI is a command-line tool designed to help developers manage their Lit Actions projects. The CLI provides a set of commands to create, build, test, and configure Lit Actions.

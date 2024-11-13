@@ -12,14 +12,14 @@ Lit Protocol is a decentralized key management and compute network designed to e
 
 By combining cutting-edge cryptography, sealed confidential hardware, and peer-to-peer networking, Lit provides developers with powerful tools to enhance security, privacy, and functionality in decentralized applications.
 
-At its core, Lit Protocol offers:
+Lit offers developers building in web3 with several core functions and capabilities:
 
-- Decentralized key management systems
-- Secure computation environments
-- Flexible encryption and access control mechanisms
-- Cross-chain messaging and transaction automation
-- Data oracle capabilities
-- Environments for privacy-preserving AI and Machine Learning
+- Decentralized key management with enhanced programmability and fault tolerance
+- Privacy-preserving compute and signing operations powered by sealed confidential hardware
+- Flexible access control rules to make managing private data seamless
+- Chain agnostic and cross-chain compatible to enable advanced Chain Abstraction
+- Read and write to any off-chain endpoint to ensure compatibility with legacy systems and the rest of the web2 world
+- Encrypted execution environments to power the next-generation of private AI inference and training
 
 These features enable developers to create innovative solutions that address critical challenges in Web3 development, particularly in areas requiring high levels of security and privacy.
 

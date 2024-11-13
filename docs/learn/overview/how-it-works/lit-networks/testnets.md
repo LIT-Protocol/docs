@@ -10,16 +10,16 @@ Test networks are designed for early-stage application development. Storing asse
 
 All test networks may be **deprecated** in the future.
 
-Use one of the [mainnets](./mainnets) for longer term persistence, and for handling assets with real-world value.
+Use one of the [mainnets](./mainnets) for guaranteed persistence of key material, and for handling assets with real-world value.
 
 :::
 
 ## Overview of Lit Testnets
 
 | Name       | Lit Blockchain                                                      | Description                                                                                                                                                                   | Minimum Lit SDK Version | Lit SDK Network Identifier | Requires Payment |
-|------------|---------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|----------------------------|------------------|
-| Datil-test | [Chronicle Yellowstone](./lit-blockchains/chronicle-yellowstone.md) | Centralized testnet designed for pre-production development. No persistency guarantees. Payment is enforced.                                                                  | `6.x.x`                | `datil-test`               | ✅                |
-| Datil-dev  | [Chronicle Yellowstone](./lit-blockchains/chronicle-yellowstone.md) | Centralized testnet designed for early-stage development. Keys are not persistent and may be deleted. This network does not enforce payment and can be used for free testing. | `6.x.x`                | `datil-dev`                | ❌                |
+| ---------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | -------------------------- | ---------------- |
+| Datil-test | [Chronicle Yellowstone](./lit-blockchains/chronicle-yellowstone.md) | Centralized testnet designed for pre-production development. No persistency guarantees. Payment is enforced.                                                                  | `6.x.x`                 | `datil-test`               | ✅                |
+| Datil-dev  | [Chronicle Yellowstone](./lit-blockchains/chronicle-yellowstone.md) | Centralized testnet designed for early-stage development. Keys are not persistent and may be deleted. This network does not enforce payment and can be used for free testing. | `6.x.x`                 | `datil-dev`                | ❌                |
 
 :::info
 

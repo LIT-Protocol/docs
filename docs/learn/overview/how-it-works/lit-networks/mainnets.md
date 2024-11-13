@@ -4,20 +4,17 @@ import TabItem from '@theme/TabItem';
 
 # Mainnets
 
-Lit mainnets are designed for late-stage development and production deployment. If you are storing assets with real world value, it should be done on the mainnets and not the testnets.
-
-While mainnets may be deprecated in the future, assets will be transferable to new networks.
-
+Lit mainnets are designed for late-stage development and production deployment. If you are storing assets with real world value, it should be done on a Lit mainnet network, which are linked below. Real world assets and tokens should **NEVER** be managed on any Lit testnet.
 
 ## Overview of Lit Mainnets
 
-| Name  | Lit Blockchain                                                   | Description                                                                                                                                 | Minimum Lit SDK Version | Lit SDK Network Identifier | Requires Payment |
-|-------|------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|----------------------------|------------------|
-| Datil | [Chronicle Yellowstone](./lit-blockchains/chronicle-yellowstone) | Decentralized mainnet designed for production deployment. Guaranteed real world asset transferability to new mainnets. Payment is enforced. | `6.x.x`                | `datil`                    | ✅                |
+| Name  | Lit Blockchain                                                   | Description                                                                                                            | Minimum Lit SDK Version | Lit SDK Network Identifier | Requires Payment |
+| ----- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ----------------------- | -------------------------- | ---------------- |
+| Datil | [Chronicle Yellowstone](./lit-blockchains/chronicle-yellowstone) | Decentralized mainnet designed for production deployment. Guaranteed persistence of key material. Payment is enforced. | `6.x.x`                 | `datil`                    | ✅                |
 
 ## The Datil Network
 
-The Lit network, **Datil**, utilizes the Lit blockchain: **Chronicle Yellowstone**. It's a decentralized mainnet designed for production deployment, and is superseding the Habanero mainnet. Like Habanero, usage of the network **requires** [payment for usage of the network](../../../paying-for-lit/overview.md).
+The Lit network, **Datil**, utilizes the Lit blockchain: **Chronicle Yellowstone**. It's a decentralized mainnet designed for production deployment, and is superseding [the Habanero mainnet](https://spark.litprotocol.com/introducing-decentralized-key-management-with-lit-v0). Like Habanero, usage of the network **requires** [payment for usage of the network](../../../paying-for-lit/overview.md).
 
 If your application is currently deployed on Lit networks: Cayenne, Manzano, and/or Habanero, please refer to [this migration guide](./migrating-to-datil) to learn how to migrate to the new Datil networks.
 

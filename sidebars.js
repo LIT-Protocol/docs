@@ -258,7 +258,8 @@ const sidebars = {
                       },
                       items: [
                         'user-wallets/pkps/advanced-topics/auth-methods/add-remove-auth-methods',
-                        'user-wallets/pkps/advanced-topics/auth-methods/social-login',
+                        'user-wallets/pkps/advanced-topics/auth-methods/google-login',
+                        'user-wallets/pkps/advanced-topics/auth-methods/discord-login',
                         'user-wallets/pkps/advanced-topics/auth-methods/web-authn',
                         'user-wallets/pkps/advanced-topics/auth-methods/email-sms',
                         'user-wallets/pkps/advanced-topics/auth-methods/custom-auth',

@@ -2,13 +2,13 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 # Add Auth Method
 
-Lit supports a variety of authentication methods for minting and verifying use of PKPs. This is done through the authentication of JWT/oAuth tokens through Lit's Relay server.
+Lit supports a variety of authentication methods for minting and authenticating access to PKPs. This is done through the authentication of JWT/oAuth tokens through Lit's Relay server.
 
-The supported authentication methods are can be categorized into four types: Social Auth, Stytch OTP, WebAuthn, and Custom Auth. This guide will only cover the first three types. If you are interested in creating a custom authentication method, please refer to the [Custom Auth Method](./add-custom-auth-method.md) guide.
+The supported authentication methods can be categorized into four types: Social Auth, Stytch OTP, WebAuthn, and Custom Auth. This guide will only cover the first three types. If you are interested in creating a custom authentication method, please refer to the [Custom Auth Method](./add-custom-auth-method.md) guide.
 
 ## Installation with npm or yarn
 
-The `@lit-protocol/lit-node-client` package provides the `LitNodeClient` class, which is used to interact with the Lit network. In this case, it will specify which Lit network `AuthMethods` will mint PKPs on.
+The `@lit-protocol/lit-node-client` package provides the `LitNodeClient` class, which is used to interact with the Lit network.
 
 The `@lit-protocol/lit-auth-client` package provides the `LitAuthClient` class, which is used to interact with the Lit Relay server. To use the `LitAuthClient`, you will need an API key for Lit's Relay server. If you do not have one, you can request one [here](https://forms.gle/RNZYtGYTY9BcD9MEA).
 

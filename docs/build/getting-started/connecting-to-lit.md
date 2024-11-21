@@ -1,25 +1,16 @@
-<!-- omit in toc -->
-# Connecting to Lit
+---
+description: Learn how to connect to a Lit Network
+sidebar_label: Connecting to a Lit Network
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Connecting to a Lit Network
 
 In order to interact with the Lit network, you need to instantiate an instance of the `LitNodeClient` and connect it to a Lit network.
 
 This connection is what will allow you to make decryption and signing requests, as well as execute the decentralized serverless functions, Lit Actions.
-
-<!-- omit in toc -->
-## Table of Contents
-
-- [Prerequisites](#prerequisites)
-  - [Required Packages](#required-packages)
-- [The Code Example](#the-code-example)
-  - [Instantiating the `LitNodeClient`](#instantiating-the-litnodeclient)
-    - [Setting A Storage Provider](#setting-a-storage-provider)
-      - [Node.js Environment](#nodejs-environment)
-      - [Browser Environment](#browser-environment)
-  - [Connecting `LitNodeClient` to a Lit Network](#connecting-litnodeclient-to-a-lit-network)
-  - [Disconnecting `LitNodeClient`](#disconnecting-litnodeclient)
-- [Getting Support from the Lit Team](#getting-support-from-the-lit-team)
-  - [Node.js Environment](#nodejs-environment-1)
-  - [Browser Environment](#browser-environment-1)
 
 ## Prerequisites
 
@@ -30,9 +21,34 @@ This connection is what will allow you to make decryption and signing requests, 
 - `@lit-protocol/lit-node-client`
 - `@lit-protocol/constants`
 
+<Tabs
+defaultValue="npm"
+values={[
+{label: 'npm', value: 'npm'},
+{label: 'yarn', value: 'yarn'},
+]}>
+<TabItem value="npm">
+
+```bash
+npm install @lit-protocol/lit-node-client \
+@lit-protocol/constants
+```
+
+</TabItem>
+
+<TabItem value="yarn">
+
+```bash
+yarn add @lit-protocol/lit-node-client \
+@lit-protocol/constants
+```
+
+</TabItem>
+</Tabs>
+
 ## The Code Example
 
-:::note
+:::info
 A full implementation of the code covered in this guide is available [here](https://github.com/LIT-Protocol/developer-guides-code/tree/v2/getting-started/connecting-to-lit).
 :::
 

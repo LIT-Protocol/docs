@@ -1,21 +1,14 @@
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
+---
+description: Learn how to install and set up the Lit Protocol SDK
+sidebar_label: Installing the Lit SDK
+---
 
-<!-- omit in toc -->
-# Installing the SDK
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Installing the Lit SDK
 
 The Lit JavaScript SDK is available as a set of packages that can be installed with either `npm` or `yarn`.
-
-<!-- omit in toc -->
-## Table of Contents
-
-- [Prerequisites](#prerequisites)
-  - [Node.js](#nodejs)
-  - [Browser](#browser)
-- [Commonly Used Packages](#commonly-used-packages)
-  - [@lit-protocol/lit-node-client](#lit-protocollit-node-client)
-  - [@lit-protocol/contracts-sdk](#lit-protocolcontracts-sdk)
-  - [@lit-protocol/constants](#lit-protocolconstants)
-  - [ethers.js@v5](#ethersjsv5)
 
 ## Prerequisites
 

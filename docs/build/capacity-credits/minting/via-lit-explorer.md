@@ -5,9 +5,9 @@ sidebar_label: Via the Lit Explorer
 
 # Minting Capacity Credits via the Lit Explorer
 
+:::info
 Capacity Credits are the form of payment for usage of the Lit network. They are required when making decryption requests, PKP signing requests, and when executing Lit Actions.
 
-:::info
 To learn more about what a Capacity Credit is, and how they're used, please go [here](../../../learn/paying-for-lit/capacity-credits).
 :::
 
@@ -96,4 +96,8 @@ In the `Your RLI Tokens` table, you will see the info for the Capacity Credit yo
 
 ## Summary
 
-After following the above guide, you will have minted a new Capacity Credit that can be used to pay for usage of the Lit network. To learn more about how to use this credit for payment, please go [here](../delegating-credit.md).
+After running the above code, you will have minted a new Capacity Credit that can be used to pay for usage of the Lit network. The credit can be used the specified number of times a day, and will expire on the selected date at `12:00 AM (midnight) Coordinated Universal Time (UTC)`.
+
+## Next Steps
+
+- If you want to allow others (such as your users) to use your minted capacity credits, you'll need to [delegate the credit](../delegating/to-an-eth-address) to them so that you can pay for their network usage on their behalf.

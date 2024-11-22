@@ -232,18 +232,18 @@ const sidebars = {
       type: 'category',
       label: 'Capacity Credits',
       collapsed: true,
-      link: {
-        type: 'doc',
-        id: 'build/capacity-credits/overview',
-      },
+      // link: {
+      //   type: 'doc',
+      //   id: 'build/capacity-credits/overview',
+      // },
       items: [
         {
           type: 'category',
           label: 'Minting a Credit',
           collapsed: true,
           items: [
-            'build/capacity-credits/minting/via-lit-contracts-sdk',
             'build/capacity-credits/minting/via-lit-explorer',
+            'build/capacity-credits/minting/via-lit-contracts-sdk',
           ],
         },
         {

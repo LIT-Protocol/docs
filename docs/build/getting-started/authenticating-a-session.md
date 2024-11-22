@@ -88,10 +88,6 @@ While not always required, we provide the `ethers.Wallet` with a JSON RPC provid
 
 After connecting an instance of `LitNodeClient` to the Lit Network, the code calls the `getSessionSigs` method to request the Lit network to generate session signatures for the session.
 
-<details>
-<summary>Click here to see how this is done</summary>
-<p>
-
 ```ts
 const sessionSignatures = await litNodeClient.getSessionSigs({
     chain: 'ethereum',
@@ -123,9 +119,6 @@ const sessionSignatures = await litNodeClient.getSessionSigs({
     },
 });
 ```
-
-</p>
-</details>
 
 This method takes in an object with the following properties:
 

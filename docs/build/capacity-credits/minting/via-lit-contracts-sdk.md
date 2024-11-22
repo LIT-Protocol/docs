@@ -17,7 +17,7 @@ To learn more about what a Capacity Credit is, and how they're used, please go [
 Capacity Credits can be minted by making requests to the NFT contract that is deployed on the [Chronicle Yellowstone](../../../learn/overview/how-it-works/lit-blockchains/chronicle-yellowstone) rollup blockchain. The following code will demonstrate how to connect to Chronicle Yellowstone via the Lit RPC URL, and send a transaction to the blockchain to mint a new Capacity Credit.
 
 :::info
-The full implementation of the code used in this guide can be found [here](https://github.com/LIT-Protocol/developer-guides-code/blob/master/paying-for-lit/nodejs/src/mintCapacityCredit.ts).
+The full implementation of the code used in this guide can be found [here](https://github.com/LIT-Protocol/developer-guides-code/tree/v2/capacity-credits/minting/via-contracts-sdk).
 :::
 
 ## Prerequisites
@@ -163,7 +163,7 @@ You will use either `capacityTokenId` or `capacityTokenIdStr` to identify the Ca
 ## Summary
 
 :::info
-The full implementation of the code used in this guide can be found [here](https://github.com/LIT-Protocol/developer-guides-code/blob/master/paying-for-lit/nodejs/src/mintCapacityCredit.ts).
+The full implementation of the code used in this guide can be found [here](https://github.com/LIT-Protocol/developer-guides-code/tree/v2/capacity-credits/minting/via-contracts-sdk).
 :::
 
 After running the above code, you will have minted a new Capacity Credit that can be used to pay for usage of the Lit network. The credit can be used `requestsPerX` numbers of times a day, and will expire `daysUntilUTCMidnightExpiration` days from now at `12:00 AM (midnight) Coordinated Universal Time (UTC)`.

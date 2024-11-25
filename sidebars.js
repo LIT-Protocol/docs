@@ -251,8 +251,8 @@ const sidebars = {
           label: 'Delegating a Credit',
           collapsed: true,
           items: [
-            'build/capacity-credits/delegating/to-an-eth-address',
-            'build/capacity-credits/delegating/to-a-pkp',
+            'build/capacity-credits/delegating/delegate-a-credit',
+            'build/capacity-credits/delegating/use-delegated-credit',
           ],
         },
       ],

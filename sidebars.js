@@ -109,8 +109,8 @@ const sidebars = {
         id: 'learn/authentication/overview',
       },
       items: [
-        'learn/authentication/session-sigs',
         'learn/authentication/auth-sigs',
+        'learn/authentication/session-sigs',
         'learn/authentication/lit-resources-and-abilities',
       ],
     },

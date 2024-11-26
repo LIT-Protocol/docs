@@ -261,10 +261,10 @@ const sidebars = {
       type: 'category',
       label: 'Payment Delegation DB',
       collapsed: true,
-      link: {
-        type: 'doc',
-        id: 'build/payment-delegation-db/overview',
-      },
+      // link: {
+      //   type: 'doc',
+      //   id: 'build/payment-delegation-db/overview',
+      // },
       items: [
         'build/payment-delegation-db/register-payer-wallet',
         'build/payment-delegation-db/adding-payees',
@@ -274,10 +274,10 @@ const sidebars = {
       type: 'category',
       label: 'Session Signatures',
       collapsed: true,
-      link: {
-        type: 'doc',
-        id: 'build/session-sigs/overview',
-      },
+      // link: {
+      //   type: 'doc',
+      //   id: 'build/session-sigs/overview',
+      // },
       items: [
         {
           type: 'category',

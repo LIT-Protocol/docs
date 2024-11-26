@@ -87,7 +87,7 @@ const ethersSigner = new ethers.Wallet(
 );
 ```
 
-### Instantiating a `LitNodeClient` Client
+### Instantiating a `LitNodeClient` Instance
 
 Next we'll instantiate and connect a `LitNodeClient` client specifying the Lit network the Capacity Credit Delegation Auth Sig was created for. In this case we'll be making a request to the [DatilTest](../../../learn/overview/how-it-works/lit-networks/testnets#the-datil-test-network) network.
 
@@ -113,7 +113,7 @@ Using the [getSessionSigs](https://v7-api-doc-lit-js-sdk.vercel.app/classes/lit_
 ```ts
 const sessionSigs = await litNodeClient.getSessionSigs({
     chain: "ethereum",
-    expiration: new Date(Date.now() + 1000 * 60 * 60 * 24).toISOString(),
+    expiration: new Date(Date.now() + 1000 * 60 * 10).toISOString(),
     capabilityAuthSigs: [capacityDelegationAuthSig], // <--- Here is where we
     // attach the Capacity Delegation Auth Sig to the Session Signatures
     resourceAbilityRequests: [

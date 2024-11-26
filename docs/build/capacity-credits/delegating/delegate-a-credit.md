@@ -84,7 +84,7 @@ const ethersSigner = new ethers.Wallet(
 );
 ```
 
-### Instantiating a `LitNodeClient` Client
+### Instantiating a `LitNodeClient` Instance
 
 Next we'll instantiate and connect a `LitNodeClient` client specifying the Lit network the Capacity Credit has been minted for. In this case we'll be delegating a credit that was minted for the [DatilTest](../../../learn/overview/how-it-works/lit-networks/testnets#the-datil-test-network) network.
 

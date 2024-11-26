@@ -27,7 +27,7 @@ When creating the Authentication Signature, the message that is signed is a [ERC
 - `nonce`: A random value used to prevent replay attacks.
 - `expirationTime`: The time at which the Authentication Signature expires.
 
-In addition to these properties, there is also the `resources` property which is an array of objects that specify the Lit Resources and Abilities the session is requesting access to. What these object look like is covered in more detail in the [Resources and Abilities guide](./resources-and-abilities).
+In addition to these properties, there is also the `resources` property which is an array of objects that specify the Lit Resources and Abilities the session is requesting access to. What these objects look like is covered in more detail in the [Resources and Abilities guide](./resources-and-abilities).
 
 ## Security Considerations
 

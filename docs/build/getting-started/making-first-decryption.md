@@ -1,3 +1,8 @@
+---
+description: Learn how to make your first decryption request with the Lit Network
+sidebar_label: Your First Decryption Request
+---
+
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 # Making Your First Decryption Request
@@ -148,7 +153,7 @@ const { ciphertext, dataToEncryptHash } = await encryptString(
 
 ### Generating Session Signatures
 
-As covered in the [Generating Session Signatures](./generating-session-sigs) guide, Session Signatures authenticate your interactions with the Lit network and are essential for decryption and other functionalities like signing.
+As covered in the [Authenticating a Session](./authenticating-a-session) guide, Session Signatures authenticate your interactions with the Lit network and are essential for decryption and other functionalities like signing.
 
 In this step, we'll generate Session Signatures that grant permission to decrypt our specific piece of data. We use the `generateResourceString` method to create a unique resource identifier based on our ACCs and the `dataToEncryptHash`. This ensures the session can only decrypt data that matches these parameters.
 

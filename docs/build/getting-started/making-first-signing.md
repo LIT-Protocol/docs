@@ -1,6 +1,11 @@
+---
+description: Learn how to make your first PKP signing request with the Lit Network
+sidebar_label: Your First PKP Signing Request
+---
+
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
-# Making Your First Signing Request
+# Making Your First PKP Signing Request
 
 This guide will walk you through an example of signing data using a Programmable Key Pair (PKP).
 
@@ -122,7 +127,7 @@ const pkpInfo = (await litContracts.pkpNftContractUtils.write.mint()).pkp;
 
 ### Generating Session Signatures
 
-As covered in the [Generating Session Signatures](./generating-session-sigs) guide, Session Signatures authenticate your interactions with the Lit network and are required to sign data using a PKP.
+As covered in the [Authenticating a Session](./authenticating-a-session) guide, Session Signatures authenticate your interactions with the Lit network and are required to sign data using a PKP.
 
 In this step, we'll generate Session Signatures that grant permission to:
 

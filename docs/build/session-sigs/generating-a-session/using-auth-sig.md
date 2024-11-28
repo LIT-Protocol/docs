@@ -9,12 +9,16 @@ import TabItem from '@theme/TabItem';
 # Using an Auth Sig to Generate Session Signatures
 
 :::info
-Session Signatures are how a Lit network authenticates you and checks if you're authorized to access the Lit Resources you're requesting to use. They're required when making Lit network requests to sign with a PKP, decrypt data, and execute Lit Actions.
+Session Signatures are used by the Lit network to authenticate you and verify your authorization to access requested Lit Resources. They are required when making network requests to sign with a PKP, decrypt data, and execute Lit Actions.
 
 To learn more about Session Signatures, please go [here](../../../learn/authentication/session-sigs).
 :::
 
 This guide will demonstrate how to use an Authentication Signature (Auth Sig) to generate Session Signatures.
+
+:::info
+The full implementation of the code used in this guide can be found [here](https://github.com/LIT-Protocol/developer-guides-code/tree/wyatt/v2/session-signatures/generating-a-session/using-an-auth-sig).
+:::
 
 ## Prerequisites
 

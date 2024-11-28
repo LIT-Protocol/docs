@@ -14,7 +14,9 @@ Session Signatures are used by the Lit network to authenticate you and verify yo
 To learn more about Session Signatures, please go [here](../../../learn/authentication/session-sigs).
 :::
 
-This guide will demonstrate how to use an Authentication Signature (Auth Sig) to generate Session Signatures.
+Certain Lit Resources are directly associated with an Ethereum address. For instance, when PKPs are minted, the transaction signer can be permitted as an Authentication Method for the PKP. Additionally, Capacity Credits are owned by an Ethereum address and do not require the owner to delegate their usage to themselves for making requests to the Lit network. In these cases, providing an Authentication Signature to the Lit network when requesting to authorize a Session is sufficient.
+
+This guide will show you how to use an Authentication Signature to generate Session Signatures.
 
 :::info
 The full implementation of the code used in this guide can be found [here](https://github.com/LIT-Protocol/developer-guides-code/tree/wyatt/v2/session-signatures/generating-a-session/using-an-auth-sig).
@@ -23,9 +25,10 @@ The full implementation of the code used in this guide can be found [here](https
 ## Prerequisites
 
 - An Ethereum wallet
-- An understanding of [Authentication Signatures](../../../learn/authentication/auth-sigs)
-- An understanding of [Session Signatures](../../../learn/authentication/session-sigs)
-- An understanding of [Lit Resources and Abilities](../../../learn/authentication/lit-resources-and-abilities)
+- An understanding of:
+  - [Authentication Signatures](../../../learn/authentication/auth-sigs)
+  - [Session Signatures](../../../learn/authentication/session-sigs)
+  - [Lit Resources and Abilities](../../../learn/authentication/lit-resources-and-abilities)
 
 ### Required Packages
 
@@ -67,40 +70,18 @@ ethers@v5
 
 ## The Code Example
 
-### Instantiating an Ethers Signer
+### Initial Setup
 
-This `ethersSigner` will be used to sign the Auth Sig that is submitted with the Session Signature generation request.
-
-The wallet corresponding to `process.env.ETHEREUM_PRIVATE_KEY` must be authorized to use the Lit Resources and Abilities that will be requested.
-
-```ts
-import ethers from "ethers";
-import { LIT_RPC } from "@lit-protocol/constants";
-
-const ethersSigner = new ethers.Wallet(
-    process.env.ETHEREUM_PRIVATE_KEY,
-    new ethers.providers.JsonRpcProvider(LIT_RPC.CHRONICLE_YELLOWSTONE)
-);
-```
-
-### Instantiating a `LitNodeClient` Instance
-
-Next we'll instantiate and connect a `LitNodeClient` client specifying the Lit network you are wanting to make requests to. In this case we'll be connecting to the [DatilTest](../../../learn/overview/how-it-works/lit-networks/testnets#the-datil-test-network) network.
+1. Instantiate an Ethers.js Wallet
+   - This wallet will be used to sign the Authentication Signature that is submitted with the Session Signature generation request
+   - The Ethereum address corresponding to this wallet must be authorized to use the Lit Resources and Abilities that will be requested
+   - A code example is available [here](../../getting-started/authenticating-a-session#creating-an-ethers-signer)
+2. Instantiate and connect a `LitNodeClient`
+   - A code example is available [here](../../getting-started/connecting-to-lit)
 
 :::info
-Each Lit network's nodes have different keys used when generating their Session Signatures. Session Sigs generated for one network will not work on another.
+The nodes in each Lit network use unique keys for generating Session Signatures. Therefore, Session Signatures created for one network are not compatible with another network.
 :::
-
-```ts
-import { LitNodeClient } from "@lit-protocol/lit-node-client";
-import { LIT_NETWORK } from "@lit-protocol/constants";
-
-litNodeClient = new LitNodeClient({
-    litNetwork: LIT_NETWORK.DatilTest,
-    debug: false,
-});
-await litNodeClient.connect();
-```
 
 ### Generating Session Sigs using an Auth Sig
 
@@ -151,3 +132,16 @@ This method takes in an object with the following properties:
 It's within the `authNeededCallback` function that the [ERC-5573](https://eips.ethereum.org/EIPS/eip-5573) message is created and signed by the `ethersSigner` to supply the Session Signature request with an Auth Sig.
 
 [createSiweMessage](https://v7-api-doc-lit-js-sdk.vercel.app/functions/auth_helpers_src.createSiweMessage.html) and [generateAuthSig](https://v7-api-doc-lit-js-sdk.vercel.app/functions/auth_helpers_src.generateAuthSig.html) are helper functions provided by the Lit SDK that are used to create the ERC-5573 message and generate the Auth Sig in the format that the Lit nodes expect.
+
+## Summary
+
+:::info
+The full implementation of the code used in this guide can be found [here](https://github.com/LIT-Protocol/developer-guides-code/tree/wyatt/v2/session-signatures/generating-a-session/using-an-auth-sig).
+:::
+
+This guide demonstrates how to use an Ethereum wallet to generate an Authentication Signature, and use that Authentication Signature to request the Lit network to authorize a Session to access specific Lit Resources and Abilities.
+
+## Next Steps
+
+- Explore how to use [PKPs (Programmable Key Pairs) to generate Session Signatures](./using-pkp/overview)
+- Learn how to use [Session Signatures to interact with the Lit network](../making-a-request)

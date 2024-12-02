@@ -285,9 +285,24 @@ const sidebars = {
           collapsed: true,
           items: [
             'build/session-sigs/generating-a-session/using-auth-sig',
-            'build/session-sigs/generating-a-session/using-pkp',
-            'build/session-sigs/generating-a-session/using-lit-action',
-            'build/session-sigs/generating-a-session/with-delegated-capacity',
+            {
+              type: 'category',
+              label: 'Using a PKP',
+              collapsed: true,
+              link: {
+                type: 'doc',
+                id: 'build/session-sigs/generating-a-session/using-pkp/overview',
+              },
+              items: [
+                'build/session-sigs/generating-a-session/using-pkp/auth-with-eth-wallet',
+                'build/session-sigs/generating-a-session/using-pkp/auth-with-google-oauth',
+                'build/session-sigs/generating-a-session/using-pkp/auth-with-discord-oauth',
+                'build/session-sigs/generating-a-session/using-pkp/auth-with-google-jwt',
+                'build/session-sigs/generating-a-session/using-pkp/auth-with-custom-auth-method',
+              ],
+            },
+            // 'build/session-sigs/generating-a-session/using-lit-action',
+            // 'build/session-sigs/generating-a-session/with-delegated-capacity',
           ],
         },
         'build/session-sigs/making-a-request',

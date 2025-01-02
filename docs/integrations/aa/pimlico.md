@@ -146,7 +146,7 @@ const sessionStatus = await stytchClient.sessions.authenticate({
 ### 5. Get a Lit Relay Server API Key
 Checking in! If you didn't complete the pre-req of getting a Lit relay key, you can get it by filling out this [form](https://forms.gle/RNZYtGYTY9BcD9MEA) and the Lit development team will get back to you shortly. 
 
-You can also ping the Lit developement team on [Discord](https://litgateway.com/discord) once you fill out the form. 
+You can also ping the Lit development team on [Discord](https://litgateway.com/discord) once you fill out the form. 
 
 
 ### 6. Mint a PKPs through Lit Protocol
@@ -243,7 +243,7 @@ const pkpWallet = new PKPEthersWallet({
       authNeededCallback,
     },
   },
-  // controllerSessionSigs: sesionSigs, // (deprecated) If you will be passing sessionSigs directly, do not pass authContext
+  // controllerSessionSigs: sessionSigs, // (deprecated) If you will be passing sessionSigs directly, do not pass authContext
 });
 
 const pkpWallet = new PKPEthersWallet({
@@ -257,7 +257,7 @@ const pkpWallet = new PKPEthersWallet({
       authNeededCallback,
     },
   },
-  // controllerSessionSigs: sesionSigs, // (deprecated) If you will be passing sessionSigs directly, do not pass authContext
+  // controllerSessionSigs: sessionSigs, // (deprecated) If you will be passing sessionSigs directly, do not pass authContext
 });
  
 await pkpWallet.init();
@@ -270,7 +270,7 @@ You can now use the `pkpWallet` as a regular Ethers.js wallet to sign user opera
 
 To submit a user operation to Pimlico, you can follow the steps to sponsor a user operation with Pimlico's verifying paymaster and/or submit a user operation through Pimlico's bundler. If you would like to integrate Lit with the full flow of generating, signing, and submitting a user operation, you can follow the steps in [tutorial 1](https://docs.pimlico.io/tutorial/tutorial-1), replacing the signing step with the PKP wallet and using `pkpWallet.address` as the owner address of the smart account.
 
-Modified from Plimlico's [tutorial 1](https://docs.pimlico.io/tutorial/tutorial-1), an example of how to use the PKP wallet to sign a user operation is shown below:
+Modified from Pimlico's [tutorial 1](https://docs.pimlico.io/tutorial/tutorial-1), an example of how to use the PKP wallet to sign a user operation is shown below:
 
 ```js
 const signature = await pkpWallet.signMessage(

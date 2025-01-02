@@ -56,7 +56,7 @@ const pkpWallet = new PKPEthersWallet({
     },
   },
   // controllerAuthSig: authSig,
-  // controllerSessionSigs: sesionSigs, // (deprecated)
+  // controllerSessionSigs: sessionSigs, // (deprecated)
   pkpPubKey: "<Your PKP public key>",
   rpc: LIT_RPC.CHRONICLE_YELLOWSTONE,
 });

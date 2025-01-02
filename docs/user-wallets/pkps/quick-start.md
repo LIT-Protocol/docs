@@ -500,7 +500,7 @@ We can use the Capacity Credit delegation to generate a Session Signature for th
 
 Authentication methods ('auth methods' for short) are the specific credentials (i.e. a wallet address or email account) that have permission to control and manage permissions associated with the underlying PKP (for example, to add another auth method or sign a transaction). 
 
-To manage the auth methods registered to a `Programmabale Key Pair`  you will need to use the `LitContracts` package that we installed earlier. Once that has been installed, you can add an auth method in the following steps:
+To manage the auth methods registered to a `Programmable Key Pair`  you will need to use the `LitContracts` package that we installed earlier. Once that has been installed, you can add an auth method in the following steps:
 
 If a `Programmable Key Pair` owns itself through the `sendPkpToIteself` flag you will need to use an instance of the `PkpEthersWallet` as the `signer` in the `LitContracts` constructor options:
 

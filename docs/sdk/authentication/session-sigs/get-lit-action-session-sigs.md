@@ -20,7 +20,7 @@ This function is very similar to [`getPkpSessionSigs`](./get-pkp-session-sigs.md
 
 Alternatively, the `getLitActionSessionSigs` function requires the form of authentication to be a Lit Action. Other authentication methods can be included as well, but a Lit Action is required.
 
-Using this arragement, the function executes the Lit Action to determine authorization for the following step.
+Using this arrangement, the function executes the Lit Action to determine authorization for the following step.
 
 This function uses the [`signSessionKey`](https://v7-api-doc-lit-js-sdk.vercel.app/classes/lit_node_client_src.LitNodeClientNodeJs.html#signSessionKey) function to sign the session public key using the PKP, which will generate an `AuthSig`.
 

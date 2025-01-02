@@ -8,7 +8,7 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 
 :::danger
 
-Cosmos access control currently is missing various security properties due to the Cosmos communities lack of a standard on a signed message format.  You should not use Cosmos access control for anything mission critical in it's current form.  Any Cosmos signature that is valid will allow auth via Cosmos.  This means, if a given wallet has ever made a Cosmos txn, it's possilble to auth as that wallet by taking the signature from the chain and presenting it to Lit for auth.  If you're building on Cosmos, please reach out, so we can work on a standard signed message format to solve this problem.
+Cosmos access control currently is missing various security properties due to the Cosmos communities lack of a standard on a signed message format.  You should not use Cosmos access control for anything mission critical in it's current form.  Any Cosmos signature that is valid will allow auth via Cosmos.  This means, if a given wallet has ever made a Cosmos txn, it's possible to auth as that wallet by taking the signature from the chain and presenting it to Lit for auth.  If you're building on Cosmos, please reach out, so we can work on a standard signed message format to solve this problem.
 
 :::
 
@@ -20,7 +20,7 @@ Cosmos Access Control conditions work a little different than EVM access control
 
 Note that Cosmos Conditions can only be used via the `unifiedAccessControlConditions` parameter.
 
-## Must posess at least 1 ATOM
+## Must possess at least 1 ATOM
 
 In this example, we are checking if the user's wallet contains more than 1 ATOM. The parameter of ":userAddress" will be automatically substituted with the user's wallet address which was verified by checking the message signed by their wallet.
 
@@ -41,7 +41,7 @@ var unifiedAccessControlConditions = [
 
 ## A specific wallet address
 
-In this example, we are checking that the user is in posession of a specific wallet address `cosmos1vn6zl0924yj86jrp330wcwjclzdharljq03a8h`. The parameter of ":userAddress" will be automatically substituted with the user's wallet address which was verified by checking the message signed by their wallet.
+In this example, we are checking that the user is in possession of a specific wallet address `cosmos1vn6zl0924yj86jrp330wcwjclzdharljq03a8h`. The parameter of ":userAddress" will be automatically substituted with the user's wallet address which was verified by checking the message signed by their wallet.
 
 ```js
 var unifiedAccessControlConditions = [
@@ -87,7 +87,7 @@ var unifiedAccessControlConditions = [
 
 ## A specific wallet address
 
-In this example, we are checking that the user is in posession of a specific wallet address `juno1vn6zl0924yj86jrp330wcwjclzdharljkajxqt`. The parameter of ":userAddress" will be automatically substituted with the user's wallet address which was verified by checking the message signed by their wallet.
+In this example, we are checking that the user is in possession of a specific wallet address `juno1vn6zl0924yj86jrp330wcwjclzdharljkajxqt`. The parameter of ":userAddress" will be automatically substituted with the user's wallet address which was verified by checking the message signed by their wallet.
 
 ```js
 var unifiedAccessControlConditions = [

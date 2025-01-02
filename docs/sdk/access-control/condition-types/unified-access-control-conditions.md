@@ -54,10 +54,10 @@ await litNodeClient.encryptString({
 
 In this example, we use the `unifiedAccessControlConditions` parameter to combine all 3 types of conditions with "or" operators. The user must meet at least one of the conditions:
 
-- Posess at least 0.1 SOL on Solana
-- Posess at least 0.00001 ETH on Ethereum
-- Posess at least 1 ERC1155 token with id 8 and at contract 0x7C7757a9675f06F3BE4618bB68732c4aB25D2e88 on Polygon
-- Posess at least 1 ATOM on Cosmos
+- Possess at least 0.1 SOL on Solana
+- Possess at least 0.00001 ETH on Ethereum
+- Possess at least 1 ERC1155 token with id 8 and at contract 0x7C7757a9675f06F3BE4618bB68732c4aB25D2e88 on Polygon
+- Possess at least 1 ATOM on Cosmos
 
 ```js
 var unifiedAccessControlConditions = [

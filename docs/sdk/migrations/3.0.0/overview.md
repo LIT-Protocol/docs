@@ -330,7 +330,7 @@ module.exports = {
 In the above we are replacing `stream`, `buffer`, `crypto`, `http`, `https`, `url`, `zlib`, `jszip` and `assert` with browser compatible replacements.
 We also modify the default Create React App's `module rules` to include other JavaScript file extensions.
 
-You may need to install [react-app-rewired](https://www.npmjs.com/package/react-app-rewired) to override the webpack confgiuration with the above.
+You may need to install [react-app-rewired](https://www.npmjs.com/package/react-app-rewired) to override the webpack configuration with the above.
 for usage with the above package you can change your run script
 
 ```json

@@ -274,7 +274,7 @@ const sidebars = {
                       collapsed: true,
                       items: ['user-wallets/pkps/claimable-keys/usage'],
                     },
-                    { 
+                    {
                       type: 'category',
                       label: 'Signing Bitcoin Transactions',
                       link: {
@@ -282,12 +282,13 @@ const sidebars = {
                         id: 'user-wallets/pkps/bitcoin/overview',
                       },
                       collapsed: true,
-                      items: ['user-wallets/pkps/bitcoin/single-sig',
-                              'user-wallets/pkps/bitcoin/multi-sig',
-                              'user-wallets/pkps/bitcoin/collaborative',
-                              'user-wallets/pkps/bitcoin/1of1-multi-sig',
+                      items: [
+                        'user-wallets/pkps/bitcoin/single-sig',
+                        'user-wallets/pkps/bitcoin/multi-sig',
+                        'user-wallets/pkps/bitcoin/collaborative',
+                        'user-wallets/pkps/bitcoin/1of1-multi-sig',
                       ],
-                     },
+                    },
                   ],
                 },
               ],
@@ -414,6 +415,7 @@ const sidebars = {
                 'sdk/serverless-signing/run-once',
                 `sdk/serverless-signing/get-rpc-url`,
                 'sdk/serverless-signing/broadcast-and-collect',
+                'sdk/serverless-signing/web-assembly',
               ],
             },
           ],

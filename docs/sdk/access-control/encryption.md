@@ -198,7 +198,7 @@ const accessControlConditions = [
 
 #### Encryption
 
-To encrypt a string, use one of the following functions:
+To encrypt a string, use:
 
 - [encryptString()](https://v7-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.encryptString.html) - Used to encrypt the raw string.
 
@@ -206,7 +206,11 @@ To encrypt a file, use:
 
 - [encryptFile()](https://v7-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.encryptFile.html) - Used to encrypt a file without doing any zipping or packing. Because zipping larger files takes time, this function is useful when encrypting large files ( > 20mb). This also requires that you store the file metadata.
 
-Apart from this, we have one more function which can be used to encrypt both strings and files:
+To encrypt a Uint8Array, use:
+
+- [encryptUint8Array()](https://v7-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.encryptUint8Array.html) - Used to encrypt a Uint8Array, which can be the output of a [compression algorithm](https://github.com/LIT-Protocol/compression) or anything else that does not adhere to the string or file types.
+
+Apart from those, we have one more function which can be used to encrypt both strings and files:
 
 - [encryptToJson()](https://v7-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.encryptToJson.html) - Used to encrypt a string or file and serialize all the metadata required to decrypt i.e. accessControlConditions, evmContractConditions, solRpcConditions, unifiedAccessControlConditions & chain to JSON. It is useful for encrypting/decrypting data in IPFS or other storage without compressing it in a ZIP file.
 
@@ -523,6 +527,7 @@ To decrypt use the following functions depending on the function used to encrypt
 
 - [decryptToString()](https://v7-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.decryptToString.html) for [encryptString()](https://v7-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.encryptString.html)
 - [decryptToFile()](https://v7-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.decryptToFile.html) for [encryptFile()](https://v7-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.encryptFile.html)
+- [decryptToUint8Array()](https://v7-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.decryptToUint8Array.html) for [encryptUint8Array()](https://v7-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.encryptUint8Array.html)
 - [decryptFromJson()](https://v7-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.decryptFromJson.html) for [encryptToJson()](https://v7-api-doc-lit-js-sdk.vercel.app/functions/encryption_src.encryptToJson.html)
 
 In the example, we used `encryptString()` to encrypt so we will use `decryptToString()` to decrypt. Pass in the data  `accessControlConditions`, `ciphertext`, `dataToEncryptHash`, and `authSig`.

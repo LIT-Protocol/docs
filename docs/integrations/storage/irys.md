@@ -180,6 +180,8 @@ For more advanced examples, see [unified access control conditions](https://deve
 We provide multiple methods to encrypt data, including strings, files, zip files.
 
 - `encryptString():` Encrypts a string.
+- `encryptFile()`: Encrypts a file. 
+- `encryptUint8Array()`: Encrypts a Uint8Array, which can be a compressed file. 
 - `encryptToJson()`: Encrypts a string or file and serializes the result to JSON. 
 
 We will use `encryptString()` to encrypt a simple string:
@@ -426,8 +428,10 @@ For more advanced examples, see [unified access control conditions](https://deve
 
 We provide multiple methods to encrypt data, including strings, files, zip files.
 
-- `encryptString()`: Encrypts a string.
-- `encryptToJson()`: Encrypts a string or file and serializes the result to JSON. 
+- `encryptString():` Encrypts a string.
+- `encryptFile()`: Encrypts a file.
+- `encryptUint8Array()`: Encrypts a Uint8Array, which can be a compressed file.
+- `encryptToJson()`: Encrypts a string or file and serializes the result to JSON.
 
 We will use `encryptString()` to encrypt a string:
 

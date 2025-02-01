@@ -11,7 +11,7 @@ In this section, we will demonstrate how to mint a PKP using two popular authent
 1. Google OAuth Login, and 
 2. Stytch SMS (OTP) 
   
-via `LitRelay`. This approach enhances security by requiring authentication through both a social login provider and a one-time password sent via SMS. You can mint a PKP using Google OAuth token and a generated token from sucessful OTP code confirmation, by following these steps:
+via `LitRelay`. This approach enhances security by requiring authentication through both a social login provider and a one-time password sent via SMS. You can mint a PKP using Google OAuth token and a generated token from successful OTP code confirmation, by following these steps:
 
 ### Installing the `LitAuthClient` package
 ```bash
@@ -121,7 +121,7 @@ async function authenticateWithStytch(code, methodId) {
     session_duration_minutes: 60,
   });
 
-  // Get auth method object after autheticating Stytch JWT
+  // Get auth method object after authenticating Stytch JWT
   const authMethodSMS = await stytchOtpProvider.authenticate({ response.session_jwt, response.user_id });
   return authMethodSMS;
 }

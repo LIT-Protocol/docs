@@ -176,7 +176,7 @@ console.log("Created PKPEthersWallet using the PKP ✔️");
 
 ### Start the Recovery Process
 
-#### Initilize the Safe Account Class
+#### Initialize the Safe Account Class
 
 ```jsx
 import { SafeAccountV0_2_0 as SafeAccount } from "abstractionkit";

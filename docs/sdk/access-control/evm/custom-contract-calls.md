@@ -65,7 +65,7 @@ const evmContractConditions = [
 ];
 ```
 
-## Must posess at least one ERC1155 token with a given token id
+## Must possess at least one ERC1155 token with a given token id
 
 ```js
 var evmContractConditions = [

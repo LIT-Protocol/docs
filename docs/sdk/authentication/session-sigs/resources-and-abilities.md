@@ -6,7 +6,7 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 
 # Lit Resources and Abilities
 
-Lit Resources and Abilities are used to specifying what action is to be done against which resource. These are primitives that are used to seucrely authenticate users through appropriate scoping of users' abilities across various resources.
+Lit Resources and Abilities are used to specifying what action is to be done against which resource. These are primitives that are used to securely authenticate users through appropriate scoping of users' abilities across various resources.
 
 ## Lit Resources
 

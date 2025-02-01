@@ -13,7 +13,7 @@ The following code example uses the `runOnce` function to send a signed Ethereum
 ## Using a Single Node to Send a Transaction
 
 :::warning
-The value returned from the function provided to `runOnce` must return a value which can be serialized with `toString` otherwise you will recieve a return value of `[ERROR]`
+The value returned from the function provided to `runOnce` must return a value which can be serialized with `toString` otherwise you will receive a return value of `[ERROR]`
 :::
 
 ```js
@@ -76,9 +76,9 @@ In the above `runOnce` example, within the Lit Action code, you'll notice we spe
 
 ## ExecuteJs `response strategy`
 
-When using `runOnce` you might want to set the result of the `runOnce` execution as a response from the Lit Action. By default the `response strategy` is to use the least occuring response from a node executing the Lit Action as the response returned in the `ExecuteJsResponse`. The options for strategies are the following.
+When using `runOnce` you might want to set the result of the `runOnce` execution as a response from the Lit Action. By default the `response strategy` is to use the least occurring response from a node executing the Lit Action as the response returned in the `ExecuteJsResponse`. The options for strategies are the following.
 
-- `leastCommon` - the least occuring response will be returned as part of the result.
+- `leastCommon` - the least occurring response will be returned as part of the result.
 - `mostCommon` - the most common response will be returned as part of the result.
 - `custom` - a response that is returned from the provided `customFilter` will be added to the execution result.
 

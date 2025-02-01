@@ -23,7 +23,7 @@ yarn add @lit-protocol/providers
 ```js
 import { LitContracts } from '@lit-protocol/contracts-sdk';
 
-// if no signer is provided, it will attempt to use window.etheruem
+// if no signer is provided, it will attempt to use window.ethereum
 const contractClient = new LitContracts({ signer });
 await contractClient.connect();
 ```
@@ -108,7 +108,7 @@ const mintTx = await litRelay.mintPKPWithAuthMethods([authMethod], options);
 ```
 
 ## Authenticating using `Web3 Provider`
-In the case where you wish to generagte a signature from a browser extension wallet (MetaMask, Brave Wallet, etc)
+In the case where you wish to generate a signature from a browser extension wallet (MetaMask, Brave Wallet, etc)
 you may simply call `authenticate` which calls `checkAndSignAuthMessage`.
 ```js
 import { LitNodeClient } from '@lit-protocol/lit-node-client';

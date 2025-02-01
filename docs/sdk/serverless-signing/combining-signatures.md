@@ -13,7 +13,7 @@ When you call the `signAndCombineEcdsa` function, signature shares are collected
 
 ## Prerequisites
 
-- Knowlege of [SessionSigs](../authentication/session-sigs/intro)
+- Knowledge of [SessionSigs](../authentication/session-sigs/intro)
 - Basic understanding of [Lit Actions](../serverless-signing/quick-start)
 
 ## Complete Code Example

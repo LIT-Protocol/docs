@@ -108,7 +108,7 @@ const sessionSigs = await provider.getSessionSigs({
 
 ## Email / SMS (OTP)
 
-You can also mint a PKP by presenting a generated token from sucessful OTP code confirmation, which will be returned by the `lit-auth-client` in the `AuthMethod` return from successful code confirmation.
+You can also mint a PKP by presenting a generated token from successful OTP code confirmation, which will be returned by the `lit-auth-client` in the `AuthMethod` return from successful code confirmation.
 
 ```javascript
 import { LitNodeClient } from '@lit-protocol/lit-node-client';
@@ -154,7 +154,7 @@ async function authenticateWithStytch(method, code, methodId) {
   const stytchOtpProvider = new StytchOtpProvider({ relay: litRelay, litNodeClient });
 
 
-  // Get auth method object after autheticating Stytch JWT
+  // Get auth method object after authenticating Stytch JWT
   const authMethod = await stytchOtpProvider.authenticate({ response.session_jwt, response.user_id });
 
   // -- setting scope for the auth method

@@ -30,7 +30,7 @@ const res = await client.executeJs({
 });
 console.log("transactions in latest block from all nodes: ", res);
 ```
-In the above example we are requesting every node to use their `rpcUrl` for the `ethereum` main net to pull the `lastest` block which has settled and return the transactions which it contained. This operation will be performed by all nodes.
+In the above example we are requesting every node to use their `rpcUrl` for the `ethereum` mainnet to pull the `latest` block which has settled and return the transactions which it contained. This operation will be performed by all nodes.
 
 ## Getting the RPC context from a single node
 

@@ -211,7 +211,8 @@ const sidebars = {
               ],
             },
             'agent-wallet/building',
-            'agent-wallet/new-tool'
+            'agent-wallet/new-tool',
+            'agent-wallet/user-setup',
           ],
         },
         {

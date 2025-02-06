@@ -12,7 +12,7 @@ The following examples demonstrate additional Solana RPC Conditions you can use 
 You can use Solana RPC Conditions in the same way you would use EVM conditions, but you should pass a `solRpcConditions` array instead of a `accessControlConditions` or `evmContractConditions` array.
 :::
 
-## Must posess an NFT in a Metaplex collection
+## Must possess an NFT in a Metaplex collection
 
 In this example, we are checking if the user owns one or more NFTs in the Metaplex collection with address `FfyafED6kiJUFwEhogyTRQHiL6NguqNg9xcdeoyyJs33`. The collection must be verified. Note that "balanceOfMetaplexCollection" is not a real Solana RPC call. It is a custom RPC call that is specific to Lit Protocol.
 
@@ -34,7 +34,7 @@ var solRpcConditions = [
 ];
 ```
 
-## Must posess at least 0.1 SOL
+## Must possess at least 0.1 SOL
 
 In this example, we are checking if the user's wallet contains more than 0.1 SOL. The parameter of ":userAddress" will be automatically substituted with the user's wallet address which was verified by checking the message signed by their wallet.
 
@@ -56,7 +56,7 @@ var solRpcConditions = [
 ];
 ```
 
-## Must posess a balance of a specific token (Fungible or NFT)
+## Must possess a balance of a specific token (Fungible or NFT)
 
 This example checks if the user owns at least 1 token with address `FrYwrqLcGfmXrgJKcZfrzoWsZ3pqQB9pjjUC9PxSq3xT`. This is done by deriving the user's token account address for the token contract with the user's wallet address, validated via the message signed by the user's wallet. Then, `getTokenAccountBalance` is run on the user's token account address and the result is checked against the `returnValueTest`. Note that "balanceOfToken" is not a real Solana RPC call. It is a custom RPC call that is specific to Lit Protocol.
 

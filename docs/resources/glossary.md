@@ -86,7 +86,7 @@ An ECDSA keypair generated collectively by the Lit nodes. PKPs can be used to re
 
 ### **Proof**
 
-A proof is a particular application for a digitial signature. For example, using a signature to *prove* that a particular interaction took place. Signing through Lit Actions opens up the possibilities of verifying information from external sources, such as from a Weather API. Within the Lit ecosystem this signed information is called a proof.
+A proof is a particular application for a digital signature. For example, using a signature to *prove* that a particular interaction took place. Signing through Lit Actions opens up the possibilities of verifying information from external sources, such as from a Weather API. Within the Lit ecosystem this signed information is called a proof.
 
 ### **Public Key Cryptography**
 

@@ -37,9 +37,9 @@ First, import the Lit JS SDK Node.js package:
 import * as LitJsSdk from "@lit-protocol/lit-node-client-nodejs";
 ```
 
-Now, you must have a JWT to verify. Usually this comes from the user who is trying to access the resource. You can try the JWT harcoded in the example below, which may be expired but should at least return a proper header and payload. In the real world, you should use a JWT presented by the user.
+Now, you must have a JWT to verify. Usually this comes from the user who is trying to access the resource. You can try the JWT hardcoded in the example below, which may be expired but should at least return a proper header and payload. In the real world, you should use a JWT presented by the user.
 
-In addition to using `LitJsSdk.verifyJwt` to verify that the signature was produced by the BLS network, you must to check that the access control conditions within the JWT claims match those that you have either statically or programmatically declared in your application. If they do not match, you sohuld reject the request.
+In addition to using `LitJsSdk.verifyJwt` to verify that the signature was produced by the BLS network, you must to check that the access control conditions within the JWT claims match those that you have either statically or programmatically declared in your application. If they do not match, you should reject the request.
   - In the example below, we will demonstrate verification against a statically declared set of access control conditions.
 
 ```js
@@ -51,7 +51,7 @@ const { verified, header, payload } = LitJsSdk.verifyJwt({
 });
 
 // Statically declare the access control conditions that gate this web page.
-const accessControlCondtionsForProtectedPath1: MultipleAccessControlConditions = {
+const accessControlConditionsForProtectedPath1: MultipleAccessControlConditions = {
   accessControlConditions: [{
     chain: 'polygon',
     contractAddress: '',
@@ -66,7 +66,7 @@ const accessControlCondtionsForProtectedPath1: MultipleAccessControlConditions =
 };
 
 // Verify the access control conditions in the JWT claims are as expected.
-const expectedAccessControlConditionsHash = (await litNodeClient.getHashedAccessControlConditions(accessControlCondtionsForProtectedPath1))!.toString();
+const expectedAccessControlConditionsHash = (await litNodeClient.getHashedAccessControlConditions(accessControlConditionsForProtectedPath1))!.toString();
 const actualAccessControlConditionsHash = (await litNodeClient.getHashedAccessControlConditions(payload))!.toString();
 if (expectedAccessControlConditionsHash !== actualAccessControlConditionsHash) {
   // Reject this request!

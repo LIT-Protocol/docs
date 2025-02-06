@@ -6,7 +6,7 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 
 # POAP Examples
 
-## Must posess a POAP with a specific name
+## Must possess a POAP with a specific name
 
 This is an integration with https://poap.xyz
 
@@ -44,7 +44,7 @@ var accessControlConditions = [
 ];
 ```
 
-## Must posess a POAP with a specific POAP Event ID
+## Must possess a POAP with a specific POAP Event ID
 
 This is an integration with https://poap.xyz
 

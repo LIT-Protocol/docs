@@ -12,7 +12,7 @@ The below example will check if the user has at least 1 Wei on Ethereum, only re
 
 ## Prerequisites
 
-- Knowlege of [SessionSigs](../authentication/session-sigs/intro)
+- Knowledge of [SessionSigs](../authentication/session-sigs/intro)
 - Knowledge of how to [generate an AuthSig](../migrations/6.0.0.md#generate-an-authsig)
 - Basic understanding of [Lit Actions](../serverless-signing/quick-start)
 

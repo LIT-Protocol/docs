@@ -2,43 +2,66 @@
 
 ## Overview
 
-This page will guide you through how you can configure Lit Agent Wallets (LAWs) for your users.
+This guide walks you through creating and configuring a Lit Agent Wallet (LAW) and then transferring ownership of the underlying [PKP (Programmable Key Pair)](../user-wallets/pkps/overview.md) NFT to an end user. By following these steps, you (as the developer) will:
+
+1. Add [delegatees](./delegatee/overview.md) that can act on behalf of the user.
+2. Define which [tools](./admin/tools.md) the wallet can use.
+3. Configure [policies](./admin/policies.md) that control permissions for each delegatee-tool pair.
+4. Transfer the ownership of the PKP so the user has full control.
+
+Once ownership is transferred, you (the developer) no longer have administrative access to the wallet.
 
 ## Prerequisites
 
 Before you begin, ensure you have:
-- An understanding of the [Agent Wallets](./intro.md)
-- Basic understanding of [PKPs (Programmable Key Pairs)](../user-wallets/pkps/overview.md)
+- An understanding of [Agent Wallets](./intro.md)
+- A basic understanding of PKPs
 - The user's wallet address for the final transfer
 
 ## Step-by-Step Configuration
 
-In this setup, we will be creating Agent Wallets, permissioning the tools, delegatees, policies, and transferring the underlying Programmable Key Pair (PKP) ownership of the Agent Wallet to the user.
+### 1. Add Delegatees
 
-### 1. Adding Delegatees
+A *delegatee* is an address that can call or execute actions on behalf of the Agent Wallet.
 
-As the developer, you will first need to add the delegatees to the Agent Wallet. These are the wallets, that once you have transferred ownership of the Agent Wallet, they will be able to execute intent on behalf of the user.
+1. Add a delegatee using the [addDelegatee](./admin/overview.md#adding-delegatees) method.
+2. Once the Agent Wallet is transferred to the user, these delegatees can still act on the user’s behalf according to the tools and policies you configure (and which the user can later modify).
 
-For more information on delegatees, please refer to the [delegatees docs](./delegatee/overview.md).
+For more information, refer to the [delegatees docs](./delegatee/overview.md).
 
-### 2. Adding Tools
+### 2. Add Tools
 
-Next, you will need to add the tools that the Agent Wallet will be able to execute. This may be custom tools, or the tools requested by the user. 
+Tools define the actions or operations the Agent Wallet can perform. Examples include:
+- Transferring tokens
+- Interacting with specific smart contracts
+- Executing custom logic
 
-For more information on tools, please refer to the [Admin tools docs](./admin/tools.md) and the [delegatee tool docs](./delegatee/tools.md).
+To make a tool available to the Agent Wallet, you will use the [permitToolForDelegatee](./admin/tools.md#permitting-tools) method.
 
-### 3. Adding Policies
+For more information on tools, refer to:
+- [Admin tools docs](./admin/tools.md)
+- [Delegatee tools docs](./delegatee/tools.md)
+- [Custom tools docs](./new-tool.md)
 
-Once adding the tools and delegatees, you can define policies for the tools and delegatees. Each delegatee has an individual policy for each tool, which means that some delegatees can have increased or decreased permissions compared to others.
+### 3. Add Policies
 
-For more information on policies, please refer to the [Admin policies docs](./admin/policies.md) and the [delegatee policies docs](./delegatee/policies.md).
+Policies determine how each delegatee can interact with each tool. For example, you may allow one delegatee to transfer only up to a certain amount of tokens, while another has unlimited transfer privileges.
+
+1. First set a policy with the [setToolPolicyForDelegatee](./admin/policies.md#setting-tool-policies) method. This requires the IPFS CID of the policy, which will be generated and displayed in the console when you build the repository. See the guide on making a new tool [here](./new-tool.md) for more help.
+2. Specify the constraints (e.g., spending limits, specific functions allowed, time-based restrictions, etc.) with the [setToolPolicyParametersForDelegatee](./admin/policies.md#setting-parameters) method.
+
+For more information on policies, refer to:
+- [Admin policies docs](./admin/policies.md)
+- [Delegatee policies docs](./delegatee/policies.md)
 
 ### 4. Transfer Ownership
 
-Once the delegatees and tools have been added, you can transfer the ownership of the Agent Wallet to the user. For this, you will use the [transferPkpOwnership](./admin/overview.md#transferring-ownership-of-the-agent-wallet) method. This will send the PKP NFT to the user's wallet address, completely removing the developer's access to the Agent Wallet's Admin permissions.
+Once delegatees and tools are in place, and their policies are configured, you can transfer ownership of the Agent Wallet to the user.
+
+1. Use the [transferPkpOwnership](./admin/overview.md#transferring-ownership-of-the-agent-wallet) method to send the PKP NFT to the user’s wallet address.
+2. This action removes your administrative access and grants the user full control over the Agent Wallet, including the ability to manage delegatees, tools, and policies.
 
 ## Additional Resources
 
-For more information on the Lit Agent Wallets, please start on the introductory page [here](./intro.md).
-
-For more help on the methods available for developing Agent Wallets, please see our API Docs [here](https://agent-wallet.vercel.app/index.html).
+- For an introduction to Lit Agent Wallets, start with [this page](./intro.md).  
+- To see the available API methods for Agent Wallets, visit the [API Docs](https://agent-wallet.vercel.app/index.html).

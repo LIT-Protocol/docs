@@ -72,5 +72,5 @@ Policies are rules that govern how delegatees can use tools. Policies are also r
 2. [Delegatee Documentation](./delegatee/overview.md) - Learn how to use an Agent Wallet
 3. [Build Your First Agent](./building.md) - Learn how to integrate an Agent Wallet into your own Agent (ElizaOS)
 4. [Create New Tools](./new-tool.md) - Understand how to extend functionality with custom tools
-
+5. [API Documentation](https://agent-wallet.vercel.app/index.html) - Learn about the methods available for developing Agent Wallets
 

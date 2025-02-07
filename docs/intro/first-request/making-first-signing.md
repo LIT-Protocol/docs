@@ -247,7 +247,8 @@ const recoveredAddress = ethers.utils.recoverAddress(
   encodedSig
 );
 
-console.log(recoveredPubkey === pkpInfo.publicKey); // true
+// adjust for ethers.utils.recoverPublicKey prefixing the public key with 0x
+console.log(recoveredPubkey === `0x${pkp.publicKey}`); // true
 console.log(recoveredAddress === pkpInfo.ethAddress); // true
 ```
 

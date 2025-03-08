@@ -2,14 +2,14 @@
 
 Lit Actions are powerful JavaScript programs that run on a Lit network. This guide covers the two approaches to deploying your Lit Action to Lit. For more info on what a Lit Action is, go [here](./overview.md). For a guide on getting started with Lit Actions, go [here](./quick-start.md).
 
-In order for the Lit nodes to be able to run your Lit Action, they need access to it's code. There are two methods of providing your code to the Lit network for execution:
+In order for the Lit nodes to be able to run your Lit Action, they need access to its code. There are two methods of providing your code to the Lit network for execution:
 
 1. Providing a Code String
 2. Uploading to IPFS
 
 ## Lit Action Constraints
 
-Before diving into the approaches for deploying a Lit Action, it's important to understand the constraints that in place to prevent malicious parties from performing DoS attacks, and the over consumption of resources on the Lit nodes. The following are the time and size constraints that are imposed on Lit Actions:
+Before diving into the approaches for deploying a Lit Action, it's important to understand the constraints that are in place to prevent malicious parties from performing DoS attacks, and the over consumption of resources on the Lit nodes. The following are the time and size constraints that are imposed on Lit Actions:
 
 - A `30 second` time limit on the Datil and Datil-test network, and a `60 second` time limit on Datil-dev.
 - A max size of `100MB`

@@ -11,7 +11,7 @@ The `lit-auth-client` requires a user session to be established in order to auth
 See Stytch documentation for more information.
 :::
 
-We support all `otp` and `totp` authentication implementations stytch supports through the `StytchOtpProvider` this will use the `sub` property of the session token from our Stytch authnetication session as the `user id` to form the `auth method identifier` which is registered to the pkp for permitting the authentication method.
+We support all `otp` and `totp` authentication implementations stytch supports through the `StytchOtpProvider` this will use the `sub` property of the session token from our Stytch authentication session as the `user id` to form the `auth method identifier` which is registered to the pkp for permitting the authentication method.
 
 - Email
 - sms
@@ -99,7 +99,7 @@ below is a table of what each `auth factor` will use as the `user id`
 There are two main benefits to using an `auth factor` over the generic Stytch OTP provider type.
 
 - Admins of the stytch project cannot modify the user's authentication on their side.
-- If being used through Claiming, the pkp public key can be dervied without users authenticating beforehand.
+- If being used through Claiming, the pkp public key can be derived without users authenticating beforehand.
 
 Using a specific authentication factor means that each user authentication factor is a new user to the Lit Nodes. Meaning if a user has two different auth factors, they are two different authentication methods.
 

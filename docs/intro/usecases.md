@@ -40,7 +40,7 @@ Interrelated but distinct from Lit’s decentralized encryption capabilities is 
 
 3. Seed-phraseless user onboarding and web2 authentication flows (such as SMS, Discord oAuth, Passkeys): Create easier onboarding experiences for non-crypto native users using familiar sign-on methods and session keys, while providing the full web3 capabilities of an EOA. [Examples](https://github.com/LIT-Protocol/awesome/blob/main/README.md?ref=spark.litprotocol.com#wallets-and-account-abstraction-aa).
 
-4. Automated verifiable credential issuance: Automate credential issuance with prgrammable signing. [Example](https://spark.litprotocol.com/krebitxlitactions/).
+4. Automated verifiable credential issuance: Automate credential issuance with programmable signing. [Example](https://spark.litprotocol.com/krebitxlitactions/).
 
 5. Enterprise signed data applications: There are numerous use cases for cryptographically-verifiable “signed data” in institutional and enterprise environments, such as using digital signatures to authenticate and track goods in physical supply chains. 
 Generating signed proofs over arbitrary Web data: Using digital signatures to verify the provenance and integrity of data sourced from various locations on the open web. [Example](https://spark.litprotocol.com/authenticity-matters/).

@@ -54,7 +54,7 @@ AA providers like Alchemy, Biconomy, and Pimlico are pioneering smart account te
 | [Account Kit by Alchemy](https://accountkit.alchemy.com/) | Combining Lit Protocol's pkp wallet with Account Kit allows you to use your Programmable Key Pairs (PKPs) as a smart account for your users. | [guide](./alchemy-account-kit.md) |
 | [Pimlico](https://www.pimlico.io/) | This how-to guide will walk you through the steps to integrate Lit Protocol's OTP sign-in with email, SMS, and Whatsapp with a smart account whose user operations are relayed and sponsored by Pimlico. | [guide](./pimlico.md) | 
 | [Candide Account Abstraction](https://www.candide.dev/) | This guide will walk you through the steps to integrate Lit Protocol's Google OAuth to mint a Programmable Key Pair (PKP) and use it to enable an email/social recovery flow with Candide's account abstraction provider. | [guide](./candide.md)
-| - | If you are an AA provider, reach out to the Lit developement team to be included! | [Reach out to the team](https://docs.google.com/forms/d/e/1FAIpQLScBVsg-NhdMIC1H1mozh2zaVX0V4WtmEPSPrtmqVtnj_3qqNw/viewform) |
+| - | If you are an AA provider, reach out to the Lit development team to be included! | [Reach out to the team](https://docs.google.com/forms/d/e/1FAIpQLScBVsg-NhdMIC1H1mozh2zaVX0V4WtmEPSPrtmqVtnj_3qqNw/viewform) |
 
 
 <FeedbackComponent/>

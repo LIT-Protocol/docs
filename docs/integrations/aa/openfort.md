@@ -5,7 +5,7 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 
 ## Programmable MPC Wallets with Lit and Openfort
 
-This is an example web app that shows how you can use Lit as a programmable MPC signer on an Openfort smart acoount, using social accounts, one-time passwords, and passkeys for authentication.
+This is an example web app that shows how you can use Lit as a programmable MPC signer on an Openfort smart account, using social accounts, one-time passwords, and passkeys for authentication.
 
 - [Live demo](https://sample-lit-protocol-nextjs.vercel.app)
 

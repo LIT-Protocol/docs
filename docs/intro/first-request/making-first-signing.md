@@ -20,7 +20,7 @@ For more in-depth guides on PKP signing, please see the [PKPs](../../user-wallet
 
 ## Installing the Example Dependencies
 
-To start PKP signing with theLit SDK, you'll need to install these packages:
+To start PKP signing with the Lit SDK, you'll need to install these packages:
 
 - `@lit-protocol/lit-node-client`: The core Lit SDK package.
 - `@lit-protocol/constants`: A package containing useful constants across the SDK.

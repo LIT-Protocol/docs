@@ -16,7 +16,7 @@ On the other hand, the steps to obtain a `SessionSig` is completely non-interact
 
 For these reasons, by designing `AuthSigs` to have a long validity period and `SessionSigs` to have a short validity period, we open up opportunities to develop user experiences that strike a good balance between a smooth user experience and security:
 - User Experience: Since we store the `AuthSig` in local storage, we can always retrieve it and continue to use it for as long as it is valid.
-- Security: `SessionSigs` allow us to scope specific capabilties against a narrow set of resources that is performed during a (usually) small time window that the user is on the application.
+- Security: `SessionSigs` allow us to scope specific capabilities against a narrow set of resources that is performed during a (usually) small time window that the user is on the application.
 
 ### Expiration Times
 

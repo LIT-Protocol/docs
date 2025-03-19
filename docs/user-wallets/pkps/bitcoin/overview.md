@@ -86,7 +86,7 @@ Once we have the ECDSA signature from successfully signing with a PKP, we need t
 
 #### `convertSignature` Overview
 
-1. Extract the `r` and `s` values from the `btcSignature`, covnvert them from a hexadecimal string to a Buffer.
+1. Extract the `r` and `s` values from the `btcSignature`, convert them from a hexadecimal string to a Buffer.
 2. Create an instance of the secp256k1 [elliptic curve](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography), which is the elliptic curve used in Bitcoin's public key cryptography.
 3. Extract the number of points, or the order (`n`), on the elliptic curve.
 4. Implement low-S normalization, which ensures that `s` is less than half of the order. Bitcoin requires this operation to prevent transaction malleability.
@@ -204,7 +204,7 @@ export const broadcastTransaction = async (txHex: string) => {
 </p>
 </details>
 
-## Additonal Resources
+## Additional Resources
 
 If you're interested in learning how to use PKPs to sign Legacy P2PKH (Pay-to-Public-Key-Hash) Bitcoin transactions, we recommend checking out our detailed [blog post](https://spark.litprotocol.com/programming-bitcoin/) and exploring our [code example](https://github.com/LIT-Protocol/developer-guides-code/tree/master/btc-trigger/nodejs).
 

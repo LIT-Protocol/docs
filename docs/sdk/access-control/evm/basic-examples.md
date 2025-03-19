@@ -10,7 +10,7 @@ This page defines some basic access control conditions (referred to as `accessCo
 
 If you would like to use a contract call for a contract type that is not here, refer to the [custom contract calls](../../access-control/evm/custom-contract-calls) page, which will let you pass a function ABI and call any smart contract function. These are referred to as `evmContractConditions` in the code.
 
-## Must posess at least one ERC1155 token with a given token id
+## Must possess at least one ERC1155 token with a given token id
 
 In this example, the token contract's address is 0x3110c39b428221012934A7F617913b095BC1078C and the token id we are checking for is 9541.
 
@@ -33,7 +33,7 @@ const accessControlConditions = [
 ]
 ```
 
-## Must posess at least one ERC1155 token from a batch of token ids
+## Must possess at least one ERC1155 token from a batch of token ids
 
 In this example, the token contract's address is 0x10daa9f4c0f985430fde4959adb2c791ef2ccf83 and the token ids we are checking for are either 1, 2, 10003, or 10004.
 
@@ -56,7 +56,7 @@ const accessControlConditions = [
 ]
 ```
 
-## Must posess a specific ERC721 token (NFT)
+## Must possess a specific ERC721 token (NFT)
 
 In this example, the token contract's address is 0x89b597199dAc806Ceecfc091e56044D34E59985c and the token id we are checking for is 3112.
 
@@ -78,7 +78,7 @@ const accessControlConditions = [
 ]
 ```
 
-## Must posess any token in an ERC721 collection (NFT Collection)
+## Must possess any token in an ERC721 collection (NFT Collection)
 
 In this example, the token contract's address is 0xA80617371A5f511Bf4c1dDf822E6040acaa63e71.
 
@@ -100,7 +100,7 @@ const accessControlConditions = [
 ]
 ```
 
-## Must posess at least one ERC20 token
+## Must possess at least one ERC20 token
 
 In this example, the token contract's address is for Maker: 0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2.
 
@@ -122,7 +122,7 @@ const accessControlConditions = [
 ]
 ```
 
-## Must posess at least 0.00001 ETH
+## Must possess at least 0.00001 ETH
 
 In this example, we are checking the ETH balance of the user's address and making sure it's above 0.00001 ETH. Note that the return value is in Wei, so we specified 0.00001 ETH as 10000000000000 Wei.
 
@@ -191,7 +191,7 @@ const accessControlConditions = [
 
 ## A specific wallet address
 
-In this example, we are checking that the user is in posession of a specific wallet address 0x50e2dac5e78B5905CB09495547452cEE64426db2
+In this example, we are checking that the user is in possession of a specific wallet address 0x50e2dac5e78B5905CB09495547452cEE64426db2
 
 ```js
 const accessControlConditions = [

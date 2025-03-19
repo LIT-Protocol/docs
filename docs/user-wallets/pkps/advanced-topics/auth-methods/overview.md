@@ -5,7 +5,7 @@ import TabItem from '@theme/TabItem';
 
 # Auth Methods
 
-Authentication methods are ways of asigning Programmable Key Pairs (PKP) to a specific account resource. This requires individuals to authenticate before performing operations requiring a PKP. This is a powerful feature of the Lit network as it means users can sign up for a wallet the same way they sign up for other types of digital resources, thus lowering the barrier to accessing web3 enabled applications.
+Authentication methods are ways of assigning Programmable Key Pairs (PKP) to a specific account resource. This requires individuals to authenticate before performing operations requiring a PKP. This is a powerful feature of the Lit network as it means users can sign up for a wallet the same way they sign up for other types of digital resources, thus lowering the barrier to accessing web3 enabled applications.
 
 ## What is authentication?
 

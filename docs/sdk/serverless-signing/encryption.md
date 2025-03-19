@@ -11,7 +11,7 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 
 ## Overview
 
-Within a Lit action, you may choose to `encrypt` from within the context of an action. Encryption within the action may be useful if you do not wish to provide context on the encryption material to the client. Keeping all context on the encryption operation within the Trusted Execution Enviorment (TEE).
+Within a Lit action, you may choose to `encrypt` from within the context of an action. Encryption within the action may be useful if you do not wish to provide context on the encryption material to the client. Keeping all context on the encryption operation within the Trusted Execution Environment (TEE).
 
 ::: note
 The Lit Action implementation of `encrypt` will not return the `dataToEncryptHash`. This can be created with the `crypto.subtle.digest` implementation by specifying the `SHA-256` hashing option if your use case requires the message hash.

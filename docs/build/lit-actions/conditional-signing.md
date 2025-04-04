@@ -5,13 +5,7 @@ Lit Actions inherit the powerful condition checking ability that Lit Protocol ut
 
 The below example will check if the user has at least 1 Wei on Ethereum, only returning a signature if they do.
 
-## Prerequisites
-
-- Knowlege of [SessionSigs](../authentication/session-sigs/intro)
-- Knowledge of how to [generate an AuthSig](../migrations/6.0.0.md#generate-an-authsig)
-- Basic understanding of [Lit Actions](../serverless-signing/quick-start)
-
-## Complete Code Example
+## Code Example
 
 The complete code example is available in the [Lit Developer Guides Code Repository](https://github.com/LIT-Protocol/developer-guides-code/tree/master/conditional-signing). There is both a browser and Node.js implementation of the code.
 
@@ -60,6 +54,11 @@ const _litActionCode = async () =>  {
 
 const litActionCode = `(${_litActionCode.toString()})();`;
 ```
+## Prerequisites
+
+- Knowlege of [SessionSigs](../authentication/session-sigs/intro)
+- Knowledge of how to [generate an AuthSig](../migrations/6.0.0.md#generate-an-authsig)
+- Basic understanding of [Lit Actions](../serverless-signing/quick-start)
 
 ## Summary
 This guide demonstrates how to use Lit Actions to conditionally sign a message or transaction.

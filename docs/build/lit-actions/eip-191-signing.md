@@ -6,12 +6,7 @@ Lit Actions offer the ability to use [EIP-191](https://eips.ethereum.org/EIPS/ei
 
 It will prepend to your message: `"\x19Ethereum Signed Message:\n"` and the length of the message, then hash and sign it according to the EIP-191 standard.
 
-## Prerequisites
-
-- Basic understanding of [PKPs](../../../user-wallets/pkps/overview)
-- Basic understanding of [Lit Actions](../serverless-signing/quick-start)
-
-## Complete Code Example
+## Code Example
 
 The complete code example is available in the [Lit Developer Guides Code Repository](https://github.com/LIT-Protocol/developer-guides-code/tree/master/eip-191-signing). There you can find a Node.js and browser implementation of this example code.
 
@@ -35,6 +30,10 @@ const _litActionCode = async () => {
 
 export const litActionCode = `(${_litActionCode.toString()})();`;
 ```
+## Prerequisites
+
+- Basic understanding of [PKPs](../../../user-wallets/pkps/overview)
+- Basic understanding of [Lit Actions](../serverless-signing/quick-start)
 
 ## Summary
 This guide demonstrates how to sign an EIP-191 message using Lit Actions.

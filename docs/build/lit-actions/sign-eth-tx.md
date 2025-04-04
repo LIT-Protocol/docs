@@ -6,12 +6,7 @@ When [signing a transaction](../serverless-signing/quick-start#sign-a-transactio
 
 When you call the `signAndCombineEcdsa` function, signature shares are collected from each Lit node before being combined on a *single* node. The following example demonstrates how you can use this functionality to sign a blockchain transaction using ethers.js
 
-## Prerequisites
-
-- Knowlege of [SessionSigs](../authentication/session-sigs/intro)
-- Basic understanding of [Lit Actions](../serverless-signing/quick-start)
-
-## Complete Code Example
+## Code Example
 
 The complete code example is available in the [Lit Developer Guides Code Repository](https://github.com/LIT-Protocol/developer-guides-code/tree/master/sign-and-combine-ecdsa/nodejs). There you can find a Node.js implementation of the code.
 
@@ -60,6 +55,10 @@ const _litActionCode = async () =>  {
 
 const litActionCode = `(${_litActionCode.toString()})();`;
 ```
+## Prerequisites
+
+- Knowlege of [SessionSigs](../authentication/session-sigs/intro)
+- Basic understanding of [Lit Actions](../serverless-signing/quick-start)
 
 ## Summary
 This guide demonstrates how to combine PKP signature shares, and submit a signed transaction all within a Lit Action.

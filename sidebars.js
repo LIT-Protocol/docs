@@ -224,50 +224,50 @@ const sidebars = {
         'build/getting-started/installing-sdk',
         'build/getting-started/connecting-to-lit',
         'build/getting-started/authenticating-a-session',
+        {
+          type: 'category',
+          label: 'Capacity Credits',
+          collapsed: true,
+          link: {
+            type: 'doc',
+            id: 'build/getting-started/capacity-credits',
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'Minting a Credit',
+              collapsed: true,
+              items: [
+                'build/getting-started/capacity-credits/minting/via-lit-explorer',
+                'build/getting-started/capacity-credits/minting/via-lit-contracts-sdk',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Delegating a Credit',
+              collapsed: true,
+              items: [
+                'build/getting-started/capacity-credits/delegating/delegate-a-credit',
+                'build/getting-started/capacity-credits/delegating/use-delegated-credit',
+              ],
+            },
+          ],
+        },
         'build/getting-started/making-first-decryption',
         'build/getting-started/making-first-signing',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Capacity Credits',
-      collapsed: true,
-      // link: {
-      //   type: 'doc',
-      //   id: 'build/capacity-credits/overview',
-      // },
-      items: [
         {
           type: 'category',
-          label: 'Minting a Credit',
+          label: 'Payment Delegation DB',
           collapsed: true,
+          // link: {
+          //   type: 'doc',
+          //   id: 'build/payment-delegation-db/overview',
+          // },
           items: [
-            'build/capacity-credits/minting/via-lit-explorer',
-            'build/capacity-credits/minting/via-lit-contracts-sdk',
+            'build/payment-delegation-db/register-payer-wallet',
+            'build/payment-delegation-db/adding-payees',
           ],
         },
-        {
-          type: 'category',
-          label: 'Delegating a Credit',
-          collapsed: true,
-          items: [
-            'build/capacity-credits/delegating/delegate-a-credit',
-            'build/capacity-credits/delegating/use-delegated-credit',
-          ],
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Payment Delegation DB',
-      collapsed: true,
-      // link: {
-      //   type: 'doc',
-      //   id: 'build/payment-delegation-db/overview',
-      // },
-      items: [
-        'build/payment-delegation-db/register-payer-wallet',
-        'build/payment-delegation-db/adding-payees',
       ],
     },
     {

@@ -28,7 +28,7 @@ In the below code example, `sigShare` is a magic value within a Lit Action that 
 :::
 
 ```jsx
-const _litActionCode = async () =>  {
+async () =>  {
   try {
     // test an access control condition
     const testResult = await Lit.Actions.checkConditions({
@@ -51,8 +51,6 @@ const _litActionCode = async () =>  {
     LitActions.setResponse({ response: error.message });
   }
 };
-
-const litActionCode = `(${_litActionCode.toString()})();`;
 ```
 ## Prerequisites
 

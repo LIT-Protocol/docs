@@ -223,7 +223,7 @@ const sidebars = {
       items: [
         'build/getting-started/installing-sdk',
         'build/getting-started/connecting-to-lit',
-        'build/getting-started/generating-session-sigs',
+        'build/getting-started/authenticating-a-session',
         'build/getting-started/making-first-decryption',
         'build/getting-started/making-first-signing',
       ],
@@ -232,18 +232,18 @@ const sidebars = {
       type: 'category',
       label: 'Capacity Credits',
       collapsed: true,
-      link: {
-        type: 'doc',
-        id: 'build/capacity-credits/overview',
-      },
+      // link: {
+      //   type: 'doc',
+      //   id: 'build/capacity-credits/overview',
+      // },
       items: [
         {
           type: 'category',
           label: 'Minting a Credit',
           collapsed: true,
           items: [
-            'build/capacity-credits/minting/via-lit-contracts-sdk',
             'build/capacity-credits/minting/via-lit-explorer',
+            'build/capacity-credits/minting/via-lit-contracts-sdk',
           ],
         },
         {
@@ -251,8 +251,8 @@ const sidebars = {
           label: 'Delegating a Credit',
           collapsed: true,
           items: [
-            'build/capacity-credits/delegating/to-an-eth-address',
-            'build/capacity-credits/delegating/to-a-pkp',
+            'build/capacity-credits/delegating/delegate-a-credit',
+            'build/capacity-credits/delegating/use-delegated-credit',
           ],
         },
       ],
@@ -261,10 +261,10 @@ const sidebars = {
       type: 'category',
       label: 'Payment Delegation DB',
       collapsed: true,
-      link: {
-        type: 'doc',
-        id: 'build/payment-delegation-db/overview',
-      },
+      // link: {
+      //   type: 'doc',
+      //   id: 'build/payment-delegation-db/overview',
+      // },
       items: [
         'build/payment-delegation-db/register-payer-wallet',
         'build/payment-delegation-db/adding-payees',
@@ -274,10 +274,10 @@ const sidebars = {
       type: 'category',
       label: 'Session Signatures',
       collapsed: true,
-      link: {
-        type: 'doc',
-        id: 'build/session-sigs/overview',
-      },
+      // link: {
+      //   type: 'doc',
+      //   id: 'build/session-sigs/overview',
+      // },
       items: [
         {
           type: 'category',
@@ -285,9 +285,24 @@ const sidebars = {
           collapsed: true,
           items: [
             'build/session-sigs/generating-a-session/using-auth-sig',
-            'build/session-sigs/generating-a-session/using-pkp',
-            'build/session-sigs/generating-a-session/using-lit-action',
-            'build/session-sigs/generating-a-session/with-delegated-capacity',
+            {
+              type: 'category',
+              label: 'Using a PKP',
+              collapsed: true,
+              link: {
+                type: 'doc',
+                id: 'build/session-sigs/generating-a-session/using-pkp/overview',
+              },
+              items: [
+                'build/session-sigs/generating-a-session/using-pkp/auth-with-eth-wallet',
+                'build/session-sigs/generating-a-session/using-pkp/auth-with-google-oauth',
+                'build/session-sigs/generating-a-session/using-pkp/auth-with-discord-oauth',
+                'build/session-sigs/generating-a-session/using-pkp/auth-with-google-jwt',
+                'build/session-sigs/generating-a-session/using-pkp/auth-with-custom-auth-method',
+              ],
+            },
+            // 'build/session-sigs/generating-a-session/using-lit-action',
+            // 'build/session-sigs/generating-a-session/with-delegated-capacity',
           ],
         },
         'build/session-sigs/making-a-request',

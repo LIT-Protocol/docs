@@ -33,6 +33,8 @@ Connects to a Lit Network and provides methods for interacting with the network,
 
 This package is almost always required for any project using Lit.
 
+## Installation with npm or yarn
+
 <Tabs
 defaultValue="npm"
 values={[

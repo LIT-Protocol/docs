@@ -79,6 +79,7 @@ const sidebars = {
         'security/node-architecture',
         'security/distributed-key-gen',
         'security/on-chain-coordination',
+        'security/communicating-with-nodes',
         'security/crypto-security',
         'security/backup-and-recover',
         'security/audits',

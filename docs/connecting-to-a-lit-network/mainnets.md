@@ -8,9 +8,9 @@ Lit mainnets are designed for late-stage development and production deployment. 
 
 Here is an overview of the Lit mainnets:
 
-| Name       | Lit Blockchain                                                   | Description                                                                                                                                                                         | Minimum Lit SDK Version | Lit SDK Network Identifier | Requires Payment |
-|------------|------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|----------------------------|------------------|
-| Datil | [Chronicle Yellowstone](./lit-blockchains/chronicle-yellowstone) | Decentralized mainnet designed for production deployment. Guaranteed real world asset transferability to new mainnets. Payment is enforced.                                                                        | `^6.4.0`                | `datil`               | ✅                |
+| Name  | Lit Blockchain                                                   | Description                                                                                                                                 | Minimum Lit SDK Version | Lit SDK Network Identifier | Requires Payment |
+| ----- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | -------------------------- | ---------------- |
+| Datil | [Chronicle Yellowstone](./lit-blockchains/chronicle-yellowstone) | Decentralized mainnet designed for production deployment. Guaranteed real world asset transferability to new mainnets. Payment is enforced. | `^6.4.0`                | `datil`                    | ✅                |
 ## Datil
 
 The Lit network, Datil, utilizes the Lit blockchain: Chronicle Yellowstone. It's a decentralized mainnet designed for production deployment, and is superseding the Habanero mainnet. Like Habanero, usage of the network **does** require payment using [Capacity Credits](../sdk/capacity-credits).
@@ -18,7 +18,8 @@ The Lit network, Datil, utilizes the Lit blockchain: Chronicle Yellowstone. It's
 If your application is currently deployed to a v0 Lit network (Cayenne, Manzano, and/or Habanero) please refer to [this guide](migrating-to-datil) to learn how to migrate to the new Datil networks.
 
 ## Network Status
-To check the status of each service provided by the Datil network, please reference the Datil status page: https://datil-status.litprotocol.com/ 
+
+To check the status of each service provided by the Datil network, please reference the Datil status page: https://uptime.getlit.dev/datil
 
 ## SDK Usage
 

@@ -8,22 +8,18 @@ import FeedbackComponent from "@site/src/pages/feedback.md";
 
 # What is Lit Protocol
 
-<StateOfTheNetwork/>
-
-Giving private keys or credentials to a server is a massive security responsibility. 
-
-Lit Protocol is a decentralized key management network for programmable signing and encryption. The network empowers developers to create secure, decentralized applications that manage crypto assets, private data, and user authority seamlessly across platforms.
+Lit Protocol is a decentralized key management network for programmable signing and encryption. The network empowers developers to create secure, decentralized applications that manage crypto assets, private data, and user authority seamlessly across platforms, with no single point of failure or centralized authority.
 
 
 
-Lit’s threshold cryptography architecture ensures secrets remain verifiably secure and encrypted at the hardware level—while being fragmented and distributed across a decentralized network. For the first time, universal accounts can be programmed without trusting centralized custodians.
+Lit’s threshold cryptography architecture ensures secrets remain verifiably secure and encrypted at the hardware level while being fragmented and distributed across a decentralized network. For the first time, universal accounts can be programmed without trusting centralized custodians.
 Using Lit’s SDK, developers can easily [encrypt data](../sdk/access-control/quick-start.md), [create and manage Web3 accounts](../user-wallets/overview.md), [generate digital signatures](../intro/first-request/making-first-signing.md), execute blockchain transactions, and implement virtually any signing or encryption operation.
 
 Builders leverage these capabilities to develop immutable, interoperable, and user-owned apps, agents, and protocols. Existing ecosystem applications include AI-driven agents, cross-chain DeFi solutions, universal solvers, private user-controlled accounts, and decentralized data marketplaces.
 
 Learn more about [How Lit Works](../resources/how-it-works.md).
 
-Lit Protocol fills a missing layer of the Web3 “stack” by taking on secret management and making it into a computing primitive for builders with a fault-tolerant, and programmable network. Lit Protocol helps secure our digital interactions and data, facilitates greater interoperability between on and off-chain systems, and eliminates centralized points of control. 
+Lit Protocol fills a missing layer of the Web3 “stack” by taking on secret management and making it into a computing primitive for builders with a fault-tolerant, resilient, and fully programmable network. Lit Protocol helps secure our digital interactions and data, facilitates greater interoperability between on and off-chain systems, and eliminates centralized points of control. 
 
 [Make your first signing request](../intro/first-request/making-first-signing.md).
 

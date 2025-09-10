@@ -16,7 +16,7 @@ Lit Protocol is a decentralized key management network for programmable signing 
 
 
 
-Lit’s threshold cryptography architecture ensures secrets remain verifiably secure—air-gapped and encrypted at the hardware level—while being fragmented and distributed across a decentralized network. For the first time, universal accounts can be programmed without trusting centralized custodians.
+Lit’s threshold cryptography architecture ensures secrets remain verifiably secure and encrypted at the hardware level—while being fragmented and distributed across a decentralized network. For the first time, universal accounts can be programmed without trusting centralized custodians.
 Using Lit’s SDK, developers can easily [encrypt data](../sdk/access-control/quick-start.md), [create and manage Web3 accounts](../user-wallets/overview.md), [generate digital signatures](../intro/first-request/making-first-signing.md), execute blockchain transactions, and implement virtually any signing or encryption operation.
 
 Builders leverage these capabilities to develop immutable, interoperable, and user-owned apps, agents, and protocols. Existing ecosystem applications include AI-driven agents, cross-chain DeFi solutions, universal solvers, private user-controlled accounts, and decentralized data marketplaces.
@@ -40,7 +40,7 @@ For a more comprehensive list of example projects, check out the [Lit Ecosystem 
 
 Examples: [Emblem Vault](https://circuitsofvalue.com/), [CollabLand](https://collab.land/), [Genius](https://www.tradegenius.com/), [Tria](https://tria.so/), [Eco](https://eco.com/).
 
-**Private Data**: The Lit network can be used to implement encryption and access control for any use case that demands privacy. Builders can use [access control conditions] to manage access rights for relevant stakeholders according to the policies you set.   
+**Private Data**: The Lit network can be used to implement encryption and access control for any use case that demands privacy. Builders can use [access control conditions] to manage access rights for relevant stakeholders according to the policies you set. Think things like private data marketplaces, secure data sharing, sealed-bid auctions, locked NFTs with private content, and more.
 
 Examples: [Verify (Fox Corp)](https://www.verifymedia.com/), [Streamr](https://streamr.network/), [Cheqd](https://cheqd.io/), [Index](https://index.network/).
 
@@ -49,6 +49,15 @@ Examples: [Verify (Fox Corp)](https://www.verifymedia.com/), [Streamr](https://s
 For end users, Vincent serves as a marketplace for discovering these agentic apps and tools, while giving them the ability to set fine-grained permissions that govern the specific actions agents can take on their behalf when interacting with each (i.e. spending limits or time intervals for DCA).
 
 [Get started building with Vincent](https://sdk-docs.heyvincent.ai/). 
+
+**Multi-Party and Cross-Org Coordination**: Lit’s threshold cryptography allows multiple parties to share control over keys and secrets without ever handing trust to a single operator. This enables DAO treasuries, consortium agreements, corporate boards, and cross-organizational data sharing to coordinate securely and verifiably.
+
+**Decentralized Identity & Authentication**: Developers can build authentication and access systems without relying on a central provider. Lit makes it possible to create portable, user-owned identities that work across apps and platforms, replacing siloed login systems.
+
+**Custody-Resistant Secrets**: Enterprises can secure sensitive credentials (like API keys, medical records, or enterprise config secrets) with Lit. Recovery and continuity can be built in without any single custodian holding full control—reducing insider risk and improving compliance.
+
+**Machine-to-Machine Trust**: Autonomous agents, IoT devices, and AI systems can use Lit to sign messages, prove identity, and encrypt traffic across owners and jurisdictions, enabling decentralized machine-to-machine economies.
+
 
 ## Community
 Join the Lit developer community on [Discord](https://litgateway.com/discord) and [Telegram](https://t.me/+aa73FAF9Vp82ZjJh) to stay up to date on the latest developments, troubleshoot errors, get technical support, and engage with fellow builders.

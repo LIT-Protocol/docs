@@ -113,3 +113,5 @@ Projects in this category are focused on delivering essential infrastructure cri
 - [Gather](https://gather.town/)
 - [Cask](https://cask.fi/)
 - [Nebula](https://nebulaprotocol.io/)
+- [Crosterix](https://crosterix.network) — Privacy-first dApp suite with stealth payments & encrypted file-sharing, powered by Lit Protocol (JS SDK + Lit Actions). DApp: [app.crosterix.network](https://app.crosterix.network)
+

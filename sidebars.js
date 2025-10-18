@@ -588,7 +588,10 @@ const sidebars = {
       type: 'category',
       label: 'Additional Examples',
       collapsed: true,
-      items: ['additional-examples/intro'],
+      items: [
+        'additional-examples/intro',
+        'additional-examples/evm-swap'
+      ],
     },
   ],
 };

@@ -85,7 +85,7 @@ values={[
 <TabItem value="yarn">
 
 ```js
-const client = new LitJsSdk.LitNodeClient();
+const client = new LitJsSdk.LitNodeClient({});
 await client.connect();
 window.litNodeClient = client;
 ```

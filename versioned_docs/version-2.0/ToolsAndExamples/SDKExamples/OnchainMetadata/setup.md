@@ -48,7 +48,7 @@ yarn add @lit-protocol/lit-node-client@serrano
 ```js
 import * as LitJsSdk from "@lit-protocol/lit-node-client@serrano";
 
-const client = new LitJsSdk.LitNodeClient();
+const client = new LitJsSdk.LitNodeClient({});
 
 class Lit {
   litNodeClient;

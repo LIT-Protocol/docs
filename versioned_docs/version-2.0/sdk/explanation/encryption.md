@@ -15,9 +15,11 @@ This example will show you how to encrypt and decrypt static data using the Lit 
 
 At the top of your file, instantiate your Lit Node client like so:
 
+
 ```js
-const client = new LitJsSdk.LitNodeClient();
-const chain = "ethereum";
+import * as LitJsSdk from "@lit-protocol/lit-node-client";
+
+const client = new LitJsSdk.LitNodeClient({});
 ```
 
 Create a Lit class and set the litNodeClient.

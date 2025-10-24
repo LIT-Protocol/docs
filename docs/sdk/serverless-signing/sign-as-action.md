@@ -100,6 +100,74 @@ const response = await litNodeClient.executeJs({
 
 The response will contain a boolean indicating whether the signature is valid.
 
+## Deriving the Lit Action Wallet Address
+
+Since a Lit Action's keypair is deterministically derived from its IPFS CID, you can compute the corresponding Ethereum address for any Lit Action.
+
+### Computing the Address
+
+The Lit Action's public key and Ethereum address can be derived using the Lit Contracts SDK:
+
+```ts
+import * as ethers from "ethers";
+import { LIT_RPC } from "@lit-protocol/constants";
+import { LitContracts } from "@lit-protocol/contracts-sdk";
+
+const deriveLitActionWalletAddress = async ({ litActionIpfsCid }) => {
+  const ethersSigner = new ethers.Wallet(
+    ETHEREUM_PRIVATE_KEY,
+    new ethers.providers.JsonRpcProvider(LIT_RPC.CHRONICLE_YELLOWSTONE)
+  );
+
+  const contractClient = new LitContracts({ signer: ethersSigner });
+  await contractClient.connect();
+
+  const derivedKeyId = ethers.utils.keccak256(
+    ethers.utils.toUtf8Bytes(`lit_action_${litActionIpfsCid}`)
+  );
+
+  const derivedPubkey = await contractClient.pubkeyRouterContract.read.getDerivedPubkey(
+    contractClient.stakingContract.read.address,
+    derivedKeyId
+  );
+
+  return {
+    derivedPubkey,
+    derivedAddress: ethers.utils.computeAddress(derivedPubkey),
+  };
+};
+```
+
+This function:
+1. Connects to the Lit Protocol smart contracts
+2. Computes the derived key ID using the same formula: `keccak256("lit_action_" + actionIpfsCid)`
+3. Queries the PKP router contract to get the public key
+4. Computes the Ethereum address from the public key
+
+### Obtaining the Address from Within a Lit Action
+
+You can also obtain the public key and compute the Ethereum address from within a Lit Action itself using the [`getActionPublicKey`](https://naga.actions-docs.litprotocol.com/#getactionpublickey) method:
+
+```jsx
+(async () => {
+  // Derive this Action's public key deterministically from its IPFS CID + scheme
+  // This does not require a PKP and is always the same for a given (CID, scheme).
+  const actionIpfsCid = Lit.Auth.actionIpfsIdStack[0];
+  const actionPublicKey = await Lit.Actions.getActionPublicKey({
+    signingScheme: 'EcdsaK256Sha256',
+    actionIpfsCid,
+  });
+
+  Lit.Actions.setResponse({
+    response: JSON.stringify({
+      actionPublicKey,
+      actionAddress: ethers.utils.computeAddress(actionPublicKey),
+      actionIpfsCid,
+    }),
+  });
+})();
+```
+
 ## Use Cases
 
 - **Oracle Attestations**: A price oracle Lit Action can sign market data it fetches, allowing other contracts to verify the data came from the specific oracle action

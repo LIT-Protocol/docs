@@ -84,7 +84,7 @@ const sidebars = {
         'security/backup-and-recover',
         'security/audits',
         'security/bug-bounty',
-      ]
+      ],
     },
     {
       type: 'category',
@@ -423,6 +423,7 @@ const sidebars = {
                 keywords: ['compute', 'lit actions'],
               },
               items: [
+                'sdk/serverless-signing/sign-as-action',
                 'sdk/serverless-signing/conditional-signing',
                 'sdk/serverless-signing/fetch',
                 'sdk/serverless-signing/processing-validation',

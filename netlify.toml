@@ -5,6 +5,81 @@
     Access-Control-Allow-Methods = "HEAD, OPTIONS"
     Access-Control-Allow-Headers = "Content-Type"
 
+# datil.developer.litprotocol.com is retired. Send every page to the current docs at
+# developer.litprotocol.com, mapping the most-cited sections to their v3 equivalents.
+# These rules only match the datil hostname and must stay above the older redirects.
+[[redirects]]
+  from = "https://datil.developer.litprotocol.com/sdk/serverless-signing/conditional-signing"
+  to = "https://developer.litprotocol.com/lit-actions/patterns"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://datil.developer.litprotocol.com/sdk/serverless-signing/combining-decryption-shares"
+  to = "https://developer.litprotocol.com/lit-actions/migration/encryption"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://datil.developer.litprotocol.com/sdk/serverless-signing/*"
+  to = "https://developer.litprotocol.com/lit-actions/index"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://datil.developer.litprotocol.com/sdk/access-control/*"
+  to = "https://developer.litprotocol.com/lit-actions/migration/encryption"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://datil.developer.litprotocol.com/user-wallets/*"
+  to = "https://developer.litprotocol.com/architecture/groups"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://datil.developer.litprotocol.com/resources/pkpsAsWallet"
+  to = "https://developer.litprotocol.com/architecture/groups"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://datil.developer.litprotocol.com/resources/how-it-works"
+  to = "https://developer.litprotocol.com/architecture/index"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://datil.developer.litprotocol.com/learning-lit/*"
+  to = "https://developer.litprotocol.com/architecture/index"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://datil.developer.litprotocol.com/concepts/*"
+  to = "https://developer.litprotocol.com/architecture/index"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://datil.developer.litprotocol.com/learningLab/*"
+  to = "https://developer.litprotocol.com/quickstart"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://datil.developer.litprotocol.com/learninglab/*"
+  to = "https://developer.litprotocol.com/quickstart"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://datil.developer.litprotocol.com/*"
+  to = "https://developer.litprotocol.com/"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/docs/SDK/accessControlConditionExamples"
   to = "/docs/AccessControlConditions/evmBasicExamples"

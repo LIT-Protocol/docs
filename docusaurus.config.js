@@ -80,14 +80,15 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      announcementBar: {
-        id: 'datil-retired',
-        content:
-          'These docs cover Lit\'s previous network (Datil). For the current platform, see <a href="https://developer.litprotocol.com">developer.litprotocol.com</a>.',
-        backgroundColor: '#ff844e',
-        textColor: '#000000',
-        isCloseable: false,
-      },
+      // re-purpose for next version
+      // announcementBar: {
+      //   id: "SDK V3 Beta",
+      //   content:
+      //     "Lit JS SDK V3 is now available in beta. Check out <a target='_self' href='/v3/'>v3.x.x</a> of the docs to learn more.",
+      //   backgroundColor: "#ff844e",
+      //   textColor: "#fffff",
+      //   isCloseable: true,
+      // },
       image: 'brand/docs-twitter.png',
       navbar: {
         title: 'Lit Protocol',
